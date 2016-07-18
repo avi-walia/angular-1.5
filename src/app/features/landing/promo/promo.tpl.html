@@ -1,0 +1,66 @@
+<div class="full" ng-if="Main.detectMobile.isDesktop">
+    <div id="slider" role="banner">
+        <!--img src="http://lorempixel.com/764/260/business/TV-1"-->
+        <!-- main page carousel -->
+        <!-- <div> -->
+            <!-- <div style="height: 305px"> -->
+                <uib-carousel active="active"
+                              interval="Promo.promoService.promoData.tv.interval"
+                              no-wrap="Promo.promoService.promoData.tv.noWrapSlides"
+                              no-pause="Promo.promoService.promoData.tv.noPause">
+                    <uib-slide ng-repeat="item in Promo.promoService.promoData.tv.slides" index="$index">
+
+                        <div class="image" ng-switch="item.slide.link">
+                            <!-- show banner without link if link doesn't exist -->
+                            <img ng-switch-when="" ng-src="{{item.slide.src}}" style="margin:auto;" alt="{{item.slide.alt}}">
+                            <!-- otherwise show banner with link -->
+                            <a title="{{item.slide.alt}}" ng-switch-default href="{{item.slide.link}}" target="{{item.slide.target}}" >
+                                <img ng-src="{{item.slide.src}}" style="margin:auto;" alt="{{item.slide.alt}}">
+                            </a>
+                        </div>
+                    </uib-slide>
+                </uib-carousel>
+            <!-- </div> -->
+
+            <!-- <div class="row">
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-info" ng-click="addSlide()">Add Slide</button>
+                    <button type="button" class="btn btn-info" ng-click="randomize()">Randomize slides</button>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" ng-model="noWrapSlides">
+                            Disable Slide Looping
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    Interval, in milliseconds: <input type="number" class="form-control" ng-model="myInterval">
+                    <br/>Enter a negative number or 0 to stop the interval.
+                </div>
+            </div> -->
+        <!-- </div> -->
+
+    </div>
+
+    <div id="offers">
+        <h3 translate>offers.title</h3>
+        <ul>
+            <li translate>offers.accountBalances</li>
+            <li translate>offers.transactionHistory</li>
+            <li translate>offers.tradeConfirmation</li>
+            <li translate>offers.portfolioStatements</li>
+            <li translate>offers.clientNameReports</li>
+            <li translate>offers.taxSlips</li>
+        </ul>
+    </div>
+    <!--div id="video-tut"></div-->
+    <div id="video-tut" role="banner">
+        <a title="{{Promo.promoService.promoData.banner.alt}}" href="{{Promo.promoService.promoData.banner.link}}" target="{{Promo.promoService.promoData.banner.target}}">
+            <img ng-src="{{Promo.promoService.promoData.banner.src}}" style="margin: auto;"  alt="{{Promo.promoService.promoData.banner.alt}}">
+        </a>
+    </div>
+
+</div>
+
+
+<!--<a id="register_now" ui-sref="main.aio.registration.info" analytics-on="click" analytics-event="Register Now clicked" translate>login.register-now</a></p>-->

@@ -1,0 +1,965 @@
+{
+  "advisorLocatorTitle": "FR App Title",
+  "help": {
+    "section1": {
+      "link": "FR #Section1",
+      "title": "FR Name of Page 1",
+      "question1": "FR Question 1",
+      "question2": "FR Question 2",
+      "question3": "FR Question 3",
+      "answer1": "<b>FR answer 1</b>",
+      "answer2": "<i>FR answer 2</i>",
+      "answer3": "FR answer 3"
+    },
+
+    "section2": {
+      "link": "FR #Section2",
+      "title": "FR Name of Page 2",
+      "question1": "FR Question 2.1",
+      "question2": "FR Question 2.2",
+      "question3": "FR Question 2.3",
+      "answer1": "FR answer 2.1",
+      "answer2": "FR answer 2.2",
+      "answer3": "FR answer 2.3"
+    },
+
+    "section3": {
+      "link": "FR #Section3",
+      "title": "FR Name of Page 3",
+      "question1": "FR Question 3.1",
+      "question2": "FR Question 3.2",
+      "question3": "FR Question 3.3",
+      "answer1": "FR answer 3.1",
+      "answer2": "FR answer 3.2",
+      "answer3": "FR answer 3.3"
+    }
+
+  },
+  "navbar": {
+    "EN": "English",
+    "FR": "Français",
+    "aiologo-txt": "Assante Info Clientèle - {{title}}",
+    "aiologo-img": "logos_f.svg",
+    "menu": {
+      "page1": "FR Name of Page1",
+      "page2": "FR Name of Page2",
+      "page3": "FR Name of Page3",
+      "page4": "FR Name of Page4",
+      "page5": "FR Name of Page5"
+    },
+    "goPaperlessBtn": "Solution Verte",
+    "goPaperlessImg": "assets/images/btn_gopaperless_fr.png",
+    "calculatorLink": "http://www.assante.com/fr/solutions/tools_and_calculators.jsp",
+    "browse-happy": "Vous utilisez un navigateur <strong>obsolète</strong>. Veuillez <a href='http://browsehappy.com/'>mettre à jour votre navigateur</a> afin d'améliorer votre expérience.",
+    "dismiss-message": "Ignorer le message"
+  },
+  "idle": {
+    "title": "Garder la session active",
+    "modalText": "Par mesure de sécurité, votre session InfoClientèle se terminera dans : ",
+    "dismiss": "Rejeter",
+    "timeout": "avant que votre session expire!"
+  },
+  "compliance": {
+    "button": {
+      "cancel": "Annuler",
+      "submit": "Soumettre"
+    },
+    "seq": {
+      "title": "Question de sécurité à l'ouverture de session",
+      "sub-title": "Pour vous connecter, veuillez répondre à votre question de sécurité.",
+      "register": {
+        "text": "Enregistrer l'ordinateur",
+        "message": "Par mesure de sécurité, nous ne recommandons pas l'utilisation de cette fonctionnalité sur des ordinateurs publics ou partagés.",
+        "tip": "Si vous enregistrez votre ordinateur, vous n&#39;aurez pas à répondre aux questions de sécurité à chaque fois que vous vous connectez.<br /><br />Par mesure de sécurité, nous ne recommandons pas l&#39;utilisation de cette fonctionnalité sur des ordinateurs publics ou partagés.",
+        "info": "Plus d'informations"
+      }
+    },
+    "edd": {
+      "title": "Envoi de documents électroniques",
+      "text1": "Choisissez les documents ci-dessous afin de recevoir un avis par courriel dès qu'ils seront disponibles en ligne.",
+      "note": "<strong>Remarque :</strong> Les documents qui ne sont pas cochés vous seront envoyés par la poste.",
+      "account-statements": "Relevés de compte/Rapports",
+      "tax-receipts-slips": "Reçus et feuillets d'impôt",
+      "trade-confirmations": "Confirmations d'opération",
+      "text2": "YVous devez lire et accepter les modalités du formulaire de consentement de transmission de documents électroniques pour visualiser vos comptes.",
+      "download-consent-pdf-label": "Téléchargez le présent formulaire de consentement en format PDF.",
+      "terms-conditions": {
+        "title": "Consentement à l’envoi électronique des documents",
+        "text1": "En reconnaissant les modalités ci-dessous, vous avez lu et compris le présent « Consentement à l’envoi électronique des documents » et comprenez que vous pouvez modifier vos préférences à tout moment, conformément aux modalités ci-dessous.",
+        "text2": "*Après votre consentement, il vous sera présenté une liste de documents disponibles à l’envoi électronique.",
+        "text3": "Gestion de patrimoine Assante enverra les documents sélectionnés qui peuvent inclure des confirmations de transactions, des relevés de compte/rapports d’activité et(ou) des confirmations de transactions requis par la loi.",
+        "text4": "Gestion de patrimoine Assante m’informera par courriel ou par la poste, le cas échéant, lorsque les documents seront disponibles en ligne pour consultation. Tous les autres documents seront disponibles en ligne.",
+        "text5": "Après que Gestion de patrimoine Assante m’ait informé(e) par courriel que j’ai des documents prêts à être consultés, je serai responsable de la visualisation et du téléchargement de tous les documents. Je comprends que j’aurai besoin d’avoir accès à Internet, Adobe Acrobat Reader ou tout autre logiciel de visualisation de documents car Gestion de patrimoine Assante peut m’informer, de temps en temps, de consulter des documents électroniques.",
+        "text6": "Je reconnais que je peux recevoir du livreur un exemplaire papier des documents envoyés par voie électronique, sans frais, si je contacte le livreur par téléphone au 1-800-268-3200, ou par par la poste à Gestion de patrimoine Assante, 15, rue York, deuxième étage, Toronto (Ontario) M5J 0A3.",
+        "text7": "J’informerai Gestion de patrimoine Assante sans délai de tout changement de mon adresse électronique. À défaut de fournir une adresse électronique valide, des documents papier seront envoyés.",
+        "text8": "Si l’envoi électronique ne réussit pas et Gestion de patrimoine Assante n’est pas en mesure de m’informer par courriel, je serai avisé(e) par la poste qu’un document est prêt à être consulté. Je comprends que tout document ultérieur sera envoyé par la poste jusqu’à ce qu’une adresse électronique soit fournie et que l’envoi électronique soit possible.",
+        "text9": "Je comprends et j’accepte que si je ne suis pas en mesure de télécharger toutes les informations, j’aviserai immédiatement Gestion de patrimoine Assante et je demanderai l’envoi d’un exemplaire imprimé par la poste.",
+        "text10": "Je comprends que mon consentement peut être révoqué ou modifié, y compris tout changement à l’adresse électronique par laquelle les documents sont envoyés (si j’ai fourni une adresse électronique), à tout moment, en informant le livreur du consentement révisé ou révoqué par téléphone au 1-800-268-3200 ou par la poste à Gestion de patrimoine Assante, 15, rue York, deuxième étage, Toronto (Ontario) M5J 0A3.",
+        "text11": "Je comprends que je ne suis pas obligé(e) de choisir le mode d’envoi électronique.",
+        "acceptance": "J'ai lu et accepté les modalités du formulaire de consentement de transmission de documents électroniques."
+      }
+    },
+    "loginseq": {
+      "title": "@: compliance.seq.title",
+      "sub-title": "@: compliance.seq.sub-title",
+      "register": {
+        "text": "Enregistrer l'ordinateur",
+        "message": "Par mesure de sécurité, nous ne recommandons pas l'utilisation de cette fonctionnalité sur des ordinateurs publics ou partagés.",
+        "tip": "Si vous enregistrez votre ordinateur, vous n'aurez pas à répondre aux questions de sécurité à chaque fois que vous vous connectez.",
+        "info": "Plus d'informations"
+      }
+    },
+    "ua": {
+      "title": "Contrat d'utilisation : Modalités",
+      "download": "Téléchargez ce contrat en format PDF.",
+      "accepted": "J'accepte les modalités du contrat d'utilisation d'InfoClientèle."
+    },
+    "mcif": {
+      "title": "Accès à InfoClientèle Assante : connexion simplifiée ",
+      "introducing": "Vous pouvez maintenant accéder a tous vos comptes de Gestion de patrimoine Assante avec un Passepartout.",
+      "setup": "Choisissez un code d'utilisateur à partir de la liste ci-dessous pour créer votre Passepartout de connexion, et cliquez sur le bouton « Soumettre » :",
+      "client-id": "Code d'utilisateur",
+      "nickname": "Pseudonyme",
+      "note": "<em><strong>Important!</strong></em> Veuillez mémoriser le code d'utilisateur que vous avez sélectionné. Ce code sera l'unique code d'utilisateur dont vous aurez besoin pour voir tous vos comptes de Gestion de patrimoine Assante."
+    },
+    "tpwdr": {
+      "title": "Changer le mot de passe",
+      "password": "Nouveau mot de passe",
+      "password-confirm": "Confirmez le nouveau mot de passe",
+      "password-confirm-required": "Vous devez confirmer votre mot de passe.",
+      "password-confirm-match": "Le mot de passe entré ne correspond pas."
+    },
+    "pwdr": {
+  "title": "@: compliance.tpwdr.title",
+      "password": "@: compliance.tpwdr.password",
+      "password-confirm": "@: compliance.tpwdr.password-confirm",
+      "password-confirm-required": "@: compliance.tpwdr.password-confirm-required",
+      "password-confirm-match": "@: compliance.tpwdr.password-confirm-match"
+    },
+    "allseq": {
+      "title": "Des mesures de sécurité renforcées au moyen de questions de sécurité InfoClientèle",
+      "sub-title": "Gestion de patrimoine Assante présente de nouvelles mesures pour l'ouverture de session InfoClientèle. L'objectif de ce nouveau processus est de fournir une protection supplémentaire pour prévenir l'accès non autorisé à votre compte InfoClientèle.",
+      "answer": "Réponse :",
+      "question1": "Première question de sécurité :",
+      "question2": "Deuxième question de sécurité :",
+      "question3": "Troisième question de sécurité :",
+      "question4": "Quatrième question de sécurité :",
+      "question5": "Cinquième question de sécurité :",
+      "choose": "Choisissez une question",
+      "select-own": "Choisissez une question ou créez votre propre question",
+      "create-own": "Votre question :"
+    }
+  },
+  "registration": {
+    "logo": "Inscrivez-vous en trois étapes faciles",
+    "moreInfo": "Plus d'information",
+    "cancel": "Annuler l'inscription",
+    "next": "Prochain",
+    "ok": "Continuer l'inscription",
+    "back": "Retour",
+    "submit": "Soumettre",
+    "popupCancelTitle": "Vous n'êtes pas encore prêt à vous inscrire?",
+    "popupCancel": "Cliquez sur <strong>Annuler l'inscription</strong> pour terminer votre session. Vos informations ne seront pas sauvegardées.<br />Cliquez sur <strong>Continuer l'inscription</strong> pour continuer votre inscription.",
+    "info": {
+      "title": "Renseignements personnels",
+      "step-one": "la première étape",
+      "weblogin": {
+        "name": "Code d'utilisateur",
+        "title": {
+          "text1": "Vous trouverez votre code d\\'utilisateur sur les relevés ou les confirmations d\\'opération qui vous ont été envoyés par la poste, ou en cliquant sur le lien ",
+          "linkText": "Récupérer votre code d\\'utilisateur",
+          "linkUrl": "/#/fr/aio/retrievewebid/webid",
+          "text2": ".",
+          "full": "Vous trouverez votre code d\\'utilisateur sur les relevés ou les confirmations d\\'opération qui vous ont été envoyés par la poste, ou en cliquant sur le lien Récupérer votre code d\\'utilisateur."
+        },
+        "invalidCharacter": "Le code d'utilisateur comprend des caractères qui ne sont pas permis.",
+        "required": "Veuillez entrer votre code d'utilisateur."
+      },
+      "account": {
+        "name": "Numéro de compte",
+        "invalidCharacter": "Le numéro de compte comprend des caractères qui ne sont pas permis.",
+        "required": "Veuillez entrer votre numéro de compte."
+      },
+      "sin": {
+        "name": "Quatre derniers chiffres de votre NAS ou NE",
+        "title": "S'il n'y a pas de numéro d'assurance sociale (NAS) ou de numéro d'entreprise (NE) associé à votre ou vos comptes, veuillez communiquer avec le Centre de service Assante.",
+        "invalidCharacter": "Le NAS ou NE comprend des caractères qui ne sont pas permis.",
+        "minlength": "Veuillez entrer les quatre derniers chiffres du NAS ou NE.",
+        "required": "Veuillez entrer les quatre derniers chiffres du NAS ou NE."
+      },
+      "date": {
+        "name": "Jour et mois de naissance",
+        "title": "S'il n'y a pas de date de naissance associée à votre ou vos comptes, veuillez appeler le Centre de service Assante. Pour les comptes de société, veuillez ne rien inscrire.",
+        "title2": "S'il n'y a pas de date de naissance associée à votre ou vos comptes, veuillez appeler le Centre de service Assante. Pour les comptes de société, veuillez ne rien inscrire.",
+        "day": "JJ",
+        "month": "MM",
+        "invalidCharactermm": "Le mois de naissance comprend des caractères qui ne sont pas permis.",
+        "invalidCharacterdd": "Le jour de naissance comprend des caractères qui ne sont pas permis.",
+        "minlengthmm": "S'il vous plaît entrer les deux chiffres du mois de naissance.",
+        "minlengthdd": "S'il vous plaît entrer les deux chiffres du jour de la naissance.",
+        "required": "Veuillez entrer le jour et le mois de naissance."
+      },
+      "email": {
+        "name": "Adresse de courriel",
+        "confName": "Confirmez l'adresse de courriel",
+        "invalidCharacter": "L'adresse de courriel ne répond aux exigences minimales.",
+        "required": "Veuillez entrer votre adresse de courriel.",
+        "dontMatch": "L'adresse de courriel entrée ne correspond pas."
+      },
+      "userAgreement": {
+        "name": "Contrat d'utilisation d'InfoClientèle : Modalités",
+        "text1": "Vous devez lire et accepter les modalités du contrat d’utilisation pour vous inscrire à InfoClientèle.",
+        "text2": "En acceptant les modalités de ce contrat, vous nous autorisez par la présente à vous offrir, ainsi qu'à toute personne utilisant votre code d'utilisateur (fourni par nous) et votre mot de passe, des renseignements sur votre compte et tout autre service décrit dans le présent contrat.",
+        "download": "Téléchargez ce contrat en format PDF.",
+        "disclaimer": "En contrepartie de Corporation Financière Unie (nous, nous) fournir un accès en ligne aux informations de compte (les «Services») pour le titulaire du compte (vous, votre) pour une utilisation non-commerciale, vous êtes soumis à des conditions strictes contenues dans cet investisseur Accord de l'utilisateur en ligne (le «Contrat»). <br/> Cet accord est régi par les lois de la province de l'Ontario et les lois du Canada. Toutes contestations relatives au présent accord seront soumises à la juridiction des tribunaux situés à Toronto, en Ontario. <br/> Votre utilisation de notre site et des Services indique que vous comprenez et acceptez de respecter les termes et conditions ci-après: <br/> <strong> l'acceptation des conditions d'utilisation et toutes les modifications </ strong> <br/> au moment de l'inscription, vous serez invité à fournir votre date de naissance et les quatre derniers chiffres de votre numéro d'assurance sociale (NAS). Cette information est utilisée uniquement pour vérifier votre identité et être rapportées contre les informations que vous nous fournissez lorsque vous avez ouvert votre compte. Nous ne conserverons ces informations pour une utilisation future. <br/> En acceptant et en acceptant les termes et conditions du présent Accord, vous autorisez-nous à fournir des informations de votre compte via l'Internet, à la demande de toute personne en utilisant votre ID de connexion Web (fourni par nous) et mot de passe, et de fournir d'autres services, comme indiqué dans le présent Accord.",
+        "accept": "J'accepte les modalités du contrat d'utilisation d'InfoClientèle.",
+        "required": "Vous devez accepter les modalités du contrat d’utilisation pour passer à la prochaine étape.",
+        "pdf": "/assets/pdf/UserAgreementFrench.pdf"
+      }
+    },
+    "security": {
+      "title": "Sécurité",
+      "step-two": "Etape 2",
+      "nickname": {
+        "name": "Créez un pseudonyme",
+        "title": "En créant un pseudonyme vous pourrez vous connecter avec votre propre nom personnalisé ou votre adresse de courriel à la place du code d\\'utilisateur. <br/>Votre pseudonyme doit comprendre au moins :<ul><li>six caractères, et</li><li>contenir une lettre ou un caractère spécial.</li></ul><em><strong>Remarque :</strong> Les pseudonymes distinguent les majuscules des minuscules.</em>",
+        "invalidCharacter": "Le pseudonyme ne répond pas aux exigences minimales."
+      },
+      "questions": {
+        "name": "Questions de sécurité",
+        "title": "<strong><em>Important !</strong></em> Lorsque vous créez les réponses :<ul><li>Les caractères spéciaux ne sont pas autorisés (?, #, &, etc.)</li><li>Vous pouvez personnaliser la cinquième question de sécurité et.</li><li>Les réponses doivent être uniques et faciles à retenir.</li></ul>",
+        "customQuestion": "Créer votre propre question de sécurité",
+        "customPlaceholder": "Tapez votre question ici",
+        "choose": "Veuillez choisir une question...",
+        "customChoose": "Choisissez une question ou créez votre propre question",
+        "question1": "Première question de sécurité :",
+        "question2": "Deuxième question de sécurité :",
+        "question3": "Troisième question de sécurité :",
+        "question4": "Quatrième question de sécurité :",
+        "question5": "Cinquième question de sécurité :",
+        "answer": "Réponse ",
+        "requiredQuestion": "Veuillez choisir une question de sécurité...",
+        "requiredAnswer": "Veuillez entrer une réponse.",
+        "validationCustomQuestion": "Please enter your custom question."
+      },
+      "registerComp": {
+        "name": "Enregistrer cet ordinateur.",
+        "title": "Enregistrement d'un ordinateur signifie que vous aurez pas à répondre à vos questions de sécurité chaque fois que vous vous connectez à partir de cet ordinateur.",
+        "caution": "ATTENTION: Vous ne devez enregistrer un ordinateur pour lequel vous êtes le propriétaire, comme votre ordinateur à la maison. Vous ne devez pas inscrire un ordinateur dans un lieu public, comme un café Internet."
+      },
+      "password": {
+        "name": "Créez un mot de passe",
+        "confName": "Confirmez le mot de passe",
+        "dontMatch": "Le mot de passe entré ne correspond pas.",
+        "required": "Veuillez entrer votre mot de passe."
+      }
+    },
+    "docs": {
+      "title": "Envoi de documents électroniques",
+      "step-three": "la troisième étape",
+      "selectText": "Choisissez les documents ci-dessous afin de recevoir un avis par courriel dès qu'ils seront disponibles en ligne.",
+      "noteText": "<strong>Remarque : </strong> Les documents qui ne sont pas cochés vous seront envoyés par la poste.",
+      "activityReport": "Rapports d’activités et relevés",
+      "taxReceipt": "Reçus et feuillets d'impôt",
+      "tradeConfirmation": "Confirmations d'opération",
+      "importantText": "<strong class='red'>Important!</strong> Vous devez lire et accepter les modalités du formulaire de consentement de transmission de documents électroniques pour vous inscrire à InfoClientèle.",
+      "consentDocs": {
+        "title": "Consentement à la transmission électronique des documents",
+        "text": "En reconnaissant les modalités ci-dessous, vous avez lu et compris le présent consentement à l'envoi électronique des documents et vous comprenez que vous pouvez modifier vos préférences à tout moment, conformément aux modalités ci-dessous.",
+        "disclaimer": "<Em>Une fois que vous acceptez, vous sera présenté avec une liste de documents disponibles pour livraison électronique. </ em> <br/><br/><ol><li>Gestion de patrimoine Assante livrera les documents sélectionnés qui peuvent inclure l'ensemble des échanges acconfirmations, les relevés de compte / rapports d'activité, et / ou confirmations de transactions prévues par la loi.</li><li>Gestion de patrimoine Assante me notifier par e-mail, ou par la poste, au besoin, lorsque les documents sont prêt pour l'affichage. Tous les autres documents seront accessibles pour la visualisation. </li><li>Je suis responsable pour visionnement ou téléchargement tous les documents après notifie Assante Wealth Management moi par e-mail que je dois documents prêts à être vu. Je comprends que je vais nécessiter un accès à Internet, Adobe Acrobat Reader ou un autre document.</li></ol>",
+        "download": "Téléchargez ce consentement en format PDF.",
+        "accept": "J'ai lu et j'accepte les modalités du formulaire de consentement de transmission de documents électroniques.",
+        "required": "Vous devez accepter les modalités du formulaire de consentement de transmission de documents électroniques pour passer à la page suivante.",
+        "pdf": "/assets/pdf/edd_consent_f.pdf"
+      }
+    },
+    "confirmation": {
+      "title": "Avis de confirmation d'opération sur InfoClientèle",
+      "subTitle": "Merci de vous êtes inscrit à InfoClientèle.",
+      "link": "Pour accéder à InfoClientèle, cliquez sur « Connexion ».",
+      "assistance": "Pour obtenir de l'aide, communiquez avec le Centre de service Assante au 1 800 268-3200, du lundi au vendredi, de 8 h à 18 h, heure de l'Est.",
+      "thanks": "Merci d’avoir investi avec Assante.",
+      "login": "Connexion"
+    }
+  },
+  "forgottenPassword": {
+    "title": "Vous avez oublié votre mot de passe?",
+    "cancel": "Annuler",
+    "continue": "Continuer",
+    "submit": "Soumettre",
+    "webId": {
+      "note": "Pour réinitialiser votre mot de passe en ligne, veuillez remplir le champ suivant :",
+      "name": "Entrez votre code d'utilisateur ou pseudonyme.",
+      "title": "Code d'utilisateur/Pseudonyme",
+      "required": "Entrez un code d'utilisateur ou pseudonyme."
+    },
+    "security": {
+      "question1": "Répondez à votre première question de sécurité :",
+      "question2": "Veuillez répondre à votre dernière question de sécurité.",
+      "required": "Veuillez entrer la réponse à la question de sécurité."
+    },
+    "password": {
+      "title": "Créez et confirmez votre nouveau mot de passe.",
+      "name": "Nouveau mot de passe",
+      "confName": "Confirmez le mot de passe",
+      "dontMatch": "Le mot de passe entré ne correspond pas.",
+      "required": "Veuillez entrer votre mot de passe.",
+      "confirmrequired": "S'il vous plaît entrer une confirmation de mot de passe",
+      "final-step": "étape finale"
+    }
+  },
+  "retrieveWebId": {
+    "title": "Récupérer le code d'utilisateur",
+    "note": "Si vous souhaitez obtenir votre code d'utilisateur par téléphone, veuillez communiquer avec le Centre de service Assante, au 1 800 268-3200, du lundi au vendredi, de 8 h à 18 h, heure de l'Est.",
+    "instruction": "Fournissez les renseignements suivants pour récupérer votre code d'utilisateur :",
+    "cancel": "Annuler",
+    "retrieve": "Récupérer",
+    "modal": {
+      "title": "Pas encore prêt à récupérer votre code d'utilisateur?",
+      "body": "Cliquez sur \"<strong>Annuler la récupération</strong>\" pour fermer votre session. Vos informations ne seront pas sauvegardées.<br />Cliquez sur \"<strong>Procéder à la récupération</strong>\" pour continuer votre demande.",
+      "proceed": "Procéder à la récupération",
+      "cancel": "Annuler la récupération"
+    },
+    "footnotes": {
+    },
+    "lastName": {
+      "name": "Nom de famille",
+      "required": "Veuillez entrer votre nom de famille.",
+      "invalidCharacter": "Le nom comprend des caractères qui ne sont pas permis."
+    },
+    "account": {
+      "name": "N&#186; de compte",
+      "invalidCharacter": "Le numéro de compte comprend des caractères qui ne sont pas permis.",
+      "required": "Veuillez entrer votre numéro de compte."
+    },
+    "sin": {
+      "name": "Quatre derniers chiffres du NAS",
+      "title": "S\\'il n\\'y a pas de numéro d\\'assurance sociale (NAS) associé à votre ou vos comptes, veuillez communiquer avec le Centre de service Assante.<br />Ces renseignements servent à vérifier votre identité. Ils ne seront pas conservés ni utilisés à d\\'autres fins. Si vous ne voulez pas fournir votre numéro d\\'assurance sociale, veuillez communiquer avec le Centre de service Assante.",
+      "invalidCharacter": "Le NAS comprend des caractères qui ne sont pas permis.",
+      "minlength": "Veuillez entrer les quatre derniers chiffres du NAS.",
+      "required": "Veuillez entrer les quatre derniers chiffres du NAS."
+    },
+    "date": {
+      "name": "Jour et mois de naissance",
+      "title": "S'il n'y a pas de date de naissance associée à votre ou vos comptes, veuillez communiquer avec le Centre de service Assante.",
+      "day": "JJ",
+      "month": "MM",
+      "invalidCharactermm": "Le mois de naissance comprend des caractères qui ne sont pas permis.",
+      "invalidCharacterdd": "Le jour de naissance comprend des caractères qui ne sont pas permis.",
+      "minlengthmm": "S'il vous plaît entrer les deux chiffres du mois de naissance.",
+      "minlengthdd": "S'il vous plaît entrer les deux chiffres du jour de la naissance.",
+      "required": "Veuillez entrer le jour et le mois de naissance."
+    },
+    "login": {
+      "title": "Votre code d’utilisateur est :",
+      "note1": "<strong>Rappel!</strong> Vous pouvez utiliser un pseudonyme pour vous connecter à la place d'un code d'utilisateur. Pour créer un pseudonyme, ouvrez une session et rendez-vous à Profil.",
+      "note2": "Pour vous connecter, entrez votre mot de passe dans le champ « Mot de passe » et cliquez sur le bouton « Connexion ». Pour revenir à la page d'accueil, cliquez sur « Annuler ».",
+      "webid": "Code d'utilisateur",
+      "password": "Mot de passe ",
+      "remember": "Mémoriser le code d'utilisateur ",
+      "rememberTip": "Utilisez uniquement ce sur un ordinateur sécurisé",
+      "forgot": "Vous avez oublié le mot de passe?",
+      "login": "Connexion",
+      "required": "S'il vous plaît entrer le mot de passe.",
+      "length": "Le mot de passe ne correspond pas à nos dossiers."
+    },
+    "preregistration": {
+      "title": "Votre code d’utilisateur est :",
+      "note1": "<strong>Important!</strong> Votre code d'utilisateur n'a pas encore été inscrit.",
+      "note2": "Pour compléter le processus d'inscription en trois étapes, cliquez sur Continuer pour vous inscrire, ou cliquez sur Annuler pour vous inscrire plus tard.",
+      "note2b": "Pour compléter le processus d'inscription en trois étapes, cliquez sur Continuer pour vous inscrire, ou cliquez sur Annuler pour vous inscrire plus tard.",
+      "continue": "Continuer"
+    },
+    "registration": {
+      "title": "Renseignements personnels",
+      "webid": "Code d'utilisateur",
+      "email": {
+        "name": "Adresse de courriel",
+        "confName": "Confirmez l'adresse de courriel",
+        "invalidCharacter": "L'adresse de courriel ne répond aux exigences minimales.",
+        "required": "Veuillez entrer votre adresse de courriel.",
+        "dontMatch": "L'adresse de courriel entrée ne correspond pas."
+      },
+      "userAgreement": {
+        "name": "Contrat d'utilisation d'InfoClientèle : Modalités",
+        "text1": "Vous devez lire et accepter les modalités du contrat d’utilisation pour vous inscrire à InfoClientèle.",
+        "text2": "En acceptant les modalités de ce contrat, vous nous autorisez par la présente à vous offrir, ainsi qu'à toute personne utilisant votre code d'utilisateur (fourni par nous) et votre mot de passe, des renseignements sur votre compte et tout autre service décrit dans le présent contrat.",
+        "download": "Téléchargez ce contrat en format PDF.",
+        "disclaimer": "En contrepartie de Corporation Financière Unie (nous, nous) fournir un accès en ligne aux informations de compte (les «Services») pour le titulaire du compte (vous, votre) pour une utilisation non-commerciale, vous êtes soumis à des conditions strictes contenues dans cet investisseur Accord de l'utilisateur en ligne (le «Contrat»). <br/> Cet accord est régi par les lois de la province de l'Ontario et les lois du Canada. Toutes contestations relatives au présent accord seront soumises à la juridiction des tribunaux situés à Toronto, en Ontario. <br/> Votre utilisation de notre site et des Services indique que vous comprenez et acceptez de respecter les termes et conditions ci-après: <br/> <strong> l'acceptation des conditions d'utilisation et toutes les modifications </ strong> <br/> au moment de l'inscription, vous serez invité à fournir votre date de naissance et les quatre derniers chiffres de votre numéro d'assurance sociale (NAS). Cette information est utilisée uniquement pour vérifier votre identité et être rapportées contre les informations que vous nous fournissez lorsque vous avez ouvert votre compte. Nous ne conserverons ces informations pour une utilisation future. <br/> En acceptant et en acceptant les termes et conditions du présent Accord, vous autorisez-nous à fournir des informations de votre compte via l'Internet, à la demande de toute personne en utilisant votre ID de connexion Web (fourni par nous) et mot de passe, et de fournir d'autres services, comme indiqué dans le présent Accord.",
+        "accept": "J'accepte les modalités du contrat d'utilisation d'InfoClientèle.",
+        "required": "Vous devez accepter les modalités du contrat d’utilisation pour passer à la prochaine étape."
+      },
+      "next": "Prochain"
+    }
+  },
+  "offers": {
+    "title": "InfoClientèle offre&nbsp;:",
+    "accountBalances": "Le soldes des comptes",
+    "transactionHistory": "L'historique de vos transactions",
+    "tradeConfirmation": "Vos confirmations d'opération",
+    "portfolioStatements": "Vos relevés de portefeuille ",
+    "clientNameReports": "Vos rapports du nom du client",
+    "taxSlips": "Vos reçus et feuillets d'impôt"
+  },
+  "portfolio": {
+    "welcome": "Bienvenue",
+    "lastLogin": "Dernière connexion :",
+    "print": "Bouton « Imprimer »",
+    "overview": "Aperçu du portefeuille",
+    "tel": "Téléphone",
+    "fax": "Télécopieur",
+    "call": "Téléphoner",
+    "email": "Courriel",
+    "dropdown-accounts-aria": "Sélectionnez un compte dans la liste déroulante pour afficher plus d’informations",
+    "expand-all-products": "Étendre la liste de produits",
+    "showOnlyAccountsGreaterThanZero": "Afficher tous les comptes 0,00 $",
+    "accounts": {
+      "account": "Compte",
+      "accounts": "Comptes",
+      "type": "Type de compte",
+      "statement": "Dernier relevé",
+      "bookValue": "Valeur comptable",
+      "accountValue": "Valeur du compte"
+    },
+    "accountType":{
+      "spousal" : "Conjoint",
+      "itf": "En fiducie pour",
+      "group": "Collectif"
+    },
+    "marketValues": {
+      "title": "Valeurs au marché<span class=\"full\"> du portefeuille</span>",
+      "description": "Le graphique illustre la valeur au marché de votre portefeuille au cours des huit derniers trimestres.",
+      "note": "<strong>Remarque :</strong> Si vous notez des anomalies dans votre dossier, communiquez avec votre conseiller financier."
+    },
+    "valueAsOf": "Valeur du portefeuille au",
+    "assetMix": {
+      "title": "Combinaison des avoirs<span class=\"full\"> en portefeuille</span>",
+      "description": "Le graphique de la répartition de l'actif illustre les répartitions des avoirs de votre portefeuille.",
+      "note": "<strong>Remarque :</strong> Les avoirs sont basés sur les répartitions cibles dans lequel vous avez investi."
+    },
+    "disclaimer1": "Les valeurs au marché sont basées sur le nombre d'actifs, multiplié par les cours disponibles les plus récents.",
+    "disclaimer2": "Toutes les valeurs au marché sont affichées en dollars canadiens (CAD). Le taux de change du dollar américain est de {{ exchangeRate }}.",
+    "disclaimer3": "La valeur comptable correspond au montant global payé pour acheter un placement, y compris les frais de transaction liés à l'achat, rajusté pour tenir compte des distributions réinvesties, des remboursements de capital et des réorganisations de corporations.",
+    "disclaimer4": "Pour de plus amples informations, communiquez avec votre conseiller financier."
+  },
+  "accountHeader": {
+    "accountSelector": "Sélectionnez un compte",
+    "tabs": {
+      "overview": "Aperçu",
+      "transactions": "Transactions",
+      "rrsp": "Cotisation REER",
+      "tfsa": "Cotisations CELI",
+      "cash": "Espèces",
+      "contributions": "Cotisations"
+    },
+    "beneficiary11": "Bénéficiaire :",
+    "beneficiary12": "Bénéficiaires :",
+    "beneficiary21": "Bénéficiaire subsidiaire :",
+    "beneficiary22": "Bénéficiaires subsidiaires :",
+    "beneficiary31": "Bénéficiaire REEE :",
+    "beneficiary32": "Bénéficiaires REEE :",
+    "owner61": "Titulaire :",
+    "owner62": "Titulaires :",
+    "owner01": "Rentier :",
+    "owner02": "Rentiers :",
+    "owner131": "Rentier :",
+    "owner132": "Rentiers :",
+    "owner161": "Propriétaire successeur :",
+    "owner162": "Propriétaires successeur :",
+    "owner171": "Détenteur successeur :",
+    "owner172": "Détenteurs successeur :",
+    "owner121": "Titulaire de rente ayant droit :",
+    "owner122": "Titulaires de rente ayant droit :",
+    "owner81": "Titulaire bénéficiaire :",
+    "owner82": "Titulaires bénéficiaire :",
+    "owner71": "En fiducie pour :",
+    "owner72": "En fiducie pour :",
+    "owner111": "Procuration :",
+    "owner112": "Procuration :",
+    "owner91": "Signataire autorise :",
+    "owner92": "Signataire autorises :",
+    "owner151": "Acquereur de fiducie :",
+    "owner152": "Acquereurs de fiducie :",
+    "owner181": "Personne détenant le controle :",
+    "owner182": "Personnes détenant le controle :",
+    "owner101": "Exécuteur / Administrateur :",
+    "owner102": "Exécuteurs / Administrateurs :",
+    "owner11": "Souscripteur :",
+    "owner12": "Souscripteurs :",
+    "owner41": "Employeur :",
+    "owner42": "Employeurs :",
+    "owner31": "Bénéficiaire :",
+    "owner32": "Bénéficiaires :",
+    "owner141": "Bénéficiaire de fiducie :",
+    "owner142": "Bénéficiaires de fiducie :",
+    "owner21": "Conjoint :",
+    "owner22": "Conjoints :",
+    "owner51": "Bénéficiaire :",
+    "owner52": "Bénéficiaires :",
+    "myAdvisor": "Mon conseiller",
+    "showMyAdvisor": "Montrer mon conseiller",
+    "hideMyAdvisor": "Cacher mon conseiller",
+    "tel": "Tél. :",
+    "fax": "Téléc. :",
+    "email": "Courriel :",
+    "support": "Soutien administratif :",
+    "buttons": {
+      "print": "Imprimer",
+      "excel": " Exporter à un document Excel"
+    },
+    "canadian-dollars": "DOLLARS CANADIENS",
+    "us-dollars": "DOLLARS AMÉRICAINS"
+  },
+  "account": {
+    "cash": "Avoirs en espèces",
+    "bond": "Obligations",
+    "gic": "Avoirs en CPG",
+    "mutual": "Fonds communs de placement",
+    "segregated": "Fonds distincts",
+    "stock": "Actions",
+    "captionAll": "Ce tableau fournit une liste de toutes les exploitations de ce compte.",
+    "captionBond": "Ce tableau fournit une liste de toutes les obligations de ce compte.",
+    "captionCash": "Ce tableau fournit une liste de toutes les espèces dans ce compte. Il comprend l'argent dans des devises différentes.",
+    "captionMutual": "Ce tableau fournit une liste de tous les fonds de ce compte.",
+    "captionSegregated": "Ce tableau fournit une liste de tous les fonds distincts dans ce compte.",
+    "captionGic": "Ce tableau fournit une liste de toutes les exploitations CPG dans ce compte.",
+    "captionStock": "Ce tableau fournit une liste de tous les placements en actions dans ce compte.",
+    "captionTotal": "Ce tableau fournit des valeurs totales."
+  },
+  "overview": {
+    "assets": "Avoirs",
+    "showOnlyHoldingsGreaterThanZero": "Afficher tous les avoirs",
+    "bookValue": "Valeur comptable",
+    "marketValue": "Valeur au marché",
+    "totalValueAsOf": "Valeur totale au",
+    "stock": "Description",
+    "shares": "Actions",
+    "share-value": "Valeur de l'action",
+    "total-stock-investments": "Total des placements en actions",
+    "total-gic-holdings": "Total des avoirs en CPG",
+    "total-segregated-funds": "Total des fonds distincts",
+    "total-cash-holdings": "Total des avoirs en espèces",
+    "total-mutual-funds": "Total des fonds communs de placement",
+    "total-bonds": "Total des obligations",
+    "unit-value": "Valeur par part",
+    "number-units": "Parts",
+    "fund-name": "Description",
+    "currency": "Devise",
+    "par-value": "Valeur nominale",
+    "price": "Prix",
+    "maturity-date": "Date d’échéance",
+    "assets": "Avoirs",
+    "marketValues": {
+      "title": "Valeurs au marché<span class=\"full\"> du compte</span>",
+      "description": "Le graphique illustre la valeur au marché du portefeuille au cours des huit derniers trimestres.",
+      "note": "<strong>Remarque :</strong> Si vous notez des anomalies dans votre dossier, communiquez avec votre conseiller financier."
+    },
+    "assetMix": {
+      "title": "Combinaison des avoirs<span class=\"full\"> du compte</span>",
+      "description": "Le graphique circulaire de la combinaison des avoirs montre les répartitions des avoirs de votre compte.",
+      "note": "<strong>Remarque :</strong> Les avoirs sont basés sur les répartitions cibles dans lesquelles vous avez investies."
+    },
+    "footnotes": {
+      "note1": "Les avoirs ne prennent pas en compte les opérations en suspens.",
+      "note2": "Les avoirs individuels sont indiqués dans leur monnaie de base. Toutes les valeurs globales sont affichées en dollars canadiens (CAD). Le taux de change du dollar américain est de {{ exchangeRate }}.",
+      "note3": "La valeur comptable correspond au montant global payé pour acheter un placement, y compris les frais de transaction liés à l'achat, rajusté pour tenir compte des distributions réinvesties, des remboursements de capital et des réorganisations de corporations.",
+      "note4": "Pour de plus amples informations, communiquez avec votre conseiller financier."
+    }
+  },
+  "transactions": {
+    "filter": {
+      "caption": "Ceci est la forme est conçue pour filtrer transaction documents historique.",
+      "dateDescription": "Sélectionnez une plage de dates et de",
+      "productsDescription": "Choisissez un produit",
+      "holdingsDescription": "Sélectionnez une exploitation",
+      "transactionsDescription": "Sélectionnez une transaction",
+      "holdType": "Tous les produits",
+      "currency": "Toutes les monnaies",
+      "holdings": "Tous les avoirs en portefeuille",
+      "transType": "Toutes les opérations",
+      "button": "Filtrer",
+      "reset": "Réinitialiser"
+    },
+    "footnotes": {
+      "note1": "Les avoirs en portefeuille ne prennent pas en compte les opérations en attente.",
+      "note2": "Veuillez contacter votre conseiller financier pour obtenir un historique des transactions effectuées sur une période d'un an."
+    },
+    "notification": {
+      "from": "Partir de la date est supérieure à ce jour",
+      "noTransactions": "Il n’y a pas eu de transaction au cours de cette période.",
+      "dateFormat": "La date doit être au format MM / JJ / AAAA",
+      "notValidDate": "La date est pas valable"
+    },
+    "holdingType": {
+      "cash": "Espèces",
+      "bond": "Obligations",
+      "gic": "Avoirs des CPG",
+      "mutual": "Fonds communs de placement",
+      "segregated": "Fonds distincts",
+      "stock": "Actions"
+    },
+    "title": "Historique des transactions",
+    "caption": "Ce tableau répertorie les transactions effectuées sur ce compte en fonction des filtres sélectionnés.",
+    "from": "Du:",
+    "to": "De:",
+    "date": "Date",
+    "holding": "Placements",
+    "transaction": "Transaction",
+    "quantity": "Quantité",
+    "price": "Prix ($)",
+    "grossAmount": "Montant brut",
+    "netAmount": "Montant net",
+    "amount": "Montant",
+    "balance": "Solde",
+    "currency": "Devise",
+    "holding": "Placements",
+    "fee": {
+      "dsc": "Fee DSC:",
+      "withholding": "Retenue à la source:",
+      "sales": "Taxes de vente:",
+      "commissions": "Commissions:"
+    },
+    "pagination":{
+      "first": "Première page",
+      "last": "Dernière page",
+      "previous": "Page précédente",
+      "next": "Page suivante",
+      "page": "Aller à la page"
+    }
+  },
+  "rrsp": {
+    "caption": "Ce tableau indique le total des cotisations au REER annuels fabriqués à partir de ce compte.",
+    "captionTotal": "Ce tableau présente le total des cotisations à un REER de ce compte.",
+    "expand": "Agrandir tout",
+    "year": "Année d'imposition",
+    "first60": "Année d'imposition des 60 premiers jours",
+    "remainder": "Restant de l'exercice financier",
+    "contribution": "Montant de la cotisation",
+    "total": "Total des cotisations au REER"
+  },
+  "tfsa": {
+    "caption": "Ce tableau indique le total des cotisations à un CELI annuelles fabriqués à partir de ce compte.",
+    "captionTotal": "Ce tableau présente le total des cotisations à un CELI de ce compte.",
+    "year": "Année",
+    "contribution": "Montant de la cotisation",
+    "total": "CELI Contribution totale"
+  },
+  "documents": {
+    "page": {
+      "title": "Documents",
+      "sub-title": "Pour obtenir vos documents électroniques, choisissez le type de document, le ou les comptes et la période de déclaration, puis cliquez sur « Recherche ».",
+      "sub-title-aoda": "Pour obtenir vos documents électroniques, choisissez le type de document, le ou les comptes et la période de déclaration, puis cliquez sur Recherche.",
+      "search-results": "Résultats de la recherche",
+      "current-date": "Date du jour:",
+      "step": "étape",
+      "body": {
+        "document-type": "Type de document",
+        "select-document-type": "Sélectionnez",
+        "accounts": "Compte(s)",
+        "reporting-period": "Période de déclaration",
+        "select-reporting-period": "Choisissez une période de déclaration.",
+        "statements": "Relevés de portefeuille et rapports au nom du client",
+        "tax-receipts-slips": "Reçus et feuillets d'impôt",
+        "tax-receipts": "Reçus d'impôt",
+        "trade-confirmations": "Confirmations d'opération",
+        "all-accounts": "Tous les comptes",
+        "select-an-account": "Sélectionnez un compte",
+        "account-number": "N&#186; de compte",
+        "account-name": "Nom",
+        "statement-type": "Type de relevé",
+        "select-all-tax-slips": "Sélectionner tous les feuillets ou reçus",
+        "file": "Fichier",
+        "version": "Version",
+        "merge": "Fusion",
+        "search": "Rechercher",
+        "date": "Date",
+        "download": "Télécharger",
+        "document": "Document",
+        "no-accounts": "Aucun compte n'existe pour ce type de document.",
+        "tax-slips": "Reçus et feuillets d'impôt",
+        "merge-tax": "Utilisez les cases pour fusionner et télécharger plusieurs feuillets ou reçus.",
+        "tax-year": "Année d'imposition",
+        "tax-year1": "Année fiscale",
+        "for": "pour",
+        "there-are": "Il y a",
+        "download-statement": "Cliquez pour télécharger ce rapport.",
+        "download-tax-slip": "Cliquez pour télécharger ce document.",
+        "receipt-number": "Numéro de reçu",
+        "select-tax-slip": "Cochez cette case pour choisir de fusionner ce feuillet d’impôt.",
+        "tax-document": "Document Fiscal",
+        "merge-btn": "Cliquez sur ce bouton pour fusionner tous vos documents fiscaux en un fichier PDF unique."
+      },
+      "disclaimer": "Pour visualiser les documents en format PDF, vous devez installer le logiciel Adobe Acrobat Reader 7.0 ou une version plus récente. <a href=\"https://get.adobe.com/fr/reader/\" target=\"blank\">Téléchargez Acrobat Reader</a> pour visualiser et imprimer des PDFs."
+    }
+  },
+  "profile": {
+    "button": {
+      "cancel-changes": "Annuler les changements ",
+      "update-profile": "Mise à jour du profil"
+    },
+    "personal": {
+      "title": "Renseignements personnels",
+      "instructions": "Veuillez entrer votre mot de passe pour changer votre courriel.",
+      "change-address": "Communiquez avec votre conseiller financier pour faire une demande de changement d'adresse.",
+      "email-address": "Adresse de courriel ",
+      "current-password": "Mot de passe actuel",
+      "validation-email": "L'adresse de courriel ne répond aux exigences minimales.",
+      "validation-email-empty": "Veuillez entrer une adresse de courriel."
+    },
+    "security": {
+      "title": "Sécurité",
+      "change-nickname": "Changer votre pseudonyme",
+      "instructions": "Pour effectuer des changements sur cette page, veuillez entrer votre mot de passe actuel.",
+      "you-can-change": "Vous pouvez changer les éléments suivants :",
+      "your-nickname": "Votre nouveau pseudonyme.",
+      "nickname-verbiage": "Le pseudonyme vous permettra de vous connecter avec votre propre nom personnalisé ou votre adresse de courriel, à la place de votre code d\\'utilisateur.",
+      "case-sensitive-nickname": "<strong>Remarque :</strong> Les pseudonymes distinguent les majuscules des minuscules.",
+      "requirements-nickname": "Votre pseudonyme doit comprendre au moins :<br /><ul><li>six caractères, et</li><li>une lettre ou un caractère spécial</li></ul>",
+      "nickname-all": "Le pseudonyme vous permettra de vous connecter avec votre propre nom personnalisé ou votre adresse de courriel, à la place de votre code d'utilisateur. Votre pseudonyme doit comprendre au moins : six caractères, et lettre ou un caractère spécial. Remarque : Les pseudonymes distinguent les majuscules des minuscules. les caractères suivants sont acceptables : !   @   #   $   %   ^   &   *   (   )",
+      "register-computer": "Enregistrer cet ordinateur",
+      "register-computer-checkbox": "Case à cocher pour l’enregistrement de l'ordinateur.",
+      "bypass-security-questions": "Si vous enregistrez votre ordinateur, vous n&#39;aurez pas à répondre aux questions de sécurité à chaque fois que vous vous connectez.<br /><br />Par mesure de sécurité, nous ne recommandons pas l&#39;utilisation de cette fonctionnalité sur des ordinateurs publics ou partagés. ",
+      "security-precaution": "Par mesure de sécurité, nous ne recommandons pas l'utilisation de cette fonctionnalité sur des ordinateurs publics ou partagés.",
+      "trusted-computer": "Cet ordinateur est sécurisé.",
+      "change-password": "Changer votre mot de passe",
+      "password-requirements": "<strong>Exigences de mot de passe</strong>",
+      "special-characters-are": "les caractères suivants sont acceptables : !   @   #   $   %   ^   &   *   (   )",
+      "requirements-password": {
+        "length": "Entre huit et 36 caractères",
+        "atleast": "<strong>et au moins trois des caractères suivants :</strong>",
+        "uppercase": "Lettre majuscule",
+        "lowercase": "Lettre minuscule",
+        "number": "Nombre",
+        "special-character": "Caractère spécial"
+      },
+      "security-questions-answers": "Vos questions et réponses de sécurité",
+      "acceptable-characters": "(Cliquez ici pour obtenir la liste des caractères acceptables)",
+      "new-password": "Nouveau mot de passe",
+      "confirm-new-password": "Confirmez le nouveau mot de passe",
+      "validation-password-no-match": "Le mot de passe entré ne correspond pas.",
+      "validation-password-invalid": "Le mot de passe ne répond pas aux exigences minimales.",
+      "validation-nickname-taken": "Le pseudonyme choisi existe déjà.",
+      "validation-nickname-invalid": "Le pseudonyme choisi ne répond pas aux exigences minimales.",
+      "validation-empty-answer": "Veuillez entrer une réponse.",
+      "validation-security-question": "Veuillez choisir une question de sécurité...",
+      "validation-invalid-answer": "La réponse ne répond pas aux exigences.",
+      "requirements-security-questions": {
+        "title": "Exigences de question de sécurité",
+        "inputting": "Lorsque vous entrez les réponses à vos questions :",
+        "special": "Les caractères spéciaux ne sont pas autorisés (?, #, &, etc.)",
+        "custom-answers": "Vous pouvez personnaliser la cinquième question de sécurité et",
+        "unique": "Les réponses doivent être uniques et faciles à retenir."
+      },
+      "requirements-all": "Exigences de question de sécurité. Lorsque vous entrez les réponses à vos questions : Les caractères spéciaux ne sont pas autorisés (?, #, &, etc.). Vous pouvez personnaliser la cinquième question de sécurité et les réponses doivent être uniques et faciles à retenir.",
+      "security-questions": {
+        "one": "Première question de sécurité :",
+        "two": "Deuxième question de sécurité :",
+        "three": "Troisième question de sécurité :",
+        "four": "Quatrième question de sécurité :",
+        "five": "Cinquième question de sécurité :"
+      },
+      "answer": "Réponse :",
+      "select-question": "Choisissez une question...",
+      "select-question-create": "Choisissez une question ou créez votre propre question",
+      "create-question": "[Créer votre propre question de sécurité]",
+      "your-question": "Votre question :",
+      "your-custom-question": "Votre question :"
+    },
+    "edocument": {
+      "title": "Sélection d'envoi de documents électroniques",
+      "tab-title": "Solution Verte",
+      "sub-title": "En cochant la boîte appropriée, vous recevrez un avis par courrier électronique lorsque les documents seront disponibles en ligne pour être visionnés ou imprimés. ",
+      "note": "<strong>Remarque</strong> : Ces documents ne vous seront pas envoyés par la poste.",
+      "download-pdf": "Téléchargez la version PDF du formulaire de consentement de transmission de documents électroniques."
+    }
+  },
+  "notifications": {
+    "http-errors": {
+      "auth-logout-success": "<em class=\"material-icons\">error</em> Vous vous êtes déconnecté avec succès.",
+      "E401001": "<em class=\"material-icons\">error</em> Si vous avez oublié votre mot de passe, cliquez sur la fonction « Vous avez oublié le mot de passe? » ci-dessous. Pour obtenir de l'aide, communiquez avec le Centre de service Assante, au 1 800 268-3200, du lundi au vendredi, de 8 h à 18 h, heure de l'Est.",
+      "E401002": "<em class=\"material-icons\">error</em> L'accès à votre compte InfoClientèle n'est pas disponible pour l'instant.<br />Communiquez le plus tôt possible avec le Centre de service Assante, au 1 800 268-3200, du lundi au vendredi, de 8 h à 18 h, heure de l'Est.",
+      "E401003": "<em class=\"material-icons\">error</em> Cet ID de connexion est non enregistré. <br/>Pour obtenir de l'aide, communiquez avec le Centre de service Assante, au 1 800 268-3200, du lundi au vendredi, de 8 h à 18 h, heure de l'Est.",
+      "E401004": "<em class=\"material-icons\">error</em> Vous vous êtes déconnecté avec succès.",
+      "E401005": "<em class=\"material-icons\">error</em> Clé API valide ou périmé.",
+      "E401007": "<em class=\"material-icons\">error</em> Si vous avez oublié votre mot de passe, cliquez sur la fonction « Vous avez oublié le mot de passe? » ci-dessous. Pour obtenir de l'aide, communiquez avec le Centre de service Assante, au 1 800 268-3200, du lundi au vendredi, de 8 h à 18 h, heure de l'Est.",
+      "E403001": "<em class=\"material-icons\">error</em> L'accès à votre compte InfoClientèle n'est pas disponible pour l'instant. <br />Communiquez le plus tôt possible avec le Centre de service Assante, au 1 800 268-3200, du lundi au vendredi, de 8 h à 18 h, heure de l'Est.",
+      "E403002": "<em class=\"material-icons\">error</em> L’utilisation du bouton de retour sur cette page est interdite et peut mettre fin à votre session.",
+      "E403003": "@: notifications.http-errors.E401005",
+      "E403005": "<em class=\"material-icons\">error</em> FRE_Invalid or user code not associated to client.",
+      "E409001": "<em class=\"material-icons\">error</em> La réponse fournie ne correspond pas à nos dossiers.",
+      "E409002": "<em class=\"material-icons\">error</em> La réponse fournie ne correspond pas à nos dossiers.",
+      "E409003": "<em class=\"material-icons\">error</em> FRE_Question is inactive.",
+      "E409004": "<em class=\"material-icons\">error</em> Les questions de sécurité ou réponses ne répondent pas aux exigences.",
+      "E409005": "<em class=\"material-icons\">error</em> FRE_Wrong old password.",
+      "E409006": "<em class=\"material-icons\">error</em> Nouveau mot de passe ne répond pas aux exigences minimales <br /> Mot de passe exigences sont actuellement:. <br /> - 8 à 14 caractères <br /> - Haute lettre de cas <br /> - lettre minuscule <br /> - Nombre < br /> - caractère spécial (par exemple @, #, $, etc.) ",
+      "E409007": "<em class=\"material-icons\">error</em> Nouveau mot de passe contient des caractères non valides.",
+      "E409008": "<em class=\"material-icons\">error</em> Nouveau mot de passe similaire à l'un des 5 mots de passe précédents.",
+      "E409009": "<em class=\"material-icons\">error</em> Nouveau mot de passe dépasse la longueur de caractères requis. Un maximum de 14 caractères alphanumériques sont autorisés.",
+      "E409010": "<em class=\"material-icons\">error</em> Le code d'utilisateur ou numéro de compte ne correspond pas à nos dossiers.",
+      "E409011": "<em class=\"material-icons\">error</em> Le NAS ou NE ne correspond pas à nos dossiers.",
+      "E409012": "<em class=\"material-icons\">error</em> La date de naissance ne correspond pas à nos dossiers.",
+      "E409013": "<em class=\"material-icons\">error</em> Nos dossiers indiquent que vous vous êtes déjà inscrit à InfoClientèle Assante. <br /> Pour obtenir de l'aide, communiquez avec le Centre de service Assante au 1 800 268-3200, du lundi au vendredi, de 8 h à 18 h, heure de l'Est.",
+      "E409014": "<em class=\"material-icons\">error</em> SSN fait partie de la liste de SSN valide.",
+      "E409015": "<em class=\"material-icons\">error</em> Le pseudonyme ne répond pas aux exigences minimales.",
+      "E409016": "<em class=\"material-icons\">error</em> Ce pseudonyme existe déjà. Veuillez créer un autre pseudonyme.",
+      "E409017": "<em class=\"material-icons\">error</em> Mot de passe dépasse les caractères requis de longueur.",
+      "E409018": "<em class=\"material-icons\">error</em> Invalide ou faible nouveau mot de passe.",
+      "E409019": "<em class=\"material-icons\">error</em> Email invalide.",
+      "E409020": "<em class=\"material-icons\">error</em> Manquante ou incomplète question / réponse.",
+      "E409021": "<em class=\"material-icons\">error</em> Les questions ou réponses de sécurité ne répondent pas aux exigences.",
+      "E409022": "<em class=\"material-icons\">error</em> Invalide ou non associé avec le numéro de compte du client",
+      "E409023": "<em class=\"material-icons\">error</em> Mon Portail est un moyen sûr de communiquer et partager des documents avec votre conseiller. Mon Portail vous sera accessible dans les 24 heures suivant votre inscription.",
+      "E409024": "<em class=\"material-icons\">error</em> Mon Portal n’est pas disponible en ce moment, car votre profil doit être mis à jour. Pour obtenir de l'aide, communiquez avec le Centre de service Assante, au 1 800 268-3200, du lundi au vendredi, de 8 h à 18 h, heure de l'Est.",
+      "E409025": "<em class=\"material-icons\">error</em> Mon Portail n'est pas accessible, car vos comptes ont un solde de zéro ou sont inactifs.",
+      "E409026": "<em class=\"material-icons\">error</em> Mon Portal n’est pas disponible.",
+      "E409027": "<em class=\"material-icons\">error</em> Valeur de maintien non valide",
+      "E409029": "<em class=\"material-icons\">error</em> Non REER compte",
+      "E409030": "<em class=\"material-icons\">error</em> Pas compte CELI",
+      "E409031": "<em class=\"material-icons\">error</em> L'accès à votre compte InfoClientèle n'est pas disponible pour l'instant. <br />Communiquez le plus tôt possible avec le Centre de service Assante, au 1 800 268-3200, du lundi au vendredi, de 8 h à 18 h, heure de l'Est.",
+      "E409032": "<em class=\"material-icons\">error</em> La réponse ne correspond pas à nos dossiers.",
+      "E409033": "<em class=\"material-icons\">error</em> Nous n'arrivons pas à retrouver votre code d'utilisateur. Communiquez avec le Centre de service Assante au 1 800 268-3200, du lundi au vendredi, de 8 h à 18 h, heure de l'Est.",
+      "E409034": "<em class=\"material-icons\">error</em> Dupliquer les données trouvées.",
+      "E409035": "<em class=\"material-icons\">error</em> Vos commentaires non valide.",
+      "E409036": "<em class=\"material-icons\">error</em> Invalide date de filtre",
+      "E409037": "<em class=\"material-icons\">error</em> Mot de passe invalide.",
+      "E409038": "<em class=\"material-icons\">error</em> Manquant ou invalide nom.",
+      "E409039": "<em class=\"material-icons\">error</em> Votre tentative de connexion a échoué. Veuillez répondre à une nouvelle question de sécurité.",
+      "core-generic-failure": "<em class=\"material-icons\">error</em> En raison d'un problème survenu, vous avez été déconnecté. Veuillez vous connecter à nouveau."
+    },
+    "fe-messages": {
+      "compliance-cif-no-selection": "<em class=\"material-icons\">error</em> Veuillez sélectionner un compte.",
+      "compliance-ua-no-selection": "<em class=\"material-icons\">error</em> Veuillez lire et accepter les termes et conditions du nouvel accord d'utilisateur d'Info Clientèle en ligne.",
+      "registration-ua-no-selection": "<em class=\"material-icons\">error</em> Vous devez accepter les modalités pour passer à la prochaine étape.",
+      "registration-missing-fields": "<em class=\"material-icons\">error</em> Vous devez remplir tous les champs.",
+      "registration-acknowledgement-no-selection": "<em class=\"material-icons\">error</em> Remarque: Vous devez accepter les termes et conditions avant de poursuivre.",
+      "profile-success-email": "<em class=\"material-icons\">check_circle</em> Votre profil a été enregistré.",
+      "profile-success-edd": "<em class=\"material-icons\">check_circle</em> Votre profil a été enregistré.",
+      "profile-success-security": "<em class=\"material-icons\">check_circle</em> Votre profil a été enregistré.",
+      "feedback-success": "<em class=\"material-icons\">error</em> Votre commentaire a été soumis.",
+      "feedback-failure": "<em class=\"material-icons\">error</em> Vos commentaires n'ont pas pu être soumis. Veuillez réessayer.",
+      "cancel-no-login-registration": "<em class=\"material-icons\">error</em> L'inscription est annulée.",
+      "refresh-registration": "<em class=\"material-icons\">error</em> Actualisation de la page a donné lieu à toute information non enregistrée étant perdue. S'il vous plaît recommencer.",
+      "refresh-forgotten-password": "<em class=\"material-icons\">error</em> Actualisation de la page a donné lieu à toute information non enregistrée étant perdue. S'il vous plaît recommencer.",
+      "refresh-web-id-retrieval": "<em class=\"material-icons\">error</em> Actualisation de la page a donné lieu à toute information non enregistrée étant perdue. S'il vous plaît recommencer.",
+      "cancel-no-login-password": "<em class=\"material-icons\">error</em> Réinitialisation mot de passe est annulée.",
+      "cancel-no-login-webid": "<em class=\"material-icons\">error</em> Récupération ID de connexion est annulée.",
+      "forgottenpassword-success": "<em class=\"material-icons\">check_circle</em> Votre mot de passe a été changé."
+    }
+  },
+  "fancytooltip": {
+    "requirements": "Exigences de mot de passe :",
+    "char-limits": "Entre 8 et 14 caractères",
+    "at-least": "et au moins trois des caractères suivants :",
+    "upper": "Lettre majuscule",
+    "lower": "Lettre minuscule",
+    "number": "Nombre",
+    "special": "Caractère spécial",
+    "all": "Exigences de mot de passe exigences de mot de passe et au moins trois des questions suivantes : Lettre majuscule, lettre minuscle, nombre et Caractère spécial. Les caractères suivants sont acceptables : exclamation point at sign # $ % ^ & * ( )"
+  },
+  "passwordReminder": {
+    "title": "Changez votre mot de passe",
+    "description": "Nous recommandons que vous changiez votre mot de passe InfoClientèle tous les 90 jours afin d'aider à protéger votre compte en ligne contre tout accès non autorisé.",
+    "noThanks": "Non merci",
+    "changePassword": "Changement de mot de passe"
+  },
+  "contactUs": {
+    "title": "Pour nous joindre",
+    "assanteServiceCentre": {
+      "title": "Centre de service Assante",
+      "description": "Pour obtenir de l'aide, nos représentants en services financiers se tiennent à votre disposition afin de répondre à vos questions, entre 8 h et 18 h, heure de l'Est, du lundi au vendredi.",
+      "description-aoda": "Pour obtenir de l'aide, nos représentants en services financiers se tiennent à votre disposition afin de répondre à vos questions, entre 8 h et 18 h, heure de l'Est, du lundi au vendredi.",
+      "phoneTitle": "Téléphone :",
+      "phone": "1 800 268-3200",
+      "faxTitle": "Téléc. :",
+      "fax": "1 866 645-4447",
+      "emailTitle": "Courriel : "
+    },
+    "investorOnlineFeedback": {
+      "title": "Commentaires sur InfoClientèle",
+      "description": "Avez-vous des commentaires au sujet d'InfoClientèle? Communiquez vos commentaires dans la zone de texte fournie ci-dessous.",
+      "submit": "Soumettre"
+    }
+  },
+  "logout": {
+    "title": "Exprimez votre opinion",
+    "sub-title": "en participant à un bref sondage",
+    "survey-link": "https://www.surveymonkey.com/r/AIO_F",
+    "options": {
+      "no": "Non merci",
+      "yes": "OK",
+      "remind": "Me le rappeler plus tard"
+    }
+  },
+  "login": {
+    "already-registered": "Vous êtes déjà inscrit?",
+    "or": "ou",
+    "register-now": "inscrivez-vous maintenant",
+    "username-placeholder": "Code d'utilisateur ou pseudonyme",
+    "userpass-placeholder": "Mot de passe",
+    "login-button": "Connexion",
+    "remember-web-login-id": "Mémoriser le code d'utilisateur ",
+    "forgot-password": "Vous avez oublié le mot de passe?",
+    "retrieve-login-id": "Récupérer le code d'utilisateur",
+    "login-disclaimer-1": "Vous trouverez votre code d’utilisateur sur ",
+    "login-disclaimer-2": ".",
+    "eciss-title": "FRE-eCISS login SSO",
+    "eciss-loading": "Redirection",
+    "forgot-your": "Vous avez oublié votre",
+    "web-login": "code d'utilisateur",
+    "password": "mot de passe",
+    "min-characters1": "Ce champ doit contenir au moins",
+    "min-characters2": "caractères.",
+    "tip": "En cochant cette boîte, le navigateur Web mémorisera le dernier code d&#39;utilisateur ou pseudonyme entré. Par mesure de sécurité, nous ne recommandons pas l&#39;utilisation de cette fonctionnalité sur des ordinateurs publics ou partagés."
+  },
+  "footer": {
+    "link1": "FR Link 1",
+    "link2": "FR Link 2",
+    "link3": "FR Link 3",
+    "link4": "FR Link 4"
+  },
+  "universal": {
+    "accessibility": {
+      "site-wide-nav-label": "FR Site wide navigation",
+      "site-wide-footer-label": "FR Site wide footer",
+      "main-label": "FRE Main content section",
+      "help-nav-label": "FRE Help navigation",
+      "font-size-normal": "Changez à « normale » la taille de la police de la demande.",
+      "font-size-large": "Changez à « grande » la taille de la police de la demande.",
+      "font-size-largest": "Changez à « très grande » la taille de la police de la demande.",
+      "max-length": "Votre pseudonyme a atteint la longueur maximale.",
+      "max-length-password": "Votre nouveau mot de passe a atteint la longueur maximale.",
+      "valid-password": "Ce mot de passe est valide.",
+      "confirm-pass-empty": "La case de confirmation de votre mot de passe est vide.",
+      "max-length-confirm": "La confirmation de votre mot de passe a atteint la longueur maximale.",
+      "nickname": "Ceci est votre pseudonyme."
+    },
+    "session-to-be-expired-msg1": "Votre session InfoClientèle est inactive depuis",
+    "session-to-be-expired-msg2": "minutes.<br/>Par mesure de sécurité, vous serez déconnecté à moins de montrer des signes d'activités.",
+    "keep-session-alive": "Garder la session active",
+    "legal-notices": "Avis juridiques",
+    "user-agreement": "Contrat d'utilisation",
+    "privacy-policy": "Politique de confidentialité",
+    "email-security": "Sécurité des courriels",
+    "assante-copyright": "Gestion de patrimoine Assante",
+    "logout": "Déconnexion",
+    "aio-logo-text": "InfoClientèle",
+    "aio-logo-link-text": "InfoClientèle Accueil",
+    "help": "Aide",
+    "demo": "Démo",
+    "contact-us": "Pour nous joindre",
+    "feedback": "Commentaires",
+    "legal-notices-link": "http://assante.com/fr/legal.jsp",
+    "privacy-policy-link": "http://assante.com/fr/privacy.jsp",
+    "email-security-link": "http://www.assante.com/fr/security.jsp",
+    "assante-footer-link": "http://www.assante.com/fr/",
+    "go-to-portfolio": "Allez à la page Portefeuille",
+    "change-security-setup": "Modifiez votre mot de passe à la rubrique Sécurité.",
+    "font-size": "Taille de la police:",
+    "assante": "© Gestion de patrimoine Assante {{ year }} ",
+    "select": "Sélectionnez",
+    "select-all": "Sélectionnez tous",
+    "valid-password": "FRE - Your password is valid now!",
+    "password-criteria-two": "Lorsque vous cr&eacute;ez les pseudonymes ou mots de passe, les caract&egrave;res suivants sont acceptables : ! @ # $ % ^ & * ( )",
+    "password-criteria": "<strong>Exigences de mot de passe:</strong><br />&nbsp;&bullet;&nbsp;Entre 8 et 14 caractères<br /><strong>et au moins trois des caractères suivants :</strong><br />&nbsp;&bullet;&nbsp;Lettre majuscule<br />&nbsp;&bullet;&nbsp;Lettre minuscule<br />&nbsp;&bullet;&nbsp;Nombre<br />&nbsp;&bullet;&nbsp;Caractère spécial<br /><br />Lorsque vous cr&eacute;ez les pseudonymes ou mots de passe, les caract&egrave;res suivants sont acceptables :<br />&excl; &nbsp;&nbsp;&commat; &nbsp;&nbsp;&num; &nbsp;&nbsp;&dollar; &nbsp;&nbsp;&percnt; &nbsp;&nbsp;&Hat; &nbsp;&nbsp;&amp; &nbsp;&nbsp;&ast; &nbsp;&nbsp;&lpar; &nbsp;&nbsp;&rpar;"
+  }
+}

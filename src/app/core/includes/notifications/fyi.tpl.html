@@ -1,0 +1,7 @@
+<div>
+    <div ng-if="vm.fyi.showFYI" class="notification banner" ng-class="vm.fyi.banner.messageType" role="{{vm.fyi.showFYI ? 'alert' : undefined}}" aria-live="polite" aria-hidden="{{!vm.fyi.showFYI}}">
+        <p>{{vm.fyi.banner.message}}</p>
+        <a href class="dismiss" title="{{ 'navbar.dismiss-message' | translate }}" ng-click="vm.fyi.dismissFYI(vm.fyi.banner.key)"><span
+                hidden>{{ 'navbar.dismiss-message' | translate }}</span><em class="material-icons"></em></a>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+{
+  "APP_CONFIG": {
+    "PASSWORD_MIN": 8,
+    "PASSWORD_MAX": 14,
+    "PASSWORD_MIN_LEGACY": 4,
+    "USER_MIN": 6,
+    "USER_MAX": 255,
+    "EMAIL_MAX": 255
+  },
+  "PROMO_CONFIG_PATH": "https://ws.ci.com/aio-promo.json"
+}

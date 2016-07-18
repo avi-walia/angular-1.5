@@ -1,0 +1,251 @@
+header {
+    width: 100%;
+    height: 94px;
+    .login & { height:54px; overflow:hidden; }
+    background: #fff;
+    position: fixed;
+    z-index: 1000;
+    right: 0;
+    -webkit-transition: right 400ms ease;
+    -moz-transition: right 400ms ease;
+    -o-transition: right 400ms ease;
+    transition: right 400ms ease;
+
+    // Fix for IE
+    .snapjs-right & { position:absolute; }
+
+    // h1#logo { margin:0;
+    //     a {
+    //         margin: 8px 0 0 10px;
+    //         display: inline-block;
+    //         width: 152px;
+    //         height: 34px;
+    //         text-indent: -999em;
+    //         background: url(../assets/images/logos.svg) 0 0 no-repeat;
+    //         background-size: 185%;
+    //         .fr & {
+    //             background: url(../assets/images/logos_f.svg) 0 0 no-repeat;
+    //             background-size: 160%;
+    //         }
+    //     }
+    // }
+    #logo {
+        margin: 8px 0 0 10px;
+        display: inline-block;
+        width: 152px;
+        height: 34px;
+        overflow:hidden;
+        img { width: 272px; height:auto; }
+        .fr & {
+            img { width: 244px; }
+        }
+    }
+    #drawerlink {
+        width: 25px;
+        height: 21px;
+        display: block;
+        text-indent: -999em;
+        background: url(../assets/images/icons.svg) 0 -837px no-repeat;
+        background-size: 100%;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        &.open {
+            right: 0;
+            z-index: 998;
+            width: 55px;
+            height: 79px;
+            background-position: 15px -745px;
+            background-size: 25px;
+        }
+    }
+    #bluebar {
+        width: 100%;
+        height: 44px;
+        background: $blue;
+        border-top: solid 4px $gold;
+        position: absolute;
+        top: 50px;
+        nav#primary {
+            span.select {
+                width: 100%;
+                padding-right: 12px;
+                &:before {
+                    width: 31px;
+                    background: $blue url(../assets/images/btn_select.svg) right 4px no-repeat;
+                    background-size: 31px;
+                    right: 12px;
+                }
+                select {
+                    width: 100%;
+                    height: 40px;
+                    padding: 0 13px;
+                    background: $blue url(../assets/images/btn_select.svg) right 4px no-repeat;
+                    background-size: 31px;
+                    border: 0;
+                    font: 20px/1.2 "Playfair Display", serif;
+                    color: #fff;
+                    appearance: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    option {
+                        background: #fff;
+                        color: $text;
+                    }
+                    // &:focus {
+                    //     outline: none;
+                    // }
+                }
+            }
+        }
+    }
+    &.headroom--top #bluebar {
+        box-shadow: 0;
+    }
+    &.headroom--not-top #bluebar {
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    }
+    // &.open {
+    //     position: absolute;
+    // }
+    @media only screen and (min-width: 768px) {
+        width: 100%;
+        height: 185px !important;
+        background: #fff;
+        position: relative;
+        .container {
+            height: 121px;
+            position: relative;
+        }
+        // h1#logo {
+        //     a {
+        //         margin: 50px 0 0 3%;
+        //         width: 330px;
+        //         height: 45px;
+        //         background: url(../assets/images/logos.svg) 0 -165px no-repeat;
+        //         background-size: 178%;
+        //         // a {
+        //         //     display: none;
+        //         // }
+        //         .fr & {
+        //             background: url(../assets/images/logos_f.svg) 0 -165px no-repeat;
+        //             background-size: 157%;
+        //         }
+        //     }
+        // }
+        #logo {
+            margin: 50px 0 0 3%;
+            width: 330px;
+            height: 45px;
+            a { display:block; }
+            img { width: 655px; height:auto; margin-top:-190px; }
+            .fr & {
+                img { width: 580px; margin-top:-192px; }
+            }
+        }
+        #topnav {
+            position:absolute;
+            top:15px;
+            right:3%;
+            margin:0;
+            display: block;
+            ul li {
+                display: inline-block;
+                float:left;
+                a {
+                    background: $lt_grey;
+                    border-radius:2px;
+                    color: $dk_grey;
+                    margin-left: 5px;
+                    padding: 3px 10px;
+                    &:hover, &.active {
+                        background: $orange;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+        #bluebar {
+            height: 64px;
+            position: static;
+            // box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+            .container {
+                height: 64px;
+            }
+            nav#primary {
+                ul {
+                    height: 60px;
+                    line-height: 60px;
+                    margin: 0 0 0 3%;
+                    float: left;
+                    white-space: nowrap;
+                    li {
+                        display: inline;
+                        font: 17px/1 "Roboto Condensed", sans-serif;
+                        margin-right: 12px;
+                        padding-right: 12px;
+                        border-right: solid 1px darken($blue, 10%);
+                        @media only screen and (min-width:830px) {
+                            font-size:18px;
+                            margin-right: 15px;
+                            padding-right: 15px;
+                        }
+                        @media only screen and (min-width:900px) {
+                            font-size:20px;
+                        }
+                        a {
+                            color: #fff;
+                            text-transform: uppercase;
+                            // &.active {
+                            //     color: $orange;
+                            // }
+                        }
+                        &:nth-child(1) {
+                            .portfolio &,
+                            .accountOverview &,
+                            .transactionHistory &,
+                            .rrspContribution &,
+                            .tfsaContribution &,
+                            .cash &{
+                                a {
+                                    color: $orange;
+                                }
+                            }
+                        }
+                        &:nth-child(2) {
+                            .documents & {
+                                a {
+                                    color: $orange;
+                                }
+                            }
+                        }
+                        &:nth-child(3) {
+                            .profilePersonal &,
+                            .profileSecurity &,
+                            .profileEdd &{
+                                a {
+                                    color: $orange;
+                                }
+                            }
+                        }
+                        &:last-child {
+                            border: 0;
+                        }
+                    }
+                }
+                #paperless {
+                    display: inline;
+                    float: right;
+                    margin: 10px 3% 0 0;
+                }
+            }
+        }
+    }
+    // @media only screen and (min-width: 850px) {
+    //     #bluebar {
+    //         nav#primary {
+    //             ul li { font-size:20px; }
+    //         }
+    //     }
+    // }
+}

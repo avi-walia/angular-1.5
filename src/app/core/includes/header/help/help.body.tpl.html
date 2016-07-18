@@ -1,0 +1,66 @@
+<div class="modal-header">
+    <h3 class="modal-title" translate>universal.help</h3>
+</div>
+<div class="modal-body">
+    <div id="help-top"></div>
+    <ol id="help-menu" role="navigation" aria-label="{{ 'universal.accessibility.help-nav-label' | translate }}">
+        <li id="faq_registration"><a href analytics-on analytics-event="click" analytics-category="HELP MODAL"
+                                     analytics-label="Registration" ng-click="jumpToSection('section1')" translate>help.section1.link</a></li>
+        <li id="faq_login"><a href analytics-on analytics-event="click" analytics-category="HELP MODAL"
+                              analytics-label="Login" ng-click="jumpToSection('section2')" translate>help.section2.link</a></li>
+        <li id="faq_account"><a href analytics-on analytics-event="click" analytics-category="HELP MODAL"
+                                analytics-label="Account Info" ng-click="jumpToSection('section3')" translate>help.section3.link</a></li>
+    </ol>
+    <div id="section1" class="help-section" role="main">
+        <h3 class="faq" translate>help.section1.title</h3>
+        <div class="question_cont">
+            <h5 translate>help.section1.question1</h5>
+            <p translate>help.section1.answer1</p>
+        </div>
+        <div class="question_cont">
+            <h5 translate>help.section1.question2</h5>
+            <p translate>help.section1.answer2</p>
+        </div>
+        <div class="question_cont">
+            <h5 translate>help.section1.question3</h5>
+            <p translate>help.section1.answer3</p>
+        </div>
+
+    </div>
+    <div id="section2" class="help-section" role="main">
+        <h3 class="faq" translate>help.section2.title</h3>
+        <div class="question_cont">
+            <h5 translate>help.section2.question1</h5>
+            <p translate>help.section2.answer1</p>
+        </div>
+        <div class="question_cont">
+            <h5 translate>help.section2.question2</h5>
+            <p translate>help.section2.answer2</p>
+        </div>
+        <div class="question_cont">
+            <h5 translate>help.section3.question3</h5>
+            <p translate>help.section3.answer3</p>
+        </div>
+
+    </div>
+    <div id="section3" class="help-section" role="main">
+        <h3 class="faq" translate>help.section3.title</h3>
+        <div class="question_cont">
+            <h5 translate>help.section3.question1</h5>
+            <p translate>help.section3.answer1</p>
+        </div>
+        <div class="question_cont">
+            <h5 translate>help.section3.question2</h5>
+            <p translate>help.section3.answer2</p>
+        </div>
+        <div class="question_cont">
+            <h5 translate>help.section3.question3</h5>
+            <p translate>help.section3.answer3</p>
+        </div>
+
+    </div>
+
+</div>
+<div class="modal-footer"><a class="top" href ng-click="jumpToSection('top')">Scroll to top</a>
+    <button class="btn btn-primary" type="button" ng-click="ok()">Close Help</button>
+</div>

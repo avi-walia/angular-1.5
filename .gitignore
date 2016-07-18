@@ -1,0 +1,14 @@
+node_modules/
+platforms/
+plugins/
+bower_components/
+www/lib/
+www/
+.sass-cache/
+.tmp/
+dist/
+config.js
+.idea/
+.gulp-scss-cache
+.editorconfig
+.bowerrc

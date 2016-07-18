@@ -1,0 +1,4 @@
+{
+  "BASE_URL": "https://uat.assanteservices.com",
+  "ENDPOINT_URI": "/aiolws"
+}

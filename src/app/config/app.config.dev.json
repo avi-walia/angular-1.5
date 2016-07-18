@@ -1,0 +1,5 @@
+{
+  "BASE_URL": "https://dev.assanteservices.com",
+  "CONTEXT_ROOT": "/aiol",
+  "ENDPOINT_URI": "/aiolws"
+}

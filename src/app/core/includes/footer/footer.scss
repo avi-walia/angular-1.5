@@ -1,0 +1,140 @@
+#footer {
+    // font-size: 12px;
+    // color: $lt_grey;
+    // text-align: center;
+    // position: absolute;
+    // bottom: 10px;
+    width: 100%;
+    background: #222;
+    color: $dk_grey;
+    font-size: 10px;
+    line-height: 1.1;
+    text-align: left;
+    margin-top: -5px;
+    .accountOverview &, .transactionHistory &, .rrspContribution &, .tfsaContribution &, .profilePersonal &, .profileSecurity &, .profileEdd & {
+        padding-bottom:60px;
+    }
+    padding: 13px 10px;
+    border-top: solid 5px $bg;
+    p { margin: 0; }
+    // p {
+    //     display: inline-block;
+    // }
+    // .copyright {
+    //     width: auto;
+    //     text-align: right;
+    //     // float: right;
+    //     a {
+    //         color: $dk_grey;
+    //     }
+    // }
+    @media only screen and (min-width: 768px) {
+        font-size: 1em;
+        line-height: 1;
+        text-align: left;
+        // position: relative;
+        // bottom: auto;
+        clear: both;
+        height: 120px;
+        // margin-top: 2em;
+        // margin-bottom:0 !important;
+        padding:2em 0 0 !important;
+        background:$bg;
+        border:0;
+        #footernav ul {
+            margin-left: 3%;
+            white-space: nowrap;
+            li {
+                display: inline-block;
+                padding: 0 15px;
+                border-right: solid 1px $grey;
+                &:first-child {
+                    margin-left: -15px;
+                }
+                &:last-child {
+                    border: 0;
+                }
+                a {
+                    color: $dk_grey;
+                    &:hover {
+                        color: $orange;
+                    }
+                }
+            }
+        }
+        p.copyright {
+            color: $dk_grey;
+            margin: 1em 0 0 3% !important;
+            white-space: nowrap;
+        }
+        a#cilogo {
+            float: right;
+            margin: -44px 3% 0 0;
+            width:190px;
+            height:40px;
+            overflow:hidden;
+            @media only screen and (max-width: 890px) {
+                .fr & {
+                    margin-top:-14px;
+                }
+            }
+            img {
+                width: 340px;
+                height: auto;
+                // padding-left: 236px;
+                // background: url(../assets/images/logos.svg) 45px -63px no-repeat;
+                // background-size: 200%;
+                .fr & {
+                    width:300px;
+                    // background: url(../assets/images/logos_f.svg) 43px -64px no-repeat;
+                    // background-size: 180%;
+                }
+            }
+        }
+        a#mobilev {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 6vh;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            font-size: 2.5vh;
+            line-height: 6vh;
+            text-align: center;
+            white-space: nowrap;
+            &.off {
+                display: none;
+            }
+        }
+        // loggedin
+        // font-size: 1em;
+        // padding: 30px 0;
+        // background: none;
+        // border: 0;
+        // .copyright {
+        //     width: auto;
+        //     float: none;
+        // }
+        // .notes,
+        // .copyright a {
+        //     display: none;
+        // }
+        // a#cilogo {
+        //     margin-top: -26px;
+        // }
+        // end loggedin
+    }
+    @media print {
+        border:0; padding:0.2in 0 !important;
+        p.copyright { float:left; }
+        a#cilogo { float:right; width:190px; height:40px; overflow:hidden;
+            img { max-width:none !important; width:340px; height:auto; }
+            .fr & {
+                img { width:300px; }
+            }
+        }
+        // #cilogo { position:absolute !important; top:0; left:0; width:2.2in; height:0.5in; overflow:hidden;
+        //     img { max-width:none !important; width:auto !important; height:2.75in; margin-top:-0.825in !important; }
+        // }
+    }
+}

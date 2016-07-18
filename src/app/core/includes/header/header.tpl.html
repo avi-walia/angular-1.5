@@ -1,0 +1,72 @@
+<header id="header"
+        headroom offset="20" classes="{initial:'animated', pinned:'slideDown', unpinned:'slideUp'}">
+    <div class="container">
+        <div style="margin:0 0 0 3%;color:#fff;position:absolute;background:#000;">v{{ Head.version }}</div>
+        <!-- <h1 id="logo"><a tabindex="0" title="{{ 'universal.aio-logo-text' | translate }}" ui-sref="main.aio.portfolio" translate>universal.aio-logo-text</a></h1> -->
+        <div id="logo" tabindex="0" title="{{ 'universal.aio-logo-link-text' | translate }}" translate><img src="./assets/images/{{ 'navbar.aiologo-img' | translate }}" alt="{{ 'universal.aio-logo-text' | translate }}"/></div>
+        <!-- <div id="logo"><img src="../assets/images/{{ 'navbar.aiologo-img' | translate }}" /></div> -->
+        <a id="drawerlink" class="mobile" snap-toggle="right">☰</a>
+
+        <nav id="topnav" class="full" ng-if="Main.detectMobile.isDesktop" role="navigation" aria-label="{{ 'universal.accessibility.site-wide-nav-label' | translate }}">
+            <ul>
+                <language-switcher></language-switcher>
+                <li><ci-help page="Main.pageStateResolver.activePageName" >{{ 'universal.help' | translate }}</ci-help></li>
+                    <!--<li><a href="#" tabindex="0" title="{{ 'universal.demo' | translate }}"
+                           analytics-on analytics-event="click" analytics-category="HEADER" analytics-label="Demo"
+                           translate>universal.demo</a></li>-->
+                <li><a title="{{ 'universal.contact-us' | translate }}" ui-sref="main.aio.contact"
+
+                       ng-class="{ 'active': Main.pageStateResolver.activePageName === 'contact' }"
+                       analytics-on analytics-event="click" analytics-category="HEADER" analytics-label="Contact Us"
+                       translate>universal.contact-us</a></li>
+                <!--
+                <li aria-hidden="false" has-permission="appAccess" ><a title="{{ 'universal.logout' | translate }}" ui-sref="main.aio.logout"
+                                                                       analytics-on analytics-event="click" analytics-category="HEADER" analytics-label="Logout"
+                                                                       translate>universal.logout</a></li>
+                                                                       -->
+
+                <!--li has-permission="appAccess"><a tabindex="0" title="{{ 'universal.feedback' | translate }}" ui-sref="main.aio.feedback"
+                       analytics-on analytics-event="click" analytics-category="HEADER" analytics-label="Feedback"
+                       translate>universal.feedback</a></li-->
+                <!--li><a data-href="feedback" class="modal">Feedback</a></li-->
+            </ul>
+        </nav>
+
+        <ci-font-sizer ng-if="Main.detectMobile.isDesktop"></ci-font-sizer>
+
+    </div>
+    <div id="bluebar">
+        <div class="container" has-permission="appAccess">
+            <nav id="primary" ng-if="Main.detectMobile.isDesktop" role="navigation" aria-label="{{ 'universal.accessibility.site-wide-nav-label' | translate }}">
+                <ul class="full">
+                    <li tabindex="0" title="{{ 'navbar.menu.portfolio' | translate }}"
+                           analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Portfolio"
+                           translate>navbar.menu.page1</li>
+                    <li><a tabindex="0" title="{{ 'navbar.menu.documents' | translate }}" ui-sref="main.aio.landing.page"
+                           analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Documents"
+                           translate>navbar.menu.page2</a></li>
+                    <li><a tabindex="0" title="{{ 'navbar.menu.profile' | translate }}" ui-sref="main.aio.landing.page"
+                           analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Profile"
+                           translate>navbar.menu.page3</a></li>
+                    <li><a tabindex="0" title="{{ 'navbar.menu.profile' | translate }}" ui-sref="main.aio.landing.page"
+                           analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Profile"
+                           translate>navbar.menu.page4</a></li>
+                    <li><a tabindex="0" title="{{ 'navbar.menu.profile' | translate }}" ui-sref="main.aio.landing.page"
+                           analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Profile"
+                           translate>navbar.menu.page5</a></li>
+                </ul>
+
+                <a title="{{ 'navbar.goPaperlessBtn' | translate }}" ng-if="Head.UserService.displayGoPaperless"
+                   analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Go Paperless"
+                   id="paperless" class="full" ui-sref="main.aio.profile.edocument">
+                    <img width="140" height="38" ng-src="{{ 'navbar.goPaperlessImg' | translate }}" alt="{{ 'navbar.goPaperlessBtn' | translate }}"></a>
+
+                <!-- <span class="select mobile"><select id="sel_account" title="Select an account">
+                    <option value="#overview">Portfolio Overview</option>
+                    <option value="#123456789" selected="">RRSP 123456789</option>
+                    <option value="#987654321">TFSA 987654321</option>
+                </select></span> -->
+            </nav>
+        </div>
+    </div>
+</header>

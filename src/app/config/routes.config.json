@@ -1,0 +1,436 @@
+{
+  "ROUTES": [
+    {
+      "stateName": "main",
+      "isAbstract": true,
+      "pageName": "",
+      "pageTitleEn": "",
+      "pageTitleFr": "",
+      "hasFYI": false,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio",
+      "isAbstract": true,
+      "pageName": "",
+      "pageTitleEn": "",
+      "pageTitleFr": "",
+      "hasFYI": false,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.landing",
+      "isAbstract": true,
+      "pageName": "",
+      "pageTitleEn": "",
+      "pageTitleFr": "",
+      "hasFYI": false,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.landing.page",
+      "isAbstract": false,
+      "pageName": "login",
+      "pageTitleEn": "Login",
+      "pageTitleFr": "Connexion",
+      "hasFYI": true,
+      "isPublic": true
+    },
+    {
+      "stateName": "main.aio.eciss",
+      "isAbstract": false,
+      "pageName": "loginSSO",
+      "pageTitleEn": "Login SSO",
+      "pageTitleFr": "Connexion SSO",
+      "hasFYI": false,
+      "isPublic": true
+    },
+    {
+      "stateName": "main.aio.compliance",
+      "isAbstract": true,
+      "pageName": "",
+      "pageTitleEn": "",
+      "pageTitleFr": "",
+      "hasFYI": false,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.compliance.seq",
+      "isAbstract": false,
+      "pageName": "securityChallenge",
+      "pageTitleEn": "Security Question",
+      "pageTitleFr": "Question de sécurité",
+      "hasFYI": false,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.compliance.mcif",
+      "isAbstract": false,
+      "pageName": "masterCif",
+      "pageTitleEn": "Master Web Login ID",
+      "pageTitleFr": "Passepartout de connexion",
+      "hasFYI": false,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.compliance.ua",
+      "isAbstract": false,
+      "pageName": "userAgreement",
+      "pageTitleEn": "User Agreement",
+      "pageTitleFr": "Contrat d'utilisation",
+      "hasFYI": false,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.compliance.tpwdr",
+      "isAbstract": false,
+      "pageName": "tempPasswordReset",
+      "pageTitleEn": "Change the Password",
+      "pageTitleFr": "Changer le mot de passe",
+      "hasFYI": false,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.compliance.pwdr",
+      "isAbstract": false,
+      "pageName": "mandatoryPasswordReset",
+      "pageTitleEn": "Change the Password",
+      "pageTitleFr": "Changer le mot de passe",
+      "hasFYI": false,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.compliance.loginseq",
+      "isAbstract": false,
+      "pageName": "secretQuestion",
+      "pageTitleEn": "Security Question",
+      "pageTitleFr": "Question de sécurité",
+      "hasFYI": false,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.compliance.allseq",
+      "isAbstract": false,
+      "pageName": "loginSecuritySetup",
+      "pageTitleEn": "Enhanced Security",
+      "pageTitleFr": "Sécurité renforcées",
+      "hasFYI": false,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.compliance.edd",
+      "isAbstract": false,
+      "pageName": "eDocDelivery",
+      "pageTitleEn": "Electronic Document Delivery",
+      "pageTitleFr": "Envoi de documents électroniques",
+      "hasFYI": false,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.forgottenpassword",
+      "isAbstract": true,
+      "pageName": "",
+      "pageTitleEn": "",
+      "pageTitleFr": "",
+      "hasFYI": false,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.forgottenpassword.webid",
+      "isAbstract": false,
+      "pageName": "forgottenpasswordWebid",
+      "pageTitleEn": "Forgot your password?",
+      "pageTitleFr": "Vous avez oublié votre mot de passe?",
+      "hasFYI": false,
+      "isPublic": true
+    },
+    {
+      "stateName": "main.aio.forgottenpassword.securityquestion1",
+      "isAbstract": false,
+      "pageName": "forgottenPasswordSecurityQuestion1",
+      "pageTitleEn": "First Security Question",
+      "pageTitleFr": "Première question de sécurité",
+      "hasFYI": false,
+      "isPublic": true
+    },
+    {
+      "stateName": "main.aio.forgottenpassword.securityquestion2",
+      "isAbstract": false,
+      "pageName": "forgottenPasswordSecurityQuestion2",
+      "pageTitleEn": "Final Security Question",
+      "pageTitleFr": "Dernière question de sécurité",
+      "hasFYI": false,
+      "isPublic": true
+    },
+    {
+      "stateName": "main.aio.forgottenpassword.newpassword",
+      "isAbstract": false,
+      "pageName": "forgottenPasswordNewPassword",
+      "pageTitleEn": "New Password",
+      "pageTitleFr": "Nouveau mot de passe",
+      "hasFYI": false,
+      "isPublic": true
+    },
+    {
+      "stateName": "main.aio.retrievewebid",
+      "isAbstract": true,
+      "pageName": "",
+      "pageTitleEn": "",
+      "pageTitleFr": "",
+      "hasFYI": false,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.retrievewebid.webid",
+      "isAbstract": false,
+      "pageName": "retrieveWebId",
+      "pageTitleEn": "Retrieve Web Login ID",
+      "pageTitleFr": "Récupérer le code d'utilisateur",
+      "hasFYI": false,
+      "isPublic": true
+    },
+    {
+      "stateName": "main.aio.retrievewebid.login",
+      "isAbstract": false,
+      "pageName": "retrieveWebIdLogin",
+      "pageTitleEn": "Your Web Login ID",
+      "pageTitleFr": "Votre code d’utilisateur",
+      "hasFYI": false,
+      "isPublic": true
+    },
+    {
+      "stateName": "main.aio.retrievewebid.preregistration",
+      "isAbstract": false,
+      "pageName": "retrieveWebIdPreregistration",
+      "pageTitleEn": "Your Web Login ID",
+      "pageTitleFr": "Votre code d’utilisateur",
+      "hasFYI": false,
+      "isPublic": true
+    },
+    {
+      "stateName": "main.aio.retrievewebid.registration",
+      "isAbstract": false,
+      "pageName": "retrieveWebIdRegistration",
+      "pageTitleEn": "Personal Information",
+      "pageTitleFr": "Renseignements personnels",
+      "hasFYI": false,
+      "isPublic": true
+    },
+    {
+      "stateName": "main.aio.portfolio",
+      "isAbstract": false,
+      "pageName": "portfolio",
+      "pageTitleEn": "Portfolio Overview",
+      "pageTitleFr": "Aperçu du portefeuille",
+      "hasFYI": true,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.account",
+      "isAbstract": true,
+      "pageName": "",
+      "pageTitleEn": "",
+      "pageTitleFr": "",
+      "hasFYI": false,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.account.overview",
+      "isAbstract": false,
+      "pageName": "accountOverview",
+      "pageTitleEn": "Account Overview",
+      "pageTitleFr": "Aperçu du compte",
+      "hasFYI": true,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.account.transactions",
+      "isAbstract": false,
+      "pageName": "transactionHistory",
+      "pageTitleEn": "Account Overview - Transaction History",
+      "pageTitleFr": "Aperçu du compte - Historique des transactions",
+      "hasFYI": true,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.account.cash",
+      "isAbstract": false,
+      "pageName": "cash",
+      "pageTitleEn": "Account Overview - Cash",
+      "pageTitleFr": "Aperçu du compte - Espèces",
+      "hasFYI": true,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.account.rrsp",
+      "isAbstract": false,
+      "pageName": "rrspContribution",
+      "pageTitleEn": "Account Overview - RRSP Contributions",
+      "pageTitleFr": "Aperçu du compte - Cotisations REER",
+      "hasFYI": true,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.account.tfsa",
+      "isAbstract": false,
+      "pageName": "tfsaContribution",
+      "pageTitleEn": "Account Overview - TFSA Contributions",
+      "pageTitleFr": "Aperçu du compte - Cotisations CELI",
+      "hasFYI": true,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.registration",
+      "isAbstract": true,
+      "pageName": "",
+      "pageTitleEn": "",
+      "pageTitleFr": "",
+      "hasFYI": false,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.registration.info",
+      "isAbstract": false,
+      "pageName": "registrationInfo",
+      "pageTitleEn": "Registration",
+      "pageTitleFr": "Renseignements personnels",
+      "hasFYI": false,
+      "isPublic": true
+    },
+    {
+      "stateName": "main.aio.registration.security",
+      "isAbstract": false,
+      "pageName": "registrationSecurity",
+      "pageTitleEn": "Registration - Security",
+      "pageTitleFr": "Renseignements personnels - Sécurité",
+      "hasFYI": false,
+      "isPublic": true
+    },
+    {
+      "stateName": "main.aio.registration.edoc",
+      "isAbstract": false,
+      "pageName": "registrationEdoc",
+      "pageTitleEn": "Registration - Electronic Document Delivery",
+      "pageTitleFr": "Renseignements personnels - Envoi de documents électroniques",
+      "hasFYI": false,
+      "isPublic": true
+    },
+    {
+      "stateName": "main.aio.registration.confirmation",
+      "isAbstract": false,
+      "pageName": "registrationConfirmation",
+      "pageTitleEn": "Registration - Confirmation",
+      "pageTitleFr": "Renseignements personnels - Confirmation",
+      "hasFYI": false,
+      "isPublic": true
+    },
+    {
+      "stateName": "main.aio.documents",
+      "isAbstract": true,
+      "pageName": "",
+      "pageTitleEn": "",
+      "pageTitleFr": "",
+      "hasFYI": false,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.documents.page",
+      "isAbstract": true,
+      "pageName": "",
+      "pageTitleEn": "",
+      "pageTitleFr": "",
+      "hasFYI": false,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.documents.page.body",
+      "isAbstract": false,
+      "pageName": "documents",
+      "pageTitleEn": "Documents",
+      "pageTitleFr": "Documents",
+      "hasFYI": true,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.documents.page.body.statements",
+      "isAbstract": false,
+      "pageName": "documents",
+      "pageTitleEn": "Documents - Statements/Reports",
+      "pageTitleFr": "Documents - Relevés/Rapports",
+      "hasFYI": false,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.documents.page.body.taxslips",
+      "isAbstract": false,
+      "pageName": "documents",
+      "pageTitleEn": "Documents - Tax Receipts/Slips",
+      "pageTitleFr": "Documents - Reçus et feuillets d'impôt",
+      "hasFYI": false,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.documents.page.body.tradeconfirms",
+      "isAbstract": false,
+      "pageName": "documents",
+      "pageTitleEn": "Documents - Trade Confirmations",
+      "pageTitleFr": "Documents - Confirmations d'opération",
+      "hasFYI": false,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.profile",
+      "isAbstract": true,
+      "pageName": "",
+      "pageTitleEn": "",
+      "pageTitleFr": "",
+      "hasFYI": false,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.profile.personal",
+      "isAbstract": false,
+      "pageName": "profilePersonal",
+      "pageTitleEn": "Profile - Personal Information",
+      "pageTitleFr": "Profil - Renseignements personnels",
+      "hasFYI": true,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.profile.security",
+      "isAbstract": false,
+      "pageName": "profileSecurity",
+      "pageTitleEn": "Profile - Security",
+      "pageTitleFr": "Profil - Sécurité",
+      "hasFYI": true,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.profile.edocument",
+      "isAbstract": false,
+      "pageName": "profileEdd",
+      "pageTitleEn": "Profile - Electronic Document Delivery",
+      "pageTitleFr": "Profil - Envoi de documents électroniques",
+      "hasFYI": true,
+      "isPublic": false
+    },
+    {
+      "stateName": "main.aio.contact",
+      "isAbstract": false,
+      "pageName": "feedback",
+      "pageTitleEn": "Contact Us",
+      "pageTitleFr": "Pour nous joindre",
+      "hasFYI": false,
+      "isPublic": true
+    },
+    {
+      "stateName": "main.aio.logout",
+      "isAbstract": false,
+      "pageName": "survey",
+      "pageTitleEn": "Logout",
+      "pageTitleFr": "Déconnexion",
+      "hasFYI": false,
+      "isPublic": true
+    }
+  ]
+}
