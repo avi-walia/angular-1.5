@@ -62,6 +62,7 @@
 
         $rootScope.$on('$stateChangeSuccess',
             function (event, toState, toParams, fromState, fromParams) {
+                console.log('success');
                 /**
                  * Gets route configuration object for the requested route
                  */

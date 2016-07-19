@@ -39,20 +39,20 @@
         <div class="container" has-permission="appAccess">
             <nav id="primary" ng-if="Main.detectMobile.isDesktop" role="navigation" aria-label="{{ 'universal.accessibility.site-wide-nav-label' | translate }}">
                 <ul class="full">
-                    <li tabindex="0" title="{{ 'navbar.menu.portfolio' | translate }}"
-                           analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Portfolio"
-                           translate>navbar.menu.page1</li>
-                    <li><a tabindex="0" title="{{ 'navbar.menu.documents' | translate }}" ui-sref="main.aio.landing.page"
+                    <li><a tabindex="0" title="{{ 'navbar.menu.documents' | translate }}" ui-sref="main.aio.page1"
                            analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Documents"
+                           translate>navbar.menu.page1</a></li>
+                    <li><a tabindex="0" title="{{ 'navbar.menu.profile' | translate }}" ui-sref="main.aio.page2"
+                           analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Profile"
                            translate>navbar.menu.page2</a></li>
-                    <li><a tabindex="0" title="{{ 'navbar.menu.profile' | translate }}" ui-sref="main.aio.landing.page"
+                    <li><a tabindex="0" title="{{ 'navbar.menu.profile' | translate }}" ui-sref="main.aio.page3.subpage"
                            analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Profile"
                            translate>navbar.menu.page3</a></li>
-                    <li><a tabindex="0" title="{{ 'navbar.menu.profile' | translate }}" ui-sref="main.aio.landing.page"
+                    <li><a tabindex="0" title="{{ 'navbar.menu.profile' | translate }}" ui-sref="main.aio.page4"
                            analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Profile"
                            translate>navbar.menu.page4</a></li>
-                    <li><a tabindex="0" title="{{ 'navbar.menu.profile' | translate }}" ui-sref="main.aio.landing.page"
-                           analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Profile"
+                    <li><a tabindex="0" title="{{ 'navbar.menu.documents' | translate }}" ui-sref="main.aio.page5"
+                           analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Documents"
                            translate>navbar.menu.page5</a></li>
                 </ul>
 

@@ -1,6 +1,42 @@
 {
   "ROUTES": [
     {
+      "stateName": "main.aio.page1",
+      "isAbstract": false,
+      "pageName": "page1",
+      "pageTitleEn": "Page 1",
+      "pageTitleFr": "FR Page 1",
+      "hasFYI": true,
+      "isPublic": true
+    },
+    {
+      "stateName": "main.aio.page2",
+      "isAbstract": false,
+      "pageName": "page2",
+      "pageTitleEn": "Page 2",
+      "pageTitleFr": "FR Page 2",
+      "hasFYI": true,
+      "isPublic": true
+    },
+    {
+      "stateName": "main.aio.page3",
+      "isAbstract": true,
+      "pageName": "page3",
+      "pageTitleEn": "Page 3",
+      "pageTitleFr": "FR Page 3",
+      "hasFYI": true,
+      "isPublic": true
+    },
+    {
+      "stateName": "main.aio.page3.subpage",
+      "isAbstract": false,
+      "pageName": "subpage",
+      "pageTitleEn": "Subpage",
+      "pageTitleFr": "FR Subpage",
+      "hasFYI": true,
+      "isPublic": true
+    },
+    {
       "stateName": "main",
       "isAbstract": true,
       "pageName": "",

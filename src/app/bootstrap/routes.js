@@ -30,11 +30,13 @@
                         if (!(deviceDetector.browser === 'ie' && deviceDetector.browser_version <= '9.0')  ) {
                             // @todo: check if back btn functionality apply
                             //$state.go('main.aio.portfolio');
-                            $state.go('main.aio.landing.page');
+                            $state.go('main.aio.page1');
                         }
                     }]);
 
                 });
+
+
 
                 $stateProvider
                     .state('main', {
@@ -90,6 +92,85 @@
                                 controller: 'LoginCtrl as Login',
                                 templateUrl: 'app/core/login/login.tpl.html'
                             }*/
+                        }
+                    })
+                    .state('main.aio.page1', {
+                        url: '/page1',
+                        resolve: {
+                        },
+                        views: {
+                            'content@main': {
+                                controller: 'Page1Ctrl as Page1',
+                                templateUrl: 'app/features/page1/page1.tpl.html'
+                            }/*,
+                             'login': {
+                             controller: 'LoginCtrl as Login',
+                             templateUrl: 'app/core/login/login.tpl.html'
+                             }*/
+                        }
+                    })
+                    .state('main.aio.page2', {
+                        url: '/page2',
+                        resolve: {
+                        },
+                        views: {
+                            'content@main': {
+                                controller: 'Page2Ctrl as Page2',
+                                templateUrl: 'app/features/page2/page2.tpl.html'
+                            }
+                        }
+                    })
+                    .state('main.aio.page3', {
+                        abstract: true,
+                        url: '/page3',
+                        resolve: {
+                        },
+                        views: {
+                            'content@main': {
+                                controller: 'Page3Ctrl as Page3',
+                                templateUrl: 'app/features/page3/page3.tpl.html'
+                            }
+                        }
+                    })
+                    .state('main.aio.page3.subpage', {
+                        url: '/subpage',
+                        resolve: {
+                        },
+                        views: {
+                            'subpage': {
+                                controller: 'SubPageCtrl as SubPage',
+                                templateUrl: 'app/features/page3/subpage/subpage.tpl.html'
+                            },
+                            'subpage2': {
+                                controller: 'SubPageCtrl as SubPage',
+                                templateUrl: 'app/features/page3/subpage/subpage.tpl.html'
+                            }/*,
+                             'login': {
+                             controller: 'LoginCtrl as Login',
+                             templateUrl: 'app/core/login/login.tpl.html'
+                             }*/
+                        }
+                    })
+                    .state('main.aio.page4', {
+                        url: '/page4',
+                        resolve: {
+                        },
+                        views: {
+                            'content@main': {
+                                controller: 'Page4Ctrl as Page4',
+                                templateUrl: 'app/features/page4/page4.tpl.html'
+                            }
+                        }
+                    })
+                    .state('main.aio.page5', {
+                        url: '/page5',
+                        resolve: {
+                        },
+                        views: {
+                            'content@main': {
+                                controller: 'Page5Ctrl as Page5',
+                                templateUrl: 'app/features/page5/page5.tpl.html'
+                            }
                         }
                     })
 
