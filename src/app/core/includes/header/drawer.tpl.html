@@ -7,7 +7,7 @@
     </ul>
 
     <ul class="main">
-        <span has-permission="appAccess">
+        <span>
             <li id="link-port" ng-click="Head.go('portfolio')" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Portfolio"><a title="{{ 'navbar.menu.portfolio' | translate }}"  translate>navbar.menu.page1</a></li>
             <li id="link-doc" ng-click="Head.go('documents')" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Documents"><a title="{{ 'navbar.menu.documents' | translate }}"  translate>navbar.menu.page2</a></li>
             <li id="link-prof" ng-click="Head.go('profile')" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Profile"><a title="{{ 'navbar.menu.profile' | translate }}" ui-sref="main.aio.profile.personal"  translate>navbar.menu.page3</a></li>
@@ -16,14 +16,7 @@
             <li id="link-calc" ng-click="Head.go('calculator')" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Calculators">
                 <a title="{{ 'navbar.menu.calcualtors' | translate }}" target="_blank" translate>navbar.menu.page4</a></li>
         </span>
-        <li><ci-help page="Main.pageStateResolver.activePageName" >{{ 'universal.help' | translate }}</ci-help></li>
-        <li id="link-contact"><a tabindex="0" title="{{ 'universal.contact-us' | translate }}" ui-sref="main.aio.contact"
-               analytics-on analytics-event="click" analytics-category="HEADER" analytics-label="Contact Us"
-               ng-class="{ 'active': Main.pageStateResolver.activePageName === 'contact' }"
-               translate>universal.contact-us</a></li>
-        <!--li has-permission="appAccess"><a tabindex="0" title="{{ 'universal.feedback' | translate }}" ui-sref="main.aio.feedback"
-               analytics-on analytics-event="click" analytics-category="HEADER" analytics-label="Feedback"
-               translate>universal.feedback</a></li-->
+        <li><ci-help page="Main.pageStateResolver.activePageName" >{{ 'helpLabel' | translate }}</ci-help></li>
     </ul>
     <ul class="legal">
         <li><a target="_blank" title="{{ 'footer.linkText1' | translate }}" href="{{ 'footer.link1' | translate }}" class="over" translate>footer.linkText1</a></li>
@@ -32,12 +25,7 @@
         <li><a target="_blank" title="{{ 'footer.linkText4' | translate }}" href="{{ 'footer.link4' | translate }}" class="over" translate>footer.linkText4</a></li>
     </ul>
     <ul class="other">
-        <li><span has-permission="appAccess"><a title="{{ 'universal.logout' | translate }}" ui-sref="main.aio.logout"
-                                                analytics-on analytics-event="click" analytics-category="HEADER" analytics-label="Logout"
-                                                translate>universal.logout</a></span>
-            <span has-permission="!appAccess" title="{{ 'login.login-page' | translate }}"
-                                                 translate>login.login-button</span>
-        </li>
-        <li><a target="_blank" href="{{ 'universal.assante-footer-link' | translate }}" title="assante.com">assante.com</a></li>
+
+        <li><a target="_blank" href="{{ 'homeFooterLink' | translate }}" title="{{ 'homeFooterLink' | translate }}" translate>homeFooterLink</a></li>
     </ul>
 </nav>

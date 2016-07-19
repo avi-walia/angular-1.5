@@ -2,8 +2,14 @@
   "name": "aio",
   "version": "1.2.4",
   "dependencies": {
+    "angular-mocks": "^1.5.7",
     "cordova": "^6.2.0",
+    "gulp-jasmine": "^2.4.0",
     "ionic": "^1.7.16",
+    "karma": "^1.1.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "karma-spec-reporter": "0.0.26",
     "lodash": "^4.13.1"
   },
   "devDependencies": {
@@ -47,7 +53,7 @@
     "gulp-util": "^3.0.7",
     "http-proxy": "^1.13.3",
     "jshint-stylish": "^1.0.2",
-    "karma": "^0.12.37",
+    "karma": "^0.13.22",
     "karma-jasmine": "^0.3.8",
     "karma-ng-html2js-preprocessor": "^0.1.2",
     "karma-phantomjs-launcher": "^0.1.4",
@@ -60,7 +66,8 @@
     "uglify-save-license": "^0.4.1",
     "wiredep": "^4.0.0",
     "wrench": "^1.5.9",
-    "shelljs": "^0.3.0"
+    "shelljs": "^0.3.0",
+    "jasmine": "^2.4.1"
   },
   "cordovaPlugins": [
     "cordova-plugin-device",

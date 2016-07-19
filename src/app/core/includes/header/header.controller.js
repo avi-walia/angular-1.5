@@ -16,11 +16,12 @@
         'server',
         'version',
         'BASE_URL',
-        '$uibModal'
+        '$uibModal',
+        'snapRemote'
     ];
     /* @ngInject */
     function HeaderCtrl($state, $window, $translate, pageStateResolver, server, version, BASE_URL,
-                        $uibModal
+                        $uibModal, snapRemote
     ) {
         var vm = this;
 
@@ -38,6 +39,15 @@
         vm.onDrawerClick = drawerClickHandler;
         //vm.go = go;
         vm.BASE_URL = BASE_URL;
+
+        activate();
+
+        function activate() {
+            snapperPromise = snapRemote.getSnapper();
+            bodyElement.removeClass('snapjs-right');
+
+
+        }
 
 
         /**

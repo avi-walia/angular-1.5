@@ -13,11 +13,7 @@
         //var lang = $rootScope.documentLanguage;
         vm.serverDate = new Date();
 
-        vm.legalNoticeLink = $translate.instant('universal.legal-notices-link');
-        vm.userAgreementLink = $translate.instant('registration.info.userAgreement.pdf');
-        vm.privacyPolicyLink = $translate.instant('universal.privacy-policy-link');
-        vm.emailSecurityLink = $translate.instant('universal.email-security-link');
-        vm.copyrightLink = $translate.instant('universal.assante-footer-link');
+
 
 
 

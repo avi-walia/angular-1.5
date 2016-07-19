@@ -26,6 +26,7 @@
         'aio.core.server',
         'snap',
         'angulartics',
-        'angulartics.google.analytics'
+        'angulartics.google.analytics',
+        'snap'
     ]);
 })();

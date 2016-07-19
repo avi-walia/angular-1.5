@@ -10,7 +10,7 @@
         <nav id="topnav" class="full" ng-if="Main.detectMobile.isDesktop" role="navigation" aria-label="{{ 'universal.accessibility.site-wide-nav-label' | translate }}">
             <ul>
                 <language-switcher></language-switcher>
-                <li><ci-help page="Main.pageStateResolver.activePageName" >{{ 'universal.help' | translate }}</ci-help></li>
+                <li><ci-help page="Main.pageStateResolver.activePageName" >{{ 'helpLabel' | translate }}</ci-help></li>
             </ul>
         </nav>
 
@@ -18,7 +18,7 @@
 
     </div>
     <div id="bluebar">
-        <div class="container" has-permission="appAccess">
+        <div class="container">
             <nav id="primary" ng-if="Main.detectMobile.isDesktop" role="navigation" aria-label="{{ 'universal.accessibility.site-wide-nav-label' | translate }}">
                 <ul class="full">
                     <li><a tabindex="0" title="{{ 'navbar.menu.documents' | translate }}" ui-sref="main.aio.page1"

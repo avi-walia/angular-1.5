@@ -1,5 +1,6 @@
 {
   "advisorLocatorTitle": "App Title",
+  "helpLabel": "Help",
   "help": {
     "section1": {
       "link": "#Section1",
@@ -64,5 +65,8 @@
     "link2": "https://www.yahoo.ca",
     "link3": "https://www.ci.com",
     "link4": "https://www.assanteservices.com/aiol/#/en/aio/landing/"
-  }
+  },
+  "homeFooterLink": "NameOfMyNewSite.com",
+  "copyright": "©{{ Footer.serverDate | date:'yyyy' }} {{ 'company' | translate}}",
+  "company": "Name of Company"
 }
