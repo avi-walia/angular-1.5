@@ -24,7 +24,6 @@
         'ngAria',
         'aio.core.main',
         'aio.core.server',
-        'snap',
         'angulartics',
         'angulartics.google.analytics',
         'snap'

@@ -68,5 +68,6 @@
   },
   "homeFooterLink": "NameOfMyNewSite.com",
   "copyright": "©{{ Footer.serverDate | date:'yyyy' }} {{ 'company' | translate}}",
-  "company": "Name of Company"
+  "company": "Name of Company",
+  "companyLink": "https://www.ci.com"
 }

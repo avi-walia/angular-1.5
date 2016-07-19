@@ -67,5 +67,7 @@
     "link4": "https://www.assanteservices.com/aiol/#/en/aio/landing/"
   },
   "homeFooterLink": "NameOfMyNewSite.com",
-  "company": "NameOfMyNewSite"
+  "copyright": "©{{ Footer.serverDate | date:'yyyy' }} {{ 'company' | translate}}",
+  "company": "Name of Company",
+  "companyLink": "https://www.ci.com"
 }
