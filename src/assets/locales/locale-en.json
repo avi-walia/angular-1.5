@@ -913,10 +913,14 @@
 
   },
   "footer": {
-    "link1": "Link 1",
-    "link2": "Link 2",
-    "link3": "Link 3",
-    "link4": "Link 4"
+    "linkText1": "Link 1",
+    "linkText2": "Link 2",
+    "linkText3": "Link 3",
+    "linkText4": "Link 4",
+    "link1": "https://www.google.ca",
+    "link2": "https://www.yahoo.ca",
+    "link3": "https://www.ci.com",
+    "link4": "https://www.assanteservices.com/aiol/#/en/aio/landing/"
   },
   "universal": {
     "accessibility": {

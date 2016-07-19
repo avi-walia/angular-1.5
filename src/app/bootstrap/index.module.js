@@ -2,14 +2,14 @@
     'use strict';
 
     //---------------- CORE ---------------- //
-    angular.module('aio.core.main', ['ngIdle', 'aio.core.server', 'aio.utils', 'headroom', 'ui.bootstrap', 'ng.deviceDetector']);
+    angular.module('aio.core.main', ['ngIdle', 'aio.core.server', 'aio.utils', 'ui.bootstrap', 'ng.deviceDetector']);
     angular.module('aio.core.cache', ['aio.core.server']);
     angular.module('aio.core.server', ['aio.core.cache']);
 
     //---------------- FEATURES ---------------- //
 
     //---------------- UTILITIES ---------------- //
-    angular.module('aio.utils', ['matchMedia', 'angularMoment']);
+    angular.module('aio.utils', ['matchMedia']);
     angular.module('aio.utils.charts', ['highcharts-ng']);
 
     //---------------- MAIN ---------------- //
@@ -26,7 +26,6 @@
         'aio.core.server',
         'snap',
         'angulartics',
-        'angulartics.google.analytics',
-        'headroom'
+        'angulartics.google.analytics'
     ]);
 })();

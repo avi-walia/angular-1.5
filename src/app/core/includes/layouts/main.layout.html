@@ -1,16 +1,12 @@
-
 <snap-drawers class="snap-drawers" ng-class="Main.pageStateResolver.activePageName" ng-if="Main.detectMobile.isMobile">
-    <!-- <div snap-drawer="right"> -->
         <div ui-view="drawer" snap-drawer="right"></div>
-    <!-- </div> -->
 </snap-drawers>
+
 
 <snap-content class="snap-content" ng-class="Main.pageStateResolver.activePageName">
     <div ui-view="header" ng-class="Main.pageStateResolver.activePageName" autoscroll="true"></div>
     <div id="main" ng-class="Main.pageStateResolver.activePageName" role="main" aria-label="{{ 'universal.accessibility.main-label' | translate }}">
-        <!--<div class="debug"><em>(debug) page:</em> <b>{{Main.pageStateResolver.activePageName}}</b></div>-->
         <div class="container">
-            <!--<div id="notifications" ui-view="notifications" aria-hidden="{{Main.NotificationService.ariaHiddenAttr}}"></div>-->
             <ci-loader loading="Main.pageStateResolver.pageLoading">
                 <div id="notifications" ui-view="notifications"></div>
                 <div id="content" ui-view="content"></div>

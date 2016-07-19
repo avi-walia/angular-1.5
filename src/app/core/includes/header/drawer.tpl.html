@@ -8,13 +8,13 @@
 
     <ul class="main">
         <span has-permission="appAccess">
-            <li id="link-port" ng-click="Head.go('portfolio')" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Portfolio"><a title="{{ 'navbar.menu.portfolio' | translate }}"  translate>navbar.menu.portfolio</a></li>
-            <li id="link-doc" ng-click="Head.go('documents')" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Documents"><a title="{{ 'navbar.menu.documents' | translate }}"  translate>navbar.menu.documents</a></li>
-            <li id="link-prof" ng-click="Head.go('profile')" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Profile"><a title="{{ 'navbar.menu.profile' | translate }}" ui-sref="main.aio.profile.personal"  translate>navbar.menu.profile</a></li>
+            <li id="link-port" ng-click="Head.go('portfolio')" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Portfolio"><a title="{{ 'navbar.menu.portfolio' | translate }}"  translate>navbar.menu.page1</a></li>
+            <li id="link-doc" ng-click="Head.go('documents')" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Documents"><a title="{{ 'navbar.menu.documents' | translate }}"  translate>navbar.menu.page2</a></li>
+            <li id="link-prof" ng-click="Head.go('profile')" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Profile"><a title="{{ 'navbar.menu.profile' | translate }}" ui-sref="main.aio.profile.personal"  translate>navbar.menu.page3</a></li>
             <li id="link-portal" ng-if="Head.UserService.displayMyPortal" ci-form-poster ci-form-data-async-callback="Head.getSalesforceFormData">
                 <a title="{{ 'navbar.menu.portal' | translate }}" href analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="My Portal">{{ 'navbar.menu.portal' | translate }}</a></li>
             <li id="link-calc" ng-click="Head.go('calculator')" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Calculators">
-                <a title="{{ 'navbar.menu.calcualtors' | translate }}" target="_blank" translate>navbar.menu.calculators</a></li>
+                <a title="{{ 'navbar.menu.calcualtors' | translate }}" target="_blank" translate>navbar.menu.page4</a></li>
         </span>
         <li><ci-help page="Main.pageStateResolver.activePageName" >{{ 'universal.help' | translate }}</ci-help></li>
         <li id="link-contact"><a tabindex="0" title="{{ 'universal.contact-us' | translate }}" ui-sref="main.aio.contact"
@@ -26,10 +26,10 @@
                translate>universal.feedback</a></li-->
     </ul>
     <ul class="legal">
-        <li><a target="_blank" title="{{ 'universal.legal-notices' | translate }}" href="{{ 'universal.legal-notices-link' | translate }}" class="over" translate>universal.legal-notices</a></li>
-        <li><a target="_blank" title="{{ 'universal.user-agreement' | translate }}" href="{{Head.BASE_URL}}{{ 'registration.info.userAgreement.pdf' | translate }}" class="over" translate>universal.user-agreement</a></li>
-        <li><a target="_blank" title="{{ 'universal.privacy-policy' | translate }}" href="{{ 'universal.privacy-policy-link' | translate }}" class="over" translate>universal.privacy-policy</a></li>
-        <li><a target="_blank" title="{{ 'universal.email-security' | translate }}" href="{{ 'universal.email-security-link' | translate }}" class="over" translate>universal.email-security</a></li>
+        <li><a target="_blank" title="{{ 'footer.linkText1' | translate }}" href="{{ 'footer.link1' | translate }}" class="over" translate>footer.linkText1</a></li>
+        <li><a target="_blank" title="{{ 'footer.linkText2' | translate }}" href="{{ 'footer.link2' | translate }}" class="over" translate>footer.linkText2</a></li>
+        <li><a target="_blank" title="{{ 'footer.linkText3' | translate }}" href="{{ 'footer.link3' | translate }}" class="over" translate>footer.linkText3</a></li>
+        <li><a target="_blank" title="{{ 'footer.linkText4' | translate }}" href="{{ 'footer.link4' | translate }}" class="over" translate>footer.linkText4</a></li>
     </ul>
     <ul class="other">
         <li><span has-permission="appAccess"><a title="{{ 'universal.logout' | translate }}" ui-sref="main.aio.logout"

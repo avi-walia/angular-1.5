@@ -14,13 +14,12 @@
         '$translate',
         'pageStateResolver',
         'server',
-        'snapRemote',
         'version',
         'BASE_URL',
         '$uibModal'
     ];
     /* @ngInject */
-    function HeaderCtrl($state, $window, $translate, pageStateResolver, server, snapRemote, version, BASE_URL,
+    function HeaderCtrl($state, $window, $translate, pageStateResolver, server, version, BASE_URL,
                         $uibModal
     ) {
         var vm = this;

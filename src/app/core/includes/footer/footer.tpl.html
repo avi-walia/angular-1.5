@@ -2,10 +2,17 @@
     <div class="container" role="footer" aria-label="{{ 'universal.accessibility.site-wide-footer-label' | translate }}">
         <nav id="footernav" class="full" ng-if="Main.detectMobile.isDesktop">
             <ul>
-                <li><a title="{{ 'universal.legal-notices' | translate }}"  ng-click="openInExternalBrowser(true, Footer.legalNoticeLink )"  translate>footer.link1</a></li>
-                <li><a title="{{ 'universal.user-agreement' | translate }}" ng-click="openInExternalBrowser(false, Footer.userAgreementLink )" translate>footer.link2</a></li>
-                <li><a title="{{ 'universal.privacy-policy' | translate }}" ng-click="openInExternalBrowser(true, Footer.privacyPolicyLink)" translate>footer.link3</a></li>
-                <li><a title="{{ 'universal.email-security' | translate }}" ng-click="openInExternalBrowser(true, Footer.emailSecurityLink )" translate>footer.link4</a></li>
+                <!--
+                <li><a title="{{ 'footer.link1' | translate }}"  ng-click="openInExternalBrowser(true, Footer.legalNoticeLink )"  translate>footer.link1</a></li>
+                <li><a title="{{ 'footer.link2' | translate }}" ng-click="openInExternalBrowser(false, Footer.userAgreementLink )" translate>footer.link2</a></li>
+                <li><a title="{{ 'footer.link3' | translate }}" ng-click="openInExternalBrowser(true, Footer.privacyPolicyLink)" translate>footer.link3</a></li>
+                <li><a title="{{ 'footer.link4' | translate }}" ng-click="openInExternalBrowser(true, Footer.emailSecurityLink )" translate>footer.link4</a></li>
+                -->
+                <li><a title="{{ 'footer.link1' | translate }}" target="_blank" href="{{'footer.link1' | translate}}"  translate>footer.linkText1</a></li>
+                <li><a title="{{ 'footer.link2' | translate }}" target="_blank" href="{{'footer.link2' | translate}}" translate>footer.linkText2</a></li>
+                <li><a title="{{ 'footer.link3' | translate }}" target="_blank" href="{{'footer.link3' | translate}}" translate>footer.linkText3</a></li>
+                <li><a title="{{ 'footer.link4' | translate }}" target="_blank" href="{{'footer.link4' | translate}}" translate>footer.linkText4</a></li>
+
             </ul>
         </nav>
 
