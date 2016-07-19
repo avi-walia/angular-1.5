@@ -912,10 +912,14 @@
     "tip": "En cochant cette boîte, le navigateur Web mémorisera le dernier code d&#39;utilisateur ou pseudonyme entré. Par mesure de sécurité, nous ne recommandons pas l&#39;utilisation de cette fonctionnalité sur des ordinateurs publics ou partagés."
   },
   "footer": {
-    "link1": "FR Link 1",
-    "link2": "FR Link 2",
-    "link3": "FR Link 3",
-    "link4": "FR Link 4"
+    "linkText1": "FR Link 1",
+    "linkText2": "FR Link 2",
+    "linkText3": "FR Link 3",
+    "linkText4": "FR Link 4",
+    "link1": "https://www.google.ca",
+    "link2": "https://www.yahoo.ca",
+    "link3": "https://www.ci.com",
+    "link4": "https://www.assanteservices.com/aiol/#/en/aio/landing/"
   },
   "universal": {
     "accessibility": {

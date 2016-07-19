@@ -1,5 +1,5 @@
 {
   "BASE_URL": "https://dev.assanteservices.com",
-  "CONTEXT_ROOT": "/aiol",
+  "CONTEXT_ROOT": "/advisorLocator",
   "ENDPOINT_URI": "/aiolws"
 }

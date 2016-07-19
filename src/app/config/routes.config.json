@@ -6,7 +6,7 @@
       "pageName": "page1",
       "pageTitleEn": "Page 1",
       "pageTitleFr": "FR Page 1",
-      "hasFYI": true,
+      "hasFYI": false,
       "isPublic": true
     },
     {
@@ -15,7 +15,7 @@
       "pageName": "page2",
       "pageTitleEn": "Page 2",
       "pageTitleFr": "FR Page 2",
-      "hasFYI": true,
+      "hasFYI": false,
       "isPublic": true
     },
     {
@@ -24,7 +24,7 @@
       "pageName": "page3",
       "pageTitleEn": "Page 3",
       "pageTitleFr": "FR Page 3",
-      "hasFYI": true,
+      "hasFYI": false,
       "isPublic": true
     },
     {
@@ -33,7 +33,25 @@
       "pageName": "subpage",
       "pageTitleEn": "Subpage",
       "pageTitleFr": "FR Subpage",
-      "hasFYI": true,
+      "hasFYI": false,
+      "isPublic": true
+    },
+    {
+      "stateName": "main.aio.page4",
+      "isAbstract": false,
+      "pageName": "page4",
+      "pageTitleEn": "Page 4",
+      "pageTitleFr": "FR Page 4",
+      "hasFYI": false,
+      "isPublic": true
+    },
+    {
+      "stateName": "main.aio.page5",
+      "isAbstract": false,
+      "pageName": "page5",
+      "pageTitleEn": "Page 5",
+      "pageTitleFr": "FR Page 5",
+      "hasFYI": false,
       "isPublic": true
     },
     {
