@@ -43,10 +43,9 @@
         activate();
 
         function activate() {
+            console.log('goodbye');
             snapperPromise = snapRemote.getSnapper();
             bodyElement.removeClass('snapjs-right');
-
-
         }
 
 
@@ -81,9 +80,13 @@
          * @param $event - event click with target which may or may not be a link (<a>)
          */
         function drawerClickHandler($event) {
+            console.log('hello world');
             var element = $event.target.tagName.toLowerCase();
             if (element === 'a' || element === 'li') {
                 snapperPromise.then(function (snapper) {
+                    snapper.on('open', function() {
+                        console.log('open 1');
+                    });
                     snapper.close();
                 });
             }

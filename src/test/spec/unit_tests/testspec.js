@@ -81,3 +81,29 @@ describe('example test', function() {
 
     });
 })();
+
+(function () {
+    describe('footerController', function () {
+        var customCacheFactory;
+        var controller;
+        var translate;
+        var copyrightYear;
+        beforeEach(function() {
+            module('ui.router');
+            module('pascalprecht.translate');
+            module('aio.core.main');
+            module('advisorLocator');
+            inject(['$injector', '$controller', '$translate', 'copyrightYear', function($injector, $controller, $translate, _copyrightYear_){
+                controller = $controller;
+                translate = $translate;
+                copyrightYear = _copyrightYear_;
+            }]);
+        });
+        it('Footer controller should do stuff', function() {
+            var $scope = {};
+            var footerCtrl = controller('FooterCtrl', {$scope: $scope, copyrightYear:copyrightYear});
+            expect(footerCtrl.serverDate).toEqual(copyrightYear);
+        });
+
+    });
+})();

@@ -10,7 +10,6 @@
 
     //---------------- UTILITIES ---------------- //
     angular.module('aio.utils', ['matchMedia']);
-    angular.module('aio.utils.charts', ['highcharts-ng']);
 
     //---------------- MAIN ---------------- //
     angular.module('advisorLocator', [

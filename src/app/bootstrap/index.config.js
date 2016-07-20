@@ -2,10 +2,22 @@
     'use strict';
 
     angular.module('advisorLocator')
-        .config(translations);
+        .config(translations)
+        .config(snapdrawer);
 
     translations.$inject = ['$translateProvider', 'tmhDynamicLocaleProvider'];
+    snapdrawer.$inject = ['snapRemoteProvider'];
 
+    //without this you can click and drag the app left and right
+    /* @ngInject */
+    function snapdrawer(snapRemoteProvider) {
+        snapRemoteProvider.globalOptions = {
+            addBodyClasses: true,
+            maxPosition: 265,
+            minPosition: -265,
+            touchToDrag: true
+        };
+    }
 
     /* @ngInject */
     function translations($translateProvider, tmhDynamicLocaleProvider) {
