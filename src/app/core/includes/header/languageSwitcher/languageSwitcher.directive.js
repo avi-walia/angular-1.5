@@ -24,12 +24,12 @@
     ];
 
     /* @ngInject */
-    function LangSwitcherController($rootScope, $translate, $state) {
+    function LangSwitcherController($rootScope, $translate, $state, $scope) {
         var vm = this;
-
         vm.changeLanguage = changeLanguage;
-
+        vm.test = 'fish';
         activate();
+        $scope.test = 'fish';
 
         function activate() {
             vm.currentLanguage = $rootScope.documentLanguage;
@@ -38,7 +38,7 @@
         function changeLanguage(langKey) {
             $translate.use(langKey).then(function () {
                 vm.currentLanguage = $translate.use();
-                $state.go($state.current.name, {locale: vm.currentLanguage});
+                //$state.go($state.current.name, {locale: vm.currentLanguage});
             });
         }
     }

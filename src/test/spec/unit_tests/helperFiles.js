@@ -27,3 +27,10 @@ function cacheTester(customCacheFactory, testKey, factoryKey, cf, testData) {
         customCacheFactory.get(testKey)
     }).toThrow(new TypeError("Cannot use 'in' operator to search for 'testKey' in null"));
 };
+
+function getCompiledElement(rawHtml, scope, compile){
+    var element = angular.element(rawHtml);
+    var compiledElement = compile(element)(scope);
+    scope.$digest();
+    return compiledElement;
+}

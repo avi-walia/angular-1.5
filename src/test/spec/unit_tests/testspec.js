@@ -107,3 +107,49 @@ describe('example test', function() {
 
     });
 })();
+
+describe("Directive", function () {
+
+    var $scope, controller, element, rootScope;
+
+    beforeEach(function() {
+
+        module('ui.router');
+        module('pascalprecht.translate');
+        module('aio.core.main');
+        module('advisorLocator');
+        /*
+        module(function($provide){
+            $provide.provider('$rootScope', function () {
+                rootScope = {
+                    name: 'test name',
+                    gravatar: 'test avatar',
+                    $on: function(){},
+                    $emit: function(){}
+                };
+                this.$get = function () {
+                    return rootScope;
+                }
+            });
+        });*/
+        inject(function ($rootScope, $compile, $httpBackend) {
+            rootScope = $rootScope;
+            $httpBackend.when('GET', 'assets/locales/locale-en.json').respond(['test', 'one']);
+            $httpBackend.when('GET', 'app/core/includes/header/languageSwitcher/languageSwitcher.html').respond(['test', 'one']);
+            $scope = $rootScope.$new();
+            $scope.test = 'fish';
+            element = angular.element("<language-switcher></language-switcher>");
+            template = $compile(element)($scope);
+            $scope.$digest();
+            controller = element.controller('languageSwitcher');
+            //rootScope = $rootScope;
+        })
+    });
+    it("should toogle open when toggle() is called", inject(function() {
+        console.log('element: ', angular.element(document.getElementsByTagName('li')[0]).controller);
+        console.log('template: ', template);
+        console.log('controller: ',element.isolateScope());
+        expect(controller).toBe({});
+    }));
+
+});
