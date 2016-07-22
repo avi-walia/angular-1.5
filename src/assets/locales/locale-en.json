@@ -1,5 +1,10 @@
 {
   "advisorLocatorTitle": "App Title",
+  "page1": "Page 1 asdf",
+  "page2": "Page 2",
+  "page3_subpage": "Subpage 3",
+  "page4": "Page 4",
+  "page5": "Page 5",
   "helpLabel": "Help",
   "help": {
     "section1": {

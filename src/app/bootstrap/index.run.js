@@ -74,7 +74,8 @@
                  });*/
                 //this is for fyi directive. Check routes.config.json for configurating oPageConfig objects
                 pageStateResolver.getPageConfigFromState(toState.name, function (oPageConfig) {
-                    if ('pageTitle' in oPageConfig) {
+                    console.log('oPageConfig: ', oPageConfig);
+                    if ('pageName' in oPageConfig) {
                         $rootScope.oRequestedPageConfig = oPageConfig;
                     }
                 });

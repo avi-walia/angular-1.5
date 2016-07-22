@@ -21,9 +21,6 @@
 
     /* @ngInject */
     function translations($translateProvider, tmhDynamicLocaleProvider) {
-        // Configure the locale loader
-        tmhDynamicLocaleProvider.localeLocationPattern(
-            'assets/locales/angular-locale_{{locale}}.js');
 
         $translateProvider
         // get warnings in the developer console, regarding forgotten IDs in translations
@@ -52,6 +49,9 @@
             //.preferredLanguage('en_US')
 
             .useLocalStorage();
+        // Configure the locale loader
+        tmhDynamicLocaleProvider.localeLocationPattern(
+            'assets/locales/angular-locale_{{locale}}.js');
     }
 
 })();

@@ -1,6 +1,11 @@
 {
   "advisorLocatorTitle": "App Title",
   "helpLabel": "Aide",
+  "page1": "FR Page 1 asdf",
+  "page2": "FR Page 2",
+  "page3_subpage": "FR Subpage 3",
+  "page4": "FR Page 4",
+  "page5": "FR Page 5",
   "help": {
     "section1": {
       "link": "#Section1",
