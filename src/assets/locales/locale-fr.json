@@ -17,6 +17,17 @@
       "answer2": "<i>FR answer 2</i>",
       "answer3": "FR answer 3"
     },
+    "pages": {
+      "landing": {
+        "title": "FR Title for landing page"
+      },
+      "page1": {
+        "title": "FR Page 1 Title"
+      },
+      "page2": {
+        "title": "FR Page 2 Title"
+      }
+    },
 
     "section2": {
       "link": "#Section2",

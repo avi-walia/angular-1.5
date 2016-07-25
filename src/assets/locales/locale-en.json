@@ -6,6 +6,26 @@
   "page4": "Page 4",
   "page5": "Page 5",
   "helpLabel": "Help",
+  "pages": {
+    "landing": {
+      "title": "Title for landing page"
+    },
+    "page1": {
+      "title": "Page 1 Title"
+    },
+    "page2": {
+      "title": "Page 2 Title"
+    },
+    "page3": {
+      "title": "Page 1 Title"
+    },
+    "page4": {
+      "title": "Page 2 Title"
+    },
+    "page5": {
+      "title": "Page 1 Title"
+    }
+  },
   "help": {
     "section1": {
       "link": "#Section1",
@@ -48,7 +68,9 @@
     "menu": {
       "page1": "Name of Page1",
       "page2": "Name of Page2",
-      "page3": "Name of Page3",
+      "page3": {
+        "subpage": "Name of Page3 Subpage"
+      },
       "page4": "Name of Page4",
       "page5": "Name of Page5"
     },

@@ -17,14 +17,19 @@
         'version',
         'BASE_URL',
         '$uibModal',
-        'snapRemote'
+        'snapRemote',
+        'currentPageTitle'
     ];
     /* @ngInject */
     function HeaderCtrl($state, $window, $translate, pageStateResolver, server, version, BASE_URL,
-                        $uibModal, snapRemote
+                        $uibModal, snapRemote, currentPageTitle
     ) {
         var vm = this;
-
+        console.log('$state: ', $state);
+        console.log('pageStateResolver: ', pageStateResolver);
+        vm.page = currentPageTitle.page;
+        vm.state = $state;
+        //vm.pageTitle2 = currentPageTitle.pageTitle2;
         //vm.LoginService = LoginService;
         vm.pageStateResolver = pageStateResolver;
         vm.version = version;   // auto generated app version (for display purposes)
@@ -35,9 +40,9 @@
 
 
 
-        vm.getSalesforceFormData = getSalesforceFormData;
+        //vm.getSalesforceFormData = getSalesforceFormData;
         vm.onDrawerClick = drawerClickHandler;
-        //vm.go = go;
+        vm.go = go;
         vm.BASE_URL = BASE_URL;
 
         activate();
@@ -53,28 +58,30 @@
          * Used in drawer template for mobile users.
          * @param state State where we want to go
          */
-        /*
+
         function go(state) {
 
             switch (state) {
-                case 'portfolio':
-                    $state.go('main.aio.portfolio');
+                case 'page1':
+                    $state.go('main.aio.page1');
                     break;
-                case 'documents':
-                    $state.go('main.aio.documents.page.body');
+                case 'page2':
+                    $state.go('main.aio.page2');
                     break;
-                case 'profile':
-                    $state.go('main.aio.profile.personal');
+                case 'page3.subpage':
+                    $state.go('main.aio.page3.subpage');
                     break;
-                case 'calculator':
-                    var calcLink = $translate.instant('navbar.calculatorLink');
-                    $window.open(calcLink);
+                case 'page4':
+                    $state.go('main.aio.page4');
+                    break;
+                case 'page5':
+                    $state.go('main.aio.page5');
                     break;
                 default:
-                    $state.go('main.aio.landing.page', {refresh: 'refresh'});
+                    $state.go('main.aio.page1');
             }
         }
-*/
+
         /**
          * If clicked a link inside a drawer, close the drawer
          * @param $event - event click with target which may or may not be a link (<a>)
@@ -91,7 +98,7 @@
                 });
             }
         }
-
+        /*
         function getSalesforceFormData() {
             return server.post('/salesforce/myPortal', null)
                 .then(function (result) {
@@ -101,6 +108,7 @@
                     };
                 });
         }
+        */
     }
 
 })();

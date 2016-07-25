@@ -196,37 +196,9 @@ header {
                         a {
                             color: #fff;
                             text-transform: uppercase;
-                            // &.active {
-                            //     color: $orange;
-                            // }
-                        }
-                        &:nth-child(1) {
-                            .portfolio &,
-                            .accountOverview &,
-                            .transactionHistory &,
-                            .rrspContribution &,
-                            .tfsaContribution &,
-                            .cash &{
-                                a {
-                                    color: $orange;
-                                }
-                            }
-                        }
-                        &:nth-child(2) {
-                            .documents & {
-                                a {
-                                    color: $orange;
-                                }
-                            }
-                        }
-                        &:nth-child(3) {
-                            .profilePersonal &,
-                            .profileSecurity &,
-                            .profileEdd &{
-                                a {
-                                    color: $orange;
-                                }
-                            }
+                             &.active {
+                                 color: $orange;
+                             }
                         }
                         &:last-child {
                             border: 0;

@@ -24,7 +24,7 @@
     {
       "stateName": "main.aio.page3.subpage",
       "isAbstract": false,
-      "pageName": "subpage",
+      "pageName": "page3.subpage",
       "hasFYI": false,
       "isPublic": true
     },

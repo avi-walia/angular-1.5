@@ -5,10 +5,10 @@
         .module('aio.core.main')
         .controller('FooterCtrl', FooterCtrl);
 
-    FooterCtrl.$inject = ['copyrightYear', '$translate'];
+    FooterCtrl.$inject = ['copyrightYear'];
 
     /* @ngInject */
-    function FooterCtrl(copyrightYear, $translate) {
+    function FooterCtrl(copyrightYear) {
         var vm = this;
         vm.serverDate = copyrightYear;
     }

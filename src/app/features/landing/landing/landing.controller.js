@@ -3,14 +3,14 @@
 
     angular
         .module('aio.core.main')
-        .controller('LandingCtrl', PromoCtrl);
+        .controller('LandingCtrl', LandingCtrl);
 
-    PromoCtrl.$inject = ['promoService'];
+    LandingCtrl.$inject = ['currentPageTitle', '$translate'];
 
     /* @ngInject */
-    function PromoCtrl() {
+    function LandingCtrl(currentPageTitle, $translate) {
         var vm = this;
-
+        currentPageTitle.pageTitle = $translate.instant('pages.landing.title');
     }
 
 

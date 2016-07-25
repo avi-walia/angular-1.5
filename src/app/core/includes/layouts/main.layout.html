@@ -2,7 +2,13 @@
         <div ui-view="drawer" snap-drawer="right"></div>
 </snap-drawers>
 
-
+<!--
+ng-class="Main.pageStateResolver.activePageName is used to prevent css clashes between pages. All css for a page should be under the .pageName class.
+for example:
+.pageName a{}
+Do not just use:
+a{};
+-->
 <snap-content class="snap-content" ng-class="Main.pageStateResolver.activePageName">
     <div ui-view="header" ng-class="Main.pageStateResolver.activePageName" autoscroll="true"></div>
     <div id="main" ng-class="Main.pageStateResolver.activePageName" role="main" aria-label="{{ 'universal.accessibility.main-label' | translate }}">

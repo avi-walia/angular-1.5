@@ -15,7 +15,7 @@
             addBodyClasses: true,
             maxPosition: 265,
             minPosition: -265,
-            touchToDrag: true
+            touchToDrag: false
         };
     }
 
