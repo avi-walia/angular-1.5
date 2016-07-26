@@ -1,14 +1,36 @@
 {
-  "advisorLocatorTitle": "App Title",
-  "helpLabel": "Aide",
-  "page1": "FR Page 1 asdf",
+  "appTitle": "FR App Title",
+  "page1": "FR Page 1",
   "page2": "FR Page 2",
   "page3_subpage": "FR Subpage 3",
   "page4": "FR Page 4",
   "page5": "FR Page 5",
+  "helpLabel": "FR Help",
+  "pages": {
+    "landing": {
+      "title": "FR Title for landing page"
+    },
+    "page1": {
+      "title": "FR Page 1 Title"
+    },
+    "page2": {
+      "title": "FR Page 2 Title"
+    },
+    "page3": {
+      "subpage": {
+        "title": "FR Page 3 Subpage"
+      }
+    },
+    "page4": {
+      "title": "FR Page 4 Title"
+    },
+    "page5": {
+      "title": "FR Page 5 Title"
+    }
+  },
   "help": {
-    "section1": {
-      "link": "#Section1",
+    "page1": {
+      "link": "FR #Section1",
       "title": "FR Name of Page 1",
       "question1": "FR Question 1",
       "question2": "FR Question 2",
@@ -17,20 +39,9 @@
       "answer2": "<i>FR answer 2</i>",
       "answer3": "FR answer 3"
     },
-    "pages": {
-      "landing": {
-        "title": "FR Title for landing page"
-      },
-      "page1": {
-        "title": "FR Page 1 Title"
-      },
-      "page2": {
-        "title": "FR Page 2 Title"
-      }
-    },
 
-    "section2": {
-      "link": "#Section2",
+    "page2": {
+      "link": "FR #Section2",
       "title": "FR Name of Page 2",
       "question1": "FR Question 2.1",
       "question2": "FR Question 2.2",
@@ -40,15 +51,37 @@
       "answer3": "FR answer 2.3"
     },
 
-    "section3": {
-      "link": "#Section3",
+    "page3": {
+      "link": "FR #Section3",
       "title": "FR Name of Page 3",
       "question1": "FR Question 3.1",
       "question2": "FR Question 3.2",
-      "question3": "FR Question 3.3",
+      "question3": "Question 3.3",
       "answer1": "FR answer 3.1",
       "answer2": "FR answer 3.2",
       "answer3": "FR answer 3.3"
+    },
+
+    "page4": {
+      "link": "FR #Section4",
+      "title": "FR Name of Page 4",
+      "question1": "FR Question 4.1",
+      "question2": "FR Question 4.2",
+      "question3": "FR Question 4.3",
+      "answer1": "FR answer 4.1",
+      "answer2": "FR answer 4.2",
+      "answer3": "FR answer 4.3"
+    },
+
+    "page5": {
+      "link": "FR #Section5",
+      "title": "FR Name of Page 5",
+      "question1": "FR Question 5.1",
+      "question2": "FR Question 5.2",
+      "question3": "FR Question 5.3",
+      "answer1": "FR answer 5.1",
+      "answer2": "FR answer 5.2",
+      "answer3": "FR answer 5.3"
     }
 
   },
@@ -59,7 +92,9 @@
     "menu": {
       "page1": "FR Name of Page1",
       "page2": "FR Name of Page2",
-      "page3": "FR Name of Page3",
+      "page3": {
+        "subpage": "FR Name of Page3 Subpage"
+      },
       "page4": "FR Name of Page4",
       "page5": "FR Name of Page5"
     },
@@ -82,7 +117,7 @@
     "link3": "https://www.ci.com",
     "link4": "https://www.assanteservices.com/aiol/#/en/aio/landing/"
   },
-  "homeFooterLink": "NameOfMyNewSite.com",
+  "homeFooterLink": "FR NameOfMyNewSite.com",
   "copyright": "©{{ copyrightYear }} {{ 'company' | translate}}",
   "company": "FR Name of Company",
   "companyLink": "https://www.ci.com"

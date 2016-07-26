@@ -8,23 +8,24 @@
     var sPageStateCacheKey = 'states';
 
     server.$inject = [
-        'BASE_URL',
-        'ENDPOINT_URI',
         '$q',
         '$http',
+        'ENDPOINT_URI',
         'dataCacheSessionStorage',
         'dataCacheLocalStorage',
         'pageStateResolver',
         'i18nService',
-        '$timeout'
+        '$timeout',
+        'BASE_URL'
     ];
 
     /* @ngInject */
-    function server(BASE_URL, ENDPOINT_URI, $q, $http,
+    function server($q, $http, ENDPOINT_URI,
                     dataCacheSessionStorage, dataCacheLocalStorage,
-                    pageStateResolver, i18nService, $timeout) {
+                    pageStateResolver, i18nService, $timeout, BASE_URL) {
 
         var service = this;
+        var activePosts = [];
 
         /**
          * GET call, no caching involved.
@@ -110,17 +111,17 @@
          */
         service.ping = function (sState) {
             return post('/authentication/pageCheck',
-             {
-                currentPage: pageStateResolver.check(sState)
-             }, true, null)
+                {
+                    currentPage: pageStateResolver.check(sState)
+                }, true, null)
                 .then(function (response) {
-                 // no data is being sent
-                    return response.status === 204;
-                },
-                function () {
-                    pageStateResolver.pageLoading = false;
-                }
-             );
+                        // no data is being sent
+                        return response.status === 204;
+                    },
+                    function () {
+                        pageStateResolver.pageLoading = false;
+                    }
+                );
 
 
         };
@@ -170,10 +171,40 @@
             return deferred.promise;
         }
 
+        function removeFromActivePosts(fullPath) {
+            var path = fullPath.substring(ENDPOINT_URI.length, fullPath.length);
+            /*
+             var index = -1;//activePosts.indexOf(path);
+             for (var i = 0; i < activePosts.length; i++) {
+             if (activePosts[i].path === path) {
+             index = i;
+             break;
+             }
+             }*/
+            var index = indexOfActivePosts(path);
+            if (index >= 0) {
+                activePosts.splice(index, 1);
+            }
+        }
+        function indexOfActivePosts(path) {
+            var index = -1;//activePosts.indexOf(path);
+            for (var i = 0; i < activePosts.length; i++) {
+                if (activePosts[i].path === path) {
+                    index = i;
+                    break;
+                }
+            }
+            return index;
+        }
+
         function post(path, data, removeCache, storageType, isUnlocalized) {
             var deferred = $q.defer();
             var cacheKey = doKey(path, data);
             var cachedObj;
+            // console.log('post path: ', path);
+            // console.log('post data: ', data);
+            // console.log('active posts: ', activePosts);
+            // console.log('activePosts.indexOf(path): ', activePosts.indexOf(path));
 
             // force re-cache the call
             if (removeCache) {
@@ -194,32 +225,42 @@
                 deferred.resolve(cachedObj);
 
             } else {
-
-                console.warn("API URL > " + BASE_URL+ ENDPOINT_URI + path);
-
-                $http.post(BASE_URL + ENDPOINT_URI + path, data)
-                    .then(function (response) {
-                        // check for no data being sent
-                        if (response.status !== 204) {
-                            // put data in cache
-                            if (storageType === 'sessionStorage') {
-                                dataCacheSessionStorage.put(cacheKey, response);
+                var index = indexOfActivePosts(path);
+                if (index < 0) {
+                    activePosts.push({'path': path, 'promise': deferred.promise});
+                    $http.post(ENDPOINT_URI + path, data)
+                        .then(function (response) {
+                            removeFromActivePosts(response.config.url);
+                            // console.log('post response: ', response);
+                            // check for no data being sent
+                            if (response.status !== 204) {
+                                // put data in cache
+                                if (storageType === 'sessionStorage') {
+                                    dataCacheSessionStorage.put(cacheKey, response);
+                                }
+                                if (storageType === 'localStorage') {
+                                    dataCacheLocalStorage.put(cacheKey, response);
+                                }
+                                response = isUnlocalized ? response : filterLangResponse(response);
                             }
-                            if (storageType === 'localStorage') {
-                                dataCacheLocalStorage.put(cacheKey, response);
-                            }
-                            response = isUnlocalized ? response : filterLangResponse(response);
-                        }
-                        deferred.resolve(response);
-                    })
-                    // set the error, in case some promise handlers need to deal with it
-                    .then(null, function (error) {
-                        deferred.reject(error);
-                    });
+                            deferred.resolve(response);
+                        })
+                        // set the error, in case some promise handlers need to deal with it
+                        .then(null, function (error) {
+                            // console.log('post error: ', error);
+                            removeFromActivePosts(error.config.url);
+                            deferred.reject(error);
+                        });
+                } else {
+                    //deferred.reject();
+                    //return deferred.promise;
+                    return activePosts[index].promise;
+                }
             }
 
             // return a promise with data back
             return deferred.promise;
+
         }
 
         /**

@@ -49,14 +49,6 @@
                         url: '/advisorLocator',
                         abstract: true,
                         views: {
-                            'drawer': {
-                                controller: 'HeaderCtrl as Head',
-                                templateUrl: 'app/core/includes/header/drawer.tpl.html'
-                            },
-                            'header': {
-                                controller: 'HeaderCtrl as Head',
-                                templateUrl: 'app/core/includes/header/header.tpl.html'
-                            },
                             'notifications': {
                                 controller: 'NotificationsCtrl as Notes',
                                 templateUrl: 'app/core/includes/notifications/notifications.tpl.html'

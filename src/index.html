@@ -2,7 +2,7 @@
 <html ng-app="advisorLocator" lang="{{documentLanguage}}">
 <head>
     <meta charset="utf-8">
-    <title>{{'advisorLocatorTitle' | translate}} - {{oRequestedPageConfig.pageName | translate}}</title>
+    <title>{{'appTitle' | translate}} - {{oRequestedPageConfig.pageName | translate}}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -21,7 +21,7 @@
     <!-- endinject -->
     <!-- endbuild -->
 </head>
-<body ng-class="documentLanguage">
+<body ng-class="documentLanguage" translate-cloak="any">
 <!-- Make this position either absolute or make id="wrap" not absolute -->
 <!--[if lt IE 10]>
 <div class="browsehappy">

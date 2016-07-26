@@ -1,29 +1,34 @@
-<snap-drawers class="snap-drawers">
-        <div ui-view="drawer" snap-drawer="right"></div>
-    <!--<drawer snap-drawer="right"></drawer>-->
-</snap-drawers>
+<ci-loader loading="Main.isLoadingTranslations">
+</ci-loader>
+<div ng-hide="Main.isLoadingTranslations">
 
-<!--
-ng-class="Main.pageStateResolver.activePageName is used to prevent css clashes between pages. All css for a page should be under the .pageName class.
-for example:
-.pageName a{}
-Do not just use:
-a{};
--->
-<snap-content class="snap-content" ng-class="Main.pageStateResolver.activePageName">
+    <snap-drawers class="snap-drawers">
+            <!--<div ui-view="drawer" snap-drawer="right"></div>-->
+        <drawer snap-drawer="right"></drawer>
+    </snap-drawers>
+
     <!--
-    <div ui-view="header" ng-class="Main.pageStateResolver.activePageName" autoscroll="true"></div>
+    ng-class="Main.pageStateResolver.activePageName is used to prevent css clashes between pages. All css for a page should be under the .pageName class.
+    for example:
+    .pageName a{}
+    Do not just use:
+    a{};
     -->
+    <snap-content class="snap-content" ng-class="Main.pageStateResolver.activePageName">
+        <!--
+        <div ui-view="header" ng-class="Main.pageStateResolver.activePageName" autoscroll="true"></div>
+        -->
 
-    <header2 is-desktop="Main.detectMobile.isDesktop"></header2>
-    <div id="main" ng-class="Main.pageStateResolver.activePageName" role="main" aria-label="{{ 'universal.accessibility.main-label' | translate }}">
-        <div class="container">
-            <ci-loader loading="Main.pageStateResolver.pageLoading">
-                <div id="notifications" ui-view="notifications"></div>
-                <div id="content" ui-view="content"></div>
-            </ci-loader>
+        <header2 is-desktop="Main.detectMobile.isDesktop"></header2>
+        <div id="main" ng-class="Main.pageStateResolver.activePageName" role="main" aria-label="{{ 'universal.accessibility.main-label' | translate }}">
+            <div class="container">
+                <ci-loader loading="Main.pageStateResolver.pageLoading">
+                    <div id="notifications" ui-view="notifications"></div>
+                    <div id="content" ui-view="content"></div>
+                </ci-loader>
+            </div>
         </div>
-    </div>
-    <div id="footer" ui-view="footer"></div>
-    <div ui-view="inactivity-notification"></div>
-</snap-content>
+        <div id="footer" ui-view="footer"></div>
+        <div ui-view="inactivity-notification"></div>
+    </snap-content>
+</div>

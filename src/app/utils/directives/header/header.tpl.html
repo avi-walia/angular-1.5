@@ -1,3 +1,4 @@
+<div ui-view="header" ng-class="Main.pageStateResolver.activePageName" autoscroll="true">
 <header id="header"
         headroom offset="20" classes="{initial:'animated', pinned:'slideDown', unpinned:'slideUp'}">
 
@@ -21,7 +22,7 @@
     <div id="bluebar">
         <div class="container">
             <div ng-if="!Head.isDesktop">
-                {{Head.page.title}}
+                {{Head.page.title | translate}}
             </div>
             <nav id="primary" ng-if="Head.isDesktop" role="navigation" aria-label="{{ 'universal.accessibility.site-wide-nav-label' | translate }}">
                 <ul class="full">
@@ -41,7 +42,6 @@
                            analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page5"
                            translate>navbar.menu.page5</a></li>
                 </ul>
-                <h2 ng-if="!Head.isDesktop">{{Head.pageTitle}}</h2>
 
                 <!-- <span class="select mobile"><select id="sel_account" title="Select an account">
                     <option value="#overview">Portfolio Overview</option>
@@ -52,3 +52,4 @@
         </div>
     </div>
 </header>
+</div>

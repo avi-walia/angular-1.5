@@ -1,5 +1,5 @@
 {
-  "advisorLocatorTitle": "App Title",
+  "appTitle": "App Title",
   "page1": "Page 1",
   "page2": "Page 2",
   "page3_subpage": "Subpage 3",
@@ -17,13 +17,15 @@
       "title": "Page 2 Title"
     },
     "page3": {
-      "title": "Page 1 Title"
+      "subpage": {
+        "title": "Page 3 Subpage"
+      }
     },
     "page4": {
-      "title": "Page 2 Title"
+      "title": "Page 4 Title"
     },
     "page5": {
-      "title": "Page 1 Title"
+      "title": "Page 5 Title"
     }
   },
   "help": {
