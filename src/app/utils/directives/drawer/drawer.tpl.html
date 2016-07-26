@@ -1,0 +1,29 @@
+<nav id="nav" class="mobile" ng-click="Drawer.onDrawerClick($event)">
+    <!-- <h2 class="iollogo" ><a title="{{ 'universal.aio-logo-text' | translate }}" ui-sref="main.aio" translate>universal.aio-logo-text</a></h2> -->
+    <span class="iollogo" title="{{ 'universal.aio-logo-text' | translate }}" translate><img src="./assets/images/{{ 'navbar.aiologo-img' | translate }}" alt="{{ 'universal.aio-logo-text' | translate }}"/></span>
+
+    <ul id="lang">
+        <language-switcher></language-switcher>
+    </ul>
+
+    <ul class="main">
+        <span>
+            <li ng-click="Drawer.go('page1')" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page1"><a title="{{ 'navbar.menu.page1' | translate }}"  translate>navbar.menu.page1</a></li>
+            <li ng-click="Drawer.go('page2')" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page2"><a title="{{ 'navbar.menu.page2' | translate }}"  translate>navbar.menu.page2</a></li>
+            <li ng-click="Drawer.go('page3.subpage')" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page3"><a title="{{ 'navbar.menu.page3.subpage' | translate }}"  translate>navbar.menu.page3.subpage</a></li>
+            <li ng-click="Drawer.go('page4')" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page4"><a title="{{ 'navbar.menu.page4' | translate }}"  translate>navbar.menu.page4</a></li>
+            <li ng-click="Drawer.go('page5')" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page5"><a title="{{ 'navbar.menu.page5' | translate }}"  translate>navbar.menu.page5</a></li>
+
+        </span>
+        <li><ci-help page="Drawer.pageStateResolver.activePageName" >{{ 'helpLabel' | translate }}</ci-help></li>
+    </ul>
+    <ul class="legal">
+        <li><a target="_blank" title="{{ 'footer.linkText1' | translate }}" href="{{ 'footer.link1' | translate }}" class="over" translate>footer.linkText1</a></li>
+        <li><a target="_blank" title="{{ 'footer.linkText2' | translate }}" href="{{ 'footer.link2' | translate }}" class="over" translate>footer.linkText2</a></li>
+        <li><a target="_blank" title="{{ 'footer.linkText3' | translate }}" href="{{ 'footer.link3' | translate }}" class="over" translate>footer.linkText3</a></li>
+        <li><a target="_blank" title="{{ 'footer.linkText4' | translate }}" href="{{ 'footer.link4' | translate }}" class="over" translate>footer.linkText4</a></li>
+    </ul>
+    <ul class="other">
+        <li><a target="_blank" href="{{ 'homeFooterLink' | translate }}" title="{{ 'homeFooterLink' | translate }}" translate>homeFooterLink</a></li>
+    </ul>
+</nav>
