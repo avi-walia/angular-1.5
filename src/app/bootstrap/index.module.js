@@ -9,7 +9,7 @@
     //---------------- FEATURES ---------------- //
 
     //---------------- UTILITIES ---------------- //
-    angular.module('aio.utils', ['matchMedia']);
+    angular.module('aio.utils', ['matchMedia', 'ngIdle', 'aio.core.server', 'ui.bootstrap', 'ng.deviceDetector']);
 
     //---------------- MAIN ---------------- //
     angular.module('advisorLocator', [

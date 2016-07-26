@@ -10,7 +10,11 @@ Do not just use:
 a{};
 -->
 <snap-content class="snap-content" ng-class="Main.pageStateResolver.activePageName">
+    <!--
     <div ui-view="header" ng-class="Main.pageStateResolver.activePageName" autoscroll="true"></div>
+    -->
+
+    <header2 is-desktop="Main.detectMobile.isDesktop"></header2>
     <div id="main" ng-class="Main.pageStateResolver.activePageName" role="main" aria-label="{{ 'universal.accessibility.main-label' | translate }}">
         <div class="container">
             <ci-loader loading="Main.pageStateResolver.pageLoading">
