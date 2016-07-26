@@ -54,12 +54,22 @@
             vm.layout = help.getLayout();
             console.log('layout: ', vm.layout);
             vm.ok = function () {
-                $uibModalInstance.close();
+                modalInstance.close();
             };
 
             vm.jumpToSection = function(hash) {
-                $location.hash(hash);
-                $anchorScroll();
+
+                /*
+                 // Needs the timeout.
+                 // Either the modal or the $anchorScroll happens asynchronously
+                 // Without the timeout, it seems that either the anchorschroll is called after $location.hash has been changed back to oldHash
+                 */
+                $timeout(function() {
+                    var oldHash = $location.hash();
+                    $location.hash(hash);
+                    $anchorScroll();
+                    $location.hash(oldHash);
+                });
             };
 
             // scroll down to hash
