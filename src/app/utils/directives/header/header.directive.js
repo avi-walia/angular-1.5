@@ -34,19 +34,15 @@
 
     headerCtrl2.$inject = [
         '$state',
-        '$window',
-        '$translate',
         'pageStateResolver',
-        'server',
         'version',
         'BASE_URL',
-        '$uibModal',
         'snapRemote',
         'currentPageTitle'
     ];
     /* @ngInject */
-    function headerCtrl2($state, $window, $translate, pageStateResolver, server, version, BASE_URL,
-                        $uibModal, snapRemote, currentPageTitle
+    function headerCtrl2($state, pageStateResolver, version, BASE_URL,
+                        snapRemote, currentPageTitle
     ) {
         var vm = this;
         console.log('$state: ', $state);

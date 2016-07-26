@@ -1,6 +1,6 @@
 {
   "advisorLocatorTitle": "App Title",
-  "page1": "Page 1 asdf",
+  "page1": "Page 1",
   "page2": "Page 2",
   "page3_subpage": "Subpage 3",
   "page4": "Page 4",
@@ -27,7 +27,7 @@
     }
   },
   "help": {
-    "section1": {
+    "page1": {
       "link": "#Section1",
       "title": "Name of Page 1",
       "question1": "Question 1",
@@ -38,7 +38,7 @@
       "answer3": "answer 3"
     },
 
-    "section2": {
+    "page2": {
       "link": "#Section2",
       "title": "Name of Page 2",
       "question1": "Question 2.1",
@@ -49,7 +49,7 @@
       "answer3": "answer 2.3"
     },
 
-    "section3": {
+    "page3": {
       "link": "#Section3",
       "title": "Name of Page 3",
       "question1": "Question 3.1",
@@ -58,6 +58,28 @@
       "answer1": "answer 3.1",
       "answer2": "answer 3.2",
       "answer3": "answer 3.3"
+    },
+
+    "page4": {
+      "link": "#Section4",
+      "title": "Name of Page 4",
+      "question1": "Question 4.1",
+      "question2": "Question 4.2",
+      "question3": "Question 4.3",
+      "answer1": "answer 4.1",
+      "answer2": "answer 4.2",
+      "answer3": "answer 4.3"
+    },
+
+    "page5": {
+      "link": "#Section5",
+      "title": "Name of Page 5",
+      "question1": "Question 5.1",
+      "question2": "Question 5.2",
+      "question3": "Question 5.3",
+      "answer1": "answer 5.1",
+      "answer2": "answer 5.2",
+      "answer3": "answer 5.3"
     }
 
   },

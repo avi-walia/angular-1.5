@@ -14,8 +14,7 @@
                 'ng-click="$ctrl.openWindow()" ng-transclude>Text</a>'
         });
 
-    HelpController.$inject = ['$rootScope', '$uibModal', '$translate', 'analyticsService'];
-
+    HelpController.$inject = ['$rootScope', '$uibModal', '$translate', 'analyticsService', 'ROUTES'];
     /* @ngInject */
     /**
      * Help controller
@@ -24,45 +23,52 @@
      * @param analyticsService analyticsService service for AIO. Optional
      * @constructor
      */
-    function HelpController($rootScope, $uibModal, $translate, analyticsService) {
+    function HelpController($rootScope, $uibModal, $translate, analyticsService, ROUTES) {
         var vm = this;
         var lang = $rootScope.documentLanguage;
 
+
         vm.openWindow = function() {
             analyticsService.trackSuccessAnalytics(true, 'click', 'HEADER', 'Help Btn');
-            openHelpWindow($uibModal, vm.page, 'app/core/includes/header/help/help.body.tpl.html');
+            openHelpWindow($uibModal, vm.page);
         };
     }
 
-    function openHelpWindow($uibModal, pageName, templateFile) {
+    function openHelpWindow($uibModal, pageName) {
 
         var modalInstance = $uibModal.open({
             animation: true,
-            templateUrl: templateFile,
+            templateUrl: 'app/core/includes/header/help/help.body.tpl.html',
             controller: PopupController,
             controllerAs: 'HelpPopupCtrl',
             size: 'help'
         });
 
-        PopupController.$inject = ['$scope', '$uibModalInstance', '$location', '$anchorScroll', '$timeout'];
+        PopupController.$inject = ['$uibModalInstance', '$location', '$anchorScroll', '$timeout', 'help'];
 
         /* @ngInject */
-        function PopupController($scope, $uibModalInstance, $location, $anchorScroll, $timeout) {
+        function PopupController($uibModalInstance, $location, $anchorScroll, $timeout, help) {
 
             // $anchorScroll.yOffset = 65;
-
-            $scope.ok = function () {
+            var vm = this;
+            vm.layout = help.getLayout();
+            console.log('layout: ', vm.layout);
+            vm.ok = function () {
                 $uibModalInstance.close();
             };
 
-            $scope.jumpToSection = function(hash) {
-
+            vm.jumpToSection = function(hash) {
                 $location.hash(hash);
                 $anchorScroll();
             };
 
             // scroll down to hash
-            $scope.jumpToSection(pageName);
+            //Help sections are only by top-level navs. Sub-pages/views do not have an id to jump to.
+            var dotIndex = pageName.indexOf('.');
+            if (dotIndex >= 0) {
+                pageName = pageName.substring(0, dotIndex);
+            }
+            vm.jumpToSection(pageName);
         }
     }
 
