@@ -1,10 +1,5 @@
 {
   "appTitle": "FR App Title",
-  "page1": "FR Page 1",
-  "page2": "FR Page 2",
-  "page3_subpage": "FR Subpage 3",
-  "page4": "FR Page 4",
-  "page5": "FR Page 5",
   "helpLabel": "FR Help",
   "pages": {
     "landing": {
@@ -17,9 +12,7 @@
       "title": "FR Page 2 Title"
     },
     "page3": {
-      "subpage": {
-        "title": "FR Page 3 Subpage"
-      }
+      "title":"FR Page 3 Title"
     },
     "page4": {
       "title": "FR Page 4 Title"
@@ -30,8 +23,6 @@
   },
   "help": {
     "page1": {
-      "link": "FR #Section1",
-      "title": "FR Name of Page 1",
       "question1": "FR Question 1",
       "question2": "FR Question 2",
       "question3": "FR Question 3",
@@ -41,8 +32,6 @@
     },
 
     "page2": {
-      "link": "FR #Section2",
-      "title": "FR Name of Page 2",
       "question1": "FR Question 2.1",
       "question2": "FR Question 2.2",
       "question3": "FR Question 2.3",
@@ -52,8 +41,6 @@
     },
 
     "page3": {
-      "link": "FR #Section3",
-      "title": "FR Name of Page 3",
       "question1": "FR Question 3.1",
       "question2": "FR Question 3.2",
       "question3": "Question 3.3",
@@ -63,8 +50,6 @@
     },
 
     "page4": {
-      "link": "FR #Section4",
-      "title": "FR Name of Page 4",
       "question1": "FR Question 4.1",
       "question2": "FR Question 4.2",
       "question3": "FR Question 4.3",
@@ -74,8 +59,6 @@
     },
 
     "page5": {
-      "link": "FR #Section5",
-      "title": "FR Name of Page 5",
       "question1": "FR Question 5.1",
       "question2": "FR Question 5.2",
       "question3": "FR Question 5.3",
@@ -89,15 +72,6 @@
     "EN": "English",
     "FR": "Français",
     "aiologo-img": "logos_f.svg",
-    "menu": {
-      "page1": "FR Name of Page1",
-      "page2": "FR Name of Page2",
-      "page3": {
-        "subpage": "FR Name of Page3 Subpage"
-      },
-      "page4": "FR Name of Page4",
-      "page5": "FR Name of Page5"
-    },
     "browse-happy": "FR You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.",
     "dismiss-message": "FR Dismiss message"
   },

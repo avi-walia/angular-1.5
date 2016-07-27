@@ -7,7 +7,8 @@
     "gulp-jasmine": "^2.4.0",
     "ionic": "^1.7.16",
     "karma-chrome-launcher": "^1.0.1",
-    "lodash": "^4.13.1"
+    "lodash": "^4.13.1",
+    "protractor": "^4.0.0"
   },
   "devDependencies": {
     "browser-sync": "^2.12.8",

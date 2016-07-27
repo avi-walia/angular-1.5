@@ -16,9 +16,9 @@
             </a>
         </li>
     </ol>
-    <div ng-repeat="layout in HelpPopupCtrl.layout track by $index" id="{{layout.pageName}}" class="help-section" role="main">
+    <div ng-repeat="layout in HelpPopupCtrl.layout track by $index" class="help-section" role="main">
 
-        <h3 class="faq"  ng-bind-html='"pages." + layout.pageName + ".title" | translate | htmlSafe'></h3>
+        <h3 class="faq" id="{{layout.pageName}}" ng-bind-html='"pages." + layout.pageName + ".title" | translate | htmlSafe'></h3>
         <div ng-repeat="qaNum in layout.indexes track by $index" class="question_cont">
             <h5 ng-bind-html='"help."+layout.pageName+".question"+qaNum | translate | htmlSafe'></h5>
             <p ng-bind-html='"help."+layout.pageName+".answer"+qaNum | translate | htmlSafe'></p>
@@ -26,6 +26,7 @@
 
     </div>
 </div>
-<div class="modal-footer"><a class="top" href ng-click="HelpPopupCtrl.jumpToSection('top')">Scroll to top</a>
+<div class="modal-footer"><a class="top" href ng-click="HelpPopupCtrl.jumpToSection('help-top')">Scroll to top</a>
     <button class="btn btn-primary" type="button" ng-click="HelpPopupCtrl.ok()">Close Help</button>
 </div>
+kar
