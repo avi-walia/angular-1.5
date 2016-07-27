@@ -3,7 +3,6 @@
 <div ng-hide="Main.isLoadingTranslations">
 
     <snap-drawers class="snap-drawers">
-            <!--<div ui-view="drawer" snap-drawer="right"></div>-->
         <drawer snap-drawer="right"></drawer>
     </snap-drawers>
 
@@ -15,9 +14,6 @@
     a{};
     -->
     <snap-content class="snap-content" ng-class="Main.pageStateResolver.activePageName">
-        <!--
-        <div ui-view="header" ng-class="Main.pageStateResolver.activePageName" autoscroll="true"></div>
-        -->
 
         <header2 is-desktop="Main.detectMobile.isDesktop"></header2>
         <div id="main" ng-class="Main.pageStateResolver.activePageName" role="main" aria-label="{{ 'universal.accessibility.main-label' | translate }}">

@@ -1,37 +1,25 @@
 {
   "appTitle": "App Title",
-  "page1": "Page 1",
-  "page2": "Page 2",
-  "page3_subpage": "Subpage 3",
-  "page4": "Page 4",
-  "page5": "Page 5",
-  "helpLabel": "Help",
   "pages": {
-    "landing": {
-      "title": "Title for landing page"
-    },
     "page1": {
-      "title": "Page 1 Title"
+      "title":"Page 1"
     },
     "page2": {
-      "title": "Page 2 Title"
+      "title":"Page 2"
     },
     "page3": {
-      "subpage": {
-        "title": "Page 3 Subpage"
-      }
+      "title":"Page 3"
     },
     "page4": {
-      "title": "Page 4 Title"
+      "title":"Page 4"
     },
     "page5": {
-      "title": "Page 5 Title"
+      "title":"Page 5"
     }
   },
+  "helpLabel": "Help",
   "help": {
     "page1": {
-      "link": "#Section1",
-      "title": "Name of Page 1",
       "question1": "Question 1",
       "question2": "Question 2",
       "question3": "Question 3",
@@ -41,8 +29,6 @@
     },
 
     "page2": {
-      "link": "#Section2",
-      "title": "Name of Page 2",
       "question1": "Question 2.1",
       "question2": "Question 2.2",
       "question3": "Question 2.3",
@@ -52,8 +38,6 @@
     },
 
     "page3": {
-      "link": "#Section3",
-      "title": "Name of Page 3",
       "question1": "Question 3.1",
       "question2": "Question 3.2",
       "question3": "Question 3.3",
@@ -63,8 +47,6 @@
     },
 
     "page4": {
-      "link": "#Section4",
-      "title": "Name of Page 4",
       "question1": "Question 4.1",
       "question2": "Question 4.2",
       "question3": "Question 4.3",
@@ -74,8 +56,6 @@
     },
 
     "page5": {
-      "link": "#Section5",
-      "title": "Name of Page 5",
       "question1": "Question 5.1",
       "question2": "Question 5.2",
       "question3": "Question 5.3",
@@ -89,15 +69,6 @@
     "EN": "English",
     "FR": "Français",
     "aiologo-img": "logos.svg",
-    "menu": {
-      "page1": "Name of Page1",
-      "page2": "Name of Page2",
-      "page3": {
-        "subpage": "Name of Page3 Subpage"
-      },
-      "page4": "Name of Page4",
-      "page5": "Name of Page5"
-    },
     "browse-happy": "You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.",
     "dismiss-message": "Dismiss message"
   },

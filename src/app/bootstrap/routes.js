@@ -5,7 +5,7 @@
         .config([
             '$stateProvider',
             '$urlRouterProvider',
-            '$urlMatcherFactoryProvider',           
+            '$urlMatcherFactoryProvider',
             function ($stateProvider, $urlRouterProvider, $urlMatcherFactoryProvider) {
                 function valToString(val) {
                     return val !== null ? decodeURIComponent(val).toString() : val;
@@ -29,8 +29,8 @@
                         // //if we are not in IE 9 then lets try to go to portfolio.
                         if (!(deviceDetector.browser === 'ie' && deviceDetector.browser_version <= '9.0')  ) {
                             // @todo: check if back btn functionality apply
-                            //$state.go('main.aio.portfolio');
-                            $state.go('main.aio.page1');
+                            //$state.go('main.advisorLocator.portfolio');
+                            $state.go('main.advisorLocator.page1');
                         }
                     }]);
 
@@ -45,7 +45,7 @@
                         controller: 'MainCtrl as Main',
                         templateUrl: 'app/core/includes/layouts/main.layout.html'
                     })
-                    .state('main.aio', {
+                    .state('main.advisorLocator', {
                         url: '/advisorLocator',
                         abstract: true,
                         views: {
@@ -62,7 +62,7 @@
                     })
 
                     /********************* LOGIN *******************************/
-                    .state('main.aio.landing', {
+                    .state('main.advisorLocator.landing', {
                         abstract: true,
                         views: {
                             // use absolute naming [view-name @ state where the view is defined]
@@ -71,7 +71,7 @@
                             }
                         }
                     })
-                    .state('main.aio.landing.page', {
+                    .state('main.advisorLocator.landing.page', {
                         url: '/landing/:refresh',
                         resolve: {
                         },
@@ -86,7 +86,7 @@
                             }*/
                         }
                     })
-                    .state('main.aio.page1', {
+                    .state('main.advisorLocator.page1', {
                         url: '/page1',
                         resolve: {
                         },
@@ -101,7 +101,7 @@
                              }*/
                         }
                     })
-                    .state('main.aio.page2', {
+                    .state('main.advisorLocator.page2', {
                         url: '/page2',
                         resolve: {
                         },
@@ -112,7 +112,7 @@
                             }
                         }
                     })
-                    .state('main.aio.page3', {
+                    .state('main.advisorLocator.page3', {
                         abstract: true,
                         url: '/page3',
                         resolve: {
@@ -124,7 +124,7 @@
                             }
                         }
                     })
-                    .state('main.aio.page3.subpage', {
+                    .state('main.advisorLocator.page3.subpage', {
                         url: '/subpage',
                         resolve: {
                         },
@@ -143,7 +143,7 @@
                              }*/
                         }
                     })
-                    .state('main.aio.page4', {
+                    .state('main.advisorLocator.page4', {
                         url: '/page4',
                         resolve: {
                         },
@@ -154,7 +154,7 @@
                             }
                         }
                     })
-                    .state('main.aio.page5', {
+                    .state('main.advisorLocator.page5', {
                         url: '/page5',
                         resolve: {
                         },

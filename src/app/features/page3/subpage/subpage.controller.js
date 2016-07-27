@@ -12,7 +12,7 @@
         var vm = this;
         console.log('SubPageCtrl loaded');
 
-        currentPageTitle.page.title = $translate.instant('pages.page3.subpage.title');
+        currentPageTitle.page.title = $translate.instant('pages.page3.title');
     }
 
 

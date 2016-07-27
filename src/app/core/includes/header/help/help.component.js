@@ -51,6 +51,7 @@
 
             // $anchorScroll.yOffset = 65;
             var vm = this;
+            vm.pageName = pageName;
             vm.layout = help.getLayout();
             console.log('layout: ', vm.layout);
             vm.ok = function () {
@@ -58,8 +59,13 @@
             };
 
             vm.jumpToSection = function(hash) {
-                $location.hash(hash);
-                $anchorScroll();
+                $timeout(function() {
+                    var oldHash = $location.hash();
+                    $location.hash(hash);
+                    $anchorScroll();
+                    $location.hash(oldHash);
+                    vm.pageName = hash;
+                });
             };
 
             // scroll down to hash

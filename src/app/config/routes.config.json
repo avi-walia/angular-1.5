@@ -1,7 +1,7 @@
 {
   "ROUTES": [
     {
-      "stateName": "main.aio.page1",
+      "stateName": "main.advisorLocator.page1",
       "isAbstract": false,
       "pageName": "page1",
       "hasFYI": false,
@@ -9,7 +9,7 @@
       "numHelpTopics": 3
     },
     {
-      "stateName": "main.aio.page2",
+      "stateName": "main.advisorLocator.page2",
       "isAbstract": false,
       "pageName": "page2",
       "hasFYI": false,
@@ -17,7 +17,7 @@
       "numHelpTopics": 3
     },
     {
-      "stateName": "main.aio.page3",
+      "stateName": "main.advisorLocator.page3",
       "isAbstract": true,
       "pageName": "page3",
       "hasFYI": false,
@@ -25,14 +25,14 @@
       "numHelpTopics": 3
     },
     {
-      "stateName": "main.aio.page3.subpage",
+      "stateName": "main.advisorLocator.page3.subpage",
       "isAbstract": false,
-      "pageName": "page3.subpage",
+      "pageName": "page3",
       "hasFYI": false,
       "isPublic": true
     },
     {
-      "stateName": "main.aio.page4",
+      "stateName": "main.advisorLocator.page4",
       "isAbstract": false,
       "pageName": "page4",
       "hasFYI": false,
@@ -40,7 +40,7 @@
       "numHelpTopics": 3
     },
     {
-      "stateName": "main.aio.page5",
+      "stateName": "main.advisorLocator.page5",
       "isAbstract": false,
       "pageName": "page5",
       "hasFYI": false,
@@ -55,21 +55,21 @@
       "isPublic": false
     },
     {
-      "stateName": "main.aio",
+      "stateName": "main.advisorLocator",
       "isAbstract": true,
       "pageName": "",
       "hasFYI": false,
       "isPublic": false
     },
     {
-      "stateName": "main.aio.landing",
+      "stateName": "main.advisorLocator.landing",
       "isAbstract": true,
       "pageName": "",
       "hasFYI": false,
       "isPublic": false
     },
     {
-      "stateName": "main.aio.landing.page",
+      "stateName": "main.advisorLocator.landing.page",
       "isAbstract": false,
       "pageName": "login",
       "hasFYI": true,

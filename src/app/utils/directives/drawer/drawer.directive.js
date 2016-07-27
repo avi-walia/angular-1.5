@@ -84,22 +84,22 @@
 
             switch (state) {
                 case 'page1':
-                    $state.go('main.aio.page1');
+                    $state.go('main.advisorLocator.page1');
                     break;
                 case 'page2':
-                    $state.go('main.aio.page2');
+                    $state.go('main.advisorLocator.page2');
                     break;
                 case 'page3.subpage':
-                    $state.go('main.aio.page3.subpage');
+                    $state.go('main.advisorLocator.page3.subpage');
                     break;
                 case 'page4':
-                    $state.go('main.aio.page4');
+                    $state.go('main.advisorLocator.page4');
                     break;
                 case 'page5':
-                    $state.go('main.aio.page5');
+                    $state.go('main.advisorLocator.page5');
                     break;
                 default:
-                    $state.go('main.aio.page1');
+                    $state.go('main.advisorLocator.page1');
             }
         }
 

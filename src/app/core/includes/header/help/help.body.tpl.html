@@ -5,20 +5,20 @@
     <div id="help-top"></div>
     <ol id="help-menu" role="navigation" aria-label="{{ 'universal.accessibility.help-nav-label' | translate }}">
         <li ng-repeat="layout in HelpPopupCtrl.layout track by $index" id="faq_registration">
-            <a
+            <a ng-class="{SelectedHelpSection: layout.pageName === HelpPopupCtrl.pageName}"
                analytics-on
                analytics-event="click"
                analytics-category="HELP MODAL"
                analytics-label="Registration"
                ng-click="HelpPopupCtrl.jumpToSection(layout.pageName)"
-               ng-bind-html='layout.pageName | translate | htmlSafe'
+               ng-bind-html='"pages." + layout.pageName + ".title" | translate | htmlSafe'
             >
             </a>
         </li>
     </ol>
     <div ng-repeat="layout in HelpPopupCtrl.layout track by $index" id="{{layout.pageName}}" class="help-section" role="main">
 
-        <h3 class="faq"  ng-bind-html='layout.pageName | translate | htmlSafe'></h3>
+        <h3 class="faq"  ng-bind-html='"pages." + layout.pageName + ".title" | translate | htmlSafe'></h3>
         <div ng-repeat="qaNum in layout.indexes track by $index" class="question_cont">
             <h5 ng-bind-html='"help."+layout.pageName+".question"+qaNum | translate | htmlSafe'></h5>
             <p ng-bind-html='"help."+layout.pageName+".answer"+qaNum | translate | htmlSafe'></p>

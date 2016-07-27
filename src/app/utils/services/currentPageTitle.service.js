@@ -13,7 +13,7 @@
         var service = this;
         //service.pageTitle = 'hello world';
         service.page = {
-            title: 'fish'
+            title: ''
         };
         /*
         service.setPageName = setPageName;
