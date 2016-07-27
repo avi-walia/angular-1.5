@@ -10,7 +10,7 @@
 
 
     angular
-        .module('aio.core.main')
+        .module('advisorLocator.core.main')
         .constant('NOTES_EVENTS', {
             all: 'notification-update',
             http: 'notification-http-error-update',

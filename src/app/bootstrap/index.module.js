@@ -2,14 +2,14 @@
     'use strict';
 
     //---------------- CORE ---------------- //
-    angular.module('aio.core.main', ['ngIdle', 'aio.core.server', 'aio.utils', 'ui.bootstrap', 'ng.deviceDetector', 'headroom']);
-    angular.module('aio.core.cache', ['aio.core.server']);
-    angular.module('aio.core.server', ['aio.core.cache']);
+    angular.module('advisorLocator.core.main', ['ngIdle', 'advisorLocator.core.server', 'advisorLocator.utils', 'ui.bootstrap', 'ng.deviceDetector', 'headroom']);
+    angular.module('advisorLocator.core.cache', ['advisorLocator.core.server']);
+    angular.module('advisorLocator.core.server', ['advisorLocator.core.cache']);
 
     //---------------- FEATURES ---------------- //
 
     //---------------- UTILITIES ---------------- //
-    angular.module('aio.utils', ['matchMedia', 'ngIdle', 'aio.core.server', 'ui.bootstrap', 'ng.deviceDetector', 'headroom']);
+    angular.module('advisorLocator.utils', ['matchMedia', 'ngIdle', 'advisorLocator.core.server', 'ui.bootstrap', 'ng.deviceDetector', 'headroom']);
 
     //---------------- MAIN ---------------- //
     angular.module('advisorLocator', [
@@ -21,8 +21,8 @@
         'ngCookies',
         'ngSanitize',
         'ngAria',
-        'aio.core.main',
-        'aio.core.server',
+        'advisorLocator.core.main',
+        'advisorLocator.core.server',
         'angulartics',
         'angulartics.google.analytics',
         'snap',

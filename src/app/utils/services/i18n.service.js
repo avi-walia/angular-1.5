@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('aio.utils')
+        .module('advisorLocator.utils')
         .service('i18nService', i18nService);
 
     i18nService.$inject = ['$rootScope'];

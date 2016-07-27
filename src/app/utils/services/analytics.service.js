@@ -9,7 +9,7 @@
     'use strict';
 
     angular
-        .module('aio.utils')
+        .module('advisorLocator.utils')
         .service('analyticsService', analyticsService);
 
     analyticsService.$inject = ['$analytics'];

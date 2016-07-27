@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('aio.core.main')
+    angular.module('advisorLocator.core.main')
         .controller('NotificationsCtrl', [
             '$scope',
             'NotificationService',

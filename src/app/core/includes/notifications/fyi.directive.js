@@ -15,7 +15,7 @@
     //];
 
     angular
-        .module('aio.core.main')
+        .module('advisorLocator.core.main')
         .directive('fyiNotifications', fyiNotificationsDirective);
 
     /* @ngInject */

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('aio.core.main')
+        .module('advisorLocator.core.main')
         .service('promoService', promoService);
 
     promoService.$inject = ['server', 'PROMO_CONFIG_PATH'];

@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular
-        .module('aio.utils')
+        .module('advisorLocator.utils')
         .directive('scrollToTop', scrollToTop);
 
     scrollToTop.$inject = ['$anchorScroll'];

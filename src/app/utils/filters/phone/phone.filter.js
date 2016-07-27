@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('aio.utils')
+        .module('advisorLocator.utils')
         .filter('phone', phoneFilter);
 
     //phoneFilter.$inject = ['$locale'];

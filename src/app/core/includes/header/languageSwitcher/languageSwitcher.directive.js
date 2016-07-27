@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('aio.core.main')
+        .module('advisorLocator.core.main')
         .directive('languageSwitcher', swapLanguageDirective);
 
     function swapLanguageDirective() {
@@ -27,7 +27,7 @@
     function LangSwitcherController($rootScope, $translate, $state) {
         var vm = this;
         vm.changeLanguage = changeLanguage;
-        vm.test = 'fish';
+        ;
         activate();
 
         function activate() {
@@ -37,7 +37,7 @@
         function changeLanguage(langKey) {
             $translate.use(langKey).then(function () {
                 vm.currentLanguage = $translate.use();
-                //$state.go($state.current.name, {locale: vm.currentLanguage});
+                $state.go($state.current.name, {locale: vm.currentLanguage});
             });
         }
     }

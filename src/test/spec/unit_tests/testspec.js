@@ -9,8 +9,8 @@ describe('example test', function() {
         var customCacheFactory;
         var cacheFactory;
         beforeEach(function() {
-            module('aio.utils');
-            module('aio.core.server');
+            module('advisorLocator.utils');
+            module('advisorLocator.core.server');
             module('angular-cache');
             inject(['$injector', 'CacheFactory', function($injector, $CacheFactory){
                 cacheFactory = $injector.get('CacheFactory');
@@ -35,8 +35,8 @@ describe('example test', function() {
         var customCacheFactory;
         var cacheFactory;
         beforeEach(function() {
-            module('aio.utils');
-            module('aio.core.server');
+            module('advisorLocator.utils');
+            module('advisorLocator.core.server');
             module('angular-cache');
             inject(['$injector', 'CacheFactory', function($injector, $CacheFactory){
                 cacheFactory = $injector.get('CacheFactory');
@@ -61,8 +61,8 @@ describe('example test', function() {
         var customCacheFactory;
         var cacheFactory;
         beforeEach(function() {
-            module('aio.utils');
-            module('aio.core.server');
+            module('advisorLocator.utils');
+            module('advisorLocator.core.server');
             module('angular-cache');
             inject(['$injector', 'CacheFactory', function($injector, $CacheFactory){
                 cacheFactory = $injector.get('CacheFactory');
@@ -91,7 +91,7 @@ describe('example test', function() {
         beforeEach(function() {
             module('ui.router');
             module('pascalprecht.translate');
-            module('aio.core.main');
+            module('advisorLocator.core.main');
             module('advisorLocator');
             inject(['$injector', '$controller', '$translate', 'copyrightYear', function($injector, $controller, $translate, _copyrightYear_){
                 controller = $controller;
@@ -116,7 +116,7 @@ describe("Directive", function () {
 
         module('ui.router');
         module('pascalprecht.translate');
-        module('aio.core.main');
+        module('advisorLocator.core.main');
         module('advisorLocator');
         /*
         module(function($provide){

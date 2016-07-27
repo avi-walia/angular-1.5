@@ -7,7 +7,7 @@
     'use strict';
 
     angular
-        .module('aio.utils')
+        .module('advisorLocator.utils')
         .directive('header2', header2);
 
     // ciInputMatch.$inject = ['$element'];

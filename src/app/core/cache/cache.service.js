@@ -7,7 +7,7 @@
     'use strict';
     var STORAGE_PREFIX = 'aio';
     angular
-        .module('aio.core.cache')
+        .module('advisorLocator.core.cache')
         .factory('dataCacheSessionStorage', dataCacheSessionStorage)
         .factory('dataCacheLocalStorage', dataCacheLocalStorage)
         .factory('notificationsCacheService', notificationsCacheService);

@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('aio.utils')
+    angular.module('advisorLocator.utils')
         .directive('select', viewportZoomingDirective)
         .directive('input', viewportZoomingDirective);
 

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('aio.core.main')
+        .module('advisorLocator.core.main')
         .component('ciHelp', {
             bindings: {
                 page: '<' // one way binding
@@ -20,7 +20,7 @@
      * Help controller
      * @param $uibModal Bootstrap modal
      * @param $translate Angular $translate service
-     * @param analyticsService analyticsService service for AIO. Optional
+     * @param analyticsService analyticsService service for AdvisorLocator. Optional
      * @constructor
      */
     function HelpController($rootScope, $uibModal, $translate, analyticsService, ROUTES) {
@@ -55,10 +55,15 @@
             vm.layout = help.getLayout();
             console.log('layout: ', vm.layout);
             vm.ok = function () {
-                $uibModalInstance.close();
+                modalInstance.close();
             };
 
             vm.jumpToSection = function(hash) {
+                /*
+                 // Needs the timeout.
+                 // Either the modal or the $anchorScroll happens asynchronously
+                 // Without the timeout, it seems that either the anchorschroll is called after $location.hash has been changed back to oldHash
+                 */
                 $timeout(function() {
                     var oldHash = $location.hash();
                     $location.hash(hash);

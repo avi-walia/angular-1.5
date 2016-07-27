@@ -5,7 +5,7 @@
 (function () {
     'use strict';
     angular
-        .module('aio.utils')
+        .module('advisorLocator.utils')
         .service('currentPageTitle', currentPageTitle);
 
     /* @ngInject */

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('aio.core.main')
+        .module('advisorLocator.core.main')
         .controller('FooterCtrl', FooterCtrl);
 
     FooterCtrl.$inject = ['copyrightYear'];

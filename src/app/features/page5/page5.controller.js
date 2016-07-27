@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('aio.core.main')
+        .module('advisorLocator.core.main')
         .controller('Page5Ctrl', Page5Ctrl);
 
     Page5Ctrl.$inject = ['currentPageTitle', '$translate'];

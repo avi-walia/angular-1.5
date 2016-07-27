@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('aio.core.server')
+        .module('advisorLocator.core.server')
         .service('server', server);
 
     var sPageStateCacheKey = 'states';

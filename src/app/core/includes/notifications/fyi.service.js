@@ -6,7 +6,7 @@
         emptyFYI = {};
 
     angular
-        .module('aio.core.main')
+        .module('advisorLocator.core.main')
         .service('fyi', fyiService);
 
     fyiService.$inject = [

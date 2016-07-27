@@ -10,7 +10,7 @@
     'use strict';
 
     angular
-        .module('aio.utils')
+        .module('advisorLocator.utils')
         .factory('focusService', focusService);
 
     focusService.$inject = ['$timeout','$window'];

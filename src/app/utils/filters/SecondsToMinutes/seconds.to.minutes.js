@@ -7,7 +7,7 @@
     'use strict';
 
     angular
-        .module('aio.utils')
+        .module('advisorLocator.utils')
         .filter('secondsToMinutes', secondsToMinutes);
 
     secondsToMinutes.$inject = ['$rootScope', '$filter'];

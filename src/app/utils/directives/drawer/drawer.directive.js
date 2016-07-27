@@ -7,7 +7,7 @@
     'use strict';
 
     angular
-        .module('aio.utils')
+        .module('advisorLocator.utils')
         .directive('drawer', drawer);
 
     // ciInputMatch.$inject = ['$element'];

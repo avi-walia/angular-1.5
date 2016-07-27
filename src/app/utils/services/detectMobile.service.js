@@ -5,7 +5,7 @@
         cssMobileClass = 'mobile';
 
     angular
-        .module('aio.utils')
+        .module('advisorLocator.utils')
         .service('detectMobile', detectMobile);
 
     detectMobile.$inject = ['screenSize'];
