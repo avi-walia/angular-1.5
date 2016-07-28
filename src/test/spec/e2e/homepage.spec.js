@@ -1,3 +1,6 @@
+var helper = require('./helper.js');
+var _ = require('lodash');
+var mnb = helper.mobileNavBar;
 describe('advisorLocator mobile Navigation', function() {
     it('should be able to go to page 1', function() {
         browser.get('http://localhost:3000/#/en/advisorLocator/page1');
@@ -15,16 +18,41 @@ describe('advisorLocator mobile Navigation', function() {
         expect($("#drawerlink").isDisplayed()).toEqual(true);
 
         //browser.wait(protractor.expectedConditions.elementIsNotVisible($('__bs_notify__')), 5000, 'Element not clickable');
+        /*
         browser.wait(protractor.ExpectedConditions.stalenessOf($('#__bs_notify__')) || protractor.ExpectedConditions.invisibilityOf($('#__bs_notify__')), 5000);
         $("#drawerlink").click();
         browser.wait(protractor.ExpectedConditions.visibilityOf($("#nav li")), 5000);
-        //console.log('$("#nav li")', element.all(by.css('#nav li')).get(0).getText());
-        /* This is how you can log values while test is running
-        element.all(by.css('#nav li')).get(0).getText().then(function(text) {
-            console.log('selected nav li: ', text);
-        });
         */
+
+
+        var expectedLinks = [
+            mnb.newLink('Français', null, false),
+            mnb.newLink('Page 1 Title', null, false),
+            mnb.newLink('Page 2 Title', null, false),
+            mnb.newLink('Page 3 Title', null, false),
+            mnb.newLink('Page 4 Title', null, false),
+            mnb.newLink('Page 5 Title', null, false),
+            mnb.newLink('Help', null, false),
+            mnb.newLink('Link 1', 'https://www.google.ca/', false),
+            mnb.newLink('Link 2', 'https://www.yahoo.ca/', false),
+            mnb.newLink('Link 3', 'https://www.ci.com/', false),
+            mnb.newLink('Link 4', 'https://www.assanteservices.com/aiol/#/en/aio/landing/', false)
+        ];
+        //mobile nav is not open, links should be on the page, but not visible
+        mnb.verifyLinks(expectedLinks);
+        expect(mnb.logo.isDisplayed()).toEqual(false);
+        //open mobile navbar
+        mnb.clickHamburger();
+        //now we should expect the mobile navbar links to be visible
         var drawerNavItems = element.all(by.css('#nav li a'));
+        _.forEach(expectedLinks, function(value, index){
+            value.visibility = true;
+        });
+        //verify navbar.
+        mnb.verifyLinks(expectedLinks);
+        expect(mnb.logo.isDisplayed()).toEqual(true);
+
+        /*
         expect(drawerNavItems.get(0).isDisplayed()).toEqual(true);
         expect(drawerNavItems.get(0).getText()).toEqual('Français');
 
@@ -55,7 +83,7 @@ describe('advisorLocator mobile Navigation', function() {
         expect(drawerNavItems.get(10).isDisplayed()).toEqual(true);
         expect(drawerNavItems.get(10).getText()).toEqual('Link 4');
         expect(drawerNavItems.get(10).getAttribute('href')).toEqual('https://www.assanteservices.com/aiol/#/en/aio/landing/');
-
+        */
 
         /*
         expect(element(by.binding('pages.page1.title')).isDisplayed()).toEqual(true);
@@ -74,30 +102,30 @@ describe('advisorLocator mobile Navigation', function() {
         });
         */
     });
-
+/*
     it('should be able to go to page 2', function() {
         browser.get('http://localhost:3000/#/en/advisorLocator/page2');
         browser.driver.manage().window().setSize(500, 500);
         browser.waitForAngular();
-        expect($("#mobileHeader").getText()).toEqual('Page 2 Title');
+        expect(element(by.binding('Head.page.title')).getText()).toEqual('Page 2 Title');
     });
     it('should be able to go to page 3', function() {
         browser.get('http://localhost:3000/#/en/advisorLocator/page3/subpage');
         browser.driver.manage().window().setSize(500, 500);
         browser.waitForAngular();
-        expect($("#mobileHeader").getText()).toEqual('Page 3 Title');
+        expect(element(by.binding('Head.page.title')).getText()).toEqual('Page 3 Title');
     });
     it('should be able to go to page 4', function() {
         browser.get('http://localhost:3000/#/en/advisorLocator/page4');
         browser.driver.manage().window().setSize(500, 500);
         browser.waitForAngular();
-        expect($("#mobileHeader").getText()).toEqual('Page 4 Title');
+        expect(element(by.binding('Head.page.title')).getText()).toEqual('Page 4 Title');
     });
     it('should be able to go to page 5', function() {
         browser.get('http://localhost:3000/#/en/advisorLocator/page5');
         browser.driver.manage().window().setSize(500, 500);
         browser.waitForAngular();
-        expect($("#mobileHeader").getText()).toEqual('Page 5 Title');
+        expect(element(by.binding('Head.page.title')).getText()).toEqual('Page 5 Title');
     });
-    
+*/
 });

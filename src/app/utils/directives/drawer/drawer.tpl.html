@@ -8,11 +8,11 @@
 
     <ul class="main">
         <span>
-            <li ng-click="Drawer.go('page1')" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page1"><a title="{{ 'pages.page1.title' | translate }}"  translate>pages.page1.title</a></li>
-            <li ng-click="Drawer.go('page2')" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page2"><a title="{{ 'pages.page2.title' | translate }}"  translate>pages.page2.title</a></li>
-            <li ng-click="Drawer.go('page3.subpage')" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page3"><a title="{{ 'pages.page3.title' | translate }}"  translate>pages.page3.title</a></li>
-            <li ng-click="Drawer.go('page4')" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page4"><a title="{{ 'pages.page4.title' | translate }}"  translate>pages.page4.title</a></li>
-            <li ng-click="Drawer.go('page5')" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page5"><a title="{{ 'pages.page5.title' | translate }}"  translate>pages.page5.title</a></li>
+            <li ng-class="{currentPage: Drawer.state.current.name === 'main.advisorLocator.page1'}" ng-click="Drawer.go('page1')" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page1"><a title="{{ 'pages.page1.title' | translate }}"  translate>pages.page1.title</a></li>
+            <li ng-class="{currentPage: Drawer.state.current.name === 'main.advisorLocator.page2'}" ng-click="Drawer.go('page2')" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page2"><a title="{{ 'pages.page2.title' | translate }}"  translate>pages.page2.title</a></li>
+            <li ng-class="{currentPage: Drawer.state.current.name === 'main.advisorLocator.page3.subpage'}" ng-click="Drawer.go('page3.subpage')" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page3"><a title="{{ 'pages.page3.title' | translate }}"  translate>pages.page3.title</a></li>
+            <li ng-class="{currentPage: Drawer.state.current.name === 'main.advisorLocator.page4'}" ng-click="Drawer.go('page4')" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page4"><a title="{{ 'pages.page4.title' | translate }}"  translate>pages.page4.title</a></li>
+            <li ng-class="{currentPage: Drawer.state.current.name === 'main.advisorLocator.page5'}" ng-click="Drawer.go('page5')" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page5"><a title="{{ 'pages.page5.title' | translate }}"  translate>pages.page5.title</a></li>
 
         </span>
         <li><ci-help page="Drawer.pageStateResolver.activePageName" >{{ 'helpLabel' | translate }}</ci-help></li>

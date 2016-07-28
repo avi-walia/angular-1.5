@@ -69,7 +69,6 @@
         activate();
 
         function activate() {
-            console.log('goodbye');
             snapperPromise = snapRemote.getSnapper();
             bodyElement.removeClass('snapjs-right');
         }
@@ -81,25 +80,26 @@
          */
 
         function go(state) {
-
-            switch (state) {
-                case 'page1':
-                    $state.go('main.advisorLocator.page1');
-                    break;
-                case 'page2':
-                    $state.go('main.advisorLocator.page2');
-                    break;
-                case 'page3.subpage':
-                    $state.go('main.advisorLocator.page3.subpage');
-                    break;
-                case 'page4':
-                    $state.go('main.advisorLocator.page4');
-                    break;
-                case 'page5':
-                    $state.go('main.advisorLocator.page5');
-                    break;
-                default:
-                    $state.go('main.advisorLocator.page1');
+            if ($state.current.name != 'main.advisorLocator.' + state) {
+                switch (state) {
+                    case 'page1':
+                        $state.go('main.advisorLocator.page1');
+                        break;
+                    case 'page2':
+                        $state.go('main.advisorLocator.page2');
+                        break;
+                    case 'page3.subpage':
+                        $state.go('main.advisorLocator.page3.subpage');
+                        break;
+                    case 'page4':
+                        $state.go('main.advisorLocator.page4');
+                        break;
+                    case 'page5':
+                        $state.go('main.advisorLocator.page5');
+                        break;
+                    default:
+                        $state.go('main.advisorLocator.page1');
+                }
             }
         }
 
@@ -108,7 +108,6 @@
          * @param $event - event click with target which may or may not be a link (<a>)
          */
         function drawerClickHandler($event) {
-            console.log('hello world');
             var element = $event.target.tagName.toLowerCase();
             if (element === 'a' || element === 'li') {
                 snapperPromise.then(function (snapper) {
