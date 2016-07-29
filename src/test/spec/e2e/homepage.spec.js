@@ -18,7 +18,7 @@ var locale = 'en';
 describe('desktop app should work', function() {
 
     it('should be able to go to page 1(desktop view)', function() {
-        var pageName = "Page 1 Title";
+        var pageName = translate('pages.page1.title', locale);
         loadPageWait('http://localhost:3000/#/en/advisorLocator/page1');
 
         //Make sure the page content is visible and what we expect it to be
@@ -46,21 +46,21 @@ describe('desktop app should work', function() {
                 newLink(translate('pages.page4.title', locale).toUpperCase(), "main.advisorLocator.page4", true),
                 newLink(translate('pages.page5.title', locale).toUpperCase(), "main.advisorLocator.page5", true)
             ]
-        }
+        };
         var header = headerTemplate(expected);
         header.checkNavLinks();
 
         var expected = {
-            text: '©2016 Name of Company',
+            text: translate('copyright', locale),
             textVisibility: true,
             logoVisibility: true,
             links: [
-                newLink('Link 1', 'https://www.google.ca/', true),
-                newLink('Link 2', 'https://www.yahoo.ca/', true),
-                newLink('Link 3', 'https://www.ci.com/', true),
-                newLink('Link 4', 'https://www.assanteservices.com/aiol/#/en/aio/landing/', true)
+                newLink(translate('footer.linkText1', locale), translate('footer.link1', locale), true),
+                newLink(translate('footer.linkText2', locale), translate('footer.link2', locale), true),
+                newLink(translate('footer.linkText3', locale), translate('footer.link3', locale), true),
+                newLink(translate('footer.linkText4', locale), translate('footer.link4', locale), true)
             ]
-        }
+        };
         footer = footerTemplate(expected);
         //mobile nav is not open, links should be on the page, but not visible
         //console.log('expectedLinks ', expectedLinks);
@@ -70,13 +70,13 @@ describe('desktop app should work', function() {
     });
 
 });
-/*
+
 
 describe('mobile app should work', function() {
 
 
     it('should be able to go to page 1(mobile view)', function() {
-        var pageName = "Page 1 Title";
+        var pageName = translate('pages.page1.title', locale);
         loadPageWait('http://localhost:3000/#/en/advisorLocator/page1', 500, 500);
 
         //Make sure the page content is visible and what we expect it to be
@@ -99,17 +99,17 @@ describe('mobile app should work', function() {
         //expect($("#drawerlink").isDisplayed()).toEqual(true);
         var expected = {
             links: [
-                newLink('Français', null, false),
-                newLink('Page 1 Title', null, false),
-                newLink('Page 2 Title', null, false),
-                newLink('Page 3 Title', null, false),
-                newLink('Page 4 Title', null, false),
-                newLink('Page 5 Title', null, false),
-                newLink('Help', null, false),
-                newLink('Link 1', 'https://www.google.ca/', false),
-                newLink('Link 2', 'https://www.yahoo.ca/', false),
-                newLink('Link 3', 'https://www.ci.com/', false),
-                newLink('Link 4', 'https://www.assanteservices.com/aiol/#/en/aio/landing/', false)
+                newLink(translate('navbar.FR', locale), null, false),
+                newLink(translate('pages.page1.title', locale), null, false),
+                newLink(translate('pages.page2.title', locale), null, false),
+                newLink(translate('pages.page3.title', locale), null, false),
+                newLink(translate('pages.page4.title', locale), null, false),
+                newLink(translate('pages.page5.title', locale), null, false),
+                newLink(translate('helpLabel', locale), null, false),
+                newLink(translate('footer.linkText1', locale), translate('footer.link1', locale), false),
+                newLink(translate('footer.linkText2', locale), translate('footer.link2', locale), false),
+                newLink(translate('footer.linkText3', locale), translate('footer.link3', locale), false),
+                newLink(translate('footer.linkText4', locale), translate('footer.link4', locale), false)
             ],
             hamburgerVisibility: true,
             logoVisibility: false,
@@ -129,7 +129,7 @@ describe('mobile app should work', function() {
 
 
         var expected = {
-            text: '©2016 Name of Company',
+            text: translate('copyright', locale),
             textVisibility: true,
             logoVisibility: false,
             links: []
@@ -162,7 +162,7 @@ describe('mobile app should work', function() {
     });
 
      it('should be able to go to page 2', function() {
-     var pageName = 'Page 2 Title';
+     var pageName = translate('pages.page2.title', locale);
      loadPageWait('http://localhost:3000/#/en/advisorLocator/page2', 500, 500);
 
 
@@ -180,7 +180,7 @@ describe('mobile app should work', function() {
      });
 
      it('should be able to go to page 3', function() {
-     var pageName = 'Page 3 Title';
+     var pageName = translate('pages.page3.title', locale);
      loadPageWait('http://localhost:3000/#/en/advisorLocator/page3/subpage', 500, 500);
 
      var expected = {
@@ -197,7 +197,7 @@ describe('mobile app should work', function() {
      });
 
      it('should be able to go to page 4', function() {
-     var pageName = 'Page 4 Title';
+         var pageName = translate('pages.page4.title', locale);
      loadPageWait('http://localhost:3000/#/en/advisorLocator/page4', 500, 500);
      var expected = {
          mobile: {
@@ -213,7 +213,7 @@ describe('mobile app should work', function() {
      });
 
      it('should be able to go to page 5', function() {
-     var pageName = 'Page 5 Title';
+         var pageName = translate('pages.page5.title', locale);
      loadPageWait('http://localhost:3000/#/en/advisorLocator/page5', 500, 500);
      var expected = {
          mobile: {
@@ -229,4 +229,3 @@ describe('mobile app should work', function() {
      });
 
 });
-*/

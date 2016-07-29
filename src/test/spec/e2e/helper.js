@@ -1,25 +1,13 @@
 var defaultTimeout = 1000;
 var browserSync = element(by.id('__bs_notify__'));
 var _ = require('lodash');
-/*
-var localeEn = require('src/app/asses/locales/locale-en.json');
-var localeFr = require('src/app/asses/locales/locale-fr.json');
-var localeEn = require('/Users/michong/Desktop/projects/alocator1123/src/app/asses/locales/locale-en.json');
-var localeFr = require('/Users/michong/Desktop/projects/alocator1123/src/app/asses/locales/locale-fr.json');
-
-var locales = {
-    en: require('./src/assets/locales/locale-en.json'),
-    fr: require('./src/assets/locales/locale-fr.json')
-}
-*/
-//note isDisplayed and isPresent doesn't guarantee that the elements are onscreen. It only guarantees that they exist and are not hidden(ie. display:none).
-
 
 //This function loads the specified url into a window with the specified dimensions and waits for angular to finish rendering.
 //URL = the path to the page you want to load
 //width = the width of the browser window
 //height = the height of the browser window
 var appName = "App Title"
+var year = new Date().getFullYear();
 
 function newLink(text, href, visibility) {
     if (visibility == undefined){
@@ -320,6 +308,11 @@ function translate(key, locale) {
     } else if (locale == 'en') {
         return localeEn.key;
     }*/
+    //copyright is a complextranslation with nested translations, so we have to hardcode it.
+    if (key == 'copyright') {
+        return "©" + year + " " + translate("company", locale);
+    }
+
     var keys = key.split(".");
     var temp = browser.params[locale];
     _.forEach(keys, function(value, index) {
@@ -342,5 +335,6 @@ module.exports = {
     header: header,
     footer: footer,
     appName: appName,
-    translate: translate
+    translate: translate,
+     year: year
 };
