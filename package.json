@@ -58,6 +58,7 @@
     "main-bower-files": "^2.13.0",
     "merge-stream": "^0.1.8",
     "protractor": "^1.8.0",
+    "protractor-helpers": "^1.0.2",
     "proxy-middleware": "^0.13.1",
     "require-dir": "^0.1.0",
     "run-sequence": "^1.2.0",

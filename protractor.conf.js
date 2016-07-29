@@ -22,5 +22,9 @@ exports.config = {
   jasmineNodeOpts: {
     showColors: true,
     defaultTimeoutInterval: 30000
+  },
+  params: {
+    en: require('./src/assets/locales/locale-en.json'),
+    fr: require('./src/assets/locales/locale-fr.json'),
   }
 };

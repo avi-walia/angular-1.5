@@ -1,9 +1,18 @@
 var defaultTimeout = 1000;
 var browserSync = element(by.id('__bs_notify__'));
 var _ = require('lodash');
+/*
+var localeEn = require('src/app/asses/locales/locale-en.json');
+var localeFr = require('src/app/asses/locales/locale-fr.json');
+var localeEn = require('/Users/michong/Desktop/projects/alocator1123/src/app/asses/locales/locale-en.json');
+var localeFr = require('/Users/michong/Desktop/projects/alocator1123/src/app/asses/locales/locale-fr.json');
 
+var locales = {
+    en: require('./src/assets/locales/locale-en.json'),
+    fr: require('./src/assets/locales/locale-fr.json')
+}
+*/
 //note isDisplayed and isPresent doesn't guarantee that the elements are onscreen. It only guarantees that they exist and are not hidden(ie. display:none).
-
 
 
 //This function loads the specified url into a window with the specified dimensions and waits for angular to finish rendering.
@@ -11,24 +20,41 @@ var _ = require('lodash');
 //width = the width of the browser window
 //height = the height of the browser window
 var appName = "App Title"
+
+function newLink(text, href, visibility) {
+    if (visibility == undefined){
+        visibility = true;
+    }
+    return {
+        text: text,
+        href: href,
+        visibility: visibility
+    };
+};
+
 function loadPageWait(URL, width, height) {
     browser.get(URL);
     if (typeof width == "number" && typeof height == "number") {
+        //this only works once per describe.
         browser.driver.manage().window().setSize(width, height);
     }
     browser.waitForAngular();
 }
 
-function footer() {
+function footer(expected) {
     var f = {};
+
     f.footer = element(by.id('footer'));
-    f.expected = {
-        text: '©2016 Name of Company',
-        textVisibility: true,
-        logoVisibility: false,
-        mobileLogoVisibility: false,
-        links: []
-    };
+    if (expected) {
+        f.expected = expected;
+    } else {
+        f.expected = {
+            text: '©2016 Name of Company',
+            textVisibility: true,
+            logoVisibility: false,
+            links: []
+        };
+    }
     f.links = element.all(by.css('#footernav li a'));
 
     f.checkLinks = function(links) {
@@ -39,11 +65,10 @@ function footer() {
     }
 
     f.logo = element(by.css("#cilogo img[src='./assets/images/logos.svg']"));
-    f.mobileLogo = element(by.css("#nav img[src='./assets/images/logos.svg']"));
 
     f.checkText = function(visibility, text) {
 
-        if (visibility) {
+        if (typeof visibility == 'boolean') {
             f.expected.textVisibility = visibility;
         }
         if (text) {
@@ -60,113 +85,170 @@ function footer() {
         }
         expect(f.logo.isDisplayed()).toBe(f.expected.logoVisibility);
     }
-
-    f.checkMobileLogoVisibility = function(mobileLogoVisibility) {
-        if (typeof mobileLogoVisibility == 'boolean') {
-            f.expected.mobileLogoVisibility = mobileLogoVisibility;
-        }
-        expect(f.mobileLogo.isDisplayed()).toBe(f.expected.mobileLogoVisibility);
-    }
     return f;
 }
 
 //The common properties that all pages will have
-function basePage() {
+function basePage(expected) {
     var basePage = {};
     basePage.title = element(by.binding('Head.page.title'));
     basePage.windowTitle = browser.getTitle();
     basePage.content = element(by.id('content'));
-    basePage.expected = {
-        title:'',
-        content:'',
-        windowTitle:''
+    if (expected) {
+        basePage.expected = expected;
+    } else {
+        basePage.expected = {
+            mobile: {
+                title: '',
+                content: '',
+                windowTitle: ''
+            },
+            desktop: {
+                title: '',
+                content: '',
+                windowTitle: ''
+            }
+        };
+    }
+    basePage.mobile = {
+        checkTitle: checkMobileTitle,
+        checkContent: checkMobileContent,
+        checkWindowTitle: checkMobileWindowTitle
     };
-    basePage.checkMobileTitle = function() {
+
+    basePage.desktop = {
+        checkContent: checkContent,
+        checkWindowTitle: checkDesktopWindowTitle
+    }
+
+    function checkMobileTitle() {
         //every mobile page should have a title
         expect(basePage.title.isDisplayed()).toEqual(true);
-        expect(basePage.title.getText()).toBe(basePage.expected.title);
+        expect(basePage.title.getText()).toBe(basePage.expected.mobile.title);
     };
-    basePage.checkMobileContent = function() {
+
+    function checkMobileContent() {
         //every mobile page should have content
         expect(basePage.content.isDisplayed()).toEqual(true);
-        expect(basePage.content.getText()).toBe(basePage.expected.content);
+        expect(basePage.content.getText()).toBe(basePage.expected.mobile.content);
     };
-    basePage.checkContent = function() {
-        //every mobile page should have content
+    function checkContent() {
+        //every desktop page should have content
         expect(basePage.content.isDisplayed()).toEqual(true);
-        expect(basePage.content.getText()).toBe(basePage.expected.desktopContent);
+        expect(basePage.content.getText()).toBe(basePage.expected.desktop.content);
     }
-    basePage.checkWindowTitle = function() {
-        expect(basePage.windowTitle).toBe(basePage.expected.windowTitle);
+    function checkDesktopWindowTitle() {
+        expect(basePage.windowTitle).toBe(basePage.expected.desktop.windowTitle);
     }
+    function checkMobileWindowTitle() {
+        expect(basePage.windowTitle).toBe(basePage.expected.mobile.windowTitle);
+    }
+
     return basePage;
 }
 
-function page1Template(expectedTitle, expectedContent, expectedDesktopContent, windowTitle) {
-    var p = basePage();
-    p.expected.title = expectedTitle;
-    p.expected.content = expectedContent;
-    p.expected.desktopContent = expectedDesktopContent;
-    p.expected.windowTitle = windowTitle;
+function page1Template(expected) {
+    var p = basePage(expected);
     //add additional functions/properties that are specific to page1
     return p;
 }
 
-function page2Template(expectedTitle, expectedContent, expectedDesktopContent, windowTitle) {
-    var p = basePage();
-    p.expected.title = expectedTitle;
-    p.expected.content = expectedContent;
-    p.expected.desktopContent = expectedDesktopContent;
-    p.expected.windowTitle = windowTitle;
+function page2Template(expected) {
+    var p = basePage(expected);
     //add additional functions/properties that are specific to page2
     return p;
 }
 
-function page3Template(expectedTitle, expectedContent, expectedDesktopContent, windowTitle) {
-    var p = basePage();
-    p.expected.title = expectedTitle;
-    p.expected.content = expectedContent;
-    p.expected.desktopContent = expectedDesktopContent;
-    p.expected.windowTitle = windowTitle;
+function page3Template(expected) {
+    var p = basePage(expected);
     //add additional functions/properties that are specific to page3
     return p;
 }
 
-function page4Template(expectedTitle, expectedContent, expectedDesktopContent, windowTitle) {
-    var p = basePage();
-    p.expected.title = expectedTitle;
-    p.expected.content = expectedContent;
-    p.expected.desktopContent = expectedDesktopContent;
-    p.expected.windowTitle = windowTitle;
+function page4Template(expected) {
+    var p = basePage(expected);
     //add additional functions/properties that are specific to page4
     return p;
 }
 
-function page5Template(expectedTitle, expectedContent, expectedDesktopContent, windowTitle) {
-    var p = basePage();
-    p.expected.title = expectedTitle;
-    p.expected.content = expectedContent;
-    p.expected.desktopContent = expectedDesktopContent;
-    p.expected.windowTitle = windowTitle;
+function page5Template(expected) {
+    var p = basePage(expected);
     //add additional functions/properties that are specific to page5
     return p;
 }
 
-function mobileNavBar() {
-    var mnb = {};
-    mnb.container = element(by.id('nav'));
-    mnb.hamburger = $("#drawerlink");
-    mnb.links = element.all(by.css('#nav li a'));
-    mnb.logo = element(by.css("#nav>span>img[src='./assets/images/logos.svg']"));
-    mnb.desktopNavLinks = element.all(by.css('#primary li a'));
+function header(expected) {
+    var header = {};
+    header.container = element(by.id('bluebar .container'));
+    header.links = element.all(by.css('#primary ul li a'));
+    header.logo = element(by.css("#logo>img[src='./assets/images/logos.svg']"));
+    header.navLinks = element.all(by.css('#primary li a'));
+    if (expected) {
+        header.expected = expected;
+    } else {
+        header.expected = {
+            logoVisibility: true,
+            links:[]
+        }
+    }
 
-    mnb.verifyDesktopNavLinks = function(expectedLinks) {
-        linkValidator(expectedLinks, mnb.desktopNavLinks, true);
+    /*
+     expectedLinks is an array of objects, where each object is of the form:
+     {
+         text: string representation of the text the user sees
+         href: the value(a url) of the href associated with the text
+         visibility: check if element is visible or not, defaults to true if not specified.
+     }
+     */
+    header.checkNavLinks = function(expectedLinks) {
+        if (expectedLinks) {
+            header.expected.links = expectedLinks;
+        }
+        linkValidator(header.expected.links, header.navLinks, true);
     };
 
+    header.checkLogo = function(expectedVisibility) {
+        if (expectedVisibility) {
+            header.expected.logoVisibility = expectedVisibility;
+        }
+        expect(header.logo.isDisplayed()).toEqual(header.expected.logoVisibility);
+    }
+    return header;
+}
 
+function drawer(expected) {
+    var drawer = {};
+    drawer.container = element(by.id('nav'));
+    drawer.hamburger = $("#drawerlink");
+    drawer.links = element.all(by.css('#nav li a'));
+    drawer.logo = element(by.css("#nav>span>img[src='./assets/images/logos.svg']"));
+    drawer.homeLink = element(by.css('[href="NameOfMyNewSite.com"]'))
+    if (expected) {
+        drawer.expected = expected;
+    } else {
+        drawer.expected = {
+            links: [],
+            hamburgerVisibility: false,
+            logoVisibility: false,
+            homeLinkVisibility: true
+        }
+    }
 
-    mnb.newLink = function(text, href, visibility) {
+    drawer.checkHomeLink = function(expectedVisibility) {
+        if (typeof expectedVisibility == 'boolean') {
+            drawer.expected.homeLinkVisibility = expectedVisibility;
+        }
+        expect(drawer.homeLink.isDisplayed()).toEqual(drawer.expected.homeLinkVisibility);
+    }
+
+    drawer.checkLogo = function(expectedVisibility) {
+        if (typeof expectedVisibility == 'boolean') {
+            drawer.expected.logoVisibility = expectedVisibility;
+        }
+        expect(drawer.logo.isDisplayed()).toEqual(drawer.expected.logoVisibility);
+    }
+
+    drawer.newLink = function(text, href, visibility) {
         if (visibility == undefined){
             visibility = true;
         }
@@ -176,21 +258,24 @@ function mobileNavBar() {
             visibility: visibility
         };
     };
-    mnb.checkHamburgerVisibility = function(expectedVisibility) {
-        expect($("#drawerlink").isDisplayed()).toEqual(expectedVisibility);
+    drawer.checkHamburgerVisibility = function(expectedVisibility) {
+        if (typeof expectedVisibility == 'boolean') {
+            drawer.expected.hamburgerVisibility = expectedVisibility;
+        }
+        expect($("#drawerlink").isDisplayed()).toEqual(drawer.expected.hamburgerVisibility);
     }
-    mnb.clickHamburger = function() {
-        mnb.container.isDisplayed().then(function(isDisplayed) {
+    drawer.clickHamburger = function() {
+        drawer.container.isDisplayed().then(function(isDisplayed) {
             if(!isDisplayed) {
                 //browser sync sometimes covers hamburger so we have to wait for it to go away before we can click on the hamburger
                 browser.wait(protractor.ExpectedConditions.stalenessOf(browserSync) || protractor.ExpectedConditions.invisibilityOf(browserSync), defaultTimeout);
                 $("#drawerlink").click();
-                browser.wait(protractor.ExpectedConditions.visibilityOf(mnb.links.get(0)), defaultTimeout);
+                browser.wait(protractor.ExpectedConditions.visibilityOf(drawer.links.get(0)), defaultTimeout);
             } else {
                 //browser sync sometimes covers hamburger so we have to wait for it to go away before we can click on the hamburger
                 browser.wait(protractor.ExpectedConditions.stalenessOf(browserSync) || protractor.ExpectedConditions.invisibilityOf(browserSync), defaultTimeout);
                 $("#drawerlink").click();
-                browser.wait(protractor.ExpectedConditions.invisibilityOf(mnb.links.get(0)), defaultTimeout);
+                browser.wait(protractor.ExpectedConditions.invisibilityOf(drawer.links.get(0)), defaultTimeout);
             }
         });
     };
@@ -201,10 +286,13 @@ function mobileNavBar() {
             href: the value(a url) of the href associated with the text
             visibility: check if element is visible or not, defaults to true if not specified.
     */
-    mnb.verifyLinks = function(expectedLinks) {
-        linkValidator(expectedLinks, mnb.links);
+    drawer.verifyLinks = function(expectedLinks) {
+        if (expectedLinks) {
+            drawer.expected.links = expectedLinks;
+        }
+        linkValidator(drawer.expected.links, drawer.links);
     };
-    return mnb;
+    return drawer;
 }
 
 function linkValidator(expectedLinks, links, sref) {
@@ -215,7 +303,7 @@ function linkValidator(expectedLinks, links, sref) {
         } else {
             expect(links.get(index).getText()).toEqual('');
         }
-        if (expectedLink.href != null) {
+        if (expectedLink.href && expectedLink.href != null) {
             if (!sref) {
                 expect(links.get(index).getAttribute('href')).toEqual(expectedLink.href);
             } else {
@@ -225,8 +313,23 @@ function linkValidator(expectedLinks, links, sref) {
     });
 }
 
+function translate(key, locale) {
+    /*
+    if (locale == 'fr') {
+        return localeFr.key;
+    } else if (locale == 'en') {
+        return localeEn.key;
+    }*/
+    var keys = key.split(".");
+    var temp = browser.params[locale];
+    _.forEach(keys, function(value, index) {
+        temp = temp[value];
+    });
+    return temp;
+}
+
 module.exports = {
-    mobileNavBar: mobileNavBar(),
+    drawer: drawer,
     browserSync: browserSync,
     defaultTimeout: defaultTimeout,
     page1Template: page1Template,
@@ -235,6 +338,9 @@ module.exports = {
     page4Template: page4Template,
     page5Template: page5Template,
      loadPageWait: loadPageWait,
-    footer: footer(),
-    appName: appName
+    newLink: newLink,
+    header: header,
+    footer: footer,
+    appName: appName,
+    translate: translate
 };
