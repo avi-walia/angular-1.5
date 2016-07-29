@@ -180,6 +180,11 @@ function header(expected) {
         }
     }
 
+    header.click = function(index, pageTitle) {
+        header.links.get(index).click();
+        browser.wait(protractor.ExpectedConditions.titleIs(pageTitle), defaultTimeout);
+    }
+
     /*
      expectedLinks is an array of objects, where each object is of the form:
      {
