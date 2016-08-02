@@ -43,6 +43,7 @@ describe('desktop app should work', function() {
         };
         var header = headerTemplate(expected);
         header.checkNavLinks();
+        header.checkSelected(0);
 
         var expected = {
             text: translate('copyright', locale),
@@ -68,6 +69,7 @@ describe('desktop app should work', function() {
         var header = headerTemplate();
         var page2 = page2Template();
         header.click(1, page2.expected.desktop.windowTitle);
+        header.checkSelected(1);
         //loadPageWait('http://localhost:3000/#/en/advisorLocator/page5', 500, 500);
         //page5.desktop.checkTitle();
         page2.desktop.checkContent();
@@ -80,6 +82,7 @@ describe('desktop app should work', function() {
         var header = headerTemplate();
         var page3 = page3Template();
         header.click(2, page3.expected.desktop.windowTitle);
+        header.checkSelected(2);
         //loadPageWait('http://localhost:3000/#/en/advisorLocator/page5', 500, 500);
         page3.desktop.checkContent();
         page3.desktop.checkWindowTitle();
@@ -91,6 +94,7 @@ describe('desktop app should work', function() {
         var header = headerTemplate();
         var page4 = page4Template();
         header.click(3, page4.expected.desktop.windowTitle);
+        header.checkSelected(3);
         //loadPageWait('http://localhost:3000/#/en/advisorLocator/page5', 500, 500);
         //page4.desktop.checkTitle();
         page4.desktop.checkContent();
@@ -103,6 +107,7 @@ describe('desktop app should work', function() {
         var header = headerTemplate();
         var pageName = translate('pages.page5.title', locale);
         header.click(4, appName + ' - ' + pageName);
+        header.checkSelected(4);
         //loadPageWait('http://localhost:3000/#/en/advisorLocator/page5', 500, 500);
         var expected = {
             desktop: {

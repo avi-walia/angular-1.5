@@ -274,6 +274,8 @@ function header(expected) {
     header.links = element.all(by.css('#primary ul li a'));
     header.logo = element(by.css("#logo>img[src='./assets/images/logos.svg']"));
     header.navLinks = element.all(by.css('#primary li a'));
+
+
     if (expected) {
         header.expected = expected;
     } else {
@@ -287,6 +289,24 @@ function header(expected) {
         browser.wait(EC.elementToBeClickable(header.links.get(index)), defaultTimeout);
         header.links.get(index).click();
         browser.wait(EC.titleIs(pageTitle), defaultTimeout);
+    }
+
+    //check that the proper header item is highlighted(orange text);
+    header.checkSelected = function(targetIndex) {
+        header.links.each(function(item, index){
+            //console.log('item: ', item);
+            item.getCssValue('color').then(function(test){
+                console.log('test ' + index + ': ', test);
+            });
+
+           if (targetIndex == index) {
+               expect(item.getCssValue('color')).toEqual('rgba(205, 88, 6, 1)');
+           } else {
+               expect(item.getCssValue('color')).toEqual('rgba(255, 255, 255, 1)');
+           }
+
+        });
+
     }
 
     /*
