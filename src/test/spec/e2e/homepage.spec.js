@@ -14,7 +14,7 @@ var translate = helper.translate;
 //currently locale only has two values, 'en' and 'fr'
 var locale = 'en';
 var appName = translate('appTitle', locale);
-
+/*
 describe('desktop app should work', function() {
 
     it('should be able to go to page 1(desktop view)', function() {
@@ -145,7 +145,7 @@ describe('desktop app should work', function() {
 
     });
 
-});
+});*/
 
 
 describe('mobile app should work', function() {

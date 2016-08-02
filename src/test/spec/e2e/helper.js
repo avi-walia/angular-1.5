@@ -1,7 +1,8 @@
-var defaultTimeout = 1000;
+var defaultTimeout = 3000;
 var browserSync = element(by.id('__bs_notify__'));
 var _ = require('lodash');
 var EC = protractor.ExpectedConditions;
+var locale = 'en';
 
 //This function loads the specified url into a window with the specified dimensions and waits for angular to finish rendering.
 //URL = the path to the page you want to load
@@ -139,7 +140,27 @@ function basePage(expected) {
 }
 
 function page1Template(expected) {
-    var p = basePage(expected);
+    var expected2;
+    var pageName = translate('pages.page1.title', locale);
+
+    if (!expected) {
+        expected2 = {
+            mobile: {
+                title: pageName,
+                content: 'Temporary page 1 content\n\n\nbottom',
+                windowTitle: appName + ' - ' + pageName
+            },
+            desktop: {
+                content: 'Temporary page 1 content\n\n\nbottom',
+                windowTitle: appName + ' - ' + pageName
+            }
+        }
+    } else {
+        expected2 = expected;
+    }
+
+
+    var p = basePage(expected2);
     //add additional functions/properties that are specific to page1
     return p;
 }
@@ -231,15 +252,66 @@ function drawer(expected) {
         }
     }
 
-    drawer.click = function(index) {
+    drawer.click = function(index, pageTitle) {
+/*
         drawer.container.isDisplayed().then(function(isDisplayed) {
+            //browser.getTitle()
+
             if (!isDisplayed) {
                 drawer.clickHamburger();
 
                 browser.wait(EC.visibilityOf(drawer.links.get(index)), defaultTimeout);
+                browser.wait(EC.elementToBeClickable(drawer.links.get(index)), defaultTimeout);
+                //browser.pause();
                 drawer.links.get(index).click();
             }
         });
+*/
+/*
+        var promises = [];
+        promises.push(drawer.container.isDisplayed());
+        promises.push(browser.getTitle());
+        try {
+            webdriver.promise.fullyResolved(promises).then(function (resolvedValues) {
+                //drawer.container.isDisplayed().then(function(isDisplayed) {
+                //browser.getTitle()
+                //resolvedValues[1] is the window title.
+                if (resolvedValues[1] != pageTitle) {
+                    //resolvedValues[0] is the visibility of the drawer.
+                    if (!resolvedValues[0]) {
+                        drawer.clickHamburger();
+                    }
+
+                    browser.wait(EC.visibilityOf(drawer.links.get(index)), defaultTimeout);
+                    browser.wait(EC.elementToBeClickable(drawer.links.get(index)), defaultTimeout);
+                    //browser.pause();
+                    drawer.links.get(index).click();
+                }
+            },
+            function(error) {
+                console.log('error: ', error);
+            }
+            );
+        }catch(exception) {
+            console.log('exception: ', exception);
+        }
+        */
+        drawer.links.get(index).isDisplayed().then(function(isDisplayed){
+            browser.getTitle().then(function(title){
+                //if (title != pageTitle) {
+                    //resolvedValues[0] is the visibility of the drawer.
+                    if (!isDisplayed) {
+                        drawer.clickHamburger();
+                    }
+
+                    browser.wait(EC.visibilityOf(drawer.links.get(index)), defaultTimeout);
+                    browser.wait(EC.elementToBeClickable(drawer.links.get(index)), defaultTimeout);
+                    //browser.pause();
+                    drawer.links.get(index).click();
+                    browser.wait(EC.invisibilityOf(drawer.links.get(index)), defaultTimeout);
+                //}
+            })
+        })
     }
 
     drawer.checkHomeLink = function(expectedVisibility) {
