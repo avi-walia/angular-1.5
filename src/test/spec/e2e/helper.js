@@ -84,7 +84,6 @@ function footer(expected) {
 function basePage(expected) {
     var basePage = {};
     basePage.title = element(by.binding('Head.page.title'));
-    basePage.windowTitle = browser.getTitle();
     basePage.content = element(by.id('content'));
     if (expected) {
         basePage.expected = expected;
@@ -130,10 +129,10 @@ function basePage(expected) {
         expect(basePage.content.getText()).toBe(basePage.expected.desktop.content);
     }
     function checkDesktopWindowTitle() {
-        expect(basePage.windowTitle).toBe(basePage.expected.desktop.windowTitle);
+        expect(browser.getTitle()).toBe(basePage.expected.desktop.windowTitle);
     }
     function checkMobileWindowTitle() {
-        expect(basePage.windowTitle).toBe(basePage.expected.mobile.windowTitle);
+        expect(browser.getTitle()).toBe(basePage.expected.mobile.windowTitle);
     }
 
     return basePage;
@@ -166,26 +165,106 @@ function page1Template(expected) {
 }
 
 function page2Template(expected) {
-    var p = basePage(expected);
-    //add additional functions/properties that are specific to page2
+    var expected2;
+    var pageName = translate('pages.page2.title', locale);
+
+    if (!expected) {
+        expected2 = {
+            mobile: {
+                title: pageName,
+                content: 'Temporary page 2 content',
+                windowTitle: appName + ' - ' + pageName
+            },
+            desktop: {
+                content: 'Temporary page 2 content',
+                windowTitle: appName + ' - ' + pageName
+            }
+        }
+    } else {
+        expected2 = expected;
+    }
+
+
+    var p = basePage(expected2);
+    //add additional functions/properties that are specific to page1
     return p;
 }
 
 function page3Template(expected) {
-    var p = basePage(expected);
-    //add additional functions/properties that are specific to page3
+    var expected2;
+    var pageName = translate('pages.page3.title', locale);
+
+    if (!expected) {
+        expected2 = {
+            mobile: {
+                title: pageName,
+                content: 'Temporary subpage content\nHello world\nTemporary subpage content',
+                windowTitle: appName + ' - ' + pageName
+            },
+            desktop: {
+                content: 'Temporary subpage content\nHello world\nTemporary subpage content',
+                windowTitle: appName + ' - ' + pageName
+            }
+        }
+    } else {
+        expected2 = expected;
+    }
+
+
+    var p = basePage(expected2);
+    //add additional functions/properties that are specific to page1
     return p;
 }
 
 function page4Template(expected) {
-    var p = basePage(expected);
-    //add additional functions/properties that are specific to page4
+    var expected2;
+    var pageName = translate('pages.page4.title', locale);
+
+    if (!expected) {
+        expected2 = {
+            mobile: {
+                title: pageName,
+                content: 'Temporary page 4 content',
+                windowTitle: appName + ' - ' + pageName
+            },
+            desktop: {
+                content: 'Temporary page 4 content',
+                windowTitle: appName + ' - ' + pageName
+            }
+        }
+    } else {
+        expected2 = expected;
+    }
+
+
+    var p = basePage(expected2);
+    //add additional functions/properties that are specific to page1
     return p;
 }
 
 function page5Template(expected) {
-    var p = basePage(expected);
-    //add additional functions/properties that are specific to page5
+    var expected2;
+    var pageName = translate('pages.page5.title', locale);
+
+    if (!expected) {
+        expected2 = {
+            mobile: {
+                title: pageName,
+                content: 'Temporary page 5 content',
+                windowTitle: appName + ' - ' + pageName
+            },
+            desktop: {
+                content: 'Temporary page 5 content',
+                windowTitle: appName + ' - ' + pageName
+            }
+        }
+    } else {
+        expected2 = expected;
+    }
+
+
+    var p = basePage(expected2);
+    //add additional functions/properties that are specific to page1
     return p;
 }
 
@@ -253,49 +332,6 @@ function drawer(expected) {
     }
 
     drawer.click = function(index, pageTitle) {
-/*
-        drawer.container.isDisplayed().then(function(isDisplayed) {
-            //browser.getTitle()
-
-            if (!isDisplayed) {
-                drawer.clickHamburger();
-
-                browser.wait(EC.visibilityOf(drawer.links.get(index)), defaultTimeout);
-                browser.wait(EC.elementToBeClickable(drawer.links.get(index)), defaultTimeout);
-                //browser.pause();
-                drawer.links.get(index).click();
-            }
-        });
-*/
-/*
-        var promises = [];
-        promises.push(drawer.container.isDisplayed());
-        promises.push(browser.getTitle());
-        try {
-            webdriver.promise.fullyResolved(promises).then(function (resolvedValues) {
-                //drawer.container.isDisplayed().then(function(isDisplayed) {
-                //browser.getTitle()
-                //resolvedValues[1] is the window title.
-                if (resolvedValues[1] != pageTitle) {
-                    //resolvedValues[0] is the visibility of the drawer.
-                    if (!resolvedValues[0]) {
-                        drawer.clickHamburger();
-                    }
-
-                    browser.wait(EC.visibilityOf(drawer.links.get(index)), defaultTimeout);
-                    browser.wait(EC.elementToBeClickable(drawer.links.get(index)), defaultTimeout);
-                    //browser.pause();
-                    drawer.links.get(index).click();
-                }
-            },
-            function(error) {
-                console.log('error: ', error);
-            }
-            );
-        }catch(exception) {
-            console.log('exception: ', exception);
-        }
-        */
         drawer.links.get(index).isDisplayed().then(function(isDisplayed){
             browser.getTitle().then(function(title){
                 //if (title != pageTitle) {

@@ -14,7 +14,7 @@ var translate = helper.translate;
 //currently locale only has two values, 'en' and 'fr'
 var locale = 'en';
 var appName = translate('appTitle', locale);
-/*
+
 describe('desktop app should work', function() {
 
     it('should be able to go to page 1(desktop view)', function() {
@@ -22,13 +22,7 @@ describe('desktop app should work', function() {
         loadPageWait('http://localhost:3000/#/en/advisorLocator/page1');
 
         //Make sure the page content is visible and what we expect it to be
-        var expected = {
-            desktop: {
-                content: 'Temporary page 1 content\n\n\nbottom',
-                windowTitle: appName + ' - ' + pageName
-            }
-        };
-        var page1 = page1Template(expected);
+        var page1 = page1Template();
         page1.desktop.checkContent();
         page1.desktop.checkWindowTitle();
     });
@@ -72,57 +66,35 @@ describe('desktop app should work', function() {
     it('should navigate to page 2', function() {
 
         var header = headerTemplate();
-        var pageName = translate('pages.page2.title', locale);
-        header.click(1, appName + ' - ' + pageName);
+        var page2 = page2Template();
+        header.click(1, page2.expected.desktop.windowTitle);
         //loadPageWait('http://localhost:3000/#/en/advisorLocator/page5', 500, 500);
-        var expected = {
-            desktop: {
-                content: 'Temporary page 2 content',
-                windowTitle: appName + ' - ' + pageName
-            }
-        };
-        var page5 = page5Template(expected);
         //page5.desktop.checkTitle();
-        page5.desktop.checkContent();
-        page5.desktop.checkWindowTitle();
+        page2.desktop.checkContent();
+        page2.desktop.checkWindowTitle();
 
     });
 
     it('should navigate to page 3', function() {
 
         var header = headerTemplate();
-        var pageName = translate('pages.page3.title', locale);
-        header.click(2, appName + ' - ' + pageName);
+        var page3 = page3Template();
+        header.click(2, page3.expected.desktop.windowTitle);
         //loadPageWait('http://localhost:3000/#/en/advisorLocator/page5', 500, 500);
-        var expected = {
-            desktop: {
-                content: 'Temporary subpage content\nHello world\nTemporary subpage content',
-                windowTitle: appName + ' - ' + pageName
-            }
-        };
-        var page5 = page5Template(expected);
-        //page5.desktop.checkTitle();
-        page5.desktop.checkContent();
-        page5.desktop.checkWindowTitle();
+        page3.desktop.checkContent();
+        page3.desktop.checkWindowTitle();
 
     });
 
     it('should navigate to page 4', function() {
 
         var header = headerTemplate();
-        var pageName = translate('pages.page4.title', locale);
-        header.click(3, appName + ' - ' + pageName);
+        var page4 = page4Template();
+        header.click(3, page4.expected.desktop.windowTitle);
         //loadPageWait('http://localhost:3000/#/en/advisorLocator/page5', 500, 500);
-        var expected = {
-            desktop: {
-                content: 'Temporary page 4 content',
-                windowTitle: appName + ' - ' + pageName
-            }
-        };
-        var page5 = page5Template(expected);
-        //page5.desktop.checkTitle();
-        page5.desktop.checkContent();
-        page5.desktop.checkWindowTitle();
+        //page4.desktop.checkTitle();
+        page4.desktop.checkContent();
+        page4.desktop.checkWindowTitle();
 
     });
 
@@ -145,7 +117,7 @@ describe('desktop app should work', function() {
 
     });
 
-});*/
+});
 
 
 describe('mobile app should work', function() {
@@ -156,15 +128,7 @@ describe('mobile app should work', function() {
         loadPageWait('http://localhost:3000/#/en/advisorLocator/page1', 500, 500);
 
         //Make sure the page content is visible and what we expect it to be
-
-        var expected = {
-            mobile: {
-                title: pageName,
-                content: 'Temporary page 1 content\n\n\nbottom',
-                windowTitle: appName + ' - ' + pageName
-            }
-        };
-        var page1 = page1Template(expected);
+        var page1 = page1Template();
         page1.mobile.checkTitle();
         page1.mobile.checkContent();
         page1.mobile.checkWindowTitle();
@@ -310,5 +274,4 @@ describe('mobile app should work', function() {
          page5.mobile.checkContent();
          page5.mobile.checkWindowTitle();
      });
-
 });
