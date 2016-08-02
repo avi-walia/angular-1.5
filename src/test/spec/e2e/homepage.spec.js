@@ -10,10 +10,10 @@ var loadPageWait = helper.loadPageWait;
 var headerTemplate = helper.header;
 var newLink = helper.newLink;
 var footerTemplate = helper.footer;
-var appName = helper.appName;
 var translate = helper.translate;
 //currently locale only has two values, 'en' and 'fr'
 var locale = 'en';
+var appName = translate('appTitle', locale);
 
 describe('desktop app should work', function() {
 
@@ -239,8 +239,9 @@ describe('mobile app should work', function() {
 
      it('should be able to go to page 2', function() {
      var pageName = translate('pages.page2.title', locale);
-     loadPageWait('http://localhost:3000/#/en/advisorLocator/page2', 500, 500);
-
+     //loadPageWait('http://localhost:3000/#/en/advisorLocator/page2', 500, 500);
+     var drawer = drawerTemplate();
+     drawer.click(2, appName + ' - ' + pageName);
 
      var expected = {
          mobile: {
@@ -257,7 +258,9 @@ describe('mobile app should work', function() {
 
      it('should be able to go to page 3', function() {
      var pageName = translate('pages.page3.title', locale);
-     loadPageWait('http://localhost:3000/#/en/advisorLocator/page3/subpage', 500, 500);
+     //loadPageWait('http://localhost:3000/#/en/advisorLocator/page3/subpage', 500, 500);
+         var drawer = drawerTemplate();
+         drawer.click(3, appName + ' - ' + pageName);
 
      var expected = {
          mobile: {
@@ -274,7 +277,9 @@ describe('mobile app should work', function() {
 
      it('should be able to go to page 4', function() {
          var pageName = translate('pages.page4.title', locale);
-     loadPageWait('http://localhost:3000/#/en/advisorLocator/page4', 500, 500);
+     //loadPageWait('http://localhost:3000/#/en/advisorLocator/page4', 500, 500);
+         var drawer = drawerTemplate();
+         drawer.click(4, appName + ' - ' + pageName);
      var expected = {
          mobile: {
              title: pageName,
@@ -290,7 +295,9 @@ describe('mobile app should work', function() {
 
      it('should be able to go to page 5', function() {
          var pageName = translate('pages.page5.title', locale);
-         loadPageWait('http://localhost:3000/#/en/advisorLocator/page5', 500, 500);
+         //loadPageWait('http://localhost:3000/#/en/advisorLocator/page5', 500, 500);
+         var drawer = drawerTemplate();
+         drawer.click(5, appName + ' - ' + pageName);
          var expected = {
              mobile: {
                  title: pageName,

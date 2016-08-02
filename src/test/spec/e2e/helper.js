@@ -1,6 +1,7 @@
 var defaultTimeout = 1000;
 var browserSync = element(by.id('__bs_notify__'));
 var _ = require('lodash');
+var EC = protractor.ExpectedConditions;
 
 //This function loads the specified url into a window with the specified dimensions and waits for angular to finish rendering.
 //URL = the path to the page you want to load
@@ -8,6 +9,8 @@ var _ = require('lodash');
 //height = the height of the browser window
 var appName = "App Title"
 var year = new Date().getFullYear();
+
+
 
 function newLink(text, href, visibility) {
     if (visibility == undefined){
@@ -181,8 +184,9 @@ function header(expected) {
     }
 
     header.click = function(index, pageTitle) {
+        browser.wait(EC.elementToBeClickable(header.links.get(index)), defaultTimeout);
         header.links.get(index).click();
-        browser.wait(protractor.ExpectedConditions.titleIs(pageTitle), defaultTimeout);
+        browser.wait(EC.titleIs(pageTitle), defaultTimeout);
     }
 
     /*
@@ -227,6 +231,17 @@ function drawer(expected) {
         }
     }
 
+    drawer.click = function(index) {
+        drawer.container.isDisplayed().then(function(isDisplayed) {
+            if (!isDisplayed) {
+                drawer.clickHamburger();
+
+                browser.wait(EC.visibilityOf(drawer.links.get(index)), defaultTimeout);
+                drawer.links.get(index).click();
+            }
+        });
+    }
+
     drawer.checkHomeLink = function(expectedVisibility) {
         if (typeof expectedVisibility == 'boolean') {
             drawer.expected.homeLinkVisibility = expectedVisibility;
@@ -261,14 +276,14 @@ function drawer(expected) {
         drawer.container.isDisplayed().then(function(isDisplayed) {
             if(!isDisplayed) {
                 //browser sync sometimes covers hamburger so we have to wait for it to go away before we can click on the hamburger
-                browser.wait(protractor.ExpectedConditions.stalenessOf(browserSync) || protractor.ExpectedConditions.invisibilityOf(browserSync), defaultTimeout);
+                browser.wait(EC.stalenessOf(browserSync) || EC.invisibilityOf(browserSync), defaultTimeout);
                 $("#drawerlink").click();
-                browser.wait(protractor.ExpectedConditions.visibilityOf(drawer.links.get(0)), defaultTimeout);
+                browser.wait(EC.visibilityOf(drawer.links.get(0)), defaultTimeout);
             } else {
                 //browser sync sometimes covers hamburger so we have to wait for it to go away before we can click on the hamburger
-                browser.wait(protractor.ExpectedConditions.stalenessOf(browserSync) || protractor.ExpectedConditions.invisibilityOf(browserSync), defaultTimeout);
+                browser.wait(EC.stalenessOf(browserSync) || EC.invisibilityOf(browserSync), defaultTimeout);
                 $("#drawerlink").click();
-                browser.wait(protractor.ExpectedConditions.invisibilityOf(drawer.links.get(0)), defaultTimeout);
+                browser.wait(EC.invisibilityOf(drawer.links.get(0)), defaultTimeout);
             }
         });
     };
