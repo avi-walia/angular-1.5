@@ -6,7 +6,9 @@
     "cordova": "^6.2.0",
     "gulp-jasmine": "^2.4.0",
     "ionic": "^1.7.16",
+    "jasmine-core": "^2.4.1",
     "karma-chrome-launcher": "^1.0.1",
+    "karma-jasmine": "^1.0.2",
     "lodash": "^4.13.1",
     "protractor": "^4.0.0"
   },
