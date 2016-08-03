@@ -96,7 +96,6 @@ function basePage(expected) {
                 windowTitle: ''
             },
             desktop: {
-                title: '',
                 content: '',
                 windowTitle: ''
             }
@@ -392,17 +391,6 @@ function drawer(expected) {
         }
         expect(drawer.logo.isDisplayed()).toEqual(drawer.expected.logoVisibility);
     }
-
-    drawer.newLink = function(text, href, visibility) {
-        if (visibility == undefined){
-            visibility = true;
-        }
-        return {
-            text: text,
-            href: href,
-            visibility: visibility
-        };
-    };
     drawer.checkHamburgerVisibility = function(expectedVisibility) {
         if (typeof expectedVisibility == 'boolean') {
             drawer.expected.hamburgerVisibility = expectedVisibility;
