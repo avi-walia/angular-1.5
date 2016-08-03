@@ -10,6 +10,7 @@ var locale = 'en';
 //height = the height of the browser window
 var appName = "App Title"
 var year = new Date().getFullYear();
+var waitTime = 75;//sometimes browser.wait is not enough, and we still need a manual delay. Or maybe I'm waiting on the wrong condition?
 
 
 
@@ -348,13 +349,7 @@ function drawer(expected) {
 
     drawer.checkSelected = function(targetIndex) {
         drawer.clickHamburger();
-        console.log('find: ', element.all(by.css('#nav ul')).get(1).all(by.css('li a')));
         element.all(by.css('#nav ul')).get(1).all(by.css('li a')).each(function(item, index) {
-            console.log('index' + index + ': ', index);
-            item.getCssValue('color').then(function(value){
-                console.log('color: ', value);
-            })
-
             if (targetIndex == index) {
                 expect(item.getCssValue('color')).toEqual('rgba(163, 147, 101, 1)');
             } else {
@@ -412,19 +407,46 @@ function drawer(expected) {
         if (typeof expectedVisibility == 'boolean') {
             drawer.expected.hamburgerVisibility = expectedVisibility;
         }
-        expect($("#drawerlink").isDisplayed()).toEqual(drawer.expected.hamburgerVisibility);
+        expect(drawer.hamburger.isDisplayed()).toEqual(drawer.expected.hamburgerVisibility);
+    };
+
+    function checkDrawerPosition() {
+        return drawer.hamburger.getLocation().then(function (coordinates) {
+            //browser.driver.manage().window().getSize();
+            //if (coordinates.x <= 180 || coordinates.x >= 445) {//these coordinates will change depending on device width. These work with browser with 500px width.
+            return browser.driver.manage().window().getSize().then(function(data){
+                if (coordinates.x <= data.width-320 || coordinates.x >= data.width-55) {//55 and 320 will change if the drawer width or hamburger size/positioning changes.
+                    return true;
+                } else {
+                    //return false;
+                    return checkDrawerPosition();
+                }
+            });
+
+        });
+        //return deferred.promise;
     }
+
+    function waitForAnimation(xCoordinate, comp) {
+        browser.wait(checkDrawerPosition(), defaultTimeout);
+    }
+
     drawer.clickHamburger = function() {
         drawer.container.isDisplayed().then(function(isDisplayed) {
             if(!isDisplayed) {
                 //browser sync sometimes covers hamburger so we have to wait for it to go away before we can click on the hamburger
                 browser.wait(EC.stalenessOf(browserSync) || EC.invisibilityOf(browserSync), defaultTimeout);
-                $("#drawerlink").click();
+                //sometimes the drawer is in the middle of opening or closing. Wait for it to finish
+                waitForAnimation();
+                drawer.hamburger.click();
                 browser.wait(EC.visibilityOf(drawer.links.get(0)), defaultTimeout);
             } else {
                 //browser sync sometimes covers hamburger so we have to wait for it to go away before we can click on the hamburger
                 browser.wait(EC.stalenessOf(browserSync) || EC.invisibilityOf(browserSync), defaultTimeout);
-                $("#drawerlink").click();
+
+                //sometimes the drawer is in the middle of opening or closing. Wait for it to finish
+                waitForAnimation();
+                drawer.hamburger.click();
                 browser.wait(EC.invisibilityOf(drawer.container), defaultTimeout);
             }
         });

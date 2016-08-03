@@ -207,49 +207,51 @@ describe('mobile app should work', function() {
     });
 
      it('should be able to go to page 2', function() {
-     var pageName = translate('pages.page2.title', locale);
-     //loadPageWait('http://localhost:3000/#/en/advisorLocator/page2', 500, 500);
-     var drawer = drawerTemplate();
-     drawer.click(2, appName + ' - ' + pageName);
+         var pageName = translate('pages.page2.title', locale);
+         //loadPageWait('http://localhost:3000/#/en/advisorLocator/page2', 500, 500);
+         var drawer = drawerTemplate();
+         drawer.click(2, appName + ' - ' + pageName);
          drawer.checkSelected(1);
 
-     var expected = {
-         mobile: {
-             title: pageName,
-             content: 'Temporary page 2 content',
-             windowTitle: appName + ' - ' + pageName
-         }
-     };
-     var page2 = page2Template(expected);
-     page2.mobile.checkTitle();
-     page2.mobile.checkContent();
-     page2.mobile.checkWindowTitle();
+         var expected = {
+             mobile: {
+                 title: pageName,
+                 content: 'Temporary page 2 content',
+                 windowTitle: appName + ' - ' + pageName
+             }
+         };
+         var page2 = page2Template(expected);
+         page2.mobile.checkTitle();
+         page2.mobile.checkContent();
+         page2.mobile.checkWindowTitle();
      });
 
      it('should be able to go to page 3', function() {
-     var pageName = translate('pages.page3.title', locale);
-     //loadPageWait('http://localhost:3000/#/en/advisorLocator/page3/subpage', 500, 500);
+         var pageName = translate('pages.page3.title', locale);
+         //loadPageWait('http://localhost:3000/#/en/advisorLocator/page3/subpage', 500, 500);
          var drawer = drawerTemplate();
          drawer.click(3, appName + ' - ' + pageName);
+         drawer.checkSelected(2);
 
-     var expected = {
-         mobile: {
-             title: pageName,
-             content: 'Temporary subpage content\nHello world\nTemporary subpage content',
-             windowTitle: appName + ' - ' + pageName
-         }
-     };
-     var page3 = page3Template(expected);
-     page3.mobile.checkTitle();
-     page3.mobile.checkContent();
-     page3.mobile.checkWindowTitle();
+         var expected = {
+             mobile: {
+                 title: pageName,
+                 content: 'Temporary subpage content\nHello world\nTemporary subpage content',
+                 windowTitle: appName + ' - ' + pageName
+             }
+         };
+         var page3 = page3Template(expected);
+         page3.mobile.checkTitle();
+         page3.mobile.checkContent();
+         page3.mobile.checkWindowTitle();
      });
 
      it('should be able to go to page 4', function() {
          var pageName = translate('pages.page4.title', locale);
-     //loadPageWait('http://localhost:3000/#/en/advisorLocator/page4', 500, 500);
-         var drawer = drawerTemplate();
+        //loadPageWait('http://localhost:3000/#/en/advisorLocator/page4', 500, 500);
+        var drawer = drawerTemplate();
          drawer.click(4, appName + ' - ' + pageName);
+         drawer.checkSelected(3);
      var expected = {
          mobile: {
              title: pageName,
@@ -268,6 +270,7 @@ describe('mobile app should work', function() {
          //loadPageWait('http://localhost:3000/#/en/advisorLocator/page5', 500, 500);
          var drawer = drawerTemplate();
          drawer.click(5, appName + ' - ' + pageName);
+         drawer.checkSelected(4);
          var expected = {
              mobile: {
                  title: pageName,
