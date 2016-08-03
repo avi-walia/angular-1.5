@@ -293,12 +293,7 @@ function header(expected) {
 
     //check that the proper header item is highlighted(orange text);
     header.checkSelected = function(targetIndex) {
-        header.links.each(function(item, index){
-            //console.log('item: ', item);
-            item.getCssValue('color').then(function(test){
-                console.log('test ' + index + ': ', test);
-            });
-
+        header.links.each(function(item, index) {
            if (targetIndex == index) {
                expect(item.getCssValue('color')).toEqual('rgba(205, 88, 6, 1)');
            } else {
@@ -349,6 +344,25 @@ function drawer(expected) {
             logoVisibility: false,
             homeLinkVisibility: true
         }
+    }
+
+    drawer.checkSelected = function(targetIndex) {
+        drawer.clickHamburger();
+        console.log('find: ', element.all(by.css('#nav ul')).get(1).all(by.css('li a')));
+        element.all(by.css('#nav ul')).get(1).all(by.css('li a')).each(function(item, index) {
+            console.log('index' + index + ': ', index);
+            item.getCssValue('color').then(function(value){
+                console.log('color: ', value);
+            })
+
+            if (targetIndex == index) {
+                expect(item.getCssValue('color')).toEqual('rgba(163, 147, 101, 1)');
+            } else {
+                expect(item.getCssValue('color')).toEqual('rgba(221, 221, 221, 1)');
+            }
+        });
+        drawer.clickHamburger();
+
     }
 
     drawer.click = function(index, pageTitle) {
@@ -411,7 +425,7 @@ function drawer(expected) {
                 //browser sync sometimes covers hamburger so we have to wait for it to go away before we can click on the hamburger
                 browser.wait(EC.stalenessOf(browserSync) || EC.invisibilityOf(browserSync), defaultTimeout);
                 $("#drawerlink").click();
-                browser.wait(EC.invisibilityOf(drawer.links.get(0)), defaultTimeout);
+                browser.wait(EC.invisibilityOf(drawer.container), defaultTimeout);
             }
         });
     };

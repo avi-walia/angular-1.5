@@ -14,7 +14,7 @@ var translate = helper.translate;
 //currently locale only has two values, 'en' and 'fr'
 var locale = 'en';
 var appName = translate('appTitle', locale);
-
+/*
 describe('desktop app should work', function() {
 
     it('should be able to go to page 1(desktop view)', function() {
@@ -123,7 +123,7 @@ describe('desktop app should work', function() {
     });
 
 });
-
+*/
 
 describe('mobile app should work', function() {
 
@@ -162,7 +162,7 @@ describe('mobile app should work', function() {
         }
         var drawer = drawerTemplate(expected);
         drawer.checkHamburgerVisibility();
-
+        drawer.checkSelected(0);
         //mobile nav is not open, links should be on the page, but not visible
         drawer.verifyLinks();
         //verify that we can't see mobile nav logo when mobile nav is closed
@@ -211,6 +211,7 @@ describe('mobile app should work', function() {
      //loadPageWait('http://localhost:3000/#/en/advisorLocator/page2', 500, 500);
      var drawer = drawerTemplate();
      drawer.click(2, appName + ' - ' + pageName);
+         drawer.checkSelected(1);
 
      var expected = {
          mobile: {
