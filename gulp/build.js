@@ -8,11 +8,28 @@ var jsonMerge = require('gulp-merge-json');
 var runSequence = require('run-sequence');
 var cleanCSS = require('gulp-clean-css');
 var htmlmin = require('gulp-htmlmin');
+var angularProtractor = require('gulp-angular-protractor');
 
 
 var $ = require('gulp-load-plugins')({
     pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'del']
 });
+
+// Setting up the test task
+gulp.task('protractor', function(callback) {
+    gulp
+        .src(['src/app/test/spec/e2e/*.js'])
+        .pipe(angularProtractor({
+            'configFile': 'protractor.conf.js',
+            'debug': false,
+            'autoStartStopServer': true
+        }))
+        .on('error', function(e) {
+            console.log(e);
+        })
+        .on('end', callback);
+});
+
 
 module.exports = function (options) {
     gulp.task('partials', function () {
@@ -224,30 +241,49 @@ module.exports = function (options) {
             ['html', 'fonts', 'other', 'locales'],
             'cleanupdist');
     });*/
-
-    gulp.task('build:local', function() {
+    function buildLocal() {
         console.time("Build");
         runSequence('clean-build',
             'config:local',
             ['html', 'fonts', 'other', 'locales'],
             'clean-dist');
+    }
+    gulp.task('build:local', function() {
+        buildLocal();
     });
-
-    gulp.task('build:dev', function() {
+    gulp.task('buildSafe:local', ['protractor'], function() {
+        buildLocal();
+    });
+    function buildDEV() {
         console.time("Build");
         runSequence('clean-build',
             'config:dev',
             ['html', 'fonts', 'other', 'locales'],
             'clean-dist');
+    }
+
+    gulp.task('build:dev', function() {
+        buildDEV();
     });
 
-    gulp.task('build:uat', function() {
+    gulp.task('buildSafe:dev', ['protractor'], function() {
+        buildDEV();
+    });
+    function buildUAT() {
         console.time("Build");
         runSequence('clean-build',
             'bump:patch',
             'config:uat',
             ['html', 'fonts', 'other', 'locales'],
             'clean-dist');
+    }
+
+    gulp.task('build:uat', function() {
+        buildUAT();
+    });
+
+    gulp.task('buildSafe:uat', ['protractor'], function() {
+        buildUAT();
     });
 
     // copy bower components
@@ -255,13 +291,19 @@ module.exports = function (options) {
         return gulp.src("./bower_components/**/*")
             .pipe(gulp.dest("./www/lib"));
     });
-
-    gulp.task('build:ionic', function() {
+    function buildIonic() {
         console.time("Build");
         runSequence('clean-build',
             'config:ionic',
             ['html', 'fonts', 'other', 'locales', 'cbc'],
             'clean-dist');
+    }
+
+    gulp.task('buildSafe:ionic', ['protractor'], function() {
+        buildIonic();
+    });
+    gulp.task('build:ionic', function() {
+        buildIonic();
     });
 
     gulp.task('build:prod', function() {
