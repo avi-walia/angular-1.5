@@ -14,7 +14,7 @@ var translate = helper.translate;
 //currently locale only has two values, 'en' and 'fr'
 var locale = 'en';
 var appName = translate('appTitle', locale);
-/*
+
 describe('desktop app should work', function() {
 
     it('should be able to go to page 1(desktop view)', function() {
@@ -46,22 +46,24 @@ describe('desktop app should work', function() {
         header.checkSelected(0);
 
         var expected = {
-            text: translate('copyright', locale),
-            textVisibility: true,
-            logoVisibility: true,
-            links: [
-                newLink(translate('footer.linkText1', locale), translate('footer.link1', locale), true),
-                newLink(translate('footer.linkText2', locale), translate('footer.link2', locale), true),
-                newLink(translate('footer.linkText3', locale), translate('footer.link3', locale), true),
-                newLink(translate('footer.linkText4', locale), translate('footer.link4', locale), true)
-            ]
+            desktop: {
+                text: translate('copyright', locale),
+                textVisibility: true,
+                logoVisibility: true,
+                links: [
+                    newLink(translate('footer.linkText1', locale), translate('footer.link1', locale), true),
+                    newLink(translate('footer.linkText2', locale), translate('footer.link2', locale), true),
+                    newLink(translate('footer.linkText3', locale), translate('footer.link3', locale), true),
+                    newLink(translate('footer.linkText4', locale), translate('footer.link4', locale), true)
+                ]
+            }
         };
         footer = footerTemplate(expected);
         //mobile nav is not open, links should be on the page, but not visible
         //console.log('expectedLinks ', expectedLinks);
-        footer.checkLinks();
+        footer.desktop.checkLinks();
         //verify that we can't see mobile nav logo when mobile nav is closed
-        footer.checkLogoVisibility();
+        footer.desktop.checkLogoVisibility();
     });
 
     it('should navigate to page 2', function() {
@@ -123,7 +125,6 @@ describe('desktop app should work', function() {
     });
 
 });
-*/
 
 describe('mobile app should work', function() {
 
@@ -174,14 +175,16 @@ describe('mobile app should work', function() {
 
 
         var expected = {
-            text: translate('copyright', locale),
-            textVisibility: true,
-            logoVisibility: false,
-            links: []
+            mobile: {
+                text: translate('copyright', locale),
+                textVisibility: true,
+                logoVisibility: false,
+                links: []
+            }
         };
         footer = footerTemplate(expected);
-        footer.checkText();
-        footer.checkLogoVisibility();
+        footer.mobile.checkText();
+        footer.mobile.checkLogoVisibility();
 
         //now we should expect the mobile navbar links to be visible
         _.forEach(drawer.expected.links, function(value, index){
@@ -195,8 +198,8 @@ describe('mobile app should work', function() {
         drawer.clickHamburger();
         drawer.checkHomeLink(false);
 
-        footer.checkText();
-        footer.checkLogoVisibility();
+        footer.mobile.checkText();
+        footer.mobile.checkLogoVisibility();
 
         _.forEach(drawer.expected.links, function(value, index){
             drawer.expected.links[index].visibility = false;

@@ -42,41 +42,92 @@ function footer(expected) {
         f.expected = expected;
     } else {
         f.expected = {
-            text: '©2016 Name of Company',
-            textVisibility: true,
-            logoVisibility: false,
-            links: []
+            mobile: {
+                text: translate('copyright', locale),
+                textVisibility: true,
+                logoVisibility: false,
+                links: []
+            },
+            desktop: {
+                text: translate('copyright', locale),
+                textVisibility: true,
+                logoVisibility: false,
+                links: [
+                    newLink(translate('footer.linkText1', locale), translate('footer.link1', locale), true),
+                    newLink(translate('footer.linkText2', locale), translate('footer.link2', locale), true),
+                    newLink(translate('footer.linkText3', locale), translate('footer.link3', locale), true),
+                    newLink(translate('footer.linkText4', locale), translate('footer.link4', locale), true),
+                ]
+            }
         };
+    };
+    //this is only available on desktop view. In mobile, links are part of the drawer.
+    f.links = element.all(by.css('#footernav ul li a'));
+    f.desktop = {
+        checkLinks: checkLinks,
+        checkText: checkDesktopText,
+        checkLogoVisibility: checkDesktopLogoVisibility
+    };
+    f.mobile = {
+        checkText: checkMobileText,
+        checkLogoVisibility: checkMobileLogoVisibility
     }
-    f.links = element.all(by.css('#footernav li a'));
-
-    f.checkLinks = function(links) {
+    //only for desktop
+    function checkLinks(links) {
         if (links) {
-            f.expected.links = links;
+            f.expected.desktop.links = links;
         }
-        linkValidator(f.expected.links, f.links);
-    }
-
+        linkValidator(f.expected.desktop.links, f.links);
+    };
+    //only available on desktop view
     f.logo = element(by.css("#cilogo img[src='./assets/images/logos.svg']"));
 
-    f.checkText = function(visibility, text) {
+    function checkMobileText(visibility, text) {
 
         if (typeof visibility == 'boolean') {
-            f.expected.textVisibility = visibility;
+            f.expected.mobile.textVisibility = visibility;
         }
         if (text) {
-            f.expected.text = text;
+            f.expected.mobile.text = text;
         }
-        expect(f.footer.isDisplayed()).toEqual(f.expected.textVisibility);
-        expect(f.footer.isPresent()).toEqual(f.expected.textVisibility);
-        expect(f.footer.getText()).toEqual(f.expected.text);
+        expect(f.footer.isDisplayed()).toEqual(f.expected.mobile.textVisibility);
+        expect(f.footer.isPresent()).toEqual(f.expected.mobile.textVisibility);
+        expect(f.footer.getText()).toEqual(f.expected.mobile.text);
+    };
+
+    function checkDesktopText(visibility, text) {
+
+        if (typeof visibility == 'boolean') {
+            f.expected.desktop.textVisibility = visibility;
+        }
+        if (text) {
+            f.expected.desktop.text = text;
+        }
+        expect(f.footer.isDisplayed()).toEqual(f.expected.desktop.textVisibility);
+        expect(f.footer.isPresent()).toEqual(f.expected.desktop.textVisibility);
+        expect(f.footer.getText()).toEqual(f.expected.desktop.text);
+    };
+
+    function checkDesktopLogoVisibility(logoVisibility) {
+        if (typeof logoVisibility == 'boolean') {
+            f.expected.desktop.logoVisibility = logoVisibility;
+        }
+        expect(f.logo.isDisplayed()).toBe(f.expected.desktop.logoVisibility);
     }
 
-    f.checkLogoVisibility = function(logoVisibility) {
+
+    function checkMobileLogoVisibility(logoVisibility) {
         if (typeof logoVisibility == 'boolean') {
-            f.expected.logoVisibility = logoVisibility;
+            f.expected.mobile.logoVisibility = logoVisibility;
         }
-        expect(f.logo.isDisplayed()).toBe(f.expected.logoVisibility);
+        expect(f.logo.isDisplayed()).toBe(f.expected.mobile.logoVisibility);
+    }
+
+    function checkDesktopLogoVisibility(logoVisibility) {
+        if (typeof logoVisibility == 'boolean') {
+            f.expected.desktop.logoVisibility = logoVisibility;
+        }
+        expect(f.logo.isDisplayed()).toBe(f.expected.desktop.logoVisibility);
     }
     return f;
 }
