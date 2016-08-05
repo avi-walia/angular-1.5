@@ -7,7 +7,6 @@
     "USER_MAX": 255,
     "EMAIL_MAX": 255
   },
-  "PROMO_CONFIG_PATH": "https://ws.ci.com/aio-promo.json",
   "copyrightYear": 2016,
   "APP_NAME": "AdvisorLocator"
 }

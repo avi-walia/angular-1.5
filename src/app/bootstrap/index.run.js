@@ -57,7 +57,7 @@
         $rootScope.$on('$stateChangeError',
             function (event, toState, toParams, fromState, fromParams, error) {
                 pageStateResolver.pageLoading = false;
-                console.error('Router Error:', error);
+                console.warn('Router Error:', error);
             });
 
         $rootScope.$on('$stateChangeSuccess',

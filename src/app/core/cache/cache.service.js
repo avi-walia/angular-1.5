@@ -5,7 +5,7 @@
  */
 (function () {
     'use strict';
-    var STORAGE_PREFIX = 'aio';
+    var STORAGE_PREFIX = 'advLocator';
     angular
         .module('advisorLocator.core.cache')
         .factory('dataCacheSessionStorage', dataCacheSessionStorage)

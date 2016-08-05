@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.ci.aio" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>AIO</name>
+    <name>Advisor Locator</name>
     <description>
-        Assante Investor Online
+        Advisor Locator
     </description>
-    <author email="web@ci.com" href="http://www.assante.com/">
+    <author email="webservices@ci.com" href="http://www.assante.com/">
       Muhammad Noman
     </author>
     <content src="index.html" />

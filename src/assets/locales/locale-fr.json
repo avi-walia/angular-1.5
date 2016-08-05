@@ -94,5 +94,5 @@
   "homeFooterLink": "FR NameOfMyNewSite.com",
   "copyright": "©{{ copyrightYear }} {{ 'company' | translate}}",
   "company": "FR Name of Company",
-  "companyLink": "https://www.ci.com"
+  "companyLink": "https://www.assante.com"
 }
