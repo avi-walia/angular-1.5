@@ -11,15 +11,30 @@ var headerTemplate = helper.header;
 var newLink = helper.newLink;
 var footerTemplate = helper.footer;
 var translate = helper.translate;
-//currently locale only has two values, 'en' and 'fr'
-var locale = 'en';
-var appName = translate('appTitle', locale);
+var translateButton = helper.translateButton;
+var getLocale = helper.getLocale;
+//currently getLocale() only has two values, 'en' and 'fr'
+var getAppName = helper.getAppName;
+var EC = protractor.ExpectedConditions;
+var defaultTimeout = 3000;
 
-describe('desktop app should work', function() {
-
-    it('should be able to go to page 1(desktop view)', function() {
-        var pageName = translate('pages.page1.title', locale);
+var browserSync = element(by.id('__bs_notify__'));
+function desktopTests(inFrench) {
+    it('should be able to go to page 1(desktop view)', function () {
+        var pageName = translate('pages.page1.title', getLocale());
         loadPageWait('http://localhost:3000/#/en/advisorLocator/page1');
+
+        if(inFrench) {
+            helper.setLocale('fr');
+            console.log('testing french');
+            var trans = translateButton();
+            trans.desktop.checkText();
+            trans.click();
+            trans.expected.desktop.text = translate('navbar.EN', getLocale());//doesn't matter since navbar.EN and navbar.FR are the same in both getLocale() files
+            trans.desktop.checkText();
+        } else {
+            helper.setLocale('en');
+        }
 
         //Make sure the page content is visible and what we expect it to be
         var page1 = page1Template();
@@ -28,17 +43,17 @@ describe('desktop app should work', function() {
     });
 
 
-    it('should have a desktop nav and footer', function() {
+    it('should have a desktop nav and footer', function () {
 
         //expect($("#drawerlink").isDisplayed()).toEqual(true);
         var expected = {
             logoVisibility: true,
             links: [
-                newLink(translate('pages.page1.title', locale).toUpperCase(), "main.advisorLocator.page1", true),
-                newLink(translate('pages.page2.title', locale).toUpperCase(), "main.advisorLocator.page2", true),
-                newLink(translate('pages.page3.title', locale).toUpperCase(), "main.advisorLocator.page3.subpage", true),
-                newLink(translate('pages.page4.title', locale).toUpperCase(), "main.advisorLocator.page4", true),
-                newLink(translate('pages.page5.title', locale).toUpperCase(), "main.advisorLocator.page5", true)
+                newLink(translate('pages.page1.title', getLocale()).toUpperCase(), "main.advisorLocator.page1", true),
+                newLink(translate('pages.page2.title', getLocale()).toUpperCase(), "main.advisorLocator.page2", true),
+                newLink(translate('pages.page3.title', getLocale()).toUpperCase(), "main.advisorLocator.page3.subpage", true),
+                newLink(translate('pages.page4.title', getLocale()).toUpperCase(), "main.advisorLocator.page4", true),
+                newLink(translate('pages.page5.title', getLocale()).toUpperCase(), "main.advisorLocator.page5", true)
             ]
         };
         var header = headerTemplate(expected);
@@ -47,26 +62,25 @@ describe('desktop app should work', function() {
 
         var expected = {
             desktop: {
-                text: translate('copyright', locale),
+                text: translate('copyright', getLocale()),
                 textVisibility: true,
                 logoVisibility: true,
                 links: [
-                    newLink(translate('footer.linkText1', locale), translate('footer.link1', locale), true),
-                    newLink(translate('footer.linkText2', locale), translate('footer.link2', locale), true),
-                    newLink(translate('footer.linkText3', locale), translate('footer.link3', locale), true),
-                    newLink(translate('footer.linkText4', locale), translate('footer.link4', locale), true)
+                    newLink(translate('footer.linkText1', getLocale()), translate('footer.link1', getLocale()), true),
+                    newLink(translate('footer.linkText2', getLocale()), translate('footer.link2', getLocale()), true),
+                    newLink(translate('footer.linkText3', getLocale()), translate('footer.link3', getLocale()), true),
+                    newLink(translate('footer.linkText4', getLocale()), translate('footer.link4', getLocale()), true)
                 ]
             }
         };
         footer = footerTemplate(expected);
         //mobile nav is not open, links should be on the page, but not visible
-        //console.log('expectedLinks ', expectedLinks);
         footer.desktop.checkLinks();
         //verify that we can't see mobile nav logo when mobile nav is closed
         footer.desktop.checkLogoVisibility();
     });
 
-    it('should navigate to page 2', function() {
+    it('should navigate to page 2', function () {
 
         var header = headerTemplate();
         var page2 = page2Template();
@@ -79,7 +93,7 @@ describe('desktop app should work', function() {
 
     });
 
-    it('should navigate to page 3', function() {
+    it('should navigate to page 3', function () {
 
         var header = headerTemplate();
         var page3 = page3Template();
@@ -91,7 +105,7 @@ describe('desktop app should work', function() {
 
     });
 
-    it('should navigate to page 4', function() {
+    it('should navigate to page 4', function () {
 
         var header = headerTemplate();
         var page4 = page4Template();
@@ -104,17 +118,17 @@ describe('desktop app should work', function() {
 
     });
 
-    it('should navigate to page 5', function() {
+    it('should navigate to page 5', function () {
 
         var header = headerTemplate();
-        var pageName = translate('pages.page5.title', locale);
-        header.click(4, appName + ' - ' + pageName);
+        var pageName = translate('pages.page5.title', getLocale());
+        header.click(4, getAppName() + ' - ' + pageName);
         header.checkSelected(4);
         //loadPageWait('http://localhost:3000/#/en/advisorLocator/page5', 500, 500);
         var expected = {
             desktop: {
                 content: 'Temporary page 5 content',
-                windowTitle: appName + ' - ' + pageName
+                windowTitle: getAppName() + ' - ' + pageName
             }
         };
         var page5 = page5Template(expected);
@@ -124,14 +138,65 @@ describe('desktop app should work', function() {
 
     });
 
+}
+
+describe('desktop app should work', function () {
+    desktopTests();
+});
+describe('desktop app should work in french', function() {
+
+    desktopTests(true);
 });
 
-describe('mobile app should work', function() {
+function mobileTests(inFrench) {
+    /*
+    it('should be able to go to page 1(desktop view)', function () {
+        var pageName = translate('pages.page1.title', getLocale());
+        loadPageWait('http://localhost:3000/#/en/advisorLocator/page1', 500, 500);
 
+        if(inFrench) {
+            var drawer = drawerTemplate();
+            helper.setLocale('fr');
+            var trans = translateButton();
+            drawer.clickHamburger();
+            trans.mobile.checkText();
+            drawer.clickHamburger();
+            drawer.clickHamburger();
+            trans.click();
+            drawer.clickHamburger();
+
+            trans.expected.mobile.text = translate('navbar.EN', getLocale());//doesn't matter since navbar.EN and navbar.FR are the same in both getLocale() files
+            trans.mobile.checkText();
+            drawer.clickHamburger();
+        }
+
+        //Make sure the page content is visible and what we expect it to be
+        var page1 = page1Template();
+        page1.mobile.checkContent();
+        page1.mobile.checkWindowTitle();
+    });
+    */
 
     it('should be able to go to page 1(mobile view)', function() {
-        var pageName = translate('pages.page1.title', locale);
+        var pageName = translate('pages.page1.title', getLocale());
         loadPageWait('http://localhost:3000/#/en/advisorLocator/page1', 500, 500);
+        if(inFrench) {
+            var drawer = drawerTemplate();
+            helper.setLocale('fr');
+            var trans = translateButton();
+            drawer.clickHamburger();
+            trans.mobile.checkText();
+            drawer.clickHamburger();
+            drawer.clickHamburger();
+            trans.click();
+            drawer.clickHamburger();
+
+            trans.expected.mobile.text = translate('navbar.EN', getLocale());//doesn't matter since navbar.EN and navbar.FR are the same in both getLocale() files
+            trans.mobile.checkText();
+            drawer.clickHamburger();
+        } else {
+            helper.setLocale('en');
+        }
 
         //Make sure the page content is visible and what we expect it to be
         var page1 = page1Template();
@@ -143,23 +208,28 @@ describe('mobile app should work', function() {
     it('should have a mobile nav and footer', function() {
 
         //expect($("#drawerlink").isDisplayed()).toEqual(true);
+        var language = 'navbar.FR';
+        if (getLocale() == 'fr') {
+            language = 'navbar.EN';
+        }
         var expected = {
             links: [
-                newLink(translate('navbar.FR', locale), null, false),
-                newLink(translate('pages.page1.title', locale), null, false),
-                newLink(translate('pages.page2.title', locale), null, false),
-                newLink(translate('pages.page3.title', locale), null, false),
-                newLink(translate('pages.page4.title', locale), null, false),
-                newLink(translate('pages.page5.title', locale), null, false),
-                newLink(translate('helpLabel', locale), null, false),
-                newLink(translate('footer.linkText1', locale), translate('footer.link1', locale), false),
-                newLink(translate('footer.linkText2', locale), translate('footer.link2', locale), false),
-                newLink(translate('footer.linkText3', locale), translate('footer.link3', locale), false),
-                newLink(translate('footer.linkText4', locale), translate('footer.link4', locale), false)
+                newLink(translate(language, getLocale()), null, false),
+                newLink(translate('pages.page1.title', getLocale()), null, false),
+                newLink(translate('pages.page2.title', getLocale()), null, false),
+                newLink(translate('pages.page3.title', getLocale()), null, false),
+                newLink(translate('pages.page4.title', getLocale()), null, false),
+                newLink(translate('pages.page5.title', getLocale()), null, false),
+                newLink(translate('helpLabel', getLocale()), null, false),
+                newLink(translate('footer.linkText1', getLocale()), translate('footer.link1', getLocale()), false),
+                newLink(translate('footer.linkText2', getLocale()), translate('footer.link2', getLocale()), false),
+                newLink(translate('footer.linkText3', getLocale()), translate('footer.link3', getLocale()), false),
+                newLink(translate('footer.linkText4', getLocale()), translate('footer.link4', getLocale()), false)
             ],
             hamburgerVisibility: true,
             logoVisibility: false,
-            homeLinkVisibility: false
+            homeLinkVisibility: false,
+            homeLinkPresence: false
         }
         var drawer = drawerTemplate(expected);
         drawer.checkHamburgerVisibility();
@@ -171,12 +241,13 @@ describe('mobile app should work', function() {
         //open mobile navbar
         drawer.checkHomeLink();
         drawer.clickHamburger();
+        browser.sleep(5000);
         drawer.checkHomeLink(true);
 
 
         var expected = {
             mobile: {
-                text: translate('copyright', locale),
+                text: translate('copyright', getLocale()),
                 textVisibility: true,
                 logoVisibility: false,
                 links: []
@@ -209,81 +280,94 @@ describe('mobile app should work', function() {
         drawer.checkLogo(false);
     });
 
-     it('should be able to go to page 2', function() {
-         var pageName = translate('pages.page2.title', locale);
-         //loadPageWait('http://localhost:3000/#/en/advisorLocator/page2', 500, 500);
-         var drawer = drawerTemplate();
-         drawer.click(2, appName + ' - ' + pageName);
-         drawer.checkSelected(1);
+    it('should be able to go to page 2', function() {
+        var pageName = translate('pages.page2.title', getLocale());
+        //loadPageWait('http://localhost:3000/#/en/advisorLocator/page2', 500, 500);
+        var drawer = drawerTemplate();
+        drawer.click(2, getAppName() + ' - ' + pageName);
+        drawer.checkSelected(1);
 
-         var expected = {
-             mobile: {
-                 title: pageName,
-                 content: 'Temporary page 2 content',
-                 windowTitle: appName + ' - ' + pageName
-             }
-         };
-         var page2 = page2Template(expected);
-         page2.mobile.checkTitle();
-         page2.mobile.checkContent();
-         page2.mobile.checkWindowTitle();
-     });
+        var expected = {
+            mobile: {
+                title: pageName,
+                content: 'Temporary page 2 content',
+                windowTitle: getAppName() + ' - ' + pageName
+            }
+        };
+        var page2 = page2Template(expected);
+        page2.mobile.checkTitle();
+        page2.mobile.checkContent();
+        page2.mobile.checkWindowTitle();
+    });
 
-     it('should be able to go to page 3', function() {
-         var pageName = translate('pages.page3.title', locale);
-         //loadPageWait('http://localhost:3000/#/en/advisorLocator/page3/subpage', 500, 500);
-         var drawer = drawerTemplate();
-         drawer.click(3, appName + ' - ' + pageName);
-         drawer.checkSelected(2);
+    it('should be able to go to page 3', function() {
+        var pageName = translate('pages.page3.title', getLocale());
+        //loadPageWait('http://localhost:3000/#/en/advisorLocator/page3/subpage', 500, 500);
+        var drawer = drawerTemplate();
+        drawer.click(3, getAppName() + ' - ' + pageName);
+        drawer.checkSelected(2);
 
-         var expected = {
-             mobile: {
-                 title: pageName,
-                 content: 'Temporary subpage content\nHello world\nTemporary subpage content',
-                 windowTitle: appName + ' - ' + pageName
-             }
-         };
-         var page3 = page3Template(expected);
-         page3.mobile.checkTitle();
-         page3.mobile.checkContent();
-         page3.mobile.checkWindowTitle();
-     });
+        var expected = {
+            mobile: {
+                title: pageName,
+                content: 'Temporary subpage content\nHello world\nTemporary subpage content',
+                windowTitle: getAppName() + ' - ' + pageName
+            }
+        };
+        var page3 = page3Template(expected);
+        page3.mobile.checkTitle();
+        page3.mobile.checkContent();
+        page3.mobile.checkWindowTitle();
+    });
 
-     it('should be able to go to page 4', function() {
-         var pageName = translate('pages.page4.title', locale);
+    it('should be able to go to page 4', function() {
+        var pageName = translate('pages.page4.title', getLocale());
         //loadPageWait('http://localhost:3000/#/en/advisorLocator/page4', 500, 500);
         var drawer = drawerTemplate();
-         drawer.click(4, appName + ' - ' + pageName);
-         drawer.checkSelected(3);
-     var expected = {
-         mobile: {
-             title: pageName,
-             content: 'Temporary page 4 content',
-             windowTitle: appName + ' - ' + pageName
-         }
-     };
-     var page4 = page4Template(expected);
-     page4.mobile.checkTitle();
-     page4.mobile.checkContent();
-     page4.mobile.checkWindowTitle();
-     });
+        drawer.click(4, getAppName() + ' - ' + pageName);
+        drawer.checkSelected(3);
+        var expected = {
+            mobile: {
+                title: pageName,
+                content: 'Temporary page 4 content',
+                windowTitle: getAppName() + ' - ' + pageName
+            }
+        };
+        var page4 = page4Template(expected);
+        page4.mobile.checkTitle();
+        page4.mobile.checkContent();
+        page4.mobile.checkWindowTitle();
+    });
 
-     it('should be able to go to page 5', function() {
-         var pageName = translate('pages.page5.title', locale);
-         //loadPageWait('http://localhost:3000/#/en/advisorLocator/page5', 500, 500);
-         var drawer = drawerTemplate();
-         drawer.click(5, appName + ' - ' + pageName);
-         drawer.checkSelected(4);
-         var expected = {
-             mobile: {
-                 title: pageName,
-                 content: 'Temporary page 5 content',
-                 windowTitle: appName + ' - ' + pageName
-             }
-         };
-         var page5 = page5Template(expected);
-         page5.mobile.checkTitle();
-         page5.mobile.checkContent();
-         page5.mobile.checkWindowTitle();
-     });
+    it('should be able to go to page 5', function() {
+        var pageName = translate('pages.page5.title', getLocale());
+        //loadPageWait('http://localhost:3000/#/en/advisorLocator/page5', 500, 500);
+        var drawer = drawerTemplate();
+        drawer.click(5, getAppName() + ' - ' + pageName);
+        drawer.checkSelected(4);
+        var expected = {
+            mobile: {
+                title: pageName,
+                content: 'Temporary page 5 content',
+                windowTitle: getAppName() + ' - ' + pageName
+            }
+        };
+        var page5 = page5Template(expected);
+        page5.mobile.checkTitle();
+        page5.mobile.checkContent();
+        page5.mobile.checkWindowTitle();
+    });
+
+}
+
+console.log('done desktop tests');
+
+describe('mobile app should work', function() {
+
+    mobileTests();
+});
+
+describe('mobile app should work in french', function() {
+
+    mobileTests(true);
 });

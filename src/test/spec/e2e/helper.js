@@ -3,12 +3,25 @@ var browserSync = element(by.id('__bs_notify__'));
 var _ = require('lodash');
 var EC = protractor.ExpectedConditions;
 var locale = 'en';
+var setLocale = function(newLocale) {
+    locale = newLocale;
+}
+var getLocale = function() {
+    return locale;
+}
+var portCounter = 5000;
+var pauser = function() {
+    browser.pause(portCounter);
+    portCounter++;
+}
 
 //This function loads the specified url into a window with the specified dimensions and waits for angular to finish rendering.
 //URL = the path to the page you want to load
 //width = the width of the browser window
 //height = the height of the browser window
-var appName = "App Title"
+var getAppName = function() {
+    return translate('appTitle', locale);
+}
 var year = new Date().getFullYear();
 var waitTime = 75;//sometimes browser.wait is not enough, and we still need a manual delay. Or maybe I'm waiting on the wrong condition?
 
@@ -80,7 +93,7 @@ function footer(expected) {
         linkValidator(f.expected.desktop.links, f.links);
     };
     //only available on desktop view
-    f.logo = element(by.css("#cilogo img[src='./assets/images/logos.svg']"));
+    f.logo = element(by.css("#cilogo img[src='./assets/images/" + translate("navbar.aiologo-img",locale) + "']"));
 
     function checkMobileText(visibility, text) {
 
@@ -198,11 +211,11 @@ function page1Template(expected) {
             mobile: {
                 title: pageName,
                 content: 'Temporary page 1 content\n\n\nbottom',
-                windowTitle: appName + ' - ' + pageName
+                windowTitle: getAppName() + ' - ' + pageName
             },
             desktop: {
                 content: 'Temporary page 1 content\n\n\nbottom',
-                windowTitle: appName + ' - ' + pageName
+                windowTitle: getAppName() + ' - ' + pageName
             }
         }
     } else {
@@ -224,11 +237,11 @@ function page2Template(expected) {
             mobile: {
                 title: pageName,
                 content: 'Temporary page 2 content',
-                windowTitle: appName + ' - ' + pageName
+                windowTitle: getAppName() + ' - ' + pageName
             },
             desktop: {
                 content: 'Temporary page 2 content',
-                windowTitle: appName + ' - ' + pageName
+                windowTitle: getAppName() + ' - ' + pageName
             }
         }
     } else {
@@ -250,11 +263,11 @@ function page3Template(expected) {
             mobile: {
                 title: pageName,
                 content: 'Temporary subpage content\nHello world\nTemporary subpage content',
-                windowTitle: appName + ' - ' + pageName
+                windowTitle: getAppName() + ' - ' + pageName
             },
             desktop: {
                 content: 'Temporary subpage content\nHello world\nTemporary subpage content',
-                windowTitle: appName + ' - ' + pageName
+                windowTitle: getAppName() + ' - ' + pageName
             }
         }
     } else {
@@ -276,11 +289,11 @@ function page4Template(expected) {
             mobile: {
                 title: pageName,
                 content: 'Temporary page 4 content',
-                windowTitle: appName + ' - ' + pageName
+                windowTitle: getAppName() + ' - ' + pageName
             },
             desktop: {
                 content: 'Temporary page 4 content',
-                windowTitle: appName + ' - ' + pageName
+                windowTitle: getAppName() + ' - ' + pageName
             }
         }
     } else {
@@ -302,11 +315,11 @@ function page5Template(expected) {
             mobile: {
                 title: pageName,
                 content: 'Temporary page 5 content',
-                windowTitle: appName + ' - ' + pageName
+                windowTitle: getAppName() + ' - ' + pageName
             },
             desktop: {
                 content: 'Temporary page 5 content',
-                windowTitle: appName + ' - ' + pageName
+                windowTitle: getAppName() + ' - ' + pageName
             }
         }
     } else {
@@ -323,7 +336,7 @@ function header(expected) {
     var header = {};
     header.container = element(by.id('bluebar .container'));
     header.links = element.all(by.css('#primary ul li a'));
-    header.logo = element(by.css("#logo>img[src='./assets/images/logos.svg']"));
+    header.logo = element(by.css("#logo>img[src='./assets/images/" + translate("navbar.aiologo-img",locale) + "']"));
     header.navLinks = element.all(by.css('#primary li a'));
 
 
@@ -384,8 +397,8 @@ function drawer(expected) {
     drawer.container = element(by.id('nav'));
     drawer.hamburger = $("#drawerlink");
     drawer.links = element.all(by.css('#nav li a'));
-    drawer.logo = element(by.css("#nav>span>img[src='./assets/images/logos.svg']"));
-    drawer.homeLink = element(by.css('[href="NameOfMyNewSite.com"]'))
+    drawer.logo = element(by.css("#nav>span>img[src='./assets/images/" + translate("navbar.aiologo-img",locale) + "']"));
+    drawer.homeLink = element(by.css('[href="' + translate('homeFooterLink', locale) + '"]'))
     if (expected) {
         drawer.expected = expected;
     } else {
@@ -393,7 +406,8 @@ function drawer(expected) {
             links: [],
             hamburgerVisibility: false,
             logoVisibility: false,
-            homeLinkVisibility: true
+            homeLinkVisibility: true,
+            homeLinkPresence: false
         }
     }
 
@@ -412,6 +426,7 @@ function drawer(expected) {
 
     drawer.click = function(index, pageTitle) {
         drawer.links.get(index).isDisplayed().then(function(isDisplayed){
+            drawer.waitForAnimation();
             browser.getTitle().then(function(title){
                 //if (title != pageTitle) {
                     //resolvedValues[0] is the visibility of the drawer.
@@ -426,17 +441,39 @@ function drawer(expected) {
                     browser.wait(EC.invisibilityOf(drawer.links.get(index)), defaultTimeout);
                 //}
             })
-        })
-    }
+        });
+        drawer.waitForAnimation();
+    };
+    function homeLinkOnScreen(isOnScreen) {
 
+        drawer.homeLink.getLocation().then(function(location){
+            if (isOnScreen) {
+                expect(location.x).toBeGreaterThan(0);
+            } else {
+                expect(location.x).toBeLessThan(0);
+            }
+        });
+    }
     drawer.checkHomeLink = function(expectedVisibility) {
+        drawer.waitForAnimation();
         if (typeof expectedVisibility == 'boolean') {
             drawer.expected.homeLinkVisibility = expectedVisibility;
+            homeLinkOnScreen(drawer.expected.homeLinkVisibility);
         }
-        expect(drawer.homeLink.isDisplayed()).toEqual(drawer.expected.homeLinkVisibility);
-    }
+        //expect(drawer.homeLink.isDisplayed() && !drawer.homeLink.is(':offscreen')).toEqual(drawer.expected.homeLinkVisibility);
+
+    };
+
+    drawer.checkHomeLinkPresence = function(expectedPresence) {
+        drawer.waitForAnimation();
+        if (typeof expectedVisibility == 'boolean') {
+            drawer.expected.homeLinkPresence = expectedPresence;
+        }
+        expect(drawer.homeLink.isPresent()).toEqual(drawer.expected.homeLinkPresence);
+    };
 
     drawer.checkLogo = function(expectedVisibility) {
+        drawer.waitForAnimation();
         if (typeof expectedVisibility == 'boolean') {
             drawer.expected.logoVisibility = expectedVisibility;
         }
@@ -465,26 +502,23 @@ function drawer(expected) {
         });
         //return deferred.promise;
     }
-
-    function waitForAnimation(xCoordinate, comp) {
+    drawer.waitForAnimation = waitForAnimation;
+    function waitForAnimation() {
         browser.wait(checkDrawerPosition(), defaultTimeout);
     }
 
     drawer.clickHamburger = function() {
+        //sometimes the drawer is in the middle of opening or closing. Wait for it to finish
+        waitForAnimation();
+        //browser sync sometimes covers hamburger so we have to wait for it to go away before we can click on the hamburger
+        browser.wait(EC.stalenessOf(browserSync) || EC.invisibilityOf(browserSync), defaultTimeout);
         drawer.container.isDisplayed().then(function(isDisplayed) {
             if(!isDisplayed) {
-                //browser sync sometimes covers hamburger so we have to wait for it to go away before we can click on the hamburger
-                browser.wait(EC.stalenessOf(browserSync) || EC.invisibilityOf(browserSync), defaultTimeout);
                 //sometimes the drawer is in the middle of opening or closing. Wait for it to finish
-                waitForAnimation();
+
                 drawer.hamburger.click();
                 browser.wait(EC.visibilityOf(drawer.links.get(0)), defaultTimeout);
             } else {
-                //browser sync sometimes covers hamburger so we have to wait for it to go away before we can click on the hamburger
-                browser.wait(EC.stalenessOf(browserSync) || EC.invisibilityOf(browserSync), defaultTimeout);
-
-                //sometimes the drawer is in the middle of opening or closing. Wait for it to finish
-                waitForAnimation();
                 drawer.hamburger.click();
                 browser.wait(EC.invisibilityOf(drawer.container), defaultTimeout);
             }
@@ -544,6 +578,112 @@ function translate(key, locale) {
     return temp;
 }
 
+function translateButton(expected) {
+    var trans = {};
+    var d = drawer();
+    if (expected) {
+        trans.expected = expected;
+    } else {
+        trans.expected = {
+            desktop: {
+                text: translate('navbar.FR', 'en'),
+                visible: true
+            },
+            mobile: {
+                text: translate('navbar.FR', 'fr'),
+                visible: true
+            }
+        }
+    }
+    trans.button = element.all(by.css("#topnav ul li")).get(0);
+    trans.desktop = {
+        checkText: checkDesktopText,
+        checkVisibility: checkDesktopVisibility
+    };
+    trans.mobile = {
+        checkText: checkMobileText,
+        checkVisibility: checkMobileVisibility
+    };
+    function checkDesktopText(expectedText) {
+        if (expectedText) {
+            trans.expected.desktop.text = expectedText;
+        }
+        expect(trans.button.getText()).toEqual(trans.expected.desktop.text);
+    }
+    function checkDesktopVisibility(){
+
+    }
+    function checkMobileText(expectedText) {
+        if (expectedText) {
+            trans.expected.mobile.text = expectedText;
+        }
+        var d = drawer();
+        expect(d.links.get(0).getText()).toEqual(trans.expected.mobile.text);
+    }
+    function checkMobileVisibility(){
+
+    }
+
+    trans.click = function() {
+        var languageAfterChange;
+        browser.wait(EC.stalenessOf(browserSync) || EC.invisibilityOf(browserSync), defaultTimeout);
+
+        d.hamburger.isDisplayed().then(function(asdf){
+            if (!asdf) {//desktop view
+                trans.button.getText().then(function(text) {
+                    if (text == translate('navbar.EN', locale)) {
+                        languageAfterChange = translate('navbar.FR', locale)
+                    } else {
+                        languageAfterChange = translate('navbar.EN', locale)
+                    }
+                    trans.button.click();
+
+                    function checkLanguage() {
+                        return trans.button.getText().then(function(text) {
+                            if (text == languageAfterChange) {
+                                return true;
+                            } else {
+                                browser.sleep(50);
+                                return checkLanguage();
+                            }
+                        })
+                    }
+                    browser.wait(checkLanguage(), defaultTimeout);
+
+                });
+            } else {//mobile view
+                //assume drawer is already open or openning
+                d.waitForAnimation();
+
+                d.links.get(0).getText().then(function(text) {
+                    if (text == translate('navbar.EN', locale)) {
+                        languageAfterChange = translate('navbar.FR', locale)
+                    } else {
+                        languageAfterChange = translate('navbar.EN', locale)
+                    }
+                });
+                d.links.get(0).click();
+                d.links.get(0).getText().then(function(text) {
+                });
+                d.waitForAnimation();
+                /*
+                function checkLanguage() {
+                    return d.links.get(0).getText().then(function(text) {
+                        if (text == languageAfterChange) {
+                            return true;
+                        } else {
+                            browser.sleep(25);
+                            return checkLanguage();
+                        }
+                    })
+                }
+                browser.wait(checkLanguage(), defaultTimeout);*/
+            }
+        });
+    }
+    return trans;
+}
+
 module.exports = {
     drawer: drawer,
     browserSync: browserSync,
@@ -557,7 +697,10 @@ module.exports = {
     newLink: newLink,
     header: header,
     footer: footer,
-    appName: appName,
+    getAppName: getAppName,
     translate: translate,
-     year: year
+     year: year,
+    translateButton: translateButton,
+    getLocale: getLocale,
+    setLocale: setLocale
 };

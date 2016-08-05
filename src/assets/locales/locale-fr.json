@@ -86,9 +86,9 @@
     "linkText2": "FR Link 2",
     "linkText3": "FR Link 3",
     "linkText4": "FR Link 4",
-    "link1": "https://www.google.ca",
-    "link2": "https://www.yahoo.ca",
-    "link3": "https://www.ci.com",
+    "link1": "https://www.google.ca/",
+    "link2": "https://www.yahoo.ca/",
+    "link3": "https://www.ci.com/",
     "link4": "https://www.assanteservices.com/aiol/#/en/aio/landing/"
   },
   "homeFooterLink": "FR NameOfMyNewSite.com",
