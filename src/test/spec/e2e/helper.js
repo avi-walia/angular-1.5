@@ -15,6 +15,18 @@ var pauser = function() {
     portCounter++;
 }
 
+var toEqual = function(actual, expected) {
+    expect(actual).toEqual(expected);
+}
+
+var greaterThan = function(actual, expected) {
+    expect(actual).toBeGreaterThan(expected);
+}
+
+var lessThan = function(actual, expected) {
+    expect(actual).toBeLessThan(expected);
+}
+
 //This function loads the specified url into a window with the specified dimensions and waits for angular to finish rendering.
 //URL = the path to the page you want to load
 //width = the width of the browser window
@@ -103,9 +115,9 @@ function footer(expected) {
         if (text) {
             f.expected.mobile.text = text;
         }
-        expect(f.footer.isDisplayed()).toEqual(f.expected.mobile.textVisibility);
-        expect(f.footer.isPresent()).toEqual(f.expected.mobile.textVisibility);
-        expect(f.footer.getText()).toEqual(f.expected.mobile.text);
+        toEqual(f.footer.isDisplayed(), f.expected.mobile.textVisibility);
+        toEqual(f.footer.isPresent(), f.expected.mobile.textVisibility);
+        toEqual(f.footer.getText(), f.expected.mobile.text);
     };
 
     function checkDesktopText(visibility, text) {
@@ -116,16 +128,16 @@ function footer(expected) {
         if (text) {
             f.expected.desktop.text = text;
         }
-        expect(f.footer.isDisplayed()).toEqual(f.expected.desktop.textVisibility);
-        expect(f.footer.isPresent()).toEqual(f.expected.desktop.textVisibility);
-        expect(f.footer.getText()).toEqual(f.expected.desktop.text);
+        toEqual(f.footer.isDisplayed(), f.expected.desktop.textVisibility);
+        toEqual(f.footer.isPresent(), f.expected.desktop.textVisibility);
+        toEqual(f.footer.getText(), f.expected.desktop.text);
     };
 
     function checkDesktopLogoVisibility(logoVisibility) {
         if (typeof logoVisibility == 'boolean') {
             f.expected.desktop.logoVisibility = logoVisibility;
         }
-        expect(f.logo.isDisplayed()).toBe(f.expected.desktop.logoVisibility);
+        toEqual(f.logo.isDisplayed(), f.expected.desktop.logoVisibility);
     }
 
 
@@ -133,14 +145,14 @@ function footer(expected) {
         if (typeof logoVisibility == 'boolean') {
             f.expected.mobile.logoVisibility = logoVisibility;
         }
-        expect(f.logo.isDisplayed()).toBe(f.expected.mobile.logoVisibility);
+        toEqual(f.logo.isDisplayed(), f.expected.mobile.logoVisibility);
     }
 
     function checkDesktopLogoVisibility(logoVisibility) {
         if (typeof logoVisibility == 'boolean') {
             f.expected.desktop.logoVisibility = logoVisibility;
         }
-        expect(f.logo.isDisplayed()).toBe(f.expected.desktop.logoVisibility);
+        toEqual(f.logo.isDisplayed(), f.expected.desktop.logoVisibility);
     }
     return f;
 }
@@ -178,25 +190,25 @@ function basePage(expected) {
 
     function checkMobileTitle() {
         //every mobile page should have a title
-        expect(basePage.title.isDisplayed()).toEqual(true);
-        expect(basePage.title.getText()).toBe(basePage.expected.mobile.title);
+        toEqual(basePage.title.isDisplayed(), true);
+        toEqual(basePage.title.getText(), basePage.expected.mobile.title);
     };
 
     function checkMobileContent() {
         //every mobile page should have content
-        expect(basePage.content.isDisplayed()).toEqual(true);
-        expect(basePage.content.getText()).toBe(basePage.expected.mobile.content);
+        toEqual(basePage.content.isDisplayed(), true);
+        toEqual(basePage.content.getText(), basePage.expected.mobile.content);
     };
     function checkContent() {
         //every desktop page should have content
-        expect(basePage.content.isDisplayed()).toEqual(true);
-        expect(basePage.content.getText()).toBe(basePage.expected.desktop.content);
+        toEqual(basePage.content.isDisplayed(), true);
+        toEqual(basePage.content.getText(), basePage.expected.desktop.content);
     }
     function checkDesktopWindowTitle() {
-        expect(browser.getTitle()).toBe(basePage.expected.desktop.windowTitle);
+        toEqual(browser.getTitle(), basePage.expected.desktop.windowTitle);
     }
     function checkMobileWindowTitle() {
-        expect(browser.getTitle()).toBe(basePage.expected.mobile.windowTitle);
+        toEqual(browser.getTitle(), basePage.expected.mobile.windowTitle);
     }
 
     return basePage;
@@ -359,9 +371,9 @@ function header(expected) {
     header.checkSelected = function(targetIndex) {
         header.links.each(function(item, index) {
            if (targetIndex == index) {
-               expect(item.getCssValue('color')).toEqual('rgba(205, 88, 6, 1)');
+               toEqual(item.getCssValue('color'), 'rgba(205, 88, 6, 1)');
            } else {
-               expect(item.getCssValue('color')).toEqual('rgba(255, 255, 255, 1)');
+               toEqual(item.getCssValue('color'),'rgba(255, 255, 255, 1)');
            }
 
         });
@@ -387,7 +399,7 @@ function header(expected) {
         if (expectedVisibility) {
             header.expected.logoVisibility = expectedVisibility;
         }
-        expect(header.logo.isDisplayed()).toEqual(header.expected.logoVisibility);
+        toEqual(header.logo.isDisplayed(), header.expected.logoVisibility);
     }
     return header;
 }
@@ -415,9 +427,9 @@ function drawer(expected) {
         drawer.clickHamburger();
         element.all(by.css('#nav ul')).get(1).all(by.css('li a')).each(function(item, index) {
             if (targetIndex == index) {
-                expect(item.getCssValue('color')).toEqual('rgba(163, 147, 101, 1)');
+                toEqual(item.getCssValue('color'), 'rgba(163, 147, 101, 1)');
             } else {
-                expect(item.getCssValue('color')).toEqual('rgba(221, 221, 221, 1)');
+                toEqual(item.getCssValue('color'), 'rgba(221, 221, 221, 1)');
             }
         });
         drawer.clickHamburger();
@@ -448,9 +460,9 @@ function drawer(expected) {
 
         drawer.homeLink.getLocation().then(function(location){
             if (isOnScreen) {
-                expect(location.x).toBeGreaterThan(0);
+                greaterThan(location.x, 0)
             } else {
-                expect(location.x).toBeLessThan(0);
+                lessThan(location.x, 0);
             }
         });
     }
@@ -469,7 +481,7 @@ function drawer(expected) {
         if (typeof expectedVisibility == 'boolean') {
             drawer.expected.homeLinkPresence = expectedPresence;
         }
-        expect(drawer.homeLink.isPresent()).toEqual(drawer.expected.homeLinkPresence);
+        toEqual(drawer.homeLink.isPresent(), drawer.expected.homeLinkPresence);
     };
 
     drawer.checkLogo = function(expectedVisibility) {
@@ -477,13 +489,13 @@ function drawer(expected) {
         if (typeof expectedVisibility == 'boolean') {
             drawer.expected.logoVisibility = expectedVisibility;
         }
-        expect(drawer.logo.isDisplayed()).toEqual(drawer.expected.logoVisibility);
+        toEqual(drawer.logo.isDisplayed(), drawer.expected.logoVisibility);
     }
     drawer.checkHamburgerVisibility = function(expectedVisibility) {
         if (typeof expectedVisibility == 'boolean') {
             drawer.expected.hamburgerVisibility = expectedVisibility;
         }
-        expect(drawer.hamburger.isDisplayed()).toEqual(drawer.expected.hamburgerVisibility);
+        toEqual(drawer.hamburger.isDisplayed(), drawer.expected.hamburgerVisibility);
     };
 
     function checkDrawerPosition() {
@@ -542,17 +554,17 @@ function drawer(expected) {
 
 function linkValidator(expectedLinks, links, sref) {
     _.forEach(expectedLinks, function(expectedLink, index) {
-        expect(links.get(index).isDisplayed()).toEqual(expectedLink.visibility);
+        toEqual(links.get(index).isDisplayed(), expectedLink.visibility);
         if (expectedLink.visibility) {
-            expect(links.get(index).getText()).toEqual(expectedLink.text);
+            toEqual(links.get(index).getText(), expectedLink.text);
         } else {
-            expect(links.get(index).getText()).toEqual('');
+            toEqual(links.get(index).getText(), '');
         }
         if (expectedLink.href && expectedLink.href != null) {
             if (!sref) {
-                expect(links.get(index).getAttribute('href')).toEqual(expectedLink.href);
+                toEqual(links.get(index).getAttribute('href'), expectedLink.href);
             } else {
-                expect(links.get(index).getAttribute('ui-sref')).toEqual(expectedLink.href);
+                toEqual(links.get(index).getAttribute('ui-sref'), expectedLink.href);
             }
         }
     });
@@ -608,7 +620,7 @@ function translateButton(expected) {
         if (expectedText) {
             trans.expected.desktop.text = expectedText;
         }
-        expect(trans.button.getText()).toEqual(trans.expected.desktop.text);
+        toEqual(trans.button.getText(), trans.expected.desktop.text);
     }
     function checkDesktopVisibility(){
 
@@ -618,7 +630,7 @@ function translateButton(expected) {
             trans.expected.mobile.text = expectedText;
         }
         var d = drawer();
-        expect(d.links.get(0).getText()).toEqual(trans.expected.mobile.text);
+        toEqual(d.links.get(0).getText(), trans.expected.mobile.text);
     }
     function checkMobileVisibility(){
 

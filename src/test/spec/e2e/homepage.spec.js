@@ -18,6 +18,7 @@ var getAppName = helper.getAppName;
 var EC = protractor.ExpectedConditions;
 var defaultTimeout = 3000;
 
+
 var browserSync = element(by.id('__bs_notify__'));
 function desktopTests(inFrench) {
     it('should be able to go to page 1(desktop view)', function () {
@@ -44,8 +45,6 @@ function desktopTests(inFrench) {
 
 
     it('should have a desktop nav and footer', function () {
-
-        //expect($("#drawerlink").isDisplayed()).toEqual(true);
         var expected = {
             logoVisibility: true,
             links: [
@@ -206,8 +205,6 @@ function mobileTests(inFrench) {
     });
 
     it('should have a mobile nav and footer', function() {
-
-        //expect($("#drawerlink").isDisplayed()).toEqual(true);
         var language = 'navbar.FR';
         if (getLocale() == 'fr') {
             language = 'navbar.EN';
@@ -241,7 +238,6 @@ function mobileTests(inFrench) {
         //open mobile navbar
         drawer.checkHomeLink();
         drawer.clickHamburger();
-        browser.sleep(5000);
         drawer.checkHomeLink(true);
 
 
