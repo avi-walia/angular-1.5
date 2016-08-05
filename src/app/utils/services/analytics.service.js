@@ -54,121 +54,25 @@
         function errorTracking(errorCode, category) {
             evt = 'Rest Call';
 
-            //$analytics.eventTrack(evt, { category: category, label: label});
 
-            if (errorCode === 'E409011' || errorCode === 'E409014') {
+            if (errorCode === 'E409001') {
 
                 //$analytics.eventTrack( 'Rest Call', 'REGISTRATION', );
-                $analytics.eventTrack(evt, {category: category, label: errorCode + ': Bad SIN'});
-
-            } else if (errorCode === 'E409010') {
-
-                $analytics.eventTrack(evt, {category: category, label: errorCode + ': Already registered'});
-
-            } else if (errorCode === 'E409012') {
-
                 $analytics.eventTrack(evt, {
                     category: category,
-                    label: errorCode + ': Invalid Date of Birth Month & Day'
+                    label: errorCode + ': Invalid advisorID'
                 });
 
             }
-            else if (errorCode === 'E409016' || errorCode === 'E409015') {
+            else if (errorCode === 'E409002') {
 
                 $analytics.eventTrack(evt, {
                     category: category,
-                    label: errorCode + ': Nickname already taken / Invalid nickname'
+                    label: errorCode + ': Invalid branchID'
                 });
 
             }
-            else if (errorCode === 'E409017' || errorCode === 'E409018') {
 
-                $analytics.eventTrack(evt, {
-                    category: category,
-                    label: errorCode + ': Password exceeds the max length / Invalid or weak password'
-                });
-
-            }
-            else if (errorCode === 'E409013' || errorCode === 'E409020' || errorCode === 'E409021') {
-                $analytics.eventTrack(evt, {
-                    category: category,
-                    label: errorCode + ': ID registered / Incomplete question(or answer) / Invalid answer'
-                });
-
-            }
-            else if (errorCode === 'E401001') {
-                //MAY BE CALLED BY AUTH INTERCEPTOR
-                $analytics.eventTrack(evt, {category: category, label: errorCode + ': Wrong credentials'});
-
-            }
-            else if (errorCode === 'E401002') {
-                //MAY BE CALLED BY AUTH INTERCEPTOR
-                $analytics.eventTrack(evt, {category: category, label: errorCode + ': Locked account'});
-
-            }
-            //added because of bug117
-            else if (errorCode === 'E401007') {
-
-                $analytics.eventTrack(evt, {
-                    category: category,
-                    label: errorCode + ': 3rd or 4th attempt for wrong credentials'
-                });
-
-            }
-            /** MAY BE CALLED BY FORGOTTEN PASSWORD! **/
-            else if (errorCode === 'E409032') {
-
-                $analytics.eventTrack(evt, {category: category, label: errorCode + ': Wrong answer/question'});
-
-            } else if (errorCode === 'E409031') {
-
-                $analytics.eventTrack(evt, {category: category, label: errorCode + ': Invalid ID'});
-
-            }
-            else if (errorCode === 'E403001') {
-
-                $analytics.eventTrack(evt, {category: category, label: errorCode + ': Web login id locked'});
-
-            }
-            else if (errorCode === 'E409009') {
-
-                $analytics.eventTrack(evt, {
-                    category: category,
-                    label: errorCode + ': Password exceeds the max length / Invalid or weak password'
-                });
-
-            }
-            else if (errorCode === 'E409006') {
-                $analytics.eventTrack(evt, {
-                    category: category,
-                    label: errorCode + ': Password doesnt meet min requirements'
-                });
-
-            }
-            else if (errorCode === 'E409007') {
-                $analytics.eventTrack(evt, {category: category, label: errorCode + ': Invalid password'});
-
-            }
-            else if (errorCode === 'E409008') {
-                $analytics.eventTrack(evt, {
-                    category: category,
-                    label: errorCode + ': Password similar to old passwords'
-                });
-
-            }
-            else if (errorCode === 'E409001') {
-                $analytics.eventTrack(evt, {category: category, label: errorCode + ': Wrong security answer'});
-
-            }
-            else if (errorCode === 'E409019') {
-                $analytics.eventTrack(evt, {category: category, label: errorCode + ': Invalid email'});
-
-            }
-            else if (errorCode === 'E409037') {
-                $analytics.eventTrack(evt, {category: category, label: errorCode + ': Incorrect password'});
-
-            }
-            /** END MAY BE CALLED BY FORGOTTEN PASSWORD! **/
         }
 
         /**
