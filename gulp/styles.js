@@ -15,7 +15,7 @@ module.exports = function(options) {
       style: 'expanded'
     };
 
-    console.warn("options ----> %o",options);
+    //console.warn("options ----> %o",options);
 
     var injectFiles = gulp.src([
       options.src + '/app/**/*.scss',

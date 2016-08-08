@@ -41,7 +41,7 @@
                 var checkForTranslation = $interval(function(){
                     var test = $translate.instant('companyLink');
                     console.log('test: ', test);
-                    if (test != 'companyLink') {
+                    if (test !== 'companyLink') {
                         vm.isLoadingTranslations = false;
                         $interval.cancel(checkForTranslation);
                     }

@@ -15,7 +15,7 @@
     -->
     <snap-content class="snap-content" ng-class="Main.pageStateResolver.activePageName">
 
-        <header2 is-desktop="Main.detectMobile.isDesktop"></header2>
+        <header-app is-desktop="Main.detectMobile.isDesktop"></header-app>
         <div id="main" ng-class="Main.pageStateResolver.activePageName" role="main" aria-label="{{ 'universal.accessibility.main-label' | translate }}">
             <div class="container">
                 <ci-loader loading="Main.pageStateResolver.pageLoading">

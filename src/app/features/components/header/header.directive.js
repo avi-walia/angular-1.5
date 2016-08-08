@@ -7,27 +7,27 @@
     'use strict';
 
     angular
-        .module('advisorLocator.utils')
-        .directive('header2', header2);
+        .module('advisorLocator.core.main')
+        .directive('headerApp', header);
 
     // ciInputMatch.$inject = ['$element'];
 
     /* @ngInject */
-    function header2() {
+    function header() {
         var directive = {
             scope: {
                 isDesktop:'=isDesktop'
             },
             bindToController: true,
-            controller: headerCtrl2,
+            controller: headerCtrl,
             controllerAs: 'Head',
             restrict: 'E',
-            templateUrl:'app/utils/directives/header/header.tpl.html'
+            templateUrl:'app/features/components/header/header.tpl.html'
         };
         return directive;
     }
 
-    headerCtrl2.$inject = [
+    headerCtrl.$inject = [
         '$state',
         'pageStateResolver',
         'version',
@@ -35,7 +35,7 @@
         'currentPageTitle'
     ];
     /* @ngInject */
-    function headerCtrl2($state, pageStateResolver, version, BASE_URL,
+    function headerCtrl($state, pageStateResolver, version, BASE_URL,
                         currentPageTitle
     ) {
         var vm = this;

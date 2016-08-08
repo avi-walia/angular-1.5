@@ -7,7 +7,7 @@
     'use strict';
 
     angular
-        .module('advisorLocator.utils')
+        .module('advisorLocator.core.main')
         .directive('drawer', drawer);
 
     // ciInputMatch.$inject = ['$element'];
@@ -21,7 +21,7 @@
             controller: drawerCtrl,
             controllerAs: 'Drawer',
             restrict: 'E',
-            templateUrl:'app/utils/directives/drawer/drawer.tpl.html'
+            templateUrl:'app/features/components/drawer/drawer.tpl.html'
         };
         return directive;
     }

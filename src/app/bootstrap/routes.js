@@ -164,7 +164,7 @@
                                 templateUrl: 'app/features/page5/page5.tpl.html'
                             }
                         }
-                    })
+                    });
 
 
             }
