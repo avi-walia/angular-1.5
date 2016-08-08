@@ -71,15 +71,22 @@
   "navbar": {
     "EN": "English",
     "FR": "Français",
-    "aiologo-img": "logos_f.svg",
+    "logo-img": "logos_f.svg",
     "browse-happy": "FR You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.",
-    "dismiss-message": "FR Dismiss message"
+    "dismiss-message": "FR Dismiss message",
+    "logo-text": "FR Advisor Locator"
   },
   "notifications": {
     "http-errors": {
     },
     "fe-messages": {
     }
+  },
+  "universal" : {
+    "font-size": "Taille de la police:",
+    "font-size-normal": "Changez à « normale » la taille de la police de la demande.",
+    "font-size-large": "Changez à « grande » la taille de la police de la demande.",
+    "font-size-largest": "Changez à « très grande » la taille de la police de la demande."
   },
   "footer": {
     "linkText1": "FR Link 1",

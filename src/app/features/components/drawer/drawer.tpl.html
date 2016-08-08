@@ -1,0 +1,27 @@
+<nav id="nav" class="mobile" ng-click="Drawer.onDrawerClick($event)">
+    <span class="logo" title="{{ 'navbar.logo-text' | translate }}" translate></span>
+
+    <ul id="lang">
+        <language-switcher></language-switcher>
+    </ul>
+
+    <ul class="main">
+        <span>
+            <li ng-class="{currentPage: Drawer.current === 'page1'}" ng-click="Drawer.current = 'page1'" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page1"><a title="{{ 'pages.page1.title' | translate }}" href translate>pages.page1.title</a></li>
+            <li ng-class="{currentPage: Drawer.current === 'page2'}" ng-click="Drawer.current = 'page1'" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page2"><a title="{{ 'pages.page2.title' | translate }}" href translate>pages.page2.title</a></li>
+            <li ng-class="{currentPage: Drawer.current === 'page3'}" ng-click="Drawer.current = 'page1'" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page3"><a title="{{ 'pages.page3.title' | translate }}" href translate>pages.page3.title</a></li>
+            <li ng-class="{currentPage: Drawer.current === 'page4'}" ng-click="Drawer.current = 'page1'" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page4"><a title="{{ 'pages.page4.title' | translate }}" href translate>pages.page4.title</a></li>
+            <li ng-class="{currentPage: Drawer.current === 'page5'}" ng-click="Drawer.current = 'page1'" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page5"><a title="{{ 'pages.page5.title' | translate }}" href translate>pages.page5.title</a></li>
+
+        </span>
+    </ul>
+    <ul class="legal">
+        <li><a target="_blank" title="{{ 'footer.linkText1' | translate }}" href="{{ 'footer.link1' | translate }}" class="over" translate>footer.linkText1</a></li>
+        <li><a target="_blank" title="{{ 'footer.linkText2' | translate }}" href="{{ 'footer.link2' | translate }}" class="over" translate>footer.linkText2</a></li>
+        <li><a target="_blank" title="{{ 'footer.linkText3' | translate }}" href="{{ 'footer.link3' | translate }}" class="over" translate>footer.linkText3</a></li>
+        <li><a target="_blank" title="{{ 'footer.linkText4' | translate }}" href="{{ 'footer.link4' | translate }}" class="over" translate>footer.linkText4</a></li>
+    </ul>
+    <ul class="other">
+        <li><a target="_blank" href="{{ 'homeFooterLink' | translate }}" title="{{ 'homeFooterLink' | translate }}" translate>homeFooterLink</a></li>
+    </ul>
+</nav>

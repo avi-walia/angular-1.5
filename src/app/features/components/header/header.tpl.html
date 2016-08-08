@@ -4,15 +4,15 @@
 
     <div class="container">
         <div style="margin:0 0 0 3%;color:#fff;position:absolute;background:#000;">v{{ Head.version }}</div>
-        <!-- <h1 id="logo"><a tabindex="0" title="{{ 'universal.aio-logo-text' | translate }}" ui-sref="main.portfolio" translate>universal.aio-logo-text</a></h1> -->
-        <div id="logo" tabindex="0" title="{{ 'universal.aio-logo-link-text' | translate }}" translate><img src="./assets/images/{{ 'navbar.aiologo-img' | translate }}" alt="{{ 'universal.aio-logo-text' | translate }}"/></div>
-        <!-- <div id="logo"><img src="../assets/images/{{ 'navbar.aiologo-img' | translate }}" /></div> -->
+
+        <span class="logo" title="{{ 'navbar.logo-text' | translate }}" translate></span>
+
         <a id="drawerlink" class="mobile" snap-toggle="right">☰</a>
 
         <nav id="topnav" class="full" ng-if="Head.isDesktop" role="navigation" aria-label="{{ 'universal.accessibility.site-wide-nav-label' | translate }}">
             <ul>
                 <language-switcher></language-switcher>
-                <li><ci-help page="Head.pageStateResolver.activePageName" >{{ 'helpLabel' | translate }}</ci-help></li>
+
             </ul>
         </nav>
 
@@ -43,11 +43,7 @@
                            translate>pages.page5.title</a></li>
                 </ul>
 
-                <!-- <span class="select mobile"><select id="sel_account" title="Select an account">
-                    <option value="#overview">Portfolio Overview</option>
-                    <option value="#123456789" selected="">RRSP 123456789</option>
-                    <option value="#987654321">TFSA 987654321</option>
-                </select></span> -->
+
             </nav>
         </div>
     </div>

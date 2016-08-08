@@ -31,39 +31,25 @@
 
     drawerCtrl.$inject = [
         '$state',
-        '$window',
-        '$translate',
         'pageStateResolver',
-        'server',
         'version',
         'BASE_URL',
-        '$uibModal',
         'snapRemote',
         'currentPageTitle'
     ];
     /* @ngInject */
-    function drawerCtrl($state, $window, $translate, pageStateResolver, server, version, BASE_URL,
-                        $uibModal, snapRemote, currentPageTitle
+    function drawerCtrl($state, pageStateResolver, version, BASE_URL,
+                        snapRemote, currentPageTitle
     ) {
         var vm = this;
         console.log('$state: ', $state);
         console.log('pageStateResolver: ', pageStateResolver);
         vm.page = currentPageTitle.page;
         vm.state = $state;
-        //vm.pageTitle2 = currentPageTitle.pageTitle2;
-        //vm.LoginService = LoginService;
         vm.pageStateResolver = pageStateResolver;
         vm.version = version;   // auto generated app version (for display purposes)
-        /**
-         * Logs out the user if it's not entitled to see the survey.
-         */
 
-
-
-
-        //vm.getSalesforceFormData = getSalesforceFormData;
         vm.onDrawerClick = drawerClickHandler;
-        vm.go = go;
         vm.BASE_URL = BASE_URL;
 
         activate();
@@ -73,35 +59,6 @@
             bodyElement.removeClass('snapjs-right');
         }
 
-
-        /**
-         * Used in drawer template for mobile users.
-         * @param state State where we want to go
-         */
-
-        function go(state) {
-            if ($state.current.name != 'main.advisorLocator.' + state) {
-                switch (state) {
-                    case 'page1':
-                        $state.go('main.advisorLocator.page1');
-                        break;
-                    case 'page2':
-                        $state.go('main.advisorLocator.page2');
-                        break;
-                    case 'page3.subpage':
-                        $state.go('main.advisorLocator.page3.subpage');
-                        break;
-                    case 'page4':
-                        $state.go('main.advisorLocator.page4');
-                        break;
-                    case 'page5':
-                        $state.go('main.advisorLocator.page5');
-                        break;
-                    default:
-                        $state.go('main.advisorLocator.page1');
-                }
-            }
-        }
 
         /**
          * If clicked a link inside a drawer, close the drawer
@@ -118,17 +75,8 @@
                 });
             }
         }
-        /*
-         function getSalesforceFormData() {
-         return server.post('/salesforce/myPortal', null)
-         .then(function (result) {
-         return {
-         action: result.data.sfSamlAction,
-         SAMLResponse: result.data.samlResponse
-         };
-         });
-         }
-         */
+
+
     }
 
 })();
