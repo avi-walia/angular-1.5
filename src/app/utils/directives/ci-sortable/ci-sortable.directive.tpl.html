@@ -1,0 +1,3 @@
+<tr>
+    <th scope="col" ng-repeat="column in ctrl.columnsData" scope="col"  ng-class="[column.property, column.class]"  ng-click="column.sortable && ctrl.sort(column.property)"> {{column.name | translate}}</th>
+</tr>

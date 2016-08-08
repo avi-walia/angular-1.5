@@ -35,7 +35,7 @@
 
         service.getLayout = function() {
             return layout;
-        }
+        };
     }
 
 })();
