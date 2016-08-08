@@ -1,44 +1,44 @@
-<div ui-view="header" ng-class="Main.pageStateResolver.activePageName" autoscroll="true">
+<div ng-class="Main.pageStateResolver.activePageName" autoscroll="true">
 <header id="header"
         headroom offset="20" classes="{initial:'animated', pinned:'slideDown', unpinned:'slideUp'}">
 
     <div class="container">
-        <div style="margin:0 0 0 3%;color:#fff;position:absolute;background:#000;">v{{ Head.version }}</div>
+        <div style="margin:0 0 0 3%;color:#fff;position:absolute;background:#000;">v{{ $ctrl.version }}</div>
 
         <span class="logo" title="{{ 'navbar.logo-text' | translate }}" translate></span>
 
         <a id="drawerlink" class="mobile" snap-toggle="right">☰</a>
 
-        <nav id="topnav" class="full" ng-if="Head.isDesktop" role="navigation" aria-label="{{ 'universal.accessibility.site-wide-nav-label' | translate }}">
+        <nav id="topnav" class="full" ng-if="$ctrl.isDesktop" role="navigation" aria-label="{{ 'universal.accessibility.site-wide-nav-label' | translate }}">
             <ul>
                 <language-switcher></language-switcher>
 
             </ul>
         </nav>
 
-        <ci-font-sizer ng-if="Head.isDesktop"></ci-font-sizer>
+        <ci-font-sizer ng-if="$ctrl.isDesktop"></ci-font-sizer>
 
     </div>
     <div id="bluebar">
         <div class="container">
-            <div ng-if="!Head.isDesktop">
-                {{Head.page.title | translate}}
+            <div ng-if="!$ctrl.isDesktop">
+                {{$ctrl.page.title | translate}}
             </div>
-            <nav id="primary" ng-if="Head.isDesktop" role="navigation" aria-label="{{ 'universal.accessibility.site-wide-nav-label' | translate }}">
+            <nav id="primary" ng-if="$ctrl.isDesktop" role="navigation" aria-label="{{ 'universal.accessibility.site-wide-nav-label' | translate }}">
                 <ul class="full">
-                    <li><a ng-class="{active: (Head.state.current.name === 'main.advisorLocator.page1')}" tabindex="0" title="{{ 'pages.page1.title' | translate }}" ui-sref="main.advisorLocator.page1"
+                    <li><a ng-class="{active: ($ctrl.state.current.name === 'main.advisorLocator.page1')}" tabindex="0" title="{{ 'pages.page1.title' | translate }}" ui-sref="main.advisorLocator.page1"
                            analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page1"
                            translate>pages.page1.title</a></li>
-                    <li><a ng-class="{active: (Head.state.current.name === 'main.advisorLocator.page2')}" tabindex="1" title="{{ 'pages.page2.title' | translate }}" ui-sref="main.advisorLocator.page2"
+                    <li><a ng-class="{active: ($ctrl.state.current.name === 'main.advisorLocator.page2')}" tabindex="1" title="{{ 'pages.page2.title' | translate }}" ui-sref="main.advisorLocator.page2"
                            analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page2"
                            translate>pages.page2.title</a></li>
-                    <li><a ng-class="{active: (Head.state.current.name === 'main.advisorLocator.page3.subpage')}" tabindex="2" title="pages.page3.title" ui-sref="main.advisorLocator.page3.subpage"
+                    <li><a ng-class="{active: ($ctrl.state.current.name === 'main.advisorLocator.page3.subpage')}" tabindex="2" title="pages.page3.title" ui-sref="main.advisorLocator.page3.subpage"
                            analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page3"
                            translate>pages.page3.title</a></li>
-                    <li><a ng-class="{active: (Head.state.current.name === 'main.advisorLocator.page4')}" tabindex="3" title="{{ 'pages.page4.title' | translate }}" ui-sref="main.advisorLocator.page4"
+                    <li><a ng-class="{active: ($ctrl.state.current.name === 'main.advisorLocator.page4')}" tabindex="3" title="{{ 'pages.page4.title' | translate }}" ui-sref="main.advisorLocator.page4"
                            analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page4"
                            translate>pages.page4.title</a></li>
-                    <li><a ng-class="{active: (Head.state.current.name === 'main.advisorLocator.page5')}" tabindex="4" title="{{ 'pages.page5.title' | translate }}" ui-sref="main.advisorLocator.page5"
+                    <li><a ng-class="{active: ($ctrl.state.current.name === 'main.advisorLocator.page5')}" tabindex="4" title="{{ 'pages.page5.title' | translate }}" ui-sref="main.advisorLocator.page5"
                            analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page5"
                            translate>pages.page5.title</a></li>
                 </ul>

@@ -53,10 +53,6 @@
                                 controller: 'NotificationsCtrl as Notes',
                                 templateUrl: 'app/core/includes/notifications/notifications.tpl.html'
                             },
-                            'footer': {
-                                controller: 'FooterCtrl as Footer',
-                                templateUrl: 'app/core/includes/footer/footer.tpl.html'
-                            },
                             'content': {}
                         }
                     })

@@ -8,23 +8,15 @@
 
     angular
         .module('advisorLocator.core.main')
-        .directive('drawer', drawer);
+        .component('drawer', {
+            controller: drawerCtrl,
+            controllerAs: 'Drawer',
+            templateUrl:'app/features/components/drawer/drawer.tpl.html'
+        });
 
     // ciInputMatch.$inject = ['$element'];
 
     /* @ngInject */
-    function drawer() {
-        var directive = {
-            scope: {
-            },
-            bindToController: true,
-            controller: drawerCtrl,
-            controllerAs: 'Drawer',
-            restrict: 'E',
-            templateUrl:'app/features/components/drawer/drawer.tpl.html'
-        };
-        return directive;
-    }
 
     var bodyElement = angular.element(document).find('body').eq(0),
         snapperPromise;
@@ -52,12 +44,12 @@
         vm.onDrawerClick = drawerClickHandler;
         vm.BASE_URL = BASE_URL;
 
-        activate();
 
-        function activate() {
+
+        vm.$onInit = function() {
             snapperPromise = snapRemote.getSnapper();
             bodyElement.removeClass('snapjs-right');
-        }
+        };
 
 
         /**

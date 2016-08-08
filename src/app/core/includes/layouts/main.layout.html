@@ -15,7 +15,7 @@
     -->
     <snap-content class="snap-content" ng-class="Main.pageStateResolver.activePageName">
 
-        <header-app is-desktop="Main.detectMobile.isDesktop"></header-app>
+        <ci-header is-desktop="Main.detectMobile.isDesktop"></ci-header>
         <div id="main" ng-class="Main.pageStateResolver.activePageName" role="main" aria-label="{{ 'universal.accessibility.main-label' | translate }}">
             <div class="container">
                 <ci-loader loading="Main.pageStateResolver.pageLoading">
@@ -23,7 +23,8 @@
                     <div id="content" ui-view="content"></div>
                 </ci-loader>
             </div>
-            <div id="footer" ui-view="footer"></div>
+            <!--<div id="footer" ui-view="footer"></div>-->
+            <ci-footer is-desktop="Main.detectMobile.isDesktop" id="footer"></ci-footer>
         </div>
     </snap-content>
 </div>
