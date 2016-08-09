@@ -11,7 +11,7 @@
         .component('drawer', {
             controller: drawerCtrl,
             controllerAs: 'Drawer',
-            templateUrl:'app/features/components/drawer/drawer.tpl.html'
+            templateUrl:'app/core/components/drawer/drawer.tpl.html'
         });
 
     // ciInputMatch.$inject = ['$element'];

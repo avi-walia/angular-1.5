@@ -6,7 +6,7 @@
         .module('advisorLocator.core.main')
         .component('ciNotifications', {
             controller: notificationCtrl,
-            templateUrl:'app/features/components/notifications/notifications.tpl.html'
+            templateUrl:'app/core/components/notifications/notifications.tpl.html'
         });
 
 

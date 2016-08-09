@@ -4,7 +4,7 @@
     angular
         .module('advisorLocator.core.main')
         .component('languageSwitcher', {
-            templateUrl: 'app/features/components/languageSwitcher/languageSwitcher.html',
+            templateUrl: 'app/core/components/languageSwitcher/languageSwitcher.html',
             controller: LangSwitcherCtrl
         });
 

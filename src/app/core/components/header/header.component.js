@@ -6,7 +6,7 @@
         .module('advisorLocator.core.main')
         .component('ciHeader', {
             controller: headerCtrl,
-            templateUrl:'app/features/components/header/header.tpl.html'
+            templateUrl:'app/core/components/header/header.tpl.html'
         });
 
 

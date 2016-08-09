@@ -6,7 +6,7 @@
         .module('advisorLocator.core.main')
         .component('ciFooter', {
             controller: footerCtrl,
-            templateUrl:'app/features/components/footer/footer.tpl.html'
+            templateUrl:'app/core/components/footer/footer.tpl.html'
         });
 
 
