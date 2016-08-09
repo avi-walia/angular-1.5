@@ -15,6 +15,7 @@
         var service = this;
 
         service.activePageName = '';
+
         service.pageLoading = false;
 
         service.getPageConfigFromState = getPageConfigurationObjectFromStateName;
