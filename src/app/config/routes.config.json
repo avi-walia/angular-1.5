@@ -1,34 +1,24 @@
 {
   "ROUTES": [
     {
-      "stateName": "main.advisorLocator.page1",
+      "stateName": "main.advisorLocator.searchByName.list",
       "isAbstract": false,
-      "pageName": "page1"
+      "pageName": "advisorList"
     },
     {
-      "stateName": "main.advisorLocator.page2",
+      "stateName": "main.advisorLocator.searchByName.details",
       "isAbstract": false,
-      "pageName": "page2"
+      "pageName": "advisorDetail"
     },
     {
-      "stateName": "main.advisorLocator.page3",
-      "isAbstract": true,
-      "pageName": "page3"
+      "stateName": "main.advisorLocator.searchByLocation.list",
+      "isAbstract": false,
+      "pageName": "branchList"
     },
     {
-      "stateName": "main.advisorLocator.page3.subpage",
+      "stateName": "main.advisorLocator.searchByLocation.details",
       "isAbstract": false,
-      "pageName": "page3"
-    },
-    {
-      "stateName": "main.advisorLocator.page4",
-      "isAbstract": false,
-      "pageName": "page4"
-    },
-    {
-      "stateName": "main.advisorLocator.page5",
-      "isAbstract": false,
-      "pageName": "page5"
+      "pageName": "branchDetail"
     },
     {
       "stateName": "main",
@@ -41,14 +31,14 @@
       "pageName": ""
     },
     {
-      "stateName": "main.advisorLocator.landing",
+      "stateName": "main.advisorLocator.searchByName",
       "isAbstract": true,
       "pageName": ""
     },
     {
-      "stateName": "main.advisorLocator.landing.page",
-      "isAbstract": false,
-      "pageName": "login"
+      "stateName": "main.advisorLocator.searchByLocation",
+      "isAbstract": true,
+      "pageName": ""
     }
   ]
 }

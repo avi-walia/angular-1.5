@@ -30,7 +30,7 @@
                         if (!(deviceDetector.browser === 'ie' && deviceDetector.browser_version <= '9.0')  ) {
                             // @todo: check if back btn functionality apply
                             //$state.go('main.advisorLocator.portfolio');
-                            $state.go('main.advisorLocator.page1');
+                            $state.go('main.advisorLocator.searchByName.list');
                         }
                     }]);
 
@@ -53,106 +53,68 @@
                         }
                     })
 
-                    /********************* LOGIN *******************************/
-                    .state('main.advisorLocator.landing', {
+                    /************Search by Name ****************/
+                    .state('main.advisorLocator.searchByName', {
                         abstract: true,
+                        url: '/searchByName',
                         views: {
                             // use absolute naming [view-name @ state where the view is defined]
                             'content@main': {
-                                templateUrl: 'app/features/landing/landing.layout.tpl.html'
+                                controller: 'SearchByNameCtrl as SearchByName',
+                                templateUrl: 'app/features/containers/searchByName/searchByName.layout.tpl.html'
+
                             }
                         }
                     })
-                    .state('main.advisorLocator.landing.page', {
-                        url: '/landing/:refresh',
-                        resolve: {
-                        },
+                    .state('main.advisorLocator.searchByName.list', {
+                        url: '/advisors',
                         views: {
-                            'landing': {
-                                controller: 'LandingCtrl as Landing',
-                                templateUrl: 'app/features/landing/landing/landing.tpl.html'
-                            }/*,
-                            'login': {
-                                controller: 'LoginCtrl as Login',
-                                templateUrl: 'app/core/login/login.tpl.html'
-                            }*/
-                        }
-                    })
-                    .state('main.advisorLocator.page1', {
-                        url: '/page1',
-                        resolve: {
-                        },
-                        views: {
-                            'content@main': {
-                                controller: 'Page1Ctrl as Page1',
-                                templateUrl: 'app/features/page1/page1.tpl.html'
+                            'details': {
+                               template: '<advisor-list></advisor-list>'
                             }
                         }
                     })
-                    .state('main.advisorLocator.page2', {
-                        url: '/page2',
-                        resolve: {
-                        },
+                    .state('main.advisorLocator.searchByName.details', {
+                        url: '/advisors/{:id}',
                         views: {
-                            'content@main': {
-                                controller: 'Page2Ctrl as Page2',
-                                templateUrl: 'app/features/page2/page2.tpl.html'
+                            'details': {
+                                template: '<advisor-detail></advisor-detail>'
                             }
                         }
                     })
-                    .state('main.advisorLocator.page3', {
+
+                    /************Search by Location ****************/
+                    .state('main.advisorLocator.searchByLocation', {
                         abstract: true,
-                        url: '/page3',
-                        resolve: {
-                        },
+                        url: '/searchByLocation',
                         views: {
+                            // use absolute naming [view-name @ state where the view is defined]
                             'content@main': {
-                                controller: 'Page3Ctrl as Page3',
-                                templateUrl: 'app/features/page3/page3.tpl.html'
+                                controller: 'SearchByLocationCtrl as SearchByLocation',
+                                templateUrl: 'app/features/containers/searchByLocation/searchByLocation.layout.tpl.html'
+
                             }
                         }
                     })
-                    .state('main.advisorLocator.page3.subpage', {
-                        url: '/subpage',
-                        resolve: {
-                        },
+                    .state('main.advisorLocator.searchByLocation.list', {
+                        url: '/branches',
                         views: {
-                            'subpage': {
-                                controller: 'SubPageCtrl as SubPage',
-                                templateUrl: 'app/features/page3/subpage/subpage.tpl.html'
-                            },
-                            'subpage2': {
-                                controller: 'SubPageCtrl as SubPage',
-                                templateUrl: 'app/features/page3/subpage/subpage.tpl.html'
-                            }/*,
-                             'login': {
-                             controller: 'LoginCtrl as Login',
-                             templateUrl: 'app/core/login/login.tpl.html'
-                             }*/
-                        }
-                    })
-                    .state('main.advisorLocator.page4', {
-                        url: '/page4',
-                        resolve: {
-                        },
-                        views: {
-                            'content@main': {
-                                controller: 'Page4Ctrl as Page4',
-                                templateUrl: 'app/features/page4/page4.tpl.html'
+                            'details': {
+                                template: '<branch-list></branch-list>'
                             }
                         }
                     })
-                    .state('main.advisorLocator.page5', {
-                        url: '/page5',
-                        resolve: {
-                        },
+                    .state('main.advisorLocator.searchByLocation.details', {
+                        url: '/branches/{:id}',
                         views: {
-                            'content@main': {
-                                controller: 'Page5Ctrl as Page5',
-                                templateUrl: 'app/features/page5/page5.tpl.html'
+                            'details': {
+                                template: '<branch-detail></branch-detail>'
                             }
                         }
-                    });
+                    })
+
+
+                   ;
 
 
             }
