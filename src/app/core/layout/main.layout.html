@@ -1,6 +1,3 @@
-<ci-loader loading="Main.isLoadingTranslations">
-</ci-loader>
-<div ng-hide="Main.isLoadingTranslations">
 
     <snap-drawers class="snap-drawers">
         <drawer snap-drawer="right"></drawer>
@@ -15,16 +12,14 @@
     -->
     <snap-content class="snap-content" ng-class="Main.pageStateResolver.activePageName">
 
-        <ci-header is-desktop="Main.detectMobile.isDesktop"></ci-header>
+        <ci-header></ci-header>
         <div id="main" ng-class="Main.pageStateResolver.activePageName" role="main" aria-label="{{ 'universal.accessibility.main-label' | translate }}">
             <div class="container">
                 <ci-loader loading="Main.pageStateResolver.pageLoading">
-                    <div id="notifications" ui-view="notifications"></div>
+                    <ci-notifications></ci-notifications>
                     <div id="content" ui-view="content"></div>
                 </ci-loader>
             </div>
-            <!--<div id="footer" ui-view="footer"></div>-->
-            <ci-footer is-desktop="Main.detectMobile.isDesktop" id="footer"></ci-footer>
+            <ci-footer id="footer"></ci-footer>
         </div>
     </snap-content>
-</div>
