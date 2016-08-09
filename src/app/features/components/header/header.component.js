@@ -5,9 +5,6 @@
     angular
         .module('advisorLocator.core.main')
         .component('ciHeader', {
-            bindings: {
-               isDesktop:'<'
-            },
             controller: headerCtrl,
             templateUrl:'app/features/components/header/header.tpl.html'
         });
@@ -20,16 +17,17 @@
         'pageStateResolver',
         'version',
         'BASE_URL',
-        'currentPageTitle'
+        'detectMobile'
     ];
     /* @ngInject */
-    function headerCtrl($state, pageStateResolver, version, BASE_URL,
-                        currentPageTitle
+    function headerCtrl($state, pageStateResolver, version, BASE_URL, detectMobile
     ) {
         var vm = this;
-        vm.page = currentPageTitle.page;
-        vm.state = $state;
+
+        vm.detectMobile = detectMobile;
         vm.pageStateResolver = pageStateResolver;
+
+        vm.state = $state;
         vm.version = version;   // auto generated app version (for display purposes)
         vm.BASE_URL = BASE_URL;
 

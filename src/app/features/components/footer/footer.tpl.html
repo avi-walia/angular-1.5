@@ -1,5 +1,5 @@
 <div class="container" role="footer">
-    <nav id="footernav" class="full" ng-if="$ctrl.isDesktop">
+    <nav id="footernav" class="full" ng-if="$ctrl.detectMobile.isDesktop">
         <ul>
 
             <li><a title="{{ 'footer.link1' | translate }}" target="_blank" href="{{'footer.link1' | translate}}" translate>footer.linkText1</a></li>
@@ -9,7 +9,6 @@
 
         </ul>
     </nav>
-
     <p class="copyright" translate="copyright"
        translate-value-year="{{::( $ctrl.year )}}"></p>
     <span class="logo" title="{{ 'navbar.logo-text' | translate }}" translate></span>

@@ -1,70 +1,14 @@
 {
   "appTitle": "App Title",
   "pages": {
-    "page1": {
-      "title":"Page 1 Title"
-    },
-    "page2": {
-      "title":"Page 2 Title"
-    },
-    "page3": {
-      "title":"Page 3 Title"
-    },
-    "page4": {
-      "title":"Page 4 Title"
-    },
-    "page5": {
-      "title":"Page 5 Title"
-    }
+    "page1": "Page 1 Title",
+    "page2": "Page 2 Title",
+    "page3": "Page 3 Title",
+    "page4": "Page 4 Title",
+    "page5": "Page 5 Title"
   },
   "helpLabel": "Help",
-  "help": {
-    "page1": {
-      "question1": "Question 1",
-      "question2": "Question 2",
-      "question3": "Question 3",
-      "answer1": "<b>answer 1</b>",
-      "answer2": "<i>answer 2</i>",
-      "answer3": "answer 3"
-    },
 
-    "page2": {
-      "question1": "Question 2.1",
-      "question2": "Question 2.2",
-      "question3": "Question 2.3",
-      "answer1": "answer 2.1",
-      "answer2": "answer 2.2",
-      "answer3": "answer 2.3"
-    },
-
-    "page3": {
-      "question1": "Question 3.1",
-      "question2": "Question 3.2",
-      "question3": "Question 3.3",
-      "answer1": "answer 3.1",
-      "answer2": "answer 3.2",
-      "answer3": "answer 3.3"
-    },
-
-    "page4": {
-      "question1": "Question 4.1",
-      "question2": "Question 4.2",
-      "question3": "Question 4.3",
-      "answer1": "answer 4.1",
-      "answer2": "answer 4.2",
-      "answer3": "answer 4.3"
-    },
-
-    "page5": {
-      "question1": "Question 5.1",
-      "question2": "Question 5.2",
-      "question3": "Question 5.3",
-      "answer1": "answer 5.1",
-      "answer2": "answer 5.2",
-      "answer3": "answer 5.3"
-    }
-
-  },
   "navbar": {
     "EN": "English",
     "FR": "Français",
@@ -98,5 +42,17 @@
   "homeFooterLink": "NameOfMyNewSite.com",
   "copyright": "©{{ year }} {{ 'company' | translate}}",
   "company": "Name of Company",
-  "companyLink": "https://www.assante.com"
+  "companyLink": "https://www.assante.com",
+  "notifications": {
+    "http-errors": {
+      "E409001": "<em class=\"material-icons\">error</em>Invalid advisor id",
+      "E409002": "<em class=\"material-icons\">error</em>Invalid branch id",
+      "core-generic-failure": "<em class=\"material-icons\">error</em>There is an issue on our side."
+    },
+    "fe-messages": {
+      "cancel": "<em class=\"material-icons\">error</em>Canceled.",
+      "refresh": "<em class=\"material-icons\">error</em>Refreshing the page has resulted in any unsaved information being lost."
+
+    }
+  }
 }

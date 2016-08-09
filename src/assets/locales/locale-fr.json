@@ -5,69 +5,13 @@
     "landing": {
       "title": "FR Title for landing page"
     },
-    "page1": {
-      "title": "FR Page 1 Title"
-    },
-    "page2": {
-      "title": "FR Page 2 Title"
-    },
-    "page3": {
-      "title":"FR Page 3 Title"
-    },
-    "page4": {
-      "title": "FR Page 4 Title"
-    },
-    "page5": {
-      "title": "FR Page 5 Title"
-    }
+    "page1":  "FR Page 1 Title",
+    "page2":  "FR Page 2 Title",
+    "page3":  "FR Page 3 Title",
+    "page4":  "FR Page 4 Title",
+    "page5":  "FR Page 5 Title"
   },
-  "help": {
-    "page1": {
-      "question1": "FR Question 1",
-      "question2": "FR Question 2",
-      "question3": "FR Question 3",
-      "answer1": "<b>FR answer 1</b>",
-      "answer2": "<i>FR answer 2</i>",
-      "answer3": "FR answer 3"
-    },
 
-    "page2": {
-      "question1": "FR Question 2.1",
-      "question2": "FR Question 2.2",
-      "question3": "FR Question 2.3",
-      "answer1": "FR answer 2.1",
-      "answer2": "FR answer 2.2",
-      "answer3": "FR answer 2.3"
-    },
-
-    "page3": {
-      "question1": "FR Question 3.1",
-      "question2": "FR Question 3.2",
-      "question3": "Question 3.3",
-      "answer1": "FR answer 3.1",
-      "answer2": "FR answer 3.2",
-      "answer3": "FR answer 3.3"
-    },
-
-    "page4": {
-      "question1": "FR Question 4.1",
-      "question2": "FR Question 4.2",
-      "question3": "FR Question 4.3",
-      "answer1": "FR answer 4.1",
-      "answer2": "FR answer 4.2",
-      "answer3": "FR answer 4.3"
-    },
-
-    "page5": {
-      "question1": "FR Question 5.1",
-      "question2": "FR Question 5.2",
-      "question3": "FR Question 5.3",
-      "answer1": "FR answer 5.1",
-      "answer2": "FR answer 5.2",
-      "answer3": "FR answer 5.3"
-    }
-
-  },
   "navbar": {
     "EN": "English",
     "FR": "Français",
@@ -101,5 +45,17 @@
   "homeFooterLink": "FR NameOfMyNewSite.com",
   "copyright": "©{{ year }} {{ 'company' | translate}}",
   "company": "FR Name of Company",
-  "companyLink": "https://www.assante.com"
+  "companyLink": "https://www.assante.com",
+  "notifications": {
+    "http-errors": {
+      "E409001": "<em class=\"material-icons\">error</em>FR Invalid advisor id",
+      "E409002": "<em class=\"material-icons\">error</em>FR Invalid branch id",
+      "core-generic-failure": "<em class=\"material-icons\">error</em>FR There is an issue on our side."
+    },
+    "fe-messages": {
+      "cancel": "<em class=\"material-icons\">error</em>FR Canceled.",
+      "refresh": "<em class=\"material-icons\">error</em>FR Refreshing the page has resulted in any unsaved information being lost."
+
+    }
+  }
 }
