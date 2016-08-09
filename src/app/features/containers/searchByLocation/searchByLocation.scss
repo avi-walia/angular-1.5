@@ -1,0 +1,499 @@
+#wrap {
+    background: #eee;
+    @media only screen and (min-width: 768px) {
+        background: #eee;
+    }
+}
+header.login {
+    height: 54px;
+    #bluebar {
+        height: 4px;
+    }
+    @media only screen and (min-width: 768px) {
+        height: 185px;
+        #bluebar {
+            height: 64px;
+            display: block;
+        }
+    }
+}
+#main.login {
+    // width: 100%;
+    // height: 490px;
+    // height:330px;
+    // min-height:0;
+    // height:260px;
+    // position: absolute;
+    // top: 25px;
+    // right: 0;
+    // bottom: 0;
+    // left: 0;
+    // margin: auto;
+    // padding: 0;
+    padding-top: 50px;
+    background: $blue;
+    position: relative;
+    > .container {
+        // position:absolute;
+        // top:0;right:0;bottom:0;left:0;
+        // height:260px;
+        // margin:auto;
+        // position:relative;
+        height:100%;
+        min-height:260px;
+        #content {
+            // height:260px;
+            margin:100px 0 80px;
+        }
+    }
+    p#register_now { width:100%; margin-top:-68px; color:$gold; text-align:center; position:absolute; top:100%;
+        a { color:$gold; text-decoration:underline; }
+    }
+    .iollogo {
+        width: 100%;
+        height: 31px;
+        overflow: hidden;
+        // margin-top: 150px;
+        text-align: center;
+        display: inline-block;
+        img {
+            width: 230px;
+            height: auto;
+            margin-top: -85px;
+            // padding-left: 230px;
+            // background: url(../assets/images/logos.svg) 0 -84px no-repeat;
+            // background-size: 100%;
+            .fr & {
+                width:202px;
+                // padding-left:202px;
+                // background: $blue url(../assets/images/logos_f.svg) 0 -84px no-repeat;
+                // background-size: 100%;
+            }
+        }
+    }
+    form {
+        width: 100%;
+        margin-top: 25px;
+        text-align: center;
+        color: #fff;
+        position: relative;
+        label:not([for="remember"]) {
+            display: none;
+        }
+        input {
+            width: 270px;
+            height: 35px;
+            border: 0;
+            text-align: center;
+            font: 300 20px/1 "Roboto Condensed",sans-serif;
+            color: $text;
+            display: block;
+            margin: 0 auto;
+            &#loginid {
+                border-radius: 5px 5px 0 0;
+                border-bottom: solid 1px $blue;
+                line-height: 35px;
+            }
+            &#loginpass {
+                border-radius: 0 0 5px 5px;
+            }
+            &#remember {
+                width: 12px;
+                height: 12px;
+                border-radius: 3px;
+                display: inline-block;
+                vertical-align: middle;
+                margin: -3px 5px 0 0;
+            }
+        }
+        button#loginsubmit {
+            width: 270px;
+            height: 35px;
+            border: 0;
+            text-align: center;
+            font: 400 20px/1 "Roboto Condensed",sans-serif;
+            display: block;
+            color: #fff;
+            background: $orange;
+            border-radius: 5px;
+            margin: 10px auto 20px;
+            &[disabled="disabled"] {
+                color:darken($orange,10%);
+                cursor: not-allowed;
+            }
+        }
+        p {
+            display: inline-block;
+            margin: 0;
+        }
+         ::-webkit-input-placeholder {
+            color: #aaa;
+            text-align: center;
+            margin-top: -5px;
+        }
+         ::-moz-placeholder {
+            text-align: center;
+        }
+         :-ms-input-placeholder {
+            text-align: center;
+        }
+        span {
+            white-space: nowrap;
+            span { margin:0; /*display:inline-block;*/
+                a.hastip { text-decoration:none !important;
+                    &:after { color:#fff; }
+                }
+                .tooltip { bottom:auto !important; margin:10px 0 0 -219px;
+                    &:after { border-top:0; border-right: 8px solid transparent; border-bottom: 8px solid rgba(0, 0, 0, 0.9); border-left: 8px solid transparent; top:-8px; bottom:auto; left: 224px;}
+                    @media only screen and (max-width: 767px) {
+                        color:$lt_blue; margin:0.3em 0 0; padding:10px 10px 0; background:none;
+                    }
+                }
+            }
+        }
+    }
+    #loginwords { margin-top:30px;
+        color: $gold;
+        line-height: 1.2;
+        text-align: center;
+        a { color: $gold; text-decoration:underline; }
+        // .links {
+        //     width: 250px;
+        //     margin: 15px auto 0;
+        //     text-align: center;
+        //     li {
+        //         display: inline-block;
+        //         width: 49%;
+        //         text-align: center;
+        //         //&:last-child { text-align:right; float:right; }
+        //     }
+        // }
+        .disclaimer {
+            width: 280px;
+            margin: 0 auto;
+            text-align: center;
+            hr {
+                width: 270px;
+                height: 2px;
+                border: 0;
+                background: url(../assets/images/bg_hr.png);
+                margin: 1em auto;
+            }
+            a {
+                color: $gold;
+                text-decoration: none;
+            }
+            p {
+                font-size: 12px;
+            }
+        }
+    }
+    .bannermsg {
+        margin: 0 10px;
+        padding: 10px 0;
+        background: $lt_blue;
+        border-radius: 5px;
+        position: absolute;
+        top: 25px;
+        p {
+            line-height: 1.2;
+            margin: 0 34px 0 40px;
+            color: #fff;
+            .material-icons {
+                margin: 0 8px 0 -32px;
+                float: left;
+            }
+        }
+        a.dismiss {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            background: rgba(#fff,0.5);
+            text-align: center;
+            .material-icons {
+                font-size: 16px;
+                line-height: 20px;
+                color: $lt_blue;
+            }
+        }
+    }
+    p#logout_msg {
+        position: absolute;
+        top: 70px;
+        width: 70%;
+        margin: 0 15%;
+        text-align: center;
+        color: $lt_grey;
+    }
+    @media only screen and (min-width: 768px) {
+        height: auto;
+        margin: 0 auto;
+        padding: 0;
+        // position: relative;
+        // top:auto;
+        background:$bg;
+        > .container {
+            // position: relative;
+            height:auto;
+            #content {
+                height:auto;
+                margin:auto;
+            }
+        }
+        .bannermsg {
+            margin: 0 0 -0.5em;
+            padding: 0.5em 2%;
+            background: #fff;
+            position: relative;
+            top: auto;
+            p {
+                margin: 1em 0 0;
+                padding: 1em;
+                background: $dkr_grey;
+                color: #fff;
+                .material-icons {
+                    font-size: 32px;
+                    margin: 0 0.5em 0 0;
+                }
+            }
+            a.dismiss {
+                top: 1em;
+                right: 1%;
+                width: 28px;
+                height: 28px;
+                background: #fff;
+                border: solid 2px $dkr_grey;
+                border-radius: 14px;
+                .material-icons {
+                    font-size: 20px;
+                    line-height: 25px;
+                    color: $dkr_grey;
+                }
+            }
+            &.error {
+                p {
+                    background: #b00;
+                }
+                a.dismiss {
+                    border-color: #b00;
+                    .material-icons {
+                        color: #b00;
+                    }
+                }
+            }
+        }
+        #promo {
+            width: 61%;
+            margin: 30px 0 40px 3%;
+            display: inline-block;
+            vertical-align: top;
+            //#slider { width:100%; height:230px; margin-bottom:20px; background:url(http://lorempixel.com/764/260/business) center center; float:left; }
+            #slider {
+                width: 100%;
+                height: 180px;
+                margin-bottom: 20px;
+                float: left;
+                overflow: hidden;
+                transition: all ease 0.5s;
+                border-radius:3px;
+                // img {
+                //     width: 100%;
+                //     height: auto;
+                // }
+                @media screen and (min-width: 860px) {
+                    height:200px;
+                }
+                @media screen and (min-width: 950px) {
+                    height:230px;
+                }
+            }
+            #offers {
+                width: 48.5%;
+                height: 252px;
+                margin-right: 3%;
+                padding: 15px 20px;
+                background: $lt_grey; /*background:url(../assets/images/bg_drawer.jpg); background-size:cover;*/
+                border-radius:3px;
+                color: #fff;
+                float: left;
+                h3 {
+                    // font-size: 26px;
+                    color: $orange;
+                    margin-bottom: 0.5em;
+                    @media screen and (max-width: 860px) {
+                        font-size:24px;
+                    }
+                    @media screen and (min-width: 950px) {
+                        font-size:26px;
+                    }
+                    span {
+                        font: 900 0.9em/1 "Times New Roman",serif;
+                    }
+                }
+                ul { margin-top:1em;
+                    li {
+                        font-size: 1.13em;
+                        line-height: 1.1;
+                        margin:0 0 0.5em 17px;
+                        color: $dk_grey;
+                        list-style: none;
+                        &:before {
+                            content: '\25CF\2002';
+                            color: $orange;
+                            margin-left:-17px;
+                        }
+                        @media screen and (max-width: 860px) {
+                            font-size:1em;
+                            margin-bottom:0.4em;
+                        }
+                    }
+                }
+            }
+            #video-tut {
+                width: 48.5%;
+                height: 252px;
+                // background: url(http://lorempixel.com/371/222/business) center center;
+                float: left;
+                overflow:hidden;
+                border-radius:3px;
+                img {
+                    min-width:100%;
+                    height:auto;
+                    min-height:252px;
+                    margin:126px 0 0 50% !important;
+                    transform:translate(-50%,-50%);
+                }
+            }
+        }
+        #login {
+            width: 31%;
+            height: 452px;
+            position: static;
+            margin: 30px 3% 0 0;
+            padding: 25px 20px;
+            float: right;
+            background: $blue;
+            border-radius:3px;
+            color: #fff;
+            transition: all ease 0.5s;
+            @media screen and (min-width: 860px) {
+                height:472px;
+            }
+            @media screen and (min-width: 950px) {
+                height:502px;
+            }
+            h3 {
+                @media screen and (min-width: 860px) {
+                    font-size:26px;
+                }
+            }
+            a {
+                color: $gold;
+                text-decoration:underline;
+            }
+            p {
+                margin: 0.5em 0;
+                &#register_now { width:auto; color:#fff; text-align:left; position:static;
+                    a { color:$gold; }
+                }
+            }
+            form {
+                margin-top: 20px;
+                text-align: left;
+                > span { white-space:normal; margin-left:20px; display:block; }
+                input {
+                    width: 100%;
+                    text-align: left;
+                    padding: 0 10px;
+                    font-size: 1.13em;
+                    &#remember {
+                        width: auto;
+                        height: auto;
+                        display: inline-block;
+                        vertical-align: middle;
+                        margin: -3px 8px 0 -20px;
+                    }
+                    &.placeholder {
+                        color: #aaa;
+                    }
+                }
+                button#loginsubmit {
+                    width: auto;
+                    padding: 0 15px;
+                    margin: 10px auto 15px 0;
+                    font-size: 1.13em;
+                }
+                 ::-webkit-input-placeholder {
+                    text-align: left;
+                }
+                 ::-moz-placeholder {
+                    text-align: left;
+                }
+                 :-ms-input-placeholder {
+                    text-align: left;
+                }
+            }
+            #loginwords { margin-top:30px; text-align:left;
+                // .links {
+                //     width: auto;
+                //     text-align: left;
+                //     li {
+                //         display: block;
+                //         margin-top: 0.5em;
+                //         width: auto;
+                //         text-align: left;
+                //         float: none;
+                //     }
+                // }
+                .disclaimer {
+                    width: 100%;
+                    text-align: left;
+                    hr {
+                        width: 100%;
+                        margin: 15px 0;
+                    }
+                    p {
+                        font-size: 1em;
+                    }
+                }
+            }
+        }
+        p#logout_msg {
+            top: -42px;
+            left: 0;
+            z-index: 10;
+            color: #fff;
+        }
+    }
+    // @media only screen and (min-width: 915px) {
+    //     #login #loginwords .disclaimer hr {
+    //         margin: 20px 0;
+    //     }
+    // }
+    @media only screen and (min-width: 950px) {
+        #promo {
+            width: 65.5%;
+            // #offers { height:222px; }
+            // #video-tut { height:222px; }
+        }
+        #login {
+            width: 26.6%;
+            transition: width ease 0.5s;
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .login #footer {
+        position:relative;
+        margin-top:-42px;
+        background:none;
+        border:0;
+        font-size:14px;
+        color:$lt_blue;
+        text-align:center;
+    }
+}
