@@ -14,15 +14,13 @@
         'dataCacheSessionStorage',
         'dataCacheLocalStorage',
         'pageStateResolver',
-        'i18nService',
-        '$timeout',
-        'BASE_URL'
+        'i18nService'
     ];
 
     /* @ngInject */
     function server($q, $http, ENDPOINT_URI,
                     dataCacheSessionStorage, dataCacheLocalStorage,
-                    pageStateResolver, i18nService, $timeout, BASE_URL) {
+                    pageStateResolver, i18nService) {
 
         var service = this;
         var activePosts = [];
@@ -199,7 +197,7 @@
 
         function post(path, data, removeCache, storageType, isUnlocalized) {
             var deferred = $q.defer();
-            var cacheKey = doKey(path, data);
+            var cacheKey = path;
             var cachedObj;
             // console.log('post path: ', path);
             // console.log('post data: ', data);
@@ -277,52 +275,6 @@
             return response;
         }
 
-        /**
-         * Creates a cache key to be associated with data
-         *
-         * @param path string API path
-         * @param dataObj obj FYI's/banners should send the active page
-         * @returns string cache key
-         */
-        function doKey(path, dataObj) {
-            // resolve cache keys for all paths but FYI's
-            if (path !== '/banner') {
-                return path;
-            }
-            if ('currentPage' in dataObj) {
-                /**
-                 * a banner call should post a currentPage.
-                 * build the cache key from path and currentPage sent into dataObj
-                 */
-                return path + '/' + dataObj.currentPage;
-            }
-        }
-
-        /**
-         * decodeURIComponent acctId so it's safe to pass into ui-sref
-         *
-         * @param portfolioHeader array
-         * @returns {array}
-         */
-        //function decodeAccountId(portfolioHeader) {
-        //    return _.forEach(portfolioHeader, function (item, key, collection) {
-        //        // rebuild the array based on indexes
-        //        collection[key] = replaceAccountId(item);
-        //    });
-        //}
-        /**
-         * Helper function for decodeAccountId()
-         *
-         * @param item
-         * @returns {*|Array|Object}
-         */
-        //function replaceAccountId(item) {
-        //    return _.forEach(item, function (value, key, collection) {
-        //        if (key === 'acctId') {
-        //            collection[key] = decodeURIComponent(value);
-        //        }
-        //    });
-        //}
 
     }
 

@@ -72,7 +72,7 @@
                  $rootScope.oRequestedPageConfig = oPageConfig;
                  }
                  });*/
-                //this is for fyi directive. Check routes.config.json for configurating oPageConfig objects
+                //Check routes.config.json for configurating oPageConfig objects
                 pageStateResolver.getPageConfigFromState(toState.name, function (oPageConfig) {
                     console.log('oPageConfig: ', oPageConfig);
                     if ('pageName' in oPageConfig) {
@@ -84,8 +84,6 @@
                  * Sets the current page for:
                  *
                  * dynamic CSS class on main layout,
-                 * fyi-notifications
-                 * ci-help page
                  */
                 pageStateResolver.setActivePageName(toState.name);
 

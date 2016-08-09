@@ -43,16 +43,12 @@
                         url: '/{locale:(?:en|fr)}',
                         abstract: true,
                         controller: 'MainCtrl as Main',
-                        templateUrl: 'app/core/includes/layouts/main.layout.html'
+                        templateUrl: 'app/core/layout/main.layout.html'
                     })
                     .state('main.advisorLocator', {
                         url: '/advisorLocator',
                         abstract: true,
                         views: {
-                            'notifications': {
-                                controller: 'NotificationsCtrl as Notes',
-                                templateUrl: 'app/core/includes/notifications/notifications.tpl.html'
-                            },
                             'content': {}
                         }
                     })
@@ -90,11 +86,7 @@
                             'content@main': {
                                 controller: 'Page1Ctrl as Page1',
                                 templateUrl: 'app/features/page1/page1.tpl.html'
-                            }/*,
-                             'login': {
-                             controller: 'LoginCtrl as Login',
-                             templateUrl: 'app/core/login/login.tpl.html'
-                             }*/
+                            }
                         }
                     })
                     .state('main.advisorLocator.page2', {
