@@ -2,12 +2,7 @@
     'use strict';
 
     var errorsCacheKey = 'errors',
-       // emptyHttpErrorMessageObj = {},
-       // emptyFeMessageMessageObj = {},
-    // holds cached errors object
         errorsCacheMap;
-    // holds app errors object
-
 
     angular
         .module('advisorLocator.core.main')
@@ -42,12 +37,12 @@
 
         service.setHttpError = function (key, value) {
             set(NOTES_EVENTS.http, key, value);
-            $rootScope.$emit('dismissFYI');
+
 
         };
         service.setFE = function (key, value) {          
             set(NOTES_EVENTS.fe, key, value);
-            $rootScope.$emit('dismissFYI');
+
 
         };
 
@@ -67,23 +62,7 @@
 
         //---------------- implementation starts here ---------------- //
 
-        /*function publish(event) {
-            $rootScope.$emit(event);
-        }*/
 
-        /*function subscribe(scope, callback) {
-            var handlerAll = scope.$on(NOTES_EVENTS.all, callback),
-                httpErrorHandler = $rootScope.$on(NOTES_EVENTS.http, callback),
-                feHandler = $rootScope.$on(NOTES_EVENTS.fe, callback);
-
-            scope.$on('$destroy', handlerAll);
-            scope.$on('$destroy', httpErrorHandler);
-            scope.$on('$destroy', feHandler);
-        }*/
-
-        /**
-         * initialize cached errors object
-         */
         function init() {
             // is it already cached ? Then, use it.
             errorsCacheMap = notificationsCacheService.get(errorsCacheKey);
@@ -94,7 +73,7 @@
                 // update app errors obj to cached value
                 service.messages = errorsCacheMap;
             }
-            //publish(NOTES_EVENTS.all);
+
         }
 
         function getHttpErrorMessages() {
@@ -132,7 +111,6 @@
 
             // add error to caches to persist a page refresh
             notificationsCacheService.put(errorsCacheKey, errorsCacheMap);
-            //publish(event);
 
             //scroll to the notification
 
@@ -182,10 +160,7 @@
                     }
                     break;
                 case NOTES_EVENTS.all:
-                    /*errorsCacheMap = service.messages = {
-                        httpErrorMessages: emptyHttpErrorMessageObj,
-                        FeMessages: emptyFeMessageMessageObj
-                    };*/
+
                     if(!_.isUndefined(errorsCacheMap)) {
                         errorsCacheMap.httpErrorMessages = {};
                         errorsCacheMap.FeMessages = {};
@@ -219,15 +194,6 @@
             }
         }
 
-        //function getAllErrorMessages() {
-        //    // load error list from cache
-        //    errorsCacheMap = notificationsCacheService.get(errorsCacheKey);
-        //    // update app errors obj to cached value
-        //    messages.httpErrorMessages = errorsCacheMap.httpErrorMessages;
-        //    messages.FeMessages = errorsCacheMap.FeMessages;
-        //
-        //    return messages;
-        //}
 
     }
 

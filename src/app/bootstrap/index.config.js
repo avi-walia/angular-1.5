@@ -2,9 +2,11 @@
     'use strict';
 
     angular.module('advisorLocator')
+        .config(interceptors)
         .config(translations)
         .config(snapdrawer);
 
+    interceptors.$inject = ['$httpProvider'];
     translations.$inject = ['$translateProvider', 'tmhDynamicLocaleProvider'];
     snapdrawer.$inject = ['snapRemoteProvider'];
 
@@ -17,6 +19,13 @@
             minPosition: -265,
             touchToDrag: false
         };
+    }
+
+    /* @ngInject */
+    function interceptors($httpProvider) {
+        $httpProvider.interceptors.push('CoreInterceptor');
+        $httpProvider.interceptors.push('SearchInterceptor');
+
     }
 
     /* @ngInject */

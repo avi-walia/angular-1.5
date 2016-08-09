@@ -1,0 +1,58 @@
+    <!-------------Start HTTP Error Messages ------------------->
+    <div id="notification_errors" ng-if="$ctrl.NotificationService.messages.httpErrorMessages" aria-hidden="{{$ctrl.NotificationService.isEmpty($ctrl.NotificationService.messages.httpErrorMessages)}}"
+         role="{{$ctrl.NotificationService.isEmpty($ctrl.NotificationService.messages.httpErrorMessages) ? undefined : 'alert'}}" aria-live="assertive" ng-messages="$ctrl.NotificationService.messages.httpErrorMessages" ng-messages-multiple>
+
+        <!------------------ CORE EVENTS ------------------>
+        <div class="notification error" ng-message="core-generic-failure">
+            <p translate>{{'notifications.http-errors.core-generic-failure'}}</p>
+            <a href class="dismiss" title="{{ 'navbar.dismiss-message' | translate }}" ng-click="$ctrl.dismissHttpMessage('core-generic-failure')">
+                <span hidden>{{ 'navbar.dismiss-message' | translate }}</span><em
+                    class="material-icons">close</em></a>
+        </div>
+
+        <!------------------ END: CORE EVENTS ------------------>
+
+
+        <!------------------ SEARCH EVENTS ------------------>
+        <div class="notification error" ng-message="E409001">
+            <p translate>{{'notifications.http-errors.E409001'}}</p>
+            <a href class="dismiss" title="{{ 'navbar.dismiss-message' | translate }}" ng-click="$ctrl.dismissHttpMessage('E409001')">
+                <span hidden>{{ 'navbar.dismiss-message' | translate }}</span><em
+                    class="material-icons">close</em></a>
+        </div>
+        <div class="notification error" ng-message="E409002">
+            <p translate>{{'notifications.http-errors.E409002'}}</p>
+            <a href class="dismiss" title="{{ 'navbar.dismiss-message' | translate }}" ng-click="$ctrl.dismissHttpMessage('E409002')">
+                <span hidden>{{ 'navbar.dismiss-message' | translate }}</span><em
+                    class="material-icons">close</em></a>
+        </div>
+
+
+        <!------------------ END: SEARCH EVENTS ------------------>
+
+    </div>
+
+    <!-------------End HTTP Error Messages ------------------->
+
+    <!-------------Start FE Error Messages ------------------->
+    <div id="fe_msgs" ng-if="$ctrl.NotificationService.messages.FeMessages" aria-hidden="{{$ctrl.NotificationService.isEmpty($ctrl.NotificationService.messages.FeMessages)}}"
+         role="{{$ctrl.NotificationService.isEmpty($ctrl.NotificationService.messages.FeMessages) ? undefined : 'alert'}}" aria-live="assertive" ng-messages="$ctrl.NotificationService.messages.FeMessages" ng-messages-multiple>
+
+
+        <div class="notification info" ng-message="cancel">
+            <p translate>{{'notifications.fe-messages.cancel'}}</p>
+            <a href class="dismiss" title="{{ 'navbar.dismiss-message' | translate }}" ng-click="$ctrl.dismissFeMessage('cancel')">
+                <span hidden>{{ 'navbar.dismiss-message' | translate }}</span><em
+                    class="material-icons">close</em></a>
+        </div>
+        <div class="notification info" ng-message="refresh">
+            <p translate>{{'notifications.fe-messages.refresh'}}</p>
+            <a href class="dismiss" title="{{ 'navbar.dismiss-message' | translate }}" ng-click="$ctrl.dismissFeMessage('refresh')">
+                <span hidden>{{ 'navbar.dismiss-message' | translate }}</span><em
+                    class="material-icons">close</em></a>
+        </div>
+
+
+    </div>
+    <!-------------End FE Error Messages ------------------->
+
