@@ -1,6 +1,6 @@
 {
-  "name": "aio",
-  "version": "1.2.4",
+  "name": "advisor-locator",
+  "version": "0.0.1",
   "dependencies": {
     "angular-mocks": "^1.5.7",
     "cordova": "^6.2.0",

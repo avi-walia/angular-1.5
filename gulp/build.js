@@ -160,7 +160,7 @@ module.exports = function (options) {
             .pipe(gulpNgConfig(options.app, {
                 createModule: false,
                 constants: {
-                    version: pkg.version
+                    version: pkg.version + '(local)'
                 },
                 wrap: '(function () { \n  \'use strict\'; \nreturn <%= module %> \n})();'
             }))
