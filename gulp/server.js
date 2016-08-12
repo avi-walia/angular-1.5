@@ -27,11 +27,11 @@ module.exports = function(options) {
     // the base url where to forward the requests
     //var proxyOptions = url.parse('http://paris:8881/aiolws');
     //var proxyOptions = url.parse('http://paris:9014/aiolws');
-    var proxyOptions = url.parse('http://localhost:3001');
+    var proxyOptions = url.parse('http://dev.assanteservices.com/aiolws');
     //var proxyOptions = url.parse('https://uat.assanteservices.com/aiolws');
 
     // Which route browserSync should forward to the gateway
-    proxyOptions.route = '/';
+    proxyOptions.route = '/aiolws';
     proxyOptions.rejectUnauthorized = false;
 
     var server = {
