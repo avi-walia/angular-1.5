@@ -3,6 +3,7 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync');
 var browserSyncSpa = require('browser-sync-spa');
+var jsonServer = require('json-server');
 
 var util = require('util');
 
@@ -26,11 +27,11 @@ module.exports = function(options) {
     // the base url where to forward the requests
     //var proxyOptions = url.parse('http://paris:8881/aiolws');
     //var proxyOptions = url.parse('http://paris:9014/aiolws');
-    var proxyOptions = url.parse('https://dev.assanteservices.com/aiolws');
+    var proxyOptions = url.parse('http://localhost:3001');
     //var proxyOptions = url.parse('https://uat.assanteservices.com/aiolws');
 
     // Which route browserSync should forward to the gateway
-    proxyOptions.route = '/aiolws';
+    proxyOptions.route = '/';
     proxyOptions.rejectUnauthorized = false;
 
     var server = {
@@ -47,6 +48,7 @@ module.exports = function(options) {
 
 
 
+
     browserSync.instance = browserSync.init({
       //startPath: '/#/en/aio/landing',
       server: server,
@@ -58,11 +60,19 @@ module.exports = function(options) {
     });
   }
 
+  gulp.task('JSON-Server', function () {
+    var jsnServer = jsonServer.create();
+    var jsnRouter = jsonServer.router('mockBackend.json');
+    jsnServer.use(jsnRouter);
+    jsnServer.listen(3001);
+  });
+
+
   browserSync.use(browserSyncSpa({
     selector: '[ng-app]'// Only needed for angular apps
   }));
 
-  gulp.task('serve', ['config:local','watch'], function () {
+  gulp.task('serve', ['JSON-Server','config:local','watch'], function () {
     browserSyncInit([options.tmp + '/serve', options.src]);
   });
 
