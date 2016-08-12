@@ -1,0 +1,137 @@
+{
+  "advisors": [
+    {
+      "id":"1234",
+      "firstName": "Firstname",
+      "lastName": "Lastname",
+      "thumbnailProfilePicture": "https://url",
+      "city": "city",
+      "provinceAbbr": "ON"
+    },
+    {
+      "id":"1337",
+      "firstName": "Jon",
+      "lastName": "Snow",
+      "thumbnailProfilePicture": "https://url",
+      "city": "city",
+      "provinceAbbr": "ON"
+    }
+
+  ],
+  "advisor": [
+    {
+      "id":1234,
+      "firstName": "Firstname",
+      "lastName": "Lastname",
+      "titles" : ["title1", "title2"],
+      "fullProfilePicture": "https://url",
+      "phone": "12334567890",
+      "email": "email@email.com",
+      "altEmail": "alternateemail@email.com",
+      "website": "http://url",
+      "branch": {
+        "id": "12345",
+        "dealerShip": "ACN",
+        "styleNameEN": "Style name English",
+        "styleNameFR": "Style name French",
+        "geoLocation": {
+          "lng": -119.47,
+          "lat": 39.02
+        },
+        "address1": "Address 1",
+        "address2": "Address 2",
+        "city": "city",
+        "provinceAbbr": "ON",
+        "postalCode": "A1A 1A1",
+        "tollFree": "12345"
+      }
+    },
+    {
+      "id":1337,
+      "firstName": "Jon",
+      "lastName": "Snow",
+      "titles" : ["Lord Commander"],
+      "fullProfilePicture": "https://url",
+      "phone": "416-jon-snow",
+      "email": "jon@snow.com",
+      "altEmail": "jonsnow@winterfell.com",
+      "website": "http://url",
+      "branch": {
+        "id": "2369",
+        "dealerShip": "ACN",
+        "styleNameEN": "Style name English",
+        "styleNameFR": "Style name French",
+        "geoLocation": {
+          "lng": -115.97,
+          "lat": 45.59
+        },
+        "address1": "Winterfell",
+        "address2": "Castle Black",
+        "city": "Toronto",
+        "provinceAbbr": "ON",
+        "postalCode": "A1A 1A1",
+        "tollFree": "12345"
+      }
+    }
+  ],
+  "branches": [
+    {
+      "id": "12345",
+      "dealerShip": "ACN",
+      "geoLocation": {
+        "lng": -119.47,
+        "lat": 39.02
+      },
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "city",
+      "provinceAbbr": "ON",
+      "postalCode": "A1A 1A1",
+      "branchAssociates": [
+        {
+          "id": "123456",
+          "firstName": "Associate First Name",
+          "lastName": "Associate Last Name"
+        }
+      ]
+    }
+  ],
+  "branch" : [
+    {
+      "id": "123456",
+      "dealerShip": "ACN",
+      "styleNameEN": "Style name English",
+      "styleNameFR": "Style name French",
+      "geoLocation": {
+        "lng": -119.47,
+        "lat": 39.02
+      },
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "city",
+      "provinceAbbr": "ON",
+      "postalCode" : "A1A 1A1",
+      "phone": "12334567890",
+      "tollFree": "1800123456790",
+      "fax": "1234567890",
+      "website": "http://",
+      "branchManagers": [
+        {
+          "firstName": "Manager First Name",
+          "lastName": "Manager Last Name",
+          "email": "email@email.com",
+          "phone": "1234567890"
+        }
+      ],
+      "branchAssociates": [
+        {
+          "id": "123456",
+          "firstName": "Associate First Name",
+          "lastName": "Associate Last Name"
+
+        }
+      ]
+
+    }
+  ]
+}
