@@ -75,7 +75,7 @@
                         }
                     })
                     .state('main.advisorLocator.searchByName.details', {
-                        url: '/advisors/{:id}',
+                        url: '/advisors/:id',
                         views: {
                             'details': {
                                 template: '<advisor-detail></advisor-detail>'
@@ -105,7 +105,7 @@
                         }
                     })
                     .state('main.advisorLocator.searchByLocation.details', {
-                        url: '/branches/{:id}',
+                        url: '/branches/:id',
                         views: {
                             'details': {
                                 template: '<branch-detail></branch-detail>'
