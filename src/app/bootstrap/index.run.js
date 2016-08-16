@@ -143,7 +143,9 @@
                 }
                 // sets up lang attribute on the html tag and language class on body tag
                 $rootScope.documentLanguage = toParams.locale;
-                
+                var scr = document.createElement("script");
+                scr.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyCwahusHkUZ-LOTVpawRSoKh-h2ktVbj2I&libraries=geometry,places&language=" + $rootScope.documentLanguage;
+                document.getElementsByTagName("head")[0].appendChild(scr);
                 ///////// *** END LANGUAGE NEGOTIATION *** /////////
 
                 pageStateResolver.pageLoading = false;
