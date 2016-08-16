@@ -5,8 +5,6 @@
         .module('advisorLocator.core.server')
         .service('server', server);
 
-    var sPageStateCacheKey = 'states';
-
     server.$inject = [
         '$q',
         '$http',
@@ -16,6 +14,12 @@
         'pageStateResolver',
         'i18nService'
     ];
+    function timeCapsule(data, expiryDate) {
+        return  {
+            data: data,
+            expiryDate: expiryDate
+        }
+    }
 
     /* @ngInject */
     function server($q, $http, ENDPOINT_URI,
@@ -124,6 +128,29 @@
 
         };
 
+        function getFromServer(sPath, deferred, sStorageType, bIsUnlocalized) {
+            $http.get(sPath)
+                .then(function (response) {
+                    // check for no data being sent
+                    if (response.status !== 204) {
+                        // put data in cache
+                        var expiryDate = new Date();
+                        expiryDate.setDate(expiryDate.getDate()+1);
+                        if (sStorageType === 'sessionStorage') {
+                            dataCacheSessionStorage.put(sPath, timeCapsule(response, expiryDate));
+                        } else {
+                            dataCacheLocalStorage.put('spath', timeCapsule(response, expiryDate));
+                        }
+                        response = bIsUnlocalized ? response : filterLangResponse(response);
+                    }
+                    deferred.resolve(response);
+                })
+                // set the error, in case some promise handlers need to deal with it
+                .then(null, function (error) {
+                    deferred.reject(error);
+                });
+        }
+
         //---------------- implementation starts here ---------------- //
 
         function get(sPath, bRemoveCache, sStorageType, bIsUnlocalized) {
@@ -133,36 +160,26 @@
             // force re-cache the call
             if (bRemoveCache) {
                 // clean cache record using the key
-                dataCacheSessionStorage.remove(sPageStateCacheKey);
+                dataCacheSessionStorage.remove(sPath);
             }
 
             // if the key is not in cache then cachedObj is undefined
             if (sStorageType === 'sessionStorage') {
-                cachedObj = dataCacheSessionStorage.get(sPageStateCacheKey);
+                cachedObj = dataCacheSessionStorage.get(sPath);
+            } else if (sStorageType === 'localStorage') {
+                var tempCachedObj = dataCacheLocalStorage.get(sPath);
+                if (tempCachedObj.expiryDate > new Date()) {
+                    cachedObj = tempCachedObj.data;
+                }
             }
 
             if (_.isObject(cachedObj)) {
-                cachedObj = bIsUnlocalized ? cachedObj : filterLangResponse(cachedObj);
+                //cachedObj = bIsUnlocalized ? cachedObj : filterLangResponse(cachedObj);
                 deferred.resolve(cachedObj);
 
             } else {
+                getFromServer(sPath, deferred, sStorageType, bIsUnlocalized);
 
-                $http.get(sPath)
-                    .then(function (response) {
-                        // check for no data being sent
-                        if (response.status !== 204) {
-                            // put data in cache
-                            if (sStorageType === 'sessionStorage') {
-                                dataCacheSessionStorage.put(sPageStateCacheKey, response);
-                            }
-                            response = bIsUnlocalized ? response : filterLangResponse(response);
-                        }
-                        deferred.resolve(response);
-                    })
-                    // set the error, in case some promise handlers need to deal with it
-                    .then(null, function (error) {
-                        deferred.reject(error);
-                    });
             }
 
             // return a promise with data back
