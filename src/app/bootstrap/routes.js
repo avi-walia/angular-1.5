@@ -30,7 +30,7 @@
                         if (!(deviceDetector.browser === 'ie' && deviceDetector.browser_version <= '9.0')  ) {
                             // @todo: check if back btn functionality apply
                             //$state.go('main.advisorLocator.portfolio');
-                            $state.go('main.advisorLocator.searchByLocation.list');
+                            $state.go('main.advisorLocator.advisorList');
                         }
                     }]);
 
@@ -54,7 +54,7 @@
                     })
 
                     /************Search by Name ****************/
-                    .state('main.advisorLocator.searchByName', {
+             /*       .state('main.advisorLocator.searchByName', {
                         abstract: true,
                         url: '/searchByName',
                         views: {
@@ -65,26 +65,26 @@
 
                             }
                         }
-                    })
-                    .state('main.advisorLocator.searchByName.list', {
+                    })*/
+                    .state('main.advisorLocator.advisorList', {
                         url: '/advisors',
                         views: {
-                            'details': {
+                            'content@main': {
                                template: '<advisor-list></advisor-list>'
                             }
                         }
                     })
-                    .state('main.advisorLocator.searchByName.details', {
+                    .state('main.advisorLocator.advisorDetails', {
                         url: '/advisors/:id',
                         views: {
-                            'details': {
+                            'content@main': {
                                 template: '<advisor-detail></advisor-detail>'
                             }
                         }
                     })
 
                     /************Search by Location ****************/
-                    .state('main.advisorLocator.searchByLocation', {
+                 /*   .state('main.advisorLocator.searchByLocation', {
                         abstract: true,
                         url: '/searchByLocation',
                         views: {
@@ -95,19 +95,19 @@
 
                             }
                         }
-                    })
-                    .state('main.advisorLocator.searchByLocation.list', {
+                    })*/
+                    .state('main.advisorLocator.branchList', {
                         url: '/branches',
                         views: {
-                            'details': {
+                            'content@main': {
                                 template: '<branch-list></branch-list>'
                             }
                         }
                     })
-                    .state('main.advisorLocator.searchByLocation.details', {
+                    .state('main.advisorLocator.branchDetails', {
                         url: '/branches/:id',
                         views: {
-                            'details': {
+                            'content@main': {
                                 template: '<branch-detail></branch-detail>'
                             }
                         }
