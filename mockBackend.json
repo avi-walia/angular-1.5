@@ -1,7 +1,7 @@
 {
   "advisors": [
     {
-      "id":1234,
+      "id":"1234",
       "firstName": "Firstname",
       "lastName": "Lastname",
       "commonName": "Commonname",
@@ -12,13 +12,13 @@
       "altEmail": "alternateemail@email.com",
       "website": "http://url",
       "branch": {
-        "id": "12345",
+        "id": "01",
         "dealerShip": "ACN",
         "styleNameEN": "Style name English",
         "styleNameFR": "Style name French",
         "geoLocation": {
-          "lng": -119.47,
-          "lat": 39.02
+          "lng": -79.4080591,
+          "lat": 43.7617201
         },
         "address1": "Address 1",
         "address2": "Address 2",
@@ -31,13 +31,13 @@
   ],
   "branches": [
     {
-      "id": 123456,
+      "id": "01",
       "dealerShip": "ACN",
       "styleNameEN": "Style name English",
       "styleNameFR": "Style name French",
       "geoLocation": {
-        "lng": -119.47,
-        "lat": 39.02
+        "lng": -79.4080591,
+        "lat": 43.7617201
       },
       "address1": "Address 1",
       "address2": "Address 2",
@@ -68,7 +68,457 @@
       },
       "branchAssociates": [
         {
-          "id": "123456",
+          "id": "1234",
+          "firstName": "Advisor First Name",
+          "lastName": "Advisor Last Name",
+          "commonName": "Advisor Common Name"
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "dealerShip": "ACN",
+      "styleNameEN": "Style name English",
+      "styleNameFR": "Style name French",
+      "geoLocation": {
+        "lng": -79.40948960000003,
+        "lat": 43.76060700000001
+      },
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "city",
+      "provinceAbbr": "ON",
+      "postalCode" : "A1A 1A1",
+      "phone": "12334567890",
+      "tollFree": "1800123456790",
+      "fax": "1234567890",
+      "website": "http://",
+      "branchManager": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "coBranchManager1": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "coBranchManager2": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "branchAssociates": [
+        {
+          "id": "1234",
+          "firstName": "Advisor First Name",
+          "lastName": "Advisor Last Name",
+          "commonName": "Advisor Common Name"
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "dealerShip": "ACN",
+      "styleNameEN": "Style name English",
+      "styleNameFR": "Style name French",
+      "geoLocation": {
+        "lng": 79.40950299999997,
+        "lat": 43.76040199999999
+      },
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "city",
+      "provinceAbbr": "ON",
+      "postalCode" : "A1A 1A1",
+      "phone": "12334567890",
+      "tollFree": "1800123456790",
+      "fax": "1234567890",
+      "website": "http://",
+      "branchManager": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "coBranchManager1": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "coBranchManager2": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "branchAssociates": [
+        {
+          "id": "1234",
+          "firstName": "Advisor First Name",
+          "lastName": "Advisor Last Name",
+          "commonName": "Advisor Common Name"
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "dealerShip": "ACN",
+      "styleNameEN": "Style name English",
+      "styleNameFR": "Style name French",
+      "geoLocation": {
+        "lng": -79.40701419999999,
+        "lat": 43.76396800000001
+      },
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "city",
+      "provinceAbbr": "ON",
+      "postalCode" : "A1A 1A1",
+      "phone": "12334567890",
+      "tollFree": "1800123456790",
+      "fax": "1234567890",
+      "website": "http://",
+      "branchManager": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "coBranchManager1": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "coBranchManager2": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "branchAssociates": [
+        {
+          "id": "1234",
+          "firstName": "Advisor First Name",
+          "lastName": "Advisor Last Name",
+          "commonName": "Advisor Common Name"
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "dealerShip": "ACN",
+      "styleNameEN": "Style name English",
+      "styleNameFR": "Style name French",
+      "geoLocation": {
+        "lng": -79.4065354,
+        "lat": 43.7562948
+      },
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "city",
+      "provinceAbbr": "ON",
+      "postalCode" : "A1A 1A1",
+      "phone": "12334567890",
+      "tollFree": "1800123456790",
+      "fax": "1234567890",
+      "website": "http://",
+      "branchManager": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "coBranchManager1": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "coBranchManager2": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "branchAssociates": [
+        {
+          "id": "1234",
+          "firstName": "Advisor First Name",
+          "lastName": "Advisor Last Name",
+          "commonName": "Advisor Common Name"
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "dealerShip": "ACN",
+      "styleNameEN": "Style name English",
+      "styleNameFR": "Style name French",
+      "geoLocation": {
+        "lng": -79.380961,
+        "lat": 43.642281
+      },
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "city",
+      "provinceAbbr": "ON",
+      "postalCode" : "A1A 1A1",
+      "phone": "12334567890",
+      "tollFree": "1800123456790",
+      "fax": "1234567890",
+      "website": "http://",
+      "branchManager": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "coBranchManager1": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "coBranchManager2": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "branchAssociates": [
+        {
+          "id": "1234",
+          "firstName": "Advisor First Name",
+          "lastName": "Advisor Last Name",
+          "commonName": "Advisor Common Name"
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "dealerShip": "ACN",
+      "styleNameEN": "Style name English",
+      "styleNameFR": "Style name French",
+      "geoLocation": {
+        "lng": -80.073508,
+        "lat": 43.454074
+      },
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "city",
+      "provinceAbbr": "ON",
+      "postalCode" : "A1A 1A1",
+      "phone": "12334567890",
+      "tollFree": "1800123456790",
+      "fax": "1234567890",
+      "website": "http://",
+      "branchManager": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "coBranchManager1": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "coBranchManager2": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "branchAssociates": [
+        {
+          "id": "1234",
+          "firstName": "Advisor First Name",
+          "lastName": "Advisor Last Name",
+          "commonName": "Advisor Common Name"
+        }
+      ]
+    },
+    {
+      "id": "08",
+      "dealerShip": "ACN",
+      "styleNameEN": "Style name English",
+      "styleNameFR": "Style name French",
+      "geoLocation": {
+        "lng": -79.315233,
+        "lat": 45.045462
+      },
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "city",
+      "provinceAbbr": "ON",
+      "postalCode" : "A1A 1A1",
+      "phone": "12334567890",
+      "tollFree": "1800123456790",
+      "fax": "1234567890",
+      "website": "http://",
+      "branchManager": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "coBranchManager1": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "coBranchManager2": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "branchAssociates": [
+        {
+          "id": "1234",
+          "firstName": "Advisor First Name",
+          "lastName": "Advisor Last Name",
+          "commonName": "Advisor Common Name"
+        }
+      ]
+    },
+    {
+      "id": "09",
+      "dealerShip": "ACN",
+      "styleNameEN": "Style name English",
+      "styleNameFR": "Style name French",
+      "geoLocation": {
+        "lng": -73.566511,
+        "lat": 45.502019
+      },
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "city",
+      "provinceAbbr": "ON",
+      "postalCode" : "A1A 1A1",
+      "phone": "12334567890",
+      "tollFree": "1800123456790",
+      "fax": "1234567890",
+      "website": "http://",
+      "branchManager": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "coBranchManager1": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "coBranchManager2": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "branchAssociates": [
+        {
+          "id": "1234",
+          "firstName": "Advisor First Name",
+          "lastName": "Advisor Last Name",
+          "commonName": "Advisor Common Name"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "dealerShip": "ACN",
+      "styleNameEN": "Style name English",
+      "styleNameFR": "Style name French",
+      "geoLocation": {
+        "lng": -73.437614,
+        "lat": 45.451138
+      },
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "city",
+      "provinceAbbr": "ON",
+      "postalCode" : "A1A 1A1",
+      "phone": "12334567890",
+      "tollFree": "1800123456790",
+      "fax": "1234567890",
+      "website": "http://",
+      "branchManager": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "coBranchManager1": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "coBranchManager2": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "branchAssociates": [
+        {
+          "id": "1234",
+          "firstName": "Advisor First Name",
+          "lastName": "Advisor Last Name",
+          "commonName": "Advisor Common Name"
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "dealerShip": "ACN",
+      "styleNameEN": "Style name English",
+      "styleNameFR": "Style name French",
+      "geoLocation": {
+        "lng": -63.661506,
+        "lat": 44.682938
+      },
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "city",
+      "provinceAbbr": "ON",
+      "postalCode" : "A1A 1A1",
+      "phone": "12334567890",
+      "tollFree": "1800123456790",
+      "fax": "1234567890",
+      "website": "http://",
+      "branchManager": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "coBranchManager1": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "coBranchManager2": {
+        "firstName": "Manager First Name",
+        "lastName": "Manager Last Name",
+        "email": "email@email.com",
+        "phone": "1234567890"
+      },
+      "branchAssociates": [
+        {
+          "id": "1234",
           "firstName": "Advisor First Name",
           "lastName": "Advisor Last Name",
           "commonName": "Advisor Common Name"

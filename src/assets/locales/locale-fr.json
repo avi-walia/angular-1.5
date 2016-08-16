@@ -20,12 +20,7 @@
     "dismiss-message": "FR Dismiss message",
     "logo-text": "FR Advisor Locator"
   },
-  "notifications": {
-    "http-errors": {
-    },
-    "fe-messages": {
-    }
-  },
+
   "universal" : {
     "font-size": "Taille de la police:",
     "font-size-normal": "Changez à « normale » la taille de la police de la demande.",
@@ -57,5 +52,9 @@
       "refresh": "<em class=\"material-icons\">error</em>FR Refreshing the page has resulted in any unsaved information being lost."
 
     }
+  },
+  "branchList":{
+    "title": "French Branch List",
+    "autoComplete": "French Somewhere in Canada:"
   }
 }

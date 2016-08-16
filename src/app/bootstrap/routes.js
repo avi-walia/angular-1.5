@@ -30,7 +30,7 @@
                         if (!(deviceDetector.browser === 'ie' && deviceDetector.browser_version <= '9.0')  ) {
                             // @todo: check if back btn functionality apply
                             //$state.go('main.advisorLocator.portfolio');
-                            $state.go('main.advisorLocator.searchByName.list');
+                            $state.go('main.advisorLocator.searchByLocation.list');
                         }
                     }]);
 

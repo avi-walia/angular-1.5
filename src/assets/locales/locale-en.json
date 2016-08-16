@@ -17,12 +17,7 @@
     "dismiss-message": "Dismiss message",
     "logo-text": "Advisor Locator"
   },
-  "notifications": {
-    "http-errors": {
-    },
-    "fe-messages": {
-    }
-  },
+
   "universal" : {
     "font-size": "Font size:",
     "font-size-normal": "Change application font size to normal.",
@@ -54,5 +49,9 @@
       "refresh": "<em class=\"material-icons\">error</em>Refreshing the page has resulted in any unsaved information being lost."
 
     }
+  },
+  "branchList":{
+    "title": "Branch List",
+    "autoComplete": "Somewhere in Canada:"
   }
 }
