@@ -15,9 +15,11 @@
 
         service.branchListLoading = false;
         service.branchList = [];
-        service.position;
+        service.position = {};
 
         service.getBranchList = getBranchList;
+        service.setPosition = setPosition;
+        service.getPosition = getPosition;
 
         function getBranchList(account) {
             service.branchListLoading = true;
@@ -28,6 +30,14 @@
 
                     return result.data;
                 });
+        }
+
+        function setPosition(position) {
+            service.position = position;
+        }
+
+        function getPosition(){
+            return service.position;
         }
 
 

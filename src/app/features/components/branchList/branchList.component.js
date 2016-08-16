@@ -14,15 +14,18 @@
 
     branchListCtrl.$inject = [
         'pageStateResolver',
-        'detectMobile'
+        'detectMobile',
+        'branchListService'
     ];
     /* @ngInject */
-    function branchListCtrl( pageStateResolver, detectMobile
+    function branchListCtrl( pageStateResolver, detectMobile, branchListService
     ) {
         var vm = this;
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;
 
+        vm.branchListService = branchListService;
+        vm.setPosition = vm.branchListService.setPosition;
     }
 
 })();
