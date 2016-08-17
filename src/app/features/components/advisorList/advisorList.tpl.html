@@ -4,7 +4,7 @@
             <h2>Advisor List</h2>
             <ci-loader loading="$ctrl.isLoading">
                 <div style="margin-top:25px;border:solid black 1px;padding:25px;">
-                    <div style="padding:20px 10px;border-bottom: black dashed 1px;" ng-repeat="advisor in $ctrl.advisors track by $index">
+                    <div ng-class="{'lastAdvisorRow': $last, 'notLastAdvisorRow': !$last}" ng-repeat="advisor in $ctrl.advisors track by $index">
                         {{advisor.firstName}} {{advisor.lastName}}
                         <span style="float:right;">{{advisor.branch.city}}, {{advisor.branch.provinceAbbr}}<img style='margin-left:30px' src="assets/images/circleChevron.png" /></span>
                     </div>
