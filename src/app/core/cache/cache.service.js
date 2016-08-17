@@ -35,7 +35,40 @@
                 storageMode: 'localStorage'
             });
         }
-        return dataCache;
+
+        function timeCapsule(data, expiryDate) {
+            return  {
+                data: data,
+                expiryTime: expiryDate
+            }
+        }
+
+        function put(path, data, noExpiration) {
+            var expiryTime = (new Date).getTime() + 24 * 60 * 60 * 1000;
+            if (!noExpiration) {
+                dataCache.put(path, timeCapsule(data, expiryTime));
+            } else {
+                dataCache.put(path, data);
+            }
+        }
+        function get(path) {
+            var data = dataCache.get(path);
+            console.log('data: ', data);
+            if (data && data.hasOwnProperty('expiryTime') && data.expiryTime > (new Date()).getTime()) {
+                return data.data;
+            } else {
+                //If data has expired return undefined
+                return undefined;
+            }
+            //no expiry flag was set, return the data
+            return data;
+        }
+
+        var localCache = {
+            get: get,
+            put: put
+        }
+        return localCache;
     }
     function notificationsCacheService(CacheFactory) {
         var appErrors = CacheFactory.get('TempAppNotifications');

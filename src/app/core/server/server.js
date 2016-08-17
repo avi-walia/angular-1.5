@@ -14,12 +14,6 @@
         'pageStateResolver',
         'i18nService'
     ];
-    function timeCapsule(data, expiryDate) {
-        return  {
-            data: data,
-            expiryDate: expiryDate
-        }
-    }
 
     /* @ngInject */
     function server($q, $http, ENDPOINT_URI,
@@ -34,9 +28,7 @@
          *
          * @param sPath string Relative URL specifying the destination of the request.
          */
-        service.get = function (sPath) {
-            return get(sPath);
-        };
+        service.get = get;
 
         /**
          * GET call, caches to sessionStorage.
@@ -131,17 +123,16 @@
         function getFromServer(sPath, deferred, sStorageType, bIsUnlocalized) {
             $http.get(sPath)
                 .then(function (response) {
+                    console.log('server response: ', response);
                     // check for no data being sent
                     if (response.status !== 204) {
                         // put data in cache
-                        var expiryDate = new Date();
-                        expiryDate.setDate(expiryDate.getDate()+1);
                         if (sStorageType === 'sessionStorage') {
-                            dataCacheSessionStorage.put(sPath, timeCapsule(response, expiryDate));
+                            dataCacheSessionStorage.put(sPath, response.data);
                         } else {
-                            dataCacheLocalStorage.put('spath', timeCapsule(response, expiryDate));
+                            dataCacheLocalStorage.put(sPath, response.data);
                         }
-                        response = bIsUnlocalized ? response : filterLangResponse(response);
+                        response = !bIsUnlocalized ? response.data : filterLangResponse(response.data);
                     }
                     deferred.resolve(response);
                 })
@@ -156,21 +147,33 @@
         function get(sPath, bRemoveCache, sStorageType, bIsUnlocalized) {
             var deferred = $q.defer();
             var cachedObj;
+            if (typeof bRemoveCache == 'undefined' && typeof sStorageType == 'undefined' && typeof bIsUnlocalized == 'undefined') {
+                bRemoveCache = false;
+                sStorageType = 'localStorage';
+                bIsUnlocalized = false;
+            }
 
             // force re-cache the call
             if (bRemoveCache) {
                 // clean cache record using the key
                 dataCacheSessionStorage.remove(sPath);
             }
-
+            console.log('storageType: ', sStorageType);
             // if the key is not in cache then cachedObj is undefined
             if (sStorageType === 'sessionStorage') {
                 cachedObj = dataCacheSessionStorage.get(sPath);
             } else if (sStorageType === 'localStorage') {
+                /*
                 var tempCachedObj = dataCacheLocalStorage.get(sPath);
-                if (tempCachedObj.expiryDate > new Date()) {
+                if (tempCachedObj && tempCachedObj.hasOwnProperty('expiryDate') && tempCachedObj.expiryDate > (new Date()).getTime()) {
                     cachedObj = tempCachedObj.data;
+                } else {
+                    getFromServer(sPath, deferred, sStorageType, bIsUnlocalized);
+                    return deferred.promise;//don't need to process the rest of the function at this point.
                 }
+                */
+                var cachedObj = dataCacheLocalStorage.get(sPath);
+
             }
 
             if (_.isObject(cachedObj)) {
