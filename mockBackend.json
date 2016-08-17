@@ -27,6 +27,34 @@
         "postalCode": "A1A 1A1",
         "tollFree": "12345"
       }
+    },
+    {
+      "id":"1235",
+      "firstName": "FirstnameB",
+      "lastName": "LastnameC",
+      "commonName": "Commonname",
+      "titles" : ["title1", "title2"],
+      "profilePictureName": "nameofpicture.jpg",
+      "phone": "12334567890",
+      "email": "email@email.com",
+      "altEmail": "alternateemail@email.com",
+      "website": "http://url",
+      "branch": {
+        "id": "01",
+        "dealerShip": "ACN",
+        "styleNameEN": "Style name English",
+        "styleNameFR": "Style name French",
+        "geoLocation": {
+          "lng": -79.4080591,
+          "lat": 43.7617201
+        },
+        "address1": "Address 1",
+        "address2": "Address 2",
+        "city": "cityB",
+        "provinceAbbr": "QC",
+        "postalCode": "A1A 1A1",
+        "tollFree": "12345"
+      }
     }
   ],
   "branches": [

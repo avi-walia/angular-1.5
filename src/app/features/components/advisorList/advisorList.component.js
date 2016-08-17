@@ -41,13 +41,6 @@
                 vm.advisors = data.data;
                 vm.isLoading = false;
             });
-
-            var testKey = 'testKey';
-            var testData = {jon:'snow'};
-            dataCacheLocalStorage.put(testKey, testData);
-            dataCacheLocalStorage.remove(testKey);
-            console.log('remove: ', dataCacheLocalStorage.remove);
-            console.log('after removal: ', dataCacheLocalStorage.get(testKey));
         }
 
 
