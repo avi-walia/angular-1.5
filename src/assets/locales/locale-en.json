@@ -52,6 +52,7 @@
   },
   "branchList":{
     "title": "Branch List",
-    "autoComplete": "Somewhere in Canada:"
+    "autoComplete": "Somewhere in Canada:",
+    "placeholder": "Enter a location"
   }
 }

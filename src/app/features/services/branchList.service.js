@@ -21,6 +21,8 @@
         service.getBranchList = getBranchList;
         service.setPosition = setPosition;
         service.getPosition = getPosition;
+        service.setLocation = setLocation;
+        service.getLocation = getLocation;
 
         function getBranchList(account) {
             service.branchListLoading = true;
@@ -40,6 +42,15 @@
 
         function getPosition(){
             return service.position;
+        }
+
+        function setLocation(location) {
+            service.location = location;
+            console.log('branch service updated: '+ location);
+        }
+
+        function getLocation(){
+            return service.location;
         }
 
 

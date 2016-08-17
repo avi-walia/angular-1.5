@@ -25,7 +25,21 @@
         vm.detectMobile = detectMobile;
 
         vm.branchListService = branchListService;
-        vm.setPosition = vm.branchListService.setPosition;
+
+        vm.setPosition = setPosition;
+        vm.setLocation = setLocation;
+
+
+        function setPosition(position){
+            console.log('parent was called: '+ position);
+            vm.branchListService.setPosition(position);
+        }
+
+
+        function setLocation(location){
+            console.log('parent was called: '+ location);
+            vm.branchListService.setLocation(location);
+        }
     }
 
 })();

@@ -55,6 +55,7 @@
   },
   "branchList":{
     "title": "French Branch List",
-    "autoComplete": "French Somewhere in Canada:"
+    "autoComplete": "French Somewhere in Canada:",
+    "placeholder": "French Enter a location"
   }
 }
