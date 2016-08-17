@@ -1,3 +1,63 @@
+var footerHtml = '<p class="copyright" translate="copyright" translate-value-year="{{::( $ctrl.year )}}"></p><span class="logo" title="{{ \'navbar.logo-text\' | translate }}" translate></span>';
+
+var localeEn = {
+    "appTitle": "App Title",
+    "pages": {
+        "page1": "Page 1 Title",
+        "page2": "Page 2 Title",
+        "page3": "Page 3 Title",
+        "page4": "Page 4 Title",
+        "page5": "Page 5 Title"
+    },
+    "helpLabel": "Help",
+
+    "navbar": {
+        "EN": "English",
+        "FR": "Français",
+        "logo-img": "logos.svg",
+        "browse-happy": "You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.",
+        "dismiss-message": "Dismiss message",
+        "logo-text": "Advisor Locator"
+    },
+
+    "universal" : {
+        "font-size": "Font size:",
+        "font-size-normal": "Change application font size to normal.",
+        "font-size-large": "Change application font size to large.",
+        "font-size-largest": "Change application font size to largest."
+    },
+    "footer": {
+        "linkText1": "Link 1",
+        "linkText2": "Link 2",
+        "linkText3": "Link 3",
+        "linkText4": "Link 4",
+        "link1": "https://www.google.ca/",
+        "link2": "https://www.yahoo.ca/",
+        "link3": "https://www.ci.com/",
+        "link4": "https://www.assanteservices.com/aiol/#/en/aio/landing/"
+    },
+    "homeFooterLink": "NameOfMyNewSite.com",
+    "copyright": "©{{ year }} {{ 'company' | translate}}",
+    "company": "Name of Company",
+    "companyLink": "https://www.assante.com",
+    "notifications": {
+        "http-errors": {
+            "E409001": "<em class=\"material-icons\">error</em>Invalid advisor id",
+            "E409002": "<em class=\"material-icons\">error</em>Invalid branch id",
+            "core-generic-failure": "<em class=\"material-icons\">error</em>There is an issue on our side."
+        },
+        "fe-messages": {
+            "cancel": "<em class=\"material-icons\">error</em>Canceled.",
+            "refresh": "<em class=\"material-icons\">error</em>Refreshing the page has resulted in any unsaved information being lost."
+
+        }
+    },
+    "branchList":{
+        "title": "Branch List",
+        "autoComplete": "Somewhere in Canada:"
+    }
+};
+
 describe('example test', function() {
     it('should be true', function() {
         expect('foo').toBe('foo');
@@ -82,6 +142,45 @@ describe('example test', function() {
     });
 })();
 
+(function () {
+    describe('footer Component', function () {
+        var customCacheFactory;
+        var controller;
+        var translate;
+        var copyrightYear;
+        var $compile;
+        var $rootScope;
+        var $httpBackend
+        beforeEach(function() {
+            module('ui.router');
+            module('pascalprecht.translate');
+            module('advisorLocator.core.main');
+            module('advisorLocator');
+            inject(['$injector', '$controller', '$translate', 'copyrightYear', '$compile', '$rootScope', '$httpBackend', function($injector, $controller, $translate, _copyrightYear_, _$compile_, _$rootScope_, _$httpBackend_){
+                controller = $controller;
+                translate = $translate;
+                copyrightYear = _copyrightYear_;
+                $compile = _$compile_
+                $rootScope = _$rootScope_;
+                $httpBackend = _$httpBackend_;
+                $httpBackend.when('GET', 'assets/locales/locale-en.json').respond(localeEn);
+                $httpBackend.when('GET', 'app/core/components/footer/footer.tpl.html').respond(footerHtml);
+                $httpBackend.when('GET', 'app/core/layout/main.layout.html').respond('test');
+            }]);
+        });
+        it('Footer controller should do stuff', function() {
+            var $scope = {};
+            var element = $compile('<ci-footer id="footer"></ci-footer>')($rootScope);
+            $httpBackend.flush();
+            $rootScope.$digest();
+            var now = new Date();
+            expect(element.html()).toContain(now.getFullYear().toString());
+        });
+
+    });
+})();
+
+/*
 (function () {
     describe('footerController', function () {
         var customCacheFactory;

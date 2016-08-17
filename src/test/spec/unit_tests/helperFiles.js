@@ -25,7 +25,7 @@ function cacheTester(customCacheFactory, testKey, factoryKey, cf, testData) {
     customCacheFactory.destroy();
     expect(function () {
         customCacheFactory.get(testKey)
-    }).toThrow(new TypeError("Cannot use 'in' operator to search for 'testKey' in null"));
+    }).toThrow(new TypeError("Cannot read property 'value' of undefined"));
 };
 
 function getCompiledElement(rawHtml, scope, compile){
