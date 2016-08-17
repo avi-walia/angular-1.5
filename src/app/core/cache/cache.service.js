@@ -63,12 +63,22 @@
             //no expiry flag was set, return the data
             return data;
         }
+        function remove2(key) {
+            dataCache.remove(key);
+        }
+        function removeAll2() {
+            dataCache.removeAll();
+        }
+        function destroy() {
+            dataCache.destroy();
+        }
 
         var localCache = {
             'get': get,
             'put': put,
-            'remove': dataCache.remove,
-            'removeAll': dataCache.removeAll
+            'remove': remove2,
+            'removeAll': removeAll2,
+            'destroy': destroy
         }
         return localCache;
     }

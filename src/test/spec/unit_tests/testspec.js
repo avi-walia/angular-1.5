@@ -50,7 +50,7 @@ describe('example test', function() {
             var testData = {jon:'snow'};
 
 
-            cacheTester(customCacheFactory, testKey, factoryKey, cf, testData);
+            cacheTester(customCacheFactory, testKey, factoryKey, cf, testData, true);
         });
 
     });
@@ -82,6 +82,39 @@ describe('example test', function() {
     });
 })();
 
+
+(function () {
+    describe('footer Component', function () {
+        var customCacheFactory;
+        var controller;
+        var translate;
+        var copyrightYear;
+        var $compile;
+        var $rootScope;
+        beforeEach(function() {
+            module('ui.router');
+            module('pascalprecht.translate');
+            module('advisorLocator.core.main');
+            module('advisorLocator');
+            inject(['$injector', '$controller', '$translate', 'copyrightYear', '$compile', '$rootScope', function($injector, $controller, $translate, _copyrightYear_, _$compile_, _$rootScope_){
+                controller = $controller;
+                translate = $translate;
+                copyrightYear = _copyrightYear_;
+                $compile = _$compile_
+                $rootScope = _$rootScope_;
+
+            }]);
+        });
+        it('Footer controller should do stuff', function() {
+            var $scope = {};
+            var footerCtrl = controller('FooterCtrl', {$scope: $scope, copyrightYear:copyrightYear});
+            expect(footerCtrl.serverDate).toEqual(copyrightYear);
+        });
+
+    });
+})();
+
+/*
 (function () {
     describe('footerController', function () {
         var customCacheFactory;
@@ -107,6 +140,7 @@ describe('example test', function() {
 
     });
 })();
+*/
 /*
 (function () {
     describe('languageSwitcherController', function () {
