@@ -37,8 +37,8 @@
             vm.advisors = [];
             vm.isLoading = true;
             server.get(BASE_URL + ENDPOINT_URI + '/advisors', false, 'localStorage', false).then(function(data) {
-                console.log('data1123: ', data);
-                vm.advisors = data;
+                console.log('data1123: ', data.data);
+                vm.advisors = data.data;
                 vm.isLoading = false;
             });
 
