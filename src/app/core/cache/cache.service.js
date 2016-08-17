@@ -65,8 +65,10 @@
         }
 
         var localCache = {
-            get: get,
-            put: put
+            'get': get,
+            'put': put,
+            'remove': dataCache.remove,
+            'removeAll': dataCache.removeAll
         }
         return localCache;
     }

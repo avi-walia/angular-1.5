@@ -15,7 +15,7 @@ function cacheTester(customCacheFactory, testKey, factoryKey, cf, testData) {
     expect(cf['$$id']).toEqual(factoryKey);
 
     //make sure the cache can be deleted.
-    customCacheFactory.remove(testKey);
+    customCacheFactory.removeAll();
     expect(customCacheFactory.get(testKey)).toEqual(undefined);
 
     //expect that accessing the cache through the factory should be the same as accessing it through CacheFactory
@@ -23,9 +23,14 @@ function cacheTester(customCacheFactory, testKey, factoryKey, cf, testData) {
 
     //expect that we should get an error when trying to retrieve a destroyed cache.
     customCacheFactory.destroy();
+    /*
     expect(function () {
         customCacheFactory.get(testKey)
     }).toThrow(new TypeError("Cannot use 'in' operator to search for 'testKey' in null"));
+    */
+    expect(function () {
+        customCacheFactory.get(testKey);
+    }).toThrow(new TypeError("Cannot read property 'value' of undefined"));
 };
 
 function getCompiledElement(rawHtml, scope, compile){

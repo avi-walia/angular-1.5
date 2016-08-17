@@ -107,7 +107,7 @@ describe('example test', function() {
 
     });
 })();
-
+/*
 (function () {
     describe('languageSwitcherController', function () {
         var $controller;
@@ -175,6 +175,7 @@ describe('example test', function() {
 
     });
 })();
+*/
 /*
 describe("Directive", function () {
 
