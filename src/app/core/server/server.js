@@ -128,11 +128,11 @@
                     if (response.status !== 204) {
                         // put data in cache
                         if (sStorageType === 'sessionStorage') {
-                            dataCacheSessionStorage.put(sPath, response.data);
+                            dataCacheSessionStorage.put(sPath, response);
                         } else {
-                            dataCacheLocalStorage.put(sPath, response.data);
+                            dataCacheLocalStorage.put(sPath, response);
                         }
-                        response = !bIsUnlocalized ? response.data : filterLangResponse(response.data);
+                        response = !bIsUnlocalized ? response : filterLangResponse(response);
                     }
                     deferred.resolve(response);
                 })
