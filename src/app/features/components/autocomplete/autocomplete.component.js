@@ -34,7 +34,6 @@
         vm.loadParameters = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCwahusHkUZ-LOTVpawRSoKh-h2ktVbj2I&libraries=geometry,places&language='+$rootScope.documentLanguage;
         vm.restriction = {'country': 'ca'};
 
-        vm.placeholder = $rootScope.documentLanguage === 'en' ? 'Enter a location' : 'French Enter a location';
 
         vm.onPlaceChanged = onPlaceChanged;
 
