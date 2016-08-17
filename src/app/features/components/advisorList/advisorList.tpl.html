@@ -2,6 +2,11 @@
     <div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="advisorList">
         <div class="full" ng-if="$ctrl.detectMobile.isDesktop">
             <h2>Advisor List</h2>
+            <ci-loader loading="$ctrl.isLoading">
+                <div ng-repeat="advisor in $ctrl.advisors track by $index">
+                    {{advisor.firstName}} <span style="align:right;">{{advisor.lastName}}</span>
+                </div>
+            </ci-loader>
         </div>
     </div>
 
