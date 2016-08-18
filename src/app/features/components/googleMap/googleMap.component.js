@@ -9,7 +9,7 @@
             bindings: {
                 onUpdateMarkers: '&?', /*will be used only for branch locations search*/
                 position: '<?', /*will be used only for branch location search*/
-                userMarker: '<?', /*{geolocation: {lat: number, lng: number}, zoom: number}*/
+                userMarker: '<?', /*{geoLocation: {lat: number, lng: number}, zoom: number}*/
                 address: '<?' /*physical address of the marker (separate values by comma followed by space)*/
             },
             templateUrl:'app/features/components/googleMap/googleMap.tpl.html'
@@ -32,7 +32,15 @@
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;
         vm.loadParameters = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCwahusHkUZ-LOTVpawRSoKh-h2ktVbj2I&libraries=geometry,places&language='+$rootScope.documentLanguage;
-        vm.ca = {center: [61.0, -99.0], zoom: 3, mapTypeControl: false, panControl: false, streetViewControl: false, zoomControl: true, draggable: true};
+        vm.ca = {
+            center: [61.0, -99.0],
+            zoom: 3,
+            mapTypeControl: false,
+            panControl: false,
+            streetViewControl: false,
+            zoomControl: true,
+            draggable: true
+        };
         vm.mapPromise = NgMap.getMap().then(function(map){
             vm.map = map;
         });
