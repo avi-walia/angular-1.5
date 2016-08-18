@@ -3,6 +3,7 @@
         <div>
             <h2>Advisor List</h2>
             <paginator-infinite-scroll service="$ctrl.service">
+                <!--
                 <ci-loader loading="$ctrl.isLoading" infinite-scroll="$ctrl.service.loadMore();" >
                     <div style="margin-top:25px;border:solid black 1px;padding:25px;">
                         <div ng-if="$ctrl.detectMobile.isDesktop" class="full" ng-class="{'lastAdvisorRow': $last, 'notLastAdvisorRow': !$last}" ng-repeat="row in $ctrl.service[$ctrl.service.objectName] | limitTo:$ctrl.service.numPerPage:$ctrl.service.currentPage*$ctrl.service.numPerPage track by $index">
@@ -15,6 +16,7 @@
                         </div>
                     </div>
                 </ci-loader>
+                -->
             </paginator-infinite-scroll>
             <!--
             <ci-loader loading="$ctrl.isLoading">

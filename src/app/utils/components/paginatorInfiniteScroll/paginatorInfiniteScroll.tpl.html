@@ -6,7 +6,8 @@
             <span style="float:right;">{{element.branch.city}}, {{element.branch.provinceAbbr}}<img style='margin-left:30px' src="assets/images/circleChevron.png" /></span>
         </div>
         -->
-        <div ng-include="$ctrl.service.desktopTemplatePath"></div>
+        <div ng-if="$ctrl.detectMobile.isDesktop" ng-include="$ctrl.service.desktopTemplatePath"></div>
+
         <div ng-if="!$ctrl.detectMobile.isDesktop" ng-class="{'lastAdvisorRow': $last, 'notLastAdvisorRow': !$last}" ng-repeat="element in $ctrl.service[$ctrl.service.objectName] | limitTo:$ctrl.service.mobileMaxNumDisplay track by $index">
             <!--
             {{element.firstName}} {{element.lastName}}
@@ -15,4 +16,16 @@
             <div ng-include="$ctrl.service.mobileTemplatePath"></div>
         </div>
     </div>
+
+    <ul
+            ng-if="$ctrl.detectMobile.isDesktop"
+            class="pagination"
+            uib-pagination
+            total-items="$ctrl.pagination.totalItems"
+            ng-model="$ctrl.pagination.$ctrl.pagination.currentPage"
+            ng-change="pageChanged()"
+            max-size="7"
+            force-ellipses="true"
+    >
+    </ul>
 </ci-loader>

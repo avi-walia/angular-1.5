@@ -10,6 +10,11 @@ select,
 textarea {
     color: #222;
 }
+.pagination, .pagination li {
+    display:inline;
+    float:left;
+    padding-left:10px;
+}
 #content {
     padding:3%;
 }

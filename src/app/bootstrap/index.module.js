@@ -3,15 +3,15 @@
 
     //---------------- CORE ---------------- //
     angular.module('advisorLocator.core.cache', []);
-    angular.module('advisorLocator.core.server', ['advisorLocator.core.cache']);
-    angular.module('advisorLocator.core.main', ['advisorLocator.core.server', 'advisorLocator.utils']);
+    angular.module('advisorLocator.core.server', ['advisorLocator.core.cache', 'ui.bootstrap']);
+    angular.module('advisorLocator.core.main', ['advisorLocator.core.server', 'advisorLocator.utils', 'ui.bootstrap']);
     //---------------- FEATURES ---------------- //
-    angular.module('advisorLocator.features.searchByName', ['advisorLocator.core.server', 'advisorLocator.utils', 'ui.bootstrap', 'advisorLocator.features.service']);
-    angular.module('advisorLocator.features.searchByLocation', ['advisorLocator.core.server', 'advisorLocator.utils', 'advisorLocator.features.service']);
+    angular.module('advisorLocator.features.searchByName', ['advisorLocator.core.server', 'advisorLocator.utils', 'ui.bootstrap', 'advisorLocator.features.service', 'ui.bootstrap']);
+    angular.module('advisorLocator.features.searchByLocation', ['advisorLocator.core.server', 'advisorLocator.utils', 'advisorLocator.features.service', 'ui.bootstrap' ]);
     angular.module('advisorLocator.features.service', ['advisorLocator', 'advisorLocator.core.server', 'advisorLocator.utils', 'ui.bootstrap']);
 
     //---------------- UTILITIES ---------------- //
-    angular.module('advisorLocator.utils', ['advisorLocator.core.server', 'matchMedia', 'ng.deviceDetector']);
+    angular.module('advisorLocator.utils', ['advisorLocator.core.server', 'matchMedia', 'ng.deviceDetector', 'ui.bootstrap']);
 
     //---------------- MAIN ---------------- //
     angular.module('advisorLocator', [
