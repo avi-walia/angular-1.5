@@ -45,8 +45,8 @@
             });
         };
 
-        service.paginate = function() {
-            return service.advisors;
+        service.pageChanged = function(newPage) {
+            service.currentPage = newPage;
         }
 
     }

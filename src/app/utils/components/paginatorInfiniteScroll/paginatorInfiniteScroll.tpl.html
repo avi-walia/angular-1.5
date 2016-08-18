@@ -21,11 +21,12 @@
             ng-if="$ctrl.detectMobile.isDesktop"
             class="pagination"
             uib-pagination
-            total-items="$ctrl.pagination.totalItems"
-            ng-model="$ctrl.pagination.$ctrl.pagination.currentPage"
-            ng-change="pageChanged()"
+            total-items="$ctrl.service[$ctrl.service.objectName].length"
+            ng-model="$ctrl.service.currentPage"
+            ng-change="$ctrl.service.pageChanged($ctrl.service.currentPage)"
             max-size="7"
             force-ellipses="true"
+            items-per-page="$ctrl.service.numPerPage"
     >
     </ul>
 </ci-loader>
