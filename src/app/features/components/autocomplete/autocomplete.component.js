@@ -20,17 +20,14 @@
     autocompleteCtrl.$inject = [
         '$rootScope',
         'pageStateResolver',
-        'detectMobile',
-        'NgMap',
-        'branchListService'
+        'detectMobile'
     ];
     /* @ngInject */
-    function autocompleteCtrl( $rootScope, pageStateResolver, detectMobile, NgMap, branchListService
+    function autocompleteCtrl( $rootScope, pageStateResolver, detectMobile
     ) {
         var vm = this;
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;
-        vm.branchListService = branchListService;
         vm.loadParameters = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCwahusHkUZ-LOTVpawRSoKh-h2ktVbj2I&libraries=geometry,places&language='+$rootScope.documentLanguage;
         vm.restriction = {'country': 'ca'};
 

@@ -24,8 +24,9 @@
         service.setLocation = setLocation;
         service.getLocation = getLocation;
 
-        function getBranchList(account) {
+        function getBranchList() {
             service.branchListLoading = true;
+
             return server.postSessionStorage('http://localhost:3001/branches', null)
                 .then(function (result) {
                     service.branchList =result.data;
