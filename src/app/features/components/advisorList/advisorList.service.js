@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('advisorLocator.features.service')
+        .module('advisorLocator.features.searchByName')
         .service('advisorService', advisorService);
 
     advisorService.$inject = [
