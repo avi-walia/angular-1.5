@@ -1,7 +1,22 @@
 
     <div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="advisorList">
-        <div class="full" ng-if="$ctrl.detectMobile.isDesktop">
+        <div>
             <h2>Advisor List</h2>
+            <paginator-infinite-scroll service="$ctrl.service">
+                <ci-loader loading="$ctrl.isLoading" infinite-scroll="$ctrl.service.loadMore();" >
+                    <div style="margin-top:25px;border:solid black 1px;padding:25px;">
+                        <div ng-if="$ctrl.detectMobile.isDesktop" class="full" ng-class="{'lastAdvisorRow': $last, 'notLastAdvisorRow': !$last}" ng-repeat="row in $ctrl.service[$ctrl.service.objectName] | limitTo:$ctrl.service.numPerPage:$ctrl.service.currentPage*$ctrl.service.numPerPage track by $index">
+                            {{row.firstName}} {{row.lastName}}
+                            <span style="float:right;">{{row.branch.city}}, {{row.branch.provinceAbbr}}<img style='margin-left:30px' src="assets/images/circleChevron.png" /></span>
+                        </div>
+                        <div style="height:300px;" ng-if="!$ctrl.detectMobile.isDesktop" ng-class="{'lastAdvisorRow': $last, 'notLastAdvisorRow': !$last}" ng-repeat="row in $ctrl.service[$ctrl.service.objectName] | limitTo:$ctrl.service.mobileMaxNumDisplay track by $index">
+                            {{row.firstName}} {{row.lastName}}
+                            <span style="float:right;">{{row.branch.city}}, {{row.branch.provinceAbbr}}<img style='margin-left:30px' src="assets/images/circleChevron.png" /></span>
+                        </div>
+                    </div>
+                </ci-loader>
+            </paginator-infinite-scroll>
+            <!--
             <ci-loader loading="$ctrl.isLoading">
                 <div style="margin-top:25px;border:solid black 1px;padding:25px;">
                     <div ng-class="{'lastAdvisorRow': $last, 'notLastAdvisorRow': !$last}" ng-repeat="advisor in $ctrl.advisors track by $index">
@@ -10,6 +25,7 @@
                     </div>
                 </div>
             </ci-loader>
+            -->
         </div>
     </div>
 

@@ -13,7 +13,7 @@
     /* @ngInject */
 
     advisorListCtrl.$inject = [
-
+        'advisorService',
         'pageStateResolver',
         'detectMobile',
         'server',
@@ -23,6 +23,7 @@
     ];
     /* @ngInject */
     function advisorListCtrl(
+        advisorService,
         pageStateResolver,
         detectMobile,
         server,
@@ -33,6 +34,9 @@
         var vm = this;
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;
+        advisorService.init();
+        vm.service = advisorService;
+        /*
         function init() {
             vm.advisors = [];
             vm.isLoading = true;
@@ -46,6 +50,7 @@
 
 
         init();
+        */
 
     }
 
