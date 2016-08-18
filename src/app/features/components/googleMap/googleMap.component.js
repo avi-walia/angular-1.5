@@ -7,11 +7,10 @@
         .component('googleMap', {
             controller: googleMapCtrl,
             bindings: {
-                list: '<',
-                onUpdateMarkers: '&?',
-                position: '<?',
-                userMarker: '<?',
-                address: '<?'
+                onUpdateMarkers: '&?', /*will be used only for branch locations search*/
+                position: '<?', /*will be used only for branch location search*/
+                userMarker: '<?', /*{geolocation: {lat: number, lng: number}, zoom: number}*/
+                address: '<?' /*physical address of the marker (separate values by comma followed by space)*/
             },
             templateUrl:'app/features/components/googleMap/googleMap.tpl.html'
         });
