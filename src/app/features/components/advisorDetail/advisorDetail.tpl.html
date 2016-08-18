@@ -2,6 +2,29 @@
     <div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="advisorDetails">
         <div class="full" ng-if="$ctrl.detectMobile.isDesktop">
             <h2>Advisor details</h2>
+
+
+            <!-- ADVISOR DETAILS -->
+            <table  ng-repeat="advisor in $ctrl.advisorDetailService.advisorDetail">
+
+                <tr >
+                    <td class="description">Tel:</td>
+                    <td class="price extra">{{advisor.phone}}</td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>{{advisor.email}}</td>
+                </tr>
+                <tr>
+                    <td>Team Email:</td>
+                    <td>{{advisor.altEmail}}</td>
+                </tr>
+                <tr >
+                    <td>Website</td>
+                    <td>{{advisor.website}}</td>
+                </tr>
+
+            </table>
         </div>
     </div>
 

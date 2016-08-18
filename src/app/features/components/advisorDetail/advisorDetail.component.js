@@ -15,15 +15,24 @@
     advisorDetailCtrl.$inject = [
         '$stateParams',
         'pageStateResolver',
-        'detectMobile'
+        'detectMobile',
+        'advisorDetailService'
     ];
     /* @ngInject */
-    function advisorDetailCtrl( $stateParams, pageStateResolver, detectMobile
+    function advisorDetailCtrl( $stateParams, pageStateResolver, detectMobile, advisorDetailService
     ) {
         var vm = this;
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;
         vm.advisorId = $stateParams.id;
+        vm.advisorDetailService = advisorDetailService;
+
+        vm.getAdvisorDetail = getAdvisorDetail(1);
+        //vm.temp = getAdvisorDetail(1);
+
+        function getAdvisorDetail(id){
+            vm.advisorDetails = vm.advisorDetailService.getAdvisorDetail(id);
+        }
     }
 
 })();
