@@ -1,13 +1,19 @@
 <ci-loader loading="$ctrl.isLoading" infinite-scroll="$ctrl.service.loadMore();" >
-    <div style="margin-top:25px;border:solid black 1px;padding:25px;">
+    <div style="margin-top:15px;" ng-if="$ctrl.service[$ctrl.service.objectName].length > 0">
+        {{$ctrl.service[$ctrl.service.objectName].length}} {{'searchResultsFound' | translate}}
+    </div>
+    <div style="margin-top:10px;border:solid black 1px;padding:25px;" ng-if="$ctrl.service[$ctrl.service.objectName].length > 0">
         <div ng-if="$ctrl.detectMobile.isDesktop" ng-include="$ctrl.service.desktopTemplatePath"></div>
         <div ng-if="!$ctrl.detectMobile.isDesktop" ng-class="{'lastAdvisorRow': $last, 'notLastAdvisorRow': !$last}" ng-repeat="element in $ctrl.service[$ctrl.service.objectName] | limitTo:$ctrl.service.mobileMaxNumDisplay track by $index">
             <div ng-include="$ctrl.service.mobileTemplatePath"></div>
         </div>
     </div>
+    <div ng-if="!$ctrl.service[$ctrl.service.objectName].length" translate>
+        noSearchCriteria
+    </div>
 
     <ul
-            ng-if="$ctrl.detectMobile.isDesktop"
+            ng-if="$ctrl.detectMobile.isDesktop && $ctrl.service[$ctrl.service.objectName].length > 0"
             class="pagination"
             uib-pagination
             total-items="$ctrl.service[$ctrl.service.objectName].length"
@@ -15,7 +21,6 @@
             ng-change="$ctrl.service.pageChanged($ctrl.service.currentPage)"
             max-size="7"
             force-ellipses="true"
-            items-per-page="$ctrl.service.numPerPage"
     >
     </ul>
 </ci-loader>

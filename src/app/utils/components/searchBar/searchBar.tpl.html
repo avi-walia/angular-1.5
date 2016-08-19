@@ -1,8 +1,8 @@
 <div>
     <input style="width:50%; margin-top:25px;" type="text" ng-model="$ctrl.service.searchCriteria" />
-    <select>
-        <option translate>search.byName</option>
-        <option translate>search.byLocation</option>
+    <select ng-model="$ctrl.searchBy" ng-change="$ctrl.navigate($ctrl.searchBy)">
+        <option value="name" translate>search.byName</option>
+        <option value="location" translate>search.byLocation</option>
     </select>
-    <button style="margin-left:50px;" translate ng-click="$ctrl.service.search($ctrl.service.searchCriteria)">searchButton</button>
+    <button style="margin-left:50px;" translate ng-click="$ctrl.service.search($ctrl.service.searchCriteria)" translate>searchButton</button>
 </div>

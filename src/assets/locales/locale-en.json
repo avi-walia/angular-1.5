@@ -5,12 +5,15 @@
     "byName": "Seach By: Advisor Name",
     "byLocation": "Search By: Location"
   },
+  "searchResultsFound": "Search results found.",
+  "noSearchCriteria": "There are no search results to be displayed.",
   "pages": {
     "page1": "Page 1 Title",
     "page2": "Page 2 Title",
     "page3": "Page 3 Title",
     "page4": "Page 4 Title",
-    "page5": "Page 5 Title"
+    "page5": "Page 5 Title",
+    "advisorList": "Search for Advisor"
   },
   "helpLabel": "Help",
 
