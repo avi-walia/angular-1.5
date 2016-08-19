@@ -1,5 +1,10 @@
 {
   "appTitle": "App Title",
+  "searchButton": "Search",
+  "search": {
+    "byName": "Seach By: Advisor Name",
+    "byLocation": "Search By: Location"
+  },
   "pages": {
     "page1": "Page 1 Title",
     "page2": "Page 2 Title",

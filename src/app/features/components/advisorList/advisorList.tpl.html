@@ -1,9 +1,10 @@
 
-    <div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="advisorList">
-        <div>
-            <h2>Advisor List</h2>
-            <paginator-infinite-scroll service="$ctrl.service">
-            </paginator-infinite-scroll>
-        </div>
+<div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="advisorList">
+    <div>
+        <h2>Advisor List</h2>
+        <search-bar service="$ctrl.service"></search-bar>
+        <paginator-infinite-scroll service="$ctrl.service">
+        </paginator-infinite-scroll>
     </div>
+</div>
 
