@@ -110,7 +110,7 @@ describe('example test', function() {
             var testData = {jon:'snow'};
 
 
-            cacheTester(customCacheFactory, testKey, factoryKey, cf, testData);
+            cacheTester(customCacheFactory, testKey, factoryKey, cf, testData, true);
         });
 
     });
@@ -142,6 +142,44 @@ describe('example test', function() {
     });
 })();
 
+
+(function () {
+    describe('footer Component', function () {
+        var customCacheFactory;
+        var controller;
+        var translate;
+        var copyrightYear;
+        var $compile;
+        var $rootScope;
+        var $httpBackend
+        beforeEach(function() {
+            module('ui.router');
+            module('pascalprecht.translate');
+            module('advisorLocator.core.main');
+            module('advisorLocator');
+            inject(['$injector', '$controller', '$translate', 'copyrightYear', '$compile', '$rootScope', '$httpBackend', function($injector, $controller, $translate, _copyrightYear_, _$compile_, _$rootScope_, _$httpBackend_){
+                controller = $controller;
+                translate = $translate;
+                copyrightYear = _copyrightYear_;
+                $compile = _$compile_
+                $rootScope = _$rootScope_;
+                $httpBackend = _$httpBackend_;
+                $httpBackend.when('GET', 'assets/locales/locale-en.json').respond(localeEn);
+                $httpBackend.when('GET', 'app/core/components/footer/footer.tpl.html').respond(footerHtml);
+                $httpBackend.when('GET', 'app/core/layout/main.layout.html').respond('test');
+            }]);
+        });
+        it('Footer controller should do stuff', function() {
+            var $scope = {};
+            var element = $compile('<ci-footer id="footer"></ci-footer>')($rootScope);
+            $httpBackend.flush();
+            $rootScope.$digest();
+            var now = new Date();
+            expect(element.html()).toContain(now.getFullYear().toString());
+        });
+
+    });
+})();
 (function () {
     describe('footer Component', function () {
         var customCacheFactory;
@@ -181,32 +219,6 @@ describe('example test', function() {
 })();
 
 /*
-(function () {
-    describe('footerController', function () {
-        var customCacheFactory;
-        var controller;
-        var translate;
-        var copyrightYear;
-        beforeEach(function() {
-            module('ui.router');
-            module('pascalprecht.translate');
-            module('advisorLocator.core.main');
-            module('advisorLocator');
-            inject(['$injector', '$controller', '$translate', 'copyrightYear', function($injector, $controller, $translate, _copyrightYear_){
-                controller = $controller;
-                translate = $translate;
-                copyrightYear = _copyrightYear_;
-            }]);
-        });
-        it('Footer controller should do stuff', function() {
-            var $scope = {};
-            var footerCtrl = controller('FooterCtrl', {$scope: $scope, copyrightYear:copyrightYear});
-            expect(footerCtrl.serverDate).toEqual(copyrightYear);
-        });
-
-    });
-})();
-
 (function () {
     describe('languageSwitcherController', function () {
         var $controller;
@@ -274,6 +286,7 @@ describe('example test', function() {
 
     });
 })();
+*/
 /*
 describe("Directive", function () {
 

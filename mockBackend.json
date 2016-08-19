@@ -2,8 +2,8 @@
   "advisors": [
     {
       "id":"1234",
-      "firstName": "Firstname",
-      "lastName": "Lastname",
+      "firstName": "FirstnameA",
+      "lastName": "LastnameA",
       "commonName": "Commonname",
       "titles" : ["title1", "title2"],
       "profilePictureName": "nameofpicture.jpg",
@@ -22,7 +22,7 @@
         },
         "address1": "Address 1",
         "address2": "Address 2",
-        "city": "city",
+        "city": "cityA",
         "provinceAbbr": "ON",
         "postalCode": "A1A 1A1",
         "tollFree": "12345"
@@ -226,8 +226,8 @@
     },
     {
       "id":"2234",
-      "firstName": "Firstname",
-      "lastName": "Lastname",
+      "firstName": "Firstname2",
+      "lastName": "Lastname2",
       "commonName": "Commonname",
       "titles" : ["title1", "title2"],
       "profilePictureName": "nameofpicture.jpg",
@@ -254,8 +254,8 @@
     },
     {
       "id":"2235",
-      "firstName": "FirstnameB",
-      "lastName": "LastnameB",
+      "firstName": "FirstnameB2",
+      "lastName": "LastnameB2",
       "commonName": "Commonname",
       "titles" : ["title1", "title2"],
       "profilePictureName": "nameofpicture.jpg",
@@ -282,8 +282,8 @@
     },
     {
       "id":"2236",
-      "firstName": "FirstnameC",
-      "lastName": "LastnameC",
+      "firstName": "FirstnameC2",
+      "lastName": "LastnameC2",
       "commonName": "Commonname",
       "titles" : ["title1", "title2"],
       "profilePictureName": "nameofpicture.jpg",
@@ -310,8 +310,8 @@
     },
     {
       "id":"2237",
-      "firstName": "FirstnameD",
-      "lastName": "LastnameD",
+      "firstName": "FirstnameD2",
+      "lastName": "LastnameD2",
       "commonName": "Commonname",
       "titles" : ["title1", "title2"],
       "profilePictureName": "nameofpicture.jpg",
@@ -338,8 +338,8 @@
     },
     {
       "id":"2238",
-      "firstName": "FirstnameE",
-      "lastName": "LastnameE",
+      "firstName": "FirstnameE2",
+      "lastName": "LastnameE2",
       "commonName": "Commonname",
       "titles" : ["title1", "title2"],
       "profilePictureName": "nameofpicture.jpg",
@@ -366,8 +366,8 @@
     },
     {
       "id":"2239",
-      "firstName": "FirstnameF",
-      "lastName": "LastnameF",
+      "firstName": "FirstnameF2",
+      "lastName": "LastnameF2",
       "commonName": "Commonname",
       "titles" : ["title1", "title2"],
       "profilePictureName": "nameofpicture.jpg",
@@ -394,8 +394,8 @@
     },
     {
       "id":"2240",
-      "firstName": "FirstnameG",
-      "lastName": "LastnameG",
+      "firstName": "FirstnameG2",
+      "lastName": "LastnameG2",
       "commonName": "Commonname",
       "titles" : ["title1", "title2"],
       "profilePictureName": "nameofpicture.jpg",
@@ -422,8 +422,8 @@
     },
     {
       "id":"2241",
-      "firstName": "FirstnameH",
-      "lastName": "LastnameH",
+      "firstName": "FirstnameH2",
+      "lastName": "LastnameH2",
       "commonName": "Commonname",
       "titles" : ["title1", "title2"],
       "profilePictureName": "nameofpicture.jpg",
@@ -448,506 +448,250 @@
         "tollFree": "12345"
       }
     }
-
-
-
-
-
-
   ],
   "branches": [
     {
-      "id": "01",
+      "id": 123456,
       "dealerShip": "ACN",
-      "styleNameEN": "Style name English",
-      "styleNameFR": "Style name French",
       "geoLocation": {
         "lng": -79.4080591,
         "lat": 43.7617201
       },
-      "address1": "Address 1",
-      "address2": "Address 2",
+      "address1": "Address 1A",
+      "address2": "Address 2A",
       "city": "city",
       "provinceAbbr": "ON",
       "postalCode" : "A1A 1A1",
-      "phone": "12334567890",
       "tollFree": "1800123456790",
-      "fax": "1234567890",
-      "website": "http://",
-      "branchManager": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "coBranchManager1": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "coBranchManager2": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "branchAssociates": [
+      "phone": "123-345-6789",
+      "fax": "123-456-7890",
+      "website": "http://urlA",
+      "managerName": "Manager NameA",
+      "managerEmail": "emailA@email.com",
+      "managerPhone": "123-556-780",
+      "coManagerName": "Jim Armit A",
+      "coManagerEmail": "jarmitA@assante.com",
+      "coManagerPhone": "604-484-2070",
+      "coManager2Name": "John Wishloff A",
+      "coManager2Email": "jwishloffA@assante.com",
+      "coManager2Phone": "604-484-2070",
+      "partialAdvisorsInfo": [
         {
-          "id": "1234",
-          "firstName": "Advisor First Name",
-          "lastName": "Advisor Last Name",
-          "commonName": "Advisor Common Name"
+          "id": 1234,
+          "firstName": "Advisor First NameA",
+          "commonName": "Advisor Common NameA",
+          "lastName": "Advisor Last NameA",
+          "spokenLanguage": "English"
         }
       ]
     },
     {
-      "id": "02",
+      "id": 123457,
       "dealerShip": "ACN",
-      "styleNameEN": "Style name English",
-      "styleNameFR": "Style name French",
       "geoLocation": {
-        "lng": -79.40948960000003,
-        "lat": 43.76060700000001
+        "lng": -79.4080591,
+        "lat": 43.7617201
       },
-      "address1": "Address 1",
-      "address2": "Address 2",
+      "address1": "Address 1B",
+      "address2": "Address 2B",
       "city": "city",
       "provinceAbbr": "ON",
       "postalCode" : "A1A 1A1",
-      "phone": "12334567890",
       "tollFree": "1800123456790",
-      "fax": "1234567890",
-      "website": "http://",
-      "branchManager": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "coBranchManager1": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "coBranchManager2": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "branchAssociates": [
+      "phone": "123-345-6789",
+      "fax": "123-456-7890",
+      "website": "http://urlB",
+      "managerName": "Manager NameB",
+      "managerEmail": "emailA@email.com",
+      "managerPhone": "123-556-780",
+      "coManagerName": "Jim Armit B",
+      "coManagerEmail": "jarmitB@assante.com",
+      "coManagerPhone": "604-484-2070",
+      "coManager2Name": "John Wishloff B",
+      "coManager2Email": "jwishloffB@assante.com",
+      "coManager2Phone": "604-484-2070",
+      "partialAdvisorsInfo": [
         {
-          "id": "1234",
-          "firstName": "Advisor First Name",
-          "lastName": "Advisor Last Name",
-          "commonName": "Advisor Common Name"
+          "id": 1234,
+          "firstName": "Advisor First NameB",
+          "commonName": "Advisor Common NameB",
+          "lastName": "Advisor Last NameB",
+          "spokenLanguage": "English"
         }
       ]
     },
     {
-      "id": "03",
+      "id": 123458,
       "dealerShip": "ACN",
-      "styleNameEN": "Style name English",
-      "styleNameFR": "Style name French",
       "geoLocation": {
-        "lng": 79.40950299999997,
-        "lat": 43.76040199999999
+        "lng": -79.4080591,
+        "lat": 43.7617201
       },
-      "address1": "Address 1",
-      "address2": "Address 2",
+      "address1": "Address 1C",
+      "address2": "Address 2C",
       "city": "city",
       "provinceAbbr": "ON",
       "postalCode" : "A1A 1A1",
-      "phone": "12334567890",
       "tollFree": "1800123456790",
-      "fax": "1234567890",
-      "website": "http://",
-      "branchManager": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "coBranchManager1": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "coBranchManager2": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "branchAssociates": [
+      "phone": "123-345-6789",
+      "fax": "123-456-7890",
+      "website": "http://urlC",
+      "managerName": "Manager NameC",
+      "managerEmail": "emailA@email.com",
+      "managerPhone": "123-556-780",
+      "coManagerName": "Jim Armit C",
+      "coManagerEmail": "jarmitB@assante.com",
+      "coManagerPhone": "604-484-2070",
+      "coManager2Name": "John Wishloff C",
+      "coManager2Email": "jwishloffC@assante.com",
+      "coManager2Phone": "604-484-2070",
+      "partialAdvisorsInfo": [
         {
-          "id": "1234",
-          "firstName": "Advisor First Name",
-          "lastName": "Advisor Last Name",
-          "commonName": "Advisor Common Name"
+          "id": 1234,
+          "firstName": "Advisor First NameC",
+          "commonName": "Advisor Common NameC",
+          "lastName": "Advisor Last NameC",
+          "spokenLanguage": "English"
         }
       ]
     },
     {
-      "id": "04",
+      "id": 123459,
       "dealerShip": "ACN",
-      "styleNameEN": "Style name English",
-      "styleNameFR": "Style name French",
       "geoLocation": {
-        "lng": -79.40701419999999,
-        "lat": 43.76396800000001
+        "lng": -79.4080591,
+        "lat": 43.7617201
       },
-      "address1": "Address 1",
-      "address2": "Address 2",
+      "address1": "Address 1C",
+      "address2": "Address 2C",
       "city": "city",
       "provinceAbbr": "ON",
       "postalCode" : "A1A 1A1",
-      "phone": "12334567890",
       "tollFree": "1800123456790",
-      "fax": "1234567890",
-      "website": "http://",
-      "branchManager": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "coBranchManager1": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "coBranchManager2": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "branchAssociates": [
+      "phone": "123-345-6789",
+      "fax": "123-456-7890",
+      "website": "http://urlC",
+      "managerName": "Manager NameC",
+      "managerEmail": "emailA@email.com",
+      "managerPhone": "123-556-780",
+      "coManagerName": "Jim Armit C",
+      "coManagerEmail": "jarmitC@assante.com",
+      "coManagerPhone": "604-484-2070",
+      "coManager2Name": "John Wishloff C",
+      "coManager2Email": "jwishloffC@assante.com",
+      "coManager2Phone": "604-484-2070",
+      "partialAdvisorsInfo": [
         {
-          "id": "1234",
-          "firstName": "Advisor First Name",
-          "lastName": "Advisor Last Name",
-          "commonName": "Advisor Common Name"
+          "id": 1234,
+          "firstName": "Advisor First NameC",
+          "commonName": "Advisor Common NameC",
+          "lastName": "Advisor Last NameC",
+          "spokenLanguage": "English"
         }
       ]
     },
     {
-      "id": "05",
+      "id": 123460,
       "dealerShip": "ACN",
-      "styleNameEN": "Style name English",
-      "styleNameFR": "Style name French",
       "geoLocation": {
-        "lng": -79.4065354,
-        "lat": 43.7562948
+        "lng": -79.4080591,
+        "lat": 43.7617201
       },
-      "address1": "Address 1",
-      "address2": "Address 2",
+      "address1": "Address 1D",
+      "address2": "Address 2D",
       "city": "city",
       "provinceAbbr": "ON",
       "postalCode" : "A1A 1A1",
-      "phone": "12334567890",
       "tollFree": "1800123456790",
-      "fax": "1234567890",
-      "website": "http://",
-      "branchManager": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "coBranchManager1": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "coBranchManager2": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "branchAssociates": [
+      "phone": "123-345-6789",
+      "fax": "123-456-7890",
+      "website": "http://urlD",
+      "managerName": "Manager NameD",
+      "managerEmail": "emailD@email.com",
+      "managerPhone": "123-556-780",
+      "coManagerName": "Jim Armit D",
+      "coManagerEmail": "jarmitD@assante.com",
+      "coManagerPhone": "604-484-2070",
+      "coManager2Name": "John Wishloff D",
+      "coManager2Email": "jwishloffD@assante.com",
+      "coManager2Phone": "604-484-2070",
+      "partialAdvisorsInfo": [
         {
-          "id": "1234",
-          "firstName": "Advisor First Name",
-          "lastName": "Advisor Last Name",
-          "commonName": "Advisor Common Name"
+          "id": 1234,
+          "firstName": "Advisor First NameD",
+          "commonName": "Advisor Common NameD",
+          "lastName": "Advisor Last NameD",
+          "spokenLanguage": "English"
         }
       ]
     },
     {
-      "id": "06",
+      "id": 123461,
       "dealerShip": "ACN",
-      "styleNameEN": "Style name English",
-      "styleNameFR": "Style name French",
       "geoLocation": {
-        "lng": -79.380961,
-        "lat": 43.642281
+        "lng": -79.4080591,
+        "lat": 43.7617201
       },
-      "address1": "Address 1",
-      "address2": "Address 2",
+      "address1": "Address 1E",
+      "address2": "Address 2E",
       "city": "city",
       "provinceAbbr": "ON",
       "postalCode" : "A1A 1A1",
-      "phone": "12334567890",
       "tollFree": "1800123456790",
-      "fax": "1234567890",
-      "website": "http://",
-      "branchManager": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "coBranchManager1": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "coBranchManager2": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "branchAssociates": [
+      "phone": "123-345-6789",
+      "fax": "123-456-7890",
+      "website": "http://urlE",
+      "managerName": "Manager NameE",
+      "managerEmail": "emailE@email.com",
+      "managerPhone": "123-556-780",
+      "coManagerName": "Jim Armit E",
+      "coManagerEmail": "jarmitE@assante.com",
+      "coManagerPhone": "604-484-2070",
+      "coManager2Name": "John Wishloff E",
+      "coManager2Email": "jwishloffE@assante.com",
+      "coManager2Phone": "604-484-2070",
+      "partialAdvisorsInfo": [
         {
-          "id": "1234",
-          "firstName": "Advisor First Name",
-          "lastName": "Advisor Last Name",
-          "commonName": "Advisor Common Name"
+          "id": 1234,
+          "firstName": "Advisor First NameE",
+          "commonName": "Advisor Common NameE",
+          "lastName": "Advisor Last NameE",
+          "spokenLanguage": "English"
         }
       ]
     },
     {
-      "id": "07",
+      "id": 123462,
       "dealerShip": "ACN",
-      "styleNameEN": "Style name English",
-      "styleNameFR": "Style name French",
       "geoLocation": {
-        "lng": -80.073508,
-        "lat": 43.454074
+        "lng": -79.4080591,
+        "lat": 43.7617201
       },
-      "address1": "Address 1",
-      "address2": "Address 2",
+      "address1": "Address 1F",
+      "address2": "Address 2F",
       "city": "city",
       "provinceAbbr": "ON",
       "postalCode" : "A1A 1A1",
-      "phone": "12334567890",
       "tollFree": "1800123456790",
-      "fax": "1234567890",
-      "website": "http://",
-      "branchManager": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "coBranchManager1": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "coBranchManager2": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "branchAssociates": [
+      "phone": "123-345-6789",
+      "fax": "123-456-7890",
+      "website": "http://urlF",
+      "managerName": "Manager NameF",
+      "managerEmail": "emailF@email.com",
+      "managerPhone": "123-556-780",
+      "coManagerName": "Jim Armit F",
+      "coManagerEmail": "jarmitF@assante.com",
+      "coManagerPhone": "604-484-2070",
+      "coManager2Name": "John Wishloff E",
+      "coManager2Email": "jwishloffF@assante.com",
+      "coManager2Phone": "604-484-2070",
+      "partialAdvisorsInfo": [
         {
-          "id": "1234",
-          "firstName": "Advisor First Name",
-          "lastName": "Advisor Last Name",
-          "commonName": "Advisor Common Name"
-        }
-      ]
-    },
-    {
-      "id": "08",
-      "dealerShip": "ACN",
-      "styleNameEN": "Style name English",
-      "styleNameFR": "Style name French",
-      "geoLocation": {
-        "lng": -79.315233,
-        "lat": 45.045462
-      },
-      "address1": "Address 1",
-      "address2": "Address 2",
-      "city": "city",
-      "provinceAbbr": "ON",
-      "postalCode" : "A1A 1A1",
-      "phone": "12334567890",
-      "tollFree": "1800123456790",
-      "fax": "1234567890",
-      "website": "http://",
-      "branchManager": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "coBranchManager1": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "coBranchManager2": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "branchAssociates": [
-        {
-          "id": "1234",
-          "firstName": "Advisor First Name",
-          "lastName": "Advisor Last Name",
-          "commonName": "Advisor Common Name"
-        }
-      ]
-    },
-    {
-      "id": "09",
-      "dealerShip": "ACN",
-      "styleNameEN": "Style name English",
-      "styleNameFR": "Style name French",
-      "geoLocation": {
-        "lng": -73.566511,
-        "lat": 45.502019
-      },
-      "address1": "Address 1",
-      "address2": "Address 2",
-      "city": "city",
-      "provinceAbbr": "ON",
-      "postalCode" : "A1A 1A1",
-      "phone": "12334567890",
-      "tollFree": "1800123456790",
-      "fax": "1234567890",
-      "website": "http://",
-      "branchManager": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "coBranchManager1": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "coBranchManager2": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "branchAssociates": [
-        {
-          "id": "1234",
-          "firstName": "Advisor First Name",
-          "lastName": "Advisor Last Name",
-          "commonName": "Advisor Common Name"
-        }
-      ]
-    },
-    {
-      "id": "10",
-      "dealerShip": "ACN",
-      "styleNameEN": "Style name English",
-      "styleNameFR": "Style name French",
-      "geoLocation": {
-        "lng": -73.437614,
-        "lat": 45.451138
-      },
-      "address1": "Address 1",
-      "address2": "Address 2",
-      "city": "city",
-      "provinceAbbr": "ON",
-      "postalCode" : "A1A 1A1",
-      "phone": "12334567890",
-      "tollFree": "1800123456790",
-      "fax": "1234567890",
-      "website": "http://",
-      "branchManager": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "coBranchManager1": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "coBranchManager2": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "branchAssociates": [
-        {
-          "id": "1234",
-          "firstName": "Advisor First Name",
-          "lastName": "Advisor Last Name",
-          "commonName": "Advisor Common Name"
-        }
-      ]
-    },
-    {
-      "id": "11",
-      "dealerShip": "ACN",
-      "styleNameEN": "Style name English",
-      "styleNameFR": "Style name French",
-      "geoLocation": {
-        "lng": -63.661506,
-        "lat": 44.682938
-      },
-      "address1": "Address 1",
-      "address2": "Address 2",
-      "city": "city",
-      "provinceAbbr": "ON",
-      "postalCode" : "A1A 1A1",
-      "phone": "12334567890",
-      "tollFree": "1800123456790",
-      "fax": "1234567890",
-      "website": "http://",
-      "branchManager": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "coBranchManager1": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "coBranchManager2": {
-        "firstName": "Manager First Name",
-        "lastName": "Manager Last Name",
-        "email": "email@email.com",
-        "phone": "1234567890"
-      },
-      "branchAssociates": [
-        {
-          "id": "1234",
-          "firstName": "Advisor First Name",
-          "lastName": "Advisor Last Name",
-          "commonName": "Advisor Common Name"
+          "id": 1234,
+          "firstName": "Advisor First NameF",
+          "commonName": "Advisor Common NameF",
+          "lastName": "Advisor Last NameF",
+          "spokenLanguage": "English"
         }
       ]
     }

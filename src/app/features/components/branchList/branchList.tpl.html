@@ -3,7 +3,8 @@
         <div class="full" ng-if="$ctrl.detectMobile.isDesktop">
             <h2 translate>branchList.title</h2>
             <autocomplete set-position="$ctrl.setPosition(position)" set-location="$ctrl.setLocation(location)" location="$ctrl.branchListService.location"></autocomplete>
-            <google-map draggable="true" zoom-control="true" list="true" position="$ctrl.branchListService.position"></google-map>
+            <google-map position="$ctrl.branchListService.position"></google-map>
+
         </div>
     </div>
 
