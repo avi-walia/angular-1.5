@@ -9,7 +9,7 @@
             bindings: {
                 onUpdateMarkers: '&?', /*will be used only for branch locations search*/
                 position: '<?', /*will be used only for branch location search*/
-                userMarker: '<?', /*{geolocation: {lat: number, lng: number}, zoom: number}*/
+                userMarker: '<?', /*{geoLocation: {lat: number, lng: number}, zoom: number}*/
                 address: '<?' /*physical address of the marker (separate values by comma followed by space)*/
             },
             templateUrl:'app/features/components/googleMap/googleMap.tpl.html'
@@ -22,7 +22,8 @@
         '$rootScope',
         'pageStateResolver',
         'detectMobile',
-        'NgMap'
+        'NgMap',
+        '$timeout'
     ];
     /* @ngInject */
     function googleMapCtrl( $rootScope, pageStateResolver, detectMobile, NgMap
@@ -32,9 +33,21 @@
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;
         vm.loadParameters = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCwahusHkUZ-LOTVpawRSoKh-h2ktVbj2I&libraries=geometry,places&language='+$rootScope.documentLanguage;
-        vm.ca = {center: [61.0, -99.0], zoom: 3, mapTypeControl: false, panControl: false, streetViewControl: false, zoomControl: true, draggable: true};
+        vm.ca = {
+            center: [61.0, -99.0],
+            zoom: 3,
+            mapTypeControl: false,
+            panControl: false,
+            streetViewControl: false,
+            zoomControl: true,
+            draggable: true
+        };
+        vm.isLoading = true;
         vm.mapPromise = NgMap.getMap().then(function(map){
             vm.map = map;
+            console.log('hello world');
+        },function(error){
+            console.log('error: ', error);
         });
 
         vm.userLocationMarker = null;
@@ -45,19 +58,21 @@
 
         vm.$onInit = function(){
 
-        if (vm.userMarker){
 
                 vm.mapPromise.then(function(){
-                    var LatLng = new google.maps.LatLng(vm.userMarker.geoLocation.lat, vm.userMarker.geoLocation.lng);
-                    vm.map.setCenter(LatLng);
-                    vm.map.setZoom(vm.userMarker.zoom);
-                    vm.setUserLocationMarker(LatLng);
-                    if(vm.address){
-                        vm.address = vm.address.replace(/, /g, '+');
-                        console.log(vm.address);
+
+                    if (vm.userMarker) {
+                        var LatLng = new google.maps.LatLng(vm.userMarker.geoLocation.lat, vm.userMarker.geoLocation.lng);
+                        vm.map.setCenter(LatLng);
+                        vm.map.setZoom(vm.userMarker.zoom);
+                        vm.setUserLocationMarker(LatLng);
+                        if (vm.address) {
+                            vm.address = vm.address.replace(/, /g, '+');
+                            console.log(vm.address);
+                        }
                     }
+                    vm.isLoading = false;
                 });
-            }
         };
         vm.$onChanges = function(changes){
 

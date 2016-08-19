@@ -1,5 +1,4 @@
-
-<div>
+<div ng-class="{'hideMap': $ctrl.isLoading, 'showMap': !$ctrl.isLoading}">
     <div ng-if="$ctrl.address" id="linkToMap"><a tabindex="0" title="{{ 'branchList.linkToMap' | translate }}" ng-href="{{$ctrl.linkToMap}}{{'branchList.currentLocation' | translate}}/{{$ctrl.address}}"
                            analytics-on analytics-event="click" analytics-category="MAP" analytics-label="Map" target="_blank"
                            translate >branchList.linkToMap</a></div>
@@ -9,5 +8,6 @@
             draggable="{{$ctrl.ca.draggable}}">
 
     </ng-map>
-
 </div>
+<ci-loader loading="$ctrl.isLoading">
+</ci-loader>
