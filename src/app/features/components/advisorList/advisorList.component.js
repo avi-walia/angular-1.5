@@ -27,6 +27,7 @@
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;
         advisorService.init();
+        vm.service = advisorService;
 
     }
 
