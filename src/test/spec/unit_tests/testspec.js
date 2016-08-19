@@ -316,23 +316,36 @@ describe('example test', function() {
             var BASE_URL = 'http://localhost:3000';
             var ENDPOINT_URI = '/advisorlocatorws';
             expect(advisorService.isLoading).toEqual(true);
+            expect(advisorService.numPerPage).toEqual(50);
             $rootScope.$apply();//this is needed for the async $q to resolve
             expect(server.get).toHaveBeenCalledWith(BASE_URL + ENDPOINT_URI + '/advisors', false, 'localStorage', false);
             expect(advisorService.searchResults).toEqual([]);
             expect(advisorService.isLoading).toEqual(false);
             advisorService.search('noman');
+            expect(advisorService.searchTerm).toEqual('noman');
             expect(advisorService.searchResults).toEqual([newAdvisor('Muhammad', 'Noman')]);
+            console.log('advisorService.maxPages: ', advisorService.maxPages);
+            expect(advisorService.maxPages).toEqual(1);
             advisorService.search('NomAn');
+            expect(advisorService.searchTerm).toEqual('NomAn');
             expect(advisorService.searchResults).toEqual([newAdvisor('Muhammad', 'Noman')]);
+            expect(advisorService.maxPages).toEqual(1);
             advisorService.search('chong');
-            expect(advisorService.searchResults).toEqual([newAdvisor('Michael', 'Chong')]);
+            expect(advisorService.searchTerm).toEqual('chong');
+            expect(advisorService.searchResults).toEqual([newAdvisor('Michael', 'Chong'), newAdvisor('Barry', 'Chong')]);
+            expect(advisorService.maxPages).toEqual(1);
             advisorService.search('o');
+            expect(advisorService.searchTerm).toEqual('o');
             expect(advisorService.searchResults).toEqual([
                 newAdvisor('Michael', 'Chong'),
                 newAdvisor('Dziana', 'Roslik'),
-                newAdvisor('Muhammad', 'Noman')
+                newAdvisor('Muhammad', 'Noman'),
+                newAdvisor('Barry', 'Chong')
             ]);
-
+            expect(advisorService.maxPages).toEqual(1);
+            expect(advisorService.numPerPage).toEqual(50);
+            expect(advisorService.mobileMaxNumDisplay).toEqual(50);
+            expect(advisorService.currentPage).toEqual(1);
 
         });
 

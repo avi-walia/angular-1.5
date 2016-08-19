@@ -6,5 +6,6 @@ var advisors = [
     newAdvisor('Vanessa', 'Villanueva'),
     newAdvisor('Dziana', 'Roslik'),
     newAdvisor('Muhammad', 'Noman'),
+    newAdvisor('Barry', 'Chong')
 
 ]

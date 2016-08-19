@@ -23,7 +23,7 @@
         var path = BASE_URL + '/app/features/components/advisorList/templates';
         service.numPerPage = ELEMENTS_PER_PAGE;
         service.currentPage = 1;
-        service.mobileMaxNumDisplay = 4;
+        service.mobileMaxNumDisplay = ELEMENTS_PER_PAGE;
         service.maxPages = 0;
         service.mobileTemplatePath = path + '/mobile.tpl.html';
         service.desktopTemplatePath = path + '/desktop.tpl.html';
@@ -56,7 +56,7 @@
         }
 
         function updatePaginationInfiniteScroll() {
-            service.maxPages = Math.floor(service.searchResults / service.numPerPage);
+            service.maxPages = Math.ceil(service.searchResults.length / service.numPerPage);
             service.mobileMaxNumDisplay = service.numPerPage;
             service.currentPage = 1;
         }
