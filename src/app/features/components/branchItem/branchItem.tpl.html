@@ -1,0 +1,10 @@
+<div id="branchItem">
+    <div id="address">
+        <span>{{$ctrl.item.fullAddress}}</span>
+    </div>
+    <div id="distance">{{$ctrl.item.distance}}</div>
+    <div id="branchCard"><a tabindex="0" ui-sref="main.advisorLocator.branchDetails({id: $ctrl.item.id})"
+                            analytics-on analytics-event="click" analytics-category="BRANCH CARD" analytics-label="Branch Details Card" translate>branchList.getDetails</a>
+    </div>
+</div>
+

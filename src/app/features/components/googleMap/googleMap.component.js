@@ -22,8 +22,7 @@
         '$rootScope',
         'pageStateResolver',
         'detectMobile',
-        'NgMap',
-        '$timeout'
+        'NgMap'
     ];
     /* @ngInject */
     function googleMapCtrl( $rootScope, pageStateResolver, detectMobile, NgMap
@@ -45,7 +44,7 @@
         vm.isLoading = true;
         vm.mapPromise = NgMap.getMap().then(function(map){
             vm.map = map;
-            console.log('hello world');
+
         },function(error){
             console.log('error: ', error);
         });
