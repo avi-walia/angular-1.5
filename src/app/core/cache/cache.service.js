@@ -53,7 +53,6 @@
         }
         function get(path) {
             var data = dataCache.get(path);
-            console.log('data: ', data);
             if (data && data.hasOwnProperty('expiryTime') && data.expiryTime > (new Date()).getTime()) {
                 return data.data;
             } else {

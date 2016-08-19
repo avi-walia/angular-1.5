@@ -1,13 +1,21 @@
 var footerHtml = '<p class="copyright" translate="copyright" translate-value-year="{{::( $ctrl.year )}}"></p><span class="logo" title="{{ \'navbar.logo-text\' | translate }}" translate></span>';
-
+var searchBarHtml = '<div><input style="width:50%; margin-top:25px;" type="text" ng-model="$ctrl.service.searchCriteria" /> <select ng-model="$ctrl.searchBy" ng-change="$ctrl.navigate($ctrl.searchBy)"> <option value="name" translate>search.byName</option> <option value="location" translate>search.byLocation</option> </select> <button style="margin-left:50px;" translate ng-click="$ctrl.service.search($ctrl.service.searchCriteria)" translate>searchButton</button> </div>';
 var localeEn = {
     "appTitle": "App Title",
+    "searchButton": "Search",
+    "search": {
+        "byName": "Search By: Advisor Name",
+        "byLocation": "Search By: Location"
+    },
+    "searchResultsFound": "Search results found.",
+    "noSearchCriteria": "There are no search results to be displayed.",
     "pages": {
         "page1": "Page 1 Title",
         "page2": "Page 2 Title",
         "page3": "Page 3 Title",
         "page4": "Page 4 Title",
-        "page5": "Page 5 Title"
+        "page5": "Page 5 Title",
+        "advisorList": "Search for Advisor"
     },
     "helpLabel": "Help",
 
@@ -54,9 +62,13 @@ var localeEn = {
     },
     "branchList":{
         "title": "Branch List",
-        "autoComplete": "Somewhere in Canada:"
+        "autoComplete": "Somewhere in Canada:",
+        "placeholder": "Enter a location",
+        "linkToMap": "Get direction on a map",
+        "currentLocation": "Current+Location"
     }
 };
+
 
 describe('example test', function() {
     it('should be true', function() {
@@ -213,6 +225,115 @@ describe('example test', function() {
             $rootScope.$digest();
             var now = new Date();
             expect(element.html()).toContain(now.getFullYear().toString());
+        });
+
+    });
+})();
+
+
+(function () {
+    describe('searchBar Component', function () {
+        var customCacheFactory;
+        var controller;
+        var translate;
+        var copyrightYear;
+        var $compile;
+        var $rootScope;
+        var $httpBackend;
+        var $state;
+        beforeEach(function() {
+            module('pascalprecht.translate');
+            module('advisorLocator.utils');
+            module('advisorLocator');
+            inject(['$injector', '$controller', '$translate', 'copyrightYear', '$compile', '$rootScope', '$httpBackend', '$state', function($injector, $controller, $translate, _copyrightYear_, _$compile_, _$rootScope_, _$httpBackend_, _$state_){
+                controller = $controller;
+                translate = $translate;
+                copyrightYear = _copyrightYear_;
+                $compile = _$compile_;
+                $rootScope = _$rootScope_;
+                $httpBackend = _$httpBackend_;
+                $httpBackend.when('GET', 'assets/locales/locale-en.json').respond(localeEn);
+                $httpBackend.when('GET', 'app/utils/components/searchBar/searchBar.tpl.html').respond(searchBarHtml);
+                $httpBackend.when('GET', 'app/core/layout/main.layout.html').respond('test');
+                $state = _$state_;
+            }]);
+        });
+        it('searchBar should do stuff', function() {
+            var $scope = {};
+            $state.current.url = '/advisors';
+            var element = $compile('<search-bar service="$ctrl.service"></search-bar>')($rootScope);
+            $httpBackend.flush();
+            $rootScope.$digest();
+            console.log('$rootScope.$$childHead["$ctrl"]: ', $rootScope.$$childHead['$ctrl']);
+            var searchBarCtrl = $rootScope.$$childHead['$ctrl'];
+            expect(searchBarCtrl.searchBy).toEqual('name');
+            spyOn($state, 'go');
+            searchBarCtrl.navigate('location');
+            expect($state.go).toHaveBeenCalledWith('main.advisorLocator.branchList');
+            searchBarCtrl.navigate('name');
+            expect($state.go).toHaveBeenCalledWith('main.advisorLocator.advisorList');
+
+        });
+
+    });
+})();
+(function () {
+    describe('advisor Service', function () {
+        var advisorService;
+        var server;
+        var $rootScope;
+        beforeEach(function() {
+
+
+            module('advisorLocator.features.searchByName');
+
+            angular.module('advisorLocator.utils');
+            module('advisorLocator');
+            module('advisorLocator.core.server');
+            serverMock = {
+                get: jasmine.createSpy('get() mock')
+            };
+
+            inject(['$injector', 'advisorService', 'server', '$q', '$rootScope', '$httpBackend', function($injector, _advisorService_, _server_, $q, _$rootScope_, _$httpBackend_){
+                $httpBackend = _$httpBackend_;
+                $httpBackend.when('GET', 'assets/locales/locale-en.json').respond(localeEn);
+                $httpBackend.when('GET', 'app/core/layout/main.layout.html').respond('test');
+                //advisorService = $injector.get('advisorService');
+                advisorService = _advisorService_;
+                server = _server_;
+                $rootScope = _$rootScope_;
+                //server.get = jasmine.createSpy('get spy');
+                spyOn(server, 'get').and.callFake(function() {
+                    var deferred = $q.defer();
+                    deferred.resolve({data: advisors});
+                    return deferred.promise;
+                })
+            }]);
+        });
+        it('advisorService should do stuff', function() {
+            //spyOn(server, 'get');
+            advisorService.init();
+            var BASE_URL = 'http://localhost:3000';
+            var ENDPOINT_URI = '/advisorlocatorws';
+            expect(advisorService.isLoading).toEqual(true);
+            $rootScope.$apply();//this is needed for the async $q to resolve
+            expect(server.get).toHaveBeenCalledWith(BASE_URL + ENDPOINT_URI + '/advisors', false, 'localStorage', false);
+            expect(advisorService.searchResults).toEqual([]);
+            expect(advisorService.isLoading).toEqual(false);
+            advisorService.search('noman');
+            expect(advisorService.searchResults).toEqual([newAdvisor('Muhammad', 'Noman')]);
+            advisorService.search('NomAn');
+            expect(advisorService.searchResults).toEqual([newAdvisor('Muhammad', 'Noman')]);
+            advisorService.search('chong');
+            expect(advisorService.searchResults).toEqual([newAdvisor('Michael', 'Chong')]);
+            advisorService.search('o');
+            expect(advisorService.searchResults).toEqual([
+                newAdvisor('Michael', 'Chong'),
+                newAdvisor('Dziana', 'Roslik'),
+                newAdvisor('Muhammad', 'Noman')
+            ]);
+
+
         });
 
     });

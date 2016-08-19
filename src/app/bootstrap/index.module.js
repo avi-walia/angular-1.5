@@ -6,7 +6,7 @@
     angular.module('advisorLocator.core.server', ['advisorLocator.core.cache', 'ui.bootstrap']);
     angular.module('advisorLocator.core.main', ['advisorLocator.core.server', 'advisorLocator.utils', 'ui.bootstrap']);
     //---------------- FEATURES ---------------- //
-    angular.module('advisorLocator.features.searchByName', ['advisorLocator.core.server', 'advisorLocator.utils', 'ui.bootstrap', 'ui.bootstrap']);
+    angular.module('advisorLocator.features.searchByName', ['advisorLocator.core.server', 'advisorLocator.utils', 'ui.bootstrap']);
     angular.module('advisorLocator.features.searchByLocation', ['advisorLocator.core.server', 'advisorLocator.utils', 'ui.bootstrap' ]);
 
     //---------------- UTILITIES ---------------- //

@@ -2,7 +2,7 @@
   "appTitle": "App Title",
   "searchButton": "Search",
   "search": {
-    "byName": "Seach By: Advisor Name",
+    "byName": "Search By: Advisor Name",
     "byLocation": "Search By: Location"
   },
   "searchResultsFound": "Search results found.",

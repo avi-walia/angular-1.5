@@ -27,10 +27,8 @@
     ) {
         var vm = this;
         vm.searchBy = $state.current.url === '/advisors' ? 'name' : 'location';
-        console.log('vm.service: ', vm.service);
         vm.detectMobile = detectMobile;
         vm.navigate = navigate;
-        console.log('$state: ', $state);
         function navigate(searchBy) {
             if (searchBy == 'location') {
                 $state.go('main.advisorLocator.branchList');

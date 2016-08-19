@@ -24,7 +24,6 @@
         detectMobile
     ) {
         var vm = this;
-        console.log('vm.service: ', vm.service);
         vm.detectMobile = detectMobile;
 
     }
