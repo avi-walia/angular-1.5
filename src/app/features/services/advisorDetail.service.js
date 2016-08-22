@@ -24,12 +24,11 @@
         function getAdvisorDetail(advisorID) {
 
 
-            server.get(BASE_URL + ENDPOINT_URI + '/advisors', false, 'localStorage', false)
+            server.get(BASE_URL + ENDPOINT_URI + '/advisors/30610', false, 'localStorage', false)
                 .then(function(result) {
                     if(result.data){
                         service.advisorDetail =result.data;
                         console.log('service to get advisor details', service.advisorDetail);
-                        service.advisorDetail;
                     }
                     else{
                         service.advisorDetail = false;

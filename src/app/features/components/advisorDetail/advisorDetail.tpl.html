@@ -1,30 +1,61 @@
 
     <div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="advisorDetails">
         <div class="full" ng-if="$ctrl.detectMobile.isDesktop">
-            <h2>Advisor details</h2>
-
-
+            <button translate>advisorDetail.searchResultsButton</button>
+            <br>
+            <br>
+            <h2 translate>advisorDetail.title</h2>
+            <br>
             <!-- ADVISOR DETAILS -->
-            <table  ng-repeat="advisor in $ctrl.advisorDetailService.advisorDetail">
+            <div>
 
-                <tr >
-                    <td class="description">Tel:</td>
-                    <td class="price extra">{{advisor.phone}}</td>
-                </tr>
-                <tr>
-                    <td>Email:</td>
-                    <td>{{advisor.email}}</td>
-                </tr>
-                <tr>
-                    <td>Team Email:</td>
-                    <td>{{advisor.altEmail}}</td>
-                </tr>
-                <tr >
-                    <td>Website</td>
-                    <td>{{advisor.website}}</td>
-                </tr>
+                <table>
+                <div>
+                    <div style="display:inline-block;vertical-align:top;">
+                        <!-- src will be src="{{advisorDetail.profilePictureUrl}}"-->
+                        <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRDi-6uSWe8kBz0wAaxIoJtETO-MOYwUBrv-snFzA1tXmBkUqQ9" translate alt="advisorDetail.advisorImageAlt">
+                    </div>
 
-            </table>
+                    <div style="display:inline-block;">
+                        <span>{{$ctrl.advisorDetailService.advisorDetail.firstName + ' ' + $ctrl.advisorDetailService.advisorDetail.lastName}}</span><br>
+                        <span ng-repeat="title in $ctrl.advisorDetailService.advisorDetail.titles" bn-repeat-delimiter=",">{{title}}{{$last ? '' : ', '}}</span>
+                        <span>{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address1}},{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address2}}</span><br>
+                        <span>{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.city}},{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.provinceAbbr}} {{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.postalCode}}</span>
+                    </div>
+                </div>
+
+                    <tr>
+                        <td translate>advisorDetail.telephone</td>
+                        <td class="price extra">{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.phone}}</td>
+                    </tr>
+                    <tr>
+                        <td translate>advisorDetail.tollFree</td>
+                        <td>{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.tollFree}}</td>
+                    </tr>
+                    <tr>
+                        <td translate>advisorDetail.email</td>
+                        <td>{{$ctrl.advisorDetailService.advisorDetail.email}}</td>
+                    </tr>
+                    <tr>
+                        <td translate>advisorDetail.alternateEmail</td>
+                        <td>{{$ctrl.advisorDetailService.advisorDetail.altEmail}}</td>
+                    </tr>
+                    <tr >
+                        <td translate>advisorDetail.website</td>
+                        <td>{{$ctrl.advisorDetailService.advisorDetail.website}}</td>
+                    </tr>
+                    <tr>
+                        <td translate>advisorDetail.spokenLanguages</td>
+                        <td>{{$ctrl.advisorDetailService.advisorDetail.spokenLanguages}}</td>
+                    </tr>
+
+                </table>
+                <!--<google-map address="advisor.branch.address1" user-marker="advisor.branch.geoLocation"></google-map>-->
+                <google-map address="" user-marker=""></google-map>
+            </div>
+
         </div>
     </div>
+
+
 

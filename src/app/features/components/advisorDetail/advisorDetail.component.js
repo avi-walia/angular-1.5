@@ -27,12 +27,9 @@
         vm.advisorId = $stateParams.id;
         vm.advisorDetailService = advisorDetailService;
 
-        vm.getAdvisorDetail = getAdvisorDetail(1);
-        //vm.temp = getAdvisorDetail(1);
+        vm.advisorDetailService.getAdvisorDetail(1);
 
-        function getAdvisorDetail(id){
-            vm.advisorDetails = vm.advisorDetailService.getAdvisorDetail(id);
-        }
+
     }
 
 })();
