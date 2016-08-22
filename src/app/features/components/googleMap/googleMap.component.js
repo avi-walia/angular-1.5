@@ -8,6 +8,7 @@
             controller: googleMapCtrl,
             bindings: {
                 onUpdateMarkers: '&?', /*will be used only for branch locations search*/
+                markerList: '<?', /*will be used only for branch locations search*/
                 position: '<?', /*will be used only for branch location search*/
                 userMarker: '<?', /*{geoLocation: {lat: number, lng: number}, zoom: number}*/
                 address: '<?' /*physical address of the marker (separate values by comma followed by space)*/
@@ -22,10 +23,11 @@
         '$rootScope',
         'pageStateResolver',
         'detectMobile',
-        'NgMap'
+        'NgMap',
+        '$timeout'
     ];
     /* @ngInject */
-    function googleMapCtrl( $rootScope, pageStateResolver, detectMobile, NgMap
+    function googleMapCtrl( $rootScope, pageStateResolver, detectMobile, NgMap, $timeout
     ) {
         var vm = this;
 
@@ -50,8 +52,17 @@
         });
 
         vm.userLocationMarker = null;
-
+        vm.markers = [];
+        vm.infoWindow = new google.maps.InfoWindow({
+            content: document.getElementById('info')
+        });
+        vm.markerInfo = {};
         vm.setUserLocationMarker = setUserLocationMarker;
+        vm.createMarkers = createMarkers;
+        vm.clearMarkers = clearMarkers;
+
+        vm.pathToIcon = 'assets/images/blue-marker.png';
+        vm.showInfoWindow = showInfoWindow;
 
         vm.linkToMap = 'https://www.google.com/maps/dir/';
 
@@ -87,6 +98,18 @@
                     });
                 }
             }
+            if(changes.markerList){
+                vm.clearMarkers();
+                vm.markerList = angular.copy(vm.markerList);
+                vm.markerList = angular.copy(changes.markerList.currentValue);
+                if(!_.isEmpty(vm.markerList)){
+                    vm.mapPromise.then(function(){
+                        vm.createMarkers();
+                       // vm.markerInfo = vm.markerList[0];
+                    });
+                }
+
+            }
         };
 
         function setUserLocationMarker(LatLng){
@@ -99,6 +122,36 @@
                 map: vm.map
             });
 
+        }
+
+
+        function clearMarkers(){
+            _.forEach(vm.markers, function(value, key){
+                if(vm.markers[key]){
+                    vm.markers[key].setMap(null);
+                }
+
+            });
+            vm.markers = [];
+        }
+
+        function createMarkers(){
+            _.forEach(vm.markerList, function(value, key){
+                vm.markers[key] = new google.maps.Marker({
+                    position: vm.markerList[key].geoLocation,
+                    icon: vm.pathToIcon
+                });
+                vm.markers[key].customInfo = vm.markerList[key].address;
+                google.maps.event.addListener(vm.markers[key], 'click', vm.showInfoWindow);
+                vm.markers[key].setMap(vm.map);
+            });
+        }
+
+        function showInfoWindow(){
+            vm.markerInfo = this;
+            $timeout(function() {
+                vm.infoWindow.open(vm.map, vm.markerInfo);
+            });
         }
     }
 

@@ -3,7 +3,7 @@
         <div class="full" ng-if="$ctrl.detectMobile.isDesktop">
             <h2 translate>branchList.title</h2>
             <autocomplete set-position="$ctrl.setPosition(position)" set-location="$ctrl.setLocation(location)" location="$ctrl.branchListService.location"></autocomplete>
-            <google-map position="$ctrl.branchListService.position"></google-map>
+            <google-map position="$ctrl.branchListService.position" marker-list="$ctrl.branchListService.markers"></google-map>
             <branch-item ng-repeat="branch in $ctrl.branchListService.markers" item="branch" on-click="$ctrl.openInfoWindow($index, branch.id)"></branch-item>
         </div>
     </div>
