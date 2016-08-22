@@ -4,7 +4,10 @@
             <h2 translate>branchList.title</h2>
             <autocomplete set-position="$ctrl.setPosition(position)" set-location="$ctrl.setLocation(location)" location="$ctrl.branchListService.location"></autocomplete>
             <google-map position="$ctrl.branchListService.position" marker-list="$ctrl.branchListService.markers"></google-map>
-            <branch-item ng-repeat="branch in $ctrl.branchListService.markers" item="branch"></branch-item>
+            <ci-validation message-object="$ctrl.branchListService.message"></ci-validation>
+            <branch-item ng-repeat="branch in $ctrl.branchListService.markers" item="branch" ng-click="$ctrl.openInfoWindow(branch.id)"></branch-item>
         </div>
     </div>
+
+
 

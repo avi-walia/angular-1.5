@@ -59,6 +59,11 @@
     "placeholder": "French Enter a location",
     "linkToMap": "French Get direction on a map",
     "currentLocation": "Current+Location",
-    "getDetails": "French Get details"
+    "getDetails": "French Get details",
+    "km": "km",
+    "search": "French search",
+    "validation": {
+      "notValidAddress" : "French Please choose a valid address"
+    }
   }
 }

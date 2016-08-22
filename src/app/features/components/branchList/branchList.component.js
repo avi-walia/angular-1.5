@@ -43,8 +43,9 @@
         }
 
 
-        function openInfoWindow(index, id){
-            $scope.$emit('infoWindow', {index: index, id: id});
+        function openInfoWindow(id){
+
+            $scope.$emit('infoWindow', {id: id});
         }
 
         vm.branchListService.getBranchList();

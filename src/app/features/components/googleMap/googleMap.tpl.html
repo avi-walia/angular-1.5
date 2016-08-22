@@ -8,7 +8,7 @@
             draggable="{{$ctrl.ca.draggable}}">
 
     </ng-map>
-    <div id="info"><p>{{$ctrl.markerInfo.customInfo}}</p><span ng-if="$ctrl.markerInfo.visible"><a tabindex="0" ui-sref="main.advisorLocator.branchDetails({id: $ctrl.markerInfo.detailLink})"
+    <div id="info"><p>{{$ctrl.markerInfo.customInfo}}</p><span ng-if="$ctrl.markerInfo.visible"><a tabindex="0" ui-sref="main.advisorLocator.branchDetails({id: $ctrl.markerInfo.id})"
                                                                 analytics-on analytics-event="click" analytics-category="BRANCH CARD" analytics-label="Branch Details Card" translate>branchList.getDetails</a></span></div>
 </div>
 <ci-loader loading="$ctrl.isLoading">

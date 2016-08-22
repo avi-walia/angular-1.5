@@ -21,13 +21,14 @@
 
     googleMapCtrl.$inject = [
         '$rootScope',
+        '$scope',
         'pageStateResolver',
         'detectMobile',
         'NgMap',
         '$timeout'
     ];
     /* @ngInject */
-    function googleMapCtrl( $rootScope, pageStateResolver, detectMobile, NgMap, $timeout
+    function googleMapCtrl( $rootScope, $scope, pageStateResolver, detectMobile, NgMap, $timeout
     ) {
         var vm = this;
 
@@ -60,6 +61,7 @@
         vm.setUserLocationMarker = setUserLocationMarker;
         vm.createMarkers = createMarkers;
         vm.clearMarkers = clearMarkers;
+        vm.setVisibility = setVisibility;
 
         vm.pathToIcon = 'assets/images/blue-marker.png';
         vm.showInfoWindow = showInfoWindow;
@@ -112,6 +114,19 @@
             }
         };
 
+
+        var infoWindow = $rootScope.$on('infoWindow', function(event, param){
+            console.log('call info window', param.id);
+            vm.markerInfo = _.find(vm.markers, {'id': param.id});
+            console.log(vm.markerInfo);
+            if(vm.markerInfo){
+                google.maps.event.trigger(vm.markerInfo, 'click');
+            }
+        });
+        $scope.$on('$destroy', infoWindow);
+
+
+
         function setUserLocationMarker(LatLng){
             if (vm.userLocationMarker){
                 vm.userLocationMarker.setMap(null);
@@ -142,7 +157,7 @@
                     icon: vm.pathToIcon
                 });
                 vm.markers[key].customInfo = vm.markerList[key].address;
-                vm.markers[key].detailLink = vm.markers[key].id;
+                vm.markers[key].id = vm.markerList[key].id;
                 google.maps.event.addListener(vm.markers[key], 'click', vm.showInfoWindow);
                 vm.markers[key].setMap(vm.map);
             });
@@ -150,13 +165,17 @@
 
         function showInfoWindow(){
             vm.markerInfo = this;
+            setVisibility();
+            $timeout(function() {
+                vm.infoWindow.open(vm.map, vm.markerInfo);
+            });
+        }
+
+        function setVisibility(){
             _.forEach(vm.markers, function(value, key){
                 vm.markers[key].visible = false;
             });
             vm.markerInfo.visible = true;
-            $timeout(function() {
-                vm.infoWindow.open(vm.map, vm.markerInfo);
-            });
         }
     }
 

@@ -22,12 +22,17 @@
         service.filteredMarkers = [];
         service.sortedMarkers = [];
         service.markers = [];
+        service.message = {};
 
         service.getBranchList = getBranchList;
         service.setPosition = setPosition;
         service.getPosition = getPosition;
         service.setLocation = setLocation;
         service.getLocation = getLocation;
+
+        service.setMessage = setMessage;
+
+
 
         function getBranchList() {
             service.branchListLoading = true;
@@ -50,7 +55,7 @@
         }
 
         function setPosition(position) {
-            service.position = position;
+            service.position = angular.copy(position);
             console.log('branch service updated: '+ position);
         }
 
@@ -67,6 +72,9 @@
             return service.location;
         }
 
+        function setMessage(message){
+            service.message = angular.copy(message);
+        }
 
     }
 

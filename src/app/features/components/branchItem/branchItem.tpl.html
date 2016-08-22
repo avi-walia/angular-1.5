@@ -2,9 +2,9 @@
 
     <span id="address">{{$ctrl.item.address}}</span>
 <span style="float: right">
-    <span id="distance" >{{$ctrl.item.distance}}km</span>
+    <span id="distance" >{{$ctrl.item.distance}}{{'branchList.km' | translate}}</span>
 
-    <span id="branchCard" ><a tabindex="0" ui-sref="main.advisorLocator.branchDetails({id: $ctrl.item.id})"
+    <span id="branchCard" style="padding-left: 20px;"><a tabindex="0" ui-sref="main.advisorLocator.branchDetails({id: $ctrl.item.id})"
                             analytics-on analytics-event="click" analytics-category="BRANCH CARD" analytics-label="Branch Details Card" translate>branchList.getDetails</a>
     </span>
 </span>

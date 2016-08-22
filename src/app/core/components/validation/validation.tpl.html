@@ -1,0 +1,17 @@
+
+
+    <!-------------Start Validation Error Messages ------------------->
+    <div id="message" ng-if="$ctrl.messageObject" aria-hidden="{{$ctrl.isEmpty($ctrl.messageObject)}}"
+         role="{{$ctrl.isEmpty($ctrl.messageObject) ? undefined : 'alert'}}" aria-live="assertive" ng-messages="$ctrl.messageObject" ng-messages-multiple>
+
+        <div ng-repeat="(key, value) in $ctrl.messageObject">
+            <div class="notification info" ng-message="{{key}}">
+                <p translate>{{value}}</p>
+
+            </div>
+        </div>
+
+
+    </div>
+    <!-------------End Validation Error Messages ------------------->
+
