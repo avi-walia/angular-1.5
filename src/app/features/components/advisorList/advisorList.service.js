@@ -67,9 +67,9 @@
 
 
         function search(searchTerm) {
+            service.searchTerm = searchTerm;
             if (searchTerm && searchTerm.length >= 2) {
                 service.searchTermTooShort = false;
-                service.searchTerm = searchTerm;
                 service.searchResults = [];
                 console.log('searchTerm: ', searchTerm);
                 for (var i = 0; i < advisors.length; i++) {
