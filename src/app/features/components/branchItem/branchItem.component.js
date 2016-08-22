@@ -4,24 +4,25 @@
 
     angular
         .module('advisorLocator.features.searchByLocation')
-        .component('listing', {
+        .component('branchItem', {
             bindings:{
                 item: '<'
             },
-            controller: listingCtrl,
+            controller: branchItemCtrl,
             templateUrl:'app/features/components/branchItem/branchItem.tpl.html'
         });
 
 
     /* @ngInject */
 
-    listingCtrl.$inject = [
+    branchItemCtrl.$inject = [
+        '$rootScope',
         'pageStateResolver',
         'detectMobile',
         'branchListService'
     ];
     /* @ngInject */
-    function listingCtrl( pageStateResolver, detectMobile, branchListService
+    function branchItemCtrl( $rootScope, pageStateResolver, detectMobile, branchListService
     ) {
         var vm = this;
         vm.pageStateResolver = pageStateResolver;
@@ -30,6 +31,8 @@
         //vm.address = 'CN Tower, Toronto, ON M5V, Canada';
 
         vm.branchListService = branchListService;
+
+
 
 
 

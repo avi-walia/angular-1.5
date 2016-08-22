@@ -1,10 +1,12 @@
-<div id="branchItem">
-    <div id="address">
-        <span>{{$ctrl.item.fullAddress}}</span>
-    </div>
-    <div id="distance">{{$ctrl.item.distance}}</div>
-    <div id="branchCard"><a tabindex="0" ui-sref="main.advisorLocator.branchDetails({id: $ctrl.item.id})"
+<div id="branchItem" style="margin-top: 20px; border: 1px solid #999999;  padding: 16px 12px;">
+
+    <span id="address">{{$ctrl.item.address}}</span>
+<span style="float: right">
+    <span id="distance" >{{$ctrl.item.distance}}km</span>
+
+    <span id="branchCard" ><a tabindex="0" ui-sref="main.advisorLocator.branchDetails({id: $ctrl.item.id})"
                             analytics-on analytics-event="click" analytics-category="BRANCH CARD" analytics-label="Branch Details Card" translate>branchList.getDetails</a>
-    </div>
+    </span>
+</span>
 </div>
 

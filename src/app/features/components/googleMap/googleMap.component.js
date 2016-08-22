@@ -142,6 +142,7 @@
                     icon: vm.pathToIcon
                 });
                 vm.markers[key].customInfo = vm.markerList[key].address;
+                vm.markers[key].detailLink = vm.markers[key].id;
                 google.maps.event.addListener(vm.markers[key], 'click', vm.showInfoWindow);
                 vm.markers[key].setMap(vm.map);
             });
@@ -149,6 +150,10 @@
 
         function showInfoWindow(){
             vm.markerInfo = this;
+            _.forEach(vm.markers, function(value, key){
+                vm.markers[key].visible = false;
+            });
+            vm.markerInfo.visible = true;
             $timeout(function() {
                 vm.infoWindow.open(vm.map, vm.markerInfo);
             });
