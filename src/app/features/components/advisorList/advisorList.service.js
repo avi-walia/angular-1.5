@@ -68,15 +68,21 @@
 
         function search(searchTerm) {
             service.searchTerm = searchTerm;
+            var subTerms = searchTerm.toLowerCase().split(' ');
+            console.log('subTerms: ', subTerms);
             if (searchTerm && searchTerm.length >= 2) {
                 service.searchTermTooShort = false;
                 service.searchResults = [];
                 console.log('searchTerm: ', searchTerm);
-                for (var i = 0; i < advisors.length; i++) {
-                    if (advisors[i].firstName.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0 || advisors[i].lastName.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0) {
-                        service.searchResults.push(advisors[i]);
-                    }
-                }
+                //for (var i = 0; i < advisors.length; i++) {
+                _.forEach(advisors, function(advisor) {
+                    _.forEach(subTerms, function(subTerm) {
+                        if ((advisor.commonName && advisor.commonName.toLowerCase().indexOf(subTerm) >= 0) || (!advisor.commonName && advisor.firstName.toLowerCase().indexOf(subTerm) >= 0) || (advisor.lastName.toLowerCase().indexOf(subTerm) >= 0)) {
+                            service.searchResults.push(advisor);
+                            return false;
+                        }
+                    })
+                });
             } else {
                 service.searchTermTooShort = true;
                 service.searchResults = [];
