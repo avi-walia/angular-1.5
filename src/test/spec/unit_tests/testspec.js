@@ -321,17 +321,36 @@ describe('example test', function() {
             expect(server.get).toHaveBeenCalledWith(BASE_URL + ENDPOINT_URI + '/advisors', false, 'localStorage', false);
             expect(advisorService.searchResults).toEqual([]);
             expect(advisorService.isLoading).toEqual(false);
-            advisorService.search('noman');
-            expect(advisorService.searchTerm).toEqual('noman');
-            expect(advisorService.searchResults).toEqual([newAdvisor('Muhammad', 'Noman')]);
+            advisorService.search('Ye');
+            expect(advisorService.searchTerm).toEqual('Ye');
+            var advisorsWithYe = [
+                {"id":30719,"firstName":"Michele","commonName":null,"lastName":"Yergens","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"myergens@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5075,"dealerShip":"ACM","geoLocation":{"lng":-102.99876,"lat":49.14201,"_persistence_fetchGroup":null},"address1":"1330-4th Street","address2":"Unit #1","city":"Estevan","provinceAbbr":"SK","postalCode":"S4A 0X2","phone":"306-634-9008","tollFree":null,"fax":"306-634-8099","_persistence_fetchGroup":null},"_persistence_fetchGroup":null},
+                {"id":31096,"firstName":"Kendall","commonName":null,"lastName":"Yeomans","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"kyeomans@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"http://www.assante.com/advisors/kyeomans","partialBranchInfo":{"id":5265,"dealerShip":"ACM","geoLocation":{"lng":-80.93607,"lat":46.50878,"_persistence_fetchGroup":null},"address1":"363 Falconbridge Road","address2":"Unit 2","city":"Sudbury","provinceAbbr":"ON","postalCode":"P3A 5K5","phone":"705-521-1444","tollFree":null,"fax":"705-521-1450","_persistence_fetchGroup":null},"_persistence_fetchGroup":null},
+                {"id":34179,"firstName":"Teresa","commonName":null,"lastName":"Yeung","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"416-490-9944","email":"tyeung@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"http://www.assante.com/advisors/tyeung","partialBranchInfo":{"id":5862,"dealerShip":"AFM","geoLocation":{"lng":-79.36599,"lat":43.85091,"_persistence_fetchGroup":null},"address1":"15 Allstate Parkway","address2":"Suite 600","city":"Markham","provinceAbbr":"ON","postalCode":"L3R 5B4","phone":"416-490-9944  E","tollFree":" ","fax":"888-454-4811","_persistence_fetchGroup":null},"_persistence_fetchGroup":null},
+                {"id":34979,"firstName":"Ian","commonName":null,"lastName":"Yeo","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"604-685-2214","email":"IYeo@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"http://www.assante.com/advisors/iyeo","partialBranchInfo":{"id":5411,"dealerShip":"ACM","geoLocation":{"lng":-123.115952,"lat":49.285248,"_persistence_fetchGroup":null},"address1":"800 West Pender Street","address2":"Suite 1600","city":"Vancouver","provinceAbbr":"BC","postalCode":"V6C 2V6","phone":"604-685-2214","tollFree":null,"fax":"604-602-0211","_persistence_fetchGroup":null},"_persistence_fetchGroup":null},
+                {"id":35383,"firstName":"Janaye","commonName":null,"lastName":"Chubb","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5700,"dealerShip":"AFM","geoLocation":{"lng":-108.2988,"lat":52.77904,"_persistence_fetchGroup":null},"address1":"1421 - 100th Street","address2":null,"city":"North Battleford","provinceAbbr":"SK","postalCode":"S9A 0W1","phone":"306-445-9455","tollFree":null,"fax":"306-445-4966","_persistence_fetchGroup":null},"_persistence_fetchGroup":null},
+                {"id":35680,"firstName":"Michelle","commonName":null,"lastName":"Pilgrim-Byers","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"705-325-7743","email":"mpilgrim@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"http://www.assante.com/advisors/mpilgrim/","partialBranchInfo":{"id":5497,"dealerShip":"ACM","geoLocation":{"lng":-79.42835,"lat":44.61826,"_persistence_fetchGroup":null},"address1":"384 West Street North","address2":"Suite 1","city":"Orillia","provinceAbbr":"ON","postalCode":"L3V 5E6","phone":"705-325-7743","tollFree":null,"fax":"705-325-5761","_persistence_fetchGroup":null},"_persistence_fetchGroup":null},
+                {"id":36268,"firstName":"Perry","commonName":null,"lastName":"Loyello","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5843,"dealerShip":"ACM","geoLocation":{"lng":-73.78454,"lat":45.48395,"_persistence_fetchGroup":null},"address1":"2020 Transcanadienne","address2":"Suite 200","city":"Dorval","provinceAbbr":"QC","postalCode":"H9P 2N4","phone":"514-832-5100","tollFree":null,"fax":"514-832-5232","_persistence_fetchGroup":null},"_persistence_fetchGroup":null}
+            ]
+            expect(advisorService.searchResults).toEqual(advisorsWithYe);
             console.log('advisorService.maxPages: ', advisorService.maxPages);
             expect(advisorService.maxPages).toEqual(1);
-            advisorService.search('NomAn');
-            expect(advisorService.searchTerm).toEqual('NomAn');
-            expect(advisorService.searchResults).toEqual([newAdvisor('Muhammad', 'Noman')]);
+
+            advisorService.search('TeSt');
+            expect(advisorService.searchTerm).toEqual('TeSt');
+            var advisorsWithTest = [
+                {"id":33186,"firstName":"Test","commonName":null,"lastName":"Advisor99","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"416-2527777  ext. 999","email":"tadvisor99@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"http://www.assante.com/advisors/tadvisor99/","partialBranchInfo":{"id":5074,"dealerShip":"AFM","geoLocation":{"lng":-135.05425,"lat":60.72251,"_persistence_fetchGroup":null},"address1":"3147 3rd Avenue","address2":null,"city":"Whitehorse","provinceAbbr":"YK","postalCode":"Y1A 1E9","phone":"867-667-6100","tollFree":null,"fax":"867-668-7843","_persistence_fetchGroup":null},"_persistence_fetchGroup":null},
+                {"id":33630,"firstName":"Test","commonName":null,"lastName":"Assistant99","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5074,"dealerShip":"AFM","geoLocation":{"lng":-135.05425,"lat":60.72251,"_persistence_fetchGroup":null},"address1":"3147 3rd Avenue","address2":null,"city":"Whitehorse","provinceAbbr":"YK","postalCode":"Y1A 1E9","phone":"867-667-6100","tollFree":null,"fax":"867-668-7843","_persistence_fetchGroup":null},"_persistence_fetchGroup":null}
+            ];
+            expect(advisorService.searchResults).toEqual(advisorsWithTest);
             expect(advisorService.maxPages).toEqual(1);
-            advisorService.search('chong');
-            expect(advisorService.searchTerm).toEqual('chong');
+/*
+            advisorService.search('mic');
+            expect(advisorService.searchTerm).toEqual('mic');
+            var advisorsWithMic = [
+                {"id":30719,"firstName":"Michele","commonName":null,"lastName":"Yergens","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"myergens@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5075,"dealerShip":"ACM","geoLocation":{"lng":-102.99876,"lat":49.14201,"_persistence_fetchGroup":null},"address1":"1330-4th Street","address2":"Unit #1","city":"Estevan","provinceAbbr":"SK","postalCode":"S4A 0X2","phone":"306-634-9008","tollFree":null,"fax":"306-634-8099","_persistence_fetchGroup":null},"_persistence_fetchGroup":null},
+
+            ]
             expect(advisorService.searchResults).toEqual([newAdvisor('Michael', 'Chong'), newAdvisor('Barry', 'Chong')]);
             expect(advisorService.maxPages).toEqual(1);
             advisorService.search('o');
@@ -346,7 +365,7 @@ describe('example test', function() {
             expect(advisorService.numPerPage).toEqual(50);
             expect(advisorService.mobileMaxNumDisplay).toEqual(50);
             expect(advisorService.currentPage).toEqual(1);
-
+*/
         });
 
     });

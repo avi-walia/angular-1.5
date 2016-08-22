@@ -31,6 +31,7 @@
         service.init = init;
         service.pageChanged = pageChanged;
         service.search = search;
+        service.searchTermTooShort = true;
 
         function loadMore() {
             if (service.mobileMaxNumDisplay < service.searchResults.length - service.numPerPage) {
@@ -56,20 +57,30 @@
         }
 
         function updatePaginationInfiniteScroll() {
+            console.log('page max: ', service.searchResults.length);
+            console.log(service.numPerPage);
+
             service.maxPages = Math.ceil(service.searchResults.length / service.numPerPage);
             service.mobileMaxNumDisplay = service.numPerPage;
             service.currentPage = 1;
         }
 
 
-        function search(searchTerm){
-            service.searchTerm = searchTerm;
-            service.searchResults = [];
-            console.log('searchTerm: ', searchTerm);
-            for (var i = 0; i < advisors.length; i++) {
-                if (advisors[i].firstName.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0 || advisors[i].lastName.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0) {
-                    service.searchResults.push(advisors[i]);
+        function search(searchTerm) {
+            if (searchTerm && searchTerm.length >= 2) {
+                service.searchTermTooShort = false;
+                service.searchTerm = searchTerm;
+                service.searchResults = [];
+                console.log('searchTerm: ', searchTerm);
+                for (var i = 0; i < advisors.length; i++) {
+                    if (advisors[i].firstName.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0 || advisors[i].lastName.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0) {
+                        service.searchResults.push(advisors[i]);
+                    }
                 }
+            } else {
+                service.searchTermTooShort = true;
+                service.searchResults = [];
+
             }
             updatePaginationInfiniteScroll();
         }

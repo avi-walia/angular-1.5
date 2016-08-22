@@ -6,3 +6,6 @@
     </select>
     <button style="margin-left:50px;" translate ng-click="$ctrl.service.search($ctrl.service.searchCriteria)" translate>searchButton</button>
 </div>
+<div ng-if="$ctrl.service.searchTermTooShort" translate>
+    shortSearchTerm
+</div>

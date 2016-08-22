@@ -5,6 +5,7 @@
     "byName": "Search By: Advisor Name",
     "byLocation": "Search By: Location"
   },
+  "shortSearchTerm": "Please enter atleast 2 characters.",
   "searchResultsFound": "Search results found.",
   "noSearchCriteria": "There are no search results to be displayed.",
   "pages": {
