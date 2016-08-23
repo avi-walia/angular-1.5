@@ -23,17 +23,19 @@
                 windowBottom = $window[0].innerHeight + $window[0].pageYOffset;
                 elementBottom = elem[0].offsetTop + elem[0].offsetHeight - $window[0].pageYOffset;
                 remaining = elementBottom - windowBottom;
-                var heightOfFirstChild = elem[0].children[0].children[0].children[0].offsetHeight;// this is the height of the first row/element in the list of rows/elements to infinitely scroll through.
+                if (elem[0].children[0].children[0].children[0]) {
+                    var heightOfFirstChild = elem[0].children[0].children[0].children[0].offsetHeight;// this is the height of the first row/element in the list of rows/elements to infinitely scroll through.
 
-                //the larger the left side is, the sooner it will load more elements into the infinite-scroll.
-                //ie. $window[0].innerHeight * 1.3 will load more items when the crollbar is about 30%  from the bottom of the page.
-                shouldScroll = elem[0].getBoundingClientRect().bottom <= $window[0].innerHeight * 1.05 + heightOfFirstChild;
-                if (shouldScroll) {
-                    console.log('scrolling');
-                    if ($rootScope.$$phase) {
-                        return scope.$eval(attrs.infiniteScroll);
-                    } else {
-                        return scope.$apply(attrs.infiniteScroll);
+                    //the larger the left side is, the sooner it will load more elements into the infinite-scroll.
+                    //ie. $window[0].innerHeight * 1.3 will load more items when the crollbar is about 30%  from the bottom of the page.
+                    shouldScroll = elem[0].getBoundingClientRect().bottom <= $window[0].innerHeight * 1.05 + heightOfFirstChild;
+                    if (shouldScroll) {
+                        console.log('scrolling');
+                        if ($rootScope.$$phase) {
+                            return scope.$eval(attrs.infiniteScroll);
+                        } else {
+                            return scope.$apply(attrs.infiniteScroll);
+                        }
                     }
                 }
             };

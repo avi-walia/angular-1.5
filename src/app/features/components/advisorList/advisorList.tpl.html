@@ -2,9 +2,14 @@
 <div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="advisorList">
     <div>
         <h2>Advisor List</h2>
-        <search-bar service="$ctrl.service"></search-bar>
-        <paginator-infinite-scroll service="$ctrl.service">
-        </paginator-infinite-scroll>
+        <div style="width:100%;">
+            <search-bar style="width:50%; margin-right:25px;display:inline;float:left;" service="$ctrl.service"></search-bar>
+            <search-by style="margin-top:25px;" service="$ctrl.service"></search-by>
+        </div>
+        <div style="clear:both;">
+            <paginator-infinite-scroll style="clear:both;" service="$ctrl.service">
+            </paginator-infinite-scroll>
+        </div>
     </div>
 </div>
 

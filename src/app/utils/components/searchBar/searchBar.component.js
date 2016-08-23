@@ -26,16 +26,7 @@
         $state
     ) {
         var vm = this;
-        vm.searchBy = $state.current.url === '/advisors' ? 'name' : 'location';
         vm.detectMobile = detectMobile;
-        vm.navigate = navigate;
-        function navigate(searchBy) {
-            if (searchBy == 'location') {
-                $state.go('main.advisorLocator.branchList');
-            } else {
-                $state.go('main.advisorLocator.advisorList');
-            }
-        }
     }
 
 })();
