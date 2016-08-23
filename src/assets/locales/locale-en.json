@@ -70,7 +70,18 @@
     "website": "Website",
     "advisorImageAlt": "Advisor Image",
     "spokenLanguages": "Spoken Languages"
-
-
+  },
+  "branchDetail":{
+    "title": "Branch Detail",
+    "mapTitle": "Map",
+    "branchAssociates": "Branch Associates",
+    "telephone": "Tel:",
+    "tollFree": "Toll Free:",
+    "fax": "Fax:",
+    "website": "Website:",
+    "email": "Email:",
+    "branchManagerName": "Branch Manager:",
+    "coManager1": "Co Manager 1:",
+    "coManager2:": "Co Manager 2:"
   }
 }

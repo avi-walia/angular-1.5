@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-//referencing branch list service
+
     angular
         .module('advisorLocator.features.searchByName')
         .service('advisorDetailService', advisorDetailService);
