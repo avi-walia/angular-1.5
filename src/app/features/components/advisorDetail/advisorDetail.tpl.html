@@ -12,8 +12,7 @@
                 <table>
                 <div>
                     <div style="display:inline-block;vertical-align:top;">
-                        <!-- src will be src="{{advisorDetail.profilePictureUrl}}"-->
-                        <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRDi-6uSWe8kBz0wAaxIoJtETO-MOYwUBrv-snFzA1tXmBkUqQ9" translate alt="advisorDetail.advisorImageAlt">
+                        <img src="{{$ctrl.advisorDetailService.advisorDetail.profilePictureUrl}}" translate alt="advisorDetail.advisorImageAlt">
                     </div>
 
                     <div style="display:inline-block;">
@@ -50,8 +49,11 @@
                     </tr>
 
                 </table>
-                <!--<google-map address="advisor.branch.address1" user-marker="advisor.branch.geoLocation"></google-map>-->
-                <google-map address="" user-marker=""></google-map>
+                <br>
+                <google-map address="" user-marker="$ctrl.advisorDetailService.advisorDetail.userMarker"></google-map><br>
+                <a href='https://www.assanteservices.com/aiol/#/en/aio/en/contact' translate>advisorDetail.branchDetailsLink</a><br>
+
+                <span translate>advisorDetail.contactUsNote</span>
             </div>
 
         </div>
