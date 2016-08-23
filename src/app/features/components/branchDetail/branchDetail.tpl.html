@@ -77,9 +77,10 @@
                 <a href='https://www.assanteservices.com/aiol/#/en/aio/en/contact' translate>advisorDetail.branchDetailsLink</a><br>
 
                 <h2 translate>branchDetail.branchAssociates</h2>
+
                 <span ng-repeat="title in $ctrl.advisorDetailService.advisorDetail.titles" bn-repeat-delimiter=",">{{title}}{{$last ? '' : ', '}}</span>
                 <ul ng-repeat="advisor in $ctrl.branchDetailService.branchDetail.partialAdvisorsInfo">
-                    <a href='https://www.assanteservices.com/aiol/#/en/aio/en/contact' translate> {{advisor.firstName + ' ' + advisor.lastName}}</a><br>
+                    <a href='/advisors/{{advisor.id}}' translate> {{advisor.firstName + ' ' + advisor.lastName}}</a><br>
                 </ul>
             </div>
 
