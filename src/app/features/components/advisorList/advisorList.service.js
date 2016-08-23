@@ -73,6 +73,7 @@
 
 
         function search(searchTerm) {
+            //remove all multi-spaces
             service.searchTerm = searchTerm.replace(/ +(?= )/g,'');
             var subTerms = searchTerm.toLowerCase().split(' ');
             var i = 0;
