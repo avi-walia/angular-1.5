@@ -31,6 +31,7 @@
 
         vm.setPosition = setPosition;
         vm.setLocation = setLocation;
+        vm.setMessage = setMessage;
         vm.openInfoWindow = openInfoWindow;
 
         function setPosition(position){
@@ -42,6 +43,9 @@
             vm.branchListService.setLocation(location);
         }
 
+        function setMessage(message){
+            vm.branchListService.setMessage(message);
+        }
 
         function openInfoWindow(id){
 

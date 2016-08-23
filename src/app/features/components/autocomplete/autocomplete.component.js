@@ -8,6 +8,7 @@
             bindings: {
                 setPosition: '&',
                 setLocation: '&',
+                setMessage: '&',
                 location: '<'
             },
             controller: autocompleteCtrl,
@@ -20,15 +21,15 @@
     autocompleteCtrl.$inject = [
         '$rootScope',
         'pageStateResolver',
-        'detectMobile',
-        'branchListService'
+        'detectMobile'
+
     ];
     /* @ngInject */
-    function autocompleteCtrl( $rootScope, pageStateResolver, detectMobile, branchListService
+    function autocompleteCtrl( $rootScope, pageStateResolver, detectMobile
     ) {
         var vm = this;
         vm.pageStateResolver = pageStateResolver;
-        vm.branchListService = branchListService;
+
         vm.detectMobile = detectMobile;
         vm.loadParameters = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCwahusHkUZ-LOTVpawRSoKh-h2ktVbj2I&libraries=geometry,places&language='+$rootScope.documentLanguage;
         //vm.restriction = {country: 'ca'};
@@ -51,19 +52,20 @@
 
         function onPlaceChanged(){
             vm.place = this.getPlace();
+            vm.setMessage({message:{}});
             if(vm.place.geometry) {
                 vm.updatePosition(vm.place.geometry.location);
                 vm.updateLocation(vm.place.formatted_address);
             }
             else{
-                vm.branchListService.setMessage({'cancel': 'branchList.validation.notValidAddress'});
+                vm.setMessage({message:{'cancel': 'branchList.validation.notValidAddress'}});
             }
 
         }
 
         function updatePlace(){
             if(vm.location===''){
-                vm.branchListService.setMessage({'cancel': 'branchList.validation.notValidAddress'});
+                vm.setMessage({message: {'cancel': 'branchList.validation.notValidAddress'}});
             }
             else{
                 var autocomplete = document.getElementById('place');
