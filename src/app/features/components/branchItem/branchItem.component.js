@@ -18,21 +18,16 @@
     branchItemCtrl.$inject = [
         '$rootScope',
         'pageStateResolver',
-        'detectMobile',
-        'branchListService'
+        'detectMobile'
     ];
     /* @ngInject */
-    function branchItemCtrl( $rootScope, pageStateResolver, detectMobile, branchListService
+    function branchItemCtrl( $rootScope, pageStateResolver, detectMobile
     ) {
         var vm = this;
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;
         //vm.myMarker = {geoLocation: {lat: 43.6425662, lng: -79.3892455}, zoom: 15};
         //vm.address = 'CN Tower, Toronto, ON M5V, Canada';
-
-        vm.branchListService = branchListService;
-
-
 
 
 

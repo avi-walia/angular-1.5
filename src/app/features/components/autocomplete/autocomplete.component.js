@@ -9,6 +9,7 @@
                 setPosition: '&',
                 setLocation: '&',
                 setMessage: '&',
+                resetMarkers: '&',
                 location: '<'
             },
             controller: autocompleteCtrl,
@@ -33,7 +34,6 @@
         vm.detectMobile = detectMobile;
         vm.loadParameters = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCwahusHkUZ-LOTVpawRSoKh-h2ktVbj2I&libraries=geometry,places&language='+$rootScope.documentLanguage;
         //vm.restriction = {country: 'ca'};
-        vm.validation = {};
 
 
         vm.onPlaceChanged = onPlaceChanged;
@@ -42,6 +42,7 @@
         vm.updatePosition = updatePosition;
         vm.updateLocation = updateLocation;
 
+
         function updatePosition(pos){
             vm.setPosition({position: pos});
         }
@@ -49,6 +50,7 @@
         function updateLocation(loc){
             vm.setLocation({location: loc});
         }
+
 
         function onPlaceChanged(){
             vm.place = this.getPlace();
@@ -59,6 +61,7 @@
             }
             else{
                 vm.setMessage({message:{'cancel': 'branchList.validation.notValidAddress'}});
+                vm.resetMarkers({markers: []});
             }
 
         }
@@ -66,6 +69,7 @@
         function updatePlace(){
             if(vm.location===''){
                 vm.setMessage({message: {'cancel': 'branchList.validation.notValidAddress'}});
+                vm.resetMarkers({markers: []});
             }
             else{
                 var autocomplete = document.getElementById('place');

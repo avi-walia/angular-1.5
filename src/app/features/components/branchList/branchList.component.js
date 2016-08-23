@@ -32,6 +32,7 @@
         vm.setPosition = setPosition;
         vm.setLocation = setLocation;
         vm.setMessage = setMessage;
+        vm.setMarkers = setMarkers;
         vm.openInfoWindow = openInfoWindow;
 
         function setPosition(position){
@@ -45,6 +46,10 @@
 
         function setMessage(message){
             vm.branchListService.setMessage(message);
+        }
+
+        function setMarkers(markers){
+            vm.branchListService.setMarkers(markers);
         }
 
         function openInfoWindow(id){

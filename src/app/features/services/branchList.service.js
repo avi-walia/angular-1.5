@@ -22,6 +22,7 @@
         service.filteredMarkers = [];
         service.sortedMarkers = [];
         service.markers = [];
+        service.branchListView = [];
         service.message = {};
 
         service.getBranchList = getBranchList;
@@ -31,6 +32,7 @@
         service.getLocation = getLocation;
 
         service.setMessage = setMessage;
+        service.setMarkers = setMarkers;
 
 
 
@@ -42,13 +44,13 @@
                     service.branchList =result.data;
                     service.branchListLoading = false;
 
-                    service.markers = _(result.data)
+                    service.branchListView = _(result.data)
                         .map(function(item){
                             var fullAddress = item.address1 + ', ' + item.address2 + ', ' +  item.city + ', ' + item.provinceAbbr + ' ' +item.postalCode;
                             return {id: item.id, geoLocation: item.geoLocation, address: fullAddress, distance: 0};
                         })
                         .value();
-                    console.log(service.markers);
+                    console.log(service.branchListView);
                     return result.data;
 
                 });
@@ -75,6 +77,12 @@
         function setMessage(message){
             service.message = angular.copy(message);
         }
+
+        function setMarkers(markers){
+            service.markers = [];
+            service.markers = angular.copy(markers);
+        }
+
 
     }
 

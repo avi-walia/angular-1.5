@@ -9,6 +9,7 @@
             bindings: {
                 onUpdateMarkers: '&?', /*will be used only for branch locations search*/
                 markerList: '<?', /*will be used only for branch locations search*/
+                locationList: '<?', /*will be used only for branch locations search*/
                 position: '<?', /*will be used only for branch location search*/
                 userMarker: '<?', /*{geoLocation: {lat: number, lng: number}, zoom: number}*/
                 address: '<?' /*physical address of the marker (separate values by comma followed by space)*/
@@ -35,6 +36,9 @@
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;
         vm.loadParameters = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCwahusHkUZ-LOTVpawRSoKh-h2ktVbj2I&libraries=geometry,places&language='+$rootScope.documentLanguage;
+        vm.pathToIcon = 'assets/images/blue-marker.png';
+        vm.linkToMap = 'https://www.google.com/maps/dir/';
+
         vm.ca = {
             center: [61.0, -99.0],
             zoom: 3,
@@ -44,6 +48,7 @@
             zoomControl: true,
             draggable: true
         };
+
         vm.isLoading = true;
         vm.mapPromise = NgMap.getMap().then(function(map){
             vm.map = map;
@@ -58,15 +63,13 @@
             content: document.getElementById('info')
         });
         vm.markerInfo = {};
+
+        vm.updateMarkers = updateMarkers;
         vm.setUserLocationMarker = setUserLocationMarker;
         vm.createMarkers = createMarkers;
         vm.clearMarkers = clearMarkers;
-        vm.setVisibility = setVisibility;
-
-        vm.pathToIcon = 'assets/images/blue-marker.png';
         vm.showInfoWindow = showInfoWindow;
 
-        vm.linkToMap = 'https://www.google.com/maps/dir/';
 
         vm.$onInit = function(){
 
@@ -97,8 +100,13 @@
                         vm.map.panTo(vm.position);
                         vm.map.setZoom(13);
                         vm.setUserLocationMarker(vm.position);
+                        search(vm.position);
                     });
                 }
+            }
+            if(changes.locationList){
+                vm.locationList = angular.copy(vm.locationList);
+                vm.locationList = angular.copy(changes.locationList.currentValue);
             }
             if(changes.markerList){
                 vm.clearMarkers();
@@ -126,6 +134,9 @@
         $scope.$on('$destroy', infoWindow);
 
 
+        function updateMarkers(list){
+            vm.onUpdateMarkers({markers: list});
+        }
 
         function setUserLocationMarker(LatLng){
             if (vm.userLocationMarker){
@@ -176,6 +187,63 @@
                 vm.markers[key].visible = false;
             });
             vm.markerInfo.visible = true;
+        }
+
+
+        function search(currentPosition){
+            var filteredList = [];
+            filteredList = filterMarkers(currentPosition);
+            vm.updateMarkers(filteredList);
+        }
+
+        function filterMarkers(currentPosition){
+            var filteredList = [];
+            var sortedList = [];
+            var bounds = vm.map.getBounds();
+            var counter = 0;
+
+            sortedList = sortMarkers(currentPosition);
+            filteredList = isContain(sortedList, bounds);
+
+            return filteredList;
+        }
+
+        function sortMarkers(currentPosition){
+            var sortedList = [];
+            var LatLng = {};
+
+            _.forEach(vm.locationList, function(value, key){
+                LatLng = new google.maps.LatLng(vm.locationList[key].geoLocation.lat, vm.locationList[key].geoLocation.lng);
+                sortedList.push(vm.locationList[key]);
+
+                sortedList[key].distance = _.round(google.maps.geometry.spherical.computeDistanceBetween(LatLng, currentPosition) / 1000, 1);
+                sortedList[key].LatLng = LatLng;
+            });
+
+            sortedList = _(sortedList)
+                .orderBy('distance', 'asc')
+                .value();
+
+            console.log('sortedList');
+            console.log(sortedList);
+
+            return sortedList;
+        }
+
+        function isContain(sortedList, bounds){
+            var filteredList = [];
+
+            _.forEach(sortedList, function(value, key){
+                if(bounds.contains(sortedList[key].LatLng)){
+                    filteredList.push(sortedList[key]);
+                }
+            });
+
+
+            console.log('filteredList');
+            console.log(filteredList);
+
+            return filteredList;
         }
     }
 
