@@ -18,7 +18,8 @@
 </table>
 <div ng-class="{'lastAdvisorRow': $last, 'notLastAdvisorRow': !$last}" ng-repeat="element in $ctrl.service[$ctrl.service.objectName] | limitTo:$ctrl.service.mobileMaxNumDisplay track by $index">
     <a ui-sref="main.advisorLocator.advisorDetails({id: element.id})" >
-        {{element.firstName}} {{element.lastName}}
+        <span ng-if="element.showCommon">{{element.commonName}}</span>
+        <span ng-if="!element.showCommon">{{element.firstName}}</span> {{element.lastName}}
         <span style="float:right;">{{element.partialBranchInfo.city}}, {{element.partialBranchInfo.provinceAbbr}}<img style='margin-left:30px' src="assets/images/circleChevron.png" /></span>
     </a>
 </div>
