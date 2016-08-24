@@ -3,14 +3,14 @@
     'use strict';
 
     angular
-        .module('advisorLocator.utils')
+        .module('advisorLocator')
         .component('searchBy', {
             transpose: true,
             bindings: {
                 service: '='
             },
             controller: searchByCtrl,
-            templateUrl:'app/utils/components/searchBy/searchBy.tpl.html'
+            templateUrl:'app/features/components/searchBy/searchBy.tpl.html'
         });
 
 

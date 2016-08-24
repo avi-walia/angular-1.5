@@ -3,14 +3,14 @@
     'use strict';
 
     angular
-        .module('advisorLocator.utils')
+        .module('advisorLocator')
         .component('paginatorInfiniteScroll', {
             transpose: true,
             bindings: {
               service: '='
             },
             controller: paginatorInfiniteScrollCtrl,
-            templateUrl:'app/utils/components/paginatorInfiniteScroll/paginatorInfiniteScroll.tpl.html'
+            templateUrl:'app/features/components/paginatorInfiniteScroll/paginatorInfiniteScroll.tpl.html'
         });
 
 

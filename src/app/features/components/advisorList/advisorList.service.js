@@ -104,6 +104,10 @@
                             advisors[index].showCommon = false;
                             service.searchResults.push(advisor);
                             return false;
+                        } else if(advisor.lastName.toLowerCase().indexOf(subTerm) >= 0) {
+                            advisors[index].showCommon = true;
+                            service.searchResults.push(advisor);
+                            return false;
                         }
                     })
                 });
