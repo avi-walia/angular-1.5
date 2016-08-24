@@ -24,7 +24,7 @@
         function getAdvisorDetail(advisorID) {
 
 
-            server.get(BASE_URL + ENDPOINT_URI + '/advisors/30610', false, 'localStorage', false)
+            server.get(BASE_URL + ENDPOINT_URI + '/advisors/1234', false, 'localStorage', false)
                 .then(function(result) {
                     if(result.data){
 
