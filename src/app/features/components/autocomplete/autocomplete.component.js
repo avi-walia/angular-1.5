@@ -62,6 +62,8 @@
             else{
                 vm.setMessage({message:{'cancel': 'branchList.validation.notValidAddress'}});
                 vm.resetMarkers({markers: []});
+                vm.updatePosition({});
+                vm.updateLocation('');
             }
 
         }
@@ -70,6 +72,8 @@
             if(vm.location===''){
                 vm.setMessage({message: {'cancel': 'branchList.validation.notValidAddress'}});
                 vm.resetMarkers({markers: []});
+                vm.updatePosition({});
+                vm.updateLocation('');
             }
             else{
                 var autocomplete = document.getElementById('place');

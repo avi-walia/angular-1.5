@@ -103,6 +103,9 @@
                         search(vm.position);
                     });
                 }
+                else{
+                    vm.setUserLocationMarker(null);
+                }
             }
             if(changes.locationList){
                 vm.locationList = angular.copy(vm.locationList);
@@ -143,10 +146,12 @@
                 vm.userLocationMarker.setMap(null);
                 vm.userLocationMarker = null;
             }
-            vm.userLocationMarker = new google.maps.Marker({
-                position: LatLng,
-                map: vm.map
-            });
+            if(LatLng) {
+                vm.userLocationMarker = new google.maps.Marker({
+                    position: LatLng,
+                    map: vm.map
+                });
+            }
 
         }
 
@@ -204,6 +209,16 @@
 
             sortedList = sortMarkers(currentPosition);
             filteredList = isContain(sortedList, bounds);
+
+            if(filteredList.length === 0){
+                bounds.extend(sortedList[0].LatLng); //get the first closest
+                vm.map.fitBounds(bounds);
+                vm.map.setCenter(bounds.getCenter());
+                filteredList = isContain(sortedList, vm.map.getBounds());
+                console.log('newFilteredList');
+                console.log(filteredList);
+            }
+
 
             return filteredList;
         }
