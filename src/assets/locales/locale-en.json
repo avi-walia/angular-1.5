@@ -73,6 +73,7 @@
   },
   "branchDetail":{
     "title": "Branch Detail",
+    "branchName": "Assante Financial Management",
     "mapTitle": "Map",
     "branchAssociates": "Branch Associates",
     "telephone": "Tel:",

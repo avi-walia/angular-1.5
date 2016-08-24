@@ -1,11 +1,15 @@
 
     <div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="branchDetails">
         <div class="full" ng-if="$ctrl.detectMobile.isDesktop">
-            <h2 translate>branchDetail.title</h2>
+            <h2 translate>branchDetail.title</h2><br>
 
             <!-- BRANCH DETAILS -->
             <div>
-
+                <div>
+                    <span translate>branchDetail.branchName</span><br>
+                    <span>{{$ctrl.branchDetailService.branchDetail.address1}}</span>
+                </div>
+                <br>
                 <table>
                     <tr>
                         <td translate>branchDetail.telephone</td>
