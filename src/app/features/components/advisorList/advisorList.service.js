@@ -40,7 +40,7 @@
             'lastname',
             'city',
             'province'
-        ]
+        ];
 
         function loadMore() {
             if (service.mobileMaxNumDisplay < service.searchResults.length - service.numPerPage) {
@@ -107,6 +107,8 @@
                         }
                     })
                 });
+                sortAscending = false;
+                sortBy('lastname');
             } else {
                 service.searchTermTooShort = true;
                 service.searchResults = [];
@@ -194,13 +196,13 @@
                 sortAscending = true;
             }
             console.log('filter: ', filter);
-            if (filter === 'firstname') {
+            if (filter === service.sortableColumns[0]) {
                 service.searchResults.sort(compareFirstname);
-            } else if (filter === 'lastname') {
+            } else if (filter === service.sortableColumns[1]) {
                 service.searchResults.sort(compareLastName);
-            } else if (filter === 'city') {
+            } else if (filter === service.sortableColumns[2]) {
                 service.searchResults.sort(compareCity);
-            } else {
+            } else if (filter = service.sortableColumns[3]){
                 service.searchResults.sort(compareProvince);
             }
         }

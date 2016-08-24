@@ -1,18 +1,17 @@
-
 <table style="width:100%">
     <thead>
     <tr>
         <th>
-            <button ng-click="$ctrl.service.sortBy('firstname')">First Name</button>
+            <button ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[0])">First Name</button>
         </th>
         <th>
-            <button ng-click="$ctrl.service.sortBy('lastname')">Last Name</button>
+            <button ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[1])">Last Name</button>
         </th>
         <th>
-            <button ng-click="$ctrl.service.sortBy('city')">City</button>
+            <button ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[2])">City</button>
         </th>
         <th>
-            <button ng-click="$ctrl.service.sortBy('province')">Province</button>
+            <button ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[3])">Province</button>
         </th>
     </tr>
     </thead>
