@@ -91,10 +91,11 @@
         };
         vm.$onChanges = function(changes){
 
-            if(changes.position){
-                vm.position = angular.copy(vm.position);
-                vm.position = angular.copy(changes.position.currentValue);
+            if(changes.position ){
 
+                vm.position = angular.copy(changes.position.currentValue);
+                console.log('*****************************');
+                console.log(vm.position);
                 if(!_.isEmpty(vm.position)) {
                     vm.mapPromise.then(function () {
                         vm.map.panTo(vm.position);
@@ -108,13 +109,15 @@
                 }
             }
             if(changes.locationList){
-                vm.locationList = angular.copy(vm.locationList);
+
                 vm.locationList = angular.copy(changes.locationList.currentValue);
             }
             if(changes.markerList){
                 vm.clearMarkers();
-                vm.markerList = angular.copy(vm.markerList);
+
                 vm.markerList = angular.copy(changes.markerList.currentValue);
+                console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
+                console.log(vm.markerList);
                 if(!_.isEmpty(vm.markerList)){
                     vm.mapPromise.then(function(){
                         vm.createMarkers();
