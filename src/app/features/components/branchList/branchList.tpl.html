@@ -8,13 +8,19 @@
         ng-if="$ctrl.detectMobile.isDesktop"
     >
         <h2 translate>branchList.title</h2>
-        <autocomplete
-            set-position="$ctrl.setPosition(position)"
-            set-location="$ctrl.setLocation(location)"
-            set-message="$ctrl.setMessage(message)"
-            reset-markers="$ctrl.setMarkers(markers)"
-            location="$ctrl.branchListService.location"
-        ></autocomplete>
+        <div style="display: inline-block">
+            <autocomplete
+                set-position="$ctrl.setPosition(position)"
+                set-location="$ctrl.setLocation(location)"
+                set-message="$ctrl.setMessage(message)"
+                reset-markers="$ctrl.setMarkers(markers)"
+                location="$ctrl.branchListService.location"
+            ></autocomplete>
+        </div>
+        <div style="display: inline-block">
+            <search-by></search-by>
+        </div>
+        <br /> <br />
         <google-map
                 position="$ctrl.branchListService.position"
                 location-list="$ctrl.branchListService.branchListView"
