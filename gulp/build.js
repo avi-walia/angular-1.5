@@ -194,6 +194,22 @@ module.exports = function (options) {
             .pipe(gulp.dest('./src/app/config'))
     });
 
+    //--config test
+    gulp.task('config:test', function () {
+        var pkg = JSON.parse(fs.readFileSync('./package.json'));
+
+        gulp.src(['./src/app/config/app.config.json', './src/app/config/app.config.test.json', './src/app/config/routes.config.json'])
+            .pipe(jsonMerge('config.json'))
+            .pipe(gulpNgConfig(options.app, {
+                createModule: false,
+                constants: {
+                    version: pkg.version + ' (test)'
+                },
+                wrap: '(function () { \n  \'use strict\'; \nreturn <%= module %> \n})();'
+            }))
+            .pipe(gulp.dest('./src/app/config'))
+    });
+
     //--config uat
     gulp.task('config:uat', function () {
         var pkg = JSON.parse(fs.readFileSync('./package.json'));
@@ -272,9 +288,19 @@ module.exports = function (options) {
             ['html', 'fonts', 'other', 'locales'],
             'clean-dist');
     }
+    function buildTEST() {
+        console.time("Build");
+        runSequence('clean-build',
+            'config:test',
+            ['html', 'fonts', 'other', 'locales'],
+            'clean-dist');
+    }
 
     gulp.task('build:dev', function() {
         buildDEV();
+    });
+    gulp.task('build:test', function() {
+        buildTEST();
     });
 
     gulp.task('buildSafe:dev', ['protractor'], function() {
