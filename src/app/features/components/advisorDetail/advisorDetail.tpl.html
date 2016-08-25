@@ -12,13 +12,13 @@
                 <table>
                 <div>
                     <div style="display:inline-block;vertical-align:top;">
-                        <img src="{{$ctrl.advisorDetailService.advisorDetail.profilePictureUrl}}" translate  alt="{{ 'advisorDetail.advisorImageAlt' | translate }}">
+                        <!--<img src="{{$ctrl.advisorDetailService.advisorDetail.profilePictureUrl}}" translate  alt="{{ 'advisorDetail.advisorImageAlt' | translate }}">-->
                     </div>
 
 
                     <div style="display:inline-block;">
                         <span>{{$ctrl.advisorDetailService.advisorDetail.firstName + ' ' + $ctrl.advisorDetailService.advisorDetail.lastName}}</span><br>
-                        <span ng-repeat="title in $ctrl.advisorDetailService.advisorDetail.titles" bn-repeat-delimiter=",">{{title}}{{$last ? '' : ', '}}</span>
+                        <!--<span ng-repeat="title in $ctrl.advisorDetailService.advisorDetail.titles" bn-repeat-delimiter=",">{{title}}{{$last ? '' : ', '}}</span>-->
                         <span>{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address1}},{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address2}}</span><br>
                         <span>{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.city}},{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.provinceAbbr}} {{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.postalCode}}</span>
                     </div>

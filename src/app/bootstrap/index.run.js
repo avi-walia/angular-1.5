@@ -6,13 +6,13 @@
 
     runBlock.$inject = [
         '$rootScope', 'NotificationService',
-        '$translate', 'pageStateResolver', 'tmhDynamicLocale', '$window'
+        '$translate', 'pageStateResolver', 'tmhDynamicLocale', '$window', 'stateTrackerService'
     ];
 
     /* @ngInject */
 
     function runBlock($rootScope, NotificationService,
-                      $translate, pageStateResolver, tmhDynamicLocale, $window) {
+                      $translate, pageStateResolver, tmhDynamicLocale, $window, stateTrackerService) {
 
         // ionic stuff
         /*
@@ -105,7 +105,7 @@
                 //scroll at the top of the page after each route change
                 $window.scrollTo(0, 0);
 
-                
+                stateTrackerService.previousState = fromState;
 
             });
 
