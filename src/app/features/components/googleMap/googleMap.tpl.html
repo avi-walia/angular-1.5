@@ -1,15 +1,46 @@
 <div ng-class="{'hideMap': $ctrl.isLoading, 'showMap': !$ctrl.isLoading}">
-    <div ng-if="$ctrl.address" id="linkToMap"><a tabindex="0" title="{{ 'branchList.linkToMap' | translate }}" ng-href="{{$ctrl.linkToMap}}{{'branchList.currentLocation' | translate}}/{{$ctrl.address}}"
-                           analytics-on analytics-event="click" analytics-category="MAP" analytics-label="Map" target="_blank"
-                           translate >branchList.linkToMap</a></div>
+    <div
+        ng-if="$ctrl.address"
+        id="linkToMap"
+    >
+        <a
+            tabindex="0"
+            title="{{ 'branchList.linkToMap' | translate }}"
+            ng-href="{{$ctrl.linkToMap}}{{'branchList.currentLocation' | translate}}/{{$ctrl.address}}"
+            analytics-on
+            analytics-event="click"
+            analytics-category="MAP"
+            analytics-label="Map"
+            target="_blank"
+            translate
+        >
+            branchList.linkToMap
+        </a>
+    </div>
     <ng-map center="{{$ctrl.ca.center}}" zoom="{{$ctrl.ca.zoom}}"
-            map-type-control="{{$ctrl.ca.mapTypeControl}}" pan-control="{{$ctrl.ca.panControl}}"
-            zoom-control="{{$ctrl.ca.zoomControl}}" street-view-control="{{$ctrl.ca.streetViewControl}}"
+            map-type-control="{{$ctrl.ca.mapTypeControl}}"
+            pan-control="{{$ctrl.ca.panControl}}"
+            zoom-control="{{$ctrl.ca.zoomControl}}"
+            street-view-control="{{$ctrl.ca.streetViewControl}}"
             draggable="{{$ctrl.ca.draggable}}">
 
     </ng-map>
-    <div id="info"><p>{{$ctrl.markerInfo.customInfo}}</p><span ng-if="$ctrl.markerInfo.visible"><a tabindex="0" ui-sref="main.advisorLocator.branchDetails({id: $ctrl.markerInfo.id})"
-                                                                analytics-on analytics-event="click" analytics-category="BRANCH CARD" analytics-label="Branch Details Card" translate>branchList.getDetails</a></span></div>
+    <div id="info">
+        <p>{{$ctrl.markerInfo.customInfo}}</p>
+        <span ng-if="$ctrl.markerInfo.visible">
+            <a
+                tabindex="0"
+                ui-sref="main.advisorLocator.branchDetails({id: $ctrl.markerInfo.id})"
+                analytics-on
+                analytics-event="click"
+                analytics-category="BRANCH CARD"
+                analytics-label="Branch Details Card"
+                translate
+            >
+                branchList.getDetails
+            </a>
+        </span>
+    </div>
 </div>
 <ci-loader loading="$ctrl.isLoading">
 </ci-loader>

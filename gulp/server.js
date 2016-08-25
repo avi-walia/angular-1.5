@@ -28,7 +28,8 @@ module.exports = function(options) {
     //var proxyOptions = url.parse('http://paris:8881/aiolws');
     //var proxyOptions = url.parse('http://paris:9014/aiolws');
     //var proxyOptions = url.parse('http://dev.assanteservices.com/aiolws');
-    var proxyOptions = url.parse('https://dev.assanteservices.com/advisorlocatorws');
+    //var proxyOptions = url.parse('https://dev.assanteservices.com/advisorlocatorws');
+    var proxyOptions = url.parse('http://localhost:3001');
     //var proxyOptions = url.parse('https://uat.assanteservices.com/aiolws');
 
     // Which route browserSync should forward to the gateway, this is the route for the backend api
@@ -79,7 +80,7 @@ module.exports = function(options) {
     selector: '[ng-app]'// Only needed for angular apps
   }));
 
-  gulp.task('serve', ['config:local','watch'], function () {
+  gulp.task('serve', ['JSON-Server', 'config:local','watch'], function () {
     browserSyncInit([options.tmp + '/serve', options.src]);
   });
 
