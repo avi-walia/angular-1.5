@@ -3,5 +3,6 @@
 
   },
   "copyrightYear": 2016,
-  "APP_NAME": "AdvisorLocator"
+  "APP_NAME": "AdvisorLocator",
+  "ELEMENTS_PER_PAGE": 50
 }

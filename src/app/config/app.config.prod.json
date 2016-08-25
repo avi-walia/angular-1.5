@@ -1,4 +1,4 @@
 {
   "BASE_URL": "https://assanteservices.com/aiol",
-  "ENDPOINT_URI": "/aiolws"
+  "ENDPOINT_URI": "/advisorlocatorws"
 }
