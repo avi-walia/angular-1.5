@@ -102,10 +102,15 @@
                             return false;
                         } else if(advisor.firstName.toLowerCase().indexOf(subTerm) >= 0) {
                             advisors[index].showCommon = false;
+                            advisor.showCommon = false;
                             service.searchResults.push(advisor);
                             return false;
                         } else if(advisor.lastName.toLowerCase().indexOf(subTerm) >= 0) {
-                            advisors[index].showCommon = true;
+                            if (advisor.commonName) {
+                                advisors[index].showCommon = true;
+                            } else {
+                                advisors[index].showCommon = false;
+                            }
                             service.searchResults.push(advisor);
                             return false;
                         }
