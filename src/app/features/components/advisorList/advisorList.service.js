@@ -10,10 +10,11 @@
         'server',
         'BASE_URL',
         'ENDPOINT_URI',
-        'ELEMENTS_PER_PAGE'
+        'ELEMENTS_PER_PAGE',
+        'removeDiacriticsService'
     ];
 
-    function advisorService(server, BASE_URL, ENDPOINT_URI, ELEMENTS_PER_PAGE) {
+    function advisorService(server, BASE_URL, ENDPOINT_URI, ELEMENTS_PER_PAGE, removeDiacriticsService) {
         var service = this;
         var advisors = [];
         service.searchResults = [];
@@ -74,8 +75,8 @@
 
         function search(searchTerm) {
             //remove all multi-spaces
-            service.searchTerm = searchTerm.replace(/ +(?= )/g,'');
-            var subTerms = searchTerm.toLowerCase().split(' ');
+            service.searchTerm = removeDiacriticsService.remove(searchTerm.replace(/ +(?= )/g,''));
+            var subTerms = service.searchTerm.toLowerCase().split(' ');
             var i = 0;
             while (i < subTerms.length) {
                 if (subTerms[i].length < 2) {
@@ -84,7 +85,7 @@
                     i++;
                 }
             }
-            if (searchTerm && searchTerm.length > 1 && subTerms.length > 0) {
+            if (service.searchTerm && service.searchTerm.length > 1 && subTerms.length > 0) {
                 service.searchTermTooShort = false;
                 service.searchResults = [];
                 //for (var i = 0; i < advisors.length; i++) {
@@ -96,16 +97,20 @@
                             return false;
                         }
                         */
-                        if (advisor.commonName && advisor.commonName.toLowerCase().indexOf(subTerm) >= 0) {
+                        var commonName = advisor.commonName ? removeDiacriticsService.remove(advisor.commonName).toLowerCase() : null;
+                        var firstName = removeDiacriticsService.remove(advisor.firstName).toLowerCase();
+                        var lastName = removeDiacriticsService.remove(advisor.lastName).toLowerCase();
+
+                        if (commonName && commonName.indexOf(subTerm) >= 0) {
                             advisors[index].showCommon = true;
                             service.searchResults.push(advisor);
                             return false;
-                        } else if(advisor.firstName.toLowerCase().indexOf(subTerm) >= 0) {
+                        } else if(firstName.indexOf(subTerm) >= 0) {
                             advisors[index].showCommon = false;
                             advisor.showCommon = false;
                             service.searchResults.push(advisor);
                             return false;
-                        } else if(advisor.lastName.toLowerCase().indexOf(subTerm) >= 0) {
+                        } else if(lastName.indexOf(subTerm) >= 0) {
                             if (advisor.commonName) {
                                 advisors[index].showCommon = true;
                             } else {
