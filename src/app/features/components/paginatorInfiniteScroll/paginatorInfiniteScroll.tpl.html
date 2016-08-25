@@ -2,10 +2,10 @@
     <div style="margin-top:15px;" ng-if="$ctrl.service[$ctrl.service.objectName].length > 0">
         {{$ctrl.service[$ctrl.service.objectName].length}} {{'searchResultsFound' | translate}}
     </div>
-    <div infinite-scroll="$ctrl.service.loadMore();" style="margin-top:10px;border:solid black 1px;padding:25px;" ng-if="$ctrl.service[$ctrl.service.objectName].length > 0">
+    <div style="margin-top:10px;border:solid black 1px;padding:25px;" ng-if="$ctrl.service[$ctrl.service.objectName].length > 0">
         <div ng-if="$ctrl.detectMobile.isDesktop" ng-include="$ctrl.service.desktopTemplatePath"></div>
         <div ng-if="!$ctrl.detectMobile.isDesktop">
-            <div ng-include="$ctrl.service.mobileTemplatePath"></div>
+            <div infinite-scroll="$ctrl.service.loadMore();" ng-include="$ctrl.service.mobileTemplatePath"></div>
         </div>
     </div>
     <div ng-if="!$ctrl.service[$ctrl.service.objectName].length" translate>
@@ -13,15 +13,15 @@
     </div>
 
     <ul
-            ng-if="$ctrl.detectMobile.isDesktop && $ctrl.service[$ctrl.service.objectName].length > 0"
-            class="pagination"
-            uib-pagination
-            total-items="$ctrl.service[$ctrl.service.objectName].length"
-            ng-model="$ctrl.service.currentPage"
-            ng-change="$ctrl.service.pageChanged($ctrl.service.currentPage)"
-            max-size="7"
-            force-ellipses="true"
-            items-per-page="$ctrl.service.numPerPage"
+        ng-if="$ctrl.detectMobile.isDesktop && $ctrl.service[$ctrl.service.objectName].length > 0"
+        class="pagination"
+        uib-pagination
+        total-items="$ctrl.service[$ctrl.service.objectName].length"
+        ng-model="$ctrl.service.currentPage"
+        ng-change="$ctrl.service.pageChanged($ctrl.service.currentPage)"
+        max-size="7"
+        force-ellipses="true"
+        items-per-page="$ctrl.service.numPerPage"
     >
     </ul>
 </ci-loader>
