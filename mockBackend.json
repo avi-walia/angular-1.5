@@ -813,14 +813,14 @@
       "id": 123457,
       "dealerShip": "ACN",
       "geoLocation": {
-        "lng": -79.4080591,
-        "lat": 43.7617201
+        "lng": -79.40948960000003,
+        "lat": 43.76060700000001
       },
       "address1": "Address 1B",
       "address2": "Address 2B",
       "city": "city",
       "provinceAbbr": "ON",
-      "postalCode" : "A1A 1A1",
+      "postalCode" : "B1B 1B1",
       "tollFree": "1800123456790",
       "phone": "123-345-6789",
       "fax": "123-456-7890",
@@ -848,14 +848,14 @@
       "id": 123458,
       "dealerShip": "ACN",
       "geoLocation": {
-        "lng": -79.4080591,
-        "lat": 43.7617201
+        "lng": -79.40950299999997,
+        "lat": 43.76040199999999
       },
       "address1": "Address 1C",
       "address2": "Address 2C",
       "city": "city",
       "provinceAbbr": "ON",
-      "postalCode" : "A1A 1A1",
+      "postalCode" : "C1C 1C1",
       "tollFree": "1800123456790",
       "phone": "123-345-6789",
       "fax": "123-456-7890",
@@ -883,14 +883,14 @@
       "id": 123459,
       "dealerShip": "ACN",
       "geoLocation": {
-        "lng": -79.4080591,
-        "lat": 43.7617201
+        "lng": -79.40701419999999,
+        "lat": 43.76396800000001
       },
-      "address1": "Address 1C",
-      "address2": "Address 2C",
+      "address1": "Address 1D",
+      "address2": "Address 2D",
       "city": "city",
       "provinceAbbr": "ON",
-      "postalCode" : "A1A 1A1",
+      "postalCode" : "D1D 1D1",
       "tollFree": "1800123456790",
       "phone": "123-345-6789",
       "fax": "123-456-7890",
@@ -918,14 +918,14 @@
       "id": 123460,
       "dealerShip": "ACN",
       "geoLocation": {
-        "lng": -79.4080591,
-        "lat": 43.7617201
+        "lng": -79.4065354,
+        "lat": 43.7562948
       },
-      "address1": "Address 1D",
-      "address2": "Address 2D",
+      "address1": "Address 1E",
+      "address2": "Address 2E",
       "city": "city",
       "provinceAbbr": "ON",
-      "postalCode" : "A1A 1A1",
+      "postalCode" : "E1E 1E1",
       "tollFree": "1800123456790",
       "phone": "123-345-6789",
       "fax": "123-456-7890",
@@ -953,14 +953,14 @@
       "id": 123461,
       "dealerShip": "ACN",
       "geoLocation": {
-        "lng": -79.4080591,
-        "lat": 43.7617201
+        "lng": -79.380961,
+        "lat": 43.642281
       },
-      "address1": "Address 1E",
-      "address2": "Address 2E",
+      "address1": "Address 1F",
+      "address2": "Address 2F",
       "city": "city",
       "provinceAbbr": "ON",
-      "postalCode" : "A1A 1A1",
+      "postalCode" : "F1F 1F1",
       "tollFree": "1800123456790",
       "phone": "123-345-6789",
       "fax": "123-456-7890",
@@ -988,14 +988,154 @@
       "id": 123462,
       "dealerShip": "ACN",
       "geoLocation": {
-        "lng": -79.4080591,
-        "lat": 43.7617201
+        "lng": -80.073508,
+        "lat": 43.454074
       },
-      "address1": "Address 1F",
-      "address2": "Address 2F",
+      "address1": "Address 1G",
+      "address2": "Address 2G",
       "city": "city",
       "provinceAbbr": "ON",
-      "postalCode" : "A1A 1A1",
+      "postalCode" : "G1G 1G1",
+      "tollFree": "1800123456790",
+      "phone": "123-345-6789",
+      "fax": "123-456-7890",
+      "website": "http://urlF",
+      "managerName": "Manager NameF",
+      "managerEmail": "emailF@email.com",
+      "managerPhone": "123-556-780",
+      "coManagerName": "Jim Armit F",
+      "coManagerEmail": "jarmitF@assante.com",
+      "coManagerPhone": "604-484-2070",
+      "coManager2Name": "John Wishloff E",
+      "coManager2Email": "jwishloffF@assante.com",
+      "coManager2Phone": "604-484-2070",
+      "partialAdvisorsInfo": [
+        {
+          "id": 1234,
+          "firstName": "Advisor First NameF",
+          "commonName": "Advisor Common NameF",
+          "lastName": "Advisor Last NameF",
+          "spokenLanguage": "English"
+        }
+      ]
+    },
+    {
+      "id": 123463,
+      "dealerShip": "ACN",
+      "geoLocation": {
+        "lng": -79.315233,
+        "lat": 45.045462
+      },
+      "address1": "Address 1H",
+      "address2": "Address 2H",
+      "city": "city",
+      "provinceAbbr": "ON",
+      "postalCode" : "H1H 1H1",
+      "tollFree": "1800123456790",
+      "phone": "123-345-6789",
+      "fax": "123-456-7890",
+      "website": "http://urlF",
+      "managerName": "Manager NameF",
+      "managerEmail": "emailF@email.com",
+      "managerPhone": "123-556-780",
+      "coManagerName": "Jim Armit F",
+      "coManagerEmail": "jarmitF@assante.com",
+      "coManagerPhone": "604-484-2070",
+      "coManager2Name": "John Wishloff E",
+      "coManager2Email": "jwishloffF@assante.com",
+      "coManager2Phone": "604-484-2070",
+      "partialAdvisorsInfo": [
+        {
+          "id": 1234,
+          "firstName": "Advisor First NameF",
+          "commonName": "Advisor Common NameF",
+          "lastName": "Advisor Last NameF",
+          "spokenLanguage": "English"
+        }
+      ]
+    },
+    {
+      "id": 123464,
+      "dealerShip": "ACN",
+      "geoLocation": {
+        "lng": -73.566511,
+        "lat": 45.502019
+      },
+      "address1": "Address 1I",
+      "address2": "Address 2I",
+      "city": "city",
+      "provinceAbbr": "ON",
+      "postalCode" : "I1I 1I1",
+      "tollFree": "1800123456790",
+      "phone": "123-345-6789",
+      "fax": "123-456-7890",
+      "website": "http://urlF",
+      "managerName": "Manager NameF",
+      "managerEmail": "emailF@email.com",
+      "managerPhone": "123-556-780",
+      "coManagerName": "Jim Armit F",
+      "coManagerEmail": "jarmitF@assante.com",
+      "coManagerPhone": "604-484-2070",
+      "coManager2Name": "John Wishloff E",
+      "coManager2Email": "jwishloffF@assante.com",
+      "coManager2Phone": "604-484-2070",
+      "partialAdvisorsInfo": [
+        {
+          "id": 1234,
+          "firstName": "Advisor First NameF",
+          "commonName": "Advisor Common NameF",
+          "lastName": "Advisor Last NameF",
+          "spokenLanguage": "English"
+        }
+      ]
+    },
+    {
+      "id": 123465,
+      "dealerShip": "ACN",
+      "geoLocation": {
+        "lng": -73.437614,
+        "lat": 45.451138
+      },
+      "address1": "Address 1J",
+      "address2": "Address 2J",
+      "city": "city",
+      "provinceAbbr": "ON",
+      "postalCode" : "J1J 1J1",
+      "tollFree": "1800123456790",
+      "phone": "123-345-6789",
+      "fax": "123-456-7890",
+      "website": "http://urlF",
+      "managerName": "Manager NameF",
+      "managerEmail": "emailF@email.com",
+      "managerPhone": "123-556-780",
+      "coManagerName": "Jim Armit F",
+      "coManagerEmail": "jarmitF@assante.com",
+      "coManagerPhone": "604-484-2070",
+      "coManager2Name": "John Wishloff E",
+      "coManager2Email": "jwishloffF@assante.com",
+      "coManager2Phone": "604-484-2070",
+      "partialAdvisorsInfo": [
+        {
+          "id": 1234,
+          "firstName": "Advisor First NameF",
+          "commonName": "Advisor Common NameF",
+          "lastName": "Advisor Last NameF",
+          "spokenLanguage": "English"
+        }
+      ]
+    },
+    {
+      "id": 123466,
+      "dealerShip": "ACN",
+      "geoLocation": {
+        "lng": -63.661506,
+        "lat": 44.682938
+      },
+      "address1": "Address 1K",
+      "address2": "Address 2K",
+      "city": "city",
+      "provinceAbbr": "ON",
+      "postalCode" : "K1K 1K1",
       "tollFree": "1800123456790",
       "phone": "123-345-6789",
       "fax": "123-456-7890",

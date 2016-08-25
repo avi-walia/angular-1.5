@@ -1,10 +1,40 @@
-
-    <div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="branchList">
-        <div class="full" ng-if="$ctrl.detectMobile.isDesktop">
-            <h2 translate>branchList.title</h2>
-            <autocomplete set-position="$ctrl.setPosition(position)" set-location="$ctrl.setLocation(location)" location="$ctrl.branchListService.location"></autocomplete>
-            <google-map position="$ctrl.branchListService.position"></google-map>
-
+<div
+    ng-class="$ctrl.pageStateResolver.activePageName"
+    autoscroll="true"
+    id="branchList"
+>
+    <div
+        class="full"
+        ng-if="$ctrl.detectMobile.isDesktop"
+    >
+        <h2 translate>branchList.title</h2>
+        <div style="display: inline-block">
+            <autocomplete
+                set-position="$ctrl.setPosition(position)"
+                set-location="$ctrl.setLocation(location)"
+                set-message="$ctrl.setMessage(message)"
+                reset-markers="$ctrl.setMarkers(markers)"
+                location="$ctrl.branchListService.location"
+            ></autocomplete>
         </div>
+        <div style="display: inline-block">
+            <search-by></search-by>
+        </div>
+        <br /> <br />
+        <google-map
+                position="$ctrl.branchListService.position"
+                location-list="$ctrl.branchListService.branchListView"
+                marker-list="$ctrl.branchListService.markers"
+                on-update-markers="$ctrl.setMarkers(markers)">
+        </google-map>
+        <ci-validation message-object="$ctrl.branchListService.message"></ci-validation>
+        <branch-item
+            ng-repeat="branch in $ctrl.branchListService.markers track by $index"
+            item="branch"
+            ng-click="$ctrl.openInfoWindow(branch.id)"
+        ></branch-item>
     </div>
+</div>
+
+
 

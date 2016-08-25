@@ -6,9 +6,6 @@
         .module('advisorLocator')
         .component('searchBy', {
             transpose: true,
-            bindings: {
-                service: '='
-            },
             controller: searchByCtrl,
             templateUrl:'app/features/components/searchBy/searchBy.tpl.html'
         });
