@@ -1,5 +1,13 @@
 {
   "appTitle": "FR App Title",
+  "searchButton": "FR Search",
+  "search": {
+    "byName": "FR Search By: Advisor Name",
+    "byLocation": "FR Search By: Location"
+  },
+  "shortSearchTerm": "FR Please enter atleast 2 characters.",
+  "searchResultsFound": "FR Search results found.",
+  "noSearchCriteria": "FR There are no search results to be displayed.",
   "helpLabel": "FR Help",
   "pages": {
     "landing": {
