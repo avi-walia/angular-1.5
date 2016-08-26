@@ -1,7 +1,70 @@
 
     <div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="advisorDetails">
         <div class="full" ng-if="$ctrl.detectMobile.isDesktop">
-            <h2>Advisor details</h2>
+            <button ui-sref="{{$ctrl.stateTrackerService.previousState.name}}" translate>advisorDetail.searchResultsButton</button>
+            <br>
+            <br>
+            <h2 translate>advisorDetail.title</h2>
+            <br>
+            <!-- ADVISOR DETAILS -->
+            <div>
+
+                <table>
+                <div>
+                    <div style="display:inline-block;vertical-align:top;">
+                        <img src="{{$ctrl.advisorDetailService.advisorDetail.profilePictureUrl}}" translate  alt="{{ 'advisorDetail.advisorImageAlt' | translate }}">
+                    </div>
+
+
+                    <div style="display:inline-block;">
+                        <span>{{$ctrl.advisorDetailService.advisorDetail.firstName + ' ' + $ctrl.advisorDetailService.advisorDetail.lastName}}</span><br>
+                        <span ng-repeat="title in $ctrl.advisorDetailService.advisorDetail.titles track by $index" bn-repeat-delimiter=",">{{title}}{{$last ? '' : ', '}}</span><br>
+                        <span>{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address1 +',' + ' '+ $ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address2}}</span><br>
+                    </div>
+                    <br><br>
+                    <div style="display:inline-block;">
+                        <span>{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.dealerShip==="ACN" ? "Assante Capital Management Ltd.": "Assante Financial Management Ltd."}}</span><br>
+                        <span>{{$ctrl.advisorDetailService.advisorDetail.styleNameEN}}</span><br>
+                        <span>{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.city}},{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.provinceAbbr}} {{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.postalCode}}</span><br>
+                    </div>
+                    <br><br>
+                </div>
+
+                    <tr>
+                        <td translate>advisorDetail.telephone</td>
+                        <td class="price extra">{{$ctrl.advisorDetailService.advisorDetail.phone}}</td>
+                    </tr>
+                    <tr>
+                        <td translate>advisorDetail.tollFree</td>
+                        <td>{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.tollFree}}</td>
+                    </tr>
+                    <tr>
+                        <td translate>advisorDetail.email</td>
+                        <td><a href="{{$ctrl.advisorDetailService.advisorDetail.email}}">{{$ctrl.advisorDetailService.advisorDetail.email}}</a></td>
+                    </tr>
+                    <tr>
+                        <td translate>advisorDetail.alternateEmail</td>
+                        <td><a href="{{$ctrl.advisorDetailService.advisorDetail.altEmail}}">{{$ctrl.advisorDetailService.advisorDetail.altEmail}}</a></td>
+                    </tr>
+                    <tr >
+                        <td translate>advisorDetail.website</td>
+                        <td><a href="{{$ctrl.advisorDetailService.advisorDetail.website}}">{{$ctrl.advisorDetailService.advisorDetail.website}}</a></td>
+                    </tr>
+                    <tr>
+                        <td translate>advisorDetail.spokenLanguages</td>
+                        <td>{{$ctrl.advisorDetailService.advisorDetail.spokenLanguage}}</td>
+                    </tr>
+
+                </table>
+                <br>
+                <google-map address="" user-marker="$ctrl.advisorDetailService.advisorDetail.userMarker"></google-map><br>
+                <a ui-sref='main.advisorLocator.branchDetails' translate>advisorDetail.branchDetailsLink</a><br>
+
+                <span translate>advisorDetail.contactUsNote</span>
+            </div>
+
         </div>
     </div>
+
+
 

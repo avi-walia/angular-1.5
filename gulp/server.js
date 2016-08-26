@@ -29,6 +29,7 @@ module.exports = function(options) {
     //var proxyOptions = url.parse('http://paris:9014/aiolws');
     //var proxyOptions = url.parse('http://dev.assanteservices.com/aiolws');
     //var proxyOptions = url.parse('https://dev.assanteservices.com/advisorlocatorws');
+
     var proxyOptions = url.parse('http://localhost:3001');
     //var proxyOptions = url.parse('https://uat.assanteservices.com/aiolws');
 
@@ -80,7 +81,8 @@ module.exports = function(options) {
     selector: '[ng-app]'// Only needed for angular apps
   }));
 
-  gulp.task('serve', ['JSON-Server', 'config:local','watch'], function () {
+  gulp.task('serve', ['JSON-Server', 'config:local','watch' ], function () {
+
     browserSyncInit([options.tmp + '/serve', options.src]);
   });
 

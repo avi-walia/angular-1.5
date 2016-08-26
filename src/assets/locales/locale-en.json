@@ -71,5 +71,33 @@
     "validation": {
       "notValidAddress" : "Please choose a valid address"
     }
+  },
+  "advisorDetail":{
+    "title":"Advisor Detail",
+    "searchResultsButton": "Back to search results",
+    "branchDetailsLink": "Branch Details",
+    "mapTitle": "Map",
+    "contactUsNote" : "*Note: If you are unable to locate your advisor, please contact <a href='https://www.assanteservices.com/aiol/#/en/aio/contact'>Assante Service Centre</a> for assistance",
+    "telephone": "Tel",
+    "tollFree": "Toll Free",
+    "email": "Email",
+    "alternateEmail": "Team Email",
+    "website": "Website",
+    "advisorImageAlt": "Advisor Image",
+    "spokenLanguages": "Spoken Languages"
+  },
+  "branchDetail":{
+    "title": "Branch Detail",
+    "branchName": "Assante Financial Management",
+    "mapTitle": "Map",
+    "branchAssociates": "Branch Associates",
+    "telephone": "Tel:",
+    "tollFree": "Toll Free:",
+    "fax": "Fax:",
+    "website": "Website:",
+    "email": "Email:",
+    "branchManagerName": "Branch Manager:",
+    "coManager1": "Co Manager 1:",
+    "coManager2:": "Co Manager 2:"
   }
 }

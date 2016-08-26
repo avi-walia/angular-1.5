@@ -1,7 +1,93 @@
+<div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="branchDetails">
+    <div class="full" ng-if="$ctrl.detectMobile.isDesktop">
+        <h2 translate>branchDetail.title</h2><br>
 
-    <div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="branchDetails">
-        <div class="full" ng-if="$ctrl.detectMobile.isDesktop">
-            <h2>Branch details</h2>
+        <!-- BRANCH DETAILS -->
+        <div>
+            <div>
+                <span translate>branchDetail.branchName</span><br>
+                <span>{{$ctrl.branchDetailService.branchDetail.address1}}</span>
+            </div>
+            <br>
+            <table>
+                <tr>
+                    <td translate>branchDetail.telephone</td>
+                    <td class="price extra">{{$ctrl.branchDetailService.branchDetail.phone}}</td>
+                </tr>
+                <tr>
+                    <td translate>branchDetail.tollFree</td>
+                    <td>{{$ctrl.branchDetailService.branchDetail.tollFree}}</td>
+                </tr>
+                <tr>
+                    <td translate>branchDetail.fax</td>
+                    <td>{{$ctrl.branchDetailService.branchDetail.fax}}</td>
+                </tr>
+                <tr>
+                    <td translate>branchDetail.website</td>
+                    <td>{{$ctrl.branchDetailService.branchDetail.website}}</td>
+                </tr>
+            </table>
+            <br>
+            <table>
+                <tr >
+                    <td translate>branchDetail.branchManagerName</td>
+                    <td>{{$ctrl.branchDetailService.branchDetail.managerName}}</td>
+                </tr>
+                <tr >
+                    <td translate>branchDetail.telephone</td>
+                    <td>{{$ctrl.branchDetailService.branchDetail.managerPhone}}</td>
+                </tr>
+                <tr >
+                    <td translate>branchDetail.email</td>
+                    <td>{{$ctrl.branchDetailService.branchDetail.managerEmail}}</td>
+                </tr>
+            </table>
+             <br>
+            <table>
+                <tr >
+                    <td translate>branchDetail.coManager1</td>
+                    <td>{{$ctrl.branchDetailService.branchDetail.coManagerName}}</td>
+                </tr>
+                <tr >
+                    <td translate>branchDetail.telephone</td>
+                    <td>{{$ctrl.branchDetailService.branchDetail.coManagerPhone}}</td>
+                </tr>
+                <tr >
+                    <td translate>branchDetail.email</td>
+                    <td>{{$ctrl.branchDetailService.branchDetail.coManagerEmail}}</td>
+                </tr>
+            </table>
+                <br>
+            <table>
+                <tr >
+                    <td translate>branchDetail.coManager1</td>
+                    <td>{{$ctrl.branchDetailService.branchDetail.coManager2Name}}</td>
+                </tr>
+                <tr >
+                    <td translate>branchDetail.telephone</td>
+                    <td>{{$ctrl.branchDetailService.branchDetail.coManager2Phone}}</td>
+                </tr>
+                <tr >
+                    <td translate>branchDetail.email</td>
+                    <td>{{$ctrl.branchDetailService.branchDetail.coManager2Email}}</td>
+                </tr>
+
+            </table>
+
+
+            <br>
+            <google-map address="" user-marker="$ctrl.branchDetailService.branchDetail.userMarker"></google-map><br>
+            <a href='https://www.assanteservices.com/aiol/#/en/aio/en/contact' translate>advisorDetail.branchDetailsLink</a><br>
+
+            <h2 translate>branchDetail.branchAssociates</h2>
+
+            <span ng-repeat="title in $ctrl.advisorDetailService.advisorDetail.titles" bn-repeat-delimiter=",">{{title}}{{$last ? '' : ', '}}</span>
+            <ul ng-repeat="advisor in $ctrl.branchDetailService.branchDetail.partialAdvisorsInfo">
+                <a href='/advisors/{{advisor.id}}' translate> {{advisor.firstName + ' ' + advisor.lastName}}</a><br>
+            </ul>
         </div>
+
     </div>
+
+</div>
 
