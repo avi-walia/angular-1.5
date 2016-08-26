@@ -80,6 +80,10 @@
                 //google.maps.event.trigger( /** @type {!HTMLInputElement} */ autocomplete, 'place_changed');
 
                 google.maps.event.trigger(autocomplete, 'focus');
+                google.maps.event.trigger(autocomplete, 'places_changed');
+                google.maps.event.trigger(autocomplete, 'keydown', {
+                    keyCode: 40
+                });
                 google.maps.event.trigger(autocomplete, 'keydown', {
                     keyCode: 13
                 });
