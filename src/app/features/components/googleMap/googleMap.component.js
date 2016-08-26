@@ -62,7 +62,7 @@
         vm.infoWindow = new google.maps.InfoWindow({
             content: document.getElementById('info')
         });
-        vm.markerInfo = {};
+        vm.markerInfo = null;
 
         vm.updateMarkers = updateMarkers;
         vm.setUserLocationMarker = setUserLocationMarker;
@@ -76,6 +76,7 @@
 
                 vm.mapPromise.then(function(){
 
+
                     if (vm.userMarker) {
                         var LatLng = new google.maps.LatLng(vm.userMarker.geoLocation.lat, vm.userMarker.geoLocation.lng);
                         vm.map.setCenter(LatLng);
@@ -86,6 +87,25 @@
                             console.log(vm.address);
                         }
                     }
+
+                    if(vm.position){
+                        vm.position = angular.copy(vm.position);
+                        console.log('position on init', vm.position);
+                        if(!_.isEmpty(vm.position)) {
+                            vm.mapPromise.then(function () {
+                                vm.map.panTo(vm.position);
+                                vm.map.setZoom(13);
+                                vm.setUserLocationMarker(vm.position);
+                                search(vm.position);
+                            });
+                        }
+                        else{
+                            vm.setUserLocationMarker(null);
+                        }
+
+                    }
+
+
                     vm.isLoading = false;
                 });
         };
@@ -94,8 +114,7 @@
             if(changes.position ){
 
                 vm.position = angular.copy(changes.position.currentValue);
-                console.log('*****************************');
-                console.log(vm.position);
+                console.log('position on change', vm.position);
                 if(!_.isEmpty(vm.position)) {
                     vm.mapPromise.then(function () {
                         vm.map.panTo(vm.position);
@@ -116,8 +135,8 @@
                 vm.clearMarkers();
 
                 vm.markerList = angular.copy(changes.markerList.currentValue);
-                console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
-                console.log(vm.markerList);
+
+                console.log('marker list on change',vm.markerList);
                 if(!_.isEmpty(vm.markerList)){
                     vm.mapPromise.then(function(){
                         vm.createMarkers();
@@ -125,6 +144,14 @@
                     });
                 }
 
+            }
+        };
+
+        vm.$onDestroy = function(){
+            vm.infoWindow.close();
+            if (vm.userLocationMarker){
+                vm.userLocationMarker.setMap(null);
+                vm.userLocationMarker = null;
             }
         };
 
