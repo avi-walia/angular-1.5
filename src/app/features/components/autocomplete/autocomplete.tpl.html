@@ -7,6 +7,7 @@
     </label>
     <input
         id="place"
+        enter-key="$ctrl.updatePlace()"
         places-auto-complete
         ng-model="$ctrl.location"
         component-restrictions="{country:'ca'}"

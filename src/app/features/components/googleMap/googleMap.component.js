@@ -149,6 +149,9 @@
 
         vm.$onDestroy = function(){
             vm.infoWindow.close();
+            if(vm.markerInfo){
+                vm.markerInfo = null;
+            }
             if (vm.userLocationMarker){
                 vm.userLocationMarker.setMap(null);
                 vm.userLocationMarker = null;

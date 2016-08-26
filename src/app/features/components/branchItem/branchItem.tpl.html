@@ -8,7 +8,7 @@
             {{$ctrl.item.distance}}{{'branchList.km' | translate}}
         </span>
 
-        <span id="branchCard" style="padding-left: 20px;">
+        <span id="branchCard" style="padding-left: 20px;" stop-event="click">
             <a
                 tabindex="0"
                 ui-sref="main.advisorLocator.branchDetails({id: $ctrl.item.id})"
