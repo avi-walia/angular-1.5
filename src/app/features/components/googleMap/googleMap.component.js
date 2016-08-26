@@ -106,6 +106,7 @@
                     }
 
 
+
                     vm.isLoading = false;
                 });
         };
@@ -156,6 +157,7 @@
                 vm.userLocationMarker.setMap(null);
                 vm.userLocationMarker = null;
             }
+            vm.clearMarkers();
         };
 
 
