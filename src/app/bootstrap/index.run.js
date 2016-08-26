@@ -63,6 +63,9 @@
         $rootScope.$on('$stateChangeSuccess',
             function (event, toState, toParams, fromState, fromParams) {
                 console.log('success');
+                console.log("From state avii", fromState);
+                stateTrackerService.previousState = fromState;
+
                 /**
                  * Gets route configuration object for the requested route
                  */
@@ -104,8 +107,6 @@
 
                 //scroll at the top of the page after each route change
                 $window.scrollTo(0, 0);
-
-                stateTrackerService.previousState = fromState;
 
             });
 

@@ -10,9 +10,6 @@
     /* @ngInject */
     function stateTrackerService($rootScope) {
         var service = this;
-        service.previousSate = "";
-
-        return service.previousSate;
     }
 })();
 

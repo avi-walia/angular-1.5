@@ -5,7 +5,7 @@
       "firstName": "FirstnameA",
       "commonName": "CommonnameA",
       "lastName": "LastnameA",
-      "titles" : ["titleA", "titleA"],
+      "titles" : ["titleA", "titleB"],
       "profilePictureUrl": "http://nameofpicture.jpg",
       "phone": "123-345-6789",
       "email": "emailA@email.com",
