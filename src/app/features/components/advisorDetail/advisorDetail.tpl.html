@@ -23,7 +23,7 @@
                     </div>
                     <br><br>
                     <div style="display:inline-block;">
-                        <span>{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.dealerShip==="ACN" ? "Assante Capital Management Ltd.": "Assante Financial Management Ltd."}}</span><br>
+                        <span>{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.dealerShip==="ACM" ? "Assante Capital Management Ltd.": "Assante Financial Management Ltd."}}</span><br>
                         <span>{{$ctrl.advisorDetailService.advisorDetail.styleNameEN}}</span><br>
                         <span>{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.city}},{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.provinceAbbr}} {{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.postalCode}}</span><br>
                     </div>
@@ -33,10 +33,6 @@
                     <tr>
                         <td translate>advisorDetail.telephone</td>
                         <td class="price extra">{{$ctrl.advisorDetailService.advisorDetail.phone}}</td>
-                    </tr>
-                    <tr>
-                        <td translate>advisorDetail.tollFree</td>
-                        <td>{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.tollFree}}</td>
                     </tr>
                     <tr>
                         <td translate>advisorDetail.email</td>
