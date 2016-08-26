@@ -24,15 +24,15 @@
         function getAdvisorDetail(advisorID) {
 
 
-            server.get(BASE_URL + ENDPOINT_URI + '/advisors/1234', false, 'localStorage', false)
+            server.get(BASE_URL + ENDPOINT_URI + '/advisors/' + advisorID, false, 'localStorage', false)
                 .then(function(result) {
                     if(result.data){
 
                         service.advisorDetail =result.data;
                         service.advisorDetail.userMarker = {geoLocation: {lat: service.advisorDetail.partialBranchInfo.geoLocation.lat, lng: service.advisorDetail.partialBranchInfo.geoLocation.lng}, zoom: 15};
-                        service.advisorDetail.partialBranchInfo.address1.split(' ').join('+');
-                        service.advisorDetail.partialBranchInfo.address2.split(' ').join('+');
-                        service.advisorDetail.partialBranchInfo.city.split(' ').join('+');
+                        if(service.advisorDetail.partialBranchInfo.address1){service.advisorDetail.partialBranchInfo.address1.split(' ').join('+');}
+                        if(service.advisorDetail.partialBranchInfo.address2){service.advisorDetail.partialBranchInfo.address2.split(' ').join('+');}
+                        if(service.advisorDetail.partialBranchInfo.city){service.advisorDetail.partialBranchInfo.city.split(' ').join('+')}
                         service.advisorDetail.googleMapAddressArray =[service.advisorDetail.partialBranchInfo.address1, service.advisorDetail.partialBranchInfo.address2, service.advisorDetail.partialBranchInfo.city];
                         service.advisorDetail.googleMapJoinedAddress = service.advisorDetail.googleMapAddressArray.join("+");
                     }
