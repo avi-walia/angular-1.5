@@ -307,18 +307,23 @@ describe('example test', function() {
                     var deferred = $q.defer();
                     deferred.resolve({data: advisors});
                     return deferred.promise;
-                })
+                });
+
+                spyOn(advisorService, 'init').and.callThrough();
+
             }]);
         });
         it('advisorService should do stuff', function() {
             //spyOn(server, 'get');
             advisorService.init();
+
             var BASE_URL = 'http://localhost:3000';
             var ENDPOINT_URI = '/advisorlocatorws';
             expect(advisorService.isLoading).toEqual(true);
             expect(advisorService.numPerPage).toEqual(50);
             $rootScope.$apply();//this is needed for the async $q to resolve
             expect(server.get).toHaveBeenCalledWith(BASE_URL + ENDPOINT_URI + '/advisors', false, 'localStorage', false);
+            expect(server.init).toHaveBeenCalled;
             expect(advisorService.searchResults).toEqual([]);
             expect(advisorService.isLoading).toEqual(false);
             advisorService.search('Ye');
@@ -416,6 +421,11 @@ describe('example test', function() {
 
 
             ];
+            function minAdvisor(advisors) {
+                var minAdvisors;
+                return
+            }
+            var minMiAdvisors = minAdvisor(advisorsWithMi);
             expect(advisorService.searchResults.splice(0,17)).toEqual(advisorsWithMi.splice(0,17));
             expect(advisorService.maxPages).toEqual(2);
             expect(advisorService.mobileMaxNumDisplay).toEqual(50);
