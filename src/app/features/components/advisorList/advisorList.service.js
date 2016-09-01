@@ -321,10 +321,8 @@
         function stripPunctuation(string) {
             if (!string) {
                 return string;
-            } else if (string.length > 2) {
-                return string.replace(/[.,\/#!$%\^&\*;:{}=\-_`'~()]/g, "");
             } else {
-                return string;
+                return string.replace(/[.,\/#!$%\^&\*;:{}=\-_`'~()]/g, "");
             }
         }
 
