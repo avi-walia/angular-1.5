@@ -36,6 +36,14 @@
         service.sortBy = sortBy;
         var sortAscending = true;
         var lastSort = '';
+        var compareFirstname;
+        var compareLastname;
+        var compareProvince;
+        var compareCity;
+        var compareId;
+
+
+
         service.sortableColumns = [
             'firstname',
             'lastname',
@@ -60,7 +68,7 @@
 
                 //service.advisorSubset = data.slice((page-1) * itemsPerPage, page * itemsPerPage);
             });
-        };
+        }
 
         function pageChanged(newPage) {
             service.currentPage = newPage;
@@ -119,7 +127,7 @@
                             service.searchResults.push(advisor);
                             return false;
                         }
-                    })
+                    });
                 });
                 sortAscending = false;
                 sortBy('lastname');
@@ -131,75 +139,120 @@
             updatePaginationInfiniteScroll();
         }
 
-        function compareFirstname(obj1, obj2) {
+        compareId = function(obj1, obj2, order) {
+            var name1;
+            var name2;
             if (sortAscending) {
-                var name1 = obj1.commonName ? obj1.commonName.toLowerCase() : obj1.firstName.toLowerCase();
-                var name2 = obj2.commonName ? obj2.commonName.toLowerCase() : obj2.firstName.toLowerCase();
+                name1 = obj1.id;
+                name2 = obj2.id;
             } else {
-                var name1 = obj2.commonName ? obj2.commonName.toLowerCase() : obj2.firstName.toLowerCase();
-                var name2 = obj1.commonName ? obj1.commonName.toLowerCase() : obj1.firstName.toLowerCase()
+                name1 = obj2.id;
+                name2 = obj1.id;
+            }
+            //advisorId's are always unique, will never equal.
+            if (name1 < name2) {
+                return -1;
+            } else {
+                return 1;
+            }
+        };
+
+        compareFirstname = function(obj1, obj2, order) {
+            var name1;
+            var name2;
+            if (sortAscending) {
+                name1 = obj1.commonName ? obj1.commonName.toLowerCase() : obj1.firstName.toLowerCase();
+                name2 = obj2.commonName ? obj2.commonName.toLowerCase() : obj2.firstName.toLowerCase();
+            } else {
+                name1 = obj2.commonName ? obj2.commonName.toLowerCase() : obj2.firstName.toLowerCase();
+                name2 = obj1.commonName ? obj1.commonName.toLowerCase() : obj1.firstName.toLowerCase();
             }
 
             if (name1 < name2) {
                 return -1;
-            } else if (name1 == name2) {
-                return 0;
+            } else if (name1 === name2) {
+                if (!order) {//firstname was primary sort
+                    return compareLastname(obj1, obj2, 2);
+                } else {//first name is always the 2nd last sort if it is not the primary. So always go to the last sort option, advisorID if not primary
+                    return compareId(obj1, obj2, 4);
+                }
             } else {
                 return 1;
             }
-        }
+        };
 
-        function compareLastName(obj1, obj2) {
+        compareLastname = function(obj1, obj2, order) {
+            var name2;
+            var name1;
             if (sortAscending) {
-                var name1 = obj1.lastName.toLowerCase();
-                var name2 = obj2.lastName.toLowerCase();
+                name1 = obj1.lastName.toLowerCase();
+                name2 = obj2.lastName.toLowerCase();
             } else {
-                var name1 = obj2.lastName.toLowerCase();
-                var name2 = obj1.lastName.toLowerCase();
+                name1 = obj2.lastName.toLowerCase();
+                name2 = obj1.lastName.toLowerCase();
             }
 
             if (name1 < name2) {
                 return -1;
-            } else if (name1 == name2) {
-                return 0;
+            } else if (name1 === name2) {
+                if (!order) {//lastname was primary sort
+                    return compareFirstname(obj1, obj2, 2);
+                } else if (order === 2) {//lastname was secondary sort
+                    return compareId(obj1, obj2, 3);
+                } else if (order === 3) {//lastname was tertiary sort
+                    return compareFirstname(obj1, obj2, 4);
+                }
             } else {
                 return 1;
             }
-        }
+        };
 
-        function compareCity(obj1, obj2) {
+        compareCity = function(obj1, obj2, order) {
+            var name1;
+            var name2;
 
             if (sortAscending) {
-                var name1 = obj1.partialBranchInfo.city.toLowerCase();
-                var name2 = obj2.partialBranchInfo.city.toLowerCase();
+                name1 = obj1.partialBranchInfo.city.toLowerCase();
+                name2 = obj2.partialBranchInfo.city.toLowerCase();
             } else {
-                var name1 = obj2.partialBranchInfo.city.toLowerCase();
-                var name2 = obj1.partialBranchInfo.city.toLowerCase();
+                name1 = obj2.partialBranchInfo.city.toLowerCase();
+                name2 = obj1.partialBranchInfo.city.toLowerCase();
             }
             if (name1 < name2) {
                 return -1;
-            } else if (name1 == name2) {
-                return 0;
+            } else if (name1 === name2) {
+                if (!order) {//city was primary sort
+                    return compareProvince(obj1, obj2, 2);
+                } else if (order === 2) {// city was secondary sort
+                    return compareLastname(obj1, obj2, 3);
+                }
             } else {
                 return 1;
             }
-        }
-        function compareProvince(obj1, obj2) {
+        };
+
+        compareProvince = function(obj1, obj2, order) {
+            var name1;
+            var name2;
             if (sortAscending) {
-                var name1 = obj1.partialBranchInfo.provinceAbbr.toLowerCase();
-                var name2 = obj2.partialBranchInfo.provinceAbbr.toLowerCase();
+                name1 = obj1.partialBranchInfo.provinceAbbr.toLowerCase();
+                name2 = obj2.partialBranchInfo.provinceAbbr.toLowerCase();
             } else {
-                var name1 = obj2.partialBranchInfo.provinceAbbr.toLowerCase();
-                var name2 = obj1.partialBranchInfo.provinceAbbr.toLowerCase();
+                name1 = obj2.partialBranchInfo.provinceAbbr.toLowerCase();
+                name2 = obj1.partialBranchInfo.provinceAbbr.toLowerCase();
             }
             if (name1 < name2) {
                 return -1;
-            } else if (name1 == name2) {
-                return 0;
+            } else if (name1 === name2) {
+                if (!order) {//province was primary sort
+                    return compareCity(obj1, obj2, 2);
+                } else if (order === 2) {//province was secondary sort
+                    return compareLastname(obj1, obj2, 3);
+                }
             } else {
                 return 1;
             }
-        }
+        };
 
         function sortBy(filter) {
 
@@ -213,10 +266,10 @@
             if (filter === service.sortableColumns[0]) {
                 service.searchResults.sort(compareFirstname);
             } else if (filter === service.sortableColumns[1]) {
-                service.searchResults.sort(compareLastName);
+                service.searchResults.sort(compareLastname);
             } else if (filter === service.sortableColumns[2]) {
                 service.searchResults.sort(compareCity);
-            } else if (filter = service.sortableColumns[3]){
+            } else if (filter === service.sortableColumns[3]){
                 service.searchResults.sort(compareProvince);
             }
         }
