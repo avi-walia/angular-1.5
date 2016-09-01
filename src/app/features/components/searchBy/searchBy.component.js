@@ -20,12 +20,12 @@
     function searchByCtrl(
         $state
     ) {
-        console.log('searchBy loaded')
+        console.log('searchBy loaded');
         var vm = this;
         vm.searchBy = $state.current.url === '/advisors' ? 'name' : 'location';
         vm.navigate = navigate;
         function navigate(searchBy) {
-            if (searchBy == 'location') {
+            if (searchBy === 'location') {
                 $state.go('main.advisorLocator.branchList');
             } else {
                 $state.go('main.advisorLocator.advisorList');
