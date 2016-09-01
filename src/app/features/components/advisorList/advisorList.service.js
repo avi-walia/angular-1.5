@@ -62,7 +62,6 @@
             advisors = [];
             service.isLoading = true;
             server.get(BASE_URL + ENDPOINT_URI + '/advisors', false, 'localStorage', false).then(function(data) {
-                //console.log('data1123: ', data.data);
                 advisors = data.data;
                 service.isLoading = false;
 
@@ -80,7 +79,77 @@
             service.currentPage = 1;
         }
 
+        function search(searchTerm) {
+            //remove all multi-spaces
+            service.searchResults = [];
+            service.searchTerm = stripPunctuation(removeDiacriticsService.remove(searchTerm.replace(/ +(?= )/g,'')));
+            var subTerms = service.searchTerm.toLowerCase().split(' ');
+            var i = 0;
+            /*
+            while (i < subTerms.length) {
+                if (subTerms[i].length < 2) {
+                    subTerms.splice(i, 1);
+                } else {
+                    i++;
+                }
+            }
+            */
+            if (subTerms.length === 1 && subTerms[0].length > 1) {
+                searchAllNames(subTerms[0]);
+            } else if (subTerms.length === 2) {
+                _.forEach(advisors, function(advisor, index) {
+                    var commonName = advisor.commonName ? removeDiacriticsService.remove(advisor.commonName).toLowerCase() : null;
+                    var firstName = removeDiacriticsService.remove(advisor.firstName).toLowerCase();
+                    var lastName = removeDiacriticsService.remove(advisor.lastName).toLowerCase();
+                    var cName = stripPunctuation(commonName);
+                    var fName = stripPunctuation(firstName);
+                    var lName = stripPunctuation(lastName);
 
+                    if (commonName && (commonName === subTerms[0] || cName == subTerms[0]) && (lastName === subTerms[1] || lName === subTerms[1])) {
+                        advisors[index].showCommon = true;
+                        service.searchResults.push(advisor);
+                    } else if ((firstName === subTerms[0] || fName === subTerms[0]) && (lastName === subTerms[1] || lName === subTerms[1])) {
+                        advisors[index].showCommon = false;
+                        service.searchResults.push(advisor);
+                    }
+                });
+            }
+            sortAscending = false;
+            sortBy('lastname');
+            updatePaginationInfiniteScroll();
+        }
+
+
+
+        function searchAllNames(searchTerm) {
+            _.forEach(advisors, function(advisor, index) {
+                var commonName = advisor.commonName ? removeDiacriticsService.remove(advisor.commonName).toLowerCase() : null;
+                var firstName = removeDiacriticsService.remove(advisor.firstName).toLowerCase();
+                var lastName = removeDiacriticsService.remove(advisor.lastName).toLowerCase();
+                var cName = stripPunctuation(commonName);
+                var fName = stripPunctuation(firstName);
+                var lName = stripPunctuation(lastName);
+
+                if (commonName && (commonName.indexOf(searchTerm) >= 0 || cName.indexOf(searchTerm) >= 0)) {
+                    advisors[index].showCommon = true;
+                    service.searchResults.push(advisor);
+                } else if(firstName.indexOf(searchTerm) >= 0 || fName.indexOf(searchTerm) >= 0) {
+                    advisors[index].showCommon = false;
+                    advisor.showCommon = false;
+                    service.searchResults.push(advisor);
+                } else if(lastName.indexOf(searchTerm) >= 0 || lName.indexOf(searchTerm) >= 0) {
+                    if (advisor.commonName) {
+                        advisors[index].showCommon = true;
+                    } else {
+                        advisors[index].showCommon = false;
+                    }
+                    service.searchResults.push(advisor);
+                }
+            });
+        }
+
+
+/*
         function search(searchTerm) {
             //remove all multi-spaces
             service.searchTerm = removeDiacriticsService.remove(searchTerm.replace(/ +(?= )/g,''));
@@ -99,12 +168,6 @@
                 //for (var i = 0; i < advisors.length; i++) {
                 _.forEach(advisors, function(advisor, index) {
                     _.forEach(subTerms, function(subTerm) {
-                        /*
-                        if ((advisor.commonName && advisor.commonName.toLowerCase().indexOf(subTerm) >= 0) || (!advisor.commonName && advisor.firstName.toLowerCase().indexOf(subTerm) >= 0) || (advisor.lastName.toLowerCase().indexOf(subTerm) >= 0)) {
-                            service.searchResults.push(advisor);
-                            return false;
-                        }
-                        */
                         var commonName = advisor.commonName ? removeDiacriticsService.remove(advisor.commonName).toLowerCase() : null;
                         var firstName = removeDiacriticsService.remove(advisor.firstName).toLowerCase();
                         var lastName = removeDiacriticsService.remove(advisor.lastName).toLowerCase();
@@ -138,6 +201,7 @@
             }
             updatePaginationInfiniteScroll();
         }
+*/
 
         compareId = function(obj1, obj2, order) {
             var name1;
@@ -158,6 +222,7 @@
         };
 
         compareFirstname = function(obj1, obj2, order) {
+
             var name1;
             var name2;
             if (sortAscending) {
@@ -210,7 +275,6 @@
         compareCity = function(obj1, obj2, order) {
             var name1;
             var name2;
-
             if (sortAscending) {
                 name1 = obj1.partialBranchInfo.city.toLowerCase();
                 name2 = obj2.partialBranchInfo.city.toLowerCase();
@@ -254,6 +318,16 @@
             }
         };
 
+        function stripPunctuation(string) {
+            if (!string) {
+                return string;
+            } else if (string.length > 2) {
+                return string.replace(/[.,\/#!$%\^&\*;:{}=\-_`'~()]/g, "");
+            } else {
+                return string;
+            }
+        }
+
         function sortBy(filter) {
 
             if (lastSort === filter) {
@@ -262,7 +336,6 @@
                 lastSort = filter;
                 sortAscending = true;
             }
-            console.log('filter: ', filter);
             if (filter === service.sortableColumns[0]) {
                 service.searchResults.sort(compareFirstname);
             } else if (filter === service.sortableColumns[1]) {
