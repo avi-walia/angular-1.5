@@ -558,6 +558,28 @@ describe('example test', function() {
             expect(advisorService.numPerPage).toEqual(50);
             expect(advisorService.mobileMaxNumDisplay).toEqual(50);
             expect(advisorService.currentPage).toEqual(1);
+
+            advisorService.search('obri');
+            expect(advisorService.searchTerm).toEqual('obri');
+            var obrien = [
+                {"id":31051,"firstName":"Dennis","commonName":null,"lastName":"O'Brien","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"dobrien@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"http://www.assante.com/advisors/dobrien","partialBranchInfo":{"id":5167,"dealerShip":"ACM","geoLocation":{"lng":-79.78535,"lat":43.36969,"_persistence_fetchGroup":null},"address1":"4145 North Service Road","address2":"Suite 100","city":"Burlington","provinceAbbr":"ON","postalCode":"L7L 6A3","phone":"905-332-5988","tollFree":null,"fax":"905-332-7276","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, showCommon:false},
+            ];
+            expect(advisorService.searchResults).toEqual(obrien);
+
+            advisorService.search("o'bri");
+            expect(advisorService.searchTerm).toEqual("obri");
+            expect(advisorService.searchResults).toEqual(obrien);
+
+
+            advisorService.search("dennis o'bri");
+            expect(advisorService.searchTerm).toEqual("dennis obri");
+            expect(advisorService.searchResults).toEqual([]);
+
+            advisorService.search("dennis o'brien");
+            expect(advisorService.searchTerm).toEqual("dennis obrien");
+            expect(advisorService.searchResults).toEqual(obrien);
+
+
         });
 
     });
