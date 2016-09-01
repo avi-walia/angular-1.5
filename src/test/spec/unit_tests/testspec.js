@@ -337,10 +337,7 @@ describe('example test', function() {
                 {"id":30719,"firstName":"Michele","commonName":null,"lastName":"Yergens","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"myergens@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5075,"dealerShip":"ACM","geoLocation":{"lng":-102.99876,"lat":49.14201,"_persistence_fetchGroup":null},"address1":"1330-4th Street","address2":"Unit #1","city":"Estevan","provinceAbbr":"SK","postalCode":"S4A 0X2","phone":"306-634-9008","tollFree":null,"fax":"306-634-8099","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":false},
                 {"id":34179,"firstName":"Teresa","commonName":null,"lastName":"Yeung","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"416-490-9944","email":"tyeung@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"http://www.assante.com/advisors/tyeung","partialBranchInfo":{"id":5862,"dealerShip":"AFM","geoLocation":{"lng":-79.36599,"lat":43.85091,"_persistence_fetchGroup":null},"address1":"15 Allstate Parkway","address2":"Suite 600","city":"Markham","provinceAbbr":"ON","postalCode":"L3R 5B4","phone":"416-490-9944  E","tollFree":" ","fax":"888-454-4811","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":false}
             ];
-            expect(advisorService.searchResults).toEqual(advisorsWithYeByLastName);
-            console.log('advisorService.maxPages: ', advisorService.maxPages);
-            expect(advisorService.maxPages).toEqual(1);
-            expect(advisorService.mobileMaxNumDisplay).toEqual(50);
+
 
             var sortOptions = [
                 'firstname',
@@ -350,9 +347,14 @@ describe('example test', function() {
             ];
 
             expect(advisorService.sortableColumns).toEqual(sortOptions);
+
+
+            expect(advisorService.searchResults).toEqual(advisorsWithYeByLastName);
+            console.log('advisorService.maxPages: ', advisorService.maxPages);
+            expect(advisorService.maxPages).toEqual(1);
+            expect(advisorService.mobileMaxNumDisplay).toEqual(50);
             advisorService.sortBy(sortOptions[1]);
             expect(advisorService.searchResults).toEqual(advisorsWithYeByLastName.reverse());
-            advisorService.sortBy(sortOptions[0]);
             var advisorsWithYeByFirstName = [
                 {"id":34979,"firstName":"Ian","commonName":null,"lastName":"Yeo","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"604-685-2214","email":"IYeo@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"http://www.assante.com/advisors/iyeo","partialBranchInfo":{"id":5411,"dealerShip":"ACM","geoLocation":{"lng":-123.115952,"lat":49.285248,"_persistence_fetchGroup":null},"address1":"800 West Pender Street","address2":"Suite 1600","city":"Vancouver","provinceAbbr":"BC","postalCode":"V6C 2V6","phone":"604-685-2214","tollFree":null,"fax":"604-602-0211","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":false},
                 {"id":35383,"firstName":"Janaye","commonName":null,"lastName":"Chubb","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5700,"dealerShip":"AFM","geoLocation":{"lng":-108.2988,"lat":52.77904,"_persistence_fetchGroup":null},"address1":"1421 - 100th Street","address2":null,"city":"North Battleford","provinceAbbr":"SK","postalCode":"S9A 0W1","phone":"306-445-9455","tollFree":null,"fax":"306-445-4966","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":false},
@@ -363,6 +365,8 @@ describe('example test', function() {
                 {"id":36268,"firstName":"Perry","commonName":null,"lastName":"Loyello","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5843,"dealerShip":"ACM","geoLocation":{"lng":-73.78454,"lat":45.48395,"_persistence_fetchGroup":null},"address1":"2020 Transcanadienne","address2":"Suite 200","city":"Dorval","provinceAbbr":"QC","postalCode":"H9P 2N4","phone":"514-832-5100","tollFree":null,"fax":"514-832-5232","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":false},
                 {"id":34179,"firstName":"Teresa","commonName":null,"lastName":"Yeung","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"416-490-9944","email":"tyeung@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"http://www.assante.com/advisors/tyeung","partialBranchInfo":{"id":5862,"dealerShip":"AFM","geoLocation":{"lng":-79.36599,"lat":43.85091,"_persistence_fetchGroup":null},"address1":"15 Allstate Parkway","address2":"Suite 600","city":"Markham","provinceAbbr":"ON","postalCode":"L3R 5B4","phone":"416-490-9944  E","tollFree":" ","fax":"888-454-4811","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":false}
             ];
+
+            advisorService.sortBy(sortOptions[0]);
             expect(advisorService.searchResults).toEqual(advisorsWithYeByFirstName);
 
             advisorService.sortBy(sortOptions[0]);
@@ -386,7 +390,7 @@ describe('example test', function() {
             expect(advisorService.searchResults).toEqual(advisorsWithYeByFirstName.reverse());
 
 
-            /*
+
             var advisorsWithYeByProvince = [
                 {"id":34979,"firstName":"Ian","commonName":null,"lastName":"Yeo","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"604-685-2214","email":"IYeo@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"http://www.assante.com/advisors/iyeo","partialBranchInfo":{"id":5411,"dealerShip":"ACM","geoLocation":{"lng":-123.115952,"lat":49.285248,"_persistence_fetchGroup":null},"address1":"800 West Pender Street","address2":"Suite 1600","city":"Vancouver","provinceAbbr":"BC","postalCode":"V6C 2V6","phone":"604-685-2214","tollFree":null,"fax":"604-602-0211","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":false},
                 {"id":34179,"firstName":"Teresa","commonName":null,"lastName":"Yeung","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"416-490-9944","email":"tyeung@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"http://www.assante.com/advisors/tyeung","partialBranchInfo":{"id":5862,"dealerShip":"AFM","geoLocation":{"lng":-79.36599,"lat":43.85091,"_persistence_fetchGroup":null},"address1":"15 Allstate Parkway","address2":"Suite 600","city":"Markham","provinceAbbr":"ON","postalCode":"L3R 5B4","phone":"416-490-9944  E","tollFree":" ","fax":"888-454-4811","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":false},
@@ -398,8 +402,53 @@ describe('example test', function() {
 
             ];
             advisorService.sortBy(sortOptions[3]);
-            expect(advisorService.searchResults[1]).toEqual(advisorsWithYeByProvince[1]);
-            */
+            expect(advisorService.searchResults).toEqual(advisorsWithYeByProvince);
+            advisorService.sortBy(sortOptions[3]);
+            expect(advisorService.searchResults).toEqual(advisorsWithYeByProvince.reverse());
+
+
+            advisorService.sortBy(sortOptions[0]);
+            expect(advisorService.searchResults).toEqual(advisorsWithYeByFirstName);
+
+            advisorService.sortBy(sortOptions[3]);
+            expect(advisorService.searchResults).toEqual(advisorsWithYeByProvince.reverse());
+
+
+            advisorService.sortBy(sortOptions[0]);
+            expect(advisorService.searchResults).toEqual(advisorsWithYeByFirstName);
+
+            advisorService.sortBy(sortOptions[1]);
+            expect(advisorService.searchResults).toEqual(advisorsWithYeByLastName.reverse());
+
+            advisorService.sortBy(sortOptions[3]);
+            expect(advisorService.searchResults).toEqual(advisorsWithYeByProvince);
+
+
+            advisorService.sortBy(sortOptions[0]);
+            expect(advisorService.searchResults).toEqual(advisorsWithYeByFirstName);
+
+            advisorService.sortBy(sortOptions[1]);
+            expect(advisorService.searchResults).toEqual(advisorsWithYeByLastName);
+
+            advisorService.sortBy(sortOptions[2]);
+            expect(advisorService.searchResults).toEqual(advisorsWithYeByCity.reverse());
+
+            advisorService.sortBy(sortOptions[3]);
+            expect(advisorService.searchResults).toEqual(advisorsWithYeByProvince);
+
+            advisorService.sortBy(sortOptions[1]);
+            expect(advisorService.searchResults).toEqual(advisorsWithYeByLastName);
+
+            advisorService.sortBy(sortOptions[0]);
+            expect(advisorService.searchResults).toEqual(advisorsWithYeByFirstName);
+
+
+            advisorService.sortBy(sortOptions[2]);
+            expect(advisorService.searchResults).toEqual(advisorsWithYeByCity);
+
+            advisorService.sortBy(sortOptions[3]);
+            expect(advisorService.searchResults).toEqual(advisorsWithYeByProvince);
+
             /*
             advisorService.sortBy(sortOptions[3]);
             expect(advisorService.searchResults).toEqual(advisorsWithYeByProvince.reverse());
@@ -425,10 +474,10 @@ describe('example test', function() {
                 {"id":31600,"firstName":"Benjamin","commonName":"Ben","lastName":"Cairns","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"bcairns@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5148,"dealerShip":"AFM","geoLocation":{"lng":-80.47965,"lat":43.47433,"_persistence_fetchGroup":null},"address1":"487 Riverbend Drive","address2":"2nd Floor","city":"Kitchener","provinceAbbr":"ON","postalCode":"N2K 3S3","phone":"519-578-4494","tollFree":null,"fax":"519-578-1786","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":false},
                 {"id":34623,"firstName":"Allan","commonName":"Michael","lastName":"Chersey","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5679,"dealerShip":"AFM","geoLocation":{"lng":-79.36515,"lat":43.84637,"_persistence_fetchGroup":null},"address1":"600 Cochrane Dr.","address2":"Suite 110","city":"Markham","provinceAbbr":"ON","postalCode":"L3R 5K3","phone":"905-415-0455","tollFree":null,"fax":"905-415-0744","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":true},
                 {"id":30964,"firstName":"Michael","commonName":"Mike","lastName":"Connon","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"mconnon@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5475,"dealerShip":"ACM","geoLocation":{"lng":-79.42487,"lat":43.81799,"_persistence_fetchGroup":null},"address1":"7787 Yonge Street","address2":null,"city":"Thornhill","provinceAbbr":"ON","postalCode":"L3T 7L2","phone":"905-771-5200","tollFree":null,"fax":"905-771-5255","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":true},
+                {"id":34996,"firstName":"Christien","commonName":null,"lastName":"Cormier","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"204-942-1169","email":"ChCormier@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"http://assante.com/advisors/jcormier/","partialBranchInfo":{"id":5698,"dealerShip":"AFM","geoLocation":{"lng":-97.183112,"lat":49.839674,"_persistence_fetchGroup":null},"address1":"59 Lindenwood Drive W","address2":null,"city":"Winnipeg","provinceAbbr":"MB","postalCode":"R3P 1K9","phone":"204-488-3392","tollFree":null,"fax":"204-488-3341","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":false},
                 {"id":32998,"firstName":"Darren","commonName":null,"lastName":"Cormier","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5282,"dealerShip":"ACM","geoLocation":{"lng":-52.79345,"lat":47.50776,"_persistence_fetchGroup":null},"address1":"197 Commonwealth Ave.","address2":null,"city":"Mount Pearl","provinceAbbr":"NF","postalCode":"A1N 4L3","phone":"709-576-1785","tollFree":null,"fax":"709-576-1815","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":false},
                 {"id":30833,"firstName":"Dean","commonName":null,"lastName":"Cormier","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"709-5761785  ext. 1868","email":"dcormier@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"http://www.assante.com/advisors/dcormier","partialBranchInfo":{"id":5282,"dealerShip":"ACM","geoLocation":{"lng":-52.79345,"lat":47.50776,"_persistence_fetchGroup":null},"address1":"197 Commonwealth Ave.","address2":null,"city":"Mount Pearl","provinceAbbr":"NF","postalCode":"A1N 4L3","phone":"709-576-1785","tollFree":null,"fax":"709-576-1815","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":false},
                 {"id":33222,"firstName":"Julien","commonName":null,"lastName":"Cormier","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"204-488-3392","email":"jcormier@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"http://www.assante.com/advisors/jcormier","partialBranchInfo":{"id":5698,"dealerShip":"AFM","geoLocation":{"lng":-97.183112,"lat":49.839674,"_persistence_fetchGroup":null},"address1":"59 Lindenwood Drive W","address2":null,"city":"Winnipeg","provinceAbbr":"MB","postalCode":"R3P 1K9","phone":"204-488-3392","tollFree":null,"fax":"204-488-3341","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":false},
-                {"id":34996,"firstName":"Christien","commonName":null,"lastName":"Cormier","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"204-942-1169","email":"ChCormier@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"http://assante.com/advisors/jcormier/","partialBranchInfo":{"id":5698,"dealerShip":"AFM","geoLocation":{"lng":-97.183112,"lat":49.839674,"_persistence_fetchGroup":null},"address1":"59 Lindenwood Drive W","address2":null,"city":"Winnipeg","provinceAbbr":"MB","postalCode":"R3P 1K9","phone":"204-488-3392","tollFree":null,"fax":"204-488-3341","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":false},
                 {"id":30998,"firstName":"Matthew","commonName":"Kyle","lastName":"Cumming","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"604-532-8622","email":"kcumming@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"http://www.assante.com/advisors/kcumming","partialBranchInfo":{"id":5516,"dealerShip":"ACM","geoLocation":{"lng":-122.67517,"lat":49.12305,"_persistence_fetchGroup":null},"address1":"6632 - 197th Street","address2":null,"city":"Langley","provinceAbbr":"BC","postalCode":"V2Y 1A8","phone":"604-532-8622","tollFree":null,"fax":"604-602-0211","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":true},
                 {"id":35701,"firstName":"Dominic","commonName":null,"lastName":"Denicourt","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"450-923-0722","email":"ddenicourt@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"http://www.assante.com/advisors/ddenicourt","partialBranchInfo":{"id":5743,"dealerShip":"AFM","geoLocation":{"lng":-73.44082,"lat":45.45525,"_persistence_fetchGroup":null},"address1":"4605 B Boul. Lapiniere","address2":"Suite 260","city":"Brossard","provinceAbbr":"QC","postalCode":"J4Z 3T5","phone":"450-923-0722","tollFree":null,"fax":"450-923-2252","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":false},
                 {"id":30959,"firstName":"Michael","commonName":null,"lastName":"Deveau","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"mdeveau@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5864,"dealerShip":"ACM","geoLocation":{"lng":-63.28784,"lat":45.36497,"_persistence_fetchGroup":null},"address1":"18 Willow Street","address2":"Suite 201B","city":"Truro","provinceAbbr":"NS","postalCode":"B2N 4Z4","phone":"902-895-3080  E","tollFree":" ","fax":"902-895-5958","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":false},
@@ -468,9 +517,9 @@ describe('example test', function() {
                 {"id":36288,"firstName":"Michael","commonName":null,"lastName":"Roy","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5762,"dealerShip":"AFM","geoLocation":{"lng":-72.94822,"lat":45.62531,"_persistence_fetchGroup":null},"address1":"935 Avenue du Palais","address2":null,"city":"St-Hyacinthe","provinceAbbr":"QC","postalCode":"J2S 5C6","phone":"450-250-4757","tollFree":null,"fax":"450-774-1914","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":false},
                 {"id":30908,"firstName":"Ronald","commonName":"Ron","lastName":"Schmidt","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"rschmidt@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"http://www.assante.com/advisors/rschmidt","partialBranchInfo":{"id":4953,"dealerShip":"ACM","geoLocation":{"lng":-124.99894,"lat":49.69197,"_persistence_fetchGroup":null},"address1":"391 4th St","address2":"201","city":"Courtenay","provinceAbbr":"BC","postalCode":"V9N 1G8","phone":"250-334-8872","tollFree":null,"fax":"250-338-8534","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":true},
                 {"id":31337,"firstName":"Edward","commonName":"Ed","lastName":"Smilar","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"780-944-2750","email":"esmilar@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":4965,"dealerShip":"AFM","geoLocation":{"lng":-113.44208,"lat":53.54114,"_persistence_fetchGroup":null},"address1":"7525 101 Avenue","address2":null,"city":"Edmonton","provinceAbbr":"AB","postalCode":"T6A 0J5","phone":"780-450-3311","tollFree":null,"fax":"780-463-1415","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":true},
+                {"id":31765,"firstName":"Darryl","commonName":null,"lastName":"Smith","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"dsmith@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5328,"dealerShip":"ACM","geoLocation":{"lng":-63.59972,"lat":44.6618,"_persistence_fetchGroup":null},"address1":"5548 Kaye Street","address2":"Suite 201","city":"Halifax","provinceAbbr":"NS","postalCode":"B3K 1Y5","phone":"902-423-1200","tollFree":"1-888-305-7526","fax":"902-423-6550","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":false},
                 {"id":36134,"firstName":"Jane","commonName":null,"lastName":"Smith","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5328,"dealerShip":"ACM","geoLocation":{"lng":-63.59972,"lat":44.6618,"_persistence_fetchGroup":null},"address1":"5548 Kaye Street","address2":"Suite 201","city":"Halifax","provinceAbbr":"NS","postalCode":"B3K 1Y5","phone":"902-423-1200","tollFree":"1-888-305-7526","fax":"902-423-6550","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":false},
                 {"id":31070,"firstName":"Robert","commonName":"Robert J.M.","lastName":"Smith","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"robert.smith@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5159,"dealerShip":"ACM","geoLocation":{"lng":-79.901963,"lat":43.255495,"_persistence_fetchGroup":null},"address1":"175 Longwood Road South","address2":"Suite 400","city":"Hamilton","provinceAbbr":"ON","postalCode":"L8P 0A1","phone":"905-526-0485","tollFree":null,"fax":"905-526-8277","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":true},
-                {"id":31765,"firstName":"Darryl","commonName":null,"lastName":"Smith","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"dsmith@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5328,"dealerShip":"ACM","geoLocation":{"lng":-63.59972,"lat":44.6618,"_persistence_fetchGroup":null},"address1":"5548 Kaye Street","address2":"Suite 201","city":"Halifax","provinceAbbr":"NS","postalCode":"B3K 1Y5","phone":"902-423-1200","tollFree":"1-888-305-7526","fax":"902-423-6550","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":false},
                 {"id":31185,"firstName":"Michel","commonName":null,"lastName":"St.-Georges","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"mstgeorges@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5526,"dealerShip":"ACM","geoLocation":{"lng":-73.67101,"lat":45.5218,"_persistence_fetchGroup":null},"address1":"795 Rue Muir","address2":"Suite 1005","city":"St. Laurent","provinceAbbr":"QC","postalCode":"H4L 5H8","phone":"514-748-7865","tollFree":null,"fax":"514-748-0047","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":false},
                 {"id":35152,"firstName":"Michael","commonName":null,"lastName":"Taglieri","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"mtaglieri@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"http://www.assante.com/advisors/mtaglieri","partialBranchInfo":{"id":5161,"dealerShip":"ACM","geoLocation":{"lng":-79.671502,"lat":43.534111,"_persistence_fetchGroup":null},"address1":"2145 Dunwin Drive","address2":"Suite 2","city":"Mississauga","provinceAbbr":"ON","postalCode":"L5L 4L9","phone":"905-607-7981","tollFree":null,"fax":"905-607-1919","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":false},
                 {"id":31204,"firstName":"James","commonName":"Jamie","lastName":"Thomas","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"613-766-8600","email":"Jamie.Thomas@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"http://www.assante.com/advisors/thomasj","partialBranchInfo":{"id":5775,"dealerShip":"AFM","geoLocation":{"lng":-76.51955,"lat":44.24444,"_persistence_fetchGroup":null},"address1":"1187 Princess Street","address2":"Unit 7","city":"Kingston","provinceAbbr":"ON","postalCode":"K7M 3E1","phone":"613-766-8600","tollFree":null,"fax":"613-766-8606","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, "showCommon":true},
