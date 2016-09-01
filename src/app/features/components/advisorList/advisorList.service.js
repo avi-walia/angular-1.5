@@ -60,7 +60,7 @@
 
                 //service.advisorSubset = data.slice((page-1) * itemsPerPage, page * itemsPerPage);
             });
-        };
+        }
 
         function pageChanged(newPage) {
             service.currentPage = newPage;
@@ -72,7 +72,80 @@
             service.currentPage = 1;
         }
 
+        function search(searchTerm) {
+            //remove all multi-spaces
+            service.searchResults = [];
+            service.searchTerm = stripPunctuation(removeDiacriticsService.remove(searchTerm.replace(/ +(?= )/g,'')));
+            var subTerms = service.searchTerm.toLowerCase().split(' ');
+            var i = 0;
+            /*
+            while (i < subTerms.length) {
+                if (subTerms[i].length < 2) {
+                    subTerms.splice(i, 1);
+                } else {
+                    i++;
+                }
+            }
+            */
+            if (subTerms.length === 1 && subTerms[0].length > 1) {
+                searchAllNames(subTerms[0]);
+            } else if (subTerms.length === 2) {
+                _.forEach(advisors, function(advisor, index) {
+                    var commonName = advisor.commonName ? removeDiacriticsService.remove(advisor.commonName).toLowerCase() : null;
+                    var firstName = removeDiacriticsService.remove(advisor.firstName).toLowerCase();
+                    var lastName = removeDiacriticsService.remove(advisor.lastName).toLowerCase();
+                    var cName = stripPunctuation(commonName);
+                    var fName = stripPunctuation(firstName);
+                    var lName = stripPunctuation(lastName);
 
+                    if (commonName && (commonName === subTerms[0] || cName == subTerms[0]) && (lastName === subTerms[1] || lName === subTerms[1])) {
+                        advisors[index].showCommon = true;
+                        service.searchResults.push(advisor);
+                    } else if ((firstName === subTerms[0] || fName === subTerms[0]) && (lastName === subTerms[1] || lName === subTerms[1])) {
+                        advisors[index].showCommon = false;
+                        service.searchResults.push(advisor);
+                    }
+                });
+            }
+            sortAscending = false;
+            sortBy('lastname');
+            updatePaginationInfiniteScroll();
+        }
+
+
+
+        function searchAllNames(searchTerm) {
+            console.log('searchTerm: ', searchTerm);
+            _.forEach(advisors, function(advisor, index) {
+                var commonName = advisor.commonName ? removeDiacriticsService.remove(advisor.commonName).toLowerCase() : null;
+                var firstName = removeDiacriticsService.remove(advisor.firstName).toLowerCase();
+                var lastName = removeDiacriticsService.remove(advisor.lastName).toLowerCase();
+                var cName = stripPunctuation(commonName);
+                var fName = stripPunctuation(firstName);
+                var lName = stripPunctuation(lastName);
+                console.log('cName: ', cName);
+                console.log('fName: ', fName);
+
+                if (commonName && (commonName.indexOf(searchTerm) >= 0 || cName.indexOf(searchTerm) >= 0)) {
+                    advisors[index].showCommon = true;
+                    service.searchResults.push(advisor);
+                } else if(firstName.indexOf(searchTerm) >= 0 || fName.indexOf(searchTerm) >= 0) {
+                    advisors[index].showCommon = false;
+                    advisor.showCommon = false;
+                    service.searchResults.push(advisor);
+                } else if(lastName.indexOf(searchTerm) >= 0 || lName.indexOf(searchTerm) >= 0) {
+                    if (advisor.commonName) {
+                        advisors[index].showCommon = true;
+                    } else {
+                        advisors[index].showCommon = false;
+                    }
+                    service.searchResults.push(advisor);
+                }
+            });
+        }
+
+
+/*
         function search(searchTerm) {
             //remove all multi-spaces
             service.searchTerm = removeDiacriticsService.remove(searchTerm.replace(/ +(?= )/g,''));
@@ -91,12 +164,6 @@
                 //for (var i = 0; i < advisors.length; i++) {
                 _.forEach(advisors, function(advisor, index) {
                     _.forEach(subTerms, function(subTerm) {
-                        /*
-                        if ((advisor.commonName && advisor.commonName.toLowerCase().indexOf(subTerm) >= 0) || (!advisor.commonName && advisor.firstName.toLowerCase().indexOf(subTerm) >= 0) || (advisor.lastName.toLowerCase().indexOf(subTerm) >= 0)) {
-                            service.searchResults.push(advisor);
-                            return false;
-                        }
-                        */
                         var commonName = advisor.commonName ? removeDiacriticsService.remove(advisor.commonName).toLowerCase() : null;
                         var firstName = removeDiacriticsService.remove(advisor.firstName).toLowerCase();
                         var lastName = removeDiacriticsService.remove(advisor.lastName).toLowerCase();
@@ -130,19 +197,22 @@
             }
             updatePaginationInfiniteScroll();
         }
+*/
 
         function compareFirstname(obj1, obj2) {
+            var name1;
+            var name2;
             if (sortAscending) {
-                var name1 = obj1.commonName ? obj1.commonName.toLowerCase() : obj1.firstName.toLowerCase();
-                var name2 = obj2.commonName ? obj2.commonName.toLowerCase() : obj2.firstName.toLowerCase();
+                name1 = obj1.commonName ? obj1.commonName.toLowerCase() : obj1.firstName.toLowerCase();
+                name2 = obj2.commonName ? obj2.commonName.toLowerCase() : obj2.firstName.toLowerCase();
             } else {
-                var name1 = obj2.commonName ? obj2.commonName.toLowerCase() : obj2.firstName.toLowerCase();
-                var name2 = obj1.commonName ? obj1.commonName.toLowerCase() : obj1.firstName.toLowerCase()
+                name1 = obj2.commonName ? obj2.commonName.toLowerCase() : obj2.firstName.toLowerCase();
+                name2 = obj1.commonName ? obj1.commonName.toLowerCase() : obj1.firstName.toLowerCase();
             }
 
             if (name1 < name2) {
                 return -1;
-            } else if (name1 == name2) {
+            } else if (name1 === name2) {
                 return 0;
             } else {
                 return 1;
@@ -150,17 +220,19 @@
         }
 
         function compareLastName(obj1, obj2) {
+            var name1;
+            var name2;
             if (sortAscending) {
-                var name1 = obj1.lastName.toLowerCase();
-                var name2 = obj2.lastName.toLowerCase();
+                name1 = obj1.lastName.toLowerCase();
+                name2 = obj2.lastName.toLowerCase();
             } else {
-                var name1 = obj2.lastName.toLowerCase();
-                var name2 = obj1.lastName.toLowerCase();
+                name1 = obj2.lastName.toLowerCase();
+                name2 = obj1.lastName.toLowerCase();
             }
 
             if (name1 < name2) {
                 return -1;
-            } else if (name1 == name2) {
+            } else if (name1 === name2) {
                 return 0;
             } else {
                 return 1;
@@ -168,36 +240,49 @@
         }
 
         function compareCity(obj1, obj2) {
-
+            var name1;
+            var name2;
             if (sortAscending) {
-                var name1 = obj1.partialBranchInfo.city.toLowerCase();
-                var name2 = obj2.partialBranchInfo.city.toLowerCase();
+                name1 = obj1.partialBranchInfo.city.toLowerCase();
+                name2 = obj2.partialBranchInfo.city.toLowerCase();
             } else {
-                var name1 = obj2.partialBranchInfo.city.toLowerCase();
-                var name2 = obj1.partialBranchInfo.city.toLowerCase();
+                name1 = obj2.partialBranchInfo.city.toLowerCase();
+                name2 = obj1.partialBranchInfo.city.toLowerCase();
             }
             if (name1 < name2) {
                 return -1;
-            } else if (name1 == name2) {
+            } else if (name1 === name2) {
                 return 0;
             } else {
                 return 1;
             }
         }
         function compareProvince(obj1, obj2) {
+            var name1;
+            var name2;
             if (sortAscending) {
-                var name1 = obj1.partialBranchInfo.provinceAbbr.toLowerCase();
-                var name2 = obj2.partialBranchInfo.provinceAbbr.toLowerCase();
+                name1 = obj1.partialBranchInfo.provinceAbbr.toLowerCase();
+                name2 = obj2.partialBranchInfo.provinceAbbr.toLowerCase();
             } else {
-                var name1 = obj2.partialBranchInfo.provinceAbbr.toLowerCase();
-                var name2 = obj1.partialBranchInfo.provinceAbbr.toLowerCase();
+                name1 = obj2.partialBranchInfo.provinceAbbr.toLowerCase();
+                name2 = obj1.partialBranchInfo.provinceAbbr.toLowerCase();
             }
             if (name1 < name2) {
                 return -1;
-            } else if (name1 == name2) {
+            } else if (name1 === name2) {
                 return 0;
             } else {
                 return 1;
+            }
+        }
+
+        function stripPunctuation(string) {
+            if (!string) {
+                return string;
+            } else if (string.length > 2) {
+                return string.replace(/[.,\/#!$%\^&\*;:{}=\-_`'~()]/g, "");
+            } else {
+                return string;
             }
         }
 
@@ -216,7 +301,7 @@
                 service.searchResults.sort(compareLastName);
             } else if (filter === service.sortableColumns[2]) {
                 service.searchResults.sort(compareCity);
-            } else if (filter = service.sortableColumns[3]){
+            } else if (filter === service.sortableColumns[3]){
                 service.searchResults.sort(compareProvince);
             }
         }
