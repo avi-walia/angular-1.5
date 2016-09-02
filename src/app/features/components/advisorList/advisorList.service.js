@@ -89,7 +89,8 @@
             */
             if (subTerms.length === 1 && subTerms[0].length > 1) {
                 searchAllNames(subTerms[0]);
-            } else if (subTerms.length === 2) {
+            } else if (subTerms.length >= 2) {
+                var tempSearchTerm = service.searchTerm.toLowerCase();
                 _.forEach(advisors, function(advisor, index) {
                     var commonName = advisor.commonName ? removeDiacriticsService.remove(advisor.commonName).toLowerCase() : null;
                     var firstName = removeDiacriticsService.remove(advisor.firstName).toLowerCase();
@@ -97,11 +98,13 @@
                     var cName = stripPunctuation(commonName);
                     var fName = stripPunctuation(firstName);
                     var lName = stripPunctuation(lastName);
-
-                    if (commonName && (commonName === subTerms[0] || cName == subTerms[0]) && (lastName === subTerms[1] || lName === subTerms[1])) {
+                    
+                    //if (commonName && (commonName === subTerms[0] || cName == subTerms[0]) && (lastName === subTerms[1] || lName === subTerms[1])) {
+                    if (commonName && (cName + " " + lName === tempSearchTerm)) {
                         advisors[index].showCommon = true;
                         service.searchResults.push(advisor);
-                    } else if ((firstName === subTerms[0] || fName === subTerms[0]) && (lastName === subTerms[1] || lName === subTerms[1])) {
+                    //} else if ((firstName === subTerms[0] || fName === subTerms[0]) && (lastName === subTerms[1] || lName === subTerms[1])) {
+                    } else if (fName + " " + lName === tempSearchTerm) {
                         advisors[index].showCommon = false;
                         service.searchResults.push(advisor);
                     }
