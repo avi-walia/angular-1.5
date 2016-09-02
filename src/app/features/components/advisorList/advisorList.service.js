@@ -84,7 +84,7 @@
                 lastSort = filter;
                 sortAscending = true;
             }
-            console.log('filter: ', filter);
+            
             if (filter === service.sortableColumns[0]) {
                 service.searchResults.sort(compareFirstname);
             } else if (filter === service.sortableColumns[1]) {
