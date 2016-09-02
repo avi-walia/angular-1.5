@@ -22,11 +22,12 @@
     autocompleteCtrl.$inject = [
         '$rootScope',
         'pageStateResolver',
-        'detectMobile'
+        'detectMobile',
+        '$timeout'
 
     ];
     /* @ngInject */
-    function autocompleteCtrl( $rootScope, pageStateResolver, detectMobile
+    function autocompleteCtrl( $rootScope, pageStateResolver, detectMobile, $timeout
     ) {
         var vm = this;
         vm.pageStateResolver = pageStateResolver;
@@ -59,7 +60,7 @@
         function getPredictions(place){
 
            return vm.service.getPlacePredictions({input: place}, function(predictions, status){
-                if(status != google.maps.places.PlacesServiceStatus.OK){
+                if(status !== google.maps.places.PlacesServiceStatus.OK){
                     return;
                 }
 
@@ -121,10 +122,18 @@
 
         }
 
-       /* vm.$onChanges = function(changes){
+       /*vm.$onChanges = function(changes){
             if(changes.location){
                 if(changes.location.currentValue !== ''){
-                   vm.location = changes.location.currentValue;
+                    if(changes.location.currentValue != changes.location.previousValue){
+                        vm.location = changes.location.currentValue;
+                        updatePlace();
+                    }
+
+
+
+                    //$timeout(function() {}, 500);
+
 
                 }
 

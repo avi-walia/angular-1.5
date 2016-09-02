@@ -16,6 +16,11 @@
       "pageName": "branchList"
     },
     {
+      "stateName": "main.advisorLocator.branchListQuery",
+      "isAbstract": false,
+      "pageName": "branchListQuery"
+    },
+    {
       "stateName": "main.advisorLocator.branchDetails",
       "isAbstract": false,
       "pageName": "branchDetail"
