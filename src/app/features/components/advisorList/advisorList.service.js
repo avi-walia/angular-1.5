@@ -7,33 +7,40 @@
         .service('advisorService', advisorService);
 
     advisorService.$inject = [
+        'removeDiacriticsService',
         'server',
         'BASE_URL',
         'ENDPOINT_URI',
-        'ELEMENTS_PER_PAGE',
-        'removeDiacriticsService'
+        'ELEMENTS_PER_PAGE'
     ];
 
-    function advisorService(server, BASE_URL, ENDPOINT_URI, ELEMENTS_PER_PAGE, removeDiacriticsService) {
+    function advisorService(removeDiacriticsService, server, BASE_URL, ENDPOINT_URI, ELEMENTS_PER_PAGE) {
         var service = this;
         var advisors = [];
-        service.searchResults = [];
-        service.searchTerm = '';
-        service.objectName = "searchResults";//this string should be the same as the property holding your whole array of data.
-        service.isLoading = false;
         var path = BASE_URL + '/app/features/components/advisorList/templates';
+        var sortAscending = true;
+        var lastSort = '';
+
+        service.searchTerm = '';
+        service.objectName = 'searchResults'; //this string should be the same as the property holding your whole array of data.
+        service.isLoading = false;
+        service.searchTermTooShort = true;
+
         service.numPerPage = ELEMENTS_PER_PAGE;
-        service.currentPage = 1;
         service.mobileMaxNumDisplay = ELEMENTS_PER_PAGE;
+
+        service.currentPage = 1;
         service.maxPages = 0;
+
         service.mobileTemplatePath = path + '/mobile.tpl.html';
         service.desktopTemplatePath = path + '/desktop.tpl.html';
+
         service.loadMore = loadMore;
         service.init = init;
         service.pageChanged = pageChanged;
         service.search = search;
-        service.searchTermTooShort = true;
         service.sortBy = sortBy;
+<<<<<<< HEAD
         var sortAscending = true;
         var lastSort = '';
         var compareFirstname;
@@ -44,6 +51,10 @@
 
 
 
+=======
+
+        service.searchResults = [];
+>>>>>>> 297
         service.sortableColumns = [
             'firstname',
             'lastname',
@@ -52,7 +63,7 @@
         ];
 
         function loadMore() {
-            if (service.mobileMaxNumDisplay < service.searchResults.length - service.numPerPage) {
+            if (service.mobileMaxNumDisplay < (service.searchResults.length - service.numPerPage) ) {
                 service.mobileMaxNumDisplay += service.numPerPage;
             } else {
                 service.mobileMaxNumDisplay = service.searchResults.length;
@@ -73,10 +84,23 @@
             service.currentPage = newPage;
         }
 
-        function updatePaginationInfiniteScroll() {
-            service.maxPages = Math.ceil(service.searchResults.length / service.numPerPage);
-            service.mobileMaxNumDisplay = service.numPerPage;
-            service.currentPage = 1;
+        function sortBy(filter) {
+            if (lastSort === filter) {
+                sortAscending = !sortAscending;
+            } else {
+                lastSort = filter;
+                sortAscending = true;
+            }
+            console.log('filter: ', filter);
+            if (filter === service.sortableColumns[0]) {
+                service.searchResults.sort(compareFirstname);
+            } else if (filter === service.sortableColumns[1]) {
+                service.searchResults.sort(compareLastName);
+            } else if (filter === service.sortableColumns[2]) {
+                service.searchResults.sort(compareCity);
+            } else if (filter === service.sortableColumns[3]){
+                service.searchResults.sort(compareProvince);
+            }
         }
 
         function search(searchTerm) {
@@ -96,7 +120,8 @@
             */
             if (subTerms.length === 1 && subTerms[0].length > 1) {
                 searchAllNames(subTerms[0]);
-            } else if (subTerms.length === 2) {
+            } else if (subTerms.length >= 2) {
+                var tempSearchTerm = service.searchTerm.toLowerCase();
                 _.forEach(advisors, function(advisor, index) {
                     var commonName = advisor.commonName ? removeDiacriticsService.remove(advisor.commonName).toLowerCase() : null;
                     var firstName = removeDiacriticsService.remove(advisor.firstName).toLowerCase();
@@ -104,11 +129,13 @@
                     var cName = stripPunctuation(commonName);
                     var fName = stripPunctuation(firstName);
                     var lName = stripPunctuation(lastName);
-
-                    if (commonName && (commonName === subTerms[0] || cName == subTerms[0]) && (lastName === subTerms[1] || lName === subTerms[1])) {
+                    
+                    //if (commonName && (commonName === subTerms[0] || cName == subTerms[0]) && (lastName === subTerms[1] || lName === subTerms[1])) {
+                    if (commonName && (cName + " " + lName === tempSearchTerm)) {
                         advisors[index].showCommon = true;
                         service.searchResults.push(advisor);
-                    } else if ((firstName === subTerms[0] || fName === subTerms[0]) && (lastName === subTerms[1] || lName === subTerms[1])) {
+                    //} else if ((firstName === subTerms[0] || fName === subTerms[0]) && (lastName === subTerms[1] || lName === subTerms[1])) {
+                    } else if (fName + " " + lName === tempSearchTerm) {
                         advisors[index].showCommon = false;
                         service.searchResults.push(advisor);
                     }
@@ -119,7 +146,11 @@
             updatePaginationInfiniteScroll();
         }
 
-
+        function updatePaginationInfiniteScroll() {
+            service.maxPages = Math.ceil(service.searchResults.length / service.numPerPage);
+            service.mobileMaxNumDisplay = service.numPerPage;
+            service.currentPage = 1;
+        }
 
         function searchAllNames(searchTerm) {
             _.forEach(advisors, function(advisor, index) {
@@ -129,6 +160,12 @@
                 var cName = stripPunctuation(commonName);
                 var fName = stripPunctuation(firstName);
                 var lName = stripPunctuation(lastName);
+<<<<<<< HEAD
+=======
+
+                console.log('cName: ', cName);
+                console.log('fName: ', fName);
+>>>>>>> 297
 
                 if (commonName && (commonName.indexOf(searchTerm) >= 0 || cName.indexOf(searchTerm) >= 0)) {
                     advisors[index].showCommon = true;
@@ -326,8 +363,6 @@
             }
         }
 
-        function sortBy(filter) {
-
             if (lastSort === filter) {
                 sortAscending = !sortAscending;
             } else {
@@ -343,7 +378,6 @@
             } else if (filter === service.sortableColumns[3]){
                 service.searchResults.sort(compareProvince);
             }
-        }
 
     }
 
