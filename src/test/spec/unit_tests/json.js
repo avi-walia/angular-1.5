@@ -11,6 +11,8 @@ var advisors = [
 
 ];
 */
+//This list of advisors is not exactly the same as production/dev environments
+//There are some dummy records added to test certain cases.
 var advisors = [
     {"id":30610,"firstName":"Lorea","commonName":"Lorea","lastName":"Declercq","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"ldeclercq@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5410,"dealerShip":"AFM","geoLocation":{"lng":-123.115952,"lat":49.285248,"_persistence_fetchGroup":null},"address1":"800 West Pender Street","address2":"Suite 1600","city":"Vancouver","provinceAbbr":"BC","postalCode":"V6C 2V6","phone":"604-484-2070","tollFree":null,"fax":"604-685-9815","_persistence_fetchGroup":null},"_persistence_fetchGroup":null},
     {"id":30611,"firstName":"Mark","commonName":null,"lastName":"Driediger","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"mdriediger@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":null,"partialBranchInfo":{"id":5464,"dealerShip":"AFM","geoLocation":{"lng":-122.29782,"lat":49.04983,"_persistence_fetchGroup":null},"address1":"33386 South Fraser Way","address2":"Suite 101","city":"Abbotsford","provinceAbbr":"BC","postalCode":"V2S 2B5","phone":"604-852-1804","tollFree":null,"fax":"604-852-0503","_persistence_fetchGroup":null},"_persistence_fetchGroup":null},

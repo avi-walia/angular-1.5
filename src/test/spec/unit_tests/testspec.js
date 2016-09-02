@@ -638,19 +638,36 @@ describe('example test', function() {
                 {"id":34863,"firstName":"Sébastien","commonName":null,"lastName":"Roy","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5743,"dealerShip":"AFM","geoLocation":{"lng":-73.44082,"lat":45.45525,"_persistence_fetchGroup":null},"address1":"4605 B Boul. Lapiniere","address2":"Suite 260","city":"Brossard","provinceAbbr":"QC","postalCode":"J4Z 3T5","phone":"450-923-0722","tollFree":null,"fax":"450-923-2252","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, showCommon:false},
                 {"id":31086,"firstName":"Deborah","commonName":null,"lastName":"Wallis","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"dwallis@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"http://www.assante.com/advisors/dwallis","partialBranchInfo":{"id":5230,"dealerShip":"ACM","geoLocation":{"lng":-79.46394,"lat":46.31172,"_persistence_fetchGroup":null},"address1":"101 McIntyre Street West","address2":null,"city":"North Bay","provinceAbbr":"ON","postalCode":"P1B 2Y5","phone":"705-476-5422","tollFree":"1-800-461-9519","fax":"705-476-7842","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, showCommon:false},
                 {"id":35327,"firstName":"Rebecca","commonName":null,"lastName":"Whitcher","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"867-393-3545","email":"RWhitcher@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5074,"dealerShip":"AFM","geoLocation":{"lng":-135.05425,"lat":60.72251,"_persistence_fetchGroup":null},"address1":"3147 3rd Avenue","address2":null,"city":"Whitehorse","provinceAbbr":"YK","postalCode":"Y1A 1E9","phone":"867-667-6100","tollFree":null,"fax":"867-668-7843","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, showCommon:false},
-
             ];
 
             advisorService.search("eb");
 
             expect(advisorService.searchTerm).toEqual("eb");
-            for(var i = 0; i < ebNames.length; i++)
-            expect(advisorService.searchResults[i]).toEqual(ebNames[i]);
-/*
+            expect(advisorService.searchResults).toEqual(ebNames);
+
+
             advisorService.search("éb");
             expect(advisorService.searchTerm).toEqual("eb");
             expect(advisorService.searchResults).toEqual(ebNames);
-            */
+
+
+            var stgeorges = [
+                {"id":34955,"firstName":"Darren","commonName":null,"lastName":"St-Georges","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"514-303--2695","email":"dstgeorges@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"http://www.assante.com/advisors/dstgeorges","partialBranchInfo":{"id":5843,"dealerShip":"ACM","geoLocation":{"lng":-73.78454,"lat":45.48395,"_persistence_fetchGroup":null},"address1":"2020 Transcanadienne","address2":"Suite 200","city":"Dorval","provinceAbbr":"QC","postalCode":"H9P 2N4","phone":"514-832-5100","tollFree":null,"fax":"514-832-5232","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, showCommon:false},
+                {"id":31185,"firstName":"Michel","commonName":null,"lastName":"St.-Georges","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"mstgeorges@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5526,"dealerShip":"ACM","geoLocation":{"lng":-73.67101,"lat":45.5218,"_persistence_fetchGroup":null},"address1":"795 Rue Muir","address2":"Suite 1005","city":"St. Laurent","provinceAbbr":"QC","postalCode":"H4L 5H8","phone":"514-748-7865","tollFree":null,"fax":"514-748-0047","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, showCommon:false},
+                {"id":31251,"firstName":"Barbara","commonName":"Barb","lastName":"Stranak-St-Georges","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"bstranakstgeorges@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5526,"dealerShip":"ACM","geoLocation":{"lng":-73.67101,"lat":45.5218,"_persistence_fetchGroup":null},"address1":"795 Rue Muir","address2":"Suite 1005","city":"St. Laurent","provinceAbbr":"QC","postalCode":"H4L 5H8","phone":"514-748-7865","tollFree":null,"fax":"514-748-0047","_persistence_fetchGroup":null},"_persistence_fetchGroup":null, showCommon:true}
+            ];
+
+
+
+            advisorService.search("st.-geor");
+            expect(advisorService.searchTerm).toEqual("stgeor");
+            expect(advisorService.searchResults).toEqual(stgeorges);
+
+
+            advisorService.search("stgeor");
+            expect(advisorService.searchTerm).toEqual("stgeor");
+            expect(advisorService.searchResults).toEqual(stgeorges);
+
         });
 
     });
