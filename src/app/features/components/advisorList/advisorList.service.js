@@ -7,35 +7,41 @@
         .service('advisorService', advisorService);
 
     advisorService.$inject = [
+        'removeDiacriticsService',
         'server',
         'BASE_URL',
         'ENDPOINT_URI',
-        'ELEMENTS_PER_PAGE',
-        'removeDiacriticsService'
+        'ELEMENTS_PER_PAGE'
     ];
 
-    function advisorService(server, BASE_URL, ENDPOINT_URI, ELEMENTS_PER_PAGE, removeDiacriticsService) {
+    function advisorService(removeDiacriticsService, server, BASE_URL, ENDPOINT_URI, ELEMENTS_PER_PAGE) {
         var service = this;
         var advisors = [];
-        service.searchResults = [];
-        service.searchTerm = '';
-        service.objectName = "searchResults";//this string should be the same as the property holding your whole array of data.
-        service.isLoading = false;
         var path = BASE_URL + '/app/features/components/advisorList/templates';
+        var sortAscending = true;
+        var lastSort = '';
+
+        service.searchTerm = '';
+        service.objectName = 'searchResults'; //this string should be the same as the property holding your whole array of data.
+        service.isLoading = false;
+        service.searchTermTooShort = true;
+
         service.numPerPage = ELEMENTS_PER_PAGE;
-        service.currentPage = 1;
         service.mobileMaxNumDisplay = ELEMENTS_PER_PAGE;
+
+        service.currentPage = 1;
         service.maxPages = 0;
+
         service.mobileTemplatePath = path + '/mobile.tpl.html';
         service.desktopTemplatePath = path + '/desktop.tpl.html';
+
         service.loadMore = loadMore;
         service.init = init;
         service.pageChanged = pageChanged;
         service.search = search;
-        service.searchTermTooShort = true;
         service.sortBy = sortBy;
-        var sortAscending = true;
-        var lastSort = '';
+
+        service.searchResults = [];
         service.sortableColumns = [
             'firstname',
             'lastname',
@@ -44,7 +50,7 @@
         ];
 
         function loadMore() {
-            if (service.mobileMaxNumDisplay < service.searchResults.length - service.numPerPage) {
+            if (service.mobileMaxNumDisplay < (service.searchResults.length - service.numPerPage) ) {
                 service.mobileMaxNumDisplay += service.numPerPage;
             } else {
                 service.mobileMaxNumDisplay = service.searchResults.length;
@@ -66,10 +72,23 @@
             service.currentPage = newPage;
         }
 
-        function updatePaginationInfiniteScroll() {
-            service.maxPages = Math.ceil(service.searchResults.length / service.numPerPage);
-            service.mobileMaxNumDisplay = service.numPerPage;
-            service.currentPage = 1;
+        function sortBy(filter) {
+            if (lastSort === filter) {
+                sortAscending = !sortAscending;
+            } else {
+                lastSort = filter;
+                sortAscending = true;
+            }
+            console.log('filter: ', filter);
+            if (filter === service.sortableColumns[0]) {
+                service.searchResults.sort(compareFirstname);
+            } else if (filter === service.sortableColumns[1]) {
+                service.searchResults.sort(compareLastName);
+            } else if (filter === service.sortableColumns[2]) {
+                service.searchResults.sort(compareCity);
+            } else if (filter === service.sortableColumns[3]){
+                service.searchResults.sort(compareProvince);
+            }
         }
 
         function search(searchTerm) {
@@ -112,7 +131,11 @@
             updatePaginationInfiniteScroll();
         }
 
-
+        function updatePaginationInfiniteScroll() {
+            service.maxPages = Math.ceil(service.searchResults.length / service.numPerPage);
+            service.mobileMaxNumDisplay = service.numPerPage;
+            service.currentPage = 1;
+        }
 
         function searchAllNames(searchTerm) {
             console.log('searchTerm: ', searchTerm);
@@ -123,6 +146,7 @@
                 var cName = stripPunctuation(commonName);
                 var fName = stripPunctuation(firstName);
                 var lName = stripPunctuation(lastName);
+
                 console.log('cName: ', cName);
                 console.log('fName: ', fName);
 
@@ -284,25 +308,7 @@
             }
         }
 
-        function sortBy(filter) {
 
-            if (lastSort === filter) {
-                sortAscending = !sortAscending;
-            } else {
-                lastSort = filter;
-                sortAscending = true;
-            }
-            console.log('filter: ', filter);
-            if (filter === service.sortableColumns[0]) {
-                service.searchResults.sort(compareFirstname);
-            } else if (filter === service.sortableColumns[1]) {
-                service.searchResults.sort(compareLastName);
-            } else if (filter === service.sortableColumns[2]) {
-                service.searchResults.sort(compareCity);
-            } else if (filter === service.sortableColumns[3]){
-                service.searchResults.sort(compareProvince);
-            }
-        }
 
     }
 
