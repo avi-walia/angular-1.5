@@ -40,7 +40,6 @@
         service.pageChanged = pageChanged;
         service.search = search;
         service.sortBy = sortBy;
-<<<<<<< HEAD
         var sortAscending = true;
         var lastSort = '';
         var compareFirstname;
@@ -48,13 +47,7 @@
         var compareProvince;
         var compareCity;
         var compareId;
-
-
-
-=======
-
         service.searchResults = [];
->>>>>>> 297
         service.sortableColumns = [
             'firstname',
             'lastname',
@@ -95,7 +88,7 @@
             if (filter === service.sortableColumns[0]) {
                 service.searchResults.sort(compareFirstname);
             } else if (filter === service.sortableColumns[1]) {
-                service.searchResults.sort(compareLastName);
+                service.searchResults.sort(compareLastname);
             } else if (filter === service.sortableColumns[2]) {
                 service.searchResults.sort(compareCity);
             } else if (filter === service.sortableColumns[3]){
@@ -160,12 +153,6 @@
                 var cName = stripPunctuation(commonName);
                 var fName = stripPunctuation(firstName);
                 var lName = stripPunctuation(lastName);
-<<<<<<< HEAD
-=======
-
-                console.log('cName: ', cName);
-                console.log('fName: ', fName);
->>>>>>> 297
 
                 if (commonName && (commonName.indexOf(searchTerm) >= 0 || cName.indexOf(searchTerm) >= 0)) {
                     advisors[index].showCommon = true;
@@ -362,22 +349,6 @@
                 return string.replace(/[.,\/#!$%\^&\*;:{}=\-_`'~()]/g, "");
             }
         }
-
-            if (lastSort === filter) {
-                sortAscending = !sortAscending;
-            } else {
-                lastSort = filter;
-                sortAscending = true;
-            }
-            if (filter === service.sortableColumns[0]) {
-                service.searchResults.sort(compareFirstname);
-            } else if (filter === service.sortableColumns[1]) {
-                service.searchResults.sort(compareLastname);
-            } else if (filter === service.sortableColumns[2]) {
-                service.searchResults.sort(compareCity);
-            } else if (filter === service.sortableColumns[3]){
-                service.searchResults.sort(compareProvince);
-            }
 
     }
 
