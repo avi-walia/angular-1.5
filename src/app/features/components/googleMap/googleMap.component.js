@@ -7,8 +7,8 @@
         .component('googleMap', {
             controller: googleMapCtrl,
             bindings: {
-                //onUpdateMarkers: '&?', /*will be used only for branch locations search*/
-               // markerList: '<?', /*will be used only for branch locations search*/
+                onUpdateMarkers: '&?', /*will be used only for branch locations search*/
+                markerList: '<?', /*will be used only for branch locations search*/
                 locationList: '<?', /*will be used only for branch locations search*/
                 position: '<?', /*will be used only for branch location search*/
                 userMarker: '<?', /*{geoLocation: {lat: number, lng: number}, zoom: number}*/
@@ -26,11 +26,10 @@
         'pageStateResolver',
         'detectMobile',
         'NgMap',
-        '$timeout',
-        'branchListService'
+        '$timeout'
     ];
     /* @ngInject */
-    function googleMapCtrl( $rootScope, $scope, pageStateResolver, detectMobile, NgMap, $timeout, branchListService
+    function googleMapCtrl( $rootScope, $scope, pageStateResolver, detectMobile, NgMap, $timeout
     ) {
         var vm = this;
 
@@ -39,7 +38,6 @@
         vm.loadParameters = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCwahusHkUZ-LOTVpawRSoKh-h2ktVbj2I&libraries=geometry,places&language='+$rootScope.documentLanguage;
         vm.pathToIcon = 'assets/images/blue-marker.png';
         vm.linkToMap = 'https://www.google.com/maps/dir/';
-        vm.branchListService = branchListService;
 
         vm.ca = {
             center: [61.0, -99.0],
@@ -142,13 +140,19 @@
                 vm.locationList = angular.copy(changes.locationList.currentValue);
             }
 
-        /*    if(changes.markerList){
+            if(changes.markerList){
 
                 vm.markerList = angular.copy(changes.markerList.currentValue);
+                vm.clearMarkers();
+                console.log('marker list update',vm.markerList);
+                if(!_.isEmpty(vm.markerList)){
+                    vm.mapPromise.then(function(){
+                        vm.createMarkers();
 
-                changeMarkerList();
+                    });
+                }
 
-            }*/
+            }
         };
 
         vm.$onDestroy = function(){
@@ -174,10 +178,6 @@
         });
         $scope.$on('$destroy', infoWindow);
 
-       // function changeMarkerList(){
-
-       // }
-
 
         function onUserEvent(){
             if(vm.userLocationMarker && vm.updateSearch){
@@ -186,19 +186,8 @@
         }
 
         function updateMarkers(list){
-           // vm.onUpdateMarkers({markers: list});
+            vm.onUpdateMarkers({markers: list});
 
-            //changeMarkerList();
-            vm.branchListService.markers = [];
-            angular.copy(list, vm.branchListService.markers);
-            vm.clearMarkers();
-            console.log('marker list update', vm.branchListService.markers);
-            if(!_.isEmpty(vm.branchListService.markers)){
-                vm.mapPromise.then(function(){
-                    vm.createMarkers();
-
-                });
-            }
         }
 
         function setUserLocationMarker(LatLng){
@@ -227,13 +216,13 @@
         }
 
         function createMarkers(){
-            _.forEach(vm.branchListService.markers, function(value, key){
+            _.forEach(vm.markerList, function(value, key){
                 vm.markers[key] = new google.maps.Marker({
-                    position: vm.branchListService.markers[key].geoLocation,
+                    position: vm.markerList[key].geoLocation,
                     icon: vm.pathToIcon
                 });
-                vm.markers[key].customInfo = vm.branchListService.markers[key].address;
-                vm.markers[key].id = vm.branchListService.markers[key].id;
+                vm.markers[key].customInfo = vm.markerList[key].address;
+                vm.markers[key].id = vm.markerList[key].id;
                 google.maps.event.addListener(vm.markers[key], 'click', vm.showInfoWindow);
                 vm.markers[key].setMap(vm.map);
             });

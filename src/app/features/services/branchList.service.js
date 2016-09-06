@@ -8,11 +8,12 @@
     branchListService.$inject = [
         'server',
         'BASE_URL',
-        'ENDPOINT_URI'
+        'ENDPOINT_URI',
+        '$timeout'
     ];
 
     /* @ngInject */
-    function branchListService(server, BASE_URL, ENDPOINT_URI) {
+    function branchListService(server, BASE_URL, ENDPOINT_URI, $timeout) {
         var service = this;
 
         service.branchListLoading = false;
@@ -80,7 +81,10 @@
 
         function setMarkers(markers){
             service.markers = [];
-            service.markers = angular.copy(markers);
+            $timeout(function(){
+                service.markers = angular.copy(markers);
+            });
+
         }
 
 
