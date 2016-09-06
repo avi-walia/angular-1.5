@@ -42,6 +42,7 @@
             'city',
             'province'
         ];
+        service.allAdvisors = [];
 
         function loadMore() {
             if (service.mobileMaxNumDisplay < service.searchResults.length - service.numPerPage) {
@@ -57,7 +58,7 @@
                 //console.log('data1123: ', data.data);
                 advisors = data.data;
                 service.isLoading = false;
-
+                service.allAdvisors = advisors;
                 //service.advisorSubset = data.slice((page-1) * itemsPerPage, page * itemsPerPage);
             });
         };

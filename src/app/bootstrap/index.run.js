@@ -63,7 +63,6 @@
         $rootScope.$on('$stateChangeSuccess',
             function (event, toState, toParams, fromState, fromParams) {
                 console.log('success');
-                console.log("From state avii", fromState);
                 stateTrackerService.previousState = fromState;
 
                 /**

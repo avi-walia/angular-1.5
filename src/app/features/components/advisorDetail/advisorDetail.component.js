@@ -17,20 +17,24 @@
         'pageStateResolver',
         'detectMobile',
         'advisorDetailService',
-        'stateTrackerService'
+        'stateTrackerService',
+        'advisorService'
     ];
     /* @ngInject */
-    function advisorDetailCtrl( $stateParams, pageStateResolver, detectMobile, advisorDetailService, stateTrackerService
+    function advisorDetailCtrl( $stateParams, pageStateResolver, detectMobile, advisorDetailService, stateTrackerService, advisorService
     ) {
         var vm = this;
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;
-        vm.advisorId = $stateParams.id;
+        vm.advisorID = $stateParams.id;
         vm.advisorDetailService = advisorDetailService;
         vm.stateTrackerService = stateTrackerService;
+        vm.advisorService = advisorService;
 
-        vm.advisorDetailService.getAdvisorDetail(vm.advisorId);
+        vm.advisorDetailService.getAdvisorDetail(vm.advisorID);
+
         vm.previousState = vm.stateTrackerService;
+        vm.advisorDetails = vm.advisorDetailService.advisorDetails;
 
     }
 

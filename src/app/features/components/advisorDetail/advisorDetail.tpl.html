@@ -12,9 +12,8 @@
                 <table>
                 <div>
                     <div style="display:inline-block;vertical-align:top;">
-                        <img src="{{$ctrl.advisorDetailService.advisorDetail.profilePictureUrl}}" translate  alt="{{ 'advisorDetail.advisorImageAlt' | translate }}">
+                        <img width="170" height="170" src="{{$ctrl.advisorDetails.profilePictureUrl}}" translate  alt="{{ 'advisorDetail.advisorImageAlt' | translate }}">
                     </div>
-
 
                     <div style="display:inline-block;">
                         <span>{{$ctrl.advisorDetailService.advisorDetail.firstName + ' ' + $ctrl.advisorDetailService.advisorDetail.lastName}}</span><br>
@@ -32,15 +31,15 @@
 
                     <tr>
                         <td translate>advisorDetail.telephone</td>
-                        <td class="price extra">{{$ctrl.advisorDetailService.advisorDetail.phone}}</td>
+                        <td class="price extra">{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.phone}}</td>
+                    </tr>
+                    <tr>
+                        <td translate>advisorDetail.fax</td>
+                        <td class="price extra">{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.fax}}</td>
                     </tr>
                     <tr>
                         <td translate>advisorDetail.email</td>
                         <td><a href="mailto:{{$ctrl.advisorDetailService.advisorDetail.email}}">{{$ctrl.advisorDetailService.advisorDetail.email}}</a></td>
-                    </tr>
-                    <tr>
-                        <td translate>advisorDetail.alternateEmail</td>
-                        <td><a href="mailto:{{$ctrl.advisorDetailService.advisorDetail.altEmail}}">{{$ctrl.advisorDetailService.advisorDetail.altEmail}}</a></td>
                     </tr>
                     <tr >
                         <td translate>advisorDetail.website</td>
