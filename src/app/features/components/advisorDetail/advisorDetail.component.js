@@ -32,9 +32,8 @@
         vm.advisorService = advisorService;
 
         vm.advisorDetailService.getAdvisorDetail(vm.advisorID);
-
+        
         vm.previousState = vm.stateTrackerService;
-        vm.advisorDetails = vm.advisorDetailService.advisorDetails;
 
     }
 
