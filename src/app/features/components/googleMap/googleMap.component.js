@@ -63,8 +63,10 @@
             content: document.getElementById('info')
         });
         vm.markerInfo = null;
+        vm.updateSearch = false;
 
         vm.updateMarkers = updateMarkers;
+        vm.onUserEvent = onUserEvent;
         vm.setUserLocationMarker = setUserLocationMarker;
         vm.createMarkers = createMarkers;
         vm.clearMarkers = clearMarkers;
@@ -89,6 +91,7 @@
                     }
 
                     if(vm.position){
+                        vm.updateSearch = false;
                         vm.position = angular.copy(vm.position);
                         console.log('position on init', vm.position);
                         if(!_.isEmpty(vm.position)) {
@@ -97,6 +100,7 @@
                                 vm.map.setZoom(13);
                                 vm.setUserLocationMarker(vm.position);
                                 search(vm.position);
+                                vm.updateSearch = true;
                             });
                         }
                         else{
@@ -105,7 +109,8 @@
 
                     }
 
-
+                    vm.map.addListener('dragend', vm.onUserEvent);
+                    vm.map.addListener('zoom_changed', vm.onUserEvent);
 
                     vm.isLoading = false;
                 });
@@ -113,7 +118,7 @@
         vm.$onChanges = function(changes){
 
             if(changes.position ){
-
+                vm.updateSearch = false;
                 vm.position = angular.copy(changes.position.currentValue);
                 console.log('position on change', vm.position);
                 if(!_.isEmpty(vm.position)) {
@@ -122,11 +127,13 @@
                         vm.map.setZoom(13);
                         vm.setUserLocationMarker(vm.position);
                         search(vm.position);
+                        vm.updateSearch = true;
                     });
                 }
                 else{
                     vm.setUserLocationMarker(null);
                 }
+
             }
             if(changes.locationList){
 
@@ -173,9 +180,23 @@
         $scope.$on('$destroy', infoWindow);
 
 
+        function onUserEvent(){
+            if(vm.userLocationMarker && vm.updateSearch){
+                search(vm.userLocationMarker.getPosition());
+            }
+        }
 
         function updateMarkers(list){
             vm.onUpdateMarkers({markers: list});
+
+            vm.clearMarkers();
+            console.log('marker list update',vm.markerList);
+            if(!_.isEmpty(vm.markerList)){
+                vm.mapPromise.then(function(){
+                    vm.createMarkers();
+
+                });
+            }
         }
 
         function setUserLocationMarker(LatLng){
@@ -233,6 +254,8 @@
 
 
         function search(currentPosition){
+            console.log('currentPosition lat', currentPosition.lat());
+            console.log('currentPosition lng', currentPosition.lng());
 
             var filteredList = filterMarkers(currentPosition);
             vm.updateMarkers(filteredList);
