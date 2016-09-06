@@ -177,7 +177,7 @@
             }
 
             if (_.isObject(cachedObj)) {
-                //cachedObj = bIsUnlocalized ? cachedObj : filterLangResponse(cachedObj);
+                cachedObj = bIsUnlocalized ? cachedObj : filterLangResponse(cachedObj);
                 deferred.resolve(cachedObj);
 
             } else {
