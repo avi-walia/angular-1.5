@@ -17,8 +17,9 @@
 
                     <div style="display:inline-block;">
                         <span ng-if="$ctrl.advisorDetailService.advisorDetail.showCommon">{{$ctrl.advisorDetailService.advisorDetail.commonName}}</span>
-                        <span ng-if="!$ctrl.advisorDetailService.advisorDetail.showCommon">{{$ctrl.advisorDetailService.advisorDetail.firstName}}</span> {{$ctrl.advisorDetailService.advisorDetail.lastName}}
-                        <span ng-repeat="title in $ctrl.advisorDetailService.advisorDetail.titles track by $index" bn-repeat-delimiter=",">{{title}}{{$last ? '' : ', '}}</span><br>
+                        <span ng-if="!$ctrl.advisorDetailService.advisorDetail.showCommon">{{$ctrl.advisorDetailService.advisorDetail.firstName}}</span> {{$ctrl.advisorDetailService.advisorDetail.lastName}}<br>
+                        <span  ng-repeat="title in $ctrl.advisorDetailService.advisorDetail.titlesEN track by $index" bn-repeat-delimiter=",">{{title.length}}</span><br>
+                        <span ng-repeat="designation in $ctrl.advisorDetailService.advisorDetail.designationsEN track by $index" bn-repeat-delimiter="," ng-bind-html="title">{{designation}}{{$last ? '' : ', '}}</span><br>
                         <span>{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address1 +',' + ' '+ $ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address2}}</span><br>
                     </div>
                     <br><br>
