@@ -264,10 +264,7 @@
             var LatLng = {};
 
             _.forEach(vm.locationList, function(value, key){
-                console.log('value: ', value);
-                console.log('key: ', key);
                 LatLng = new google.maps.LatLng(vm.locationList[key].geoLocation.lat, vm.locationList[key].geoLocation.lng);
-                console.log('LatLng: ', LatLng);
                 sortedList.push(vm.locationList[key]);
 
                 sortedList[key].distance = _.round(google.maps.geometry.spherical.computeDistanceBetween(LatLng, currentPosition) / 1000, 1);
@@ -278,8 +275,6 @@
                 .orderBy('distance', 'asc')
                 .value();
 
-            console.log('sortedList');
-            console.log(sortedList);
 
             return sortedList;
         }

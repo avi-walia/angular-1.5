@@ -49,10 +49,12 @@
 
 
         function updatePosition(pos){
+            console.log('update pos: ', pos);
             vm.setPosition({position: pos});
         }
 
         function updateLocation(loc){
+            console.log('update loc: ', loc);
             vm.setLocation({location: loc});
         }
 
