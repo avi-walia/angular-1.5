@@ -63,9 +63,9 @@
                     };
                     vm.geocoder.geocode({'location': currentPosition}, function(results, status){
                         if(status === google.maps.GeocoderStatus.OK){
-                            if(results[1]){
-                                vm.updatePosition(results[1].geometry.location);
-                                vm.updateLocation(results[1].formatted_address);
+                            if(results[0]){
+                                vm.updatePosition(results[0].geometry.location);
+                                vm.updateLocation(results[0].formatted_address);
                             }
                         }
                     });
