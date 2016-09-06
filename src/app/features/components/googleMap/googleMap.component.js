@@ -141,17 +141,10 @@
             }
 
             if(changes.markerList){
-                vm.clearMarkers();
 
                 vm.markerList = angular.copy(changes.markerList.currentValue);
 
-                console.log('marker list on change',vm.markerList);
-                if(!_.isEmpty(vm.markerList)){
-                    vm.mapPromise.then(function(){
-                        vm.createMarkers();
-                       // vm.markerInfo = vm.markerList[0];
-                    });
-                }
+                changeMarkerList();
 
             }
         };
@@ -179,6 +172,17 @@
         });
         $scope.$on('$destroy', infoWindow);
 
+        function changeMarkerList(){
+            vm.clearMarkers();
+            console.log('marker list update',vm.markerList);
+            if(!_.isEmpty(vm.markerList)){
+                vm.mapPromise.then(function(){
+                    vm.createMarkers();
+
+                });
+            }
+        }
+
 
         function onUserEvent(){
             if(vm.userLocationMarker && vm.updateSearch){
@@ -189,14 +193,8 @@
         function updateMarkers(list){
             vm.onUpdateMarkers({markers: list});
 
-            vm.clearMarkers();
-            console.log('marker list update',vm.markerList);
-            if(!_.isEmpty(vm.markerList)){
-                vm.mapPromise.then(function(){
-                    vm.createMarkers();
+            changeMarkerList();
 
-                });
-            }
         }
 
         function setUserLocationMarker(LatLng){
