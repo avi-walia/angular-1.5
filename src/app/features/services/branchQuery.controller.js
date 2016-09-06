@@ -12,10 +12,12 @@
     branchQueryCtrl.$inject = [
         '$state',
         '$stateParams',
-        'branchListService'
+        'branchListService',
+        '$http',
+        '$timeout'
     ];
     /* @ngInject */
-    function branchQueryCtrl($state, $stateParams, branchListService
+    function branchQueryCtrl($state, $stateParams, branchListService, $http, $timeout
     ) {
         var vm = this;
 
@@ -35,16 +37,43 @@
             return _.replace(location, new RegExp('\\+', 'g'), ' ');
 
         }
-
+/*
         vm.branchListService.getBranchList().then(function(){
             vm.drupalQuery = parseLocation($stateParams.q);
             vm.setLocation(parseLocation(vm.drupalQuery));
 
-        });
+        });*/
+            /*
+            $http.jsonp("https://maps.googleapis.com/maps/api/place/js/PlaceService.GetPlaceDetails?2sen&8sChIJpTvG15DL1IkRd8S0KlBVNTI&10e3&key=AIzaSyCwahusHkUZ-LOTVpawRSoKh-h2ktVbj2I&callback=JSON_CALLBACK&token=119628").then(function (data) {
+                console.log('data: ', data);
+                $state.go('main.advisorLocator.branchList');
+            }, function (data, error) {
+                console.log('data: ', data);
+                console.log('error: ', error);
+            });
+            */
+            $http.get('http://maps.google.com/maps/api/geocode/json?address=256+Doris+Ave,+North+York,+ON+M2N+6X8&sensor=false').success(function(mapData) {
+                console.log('mapData: ', mapData);
+
+
+                vm.drupalQuery = parseLocation($stateParams.q);
+                console.log('drupalQuery: ', vm.drupalQuery);
+                //vm.setLocation(parseLocation(vm.drupalQuery));
+                var location = {
+                    lat: function() {
+                        return mapData.results[0].geometry.location.lat;
+                    },
+                    lng: function() {
+                        return mapData.results[0].geometry.location.lng;
+                    }
+                }
+                vm.branchListService.setPosition({'location': location});
+                vm.branchListService.setLocation(mapData.results[0].formatted_address);
+                $state.go('main.advisorLocator.branchList');
+            });
 
 
 
-        $state.go('main.advisorLocator.branchList');
 
     }
 

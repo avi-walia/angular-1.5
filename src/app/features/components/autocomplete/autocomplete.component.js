@@ -91,6 +91,7 @@
         }
 
         function selectFirstItem(){
+            console.log('testing1234');
             var autocomplete = document.getElementById('place');
             //google.maps.event.trigger( /** @type {!HTMLInputElement} */ autocomplete, 'place_changed');
 
@@ -105,6 +106,7 @@
         }
 
         function updatePlace(){
+            console.log('testing1234b');
             if(vm.location===''){
                 vm.setMessage({message: {'cancel': 'branchList.validation.notValidAddress'}});
                 vm.resetMarkers({markers: []});
