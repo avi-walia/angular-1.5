@@ -147,7 +147,7 @@
         function get(sPath, bRemoveCache, sStorageType, bIsUnlocalized) {
             var deferred = $q.defer();
             var cachedObj;
-            if (typeof bRemoveCache == 'undefined' && typeof sStorageType == 'undefined' && typeof bIsUnlocalized == 'undefined') {
+            if (typeof bRemoveCache === 'undefined' && typeof sStorageType === 'undefined' && typeof bIsUnlocalized === 'undefined') {
                 bRemoveCache = false;
                 sStorageType = 'localStorage';
                 bIsUnlocalized = false;
@@ -172,7 +172,7 @@
                     return deferred.promise;//don't need to process the rest of the function at this point.
                 }
                 */
-                var cachedObj = dataCacheLocalStorage.get(sPath);
+                cachedObj = dataCacheLocalStorage.get(sPath);
 
             }
 

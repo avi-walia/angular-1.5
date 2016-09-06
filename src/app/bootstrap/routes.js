@@ -96,6 +96,18 @@
                             }
                         }
                     })*/
+
+                    .state('main.advisorLocator.branchListQuery', {
+                        url: '/location/:q?',
+                        views: {
+                            'content@main': {
+                                controller: 'branchQueryCtrl'
+                            }
+                        }
+
+
+                    })
+
                     .state('main.advisorLocator.branchList', {
                         url: '/branches',
                         views: {
@@ -104,6 +116,8 @@
                             }
                         }
                     })
+
+
                     .state('main.advisorLocator.branchDetails', {
                         url: '/branches/:id',
                         views: {

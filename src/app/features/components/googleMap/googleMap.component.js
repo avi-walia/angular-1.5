@@ -132,6 +132,7 @@
 
                 vm.locationList = angular.copy(changes.locationList.currentValue);
             }
+
             if(changes.markerList){
                 vm.clearMarkers();
 
@@ -170,6 +171,7 @@
             }
         });
         $scope.$on('$destroy', infoWindow);
+
 
 
         function updateMarkers(list){
@@ -231,19 +233,18 @@
 
 
         function search(currentPosition){
-            var filteredList = [];
-            filteredList = filterMarkers(currentPosition);
+
+            var filteredList = filterMarkers(currentPosition);
             vm.updateMarkers(filteredList);
         }
 
         function filterMarkers(currentPosition){
-            var filteredList = [];
-            var sortedList = [];
+
             var bounds = vm.map.getBounds();
             var counter = 0;
 
-            sortedList = sortMarkers(currentPosition);
-            filteredList = isContain(sortedList, bounds);
+            var sortedList = sortMarkers(currentPosition);
+            var filteredList = isContain(sortedList, bounds);
 
             if(filteredList.length === 0){
                 bounds.extend(sortedList[0].LatLng); //get the first closest

@@ -40,11 +40,11 @@
             return  {
                 data: data,
                 expiryTime: expiryDate
-            }
+            };
         }
 
         function put(path, data, noExpiration) {
-            var expiryTime = (new Date).getTime() + 24 * 60 * 60 * 1000;
+            var expiryTime = (new Date()).getTime() + 24 * 60 * 60 * 1000;
             if (!noExpiration) {
                 dataCache.put(path, timeCapsule(data, expiryTime));
             } else {
@@ -78,7 +78,7 @@
             'remove': remove2,
             'removeAll': removeAll2,
             'destroy': destroy
-        }
+        };
         return localCache;
     }
     function notificationsCacheService(CacheFactory) {
