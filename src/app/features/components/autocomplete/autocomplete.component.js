@@ -124,7 +124,7 @@
        vm.$onChanges = function(changes){
             if(changes.location){
                 if(changes.location.currentValue !== ''){
-                    if(changes.location.currentValue != changes.location.previousValue){
+                    if(changes.location.currentValue !== changes.location.previousValue){
                         vm.location = changes.location.currentValue;
                         updatePlace();
                     }
