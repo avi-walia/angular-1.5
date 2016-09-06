@@ -18,9 +18,10 @@
                     <div style="display:inline-block;">
                         <span ng-if="$ctrl.advisorDetailService.advisorDetail.showCommon">{{$ctrl.advisorDetailService.advisorDetail.commonName}}</span>
                         <span ng-if="!$ctrl.advisorDetailService.advisorDetail.showCommon">{{$ctrl.advisorDetailService.advisorDetail.firstName}}</span> {{$ctrl.advisorDetailService.advisorDetail.lastName}}<br>
-                        <span  ng-repeat="title in $ctrl.advisorDetailService.advisorDetail.titlesEN track by $index" bn-repeat-delimiter=",">{{title.length}}</span><br>
-                        <span ng-repeat="designation in $ctrl.advisorDetailService.advisorDetail.designationsEN track by $index" bn-repeat-delimiter="," ng-bind-html="title">{{designation}}{{$last ? '' : ', '}}</span><br>
-                        <span>{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address1 +',' + ' '+ $ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address2}}</span><br>
+                        <div ng-show="$ctrl.advisorDetailService.advisorDetail.titles.length"><span ng-repeat="title in $ctrl.advisorDetailService.advisorDetail.titles track by $index" bn-repeat-delimiter=",">{{title}}{{$last ? '' : ', '}}</span></div>
+                        <div ng-show="$ctrl.advisorDetailService.advisorDetail.designations.length"><span ng-repeat="designation in $ctrl.advisorDetailService.advisorDetail.designations track by $index" bn-repeat-delimiter="," ng-bind-html="designation">{{designation}}{{$last ? '' : ', '}}</span></div>
+                        <span ng-show="$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address1">{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address1}}<br></span>
+                        <span ng-show="$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address1">{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address2}}<br></span>
                     </div>
                     <br><br>
                     <div style="display:inline-block;">
