@@ -68,6 +68,7 @@
     "getDetails": "Get details",
     "km": "km",
     "search": "search",
+    "locateMe": "Locate Me",
     "validation": {
       "notValidAddress" : "Please choose a valid address"
     }

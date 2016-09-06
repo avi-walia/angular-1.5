@@ -46,8 +46,6 @@
         vm.service = new google.maps.places.AutocompleteService();
 
 
-
-
         function updatePosition(pos){
             vm.setPosition({position: pos});
         }
@@ -68,10 +66,7 @@
                    selectFirstItem();
                }
                else{
-                   vm.setMessage({message:{'cancel': 'branchList.validation.notValidAddress'}});
-                   vm.resetMarkers({markers: []});
-                   vm.updatePosition({});
-                   vm.updateLocation('');
+                   handleLocationError();
                }
             });
 
@@ -106,10 +101,7 @@
 
         function updatePlace(){
             if(vm.location===''){
-                vm.setMessage({message: {'cancel': 'branchList.validation.notValidAddress'}});
-                vm.resetMarkers({markers: []});
-                vm.updatePosition({});
-                vm.updateLocation('');
+                handleLocationError();
             }
             else{
                 var autocomplete = document.getElementById('place');
@@ -122,7 +114,14 @@
 
         }
 
-       /*vm.$onChanges = function(changes){
+        function handleLocationError(){
+            vm.setMessage({message: {'cancel': 'branchList.validation.notValidAddress'}});
+            vm.resetMarkers({markers: []});
+            vm.updatePosition({});
+            vm.updateLocation('');
+        }
+
+       vm.$onChanges = function(changes){
             if(changes.location){
                 if(changes.location.currentValue !== ''){
                     if(changes.location.currentValue != changes.location.previousValue){
@@ -130,15 +129,10 @@
                         updatePlace();
                     }
 
-
-
-                    //$timeout(function() {}, 500);
-
-
                 }
 
             }
-        };*/
+       };
     }
 
 })();

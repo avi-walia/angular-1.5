@@ -18,6 +18,14 @@
             ></autocomplete>
         </div>
         <div style="display: inline-block">
+            <geo-locator
+                    set-position="$ctrl.setPosition(position)"
+                    set-location="$ctrl.setLocation(location)"
+                    set-message="$ctrl.setMessage(message)"
+                    reset-markers="$ctrl.setMarkers(markers)"
+            ></geo-locator>
+        </div>
+        <div style="display: inline-block">
             <search-by></search-by>
         </div>
         <br /> <br />
