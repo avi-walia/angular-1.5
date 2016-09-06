@@ -109,8 +109,9 @@
 
                     }
 
-                    vm.map.addListener('dragend', vm.onUserEvent);
-                    vm.map.addListener('zoom_changed', vm.onUserEvent);
+                    //vm.map.addListener('dragend', vm.onUserEvent);
+                    //vm.map.addListener('zoom_changed', vm.onUserEvent);
+                    vm.map.addListener('idle', vm.onUserEvent);
 
                     vm.isLoading = false;
                 });
