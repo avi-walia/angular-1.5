@@ -33,7 +33,7 @@
         vm.pageStateResolver = pageStateResolver;
 
         vm.detectMobile = detectMobile;
-        vm.loadParameters = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCwahusHkUZ-LOTVpawRSoKh-h2ktVbj2I&libraries=geometry,places&language='+$rootScope.documentLanguage;
+        vm.loadParameters = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyD6y9w2sHNaVOAQN3ESPmYe_tSxCBE6d-Q&libraries=geometry,places&language='+$rootScope.documentLanguage;
         //vm.restriction = {country: 'ca'};
 
         vm.onPlaceChanged = onPlaceChanged;
