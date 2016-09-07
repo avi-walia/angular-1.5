@@ -14,7 +14,15 @@
     "page3": "Page 3 Title",
     "page4": "Page 4 Title",
     "page5": "Page 5 Title",
-    "advisorList": "Search for Advisor"
+    "advisorList":{
+      "title": "Search for Advisor",
+      "sort": {
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "city": "City",
+        "province": "Province"
+      }
+    }
   },
   "helpLabel": "Help",
 
@@ -80,6 +88,7 @@
     "mapTitle": "Map",
     "contactUsNote" : "*Note: If you are unable to locate your advisor, please contact <a href='https://www.assanteservices.com/aiol/#/en/aio/contact' target='_blank'>Assante Service Centre</a> for assistance",
     "telephone": "Tel",
+    "fax": "Fax",
     "tollFree": "Toll Free",
     "email": "Email",
     "alternateEmail": "Team Email",
