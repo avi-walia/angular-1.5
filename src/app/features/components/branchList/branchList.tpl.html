@@ -36,11 +36,13 @@
                 on-update-markers="$ctrl.setMarkers(markers)">
         </google-map>
         <ci-validation message-object="$ctrl.branchListService.message"></ci-validation>
-        <branch-item
+        <div role="list" aria-live="polite">
+        <branch-item role="listitem"
             ng-repeat="branch in $ctrl.branchListService.markers track by $index"
             item="branch"
             ng-click="$ctrl.openInfoWindow(branch.id)"
         ></branch-item>
+        </div>
     </div>
 </div>
 
