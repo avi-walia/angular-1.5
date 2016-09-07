@@ -14,7 +14,15 @@
     "page3": "Page 3 Title",
     "page4": "Page 4 Title",
     "page5": "Page 5 Title",
-    "advisorList": "Search for Advisor"
+    "advisorList":{
+      "title": "Search for Advisor",
+      "sort": {
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "city": "City",
+        "province": "Province"
+      }
+    }
   },
   "helpLabel": "Help",
 
@@ -68,6 +76,7 @@
     "getDetails": "Get details",
     "km": "km",
     "search": "search",
+    "locateMe": "Locate Me",
     "validation": {
       "notValidAddress" : "Please choose a valid address"
     }
