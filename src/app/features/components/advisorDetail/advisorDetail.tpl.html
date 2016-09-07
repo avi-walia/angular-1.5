@@ -20,25 +20,23 @@
                         <span ng-if="!$ctrl.advisorDetailService.advisorDetail.showCommon">{{$ctrl.advisorDetailService.advisorDetail.firstName}}</span> {{$ctrl.advisorDetailService.advisorDetail.lastName}}<br>
                         <div ng-show="$ctrl.advisorDetailService.advisorDetail.titles.length"><span ng-repeat="title in $ctrl.advisorDetailService.advisorDetail.titles track by $index" bn-repeat-delimiter=",">{{title}}{{$last ? '' : ', '}}</span></div>
                         <div ng-show="$ctrl.advisorDetailService.advisorDetail.designations.length"><span ng-repeat="designation in $ctrl.advisorDetailService.advisorDetail.designations track by $index" bn-repeat-delimiter="," ng-bind-html="designation">{{designation}}{{$last ? '' : ', '}}</span></div>
-                        <span ng-show="$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address1">{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address1}}<br></span>
-                        <span ng-show="$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address1">{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address2}}<br></span>
-                    </div>
-                    <br><br>
-                    <div style="display:inline-block;">
+                        <br>
                         <span ng-show="$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.dealerShip">{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.dealerShip==="ACM" ? "Assante Capital Management Ltd.": "Assante Financial Management Ltd."}}<br></span>
-                        <span ng-show="$ctrl.advisorDetailService.advisorDetail.styleNameEN">{{$ctrl.advisorDetailService.advisorDetail.styleNameEN}}<br></span>
+                        <span ng-show="$ctrl.advisorDetailService.advisorDetail.styleName">{{$ctrl.advisorDetailService.advisorDetail.styleName}}<br></span>
+                        <span ng-show="$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address1">{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address1}}<br></span>
+                        <span ng-show="$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address2">{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address2}}<br></span>
                         <span ng-show="$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.city">{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.city}},{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.provinceAbbr}} {{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.postalCode}}<br></span>
                     </div>
                     <br><br>
                 </div>
 
-                    <tr ng-show="$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.phone">
+                    <tr ng-show="$ctrl.advisorDetailService.advisorDetail.phone">
                         <td translate>advisorDetail.telephone</td>
-                        <td class="price extra">{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.phone}}</td>
+                        <td class="price extra">{{$ctrl.advisorDetailService.advisorDetail.phone}}</td>
                     </tr>
-                    <tr ng-show="$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.fax">
+                    <tr ng-show="$ctrl.advisorDetailService.advisorDetail.fax">
                         <td translate>advisorDetail.fax</td>
-                        <td class="price extra">{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.fax}}</td>
+                        <td class="price extra">{{$ctrl.advisorDetailService.advisorDetail.fax}}</td>
                     </tr>
                     <tr ng-show="$ctrl.advisorDetailService.advisorDetail.email">
                         <td translate>advisorDetail.email</td>
