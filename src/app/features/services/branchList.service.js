@@ -83,7 +83,10 @@
 
         function setMarkers(markers){
             service.markers = [];
-            service.markers = angular.copy(markers);
+            $timeout(function(){
+                service.markers = angular.copy(markers);
+            });
+
         }
 
 
