@@ -67,8 +67,11 @@
             });
 */
 
-        $http.get('https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyCwahusHkUZ-LOTVpawRSoKh-h2ktVbj2I&input=CN+Tower').then(function(data){
+        $http.get('https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyD6y9w2sHNaVOAQN3ESPmYe_tSxCBE6d-Q&input=CN+Tower').then(function(data) {
             console.log('autocomplete data: ', data);
+            $http.get('https://maps.googleapis.com/maps/api/place/details/json?placeid=' + data[0] + '&key=AIzaSyD6y9w2sHNaVOAQN3ESPmYe_tSxCBE6d-Q').then(function(data){
+
+            });
         }, function(error){
             console.log('autocomplete error: ', error);
         });
