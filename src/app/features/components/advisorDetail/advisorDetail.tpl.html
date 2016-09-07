@@ -12,12 +12,19 @@
                 <table>
                 <div>
                     <div style="display:inline-block;vertical-align:top;">
-                        <img width="170" height="170" src="{{$ctrl.advisorDetails.profilePictureUrl}}" translate  alt="{{ 'advisorDetail.advisorImageAlt' | translate }}">
+                        <img width="170" height="170" src="{{$ctrl.advisorDetailService.advisorDetails.profilePictureUrl}}" translate  alt="{{ 'advisorDetail.advisorImageAlt' | translate }}">
                     </div>
 
                     <div style="display:inline-block;">
-                        <span ng-if="$ctrl.advisorDetailService.advisorDetail.showCommon">{{$ctrl.advisorDetailService.advisorDetail.commonName}}</span>
-                        <span ng-if="!$ctrl.advisorDetailService.advisorDetail.showCommon">{{$ctrl.advisorDetailService.advisorDetail.firstName}}</span> {{$ctrl.advisorDetailService.advisorDetail.lastName}}<br>
+                        <div ng-show="$ctrl.perviousStateIsNameSearch">
+                            <span ng-if="$ctrl.advisorDetailService.advisorDetail.showCommon">{{$ctrl.advisorDetailService.advisorDetail.commonName}}</span>
+                            <span ng-if="!$ctrl.advisorDetailService.advisorDetail.showCommon">{{$ctrl.advisorDetailService.advisorDetail.firstName}}</span> {{$ctrl.advisorDetailService.advisorDetail.lastName}}
+                        </div>
+
+                        <div ng-show="!$ctrl.perviousStateIsNameSearch">
+                            <span>{{$ctrl.advisorDetailService.advisorDetail.commonName}}</span> {{$ctrl.advisorDetailService.advisorDetail.lastName}} <br>
+                        </div>
+
                         <div ng-show="$ctrl.advisorDetailService.advisorDetail.titles.length"><span ng-repeat="title in $ctrl.advisorDetailService.advisorDetail.titles track by $index" bn-repeat-delimiter=",">{{title}}{{$last ? '' : ', '}}</span></div>
                         <div ng-show="$ctrl.advisorDetailService.advisorDetail.designations.length"><span ng-repeat="designation in $ctrl.advisorDetailService.advisorDetail.designations track by $index" bn-repeat-delimiter="," ng-bind-html="designation">{{designation}}{{$last ? '' : ', '}}</span></div>
                         <br>

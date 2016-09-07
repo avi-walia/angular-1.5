@@ -52,7 +52,7 @@
                         service.advisorDetail.partialBranchInfo.city
                     ];
                     service.advisorDetail.googleMapJoinedAddress = service.advisorDetail.googleMapAddressArray.join("+");
-                    service.titlesLength = service.advisorDetail.titlesEN;
+
                 }
 
 

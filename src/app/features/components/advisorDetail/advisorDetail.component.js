@@ -33,7 +33,9 @@
 
         vm.advisorDetailService.getAdvisorDetail(vm.advisorID);
 
-        vm.previousState = vm.stateTrackerService;
+        if(vm.stateTrackerService.previousState.name == "main.advisorLocator.advisorList"){
+            vm.perviousStateIsNameSearch = true;
+        }
 
     }
 
