@@ -56,26 +56,32 @@
         //var service = new google.maps.places.PlacesService(map);
 
         vm.drupalQuery = parseLocation($stateParams.q);
-        /*
-            $http.get('http://maps.google.com/maps/api/geocode/json?address=' + vm.drupalQuery + '&sensor=false').success(function(mapData) {
-                console.log('mapData: ', mapData);
+
+        $http.get('http://maps.google.com/maps/api/geocode/json?address=' + vm.drupalQuery + '&sensor=false').success(function(mapData) {
+            console.log('mapData: ', mapData);
+            if (mapData.results.length) {
                 //vm.setLocation(parseLocation(vm.drupalQuery));
                 var LatLng2 = new google.maps.LatLng(mapData.results[0].geometry.location.lat, mapData.results[0].geometry.location.lng)
                 vm.branchListService.setPosition(LatLng2);
                 vm.branchListService.setLocation(mapData.results[0].formatted_address);
                 $state.go('main.advisorLocator.branchList');
-            });
-*/
-
-        $http.get('https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyD6y9w2sHNaVOAQN3ESPmYe_tSxCBE6d-Q&input=CN+Tower').then(function(data) {
-            console.log('autocomplete data: ', data);
-            $http.get('https://maps.googleapis.com/maps/api/place/details/json?placeid=' + data[0] + '&key=AIzaSyD6y9w2sHNaVOAQN3ESPmYe_tSxCBE6d-Q').then(function(data){
-
-            });
-        }, function(error){
-            console.log('autocomplete error: ', error);
+            } else {
+                $http.get('https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyD6y9w2sHNaVOAQN3ESPmYe_tSxCBE6d-Q&input='+ vm.drupalQuery).then(function(data) {
+                    console.log('autocomplete data: ', data);
+                    if (data.data.predictions.length) {
+                        $http.get('https://maps.googleapis.com/maps/api/place/details/json?placeid=' + data.data.predictions[0].place_id + '&key=AIzaSyD6y9w2sHNaVOAQN3ESPmYe_tSxCBE6d-Q').then(function(placeData){
+                            console.log('place data: ', placeData);
+                            var LatLng2 = new google.maps.LatLng(placeData.data.result.geometry.location.lat, placeData.data.result.geometry.location.lng)
+                            vm.branchListService.setPosition(LatLng2);
+                            vm.branchListService.setLocation(placeData.data.result.formatted_address);
+                            $state.go('main.advisorLocator.branchList');
+                        });
+                    }
+                }, function(error){
+                    console.log('autocomplete error: ', error);
+                });
+            }
         });
-
 
 
     }
