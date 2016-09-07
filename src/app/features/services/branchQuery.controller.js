@@ -56,6 +56,7 @@
         //var service = new google.maps.places.PlacesService(map);
 
         vm.drupalQuery = parseLocation($stateParams.q);
+        /*
             $http.get('http://maps.google.com/maps/api/geocode/json?address=' + vm.drupalQuery + '&sensor=false').success(function(mapData) {
                 console.log('mapData: ', mapData);
                 //vm.setLocation(parseLocation(vm.drupalQuery));
@@ -64,7 +65,13 @@
                 vm.branchListService.setLocation(mapData.results[0].formatted_address);
                 $state.go('main.advisorLocator.branchList');
             });
+*/
 
+        $http.get('https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyCwahusHkUZ-LOTVpawRSoKh-h2ktVbj2I&input=CN+Tower').then(function(data){
+            console.log('autocomplete data: ', data);
+        }, function(error){
+            console.log('autocomplete error: ', error);
+        });
 
 
 
