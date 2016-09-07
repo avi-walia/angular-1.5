@@ -8,11 +8,12 @@
     branchListService.$inject = [
         'server',
         'BASE_URL',
-        'ENDPOINT_URI'
+        'ENDPOINT_URI',
+        '$timeout'
     ];
 
     /* @ngInject */
-    function branchListService(server, BASE_URL, ENDPOINT_URI) {
+    function branchListService(server, BASE_URL, ENDPOINT_URI, $timeout) {
         var service = this;
 
         service.branchListLoading = false;
@@ -46,8 +47,8 @@
 
                     service.branchListView = _(result.data)
                         .map(function(item){
-                            var fullAddress = item.address1 + ', ' + item.address2 + ', ' +  item.city + ', ' + item.provinceAbbr + ' ' +item.postalCode;
-                            return {id: item.id, geoLocation: item.geoLocation, address: fullAddress, distance: 0};
+                            var fullAddress = (item.address1 !== null ?  item.address1 + ', ' : '') + (item.address2 !== null ? item.address2+ ', ' : '') +  item.city + ', ' + item.provinceAbbr + ' ' +item.postalCode;
+                            return {id: item.id, geoLocation: {lat: (item.geoLocation ? item.geoLocation.lat : 61.0), lng: (item.geoLocation ? item.geoLocation.lng : -99.0)}, address: fullAddress, distance: 0};
                         })
                         .value();
                     console.log(service.branchListView);
@@ -66,7 +67,9 @@
         }
 
         function setLocation(location) {
-            service.location = location;
+            $timeout(function(){
+                service.location = location;
+            });
             console.log('branch service updated: '+ location);
         }
 
@@ -80,7 +83,10 @@
 
         function setMarkers(markers){
             service.markers = [];
-            service.markers = angular.copy(markers);
+            $timeout(function(){
+                service.markers = angular.copy(markers);
+            });
+
         }
 
 

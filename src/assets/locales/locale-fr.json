@@ -70,6 +70,7 @@
     "getDetails": "French Get details",
     "km": "km",
     "search": "French search",
+    "locateMe": "French Locate Me",
     "validation": {
       "notValidAddress" : "French Please choose a valid address"
     }

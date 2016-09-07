@@ -11,6 +11,8 @@ var advisors = [
 
 ];
 */
+//This list of advisors is not exactly the same as production/dev environments
+//There are some dummy records added to test certain cases.
 var advisors = [
     {"id":30610,"firstName":"Lorea","commonName":"Lorea","lastName":"Declercq","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"ldeclercq@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5410,"dealerShip":"AFM","geoLocation":{"lng":-123.115952,"lat":49.285248,"_persistence_fetchGroup":null},"address1":"800 West Pender Street","address2":"Suite 1600","city":"Vancouver","provinceAbbr":"BC","postalCode":"V6C 2V6","phone":"604-484-2070","tollFree":null,"fax":"604-685-9815","_persistence_fetchGroup":null},"_persistence_fetchGroup":null},
     {"id":30611,"firstName":"Mark","commonName":null,"lastName":"Driediger","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"mdriediger@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":null,"partialBranchInfo":{"id":5464,"dealerShip":"AFM","geoLocation":{"lng":-122.29782,"lat":49.04983,"_persistence_fetchGroup":null},"address1":"33386 South Fraser Way","address2":"Suite 101","city":"Abbotsford","provinceAbbr":"BC","postalCode":"V2S 2B5","phone":"604-852-1804","tollFree":null,"fax":"604-852-0503","_persistence_fetchGroup":null},"_persistence_fetchGroup":null},
@@ -627,7 +629,9 @@ var advisors = [
     {"id":34816,"firstName":"David","commonName":null,"lastName":"Grant","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"416-341--7823","email":"DGrant@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"http://www.assante.com/advisors/dgrant","partialBranchInfo":{"id":5676,"dealerShip":"AFM","geoLocation":{"lng":-79.39395,"lat":43.68795,"_persistence_fetchGroup":null},"address1":"1 St. Clair Ave E","address2":"Suite 901","city":"Toronto","provinceAbbr":"ON","postalCode":"M4T 2V7","phone":"416-341-7823","tollFree":null,"fax":"416-341-8668","_persistence_fetchGroup":null},"_persistence_fetchGroup":null},
     {"id":34818,"firstName":"Alexander","commonName":"Alex","lastName":"Argento","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5843,"dealerShip":"ACM","geoLocation":{"lng":-73.78454,"lat":45.48395,"_persistence_fetchGroup":null},"address1":"2020 Transcanadienne","address2":"Suite 200","city":"Dorval","provinceAbbr":"QC","postalCode":"H9P 2N4","phone":"514-832-5100","tollFree":null,"fax":"514-832-5232","_persistence_fetchGroup":null},"_persistence_fetchGroup":null},
     {"id":34862,"firstName":"Eric","commonName":null,"lastName":"Lapointe","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5853,"dealerShip":"CIPC","geoLocation":{"lng":-73.44082,"lat":45.45525,"_persistence_fetchGroup":null},"address1":"4605 B Boul. Lapiniere","address2":"Suite 260","city":"Brossard","provinceAbbr":"QC","postalCode":"J4Z 3T5","phone":"450-766-0988","tollFree":null,"fax":"450-766-0988","_persistence_fetchGroup":null},"_persistence_fetchGroup":null},
+    {"id":36290,"firstName":"Sebastien","commonName":null,"lastName":"Roy","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5743,"dealerShip":"AFM","geoLocation":{"lng":-73.44082,"lat":45.45525,"_persistence_fetchGroup":null},"address1":"4605 B Boul. Lapiniere","address2":"Suite 260","city":"Brossard","provinceAbbr":"QC","postalCode":"J4Z 3T5","phone":"450-923-0722","tollFree":null,"fax":"450-923-2252","_persistence_fetchGroup":null},"_persistence_fetchGroup":null},
     {"id":34863,"firstName":"Sébastien","commonName":null,"lastName":"Roy","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5743,"dealerShip":"AFM","geoLocation":{"lng":-73.44082,"lat":45.45525,"_persistence_fetchGroup":null},"address1":"4605 B Boul. Lapiniere","address2":"Suite 260","city":"Brossard","provinceAbbr":"QC","postalCode":"J4Z 3T5","phone":"450-923-0722","tollFree":null,"fax":"450-923-2252","_persistence_fetchGroup":null},"_persistence_fetchGroup":null},
+    {"id":36289,"firstName":"Sebastien","commonName":null,"lastName":"Roy","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5743,"dealerShip":"AFM","geoLocation":{"lng":-73.44082,"lat":45.45525,"_persistence_fetchGroup":null},"address1":"4605 B Boul. Lapiniere","address2":"Suite 260","city":"Brossard","provinceAbbr":"QC","postalCode":"J4Z 3T5","phone":"450-923-0722","tollFree":null,"fax":"450-923-2252","_persistence_fetchGroup":null},"_persistence_fetchGroup":null},
     {"id":34864,"firstName":"Pierre-Luc","commonName":null,"lastName":"Gagnon","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5759,"dealerShip":"ACM","geoLocation":{"lng":-73.44082,"lat":45.45525,"_persistence_fetchGroup":null},"address1":"4605 B Boul. Lapiniere","address2":"Suite 260","city":"Brossard","provinceAbbr":"QC","postalCode":"J4Z 3T5","phone":"450-766-1761","tollFree":"800-205-0722","fax":"450-766-1762","_persistence_fetchGroup":null},"_persistence_fetchGroup":null},
     {"id":34865,"firstName":"Dave","commonName":null,"lastName":"Dion","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"450-7661761  ext. 27","email":"DDion@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5759,"dealerShip":"ACM","geoLocation":{"lng":-73.44082,"lat":45.45525,"_persistence_fetchGroup":null},"address1":"4605 B Boul. Lapiniere","address2":"Suite 260","city":"Brossard","provinceAbbr":"QC","postalCode":"J4Z 3T5","phone":"450-766-1761","tollFree":"800-205-0722","fax":"450-766-1762","_persistence_fetchGroup":null},"_persistence_fetchGroup":null},
     {"id":34882,"firstName":"Jean-Michel","commonName":"John","lastName":"Vachon","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"613-5678266  ext. 309","email":"JVachon@assante.com","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5767,"dealerShip":"ACM","geoLocation":{"lng":-75.67704,"lat":45.42699,"_persistence_fetchGroup":null},"address1":"5 Blackburn Avenue","address2":"3rd Floor","city":"Ottawa","provinceAbbr":"ON","postalCode":"K1N 8A2","phone":"613-567-8266","tollFree":null,"fax":"613-567-8269","_persistence_fetchGroup":null},"_persistence_fetchGroup":null},
@@ -783,5 +787,179 @@ var advisors = [
     {"id":36268,"firstName":"Perry","commonName":null,"lastName":"Loyello","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5843,"dealerShip":"ACM","geoLocation":{"lng":-73.78454,"lat":45.48395,"_persistence_fetchGroup":null},"address1":"2020 Transcanadienne","address2":"Suite 200","city":"Dorval","provinceAbbr":"QC","postalCode":"H9P 2N4","phone":"514-832-5100","tollFree":null,"fax":"514-832-5232","_persistence_fetchGroup":null},"_persistence_fetchGroup":null},
     {"id":36284,"firstName":"Kelly","commonName":null,"lastName":"Seabrook","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5734,"dealerShip":"AFM","geoLocation":{"lng":-106.66404,"lat":52.13165,"_persistence_fetchGroup":null},"address1":"261 1st  Ave North","address2":"Suite 200","city":"Saskatoon","provinceAbbr":"SK","postalCode":"S7K 1X2","phone":"306-665-4555","tollFree":"855-655-4555","fax":"306-665-3357","_persistence_fetchGroup":null},"_persistence_fetchGroup":null},
     {"id":36285,"firstName":"David","commonName":null,"lastName":"Thibodeau","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5743,"dealerShip":"AFM","geoLocation":{"lng":-73.44082,"lat":45.45525,"_persistence_fetchGroup":null},"address1":"4605 B Boul. Lapiniere","address2":"Suite 260","city":"Brossard","provinceAbbr":"QC","postalCode":"J4Z 3T5","phone":"450-923-0722","tollFree":null,"fax":"450-923-2252","_persistence_fetchGroup":null},"_persistence_fetchGroup":null},
-    {"id":36288,"firstName":"Michael","commonName":null,"lastName":"Roy","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5762,"dealerShip":"AFM","geoLocation":{"lng":-72.94822,"lat":45.62531,"_persistence_fetchGroup":null},"address1":"935 Avenue du Palais","address2":null,"city":"St-Hyacinthe","provinceAbbr":"QC","postalCode":"J2S 5C6","phone":"450-250-4757","tollFree":null,"fax":"450-774-1914","_persistence_fetchGroup":null},"_persistence_fetchGroup":null}
+    {"id":36288,"firstName":"Michael","commonName":null,"lastName":"Roy","titles":null,"spokenLanguage":null,"profilePictureUrl":"","phone":"","email":"","altEmail":null,"styleNameEN":null,"styleNameFR":null,"website":"","partialBranchInfo":{"id":5762,"dealerShip":"AFM","geoLocation":{"lng":-72.94822,"lat":45.62531,"_persistence_fetchGroup":null},"address1":"935 Avenue du Palais","address2":null,"city":"St-Hyacinthe","provinceAbbr":"QC","postalCode":"J2S 5C6","phone":"450-250-4757","tollFree":null,"fax":"450-774-1914","_persistence_fetchGroup":null},"_persistence_fetchGroup":null},
+    {
+        "id":1234,
+        "firstName": "FirstnameA",
+        "commonName": "CommonnameA",
+        "lastName": "LastnameA",
+        "titles" : ["titleA", "titleB"],
+        "profilePictureUrl": "http://nameofpicture.jpg",
+        "phone": "123-345-6789",
+        "email": "emailA@email.com",
+        "altEmail": "alternateemailA@email.com",
+        "styleNameEN": "Style name EnglishA",
+        "styleNameFR": "Style name FrenchA",
+        "website": "http://urlA",
+        "spokenLanguage": "Bilingual",
+        "partialBranchInfo": {
+            "id": 123456,
+            "dealerShip": "ACN",
+            "geoLocation": {
+                "lng": -119.47,
+                "lat": 39.02
+            },
+            "address1": "Address 1A",
+            "address2": "Address 2A",
+            "city": "city",
+            "provinceAbbr": "ON",
+            "postalCode": "A1A 1A1",
+            "tollFree": "12345"
+        }
+    },
+    {
+        "id":1235,
+        "firstName": "FirstnameB",
+        "commonName": "CommonnameB",
+        "lastName": "LastnameB",
+        "titles" : ["titleB", "titleB"],
+        "profilePictureUrl": "http://nameofpicture.jpg",
+        "phone": "123-345-6789",
+        "email": "emailB@email.com",
+        "altEmail": "alternateemailB@email.com",
+        "styleNameEN": "Style name EnglishB",
+        "styleNameFR": "Style name FrenchB",
+        "website": "http://urlB",
+        "spokenLanguage": "Bilingual",
+        "partialBranchInfo": {
+            "id": 123456,
+            "dealerShip": "ACN",
+            "geoLocation": {
+                "lng": -119.47,
+                "lat": 39.02
+            },
+            "address1": "Address 1B",
+            "address2": "Address 2B",
+            "city": "city",
+            "provinceAbbr": "ON",
+            "postalCode": "A1A 1A1",
+            "tollFree": "12345"
+        }
+    },
+    {
+        "id":1236,
+        "firstName": "FirstnameC",
+        "commonName": "CommonnameC",
+        "lastName": "LastnameC",
+        "titles" : ["titleA", "titleC"],
+        "profilePictureUrl": "http://nameofpictureC.jpg",
+        "phone": "123-345-6789",
+        "email": "emailC@email.com",
+        "altEmail": "alternateemailC@email.com",
+        "styleNameEN": "Style name EnglishC",
+        "styleNameFR": "Style name FrenchC",
+        "website": "http://urlC",
+        "spokenLanguage": "Bilingual",
+        "partialBranchInfo": {
+            "id": 123456,
+            "dealerShip": "ACN",
+            "geoLocation": {
+                "lng": -119.47,
+                "lat": 39.02
+            },
+            "address1": "Address 1C",
+            "address2": "Address 2C",
+            "city": "city",
+            "provinceAbbr": "ON",
+            "postalCode": "A1A 1A1",
+            "tollFree": "12345"
+        }
+    },
+    {
+        "id":1237,
+        "firstName": "FirstnameD",
+        "commonName": "CommonnameD",
+        "lastName": "LastnameD",
+        "titles" : ["titleD", "titleD"],
+        "profilePictureUrl": "http://nameofpicture.jpg",
+        "phone": "123-345-6789",
+        "email": "emailD@email.com",
+        "altEmail": "alternateemailD@email.com",
+        "styleNameEN": "Style name EnglishD",
+        "styleNameFR": "Style name FrenchD",
+        "website": "http://urlD",
+        "spokenLanguage": "Bilingual",
+        "partialBranchInfo": {
+            "id": 123456,
+            "dealerShip": "ACN",
+            "geoLocation": {
+                "lng": -119.47,
+                "lat": 39.02
+            },
+            "address1": "Address 1D",
+            "address2": "Address 2D",
+            "city": "city",
+            "provinceAbbr": "ON",
+            "postalCode": "A1A 1A1",
+            "tollFree": "12345"
+        }
+    },
+    {
+        "id":1238,
+        "firstName": "FirstnameE",
+        "commonName": "CommonnameE",
+        "lastName": "LastnameE",
+        "titles" : ["titleE", "titleE"],
+        "profilePictureUrl": "http://nameofpicture.jpg",
+        "phone": "123-345-6789",
+        "email": "emailE@email.com",
+        "altEmail": "alternateemailE@email.com",
+        "styleNameEN": "Style name EnglishE",
+        "styleNameFR": "Style name FrenchE",
+        "website": "http://urlE",
+        "spokenLanguage": "Bilingual",
+        "partialBranchInfo": {
+            "id": 123456,
+            "dealerShip": "ACN",
+            "geoLocation": {
+                "lng": -119.47,
+                "lat": 39.02
+            },
+            "address1": "Address 1E",
+            "address2": "Address 2E",
+            "city": "city",
+            "provinceAbbr": "ON",
+            "postalCode": "A1A 1A1",
+            "tollFree": "12345"
+        }
+    },
+    {
+        "id":1239,
+        "firstName": "FirstnameF",
+        "commonName": "CommonnameF",
+        "lastName": "LastnameF",
+        "titles" : ["titleF", "titleF"],
+        "profilePictureUrl": "http://nameofpicture.jpg",
+        "phone": "123-345-6789",
+        "email": "emailF@email.com",
+        "altEmail": "alternateemailF@email.com",
+        "styleNameEN": "Style name EnglishF",
+        "styleNameFR": "Style name FrenchF",
+        "website": "http://urlF",
+        "spokenLanguage": "Bilingual",
+        "partialBranchInfo": {
+            "id": 123456,
+            "dealerShip": "ACN",
+            "geoLocation": {
+                "lng": -119.47,
+                "lat": 39.02
+            },
+            "address1": "Address 1F",
+            "address2": "Address 2F",
+            "city": "city",
+            "provinceAbbr": "ON",
+            "postalCode": "A1A 1A1",
+            "tollFree": "12345"
+        }
+    }
 ];
