@@ -16,7 +16,7 @@
 
     function advisorService(server, BASE_URL, ENDPOINT_URI, ELEMENTS_PER_PAGE, removeDiacriticsService) {
         var service = this;
-        var advisors = [];
+        //var advisors = [];
         service.searchResults = [];
         service.searchTerm = '';
         service.objectName = "searchResults";//this string should be the same as the property holding your whole array of data.
@@ -52,13 +52,14 @@
             }
         }
         function init() {
-            advisors = [];
+            //advisors = [];
+            service.allAdvisors = [];
             service.isLoading = true;
             server.get(BASE_URL + ENDPOINT_URI + '/advisors', false, 'localStorage', false).then(function(data) {
                 //console.log('data1123: ', data.data);
-                advisors = data.data;
+                //advisors = data.data;
                 service.isLoading = false;
-                service.allAdvisors = advisors;
+                service.allAdvisors = data.data;
                 //service.advisorSubset = data.slice((page-1) * itemsPerPage, page * itemsPerPage);
             });
         };
@@ -90,7 +91,7 @@
                 service.searchTermTooShort = false;
                 service.searchResults = [];
                 //for (var i = 0; i < advisors.length; i++) {
-                _.forEach(advisors, function(advisor, index) {
+                _.forEach(service.allAdvisors, function(advisor, index) {
                     _.forEach(subTerms, function(subTerm) {
                         /*
                         if ((advisor.commonName && advisor.commonName.toLowerCase().indexOf(subTerm) >= 0) || (!advisor.commonName && advisor.firstName.toLowerCase().indexOf(subTerm) >= 0) || (advisor.lastName.toLowerCase().indexOf(subTerm) >= 0)) {
@@ -103,19 +104,19 @@
                         var lastName = removeDiacriticsService.remove(advisor.lastName).toLowerCase();
 
                         if (commonName && commonName.indexOf(subTerm) >= 0) {
-                            advisors[index].showCommon = true;
+                            service.allAdvisors[index].showCommon = true;
                             service.searchResults.push(advisor);
                             return false;
                         } else if(firstName.indexOf(subTerm) >= 0) {
-                            advisors[index].showCommon = false;
+                            service.allAdvisors[index].showCommon = false;
                             advisor.showCommon = false;
                             service.searchResults.push(advisor);
                             return false;
                         } else if(lastName.indexOf(subTerm) >= 0) {
                             if (advisor.commonName) {
-                                advisors[index].showCommon = true;
+                                service.allAdvisors[index].showCommon = true;
                             } else {
-                                advisors[index].showCommon = false;
+                                service.allAdvisors[index].showCommon = false;
                             }
                             service.searchResults.push(advisor);
                             return false;
