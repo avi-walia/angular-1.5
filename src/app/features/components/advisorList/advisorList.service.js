@@ -70,7 +70,7 @@
             //advisors = [];
             service.allAdvisors = [];
             service.isLoading = true;
-            server.get(BASE_URL + ENDPOINT_URI + '/advisors', false, 'localStorage', false).then(function(data) {
+            return server.get(BASE_URL + ENDPOINT_URI + '/advisors', false, 'localStorage', false).then(function(data) {
 
                 advisors = data.data;
                 service.isLoading = false;
