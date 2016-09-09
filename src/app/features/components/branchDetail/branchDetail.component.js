@@ -19,10 +19,11 @@
         'branchDetailService',
         'stateTrackerService',
         'advisorService',
-        'branchListService'
+        'branchListService',
+        'advisorDetailService'
     ];
     /* @ngInject */
-    function branchDetailCtrl( $stateParams, pageStateResolver, detectMobile, branchDetailService, stateTrackerService, advisorService, branchListService
+    function branchDetailCtrl( $stateParams, pageStateResolver, detectMobile, branchDetailService, stateTrackerService, advisorService, branchListService, advisorDetailService
     ) {
         var vm = this;
         vm.pageStateResolver = pageStateResolver;
@@ -32,6 +33,7 @@
         vm.stateTrackerService = stateTrackerService;
         vm.advisorService = advisorService;
         vm.branchListService = branchListService;
+        vm.advisorDetailService = advisorDetailService;
 
         if(vm.stateTrackerService.previousState.name == "main.advisorLocator.branchList"){
             vm.perviousStateIsLocationSearch = true;
