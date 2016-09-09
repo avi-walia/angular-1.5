@@ -12,7 +12,7 @@
                 <table>
                 <div>
                     <div style="display:inline-block;vertical-align:top;">
-                        <img width="170" height="170" src="{{$ctrl.advisorDetailService.advisorDetails.profilePictureUrl}}" translate  alt="{{ 'advisorDetail.advisorImageAlt' | translate }}">
+                        <img width="170" height="170" src="assets/images/advisorHeadShot.png" translate  alt="{{ 'advisorDetail.advisorImageAlt' | translate }}">
                     </div>
 
                     <div style="display:inline-block;">
@@ -55,7 +55,8 @@
                     </tr>
                     <tr ng-if="$ctrl.advisorDetailService.advisorDetail.spokenLanguage">
                         <td translate>advisorDetail.spokenLanguages</td>
-                        <td>{{$ctrl.advisorDetailService.advisorDetail.spokenLanguage}}</td>
+                        <td ng-if="$ctrl.advisorDetailService.advisorDetail.spokenLanguage == 'Bilingual'">English and French</td>
+                        <td ng-if="!($ctrl.advisorDetailService.advisorDetail.spokenLanguage =='Bilingual') && ($ctrl.advisorDetailService.advisorDetail.spokenLanguage)">{{$ctrl.advisorDetailService.advisorDetail.spokenLanguage}}</td>
                     </tr>
 
                 </table>
