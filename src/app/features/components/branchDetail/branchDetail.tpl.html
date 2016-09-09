@@ -59,7 +59,7 @@
                     </div>
 
                 <div ng-show="!$ctrl.perviousStateIsLocationSearch">
-                    <a href='/advisors/{{advisor.id}}' target="_blank"><span ng-if="$ctrl.advisorDetailService.advisorDetail.showCommon">{{advisor.commonName}}</span>
+                    <a ui-sref="main.advisorLocator.advisorDetails({id: advisor.id})" target="_blank"><span ng-if="$ctrl.advisorDetailService.advisorDetail.showCommon">{{advisor.commonName}}</span>
                     <span ng-if="!$ctrl.advisorDetailService.advisorDetail.showCommon">{{advisor.firstName}}</span>
                     {{advisor.lastName}}</a>
                 </div>

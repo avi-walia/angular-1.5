@@ -31,9 +31,14 @@
         vm.stateTrackerService = stateTrackerService;
         vm.advisorService = advisorService;
 
-        vm.advisorService.init().then(function(){
+        if(!vm.advisorService.isLoading){
+            vm.advisorService.init().then(function(){
+                vm.advisorDetailService.getAdvisorDetail(vm.advisorID);
+            });
+        }
+        else {
             vm.advisorDetailService.getAdvisorDetail(vm.advisorID);
-        });
+        }
 
         if(vm.stateTrackerService.previousState.name == "main.advisorLocator.advisorList"){
             vm.perviousStateIsNameSearch = true;

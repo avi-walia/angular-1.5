@@ -39,9 +39,16 @@
             vm.perviousStateIsLocationSearch = true;
         }
 
-        vm.branchListService.getBranchList().then(function(){
+        if(!vm.branchListService.branchListLoading){
+            vm.branchListService.getBranchList().then(function(){
+                vm.branchDetailService.getBranchDetail(vm.branchId);
+            });
+        }
+        else{
             vm.branchDetailService.getBranchDetail(vm.branchId);
-        });
+        }
+
+
 
         vm.advisorService.init().then(function(){
             vm.advisorDetailService.getAdvisorDetail(vm.advisorID);
