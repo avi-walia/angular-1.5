@@ -1,4 +1,4 @@
-<ci-loader loading="$ctrl.branchListService.branchListLoading">
+<ci-loader loading="$ctrl.branchListService.branchListLoading || $ctrl.advisorService.isLoading">
 
 <div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="branchDetails">
     <div class="full" ng-if="$ctrl.detectMobile.isDesktop">
