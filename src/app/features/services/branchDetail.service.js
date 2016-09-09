@@ -8,11 +8,12 @@
     branchDetailService.$inject = [
         'server',
         'BASE_URL',
-        'ENDPOINT_URI'
+        'ENDPOINT_URI',
+        'branchListService'
     ];
 
     /* @ngInject */
-    function branchDetailService(server, BASE_URL, ENDPOINT_URI) {
+    function branchDetailService(server, BASE_URL, ENDPOINT_URI, branchListService) {
         var service = this;
 
 
@@ -20,25 +21,60 @@
 
         service.getBranchDetail = getBranchDetail;
 
+        service.branchListService = branchListService;
+
+
+
 
         function getBranchDetail(branchID) {
 
+            service.branches = service.branchListService.branchList;
+            console.log("branch list", service.branches);
+            console.log("branch id", branchID);
+            _.forEach(service.branches, function(branch, index) {
 
-            server.get(BASE_URL + ENDPOINT_URI + '/branches/123456', false, 'localStorage', false)
-                .then(function(result) {
-                    if(result.data){
+                if(branch.id == branchID){
+                    console.log("branch list with id", branch);
+                    service.branchDetail = branch;
+                    service.branchDetail.userMarker = {
+                        geoLocation: {
+                            lat: service.branchDetail.geoLocation.lat,
+                            lng: service.branchDetail.geoLocation.lng},
+                        zoom: 15
+                    };
 
-                        service.branchDetail =result.data;
-                        service.branchDetail.userMarker = {geoLocation: {lat: service.branchDetail.geoLocation.lat, lng: service.branchDetail.geoLocation.lng}, zoom: 15};
+                    service.branchDetail.fullAddress =  (service.branchDetail.address1 + service.branchDetail.address2 + service.branchDetail.city).replace(/\s/g,'+');
+                    service.branchDetail.branchManagers =[];
+                    if(service.branchDetail.managerName){
 
+                        service.branchDetail.branchManagers.push({
+                                    name: service.branchDetail.managerName,
+                                    email: service.branchDetail.managerEmail,
+                                    phone: service.branchDetail.managerPhone
+                                })
                     }
-                    else{
-                        service.branchDetail = false;
+
+                    if(service.branchDetail.coManagerName){
+                        service.branchDetail.branchManagers.push({
+                            name: service.branchDetail.coManagerName,
+                            email: service.branchDetail.coManagerEmail,
+                            phone: service.branchDetail.coManagerPhone
+                        })
                     }
 
-                    return service.branchDetail;
+                    if(service.branchDetail.coManager2Name){
+                        service.branchDetail.branchManagers.push({
+                            name: service.branchDetail.coManager2Name,
+                            email: service.branchDetail.coManager2Email,
+                            phone: service.branchDetail.coManager2Phone
+                        })
+                    }
 
-                });
+                }
+
+
+            });
+
         }
 
 

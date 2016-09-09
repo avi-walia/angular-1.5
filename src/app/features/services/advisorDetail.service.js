@@ -37,6 +37,7 @@
                         },
                         zoom: 15
                     };
+                    service.advisorDetail.fullAddress =  (service.advisorDetail.address1 + service.advisorDetail.address2 + service.advisorDetail.city).replace(/\s/g,'+');
                     if (service.advisorDetail.partialBranchInfo.address1) {
                         service.advisorDetail.partialBranchInfo.address1.split(' ').join('+');
                     }
@@ -46,13 +47,8 @@
                     if (service.advisorDetail.partialBranchInfo.city) {
                         service.advisorDetail.partialBranchInfo.city.split(' ').join('+')
                     }
-                    service.advisorDetail.googleMapAddressArray = [
-                        service.advisorDetail.partialBranchInfo.address1,
-                        service.advisorDetail.partialBranchInfo.address2,
-                        service.advisorDetail.partialBranchInfo.city
-                    ];
-                    service.advisorDetail.googleMapJoinedAddress = service.advisorDetail.googleMapAddressArray.join("+");
 
+                    service.advisorDetail.fullAddress =  (service.advisorDetail.partialBranchInfo.address1 + service.advisorDetail.partialBranchInfo.address2 + service.advisorDetail.partialBranchInfo.city).replace(/\s/g,'+');
                 }
 
 

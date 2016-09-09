@@ -1,4 +1,4 @@
-
+<ci-loader loading="$ctrl.advisorService.isLoading">
     <div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="advisorDetails">
         <div class="full" ng-if="$ctrl.detectMobile.isDesktop">
             <button ui-sref="{{$ctrl.stateTrackerService.previousState.name}}" translate>advisorDetail.searchResultsButton</button>
@@ -61,7 +61,7 @@
 
                 </table>
                 <br>
-                <google-map address="$ctrl.advisorDetailService.advisorDetail.googleMapJoinedAddress" user-marker="$ctrl.advisorDetailService.advisorDetail.userMarker"></google-map><br>
+                <google-map address="$ctrl.advisorDetailService.advisorDetail.fullAddress" user-marker="$ctrl.advisorDetailService.advisorDetail.userMarker"></google-map><br>
                 <a ui-sref='main.advisorLocator.branchDetails' translate>advisorDetail.branchDetailsLink</a><br>
 
                 <span translate>advisorDetail.contactUsNote</span>
@@ -71,4 +71,4 @@
     </div>
 
 
-
+</ci-loader>
