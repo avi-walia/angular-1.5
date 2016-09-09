@@ -3,7 +3,8 @@
     autoscroll="true"
     id="branchList"
 >
-    <div
+
+    <div ng-class="{'hideMap': $ctrl.branchListService.branchListLoading, 'showMap': !$ctrl.branchListService.branchListLoading}"
         class="full"
         ng-if="$ctrl.detectMobile.isDesktop"
     >
@@ -44,6 +45,8 @@
         ></branch-item>
         </div>
     </div>
+    <ci-loader loading="$ctrl.branchListService.branchListLoading">
+    </ci-loader>
 </div>
 
 
