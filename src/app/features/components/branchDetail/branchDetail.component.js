@@ -16,18 +16,24 @@
         '$stateParams',
         'pageStateResolver',
         'detectMobile',
-        'branchDetailService'
+        'branchDetailService',
+        'stateTrackerService'
     ];
     /* @ngInject */
-    function branchDetailCtrl( $stateParams, pageStateResolver, detectMobile, branchDetailService
+    function branchDetailCtrl( $stateParams, pageStateResolver, detectMobile, branchDetailService, stateTrackerService
     ) {
         var vm = this;
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;
         vm.branchId = $stateParams.id;
         vm.branchDetailService = branchDetailService;
+        vm.stateTrackerService = stateTrackerService;
 
-        vm.branchDetailService.getBranchDetail(1);
+        vm.branchDetailService.getBranchDetail(vm.branchId);
+
+        if(vm.stateTrackerService.previousState.name == "main.advisorLocator.branchList"){
+            vm.perviousStateIsLocationSearch = true;
+        }
     }
 
 })();
