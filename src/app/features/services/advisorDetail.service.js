@@ -46,12 +46,7 @@
                     if (service.advisorDetail.partialBranchInfo.city) {
                         service.advisorDetail.partialBranchInfo.city.split(' ').join('+')
                     }
-                    service.advisorDetail.googleMapAddressArray = [
-                        service.advisorDetail.partialBranchInfo.address1,
-                        service.advisorDetail.partialBranchInfo.address2,
-                        service.advisorDetail.partialBranchInfo.city
-                    ];
-                    service.advisorDetail.googleMapJoinedAddress = service.advisorDetail.googleMapAddressArray.join("+");
+
 
                 }
 

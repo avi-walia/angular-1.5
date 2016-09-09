@@ -1,3 +1,5 @@
+<ci-loader loading="$ctrl.branchListService.branchListLoading">
+
 <div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="branchDetails">
     <div class="full" ng-if="$ctrl.detectMobile.isDesktop">
         <h2 translate>branchDetail.title</h2><br>
@@ -43,21 +45,17 @@
                <tr><td><br/></td></tr>
             </table>
 
-            </table>
-
-
             <br>
-            <google-map address="$ctrl.branchDetailService.branchDetail.googleMapJoinedAddress" user-marker="$ctrl.branchDetailService.branchDetail.userMarker"></google-map><br>
+            <google-map address="$ctrl.branchDetailService.branchDetail.fullAddress" user-marker="$ctrl.branchDetailService.branchDetail.userMarker"></google-map><br>
 
             <h2 translate>branchDetail.branchAssociates</h2>
 
-                <span ng-repeat="title in $ctrl.advisorDetailService.advisorDetail.titles" bn-repeat-delimiter=",">{{title}}{{$last ? '' : ', '}}</span>
                 <ul ng-repeat="advisor in $ctrl.branchDetailService.branchDetail.partialAdvisorsInfo">
 
                     <div ng-show="$ctrl.perviousStateIsLocationSearch">
                         <a ui-sref="main.advisorLocator.advisorDetails({id: advisor.id})"  target="_blank"><span ng-if="advisor.commonName">{{advisor.commonName}}</span>
                             <span ng-if="!advisor.commonName">{{advisor.firstName}}</span>
-                            {{advisor.lastName}}</a><br>
+                            {{advisor.lastName}}</a>
                     </div>
 
                 <div ng-show="!$ctrl.perviousStateIsLocationSearch">
@@ -73,3 +71,4 @@
 
 </div>
 
+</ci-loader>

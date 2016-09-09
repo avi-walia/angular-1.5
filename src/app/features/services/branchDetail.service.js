@@ -42,33 +42,33 @@
                             lng: service.branchDetail.geoLocation.lng},
                         zoom: 15
                     };
-                    service.branchDetail.googleMapAddressArray = [
-                        service.branchDetail.address1,
-                        service.branchDetail.address2,
-                        service.branchDetail.city
-                    ];
-                    service.branchDetail.googleMapJoinedAddress = service.branchDetail.googleMapAddressArray.join("+");
-                    console.log("letss see", service.branchDetail);
 
+                    service.branchDetail.fullAddress =  (service.branchDetail.address1.concat( service.branchDetail.address2)).replace(/\s/g,'+');
+                    service.branchDetail.branchManagers =[];
+                    if(service.branchDetail.managerName){
 
-                    service.branchDetail.branchManagers = [
-                        {
-                            name: service.branchDetail.managerName,
-                            email: service.branchDetail.managerEmail,
-                            phone: service.branchDetail.managerPhone
-                        },
-                        {
+                        service.branchDetail.branchManagers.push({
+                                    name: service.branchDetail.managerName,
+                                    email: service.branchDetail.managerEmail,
+                                    phone: service.branchDetail.managerPhone
+                                })
+                    }
+
+                    if(service.branchDetail.coManagerName){
+                        service.branchDetail.branchManagers.push({
                             name: service.branchDetail.coManagerName,
                             email: service.branchDetail.coManagerEmail,
                             phone: service.branchDetail.coManagerPhone
-                        },
-                        {
+                        })
+                    }
+
+                    if(service.branchDetail.coManager2Name){
+                        service.branchDetail.branchManagers.push({
                             name: service.branchDetail.coManager2Name,
                             email: service.branchDetail.coManager2Email,
                             phone: service.branchDetail.coManager2Phone
-                        }
-
-                    ];
+                        })
+                    }
 
                 }
 
