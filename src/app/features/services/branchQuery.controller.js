@@ -13,11 +13,10 @@
         '$state',
         '$stateParams',
         'branchListService',
-        '$http',
-        '$timeout'
+        '$http'
     ];
     /* @ngInject */
-    function branchQueryCtrl($state, $stateParams, branchListService, $http, $timeout
+    function branchQueryCtrl($state, $stateParams, branchListService, $http
     ) {
         var vm = this;
 
