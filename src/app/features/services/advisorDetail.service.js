@@ -8,11 +8,12 @@
     advisorDetailService.$inject = [
         'server',
         'BASE_URL',
-        'ENDPOINT_URI'
+        'ENDPOINT_URI',
+        'advisorService'
     ];
 
     /* @ngInject */
-    function advisorDetailService(server, BASE_URL, ENDPOINT_URI) {
+    function advisorDetailService(server, BASE_URL, ENDPOINT_URI, advisorService) {
         var service = this;
 
 
@@ -20,29 +21,39 @@
 
         service.getAdvisorDetail = getAdvisorDetail;
 
+        service.advisorService = advisorService;
 
-        function getAdvisorDetail(advisorID) {
 
+        function getAdvisorDetail(advisorID){
+            service.advisors = service.advisorService.allAdvisors;
+            _.forEach(service.advisors, function(advisor, index) {
 
-            server.get(BASE_URL + ENDPOINT_URI + '/advisors/' + advisorID, false, 'localStorage', false)
-                .then(function(result) {
-                    if(result.data){
-
-                        service.advisorDetail =result.data;
-                        service.advisorDetail.userMarker = {geoLocation: {lat: service.advisorDetail.partialBranchInfo.geoLocation.lat, lng: service.advisorDetail.partialBranchInfo.geoLocation.lng}, zoom: 15};
-                        if(service.advisorDetail.partialBranchInfo.address1){service.advisorDetail.partialBranchInfo.address1.split(' ').join('+');}
-                        if(service.advisorDetail.partialBranchInfo.address2){service.advisorDetail.partialBranchInfo.address2.split(' ').join('+');}
-                        if(service.advisorDetail.partialBranchInfo.city){service.advisorDetail.partialBranchInfo.city.split(' ').join('+')}
-                        service.advisorDetail.googleMapAddressArray =[service.advisorDetail.partialBranchInfo.address1, service.advisorDetail.partialBranchInfo.address2, service.advisorDetail.partialBranchInfo.city];
-                        service.advisorDetail.googleMapJoinedAddress = service.advisorDetail.googleMapAddressArray.join("+");
+                if(advisor.id == advisorID){
+                    service.advisorDetail = advisor;
+                    service.advisorDetail.userMarker = {
+                        geoLocation: {
+                            lat: service.advisorDetail.partialBranchInfo.geoLocation.lat,
+                            lng: service.advisorDetail.partialBranchInfo.geoLocation.lng
+                        },
+                        zoom: 15
+                    };
+                    service.advisorDetail.fullAddress =  (service.advisorDetail.address1 + service.advisorDetail.address2 + service.advisorDetail.city).replace(/\s/g,'+');
+                    if (service.advisorDetail.partialBranchInfo.address1) {
+                        service.advisorDetail.partialBranchInfo.address1.split(' ').join('+');
                     }
-                    else{
-                        service.advisorDetail = false;
+                    if (service.advisorDetail.partialBranchInfo.address2) {
+                        service.advisorDetail.partialBranchInfo.address2.split(' ').join('+');
+                    }
+                    if (service.advisorDetail.partialBranchInfo.city) {
+                        service.advisorDetail.partialBranchInfo.city.split(' ').join('+')
                     }
 
-                    return service.advisorDetail;
+                    service.advisorDetail.fullAddress =  (service.advisorDetail.partialBranchInfo.address1 + service.advisorDetail.partialBranchInfo.address2 + service.advisorDetail.partialBranchInfo.city).replace(/\s/g,'+');
+                }
 
-                });
+
+            });
+
         }
 
 

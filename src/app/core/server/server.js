@@ -132,7 +132,7 @@
                         } else {
                             dataCacheLocalStorage.put(sPath, response);
                         }
-                        response = !bIsUnlocalized ? response : filterLangResponse(response);
+                        response = bIsUnlocalized ? response : filterLangResponse(response);
                     }
                     deferred.resolve(response);
                 })
@@ -158,7 +158,6 @@
                 // clean cache record using the key
                 dataCacheSessionStorage.remove(sPath);
             }
-            console.log('storageType: ', sStorageType);
             // if the key is not in cache then cachedObj is undefined
             if (sStorageType === 'sessionStorage') {
                 cachedObj = dataCacheSessionStorage.get(sPath);
@@ -177,7 +176,7 @@
             }
 
             if (_.isObject(cachedObj)) {
-                //cachedObj = bIsUnlocalized ? cachedObj : filterLangResponse(cachedObj);
+                cachedObj = bIsUnlocalized ? cachedObj : filterLangResponse(cachedObj);
                 deferred.resolve(cachedObj);
 
             } else {

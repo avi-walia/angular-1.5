@@ -38,9 +38,8 @@
     }
 
     function remapKeys(o, locale) {
-        var keepVal = locale === 'en' ? 'En' : 'Fr';
-        var removeVal = locale === 'en' ? 'Fr' : 'En';
-
+        var keepVal = locale === 'en' ? 'EN' : 'FR';
+        var removeVal = locale === 'en' ? 'FR' : 'EN';
         return _(o)
             .mapKeys(function (value, key) {
                 if (_.endsWith(key, removeVal)) {

@@ -3,7 +3,8 @@
     autoscroll="true"
     id="branchList"
 >
-    <div
+
+    <div ng-class="{'hideMap': $ctrl.branchListService.branchListLoading, 'showMap': !$ctrl.branchListService.branchListLoading}"
         class="full"
         ng-if="$ctrl.detectMobile.isDesktop"
     >
@@ -18,6 +19,14 @@
             ></autocomplete>
         </div>
         <div style="display: inline-block">
+            <geo-locator
+                    set-position="$ctrl.setPosition(position)"
+                    set-location="$ctrl.setLocation(location)"
+                    set-message="$ctrl.setMessage(message)"
+                    reset-markers="$ctrl.setMarkers(markers)"
+            ></geo-locator>
+        </div>
+        <div style="display: inline-block">
             <search-by></search-by>
         </div>
         <br /> <br />
@@ -28,12 +37,16 @@
                 on-update-markers="$ctrl.setMarkers(markers)">
         </google-map>
         <ci-validation message-object="$ctrl.branchListService.message"></ci-validation>
-        <branch-item
+        <div role="list" aria-live="polite">
+        <branch-item role="listitem"
             ng-repeat="branch in $ctrl.branchListService.markers track by $index"
             item="branch"
             ng-click="$ctrl.openInfoWindow(branch.id)"
         ></branch-item>
+        </div>
     </div>
+    <ci-loader loading="$ctrl.branchListService.branchListLoading">
+    </ci-loader>
 </div>
 
 <button ng-click="$ctrl.test()"></button>

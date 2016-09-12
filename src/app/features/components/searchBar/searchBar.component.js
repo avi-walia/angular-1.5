@@ -17,14 +17,10 @@
     /* @ngInject */
 
     searchBarCtrl.$inject = [
-        'detectMobile',
-        '$state'
+        'detectMobile'
     ];
     /* @ngInject */
-    function searchBarCtrl(
-        detectMobile,
-        $state
-    ) {
+    function searchBarCtrl(detectMobile) {
         var vm = this;
         vm.detectMobile = detectMobile;
     }

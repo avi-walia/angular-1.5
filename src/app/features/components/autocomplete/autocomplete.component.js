@@ -46,8 +46,6 @@
         vm.service = new google.maps.places.AutocompleteService();
 
 
-
-
         function updatePosition(pos){
             console.log('update pos: ', pos);
             vm.setPosition({position: pos});
@@ -70,10 +68,7 @@
                    selectFirstItem();
                }
                else{
-                   vm.setMessage({message:{'cancel': 'branchList.validation.notValidAddress'}});
-                   vm.resetMarkers({markers: []});
-                   vm.updatePosition({});
-                   vm.updateLocation('');
+                   handleLocationError();
                }
             });
 
@@ -110,10 +105,7 @@
         function updatePlace(){
             console.log('testing1234b');
             if(vm.location===''){
-                vm.setMessage({message: {'cancel': 'branchList.validation.notValidAddress'}});
-                vm.resetMarkers({markers: []});
-                vm.updatePosition({});
-                vm.updateLocation('');
+                handleLocationError();
             }
             else{
                 var autocomplete = document.getElementById('place');
@@ -126,23 +118,25 @@
 
         }
 
-       /*vm.$onChanges = function(changes){
+        function handleLocationError(){
+            vm.setMessage({message: {'cancel': 'branchList.validation.notValidAddress'}});
+            vm.resetMarkers({markers: []});
+            vm.updatePosition({});
+            vm.updateLocation('');
+        }
+
+       vm.$onChanges = function(changes){
             if(changes.location){
                 if(changes.location.currentValue !== ''){
-                    if(changes.location.currentValue != changes.location.previousValue){
+                    if(changes.location.currentValue !== changes.location.previousValue){
                         vm.location = changes.location.currentValue;
                         updatePlace();
                     }
 
-
-
-                    //$timeout(function() {}, 500);
-
-
                 }
 
             }
-        };*/
+       };
     }
 
 })();

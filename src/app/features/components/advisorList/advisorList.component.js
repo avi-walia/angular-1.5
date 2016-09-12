@@ -18,11 +18,7 @@
         'detectMobile'
     ];
     /* @ngInject */
-    function advisorListCtrl(
-        advisorService,
-        pageStateResolver,
-        detectMobile
-    ) {
+    function advisorListCtrl(advisorService, pageStateResolver, detectMobile) {
         var vm = this;
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;

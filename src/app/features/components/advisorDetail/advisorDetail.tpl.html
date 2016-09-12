@@ -1,4 +1,4 @@
-
+<ci-loader loading="$ctrl.advisorService.isLoading">
     <div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="advisorDetails">
         <div class="full" ng-if="$ctrl.detectMobile.isDesktop">
             <button ui-sref="{{$ctrl.stateTrackerService.previousState.name}}" translate>advisorDetail.searchResultsButton</button>
@@ -12,48 +12,56 @@
                 <table>
                 <div>
                     <div style="display:inline-block;vertical-align:top;">
-                        <img src="{{$ctrl.advisorDetailService.advisorDetail.profilePictureUrl}}" translate  alt="{{ 'advisorDetail.advisorImageAlt' | translate }}">
+                        <img width="170" height="170" src="assets/images/advisorHeadShot.png" translate  alt="{{ 'advisorDetail.advisorImageAlt' | translate }}">
                     </div>
 
+                    <div style="display:inline-block;">
+                        <div ng-if="$ctrl.perviousStateIsNameSearch">
+                            <span ng-if="$ctrl.advisorDetailService.advisorDetail.showCommon">{{$ctrl.advisorDetailService.advisorDetail.commonName}}</span>
+                            <span ng-if="!$ctrl.advisorDetailService.advisorDetail.showCommon">{{$ctrl.advisorDetailService.advisorDetail.firstName}}</span> {{$ctrl.advisorDetailService.advisorDetail.lastName}}
+                        </div>
 
-                    <div style="display:inline-block;">
-                        <span>{{$ctrl.advisorDetailService.advisorDetail.firstName + ' ' + $ctrl.advisorDetailService.advisorDetail.lastName}}</span><br>
-                        <span ng-repeat="title in $ctrl.advisorDetailService.advisorDetail.titles track by $index" bn-repeat-delimiter=",">{{title}}{{$last ? '' : ', '}}</span><br>
-                        <span>{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address1 +',' + ' '+ $ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address2}}</span><br>
-                    </div>
-                    <br><br>
-                    <div style="display:inline-block;">
-                        <span>{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.dealerShip==="ACM" ? "Assante Capital Management Ltd.": "Assante Financial Management Ltd."}}</span><br>
-                        <span>{{$ctrl.advisorDetailService.advisorDetail.styleNameEN}}</span><br>
-                        <span>{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.city}},{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.provinceAbbr}} {{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.postalCode}}</span><br>
+                        <div ng-if="!$ctrl.perviousStateIsNameSearch">
+                            <span>{{$ctrl.advisorDetailService.advisorDetail.commonName}}</span> {{$ctrl.advisorDetailService.advisorDetail.lastName}} <br>
+                        </div>
+
+                        <div ng-if="$ctrl.advisorDetailService.advisorDetail.titles.length"><span ng-repeat="title in $ctrl.advisorDetailService.advisorDetail.titles track by $index" bn-repeat-delimiter=",">{{title}}{{$last ? '' : ', '}}</span></div>
+                        <div ng-if="$ctrl.advisorDetailService.advisorDetail.designations.length"><span ng-repeat="designation in $ctrl.advisorDetailService.advisorDetail.designations track by $index" bn-repeat-delimiter="," ng-bind-html="designation">{{designation}}{{$last ? '' : ', '}}</span></div>
+                        <br>
+                        <span ng-if="$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.dealerShip">{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.dealerShip==="ACM" ? "Assante Capital Management Ltd.": "Assante Financial Management Ltd."}}<br></span>
+                        <span ng-if="$ctrl.advisorDetailService.advisorDetail.styleName">{{$ctrl.advisorDetailService.advisorDetail.styleName}}<br></span>
+                        <span ng-if="$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address1">{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address1}}<br></span>
+                        <span ng-if="$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address2">{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address2}}<br></span>
+                        <span ng-if="$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.city">{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.city}},{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.provinceAbbr}} {{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.postalCode}}<br></span>
                     </div>
                     <br><br>
                 </div>
 
-                    <tr>
+                    <tr ng-if="$ctrl.advisorDetailService.advisorDetail.phone">
                         <td translate>advisorDetail.telephone</td>
                         <td class="price extra">{{$ctrl.advisorDetailService.advisorDetail.phone}}</td>
                     </tr>
-                    <tr>
+                    <tr ng-if="$ctrl.advisorDetailService.advisorDetail.fax">
+                        <td translate>advisorDetail.fax</td>
+                        <td class="price extra">{{$ctrl.advisorDetailService.advisorDetail.fax}}</td>
+                    </tr>
+                    <tr ng-if="$ctrl.advisorDetailService.advisorDetail.email">
                         <td translate>advisorDetail.email</td>
                         <td><a href="mailto:{{$ctrl.advisorDetailService.advisorDetail.email}}">{{$ctrl.advisorDetailService.advisorDetail.email}}</a></td>
                     </tr>
-                    <tr>
-                        <td translate>advisorDetail.alternateEmail</td>
-                        <td><a href="mailto:{{$ctrl.advisorDetailService.advisorDetail.altEmail}}">{{$ctrl.advisorDetailService.advisorDetail.altEmail}}</a></td>
-                    </tr>
-                    <tr >
+                    <tr ng-if="$ctrl.advisorDetailService.advisorDetail.website">
                         <td translate>advisorDetail.website</td>
                         <td><a href="{{$ctrl.advisorDetailService.advisorDetail.website}}" target="_blank">{{$ctrl.advisorDetailService.advisorDetail.website}}</a></td>
                     </tr>
-                    <tr>
+                    <tr ng-if="$ctrl.advisorDetailService.advisorDetail.spokenLanguage">
                         <td translate>advisorDetail.spokenLanguages</td>
-                        <td>{{$ctrl.advisorDetailService.advisorDetail.spokenLanguage}}</td>
+                        <td ng-if="$ctrl.advisorDetailService.advisorDetail.spokenLanguage == 'Bilingual'">English and French</td>
+                        <td ng-if="!($ctrl.advisorDetailService.advisorDetail.spokenLanguage =='Bilingual') && ($ctrl.advisorDetailService.advisorDetail.spokenLanguage)">{{$ctrl.advisorDetailService.advisorDetail.spokenLanguage}}</td>
                     </tr>
 
                 </table>
                 <br>
-                <google-map address="$ctrl.advisorDetailService.advisorDetail.googleMapJoinedAddress" user-marker="$ctrl.advisorDetailService.advisorDetail.userMarker"></google-map><br>
+                <google-map address="$ctrl.advisorDetailService.advisorDetail.fullAddress" user-marker="$ctrl.advisorDetailService.advisorDetail.userMarker"></google-map><br>
                 <a ui-sref='main.advisorLocator.branchDetails' translate>advisorDetail.branchDetailsLink</a><br>
 
                 <span translate>advisorDetail.contactUsNote</span>
@@ -63,4 +71,4 @@
     </div>
 
 
-
+</ci-loader>
