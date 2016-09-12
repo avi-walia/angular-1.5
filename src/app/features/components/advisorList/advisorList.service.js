@@ -26,7 +26,7 @@
 
         service.searchTerm = '';
         service.objectName = 'searchResults'; //this string should be the same as the property holding your whole array of data.
-        service.isLoading = false;
+        service.isLoading = true;
         service.searchTermTooShort = true;
 
         service.numPerPage = ELEMENTS_PER_PAGE;
@@ -69,7 +69,6 @@
         function init() {
             //advisors = [];
             service.allAdvisors = [];
-            service.isLoading = true;
             return server.get(BASE_URL + ENDPOINT_URI + '/advisors', false, 'localStorage', false).then(function(data) {
 
                 //advisors = data.data;
