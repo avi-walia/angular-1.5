@@ -41,8 +41,6 @@
 
         vm.updatePosition = updatePosition;
         vm.updateLocation = updateLocation;
-        var retrieving = false;
-        var lastPredictedPlace = '';
 
 
         vm.service = new google.maps.places.AutocompleteService();
@@ -60,22 +58,18 @@
 
 
         function getPredictions(place){
-            if (lastPredictedPlace !== place && !retrieving) {
-                retrieving = true;
-                return vm.service.getPlacePredictions({input: place}, function (predictions, status) {
-                    if (status !== google.maps.places.PlacesServiceStatus.OK) {
-                        return;
-                    }
+            return vm.service.getPlacePredictions({input: place}, function (predictions, status) {
+                if (status !== google.maps.places.PlacesServiceStatus.OK) {
+                    return;
+                }
 
-                    if (predictions.length > 0) {
-                        lastPredictedPlace = predictions[0].description;
-                        selectFirstItem();
-                    }
-                    else {
-                        handleLocationError();
-                    }
-                });
-            }
+                if (predictions.length > 0) {
+                    selectFirstItem();
+                }
+                else {
+                    handleLocationError();
+                }
+            });
         }
 
         function onPlaceChanged(){
@@ -84,7 +78,6 @@
             if(vm.place.geometry) {
                 vm.updatePosition(vm.place.geometry.location);
                 vm.updateLocation(vm.place.formatted_address);
-                 retrieving = false;
             }
             else{
                 getPredictions(vm.place.name);
@@ -133,7 +126,7 @@
        vm.$onChanges = function(changes){
             if(changes.location){
                 if(changes.location.currentValue !== ''){
-                    if(changes.location.currentValue !== changes.location.previousValue && !retrieving){
+                    if(changes.location.currentValue !== changes.location.previousValue){
                         vm.location = changes.location.currentValue;
                         updatePlace();
                     }
