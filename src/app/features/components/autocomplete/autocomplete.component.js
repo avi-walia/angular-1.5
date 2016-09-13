@@ -186,7 +186,7 @@
                    // if(changes.location.currentValue !== changes.location.previousValue){
                         //vm.location = changes.location.currentValue;
                         //updatePlace();
-                        $http.get('http://maps.google.com/maps/api/geocode/json?address=' + vm.location + '&sensor=false').success(
+                        $http.get('https://maps.google.com/maps/api/geocode/json?address=' + vm.location + '&components=country:CA&sensor=false').success(
                             function(mapData) {
                                 console.log('mapData: ', mapData);
                                 if (mapData.results.length) {
@@ -198,7 +198,7 @@
                                     updateLocation(mapData.results[0].formatted_address);
                                     //$state.go('main.advisorLocator.branchList');
                                 } else {
-                                    $http.get('https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyD6y9w2sHNaVOAQN3ESPmYe_tSxCBE6d-Q&input='+ vm.location).then(
+                                    $http.get('https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyD6y9w2sHNaVOAQN3ESPmYe_tSxCBE6d-Q&components=country:CA&input='+ vm.location).then(
                                         function(data) {
                                             console.log('autocomplete data: ', data);
                                             if (data.data.predictions.length) {

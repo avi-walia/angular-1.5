@@ -13,10 +13,11 @@
         '$state',
         '$stateParams',
         'branchListService',
-        '$http'
+        '$http',
+        '$timeout'
     ];
     /* @ngInject */
-    function branchQueryCtrl($state, $stateParams, branchListService, $http
+    function branchQueryCtrl($state, $stateParams, branchListService, $http, $timeout
     ) {
         var vm = this;
 
@@ -54,18 +55,21 @@
             //$http.get('http://maps.google.com/maps/api/geocode/json?address=256+Doris+Ave,+North+York,+ON+M2N+6X8&sensor=false').success(function(mapData) {
         //var service = new google.maps.places.PlacesService(map);
 
-        vm.drupalQuery = parseLocation($stateParams.q);
+       vm.drupalQuery = parseLocation($stateParams.q);
         vm.branchListService.setLocation( vm.drupalQuery);
-        $state.go('main.advisorLocator.branchList');
+       // $timeout(function(){
+            $state.go('main.advisorLocator.branchList');
+      //  }, 20);
 
-      /*  $http.get('http://maps.google.com/maps/api/geocode/json?address=' + vm.drupalQuery + '&sensor=false').success(
+
+     /*  $http.get('https://maps.google.com/maps/api/geocode/json?address=' + vm.drupalQuery + '&sensor=false').success(
             function(mapData) {
                 console.log('mapData: ', mapData);
                 if (mapData.results.length) {
                     //vm.setLocation(parseLocation(vm.drupalQuery));
                     var LatLng2 = new google.maps.LatLng(mapData.results[0].geometry.location.lat, mapData.results[0].geometry.location.lng)
-                    vm.branchListService.setPosition(LatLng2);
-
+                    //vm.branchListService.setPosition(LatLng2);
+                    vm.branchListService.setLocation(mapData.results[0].formatted_address);
                     $state.go('main.advisorLocator.branchList');
                 } else {
                     $http.get('https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyD6y9w2sHNaVOAQN3ESPmYe_tSxCBE6d-Q&input='+ vm.drupalQuery).then(
@@ -76,7 +80,7 @@
                                     function(placeData){
                                         console.log('place data: ', placeData);
                                         var LatLng2 = new google.maps.LatLng(placeData.data.result.geometry.location.lat, placeData.data.result.geometry.location.lng)
-                                        vm.branchListService.setPosition(LatLng2);
+                                        //vm.branchListService.setPosition(LatLng2);
                                         vm.branchListService.setLocation(placeData.data.result.formatted_address);
                                         $state.go('main.advisorLocator.branchList');
                                     },
