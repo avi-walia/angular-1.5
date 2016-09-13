@@ -9,7 +9,7 @@
         ng-if="$ctrl.detectMobile.isDesktop"
     >
         <h2 translate>branchList.title</h2>
-        <div style="display: inline-block">
+        <div style="display: inline-block" ng-if="!$ctrl.branchListService.branchListLoading">
             <autocomplete
                 set-position="$ctrl.setPosition(position)"
                 set-location="$ctrl.setLocation(location)"
