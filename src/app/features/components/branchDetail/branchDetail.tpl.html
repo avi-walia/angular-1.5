@@ -29,10 +29,10 @@
             <br>
 
 
-           <table ng-repeat="branchManager in $ctrl.branchDetailService.branchDetail.branchManagers | orderBy:'branchManager.name':true">
-                <tr ng-if="branchManager.name">
+           <table ng-repeat="branchManager in $ctrl.branchDetailService.branchDetail.branchManagers | orderBy:['lastName', 'firstName']:false">
+               <tr ng-if="branchManager.firstName || branchManager.lastName">
                     <td translate>branchDetail.branchManagerName</td>
-                    <td>{{branchManager.name}}</td>
+                    <td>{{branchManager.firstName}} {{branchManager.lastName}}</td>
                 </tr>
                 <tr ng-if="branchManager.phone">
                     <td translate>branchDetail.telephone</td>
