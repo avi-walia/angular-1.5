@@ -48,7 +48,8 @@
                     if(service.branchDetail.managerName){
 
                         service.branchDetail.branchManagers.push({
-                                    name: service.branchDetail.managerName,
+                                    firstName: service.branchDetail.managerName.split(' ').slice(0, -1).join(' '),
+                                    lastName: service.branchDetail.managerName.split(' ').slice(-1).join(' '),
                                     email: service.branchDetail.managerEmail,
                                     phone: service.branchDetail.managerPhone
                                 })
@@ -56,7 +57,8 @@
 
                     if(service.branchDetail.coManagerName){
                         service.branchDetail.branchManagers.push({
-                            name: service.branchDetail.coManagerName,
+                            firstName: service.branchDetail.coManagerName.split(' ').slice(0, -1).join(' '),
+                            lastName: service.branchDetail.coManagerName.split(' ').slice(-1).join(' '),
                             email: service.branchDetail.coManagerEmail,
                             phone: service.branchDetail.coManagerPhone
                         })
@@ -64,7 +66,8 @@
 
                     if(service.branchDetail.coManager2Name){
                         service.branchDetail.branchManagers.push({
-                            name: service.branchDetail.coManager2Name,
+                            firstName: service.branchDetail.coManager2Name.split(' ').slice(0, -1).join(' '),
+                            lastName: service.branchDetail.coManager2Name.split(' ').slice(-1).join(' '),
                             email: service.branchDetail.coManager2Email,
                             phone: service.branchDetail.coManager2Phone
                         })

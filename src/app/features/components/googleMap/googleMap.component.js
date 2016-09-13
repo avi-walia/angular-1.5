@@ -290,8 +290,6 @@
                 .orderBy('distance', 'asc')
                 .value();
 
-            console.log('sortedList');
-            console.log(sortedList);
 
             return sortedList;
         }
