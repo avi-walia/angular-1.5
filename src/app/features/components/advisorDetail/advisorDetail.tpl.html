@@ -62,7 +62,7 @@
                 </table>
                 <br>
                 <google-map address="$ctrl.advisorDetailService.advisorDetail.fullAddress" user-marker="$ctrl.advisorDetailService.advisorDetail.userMarker"></google-map><br>
-                <a ui-sref='main.advisorLocator.branchDetails' translate>advisorDetail.branchDetailsLink</a><br>
+                <a ui-sref='main.advisorLocator.branchDetails({id: $ctrl.advisorDetailService.advisorDetail.partialBranchInfo.id})' target="_blank" translate>advisorDetail.branchDetailsLink</a><br>
 
                 <span translate>advisorDetail.contactUsNote</span>
             </div>

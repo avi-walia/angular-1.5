@@ -37,7 +37,6 @@
                         },
                         zoom: 15
                     };
-                    service.advisorDetail.fullAddress =  (service.advisorDetail.address1 + service.advisorDetail.address2 + service.advisorDetail.city).replace(/\s/g,'+');
                     if (service.advisorDetail.partialBranchInfo.address1) {
                         service.advisorDetail.partialBranchInfo.address1.split(' ').join('+');
                     }

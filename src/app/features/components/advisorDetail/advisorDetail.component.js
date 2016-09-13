@@ -30,8 +30,7 @@
         vm.advisorDetailService = advisorDetailService;
         vm.stateTrackerService = stateTrackerService;
         vm.advisorService = advisorService;
-
-        if(!vm.advisorService.isLoading){
+        if(vm.advisorService.isLoading){
             vm.advisorService.init().then(function(){
                 vm.advisorDetailService.getAdvisorDetail(vm.advisorID);
             });

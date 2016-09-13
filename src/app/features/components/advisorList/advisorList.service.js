@@ -26,7 +26,7 @@
 
         service.searchTerm = '';
         service.objectName = 'searchResults'; //this string should be the same as the property holding your whole array of data.
-        service.isLoading = false;
+        service.isLoading = true;
         service.searchTermTooShort = true;
 
         service.numPerPage = ELEMENTS_PER_PAGE;
@@ -69,10 +69,9 @@
         function init() {
             //advisors = [];
             service.allAdvisors = [];
-            service.isLoading = true;
             return server.get(BASE_URL + ENDPOINT_URI + '/advisors', false, 'localStorage', false).then(function(data) {
 
-                advisors = data.data;
+                //advisors = data.data;
                 service.isLoading = false;
                 service.allAdvisors = data.data;
                 //service.advisorSubset = data.slice((page-1) * itemsPerPage, page * itemsPerPage);
@@ -121,7 +120,7 @@
                 searchAllNames(subTerms[0]);
             } else if (subTerms.length >= 2) {
                 var tempSearchTerm = service.searchTerm.toLowerCase();
-                _.forEach(advisors, function(advisor, index) {
+                _.forEach(service.allAdvisors, function(advisor, index) {
                     var commonName = advisor.commonName ? removeDiacriticsService.remove(advisor.commonName).toLowerCase() : null;
                     var firstName = removeDiacriticsService.remove(advisor.firstName).toLowerCase();
                     var lastName = removeDiacriticsService.remove(advisor.lastName).toLowerCase();
@@ -131,11 +130,11 @@
                     
                     //if (commonName && (commonName === subTerms[0] || cName == subTerms[0]) && (lastName === subTerms[1] || lName === subTerms[1])) {
                     if (commonName && (cName + " " + lName === tempSearchTerm)) {
-                        advisors[index].showCommon = true;
+                        service.allAdvisors[index].showCommon = true;
                         service.searchResults.push(advisor);
                     //} else if ((firstName === subTerms[0] || fName === subTerms[0]) && (lastName === subTerms[1] || lName === subTerms[1])) {
                     } else if (fName + " " + lName === tempSearchTerm) {
-                        advisors[index].showCommon = false;
+                        service.allAdvisors[index].showCommon = false;
                         service.searchResults.push(advisor);
                     }
                 });
@@ -152,7 +151,7 @@
         }
 
         function searchAllNames(searchTerm) {
-            _.forEach(advisors, function(advisor, index) {
+            _.forEach(service.allAdvisors, function(advisor, index) {
                 var commonName = advisor.commonName ? removeDiacriticsService.remove(advisor.commonName).toLowerCase() : null;
                 var firstName = removeDiacriticsService.remove(advisor.firstName).toLowerCase();
                 var lastName = removeDiacriticsService.remove(advisor.lastName).toLowerCase();
@@ -161,17 +160,17 @@
                 var lName = stripPunctuation(lastName);
 
                 if (commonName && (commonName.indexOf(searchTerm) >= 0 || cName.indexOf(searchTerm) >= 0)) {
-                    advisors[index].showCommon = true;
+                    service.allAdvisors[index].showCommon = true;
                     service.searchResults.push(advisor);
                 } else if(firstName.indexOf(searchTerm) >= 0 || fName.indexOf(searchTerm) >= 0) {
-                    advisors[index].showCommon = false;
+                    service.allAdvisors[index].showCommon = false;
                     advisor.showCommon = false;
                     service.searchResults.push(advisor);
                 } else if(lastName.indexOf(searchTerm) >= 0 || lName.indexOf(searchTerm) >= 0) {
                     if (advisor.commonName) {
-                        advisors[index].showCommon = true;
+                        service.allAdvisors[index].showCommon = true;
                     } else {
-                        advisors[index].showCommon = false;
+                        service.allAdvisors[index].showCommon = false;
                     }
                     service.searchResults.push(advisor);
                 }
