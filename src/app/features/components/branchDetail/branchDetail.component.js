@@ -48,7 +48,7 @@
             vm.branchDetailService.getBranchDetail(vm.branchId);
         }
 
-        if(!vm.advisorService.isLoading){
+        if(vm.advisorService.isLoading){
             vm.advisorService.init().then(function(){
                 vm.advisorDetailService.getAdvisorDetail(vm.advisorID);
             });

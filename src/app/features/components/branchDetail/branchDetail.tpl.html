@@ -46,11 +46,11 @@
             </table>
 
             <br>
+
             <google-map address="$ctrl.branchDetailService.branchDetail.fullAddress" user-marker="$ctrl.branchDetailService.branchDetail.userMarker"></google-map><br>
 
             <h2 translate>branchDetail.branchAssociates</h2>
-
-                <ul ng-repeat="advisor in $ctrl.branchDetailService.branchDetail.partialAdvisorsInfo">
+            <ul ng-repeat="advisor in $ctrl.branchDetailService.branchDetail.partialAdvisorsInfo | orderBy:['lastName', 'firstName']:false">
 
                     <div ng-show="$ctrl.perviousStateIsLocationSearch">
                         <a ui-sref="main.advisorLocator.advisorDetails({id: advisor.id})"  target="_blank"><span ng-if="advisor.commonName">{{advisor.commonName}}</span>
