@@ -67,9 +67,9 @@
         }
 
         function setLocation(location) {
-           // $timeout(function(){
+            $timeout(function(){
                 service.location = location;
-          //  });
+            });
             console.log('branch service updated: '+ location);
         }
 
