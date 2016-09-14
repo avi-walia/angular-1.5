@@ -27,7 +27,8 @@
             </table>
             <div ng-if="$ctrl.detectMobile.isDesktop" class="full" ng-class="{'lastAdvisorRow': $last, 'notLastAdvisorRow': !$last}" ng-repeat="element in $ctrl.service[$ctrl.service.objectName] | limitTo:$ctrl.service.numPerPage:($ctrl.service.currentPage-1)*$ctrl.service.numPerPage track by $index">
                 <a ui-sref="main.advisorLocator.advisorDetails({id: element.id})">
-                    <img src="assets/images/advisorHeadShot.png" style="display:inline" />
+                    <img ng-if="!element.profilePictureUrl" src="assets/images/advisorHeadShot.png" style="display:inline" />
+                    <img ng-if="element.profilePictureUrl" ng-src="{{element.profilePictureUrl}}" style="display:inline" />
                     <span ng-if="element.showCommon">{{element.commonName}}</span>
                     <span ng-if="!element.showCommon">{{element.firstName}}</span> {{element.lastName}}
                     <span style="float:right;">{{element.partialBranchInfo.city}}, {{element.partialBranchInfo.provinceAbbr}}<img style='margin-left:30px' src="assets/images/circleChevron.png" /></span>
@@ -57,7 +58,8 @@
                 </table>
                 <div ng-class="{'lastAdvisorRow': $last, 'notLastAdvisorRow': !$last}" ng-repeat="element in $ctrl.service[$ctrl.service.objectName] | limitTo:$ctrl.service.mobileMaxNumDisplay track by $index">
                     <a ui-sref="main.advisorLocator.advisorDetails({id: element.id})" >
-                        <img src="assets/images/advisorHeadShot.png" style="display:inline" />
+                        <img ng-if="!element.profilePictureUrl" src="assets/images/advisorHeadShot.png" style="display:inline" />
+                        <img ng-if="element.profilePictureUrl" ng-src="{{element.profilePictureUrl}}" style="display:inline" />
                         <span ng-if="element.showCommon">{{element.commonName}}</span>
                         <span ng-if="!element.showCommon">{{element.firstName}}</span> {{element.lastName}}
                         <span style="float:right;">{{element.partialBranchInfo.city}}, {{element.partialBranchInfo.provinceAbbr}}<img style='margin-left:30px' src="assets/images/circleChevron.png" /></span>
