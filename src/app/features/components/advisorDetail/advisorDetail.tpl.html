@@ -25,8 +25,8 @@
                             <span>{{$ctrl.advisorDetailService.advisorDetail.commonName}}</span> {{$ctrl.advisorDetailService.advisorDetail.lastName}} <br>
                         </div>
 
-                        <div ng-if="$ctrl.advisorDetailService.advisorDetail.titles.length"><span ng-repeat="title in $ctrl.advisorDetailService.advisorDetail.titles track by $index" bn-repeat-delimiter=",">{{title}}{{$last ? '' : ', '}}</span></div>
-                        <div ng-if="$ctrl.advisorDetailService.advisorDetail.designations.length"><span ng-repeat="designation in $ctrl.advisorDetailService.advisorDetail.designations track by $index" bn-repeat-delimiter="," ng-bind-html="designation">{{designation}}{{$last ? '' : ', '}}</span></div>
+                        <div ng-if="$ctrl.advisorDetailService.advisorDetail.titles.length"><span ng-repeat="title in $ctrl.advisorDetailService.advisorDetail.titles track by $index">{{title}}{{$last ? '' : ', '}}</span></div>
+                        <div ng-if="$ctrl.advisorDetailService.advisorDetail.designations.length"><span ng-repeat="designation in $ctrl.advisorDetailService.advisorDetail.designations track by $index" ><span ng-bind-html="designation"></span>{{$last ? '' : ', '}}</span></div>
                         <br>
                         <span ng-if="$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.dealerShip">{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.dealerShip==="ACM" ? "Assante Capital Management Ltd.": "Assante Financial Management Ltd."}}<br></span>
                         <span ng-if="$ctrl.advisorDetailService.advisorDetail.styleName">{{$ctrl.advisorDetailService.advisorDetail.styleName}}<br></span>
