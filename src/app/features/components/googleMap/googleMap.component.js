@@ -64,9 +64,11 @@
         });
         vm.markerInfo = null;
         vm.updateSearch = false;
+        vm.dragEndEvent = false;
 
         vm.updateMarkers = updateMarkers;
         vm.onUserEvent = onUserEvent;
+        vm.onDragEvent = onDragEvent;
         vm.setUserLocationMarker = setUserLocationMarker;
         vm.createMarkers = createMarkers;
         vm.clearMarkers = clearMarkers;
@@ -109,9 +111,12 @@
 
                     }
 
-                    //vm.map.addListener('dragend', vm.onUserEvent);
-                    //vm.map.addListener('zoom_changed', vm.onUserEvent);
-                    vm.map.addListener('idle', vm.onUserEvent);
+                    vm.map.addListener('idle', vm.onDragEvent);
+                    vm.map.addListener('dragend', function(){
+                        vm.dragEndEvent = true;
+                    });
+                    vm.map.addListener('zoom_changed', vm.onUserEvent);
+                    //vm.map.addListener('idle', vm.onUserEvent);
 
                     vm.isLoading = false;
                 });
@@ -183,6 +188,14 @@
         function onUserEvent(){
             if(vm.userLocationMarker && vm.updateSearch){
                 search(vm.userLocationMarker.getPosition());
+            }
+        }
+
+        function onDragEvent(){
+            if(vm.dragEndEvent){
+                console.log('draggggg');
+                vm.dragEndEvent = false;
+                onUserEvent();
             }
         }
 
