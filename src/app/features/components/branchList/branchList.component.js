@@ -58,9 +58,7 @@
         }
 
         vm.branchListService.getBranchList();
-        vm.test = function() {
-            //vm.branchListService;
-        }
+
 
     }
 
