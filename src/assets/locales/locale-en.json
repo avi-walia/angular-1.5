@@ -39,7 +39,8 @@
     "font-size": "Font size:",
     "font-size-normal": "Change application font size to normal.",
     "font-size-large": "Change application font size to large.",
-    "font-size-largest": "Change application font size to largest."
+    "font-size-largest": "Change application font size to largest.",
+    "site-wide-nav-label": "Site wide navigation"
   },
   "footer": {
     "linkText1": "Link 1",
@@ -114,5 +115,16 @@
     "email": "Email:",
     "branchManagerName": "Branch Manager:",
     "coManager": "Co Manager:"
+  },
+  "searchBarLabel": "Search Bar.",
+  "aria": {
+    "namesearch": {
+      "sortby": {
+        "firstname": "Sort search results by first name.",
+        "lastname": "Sort search results by last name.",
+        "city": "Sort search results by city.",
+        "province": "Sort search results by province."
+      }
+    }
   }
 }

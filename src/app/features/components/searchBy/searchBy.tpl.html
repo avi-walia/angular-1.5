@@ -1,4 +1,4 @@
-<select style="margin-top:25px;" ng-model="$ctrl.searchBy" ng-change="$ctrl.navigate($ctrl.searchBy)">
-    <option value="name" translate>{{'search.byName' | translate }}</option>
-    <option value="location" translate>search.byLocation</option>
+<select role="listbox" id="searchby" aria-label="Search for Advisors by" aria-activedescendant="searchby-1" style="margin-top:25px;" ng-model="$ctrl.searchBy" ng-change="$ctrl.navigate($ctrl.searchBy)">
+    <option role="option" id="searchby-1" value="name" translate>{{'search.byName' | translate }}</option>
+    <option role="option" id="searchby-2" value="location" translate>search.byLocation</option>
 </select>
