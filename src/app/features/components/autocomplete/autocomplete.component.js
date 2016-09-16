@@ -67,6 +67,7 @@
                     selectFirstItem();
                 }
                 else {
+                    vm.setMessage({message: {'cancel': 'branchList.validation.geoPositionUnavailable'}});
                     handleLocationError();
                 }
             });
@@ -101,6 +102,7 @@
 
         function updatePlace(){
             if(vm.location===''){
+                vm.setMessage({message: {'cancel': 'branchList.validation.notValidAddress'}});
                 handleLocationError();
             }
             else{
@@ -115,7 +117,6 @@
         }
 
         function handleLocationError(){
-            vm.setMessage({message: {'cancel': 'branchList.validation.notValidAddress'}});
             vm.resetMarkers({markers: []});
             vm.updatePosition({});
             vm.updateLocation('');
@@ -150,17 +151,23 @@
                                                     },
                                                     function(errorData) {
                                                         console.log('error retrieving place: ', errorData);
+                                                        vm.setMessage({message: {'cancel': 'branchList.validation.geoPositionUnavailable'}});
+                                                        handleLocationError();
                                                     }
                                                 );
                                             }
                                         }, function(error){
                                             console.log('autocomplete error: ', error);
+                                            vm.setMessage({message: {'cancel': 'branchList.validation.geoPositionUnavailable'}});
+                                            handleLocationError();
                                         }
                                     );
                                 }
                             },
                             function(errorData) {
                                 console.log('Error looking up address: ', errorData);
+                                vm.setMessage({message: {'cancel': 'branchList.validation.geoPositionUnavailable'}});
+                                handleLocationError();
                             }
 
                         );
