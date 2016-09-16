@@ -72,7 +72,14 @@
     "search": "French search",
     "locateMe": "French Locate Me",
     "validation": {
-      "notValidAddress" : "French Please choose a valid address"
+      "notValidAddress" : "French Please choose a valid address",
+      "geoNotSupported" : "French Geolocation is not supported in your browser",
+      "geoPermissionsDenied" : "French Permissions is denied to geolocation",
+      "geoPositionUnavailable" : "French Location information is unavailable",
+      "geoTimeout" : "French The request to get location timed out",
+      "geoUnknown" : "French An unknown error occured",
+      "noResults" : "French No results found",
+      "geoFailed" : "French Geocoder failed"
     }
   }
 }

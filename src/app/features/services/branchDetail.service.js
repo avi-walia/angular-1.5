@@ -43,6 +43,7 @@
                         zoom: 15
                     };
 
+
                     service.branchDetail.fullAddress =  (service.branchDetail.address1 + service.branchDetail.address2 + service.branchDetail.city).replace(/\s/g,'+');
                     service.branchDetail.branchManagers =[];
                     if(service.branchDetail.managerName){

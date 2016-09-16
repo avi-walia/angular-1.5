@@ -12,7 +12,8 @@
                 <table>
                 <div>
                     <div style="display:inline-block;vertical-align:top;">
-                        <img width="170" height="170" src="assets/images/advisorHeadShot.png" translate  alt="{{ 'advisorDetail.advisorImageAlt' | translate }}">
+                        <img ng-if="!$ctrl.advisorDetailService.advisorDetail.profilePictureUrl" alt="{{ 'advisorDetail.advisorImageAlt' | translate }}" src="assets/images/advisorHeadShot.png" width="170" height="170" />
+                        <img ng-if="$ctrl.advisorDetailService.advisorDetail.profilePictureUrl" alt="{{ 'advisorDetail.advisorImageAlt' | translate }}" ng-src="{{$ctrl.advisorDetailService.advisorDetail.profilePictureUrl}}" width="170" height="170" />
                     </div>
 
                     <div style="display:inline-block;">
@@ -22,7 +23,8 @@
                         </div>
 
                         <div ng-if="!$ctrl.perviousStateIsNameSearch">
-                            <span>{{$ctrl.advisorDetailService.advisorDetail.commonName}}</span> {{$ctrl.advisorDetailService.advisorDetail.lastName}} <br>
+                            <span ng-if="$ctrl.advisorDetailService.advisorDetail.commonName">{{$ctrl.advisorDetailService.advisorDetail.commonName}}</span>
+                            <span ng-if="!$ctrl.advisorDetailService.advisorDetail.commonName">{{$ctrl.advisorDetailService.advisorDetail.firstName}}</span> {{$ctrl.advisorDetailService.advisorDetail.lastName}} <br>
                         </div>
 
                         <div ng-if="$ctrl.advisorDetailService.advisorDetail.titles.length"><span ng-repeat="title in $ctrl.advisorDetailService.advisorDetail.titles track by $index">{{title}}{{$last ? '' : ', '}}</span></div>
@@ -41,9 +43,9 @@
                         <td translate>advisorDetail.telephone</td>
                         <td class="price extra">{{$ctrl.advisorDetailService.advisorDetail.phone}}</td>
                     </tr>
-                    <tr ng-if="$ctrl.advisorDetailService.advisorDetail.fax">
+                    <tr ng-if="$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.fax">
                         <td translate>advisorDetail.fax</td>
-                        <td class="price extra">{{$ctrl.advisorDetailService.advisorDetail.fax}}</td>
+                        <td class="price extra">{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.fax}}</td>
                     </tr>
                     <tr ng-if="$ctrl.advisorDetailService.advisorDetail.email">
                         <td translate>advisorDetail.email</td>

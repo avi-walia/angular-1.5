@@ -51,41 +51,90 @@
         }
 
 
+
         function updatePlace(){
 
-            //var autocomplete = document.getElementById('place');
+            var options = {
+                enableHighAccuracy: true,
+                timeout: 10000,
+                maximumAge: 600000
+            };
 
             if(navigator.geolocation){
-                navigator.geolocation.getCurrentPosition(function(position){
-                    var currentPosition = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    };
-                    vm.geocoder.geocode({'location': currentPosition}, function(results, status){
-                        if(status === google.maps.GeocoderStatus.OK){
-                            if(results[0]){
-                                vm.updatePosition(results[0].geometry.location);
-                                vm.updateLocation(results[0].formatted_address);
-                            }
-                        }
-                    });
-                }, function(){
-                    handleLocationError();
-                });
+
+                navigator.geolocation.getCurrentPosition(getGeo, handleGeoHighAccuracyError, options);
+
             }
             else{
+                vm.setMessage({message: {'cancel': 'branchList.validation.geoNotSupported'}});
                 handleLocationError();
             }
 
 
         }
 
+        function getGeo(position){
+            var currentPosition = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+            console.log('Accuracy ',position.coords.accuracy);
+            vm.geocoder.geocode({'location': currentPosition}, function(results, status){
+                if(status === google.maps.GeocoderStatus.OK){
+                    if(results[0]){
+                        vm.updatePosition(results[0].geometry.location);
+                        vm.updateLocation(results[0].formatted_address);
+
+                    }
+                    else{
+                        vm.setMessage({message: {'cancel': 'branchList.validation.noResults'}});
+                        handleLocationError();
+                    }
+                }
+                else{
+                    vm.setMessage({message: {'cancel': 'branchList.validation.geoFailed'}});
+                    handleLocationError();
+                }
+
+            });
+        }
+
         function handleLocationError(){
-            vm.setMessage({message: {'cancel': 'branchList.validation.notValidAddress'}});
+
             vm.resetMarkers({markers: []});
             vm.updatePosition({});
             vm.updateLocation('');
         }
+
+
+        function handleGeoHighAccuracyError(error){
+            var options = {
+                enableHighAccuracy: false,
+                timeout: Infinity,
+                maximumAge: 600000
+            };
+            navigator.geolocation.getCurrentPosition(getGeo, handleGeoLowAccuracyError, options);
+
+        }
+
+        function handleGeoLowAccuracyError(error){
+            if(error.code === 1){
+                vm.setMessage({message: {'cancel': 'branchList.validation.geoPermissionsDenied'}});
+            }
+            else if(error.code === 2){
+                vm.setMessage({message: {'cancel': 'branchList.validation.geoPositionUnavailable'}});
+            }
+            else if(error.code === 3){
+                vm.setMessage({message: {'cancel': 'branchList.validation.geoTimeout'}});
+            }
+            else{
+                vm.setMessage({message: {'cancel': 'branchList.validation.geoUnknown'}});
+            }
+
+            handleLocationError();
+        }
+
+
 
 
     }
