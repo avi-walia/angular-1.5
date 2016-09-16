@@ -111,13 +111,24 @@
   },
   "searchBarLabel": "Search Bar.",
   "aria": {
+    "main-label": "Main content section",
     "namesearch": {
       "sortby": {
         "firstname": "Sort search results by first name.",
         "lastname": "Sort search results by last name.",
         "city": "Sort search results by city.",
         "province": "Sort search results by province."
-      }
+      },
+      "getAdvisorDetails": "Get {{showCommon ? commonName + ' ' + lastName: firstName + ' ' + lastname | posession}} details."
+    },
+    "picturePlaceholder": "Default placeholder for advisor's profile picture.",
+    "pagination": {
+      "first": "first {{'aria.pagination.page' | translate}}",
+      "last": "last {{'aria.pagination.page' | translate}}",
+      "previous": "previous {{'aria.pagination.page' | translate}}",
+      "next": "next {{'aria.pagination.page' | translate}}",
+      "page": "page"
+
     }
   }
 }
