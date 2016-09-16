@@ -55,11 +55,11 @@
             //$http.get('http://maps.google.com/maps/api/geocode/json?address=256+Doris+Ave,+North+York,+ON+M2N+6X8&sensor=false').success(function(mapData) {
         //var service = new google.maps.places.PlacesService(map);
 
-       vm.drupalQuery = parseLocation($stateParams.q);
+        vm.drupalQuery = parseLocation($stateParams.q);
         vm.branchListService.setLocation( vm.drupalQuery);
-       // $timeout(function(){
+        $timeout(function(){
             $state.go('main.advisorLocator.branchList');
-      //  }, 20);
+        });
 
 
      /*  $http.get('https://maps.google.com/maps/api/geocode/json?address=' + vm.drupalQuery + '&sensor=false').success(
