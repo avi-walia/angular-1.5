@@ -39,7 +39,8 @@
     "font-size": "Font size:",
     "font-size-normal": "Change application font size to normal.",
     "font-size-large": "Change application font size to large.",
-    "font-size-largest": "Change application font size to largest."
+    "font-size-largest": "Change application font size to largest.",
+    "site-wide-nav-label": "Site wide navigation"
   },
   "footer": {
     "linkText1": "Link 1",
@@ -78,7 +79,14 @@
     "search": "search",
     "locateMe": "Locate Me",
     "validation": {
-      "notValidAddress" : "Please choose a valid address"
+      "notValidAddress" : "Please choose a valid address",
+      "geoNotSupported" : "Geolocation is not supported in your browser",
+      "geoPermissionsDenied" : "Permissions is denied to geolocation",
+      "geoPositionUnavailable" : "Location information is unavailable",
+      "geoTimeout" : "The request to get location timed out",
+      "geoUnknown" : "An unknown error occured",
+      "noResults" : "No results found",
+      "geoFailed" : "Geocoder failed"
     }
   },
   "advisorDetail":{
@@ -107,5 +115,16 @@
     "email": "Email:",
     "branchManagerName": "Branch Manager:",
     "coManager": "Co Manager:"
+  },
+  "searchBarLabel": "Search Bar.",
+  "aria": {
+    "namesearch": {
+      "sortby": {
+        "firstname": "Sort search results by first name.",
+        "lastname": "Sort search results by last name.",
+        "city": "Sort search results by city.",
+        "province": "Sort search results by province."
+      }
+    }
   }
 }

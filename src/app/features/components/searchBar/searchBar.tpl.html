@@ -1,7 +1,5 @@
 <div>
-    <div>
-        <input style="width:100%; margin-top:25px;" type="text" ng-model="$ctrl.service.searchCriteria" ng-model-options='{ debounce: 200 }' ng-change="$ctrl.service.search($ctrl.service.searchCriteria)" />
-    </div>
+    <input tabindex="0" aria-label="{{'searchBarLabel' | translate}}" style="width:100%; margin-top:25px;" type="text" ng-model="$ctrl.service.searchCriteria" ng-model-options='{ debounce: 200 }' ng-change="$ctrl.service.search($ctrl.service.searchCriteria)" />
     <div ng-if="$ctrl.service.searchTermTooShort" translate>
         shortSearchTerm
     </div>
