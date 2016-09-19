@@ -30,13 +30,16 @@
 
                 if(advisor.id == advisorID){
                     service.advisorDetail = advisor;
-                    service.advisorDetail.userMarker = {
-                        geoLocation: {
-                            lat: service.advisorDetail.partialBranchInfo.geoLocation.lat,
-                            lng: service.advisorDetail.partialBranchInfo.geoLocation.lng
-                        },
-                        zoom: 15
-                    };
+                    if(service.advisorDetail.partialBranchInfo.geoLocation){
+                        service.advisorDetail.userMarker = {
+                            geoLocation: {
+                                lat: service.advisorDetail.partialBranchInfo.geoLocation.lat,
+                                lng: service.advisorDetail.partialBranchInfo.geoLocation.lng
+                            },
+                            zoom: 15
+                        };
+                    }
+
                     if (service.advisorDetail.partialBranchInfo.address1) {
                         service.advisorDetail.partialBranchInfo.address1.split(' ').join('+');
                     }
