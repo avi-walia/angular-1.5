@@ -82,6 +82,7 @@
             vm.geocoder.geocode({'location': currentPosition}, function(results, status){
                 if(status === google.maps.GeocoderStatus.OK){
                     if(results[0]){
+                        vm.setMessage({message:{}});
                         vm.updatePosition(results[0].geometry.location);
                         vm.updateLocation(results[0].formatted_address);
 
