@@ -1,3 +1,4 @@
+//This service removes accents from strings
 (function () {
     'use strict';
 

@@ -22,8 +22,11 @@
     ) {
         console.log('searchBy loaded');
         var vm = this;
+        //set the default value of the searchBy selector to the type of search of the current page based off route.
         vm.searchBy = $state.current.url === '/advisors' ? 'name' : 'location';
         vm.navigate = navigate;
+
+        //function to navigate between search pages.
         function navigate(searchBy) {
             if (searchBy === 'location') {
                 $state.go('main.advisorLocator.branchList');
