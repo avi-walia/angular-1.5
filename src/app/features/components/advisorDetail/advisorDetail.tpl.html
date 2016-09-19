@@ -15,7 +15,6 @@
                         <img ng-if="!$ctrl.advisorDetailService.advisorDetail.profilePictureUrl" alt="{{ 'advisorDetail.advisorImageAlt' | translate }}" src="assets/images/advisorHeadShot.png" width="170" height="170" />
                         <img ng-if="$ctrl.advisorDetailService.advisorDetail.profilePictureUrl" alt="{{ 'advisorDetail.advisorImageAlt' | translate }}" ng-src="{{$ctrl.advisorDetailService.advisorDetail.profilePictureUrl}}" width="170" height="170" />
                     </div>
-
                     <div style="display:inline-block;">
                         <div ng-if="$ctrl.perviousStateIsNameSearch">
                             <span ng-if="$ctrl.advisorDetailService.advisorDetail.showCommon">{{$ctrl.advisorDetailService.advisorDetail.commonName}}</span>
@@ -53,7 +52,7 @@
                     </tr>
                     <tr ng-if="$ctrl.advisorDetailService.advisorDetail.website">
                         <td translate>advisorDetail.website</td>
-                        <td><a href="{{$ctrl.advisorDetailService.advisorDetail.website}}" target="_blank">{{$ctrl.advisorDetailService.advisorDetail.website}}</a></td>
+                        <td><a href="{{$ctrl.advisorDetailService.advisorDetail.website}}">{{$ctrl.advisorDetailService.advisorDetail.website}}</a></td>
                     </tr>
                     <tr ng-if="$ctrl.advisorDetailService.advisorDetail.spokenLanguage">
                         <td translate>advisorDetail.spokenLanguages</td>
@@ -64,7 +63,7 @@
                 </table>
                 <br>
                 <google-map address="$ctrl.advisorDetailService.advisorDetail.fullAddress" user-marker="$ctrl.advisorDetailService.advisorDetail.userMarker"></google-map><br>
-                <a ui-sref='main.advisorLocator.branchDetails({id: $ctrl.advisorDetailService.advisorDetail.partialBranchInfo.id})' target="_blank" translate>advisorDetail.branchDetailsLink</a><br>
+                <a ui-sref='main.advisorLocator.branchDetails({id: $ctrl.advisorDetailService.advisorDetail.partialBranchInfo.id})' translate>advisorDetail.branchDetailsLink</a><br>
 
                 <span translate>advisorDetail.contactUsNote</span>
             </div>

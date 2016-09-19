@@ -28,7 +28,6 @@
             </table>
             <br>
 
-
            <table ng-repeat="branchManager in $ctrl.branchDetailService.branchDetail.branchManagers | orderBy:['lastName', 'firstName']:false">
                <tr ng-if="branchManager.firstName || branchManager.lastName">
                     <td translate>branchDetail.branchManagerName</td>
@@ -46,24 +45,32 @@
             </table>
 
             <br>
-
             <google-map address="$ctrl.branchDetailService.branchDetail.fullAddress" user-marker="$ctrl.branchDetailService.branchDetail.userMarker"></google-map><br>
-
             <h2 translate>branchDetail.branchAssociates</h2>
             <ul ng-repeat="advisor in $ctrl.branchDetailService.branchDetail.partialAdvisorsInfo | orderBy:['lastName', 'firstName']:false">
-
                     <div ng-show="$ctrl.perviousStateIsLocationSearch">
-                        <a ui-sref="main.advisorLocator.advisorDetails({id: advisor.id})"  target="_blank"><span ng-if="advisor.commonName">{{advisor.commonName}}</span>
+                        <a ui-sref="main.advisorLocator.advisorDetails({id: advisor.id})">
+                            <span ng-if="advisor.commonName">{{advisor.commonName}}</span>
                             <span ng-if="!advisor.commonName">{{advisor.firstName}}</span>
-                            {{advisor.lastName}}</a>
+                            {{advisor.lastName}}
+                        </a>
                     </div>
 
-                <div ng-show="!$ctrl.perviousStateIsLocationSearch">
-                    <a ui-sref="main.advisorLocator.advisorDetails({id: advisor.id})" target="_blank"><span ng-if="$ctrl.advisorDetailService.advisorDetail.showCommon">{{advisor.commonName}}</span>
-                    <span ng-if="!$ctrl.advisorDetailService.advisorDetail.showCommon">{{advisor.firstName}}</span>
-                    {{advisor.lastName}}</a>
-                </div>
+                    <div ng-show="!$ctrl.perviousStateIsLocationSearch">
+                        <a ui-sref="main.advisorLocator.advisorDetails({id: advisor.id})">
+                            <span ng-if="$ctrl.advisorDetailService.advisorDetail.id==advisor.id">
+                                 <span ng-if="$ctrl.advisorDetailService.advisorDetail.showCommon!==undefined && $ctrl.advisorDetailService.advisorDetail.showCommon">{{advisor.commonName}}</span>
+                                 <span ng-if="$ctrl.advisorDetailService.advisorDetail.showCommon!==undefined && !$ctrl.advisorDetailService.advisorDetail.showCommon">{{advisor.firstName}}</span>
+                                 {{advisor.lastName}}
+                            </span>
+                            <span ng-if="$ctrl.advisorDetailService.advisorDetail.id!=advisor.id">
+                                   <span ng-if="advisor.commonName">{{advisor.commonName}}</span>
+                                   <span ng-if="!advisor.commonName">{{advisor.firstName}}</span>
+                                  {{advisor.lastName}}
+                            </span>
 
+                        </a>
+                    </div>
             </ul>
         </div>
 
