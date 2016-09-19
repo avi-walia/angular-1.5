@@ -1,7 +1,8 @@
 <ci-loader loading="$ctrl.advisorService.isLoading">
     <div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="advisorDetails">
         <div class="full" ng-if="$ctrl.detectMobile.isDesktop">
-            <button ui-sref="{{$ctrl.stateTrackerService.previousState.name}}" translate>advisorDetail.searchResultsButton</button>
+            <button ng-if="$ctrl.stateTrackerService.previousState.name == 'main.advisorLocator.advisorList'"ui-sref="{{$ctrl.stateTrackerService.previousState.name}}" translate>advisorDetail.searchResultsButton</button>
+            <button ng-if="$ctrl.stateTrackerService.previousState.name != 'main.advisorLocator.advisorList'" ui-sref="{{$ctrl.stateTrackerService.previousState.name}}" translate>Back</button>
             <br>
             <br>
             <h2 translate>advisorDetail.title</h2>
