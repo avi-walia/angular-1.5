@@ -58,19 +58,23 @@
 
 
         function getPredictions(place){
-            return vm.service.getPlacePredictions({input: place}, function (predictions, status) {
+         vm.service.getPlacePredictions({input: place, componentRestrictions: {country: 'ca'}}, function (predictions, status) {
                 if (status !== google.maps.places.PlacesServiceStatus.OK) {
-                    return;
-                }
-
-                if (predictions.length > 0) {
-                    selectFirstItem();
+                    vm.setMessage({message: {'cancel': 'branchList.validation.notValidAddress'}});
+                    handleLocationError();
+                    //return;
                 }
                 else {
-                    vm.setMessage({message: {'cancel': 'branchList.validation.geoPositionUnavailable'}});
-                    handleLocationError();
+                    if (predictions.length > 0) {
+                        selectFirstItem();
+                    }
+                    else {
+                        vm.setMessage({message: {'cancel': 'branchList.validation.notValidAddress'}});
+                        handleLocationError();
+                    }
                 }
             });
+
         }
 
         function onPlaceChanged(){
@@ -80,8 +84,14 @@
                 vm.updatePosition(vm.place.geometry.location);
                 vm.updateLocation(vm.place.formatted_address);
             }
+            else if(vm.place.name === ''){
+                vm.setMessage({message: {'cancel': 'branchList.validation.notValidAddress'}});
+                handleLocationError();
+            }
             else{
-                getPredictions(vm.place.name);
+               getPredictions(vm.place.name);
+              //  vm.setMessage({message: {'cancel': 'branchList.validation.notValidAddress'}});
+              //  handleLocationError();
             }
 
         }
@@ -128,50 +138,49 @@
 
                 if(vm.location !== '' && vm.location !== undefined){
 
-                        $http.get('https://maps.google.com/maps/api/geocode/json?address=' + vm.location + '&components=country:CA&sensor=false').success(
-                            function(mapData) {
-                                console.log('mapData: ', mapData);
-                                if (mapData.results.length) {
+                   $http.get('https://maps.google.com/maps/api/geocode/json?address=' + vm.location + '&components=country:CA&sensor=false').success(
+                     function(mapData) {
+                        console.log('mapData: ', mapData);
+                        if (mapData.results.length) {
 
-                                    var LatLng2 = new google.maps.LatLng(mapData.results[0].geometry.location.lat, mapData.results[0].geometry.location.lng);
-                                    updatePosition(LatLng2);
-                                    updateLocation(mapData.results[0].formatted_address);
+                            var LatLng2 = new google.maps.LatLng(mapData.results[0].geometry.location.lat, mapData.results[0].geometry.location.lng);
+                            updatePosition(LatLng2);
+                            updateLocation(mapData.results[0].formatted_address);
 
-                                } else {
-                                    $http.get('https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyD6y9w2sHNaVOAQN3ESPmYe_tSxCBE6d-Q&components=country:CA&input='+ vm.location).then(
-                                        function(data) {
-                                            console.log('autocomplete data: ', data);
-                                            if (data.data.predictions.length) {
-                                                $http.get('https://maps.googleapis.com/maps/api/place/details/json?placeid=' + data.data.predictions[0].place_id + '&key=AIzaSyD6y9w2sHNaVOAQN3ESPmYe_tSxCBE6d-Q').then(
-                                                    function(placeData){
-                                                        console.log('place data: ', placeData);
-                                                        var LatLng2 = new google.maps.LatLng(placeData.data.result.geometry.location.lat, placeData.data.result.geometry.location.lng);
-                                                        updatePosition(LatLng2);
-                                                        updateLocation(placeData.data.result.formatted_address);
-                                                    },
-                                                    function(errorData) {
-                                                        console.log('error retrieving place: ', errorData);
-                                                        vm.setMessage({message: {'cancel': 'branchList.validation.geoPositionUnavailable'}});
-                                                        handleLocationError();
-                                                    }
-                                                );
+                        } else {
+                            $http.get('https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyD6y9w2sHNaVOAQN3ESPmYe_tSxCBE6d-Q&components=country:CA&input='+ vm.location).then(
+                                function(data) {
+                                    console.log('autocomplete data: ', data);
+                                    if (data.data.predictions.length) {
+                                        $http.get('https://maps.googleapis.com/maps/api/place/details/json?placeid=' + data.data.predictions[0].place_id + '&key=AIzaSyD6y9w2sHNaVOAQN3ESPmYe_tSxCBE6d-Q').then(
+                                            function(placeData){
+                                                console.log('place data: ', placeData);
+                                                var LatLng2 = new google.maps.LatLng(placeData.data.result.geometry.location.lat, placeData.data.result.geometry.location.lng);
+                                                updatePosition(LatLng2);
+                                                updateLocation(placeData.data.result.formatted_address);
+                                            },
+                                            function(errorData) {
+                                                console.log('error retrieving place: ', errorData);
+                                                vm.setMessage({message: {'cancel': 'branchList.validation.geoPositionUnavailable'}});
+                                                handleLocationError();
                                             }
-                                        }, function(error){
-                                            console.log('autocomplete error: ', error);
-                                            vm.setMessage({message: {'cancel': 'branchList.validation.geoPositionUnavailable'}});
-                                            handleLocationError();
-                                        }
-                                    );
+                                        );
+                                    }
+                                }, function(error){
+                                    console.log('autocomplete error: ', error);
+                                    vm.setMessage({message: {'cancel': 'branchList.validation.geoPositionUnavailable'}});
+                                    handleLocationError();
                                 }
-                            },
-                            function(errorData) {
-                                console.log('Error looking up address: ', errorData);
-                                vm.setMessage({message: {'cancel': 'branchList.validation.geoPositionUnavailable'}});
-                                handleLocationError();
-                            }
+                            );
+                        }
+                     },
+                     function(errorData) {
+                        console.log('Error looking up address: ', errorData);
+                        vm.setMessage({message: {'cancel': 'branchList.validation.geoPositionUnavailable'}});
+                        handleLocationError();
+                     }
 
-                        );
-
+                   );
 
 
                 }
