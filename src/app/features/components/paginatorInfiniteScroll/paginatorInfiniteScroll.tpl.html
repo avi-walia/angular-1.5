@@ -11,27 +11,34 @@
                 <thead>
                 <tr>
                     <th>
-                        <button aria-label="{{'aria.namesearch.sortby.' + $ctrl.service.sortableColumns[0] | translate}}" ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[0])" translate>pages.advisorList.sort.firstName</button>
+                        <button role="button" aria-label="{{'aria.namesearch.sortby.' + $ctrl.service.sortableColumns[0] | translate}}" ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[0])" translate>pages.advisorList.sort.firstName</button>
                     </th>
                     <th>
-                        <button aria-label="{{'aria.namesearch.sortby.' + $ctrl.service.sortableColumns[1] | translate}}" ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[1])" translate>pages.advisorList.sort.lastName</button>
+                        <button role="button" aria-label="{{'aria.namesearch.sortby.' + $ctrl.service.sortableColumns[1] | translate}}" ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[1])" translate>pages.advisorList.sort.lastName</button>
                     </th>
                     <th>
-                        <button aria-label="{{'aria.namesearch.sortby.' + $ctrl.service.sortableColumns[2] | translate}}" ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[2])" translate>pages.advisorList.sort.city</button>
+                        <button role="button" aria-label="{{'aria.namesearch.sortby.' + $ctrl.service.sortableColumns[2] | translate}}" ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[2])" translate>pages.advisorList.sort.city</button>
                     </th>
                     <th>
-                        <button aria-label="{{'aria.namesearch.sortby.' + $ctrl.service.sortableColumns[3] | translate}}" ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[3])" translate>pages.advisorList.sort.province</button>
+                        <button role="button" aria-label="{{'aria.namesearch.sortby.' + $ctrl.service.sortableColumns[3] | translate}}" ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[3])" translate>pages.advisorList.sort.province</button>
                     </th>
                 </tr>
                 </thead>
             </table>
-            <div ng-if="$ctrl.detectMobile.isDesktop" class="full" ng-class="{'lastAdvisorRow': $last, 'notLastAdvisorRow': !$last}" ng-repeat="element in $ctrl.service[$ctrl.service.objectName] | limitTo:$ctrl.service.numPerPage:($ctrl.service.currentPage-1)*$ctrl.service.numPerPage track by $index">
-                <a ui-sref="main.advisorLocator.advisorDetails({id: element.id})">
-                    <img ng-if="!element.profilePictureUrl" src="assets/images/advisorHeadShot.png" style="display:inline" />
-                    <img ng-if="element.profilePictureUrl" ng-src="{{element.profilePictureUrl}}" style="display:inline" />
+            <div
+                    ng-if="$ctrl.detectMobile.isDesktop"
+                    class="full" ng-class="{'lastAdvisorRow': $last, 'notLastAdvisorRow': !$last}"
+                    ng-repeat="element in $ctrl.service[$ctrl.service.objectName] | limitTo:$ctrl.service.numPerPage:($ctrl.service.currentPage-1)*$ctrl.service.numPerPage track by $index"
+            >
+                <img ng-if="!element.profilePictureUrl" aria-label="{{element.showCommon ? element.commonName + ' ' + element.lastName: element.firstName + ' ' + element.lastname | posession}} profile picture." src="assets/images/advisorHeadShot.png" style="display:inline" />
+                <img ng-if="element.profilePictureUrl" aria-label="{{element.showCommon ? element.commonName + ' ' + element.lastName: element.firstName + ' ' + element.lastname | posession}} profile picture." ng-src="{{element.profilePictureUrl}}" style="display:inline" />
+                <!--
+                            element.showCommon ? element.commonName + ' ' + element.lastName: element.firstName + ' ' + element.lastname
+                -->
+                <a  aria-label="{{'aria.namesearch.getAdvisorDetails' | translate:element }}" translate-values="{ advisor: element.lastname }" ui-sref="main.advisorLocator.advisorDetails({id: element.id})">
                     <span ng-if="element.showCommon">{{element.commonName}}</span>
                     <span ng-if="!element.showCommon">{{element.firstName}}</span> {{element.lastName}}
-                    <span style="float:right;">{{element.partialBranchInfo.city}}, {{element.partialBranchInfo.provinceAbbr}}<img style='margin-left:30px' src="assets/images/circleChevron.png" /></span>
+                    <span style="float:right;">{{element.partialBranchInfo.city}}, {{element.partialBranchInfo.provinceAbbr}}<img aria-hidden="true" role="presentation" style='margin-left:30px' src="assets/images/circleChevron.png" /></span>
                 </a>
             </div>
 
@@ -42,24 +49,26 @@
                     <thead>
                     <tr>
                         <th>
-                            <button ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[0])" translate>pages.advisorList.sort.firstName</button>
+                            <button role="button" ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[0])" translate>pages.advisorList.sort.firstName</button>
                         </th>
                         <th>
-                            <button ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[1])" translate>pages.advisorList.sort.lastName</button>
+                            <button role="button" ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[1])" translate>pages.advisorList.sort.lastName</button>
                         </th>
                         <th>
-                            <button ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[2])" translate>pages.advisorList.sort.city</button>
+                            <button role="button" ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[2])" translate>pages.advisorList.sort.city</button>
                         </th>
                         <th>
-                            <button ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[3])" translate>pages.advisorList.sort.province</button>
+                            <button role="button" ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[3])" translate>pages.advisorList.sort.province</button>
                         </th>
                     </tr>
                     </thead>
                 </table>
-                <div ng-class="{'lastAdvisorRow': $last, 'notLastAdvisorRow': !$last}" ng-repeat="element in $ctrl.service[$ctrl.service.objectName] | limitTo:$ctrl.service.mobileMaxNumDisplay track by $index">
-                    <a ui-sref="main.advisorLocator.advisorDetails({id: element.id})" >
-                        <img ng-if="!element.profilePictureUrl" src="assets/images/advisorHeadShot.png" style="display:inline" />
-                        <img ng-if="element.profilePictureUrl" ng-src="{{element.profilePictureUrl}}" style="display:inline" />
+                <div
+                        ng-class="{'lastAdvisorRow': $last, 'notLastAdvisorRow': !$last}" ng-repeat="element in $ctrl.service[$ctrl.service.objectName] | limitTo:$ctrl.service.mobileMaxNumDisplay track by $index">
+                    <img aria-label="{{aria.picturePlaceholder | translate}}" ng-if="!element.profilePictureUrl" src="assets/images/advisorHeadShot.png" style="display:inline" />
+                    <img aria-label="{{aria.picturePlaceholder | translate}}" ng-if="element.profilePictureUrl" ng-src="{{element.profilePictureUrl}}" style="display:inline" />
+
+                    <a role="button" aria-label="{{aria.namesearch.getAdvisorDetails | translate}}" ui-sref="main.advisorLocator.advisorDetails({id: element.id})"  aria-label="{{'aria.namesearch.getAdvisorDetails' | translate}}">
                         <span ng-if="element.showCommon">{{element.commonName}}</span>
                         <span ng-if="!element.showCommon">{{element.firstName}}</span> {{element.lastName}}
                         <span style="float:right;">{{element.partialBranchInfo.city}}, {{element.partialBranchInfo.provinceAbbr}}<img style='margin-left:30px' src="assets/images/circleChevron.png" /></span>
@@ -76,12 +85,16 @@
         ng-if="$ctrl.detectMobile.isDesktop && $ctrl.service[$ctrl.service.objectName].length > 0"
         class="pagination"
         uib-pagination
+        template-url="app/features/components/paginatorInfiniteScroll/pagination.tpl.html"
         total-items="$ctrl.service[$ctrl.service.objectName].length"
         ng-model="$ctrl.service.currentPage"
         ng-change="$ctrl.service.pageChanged($ctrl.service.currentPage)"
         max-size="7"
         force-ellipses="true"
         items-per-page="$ctrl.service.numPerPage"
+
+        previous-text="&lsaquo;"
+        next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"
     >
     </ul>
 </ci-loader>

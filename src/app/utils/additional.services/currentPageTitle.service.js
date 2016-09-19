@@ -1,5 +1,6 @@
 /**
  * Created by michong on 2016-05-06.
+ * Used to keep track of the currentPage title.
  */
 
 (function () {

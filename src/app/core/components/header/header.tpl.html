@@ -9,7 +9,7 @@
 
         <a id="drawerlink" class="mobile" snap-toggle="right">☰</a>
 
-        <nav id="topnav" class="full" ng-if="$ctrl.detectMobile.isDesktop" role="navigation" aria-label="{{ 'universal.accessibility.site-wide-nav-label' | translate }}">
+        <nav id="topnav" class="full" ng-if="$ctrl.detectMobile.isDesktop" role="navigation" aria-label="{{ 'aria.site-wide-nav-label' | translate }}">
             <ul>
                 <language-switcher></language-switcher>
 
@@ -24,7 +24,7 @@
             <div ng-if="!$ctrl.detectMobile.isDesktop">
                 {{'pages.'+$ctrl.pageStateResolver.activePageName | translate}}
             </div>
-            <nav id="primary" ng-if="$ctrl.detectMobile.isDesktop" role="navigation" aria-label="{{ 'universal.accessibility.site-wide-nav-label' | translate }}">
+            <nav id="primary" ng-if="$ctrl.detectMobile.isDesktop" role="navigation" aria-label="{{ 'aria.site-wide-nav-label' | translate }}">
                 <ul class="full">
                     <!--<li><a ng-class="{active: ($ctrl.state.current.name === 'main.advisorLocator.page1')}" tabindex="0" title="{{ 'pages.page1' | translate }}" ui-sref="main.advisorLocator.page1"
                            analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page1"
