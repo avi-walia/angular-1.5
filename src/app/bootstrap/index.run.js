@@ -6,13 +6,13 @@
 
     runBlock.$inject = [
         '$rootScope', 'NotificationService',
-        '$translate', 'pageStateResolver', 'tmhDynamicLocale', '$window', 'stateTrackerService','$state'
+        '$translate', 'pageStateResolver', 'tmhDynamicLocale', '$window', 'stateTrackerService'
     ];
 
     /* @ngInject */
 
     function runBlock($rootScope, NotificationService,
-                      $translate, pageStateResolver, tmhDynamicLocale, $window, stateTrackerService, $state) {
+                      $translate, pageStateResolver, tmhDynamicLocale, $window, stateTrackerService) {
 
         // ionic stuff
         /*
@@ -80,7 +80,6 @@
                     if ('pageName' in oPageConfig) {
                         $rootScope.oRequestedPageConfig = oPageConfig;
                     }
-
                 });
 
                 /*
@@ -149,27 +148,12 @@
                 document.getElementsByTagName("head")[0].appendChild(scr);*/
                 ///////// *** END LANGUAGE NEGOTIATION *** /////////
 
-                if($rootScope.currentPage === $rootScope.nextPage && toState.name=='main.advisorLocator.advisorDetails'){
-                    event.preventDefault();
-                    $state.go('main.advisorLocator.advisorList');
-                }
-
-                if($rootScope.currentPage === $rootScope.nextPage && toState.name=='main.advisorLocator.branchDetails'){
-                    event.preventDefault();
-                    $state.go('main.advisorLocator.branchList');
-                }
-
                 pageStateResolver.pageLoading = false;
                 if (toState.resolve) {
                     pageStateResolver.pageLoading = true;
                 }
 
             });
-
-        $rootScope.$on("$locationChangeStart", function(event, next, current) {
-            $rootScope.currentPage = current;
-            $rootScope.nextPage = next;
-        });
 
     }//end: runBlock
 
