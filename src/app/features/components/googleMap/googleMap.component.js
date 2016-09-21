@@ -25,11 +25,11 @@
         '$scope',
         'pageStateResolver',
         'detectMobile',
-        'NgMap',
+        '$q',
         '$timeout'
     ];
     /* @ngInject */
-    function googleMapCtrl( $rootScope, $scope, pageStateResolver, detectMobile, NgMap, $timeout
+    function googleMapCtrl( $rootScope, $scope, pageStateResolver, detectMobile, $q, $timeout
     ) {
         var vm = this;
 
@@ -40,7 +40,7 @@
         vm.linkToMap = 'https://www.google.com/maps/dir/';
 
         vm.ca = {
-            center: [61.0, -99.0],
+            center: {lat: 60.5, lng: -101.0},
             zoom: 3,
             mapTypeControl: false,
             panControl: false,
@@ -50,12 +50,6 @@
         };
 
         vm.isLoading = true;
-        vm.mapPromise = NgMap.getMap().then(function(map){
-            vm.map = map;
-
-        },function(error){
-            console.log('error: ', error);
-        });
 
         vm.userLocationMarker = null;
         vm.markers = [];
@@ -66,6 +60,10 @@
         vm.updateSearch = false;
         vm.dragEndEvent = false;
 
+        vm.mapLoadedDeferred = $q.defer();
+
+
+
         vm.updateMarkers = updateMarkers;
         vm.onUserEvent = onUserEvent;
         vm.onDragEvent = onDragEvent;
@@ -73,13 +71,41 @@
         vm.createMarkers = createMarkers;
         vm.clearMarkers = clearMarkers;
         vm.showInfoWindow = showInfoWindow;
+        vm.initializeMap = initializeMap;
+
+
+
+        function initializeMap(){
+            var deferred = $q.defer();
+
+            vm.map = new google.maps.Map(document.getElementById('map'), vm.ca);
+
+            vm.map.addListener('idle', vm.onDragEvent);
+            vm.map.addListener('dragend', function(){
+                vm.dragEndEvent = true;
+            });
+            vm.map.addListener('zoom_changed', vm.onUserEvent);
+            //vm.map.addListener('idle', vm.onUserEvent);
+            google.maps.event.addListenerOnce(vm.map, 'tilesloaded', function(){
+                vm.mapLoadedDeferred.resolve(vm.map);
+            });
+
+
+            vm.isLoading = false;
+
+            $scope.$emit('mapIsInitialized', {map: vm.map}); // may should go under the talesloaded event?
+
+            deferred.resolve(vm.map);
+            return deferred.promise;
+        }
+
+
 
 
         vm.$onInit = function(){
 
-
-                vm.mapPromise.then(function(){
-
+            if(!vm.map){
+                vm.initializeMap().then(function(){
 
                     if (vm.userMarker) {
                         var LatLng = new google.maps.LatLng(vm.userMarker.geoLocation.lat, vm.userMarker.geoLocation.lng);
@@ -92,73 +118,118 @@
                         }
                     }
 
-                    if(vm.position){
+
+                });
+            }
+            else{
+                if (vm.userMarker) {
+                    var LatLng = new google.maps.LatLng(vm.userMarker.geoLocation.lat, vm.userMarker.geoLocation.lng);
+                    vm.map.setCenter(LatLng);
+                    vm.map.setZoom(vm.userMarker.zoom);
+                    vm.setUserLocationMarker(LatLng);
+                    if (vm.address) {
+                        vm.address = vm.address.replace(/, /g, '+');
+                        console.log(vm.address);
+                    }
+                }
+
+            }
+
+        };
+        vm.$onChanges = function(changes){
+            if(!vm.map){
+                vm.initializeMap().then(function () {
+                    if (changes.position) {
                         vm.updateSearch = false;
-                        vm.position = angular.copy(vm.position);
-                        console.log('position on init', vm.position);
-                        if(!_.isEmpty(vm.position)) {
-                            vm.mapPromise.then(function () {
-                                vm.map.panTo(vm.position);
+                        vm.position = angular.copy(changes.position.currentValue);
+                      //  console.log('position on change', vm.position.lat());
+                      //  console.log('position on change', vm.position.lng());
+                        if (!_.isEmpty(vm.position)) {
+                            var LatLng =  new google.maps.LatLng(vm.position.location.lat(), vm.position.location.lng());
+                            if(vm.position.viewport){
+                                vm.map.fitBounds(vm.position.viewport);
+                            }
+                            else {
+                                vm.map.panTo(LatLng);
                                 vm.map.setZoom(13);
-                                vm.setUserLocationMarker(vm.position);
-                                search(vm.position);
+                            }
+                            vm.setUserLocationMarker(LatLng);
+                            vm.mapLoadedDeferred.promise.then(function(){
+                                search(LatLng);
                                 vm.updateSearch = true;
                             });
+
                         }
-                        else{
+                        else {
                             vm.setUserLocationMarker(null);
                         }
 
                     }
+                    if (changes.locationList) {
 
-                    vm.map.addListener('idle', vm.onDragEvent);
-                    vm.map.addListener('dragend', function(){
-                        vm.dragEndEvent = true;
-                    });
-                    vm.map.addListener('zoom_changed', vm.onUserEvent);
-                    //vm.map.addListener('idle', vm.onUserEvent);
+                        vm.locationList = angular.copy(changes.locationList.currentValue);
+                    }
 
-                    vm.isLoading = false;
+                    if (changes.markerList) {
+
+                        vm.markerList = angular.copy(changes.markerList.currentValue);
+                        vm.clearMarkers();
+                        console.log('marker list update', vm.markerList);
+                        if (!_.isEmpty(vm.markerList)) {
+
+                            vm.createMarkers();
+
+                        }
+
+                    }
                 });
-        };
-        vm.$onChanges = function(changes){
+            }
+            else{
+                if (changes.position) {
+                    vm.updateSearch = false;
+                    vm.position = angular.copy(changes.position.currentValue);
+                   // console.log('position on change', vm.position.lat());
+                   // console.log('position on change', vm.position.lng());
+                    if (!_.isEmpty(vm.position)) {
+                        var LatLng =  new google.maps.LatLng(vm.position.location.lat(), vm.position.location.lng());
+                        if(vm.position.viewport){
+                            vm.map.fitBounds(vm.position.viewport);
+                        }
+                        else{
+                            vm.map.panTo(LatLng);
+                            //vm.map.panTo(vm.position);
+                            vm.map.setZoom(13);
+                        }
 
-            if(changes.position ){
-                vm.updateSearch = false;
-                vm.position = angular.copy(changes.position.currentValue);
-                console.log('position on change', vm.position);
-                if(!_.isEmpty(vm.position)) {
-                    vm.mapPromise.then(function () {
-                        vm.map.panTo(vm.position);
-                        vm.map.setZoom(13);
-                        vm.setUserLocationMarker(vm.position);
-                        search(vm.position);
+                        vm.setUserLocationMarker(LatLng);
+                        search(LatLng);
                         vm.updateSearch = true;
-                    });
+
+                    }
+                    else {
+                        vm.setUserLocationMarker(null);
+                    }
+
                 }
-                else{
-                    vm.setUserLocationMarker(null);
+                if (changes.locationList) {
+
+                    vm.locationList = angular.copy(changes.locationList.currentValue);
                 }
 
-            }
-            if(changes.locationList){
+                if (changes.markerList) {
 
-                vm.locationList = angular.copy(changes.locationList.currentValue);
-            }
+                    vm.markerList = angular.copy(changes.markerList.currentValue);
+                    vm.clearMarkers();
+                    console.log('marker list update', vm.markerList);
+                    if (!_.isEmpty(vm.markerList)) {
 
-            if(changes.markerList){
-
-                vm.markerList = angular.copy(changes.markerList.currentValue);
-                vm.clearMarkers();
-                console.log('marker list update',vm.markerList);
-                if(!_.isEmpty(vm.markerList)){
-                    vm.mapPromise.then(function(){
                         vm.createMarkers();
 
-                    });
-                }
+                    }
 
+                }
             }
+
         };
 
         vm.$onDestroy = function(){
@@ -171,8 +242,8 @@
                 vm.userLocationMarker = null;
             }
             vm.clearMarkers();
+            window.google = {};
         };
-
 
         var infoWindow = $rootScope.$on('infoWindow', function(event, param){
             console.log('call info window', param.id);
@@ -193,7 +264,6 @@
 
         function onDragEvent(){
             if(vm.dragEndEvent){
-                console.log('draggggg');
                 vm.dragEndEvent = false;
                 onUserEvent();
             }

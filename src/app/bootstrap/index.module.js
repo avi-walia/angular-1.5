@@ -22,7 +22,6 @@
         'ngCookies',
         'ngSanitize',
         'ngAria',
-        'ngMap',
         'advisorLocator.core.main',
         'advisorLocator.features.searchByName',
         'advisorLocator.features.searchByLocation',

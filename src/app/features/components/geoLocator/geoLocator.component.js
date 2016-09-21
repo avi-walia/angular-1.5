@@ -83,7 +83,7 @@
                 if(status === google.maps.GeocoderStatus.OK){
                     if(results[0]){
                         vm.setMessage({message:{}});
-                        vm.updatePosition(results[0].geometry.location);
+                        vm.updatePosition(results[0].geometry);
                         vm.updateLocation(results[0].formatted_address);
 
                     }

@@ -17,14 +17,7 @@
             branchList.linkToMap
         </a>
     </div>
-    <ng-map center="{{$ctrl.ca.center}}" zoom="{{$ctrl.ca.zoom}}"
-            map-type-control="{{$ctrl.ca.mapTypeControl}}"
-            pan-control="{{$ctrl.ca.panControl}}"
-            zoom-control="{{$ctrl.ca.zoomControl}}"
-            street-view-control="{{$ctrl.ca.streetViewControl}}"
-            draggable="{{$ctrl.ca.draggable}}">
-
-    </ng-map>
+    <div id="map" style="display: block"></div>
     <div id="info">
         <p>{{$ctrl.markerInfo.customInfo}}</p>
         <span ng-if="$ctrl.markerInfo.visible">

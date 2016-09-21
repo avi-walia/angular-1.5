@@ -38,7 +38,8 @@
     "after": false,
     "afterEach": false,
     "expect": false,
-    "navigator": false
+    "navigator": false,
+    "window": false
   },
   "predef": ["google"]
 }

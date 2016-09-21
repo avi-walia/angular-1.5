@@ -62,24 +62,24 @@
     }
   },
   "branchList":{
-    "title": "French Branch List",
-    "autoComplete": "French Somewhere in Canada:",
-    "placeholder": "French Enter a location",
-    "linkToMap": "French Get direction on a map",
+    "title": "FR Branch List",
+    "autoComplete": "FR Somewhere in Canada:",
+    "placeholder": "FR Enter a location",
+    "linkToMap": "FR Get direction on a map",
     "currentLocation": "Current+Location",
-    "getDetails": "French Get details",
+    "getDetails": "FR Get details",
     "km": "km",
-    "search": "French search",
-    "locateMe": "French Locate Me",
+    "search": "FR search",
+    "locateMe": "FR Locate Me",
     "validation": {
-      "notValidAddress" : "French Please choose a valid address",
-      "geoNotSupported" : "French Geolocation is not supported in your browser",
-      "geoPermissionsDenied" : "French Permissions is denied to geolocation",
-      "geoPositionUnavailable" : "French Location information is unavailable",
-      "geoTimeout" : "French The request to get location timed out",
-      "geoUnknown" : "French An unknown error occured",
-      "noResults" : "French No results found",
-      "geoFailed" : "French Geocoder failed"
+      "notValidAddress" : "FR Please choose a valid address",
+      "geoNotSupported" : "FR Geolocation is not supported in your browser",
+      "geoPermissionsDenied" : "FR Permissions is denied to geolocation",
+      "geoPositionUnavailable" : "FR Location information is unavailable",
+      "geoTimeout" : "FR The request to get location timed out",
+      "geoUnknown" : "FR An unknown error occured",
+      "noResults" : "FR No results found",
+      "geoFailed" : "FR Geocoder failed"
     }
   }
 }
