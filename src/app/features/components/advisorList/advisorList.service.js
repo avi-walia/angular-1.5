@@ -375,7 +375,6 @@
             _.forEach(searchTerms, function(searchTerm, searchIndex) {
                 _.forEach(lNameArr, function(lName){
                     if (termComparator(lName, searchTerm, alreadyMatched)) {
-                        console.log('test1123', service.allAdvisors[index]);
                         partialMatch = true;
 
                     } else {
@@ -384,7 +383,6 @@
                 });
             });
             var countMatches = 0;
-            console.log('remaining search terms: ', remainingSearchTerms);
             if (remainingSearchTerms.length) {
                 /*
                  _.forEach(removeSearchTerms.reverse(), function(searchIndex){
@@ -394,7 +392,6 @@
                 _.forEach(remainingSearchTerms, function (searchTerm, searchIndex) {
                     _.forEach(cNameArr, function (commonName) {
                         if (termComparator(commonName, searchTerm, alreadyMatched)) {
-                            console.log('test1123', service.allAdvisors[index]);
                             partialMatch = true;
                             countMatches++;
                             showCommon = true;
@@ -414,7 +411,6 @@
                 _.forEach(remainingSearchTerms, function (searchTerm, searchIndex) {
                     _.forEach(fNameArr, function (firstName, searchIndex) {
                         if (termComparator(firstName, searchTerm, alreadyMatched)) {
-                            console.log('test1123', service.allAdvisors[index]);
                             partialMatch = true;
                             countMatches++;
                         }
@@ -427,7 +423,6 @@
                 }
             }
             if (partialMatch) {
-                console.log('test2246', service.allAdvisors[index]);
                 service.allAdvisors[index].showCommon = showCommon;
                 secondaryResults.push(service.allAdvisors[index]);
             }
