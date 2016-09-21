@@ -33,7 +33,7 @@
             console.log("branch id", branchID);
             _.forEach(service.branches, function(branch, index) {
 
-                if(branch.id == branchID){
+                if(branch.id === branchID){
                     console.log("branch list with id", branch);
                     service.branchDetail = branch;
                     service.branchDetail.userMarker = {
@@ -53,7 +53,7 @@
                                     lastName: service.branchDetail.managerName.split(' ').slice(-1).join(' '),
                                     email: service.branchDetail.managerEmail,
                                     phone: service.branchDetail.managerPhone
-                                })
+                                });
                     }
 
                     if(service.branchDetail.coManagerName){
@@ -62,7 +62,7 @@
                             lastName: service.branchDetail.coManagerName.split(' ').slice(-1).join(' '),
                             email: service.branchDetail.coManagerEmail,
                             phone: service.branchDetail.coManagerPhone
-                        })
+                        });
                     }
 
                     if(service.branchDetail.coManager2Name){
@@ -71,7 +71,7 @@
                             lastName: service.branchDetail.coManager2Name.split(' ').slice(-1).join(' '),
                             email: service.branchDetail.coManager2Email,
                             phone: service.branchDetail.coManager2Phone
-                        })
+                        });
                     }
 
                 }

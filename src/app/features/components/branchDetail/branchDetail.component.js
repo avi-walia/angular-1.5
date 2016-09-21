@@ -28,14 +28,14 @@
         var vm = this;
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;
-        vm.branchId = $stateParams.id;
+        vm.branchId = parseInt($stateParams.id);
         vm.branchDetailService = branchDetailService;
         vm.stateTrackerService = stateTrackerService;
         vm.advisorService = advisorService;
         vm.branchListService = branchListService;
         vm.advisorDetailService = advisorDetailService;
 
-        if(vm.stateTrackerService.previousState.name == "main.advisorLocator.branchList"){
+        if(vm.stateTrackerService.previousState.name === "main.advisorLocator.branchList"){
             vm.perviousStateIsLocationSearch = true;
         }
 

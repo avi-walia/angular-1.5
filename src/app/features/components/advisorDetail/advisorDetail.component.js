@@ -26,7 +26,7 @@
         var vm = this;
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;
-        vm.advisorID = $stateParams.id;
+        vm.advisorID = parseInt($stateParams.id);
         vm.advisorDetailService = advisorDetailService;
         vm.stateTrackerService = stateTrackerService;
         vm.advisorService = advisorService;
@@ -39,7 +39,7 @@
             vm.advisorDetailService.getAdvisorDetail(vm.advisorID);
         }
 
-        if(vm.stateTrackerService.previousState.name == "main.advisorLocator.advisorList"){
+        if(vm.stateTrackerService.previousState.name === "main.advisorLocator.advisorList"){
             vm.perviousStateIsNameSearch = true;
         }
 
