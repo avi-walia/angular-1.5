@@ -16,6 +16,10 @@
 
     function advisorService(removeDiacriticsService, server, BASE_URL, ENDPOINT_URI, ELEMENTS_PER_PAGE) {
         var service = this;
+
+        //This array stores results that contain some but not all the search terms. This is displayed IF AND ONLY IF there are no results that contain all search terms.
+        var secondaryResults = [];
+
         /*
             Array of advisors that match search criteria.
          */
@@ -126,9 +130,57 @@
             //make http call for all advisors.
             return server.get(BASE_URL + ENDPOINT_URI + '/advisors', false, 'localStorage', false).then(function(data) {
                 //all advisors have been retrieved. Dissable isLoading.
-                service.isLoading = false;
+
+                //precompute names with punctuation, spacing and accents removed. This will speed up searches later.
+                _.forEach(data.data, function(advisor, index){
+
+                    var commonName = advisor.commonName ? removeDiacriticsService.remove(advisor.commonName).toLowerCase() : null;
+                    var firstName = removeDiacriticsService.remove(advisor.firstName).toLowerCase();
+                    var lastName = removeDiacriticsService.remove(advisor.lastName).toLowerCase();
+                    var cName = stripPunctuation(commonName);
+                    var fName = stripPunctuation(firstName);
+                    var lName = stripPunctuation(lastName);
+
+                    var cNameArr = cName ? cName.split(' ') : [];
+                    var lNameArr = lName.split(' ');
+                    var fNameArr = fName.split(' ');
+                    //this section will make each name unique if advisors have the same name twice in their name, ie. "Jean paul Jean"
+                    //I don't think we currently have anyone like this though.
+                    _.forEach(cNameArr, function(cName, i){
+                        for (var z = 0; z < i; z++) {
+                            if (cNameArr[z] === cName) {
+                                cNameArr[i] = cNameArr[i] + "0";
+                                break;
+                            }
+                        }
+                    });
+
+                    _.forEach(lNameArr, function(lName, i){
+                        for (var z = 0; z < i; z++) {
+                            if (lNameArr[z] === lName) {
+                                lNameArr[i] = lNameArr[i] + "0";
+                                break;
+                            }
+                        }
+                    });
+
+                    _.forEach(fNameArr, function(fName, i){
+                        for (var z = 0; z < i; z++) {
+                            if (fNameArr[z] === fName) {
+                                fNameArr[i] = fNameArr[i] + "0";
+                                break;
+                            }
+                        }
+                    });
+
+                    data.data[index].cNameArr = cNameArr;
+                    data.data[index].lNameArr = lNameArr;
+                    data.data[index].fNameArr = fNameArr;
+                });
                 //Store all advisors.
                 service.allAdvisors = data.data;
+
+                service.isLoading = false;
                 //service.advisorSubset = data.slice((page-1) * itemsPerPage, page * itemsPerPage);
             });
         }
@@ -163,6 +215,16 @@
                 service.searchResults.sort(compareProvince);
             }
         }
+        //we want to group all the single letter characters at the end.
+        function singleLetterComparator(a,b) {
+            if (a.length === 1) {
+                return -1;
+            } else if (b.length === 1) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
 
         /*
             Find all advisors that conform to the search logic.
@@ -179,10 +241,11 @@
         function search(searchTerm) {
             //empty the searchResults
             service.searchResults = [];
+            secondaryResults = [];
             //remove punctuation, accents and multispaces.
-            service.searchTerm = stripPunctuation(removeDiacriticsService.remove(searchTerm.replace(/ +(?= )/g,'')));
+            service.searchPhrase = stripPunctuation(removeDiacriticsService.remove(searchTerm.replace(/ +(?= )/g,'')));
             //split the searchTerm into an array of words
-            var subTerms = service.searchTerm.toLowerCase().split(' ');
+            var subTerms = service.searchPhrase.toLowerCase().split(' ');
             var i = 0;
             /*
             while (i < subTerms.length) {
@@ -204,8 +267,7 @@
 
                 service.searchTermTooShort = false;
                 //convert searchTerm to lower case.
-                var tempSearchTerm = service.searchTerm.toLowerCase();
-
+                var tempSearchTerm = service.searchPhrase.toLowerCase();
                 /*
                 loop through all advisors and see if either their:
                     1. firstName + " " + lastName combination, with accents/punctuation, and capitalization removed, matches the searchTerm.
@@ -214,13 +276,44 @@
                 _.forEach(service.allAdvisors, function(advisor, index) {
 
                     //Convert all names to lowercase and remove punctuation/accents.
+                    /*
                     var commonName = advisor.commonName ? removeDiacriticsService.remove(advisor.commonName).toLowerCase() : null;
                     var firstName = removeDiacriticsService.remove(advisor.firstName).toLowerCase();
                     var lastName = removeDiacriticsService.remove(advisor.lastName).toLowerCase();
                     var cName = stripPunctuation(commonName);
                     var fName = stripPunctuation(firstName);
                     var lName = stripPunctuation(lastName);
-                    
+
+                    var cNameArr = cName ? cName.split(' ') : [];
+                    var lNameArr = lName.split(' ');
+                    var fNameArr = fName.split(' ');
+                    */
+                    containsSearch(advisor.cNameArr, advisor.fNameArr, advisor.lNameArr,  subTerms, index);
+
+                    /*
+                    console.log('cName: ', cName);
+                    console.log('fName: ', fName);
+                    console.log('lName: ', lName);
+                    var oneLetterSearchTerm = false;
+                    _.forEach(subTerms, function(term, index) {
+                       if (term.length === 1) {
+                           oneLetterSearchTerm = true;
+                           return false;
+                       }
+                    });
+
+
+                    if (oneLetterSearchTerm) {
+                        var cNameArr = cName.split(' ');
+                        var lNameArr = lName.split(' ');
+                        var fNameArr = fName.split(' ');
+                        containsSearch(cNameArr, lNameArr, fNameArr);
+                    } else {
+                        containsSearch([cName], [fName], [lName]);
+                    }
+                     */
+
+                    /*
                     //check if commonName combination matches searchTerm
                     if (commonName && (cName + " " + lName === tempSearchTerm)) {
                         service.allAdvisors[index].showCommon = true;
@@ -231,7 +324,12 @@
                         service.allAdvisors[index].showCommon = false;
                         service.searchResults.push(advisor);
                     }
+                    */
+
                 });
+                if (service.searchResults.length === 0) {
+                    service.searchResults = secondaryResults;
+                }
             } else {
                 //none of the search functions were invoked, thus searchTerm must be too short.
                 service.searchTermTooShort = true;
@@ -244,6 +342,96 @@
             sortBy('lastname');
             updatePaginationInfiniteScroll();
         }
+
+        /*
+            alreadyMatched only applies to single characters. This ensures we aren't matching the same word again different single character search terms.
+            For example searching "a a" should find writers who have atleast two names that start with a.
+            Only show writers with one name that starts with a if there are no writers with two names that start with a.
+            A partial search term and a single character search term can still match on the same word. Will need maximum matching bipartite graph algorithm to solve that.
+         */
+        function termComparator(name, searchTerm, alreadyMatched) {
+            if (searchTerm.length === 1) {
+                if (alreadyMatched.indexOf(name) < 0) {
+                    if (name.substring(0, 1) === searchTerm) {
+                        alreadyMatched.push(name);
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
+            } else {
+                return name.indexOf(searchTerm) >= 0;
+            }
+        }
+
+        function containsSearch(cNameArr, fNameArr, lNameArr, searchTerms, index) {
+            var showCommon = false;
+
+            var alreadyMatched = [];
+            var remainingSearchTerms = [];
+            var partialMatch = false;
+            _.forEach(searchTerms, function(searchTerm, searchIndex) {
+                _.forEach(lNameArr, function(lName){
+                    if (termComparator(lName, searchTerm, alreadyMatched)) {
+                        console.log('test1123', service.allAdvisors[index]);
+                        partialMatch = true;
+
+                    } else {
+                        remainingSearchTerms.push(searchTerm);
+                    }
+                });
+            });
+            var countMatches = 0;
+            console.log('remaining search terms: ', remainingSearchTerms);
+            if (remainingSearchTerms.length) {
+                /*
+                 _.forEach(removeSearchTerms.reverse(), function(searchIndex){
+                 searchTerms.splice(searchIndex, 1);
+                 });
+                 */
+                _.forEach(remainingSearchTerms, function (searchTerm, searchIndex) {
+                    _.forEach(cNameArr, function (commonName) {
+                        if (termComparator(commonName, searchTerm, alreadyMatched)) {
+                            console.log('test1123', service.allAdvisors[index]);
+                            partialMatch = true;
+                            countMatches++;
+                            showCommon = true;
+                        }
+                    });
+                });
+                if (countMatches === remainingSearchTerms.length) {
+                    if (remainingSearchTerms.length !== 0) {
+                        service.allAdvisors[index].showCommon = true;
+                    } else {
+                        service.allAdvisors[index].showCommon = false;
+                    }
+                    service.searchResults.push(service.allAdvisors[index]);
+                    return;
+                }
+                countMatches = 0;
+                _.forEach(remainingSearchTerms, function (searchTerm, searchIndex) {
+                    _.forEach(fNameArr, function (firstName, searchIndex) {
+                        if (termComparator(firstName, searchTerm, alreadyMatched)) {
+                            console.log('test1123', service.allAdvisors[index]);
+                            partialMatch = true;
+                            countMatches++;
+                        }
+                    });
+                });
+                if (countMatches === remainingSearchTerms.length) {
+                    service.allAdvisors[index].showCommon = false;
+                    service.searchResults.push(service.allAdvisors[index]);
+                    return;
+                }
+            }
+            if (partialMatch) {
+                console.log('test2246', service.allAdvisors[index]);
+                service.allAdvisors[index].showCommon = showCommon;
+                secondaryResults.push(service.allAdvisors[index]);
+            }
+        };
 
         //update the pagination/infinite scroll related trackers(maxPages, mobileMaxNumDisplay, currentPage).
         function updatePaginationInfiniteScroll() {
