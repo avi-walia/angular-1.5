@@ -6,13 +6,13 @@
 
     runBlock.$inject = [
         '$rootScope', 'NotificationService',
-        '$translate', 'pageStateResolver', 'tmhDynamicLocale', '$window', 'stateTrackerService'
+        '$translate', 'pageStateResolver', 'tmhDynamicLocale', '$window', 'stateTrackerService', '$state'
     ];
 
     /* @ngInject */
 
     function runBlock($rootScope, NotificationService,
-                      $translate, pageStateResolver, tmhDynamicLocale, $window, stateTrackerService) {
+                      $translate, pageStateResolver, tmhDynamicLocale, $window, stateTrackerService, $state) {
 
         // ionic stuff
         /*
@@ -147,6 +147,17 @@
                 scr.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyCwahusHkUZ-LOTVpawRSoKh-h2ktVbj2I&libraries=geometry,places&language=" + $rootScope.documentLanguage;
                 document.getElementsByTagName("head")[0].appendChild(scr);*/
                 ///////// *** END LANGUAGE NEGOTIATION *** /////////
+
+                if(!(fromState.name) && toState.name=='main.advisorLocator.advisorDetails'){
+                    event.preventDefault();
+                    $state.go('main.advisorLocator.advisorList');
+                }
+
+                if(!(fromState.name) && toState.name=='main.advisorLocator.branchDetails'){
+                    event.preventDefault();
+                    $state.go('main.advisorLocator.branchList');
+                }
+
 
                 pageStateResolver.pageLoading = false;
                 if (toState.resolve) {
