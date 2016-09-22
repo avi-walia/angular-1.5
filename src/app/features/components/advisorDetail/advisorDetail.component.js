@@ -13,17 +13,20 @@
     /* @ngInject */
 
     advisorDetailCtrl.$inject = [
+        '$rootScope',
         '$stateParams',
         'pageStateResolver',
         'detectMobile',
+        'GOOGLE_MAPS_URL',
         'advisorDetailService',
         'stateTrackerService',
         'advisorService'
     ];
     /* @ngInject */
-    function advisorDetailCtrl( $stateParams, pageStateResolver, detectMobile, advisorDetailService, stateTrackerService, advisorService
+    function advisorDetailCtrl($rootScope, $stateParams, pageStateResolver, detectMobile, GOOGLE_MAPS_URL, advisorDetailService, stateTrackerService, advisorService
     ) {
         var vm = this;
+        vm.googleMapsUrl = GOOGLE_MAPS_URL+$rootScope.documentLanguage;
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;
         vm.advisorID = parseInt($stateParams.id);

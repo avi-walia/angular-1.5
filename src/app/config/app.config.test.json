@@ -1,4 +1,5 @@
 {
   "BASE_URL": "https://test.assanteservices.com/aiol",
-  "ENDPOINT_URI": "/advisorlocatorws"
+  "ENDPOINT_URI": "/advisorlocatorws",
+  "GOOGLE_MAPS_URL": "https://maps.googleapis.com/maps/api/js?key=AIzaSyD6y9w2sHNaVOAQN3ESPmYe_tSxCBE6d-Q&libraries=geometry,places&region=CA&language="
 }

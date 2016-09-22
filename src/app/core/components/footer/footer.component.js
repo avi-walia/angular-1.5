@@ -13,14 +13,14 @@
     /* @ngInject */
 
     footerCtrl.$inject = [
-        'copyrightYear',
+        'COPYRIGHT_YEAR',
         'detectMobile'
     ];
     /* @ngInject */
-    function footerCtrl(copyrightYear, detectMobile
+    function footerCtrl(COPYRIGHT_YEAR, detectMobile
     ) {
         var vm = this;
-        vm.year = copyrightYear;
+        vm.year = COPYRIGHT_YEAR;
         vm.detectMobile = detectMobile;
     }
 
