@@ -88,11 +88,9 @@
             //vm.map.addListener('idle', vm.onUserEvent);
             google.maps.event.addListenerOnce(vm.map, 'tilesloaded', function(){
                 vm.mapLoadedDeferred.resolve(vm.map);
+
             });
-
-
             vm.isLoading = false;
-
             $scope.$emit('mapIsInitialized', {map: vm.map}); // may should go under the talesloaded event?
 
             deferred.resolve(vm.map);
@@ -156,6 +154,10 @@
 
                                     vm.map.fitBounds(parseBounds(vm.position.viewport));
                                     vm.setUserLocationMarker(LatLng);
+                                    if(vm.map.getZoom() > 13){
+                                        vm.map.setZoom(13);
+                                    }
+
                                     search(LatLng);
                                     vm.updateSearch = true;
                                 });
@@ -208,6 +210,9 @@
                           //  vm.mapLoadedDeferred.promise.then(function(){
                                 vm.map.fitBounds(vm.position.viewport);
                                 vm.setUserLocationMarker(LatLng);
+                                if(vm.map.getZoom() > 13){
+                                    vm.map.setZoom(13);
+                                }
                                 search(LatLng);
                                 vm.updateSearch = true;
                           //  });
