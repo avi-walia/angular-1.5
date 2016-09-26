@@ -367,22 +367,29 @@
         }
 
         function containsSearch(cNameArr, fNameArr, lNameArr, searchTerms, index) {
+            console.log('searchTerms: ', searchTerms)
             var showCommon = false;
 
             var alreadyMatched = [];
             var remainingSearchTerms = [];
             var partialMatch = false;
+            var numMatchedSearchTerms = 0;
             _.forEach(searchTerms, function(searchTerm, searchIndex) {
                 _.forEach(lNameArr, function(lName){
                     if (termComparator(lName, searchTerm, alreadyMatched)) {
                         partialMatch = true;
-
+                        numMatchedSearchTerms++;
                     } else {
                         remainingSearchTerms.push(searchTerm);
                     }
                 });
             });
             var countMatches = 0;
+            if (numMatchedSearchTerms === searchTerms.length) {
+                service.allAdvisors[index].showCommon = false;
+                service.searchResults.push(service.allAdvisors[index]);
+                return;
+            }
             if (remainingSearchTerms.length) {
                 /*
                  _.forEach(removeSearchTerms.reverse(), function(searchIndex){
