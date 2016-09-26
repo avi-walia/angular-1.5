@@ -131,15 +131,19 @@
         }
 
         function updatePlace(){
+            var autocompleteEl = document.getElementById('place');
+
             if(vm.location===''){
                 vm.setMessage({message: {'cancel': 'branchList.validation.notValidAddress'}});
                 handleLocationError();
             }
             else{
-                google.maps.event.trigger(vm.autocomplete, 'focus');
-                google.maps.event.trigger(vm.autocomplete, 'keydown', {
+                google.maps.event.trigger(autocompleteEl, 'focus');
+
+                google.maps.event.trigger(autocompleteEl, 'keydown', {
                     keyCode: 13
                 });
+                //google.maps.event.trigger(vm.autocomplete, 'place_changed');
             }
 
         }
