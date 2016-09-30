@@ -5,6 +5,14 @@
         <div style="width:100%;">
             <search-bar style="width:50%; margin-right:25px;display:inline;float:left;" service="$ctrl.service"></search-bar>
             <search-by style="margin-top:25px;"></search-by>
+            <div style="display:inline-block;">
+                <div>
+                    Filter by Language:<br>
+                    <select ng-model="$ctrl.service.selectedFilters.lang" ng-change="$ctrl.service.setFilters($ctrl.service.filters.lang)">
+                        <option ng-repeat="lang in $ctrl.service.filterOptions.lang" value="{{lang}}">{{'pages.advisorList.filterOptions.lang.' + lang | translate}}</option>
+                    </select>
+                </div>
+            </div>
         </div>
         <div style="clear:both;">
             <paginator-infinite-scroll style="clear:both;" service="$ctrl.service">

@@ -17,59 +17,63 @@
 
     function advisorService(removeDiacriticsService, server, BASE_URL, ENDPOINT_URI, ELEMENTS_PER_PAGE, FILTERS) {
         var service = this;
-        console.log('FILTERS: ', FILTERS)
         //This array stores results that contain some but not all the search terms. This is displayed IF AND ONLY IF there are no results that contain all search terms.
         var secondaryResults = [];
         //names of available filters
         service.filters = {
             lang: 'lang'
         };
+
+        //one of the filters was changed, update the array of filters.
         service.setFilters = function(filterName) {
-            console.log('test: ', service.selectedFilters.lang);
-            //console.log('service.selectedFilters.lang: ', service.selectedFilters.lang);
+            //determine which filter changed
             if (filterName === service.filters.lang) {
-                    var x = service.activeFilters.indexOf(filterLang);
-                    if (x < 0) {
-
-                        if (service.selectedFilters.lang !== FILTERS.lang.language) {
-                            service.activeFilters.push(filterLang);
-                        } else {
-                            
-                    }
-                } else {
-
+                //see if the filter has already been added to the array.
+                var x = service.activeFilters.indexOf(filterLang);
+                //filter needs to be added to the array
+                if (x < 0) {
+                    service.activeFilters.push(filterLang);
                 }
             }
+            //run all filters
             service.filter();
         }
 
+        //loop through all active filters to see if the advisor should be displayed or not.
         function filterLooper(advisor) {
+            //assume advisor passes all filters and should be displayed.
             var ret = true;
+            //loop through each active filter.
             _.forEach(service.activeFilters, function(filter, index) {
-
-                //console.log('x: ', advisor.spokenLanguage);
-                var temp = filter(advisor);
-                //console.log('temp: ', temp);
-                if (!temp) {
+                //if the advisor does not pass the filter, it should be removed.
+                if (!filter(advisor)) {
+                    //advisor did not pass filter, remove it from the filteredSearchResults
                     ret = false;
+                    //break out of the forEach
                     return false;
                 }
             });
+            //returns true if advisor should be added to filteredSearchResults, returns false otherwise.
             return ret;
         }
 
         service.filter = function() {
+            //loop through all searchResults and apply each filter in the array of active filters to get the filteredSearchResults
             service.filteredSearchResults = _.filter(service.searchResults, filterLooper);
-            console.log('before: ', service.filteredSearchResults);
         };
 
+        //Filter searchResults based on advisor's spokenLanguage
         function filterLang(advisor) {
+            /*
+            bilingual advisors will always show up.
+            otherwise advisors will only be displayed if they're spokenLanguage is equal to service.selectedFilters.lang.
+             */
             return (advisor.spokenLanguage === FILTERS.lang.bilingual || advisor.spokenLanguage === service.selectedFilters.lang);
         }
 
+        //options to display in the language filter select
         service.filterOptions = {
             lang: [
-                FILTERS.lang.language,
                 FILTERS.lang.english,
                 FILTERS.lang.french
             ]
@@ -84,6 +88,8 @@
             Array of advisors that match search criteria.
          */
         service.searchResults = [];
+
+        //Subset of service.searchResults that passes filters.
         service.filteredSearchResults = [];
         /*
             path to mobile/desktop templates used when rendering infinite scroll/pagination component.
@@ -337,58 +343,7 @@
                     2. commonName + " " + lastName combination, with accents/punctuation, and capitalization removed, matches the searchTerm.
                  */
                 _.forEach(service.allAdvisors, function(advisor, index) {
-
-                    //Convert all names to lowercase and remove punctuation/accents.
-                    /*
-                    var commonName = advisor.commonName ? removeDiacriticsService.remove(advisor.commonName).toLowerCase() : null;
-                    var firstName = removeDiacriticsService.remove(advisor.firstName).toLowerCase();
-                    var lastName = removeDiacriticsService.remove(advisor.lastName).toLowerCase();
-                    var cName = stripPunctuation(commonName);
-                    var fName = stripPunctuation(firstName);
-                    var lName = stripPunctuation(lastName);
-
-                    var cNameArr = cName ? cName.split(' ') : [];
-                    var lNameArr = lName.split(' ');
-                    var fNameArr = fName.split(' ');
-                    */
                     containsSearch(advisor.cNameArr, advisor.fNameArr, advisor.lNameArr,  subTerms, index);
-
-                    /*
-                    console.log('cName: ', cName);
-                    console.log('fName: ', fName);
-                    console.log('lName: ', lName);
-                    var oneLetterSearchTerm = false;
-                    _.forEach(subTerms, function(term, index) {
-                       if (term.length === 1) {
-                           oneLetterSearchTerm = true;
-                           return false;
-                       }
-                    });
-
-
-                    if (oneLetterSearchTerm) {
-                        var cNameArr = cName.split(' ');
-                        var lNameArr = lName.split(' ');
-                        var fNameArr = fName.split(' ');
-                        containsSearch(cNameArr, lNameArr, fNameArr);
-                    } else {
-                        containsSearch([cName], [fName], [lName]);
-                    }
-                     */
-
-                    /*
-                    //check if commonName combination matches searchTerm
-                    if (commonName && (cName + " " + lName === tempSearchTerm)) {
-                        service.allAdvisors[index].showCommon = true;
-                        service.searchResults.push(advisor);
-
-                    //check if firstName combination matches searchTerm
-                    } else if (fName + " " + lName === tempSearchTerm) {
-                        service.allAdvisors[index].showCommon = false;
-                        service.searchResults.push(advisor);
-                    }
-                    */
-
                 });
                 if (service.searchResults.length === 0) {
                     service.searchResults = secondaryResults;
@@ -431,7 +386,6 @@
         }
 
         function containsSearch(cNameArr, fNameArr, lNameArr, searchTerms, index) {
-            console.log('searchTerms: ', searchTerms)
             var showCommon = false;
 
             var alreadyMatched = [];
@@ -455,11 +409,6 @@
                 return;
             }
             if (remainingSearchTerms.length) {
-                /*
-                 _.forEach(removeSearchTerms.reverse(), function(searchIndex){
-                 searchTerms.splice(searchIndex, 1);
-                 });
-                 */
                 _.forEach(remainingSearchTerms, function (searchTerm, searchIndex) {
                     _.forEach(cNameArr, function (commonName) {
                         if (termComparator(commonName, searchTerm, alreadyMatched)) {

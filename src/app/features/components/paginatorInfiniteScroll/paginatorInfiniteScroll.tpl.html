@@ -2,11 +2,6 @@
     <div style="margin-top:15px;" ng-if="$ctrl.service[$ctrl.service.objectName].length > 0">
         {{$ctrl.service[$ctrl.service.objectName].length}} {{'searchResultsFound' | translate}}
     </div>
-    <div>
-        <select ng-model="$ctrl.service.selectedFilters.lang" ng-change="$ctrl.service.setFilters($ctrl.service.filters.lang)">
-            <option ng-repeat="lang in $ctrl.service.filterOptions.lang" value="{{lang}}">{{'pages.advisorList.filterOptions.lang.' + lang | translate}}</option>
-        </select>
-    </div>
     <div style="margin-top:10px;border:solid black 1px;padding:25px;" ng-if="$ctrl.service[$ctrl.service.objectName].length > 0">
         <!--
         <div ng-if="$ctrl.detectMobile.isDesktop" ng-include="$ctrl.service.desktopTemplatePath">
