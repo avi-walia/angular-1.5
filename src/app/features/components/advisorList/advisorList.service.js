@@ -76,7 +76,8 @@
             lang: [
                 FILTERS.lang.english,
                 FILTERS.lang.french
-            ]
+            ],
+            province: FILTERS.province
         }
         /* values of active filters */
         service.selectedFilters = {
