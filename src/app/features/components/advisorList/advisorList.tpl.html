@@ -1,3 +1,14 @@
+ZZ
+<ui-select style="border:2px solid black;" multiple ng-model="$ctrl.service.selectedFilters.province" theme="bootstrap" close-on-select="false" style="width: 300px;" title="Choose a color">
+    <ui-select-match placeholder="Select provinces...">{{$item.label}}</ui-select-match>
+    <ui-select-choices repeat="province in $ctrl.service.filterOptions.province | filter:$select.search">
+        {{province.label}}
+    </ui-select-choices>
+</ui-select>
+XX
+{{$ctrl.service.example14model}}
+    <br><br>
+
 
 <div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="advisorList">
     <div>
@@ -13,6 +24,14 @@
                     </select>
                 </div>
             </div>
+            <div style="display:inline-block;">
+                <div>
+                    Filter by Province:<br>
+                    <select ng-model="$ctrl.service.selectedFilters.province" ng-change="$ctrl.service.setFilters($ctrl.service.filters.province)">
+                        <option ng-repeat="province in $ctrl.service.filterOptions.province" value="{{province}}">{{'pages.advisorList.filterOptions.province.' + province | translate}}</option>
+                    </select>
+                </div>
+            </div>
         </div>
         <div style="clear:both;">
             <paginator-infinite-scroll style="clear:both;" service="$ctrl.service">
@@ -20,4 +39,6 @@
         </div>
     </div>
 </div>
+
+
 

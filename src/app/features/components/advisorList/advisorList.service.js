@@ -21,7 +21,8 @@
         var secondaryResults = [];
         //names of available filters
         service.filters = {
-            lang: 'lang'
+            lang: 'lang',
+            province:'province'
         };
 
         //one of the filters was changed, update the array of filters.
@@ -33,6 +34,14 @@
                 //filter needs to be added to the array
                 if (x < 0) {
                     service.activeFilters.push(filterLang);
+                }
+            }
+            if (filterName === service.filters.province) {
+                //see if the filter has already been added to the array.
+                var x = service.activeFilters.indexOf(filterProv);
+                //filter needs to be added to the array
+                if (x < 0) {
+                    service.activeFilters.push(filterProv);
                 }
             }
             //run all filters
@@ -70,6 +79,11 @@
              */
             return (advisor.spokenLanguage === FILTERS.lang.bilingual || advisor.spokenLanguage === service.selectedFilters.lang);
         }
+        //Filter searchResults based on advisor's spokenLanguage
+        function filterProv(advisor) {
+            //only display advisors who match the province
+            return (advisor.partialBranchInfo.provinceAbbr === service.selectedFilters.province);
+        }
 
         //options to display in the language filter select
         service.filterOptions = {
@@ -77,11 +91,25 @@
                 FILTERS.lang.english,
                 FILTERS.lang.french
             ],
-            province: FILTERS.province
+            province: formatForMultiSelect(FILTERS.province)
+        };
+        function formatForMultiSelect(dataArray) {
+
+            var x = _.map(dataArray, function(obj,key){
+                console.log('obj: ', obj);
+                console.log('key: ', key);
+                return {
+                    id: key,
+                    label: obj
+                };
+            });
+            console.log('x: ', x);
+            return x;
         }
         /* values of active filters */
         service.selectedFilters = {
-            lang: null
+            lang: null,
+            province: null
         };
         //array indicating which filters are to be applied.
         service.activeFilters = [];
