@@ -21,6 +21,13 @@
         "lastName": "Last Name",
         "city": "City",
         "province": "Province"
+      },
+      "filterOptions": {
+        "lang": {
+          "Language": "Language Spoken",
+          "English": "English",
+          "French": "French"
+        }
       }
     }
   },

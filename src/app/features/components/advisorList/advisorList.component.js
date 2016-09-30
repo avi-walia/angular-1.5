@@ -4,6 +4,14 @@
 
     angular
         .module('advisorLocator.features.searchByName')
+        .constant('FILTERS', {
+            lang: {
+                language: 'Language',
+                english: 'English',
+                french: 'French',
+                bilingual: 'Bilingual'
+            }
+        })
         .component('advisorList', {
             controller: advisorListCtrl,
             templateUrl:'app/features/components/advisorList/advisorList.tpl.html'

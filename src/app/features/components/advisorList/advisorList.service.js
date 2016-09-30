@@ -11,19 +11,80 @@
         'server',
         'BASE_URL',
         'ENDPOINT_URI',
-        'ELEMENTS_PER_PAGE'
+        'ELEMENTS_PER_PAGE',
+        'FILTERS'
     ];
 
-    function advisorService(removeDiacriticsService, server, BASE_URL, ENDPOINT_URI, ELEMENTS_PER_PAGE) {
+    function advisorService(removeDiacriticsService, server, BASE_URL, ENDPOINT_URI, ELEMENTS_PER_PAGE, FILTERS) {
         var service = this;
-
+        console.log('FILTERS: ', FILTERS)
         //This array stores results that contain some but not all the search terms. This is displayed IF AND ONLY IF there are no results that contain all search terms.
         var secondaryResults = [];
+        //names of available filters
+        service.filters = {
+            lang: 'lang'
+        };
+        service.setFilters = function(filterName) {
+            console.log('test: ', service.selectedFilters.lang);
+            //console.log('service.selectedFilters.lang: ', service.selectedFilters.lang);
+            if (filterName === service.filters.lang) {
+                    var x = service.activeFilters.indexOf(filterLang);
+                    if (x < 0) {
 
+                        if (service.selectedFilters.lang !== FILTERS.lang.language) {
+                            service.activeFilters.push(filterLang);
+                        } else {
+                            
+                    }
+                } else {
+
+                }
+            }
+            service.filter();
+        }
+
+        function filterLooper(advisor) {
+            var ret = true;
+            _.forEach(service.activeFilters, function(filter, index) {
+
+                //console.log('x: ', advisor.spokenLanguage);
+                var temp = filter(advisor);
+                //console.log('temp: ', temp);
+                if (!temp) {
+                    ret = false;
+                    return false;
+                }
+            });
+            return ret;
+        }
+
+        service.filter = function() {
+            service.filteredSearchResults = _.filter(service.searchResults, filterLooper);
+            console.log('before: ', service.filteredSearchResults);
+        };
+
+        function filterLang(advisor) {
+            return (advisor.spokenLanguage === FILTERS.lang.bilingual || advisor.spokenLanguage === service.selectedFilters.lang);
+        }
+
+        service.filterOptions = {
+            lang: [
+                FILTERS.lang.language,
+                FILTERS.lang.english,
+                FILTERS.lang.french
+            ]
+        }
+        /* values of active filters */
+        service.selectedFilters = {
+            lang: null
+        };
+        //array indicating which filters are to be applied.
+        service.activeFilters = [];
         /*
             Array of advisors that match search criteria.
          */
         service.searchResults = [];
+        service.filteredSearchResults = [];
         /*
             path to mobile/desktop templates used when rendering infinite scroll/pagination component.
             Not currently being used.
@@ -46,7 +107,7 @@
         service.searchTerm = '';
 
         //Used in infinite scroll/pagination component to determine what property of this service contains the array of data to be rendered.
-        service.objectName = 'searchResults'; //this string should be the same as the property holding your whole array of data.
+        service.objectName = 'filteredSearchResults'; //this string should be the same as the property holding your whole array of data.
 
         //Flag that indicates if the service is still loading. Either init function hasn't been called yet, or it has not finished yet.
         service.isLoading = true;
@@ -240,6 +301,8 @@
          */
         function search(searchTerm) {
             //empty the searchResults
+
+            service.filteredSearchResults = [];
             service.searchResults = [];
             secondaryResults = [];
             //remove punctuation, accents and multispaces.
@@ -340,6 +403,7 @@
 
             //sort searchResults and update the pagination/infinite scroll related trackers(maxPages, mobileMaxNumDisplay, currentPage).
             sortBy('lastname');
+            service.filter();
             updatePaginationInfiniteScroll();
         }
 
