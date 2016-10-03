@@ -1,15 +1,3 @@
-ZZ
-<ui-select style="border:2px solid black;" multiple ng-model="$ctrl.service.selectedFilters.province" theme="bootstrap" close-on-select="false" style="width: 300px;" title="Choose a color">
-    <ui-select-match placeholder="Select provinces...">{{$item.label}}</ui-select-match>
-    <ui-select-choices repeat="province in $ctrl.service.filterOptions.province | filter:$select.search">
-        {{province.label}}
-    </ui-select-choices>
-</ui-select>
-XX
-{{$ctrl.service.example14model}}
-    <br><br>
-
-
 <div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="advisorList">
     <div>
         <h2 translate>pages.advisorList.title</h2>
@@ -25,12 +13,18 @@ XX
                 </div>
             </div>
             <div style="display:inline-block;">
-                <div>
+                <div style="width:150px;">
                     Filter by Province:<br>
-                    <select ng-model="$ctrl.service.selectedFilters.province" ng-change="$ctrl.service.setFilters($ctrl.service.filters.province)">
-                        <option ng-repeat="province in $ctrl.service.filterOptions.province" value="{{province}}">{{'pages.advisorList.filterOptions.province.' + province | translate}}</option>
-                    </select>
+                    <ui-select style="border:2px solid black;" multiple ng-model="$ctrl.service.selectedFilters.province" ng-change="$ctrl.service.setFilters($ctrl.service.filters.province)" theme="bootstrap" close-on-select="false" style="width: 50px;" title="Choose a color">
+                        <ui-select-match placeholder="">{{$item.label}}</ui-select-match>
+                        <ui-select-choices repeat="province in $ctrl.service.filterOptions.province | filter:$select.search">
+                            {{province.label}}
+                        </ui-select-choices>
+                    </ui-select>
                 </div>
+            </div>
+            <div style="display:inline-block;">
+                <button ng-click="$ctrl.service.clearFilters()">{{'pages.advisorList.clearFilterLabel' | translate}}</button>
             </div>
         </div>
         <div style="clear:both;">

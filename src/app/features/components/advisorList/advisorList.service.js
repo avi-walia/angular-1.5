@@ -25,6 +25,13 @@
             province:'province'
         };
 
+        service.clearFilters = function() {
+            service.selectedFilters.lang = null;
+            service.selectedFilters.province = [];
+            service.activeFilters = [];
+            service.filteredSearchResults = service.searchResults;
+        }
+
         //one of the filters was changed, update the array of filters.
         service.setFilters = function(filterName) {
             //determine which filter changed
@@ -37,11 +44,21 @@
                 }
             }
             if (filterName === service.filters.province) {
+
+                console.log('service.selectedFilters.province: ', service.selectedFilters.province);
                 //see if the filter has already been added to the array.
                 var x = service.activeFilters.indexOf(filterProv);
-                //filter needs to be added to the array
-                if (x < 0) {
-                    service.activeFilters.push(filterProv);
+                //check if atleast one province has been chosen to filter by
+                if (service.selectedFilters.province.length > 0) {
+                    //There was atleast one province to filter by, filter needs to be added to the array if it isn't already part of the array
+                    if (x < 0) {
+                        service.activeFilters.push(filterProv);
+                    }
+                } else {
+                    //there were no provinces to filter by. Remove filter from array.
+                    if (x >= 0) {
+                        service.activeFilters.splice(x, 1);
+                    }
                 }
             }
             //run all filters
@@ -81,8 +98,21 @@
         }
         //Filter searchResults based on advisor's spokenLanguage
         function filterProv(advisor) {
-            //only display advisors who match the province
-            return (advisor.partialBranchInfo.provinceAbbr === service.selectedFilters.province);
+            //only display advisors who match the selected province
+            //return (advisor.partialBranchInfo.provinceAbbr === service.selectedFilters.province);
+
+
+            var ret = false;
+            //only display advisors who match the selected provinces
+            _.forEach(service.selectedFilters.province, function(selectedProvince, index) {
+                if (selectedProvince.label === advisor.partialBranchInfo.provinceAbbr) {
+                    //Advisor's province matches atleast one of the selected province filter
+                    ret = true;
+                    //break out of forEach
+                    return false;
+                }
+            });
+            return ret;
         }
 
         //options to display in the language filter select
@@ -99,7 +129,6 @@
                 console.log('obj: ', obj);
                 console.log('key: ', key);
                 return {
-                    id: key,
                     label: obj
                 };
             });

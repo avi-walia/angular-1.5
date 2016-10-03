@@ -43,7 +43,9 @@
           "SK": "SK",
           "YT": "YT"
         }
-      }
+      },
+      "provinceFilterPlaceHolder": "Select provinces...",
+      "clearFilterLabel": "Clear Filters"
     }
   },
   "helpLabel": "Help",
