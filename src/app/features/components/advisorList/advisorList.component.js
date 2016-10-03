@@ -5,6 +5,7 @@
     angular
         .module('advisorLocator.features.searchByName')
         .constant('FILTERS', {
+            /*
             lang: {
                 language: 'Language',
                 english: 'English',
@@ -26,7 +27,39 @@
                 'SK': 'SK',
                 'YT': 'YT'
             }
+            */
+            lang: {
+                options: {
+                    english: 'English',
+                    french: 'French'
+                },
+                defaultValues: [
+                    'Bilingual'
+                ]
+            },
+            province: {
+                options: [
+                    {'label': 'AB'},
+                    {'label': 'BC'},
+                    {'label': 'MB'},
+                    {'label': 'NB'},
+                    {'label': 'NL'},
+                    {'label': 'NS'},
+                    {'label': 'NT'},
+                    {'label': 'NU'},
+                    {'label': 'ON'},
+                    {'label': 'PE'},
+                    {'label': 'QC'},
+                    {'label': 'SK'},
+                    {'label': 'YT'}
+                ],
+                defaultValues: []
+            }
         })
+        .constant('AVAILABLE_FILTERS', [
+            'lang',
+            'province'
+        ])
         .component('advisorList', {
             controller: advisorListCtrl,
             templateUrl:'app/features/components/advisorList/advisorList.tpl.html'
