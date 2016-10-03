@@ -33,6 +33,7 @@
             filterNames is an array of filterNames
             Service must be initialized before it is used!
          */
+        /*
         service.init = function(filterNames, filterFuncs) {
             //service.allData = allData;
             filterNames = _.flatMap(filterNames, extractProps);
@@ -48,7 +49,7 @@
                 //}
             });
             console.log('service: ', service);
-        };
+        };*/
 
         service.clearFilters = function() {
             /*
@@ -107,9 +108,12 @@
         }
 
         function activate_deactivate_filter(filterData) {
+            console.log('filterData1123: ', filterData);
             var x = service.activeFilters.indexOf(filterData.filterFunc);
+
+            console.log('x: ', x);
             //check if atleast one province has been chosen to filter by
-            if (filterData.values && (typeof filterData.values === 'string' || filterData.values.length > 0)) {
+            if ((filterData.hasOwnProperty('value') && filterData.value) || (filterData.hasOwnProperty('values') && filterData.values.length > 0)) {
                 //There was atleast one province to filter by, filter needs to be added to the array if it isn't already part of the array
                 if (x < 0) {
                     service.activeFilters.push(filterData.filterFunc);
@@ -120,6 +124,7 @@
                     service.activeFilters.splice(x, 1);
                 }
             }
+            console.log('service.activeFilters: ', service.activeFilters);
         }
 
         function filterLooper(advisor) {
@@ -142,7 +147,7 @@
         service.filter = function() {
             //loop through all searchResults and apply each filter in the array of active filters to get the filteredSearchResults
             //service.filteredSearchResults = _.filter(service.searchResults, filterLooper);
-
+            console.log('allData: ', service.allData);
             return _.filter(service.allData, filterLooper);
         };
 

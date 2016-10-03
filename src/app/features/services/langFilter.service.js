@@ -1,3 +1,4 @@
+//single filter
 (function () {
     'use strict';
 
@@ -6,17 +7,20 @@
         .service('langFilterService', langFilterService);
 
     langFilterService.$inject = [
-        'FILTER',
     ];
 
     /* @ngInject */
-    function langFilterService(FILTER) {
+    function langFilterService() {
         var service = this;
 
-        service.defaultValue = '';
+        service.defaultValue = 'Bilingual';
         service.filterFunc = filterLang;
-        service.label = '';
-        service.value
+        service.label = 'lang';
+        service.value = '';
+        service.options = [
+            'English',
+            'French'
+        ];
 
 
 
@@ -26,10 +30,8 @@
              otherwise advisors will only be displayed if they're spokenLanguage is equal to service.selectedFilters.lang.
              */
             console.log('advisor: ', advisor.spokenLanguage);
-            console.log('value: ',service.filterRunnerService.filters.lang.values);
-            console.log('FILTERS.lang.bilingual: ', service.filterRunnerService.filters.lang.defaultValues);
-            //return (advisor.spokenLanguage === FILTERS.lang.bilingual || advisor.spokenLanguage === service.selectedFilters.lang);
-            return (advisor.spokenLanguage === service.filterRunnerService.filters.lang.defaultValues[0] || advisor.spokenLanguage === service.filterRunnerService.filters.lang.values);
+            console.log('service.value: ', service.value);
+            return (advisor.spokenLanguage === service.defaultValue || advisor.spokenLanguage === service.value);
         }
 
 

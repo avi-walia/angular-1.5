@@ -33,9 +33,7 @@
                     english: 'English',
                     french: 'French'
                 },
-                defaultValues: [
-                    'Bilingual'
-                ]
+                defaultValue: 'Bilingual'
             },
             province: {
                 options: [

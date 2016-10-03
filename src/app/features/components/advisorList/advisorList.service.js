@@ -13,10 +13,12 @@
         'ENDPOINT_URI',
         'ELEMENTS_PER_PAGE',
         'FILTERS',
-        'filterRunnerService'
+        'filterRunnerService',
+        'langFilterService',
+        'provinceFilterService'
     ];
 
-    function advisorService(removeDiacriticsService, server, BASE_URL, ENDPOINT_URI, ELEMENTS_PER_PAGE, FILTERS, filterRunnerService) {
+    function advisorService(removeDiacriticsService, server, BASE_URL, ENDPOINT_URI, ELEMENTS_PER_PAGE, FILTERS, filterRunnerService, langFilterService, provinceFilterService) {
         var service = this;
         //This array stores results that contain some but not all the search terms. This is displayed IF AND ONLY IF there are no results that contain all search terms.
         var secondaryResults = [];
@@ -25,94 +27,17 @@
             lang: 'lang',
             province:'province'
         };
-        var filterFuncs = {
-            lang: filterLang,
-            province: filterProv
-        }
         service.updateFilters = function(filter) {
+            console.log('filter: ', filter);
             service.filterRunnerService.setFilters(filter);
-
             service.filteredSearchResults = service.filterRunnerService.filter();
         }
-        filterRunnerService.init(service.filters, filterFuncs);
+
+        //filterRunnerService.init(service.filters, filterFuncs);
         service.filterRunnerService = filterRunnerService;
-
-        service.clearFilters = function() {
-            service.selectedFilters.lang = null;
-            service.selectedFilters.province = [];
-            service.activeFilters = [];
-            service.filteredSearchResults = service.filterRunnerService.allData;
-        }
-
-        //one of the filters was changed, update the array of filters.
-        service.setFilters = function(filterName) {
-            //determine which filter changed
-            if (filterName === service.filters.lang) {
-                //see if the filter has already been added to the array.
-                var x = service.activeFilters.indexOf(filterLang);
-                //filter needs to be added to the array
-                if (x < 0) {
-                    service.activeFilters.push(filterLang);
-                }
-            }
-            if (filterName === service.filters.province) {
-
-                console.log('service.selectedFilters.province: ', service.selectedFilters.province);
-                //see if the filter has already been added to the array.
-                var x = service.activeFilters.indexOf(filterProv);
-                //check if atleast one province has been chosen to filter by
-                if (service.selectedFilters.province.length > 0) {
-                    //There was atleast one province to filter by, filter needs to be added to the array if it isn't already part of the array
-                    if (x < 0) {
-                        service.activeFilters.push(filterProv);
-                    }
-                } else {
-                    //there were no provinces to filter by. Remove filter from array.
-                    if (x >= 0) {
-                        service.activeFilters.splice(x, 1);
-                    }
-                }
-            }
-            //run all filters
-            //service.filter();
-            service.filteredSearchResults = service.filterRunnerService.filter();
-        }
-
-        //loop through all active filters to see if the advisor should be displayed or not.
-        function filterLooper(advisor) {
-            //assume advisor passes all filters and should be displayed.
-            var ret = true;
-            //loop through each active filter.
-            _.forEach(service.activeFilters, function(filter, index) {
-                //if the advisor does not pass the filter, it should be removed.
-                if (!filter(advisor)) {
-                    //advisor did not pass filter, remove it from the filteredSearchResults
-                    ret = false;
-                    //break out of the forEach
-                    return false;
-                }
-            });
-            //returns true if advisor should be added to filteredSearchResults, returns false otherwise.
-            return ret;
-        }
-
-        service.filter = function() {
-            //loop through all searchResults and apply each filter in the array of active filters to get the filteredSearchResults
-            service.filteredSearchResults = _.filter(service.filterRunnerService.allData, filterLooper);
-        };
-
-        //Filter searchResults based on advisor's spokenLanguage
-        function filterLang(advisor) {
-            /*
-            bilingual advisors will always show up.
-            otherwise advisors will only be displayed if they're spokenLanguage is equal to service.selectedFilters.lang.
-             */
-            console.log('advisor: ', advisor.spokenLanguage);
-            console.log('value: ',service.filterRunnerService.filters.lang.values);
-            console.log('FILTERS.lang.bilingual: ', service.filterRunnerService.filters.lang.defaultValues);
-            //return (advisor.spokenLanguage === FILTERS.lang.bilingual || advisor.spokenLanguage === service.selectedFilters.lang);
-            return (advisor.spokenLanguage === service.filterRunnerService.filters.lang.defaultValues[0] || advisor.spokenLanguage === service.filterRunnerService.filters.lang.values);
-        }
+        filterRunnerService.filters.lang = langFilterService;
+        filterRunnerService.filters.province = provinceFilterService;
+        
         //Filter searchResults based on advisor's spokenLanguage
         function filterProv(advisor) {
             //only display advisors who match the selected province
@@ -159,9 +84,9 @@
         /*
             Array of advisors that match search criteria.
          */
-        service.filterRunnerService.allData = [];
+        service.searchResults = [];
 
-        //Subset of service.filterRunnerService.allData that passes filters.
+        //Subset of service.searchResults that passes filters.
         service.filteredSearchResults = [];
         /*
             path to mobile/desktop templates used when rendering infinite scroll/pagination component.
@@ -214,12 +139,12 @@
         service.pageChanged = pageChanged;
 
         /*
-            Function to find advisors matching search logic and add them to the service.filterRunnerService.allData array.
-            Note: service.filterRunnerService.allData array will be emptied when this function is called, and then new matching advisors will be added.
+            Function to find advisors matching search logic and add them to the service.searchResults array.
+            Note: service.searchResults array will be emptied when this function is called, and then new matching advisors will be added.
          */
         service.search = search;
 
-        //Function to sort service.filterRunnerService.allData
+        //Function to sort service.searchResults
         service.sortBy = sortBy;
 
         //Comparator function to be passed to the array sort function to sort advisors by firstname.
@@ -253,11 +178,11 @@
         //Function updates the maximum number of items allowed to be displayed on mobile.
         function loadMore() {
             //increase the number of results to display by the default amount if this does not exceed the total number of search results.
-            if (service.mobileMaxNumDisplay < (service.filterRunnerService.allData.length - service.numPerPage) ) {
+            if (service.mobileMaxNumDisplay < (service.searchResults.length - service.numPerPage) ) {
                 service.mobileMaxNumDisplay += service.numPerPage;
             //There are not enough search results to increase the mobileMaxNumDisplay by the default, therefore just make it the same as the number of results.
             } else {
-                service.mobileMaxNumDisplay = service.filterRunnerService.allData.length;
+                service.mobileMaxNumDisplay = service.searchResults.length;
             }
         }
 
@@ -342,16 +267,16 @@
 
             //sort by first name.
             if (sortOption === service.sortableColumns[0]) {
-                service.filterRunnerService.allData.sort(compareFirstname);
+                service.searchResults.sort(compareFirstname);
             //sort by last name.
             } else if (sortOption === service.sortableColumns[1]) {
-                service.filterRunnerService.allData.sort(compareLastname);
+                service.searchResults.sort(compareLastname);
             //sort by city.
             } else if (sortOption === service.sortableColumns[2]) {
-                service.filterRunnerService.allData.sort(compareCity);
+                service.searchResults.sort(compareCity);
             //sort by province.
             } else if (sortOption === service.sortableColumns[3]){
-                service.filterRunnerService.allData.sort(compareProvince);
+                service.searchResults.sort(compareProvince);
             }
         }
         //we want to group all the single letter characters at the end.
@@ -381,7 +306,7 @@
             //empty the searchResults
 
             service.filteredSearchResults = [];
-            service.filterRunnerService.allData = [];
+            service.searchResults = [];
             secondaryResults = [];
             //remove punctuation, accents and multispaces.
             service.searchPhrase = stripPunctuation(removeDiacriticsService.remove(searchTerm.replace(/ +(?= )/g,'')));
@@ -417,8 +342,8 @@
                 _.forEach(service.allAdvisors, function(advisor, index) {
                     containsSearch(advisor.cNameArr, advisor.fNameArr, advisor.lNameArr,  subTerms, index);
                 });
-                if (service.filterRunnerService.allData.length === 0) {
-                    service.filterRunnerService.allData = secondaryResults;
+                if (service.searchResults.length === 0) {
+                    service.searchResults = secondaryResults;
                 }
             } else {
                 //none of the search functions were invoked, thus searchTerm must be too short.
@@ -432,6 +357,7 @@
             sortBy('lastname');
             //service.filter();
 
+            service.filterRunnerService.allData = service.searchResults;
             service.filteredSearchResults = service.filterRunnerService.filter();
             updatePaginationInfiniteScroll();
         }
@@ -479,7 +405,7 @@
             var countMatches = 0;
             if (numMatchedSearchTerms === searchTerms.length) {
                 service.allAdvisors[index].showCommon = false;
-                service.filterRunnerService.allData.push(service.allAdvisors[index]);
+                service.searchResults.push(service.allAdvisors[index]);
                 return;
             }
             if (remainingSearchTerms.length) {
@@ -498,7 +424,7 @@
                     } else {
                         service.allAdvisors[index].showCommon = false;
                     }
-                    service.filterRunnerService.allData.push(service.allAdvisors[index]);
+                    service.searchResults.push(service.allAdvisors[index]);
                     return;
                 }
                 countMatches = 0;
@@ -512,7 +438,7 @@
                 });
                 if (countMatches === remainingSearchTerms.length) {
                     service.allAdvisors[index].showCommon = false;
-                    service.filterRunnerService.allData.push(service.allAdvisors[index]);
+                    service.searchResults.push(service.allAdvisors[index]);
                     return;
                 }
             }
@@ -524,7 +450,7 @@
 
         //update the pagination/infinite scroll related trackers(maxPages, mobileMaxNumDisplay, currentPage).
         function updatePaginationInfiniteScroll() {
-            service.maxPages = Math.ceil(service.filterRunnerService.allData.length / service.numPerPage);
+            service.maxPages = Math.ceil(service.searchResults.length / service.numPerPage);
             service.mobileMaxNumDisplay = service.numPerPage;
             service.currentPage = 1;
         }
@@ -544,12 +470,12 @@
                 //check if commonName CONTAINS the searchTerm
                 if (commonName && (commonName.indexOf(searchTerm) >= 0 || cName.indexOf(searchTerm) >= 0)) {
                     service.allAdvisors[index].showCommon = true;
-                    service.filterRunnerService.allData.push(advisor);
+                    service.searchResults.push(advisor);
                 //check if firstName CONTAINS the searchTerm
                 } else if(firstName.indexOf(searchTerm) >= 0 || fName.indexOf(searchTerm) >= 0) {
                     service.allAdvisors[index].showCommon = false;
                     advisor.showCommon = false;
-                    service.filterRunnerService.allData.push(advisor);
+                    service.searchResults.push(advisor);
                 //check if lastName CONTAINS the searchTerm
                 } else if(lastName.indexOf(searchTerm) >= 0 || lName.indexOf(searchTerm) >= 0) {
                     //lastName CONTAINS the search term, see if they have a commonName to display.
@@ -560,7 +486,7 @@
                         //commonName does not exist, show firstName
                         service.allAdvisors[index].showCommon = false;
                     }
-                    service.filterRunnerService.allData.push(advisor);
+                    service.searchResults.push(advisor);
                 }
             });
         }
