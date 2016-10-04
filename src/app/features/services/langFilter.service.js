@@ -29,8 +29,6 @@
              bilingual advisors will always show up.
              otherwise advisors will only be displayed if they're spokenLanguage is equal to service.selectedFilters.lang.
              */
-            console.log('advisor: ', advisor.spokenLanguage);
-            console.log('service.value: ', service.value);
             return (advisor.spokenLanguage === service.defaultValue || advisor.spokenLanguage === service.value);
         }
 

@@ -5,20 +5,10 @@
         .module('advisorLocator.features.searchByName')
         .service('filterRunnerService', filterRunnerService);
 
-    filterRunnerService.$inject = [
-
-        'FILTERS'
-    ];
-
     /* @ngInject */
-    function filterRunnerService(FILTERS) {
+    function filterRunnerService() {
         var service = this;
-/*
-        service.filters = {
-            lang: 'lang',
-            province:'province'
-        };
-        */
+
         service.filters = {};//array of all filters
         service.activeFilters = [];//array of active filter functions
         service.allData = [];
@@ -27,30 +17,6 @@
         function extractProps(value, index) {
             return index;
         }
-
-        /*
-            initialize the filters object with available filters.
-            filterNames is an array of filterNames
-            Service must be initialized before it is used!
-         */
-        /*
-        service.init = function(filterNames, filterFuncs) {
-            //service.allData = allData;
-            filterNames = _.flatMap(filterNames, extractProps);
-            _.forEach(filterNames, function(filterName) {
-                var filterData = FILTERS[filterName];
-                //if (FILTERS.hasOwnProperty(('filterName'))) {
-                    service.filters[filterName] = {
-                        label: filterName,
-                        filterFunc: filterFuncs[filterName],
-                        values: null,
-                        defaultValues: filterData.defaultValues//filters on default values only run if values is not null.
-                    };
-                //}
-            });
-            console.log('service: ', service);
-        };*/
-
         service.clearFilters = function() {
             /*
             service.selectedFilters.lang = null;
@@ -64,69 +30,38 @@
             //service.filteredSearchResults = service.searchResults;
         };
 
-        //one of the filters was changed, update the array of filters.
-        /*
+        //a filter was changed, see if it needs to be added or removed from the array of active filters.
+        //filterName is the name of the filter that changed
         service.setFilters = function(filterName) {
-            //determine which filter changed
-            if (filterName === service.filters.lang) {
-                //see if the filter has already been added to the array.
-                var x = service.activeFilters.indexOf(filterLang);
-                //filter needs to be added to the array
-                if (x < 0) {
-                    service.activeFilters.push(filterLang);
-                }
-            }
-            if (filterName === service.filters.province) {
-
-                console.log('service.selectedFilters.province: ', service.selectedFilters.province);
-                //see if the filter has already been added to the array.
-                var x = service.activeFilters.indexOf(filterProv);
-                //check if atleast one province has been chosen to filter by
-                if (service.selectedFilters.province.length > 0) {
-                    //There was atleast one province to filter by, filter needs to be added to the array if it isn't already part of the array
-                    if (x < 0) {
-                        service.activeFilters.push(filterProv);
-                    }
-                } else {
-                    //there were no provinces to filter by. Remove filter from array.
-                    if (x >= 0) {
-                        service.activeFilters.splice(x, 1);
-                    }
-                }
-            }
-            //run all filters
-            service.filter();
-        }
-        */
-
-        service.setFilters = function(filterName) {
+            //loop through the array of possible filters to find the one that was activated.
             _.forEach(service.filters, function(filterData){
                if (filterData.label === filterName) {
+                   //see if it needs to be removed or added to the array of active filters.
                    activate_deactivate_filter(filterData);
                }
             });
         }
 
+        //This function checks the filter that changed and either adds or removes it from the array of active filters.
         function activate_deactivate_filter(filterData) {
-            console.log('filterData1123: ', filterData);
             var x = service.activeFilters.indexOf(filterData.filterFunc);
 
-            console.log('x: ', x);
-            //check if atleast one province has been chosen to filter by
+            //check if the property to filter by has a value or is an array of acceptable values
             if ((filterData.hasOwnProperty('value') && filterData.value) || (filterData.hasOwnProperty('values') && filterData.values.length > 0)) {
-                //There was atleast one province to filter by, filter needs to be added to the array if it isn't already part of the array
+                //There was atleast one property to filter by, filter needs to be added to the array if it isn't already part of the array
                 if (x < 0) {
+                    //filter was not part of array, add it.
                     service.activeFilters.push(filterData.filterFunc);
                 }
             } else {
-                //there were no provinces to filter by. Remove filter from array.
+                //there were no property to filter by. Remove filter from array.
                 if (x >= 0) {
                     service.activeFilters.splice(x, 1);
                 }
             }
-            console.log('service.activeFilters: ', service.activeFilters);
         }
 
+        //loops through all active filters and applies them.
         function filterLooper(advisor) {
             //assume advisor passes all filters and should be displayed.
             var ret = true;
@@ -146,12 +81,8 @@
 
         service.filter = function() {
             //loop through all searchResults and apply each filter in the array of active filters to get the filteredSearchResults
-            //service.filteredSearchResults = _.filter(service.searchResults, filterLooper);
-            console.log('allData: ', service.allData);
             return _.filter(service.allData, filterLooper);
         };
-
-
 
     }
 

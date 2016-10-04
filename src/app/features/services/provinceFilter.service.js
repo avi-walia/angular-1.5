@@ -35,12 +35,8 @@
 
 
         function filterProv(advisor) {
-            //only display advisors who match the selected province
-            //return (advisor.partialBranchInfo.provinceAbbr === service.selectedFilters.province);
-
-
             var ret = false;
-            //only display advisors who match the selected provinces
+            //only display advisors who match atleast one of the selected provinces
             _.forEach(service.values, function(selectedProvince, index) {
                 if (selectedProvince.label === advisor.partialBranchInfo.provinceAbbr) {
                     //Advisor's province matches atleast one of the selected province filter

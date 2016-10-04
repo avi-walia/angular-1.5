@@ -28,7 +28,6 @@
             province:'province'
         };
         service.updateFilters = function(filter) {
-            console.log('filter: ', filter);
             service.filterRunnerService.setFilters(filter);
             service.filteredSearchResults = service.filterRunnerService.filter();
         }
@@ -37,13 +36,9 @@
         service.filterRunnerService = filterRunnerService;
         filterRunnerService.filters.lang = langFilterService;
         filterRunnerService.filters.province = provinceFilterService;
-        
+
         //Filter searchResults based on advisor's spokenLanguage
         function filterProv(advisor) {
-            //only display advisors who match the selected province
-            //return (advisor.partialBranchInfo.provinceAbbr === service.selectedFilters.province);
-
-
             var ret = false;
             //only display advisors who match the selected provinces
             _.forEach(service.selectedFilters.province, function(selectedProvince, index) {
@@ -62,25 +57,6 @@
             lang: FILTERS.lang.options,
             province: FILTERS.province.options
         };
-        function formatForMultiSelect(dataArray) {
-
-            var x = _.map(dataArray, function(obj,key){
-                console.log('obj: ', obj);
-                console.log('key: ', key);
-                return {
-                    label: obj
-                };
-            });
-            console.log('x: ', x);
-            return x;
-        }
-        /* values of active filters */
-        service.selectedFilters = {
-            lang: null,
-            province: null
-        };
-        //array indicating which filters are to be applied.
-        service.activeFilters = [];
         /*
             Array of advisors that match search criteria.
          */
@@ -359,6 +335,7 @@
 
             service.filterRunnerService.allData = service.searchResults;
             service.filteredSearchResults = service.filterRunnerService.filter();
+
             updatePaginationInfiniteScroll();
         }
 

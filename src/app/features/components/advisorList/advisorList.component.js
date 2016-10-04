@@ -76,9 +76,10 @@
         var vm = this;
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;
-        advisorService.init();
         vm.service = advisorService;
-
+        if(vm.service.isLoading) {
+            vm.service.init();
+        }
     }
 
 })();
