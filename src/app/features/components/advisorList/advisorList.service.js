@@ -36,6 +36,10 @@
         service.filterRunnerService = filterRunnerService;
         filterRunnerService.filters.lang = langFilterService;
         filterRunnerService.filters.province = provinceFilterService;
+        service.clearFilters = function() {
+            service.filterRunnerService.clearFilters();
+            service.filteredSearchResults = service.searchResults;
+        }
 
         //Filter searchResults based on advisor's spokenLanguage
         function filterProv(advisor) {
@@ -369,6 +373,7 @@
             var remainingSearchTerms = [];
             var partialMatch = false;
             var numMatchedSearchTerms = 0;
+
             _.forEach(searchTerms, function(searchTerm, searchIndex) {
                 _.forEach(lNameArr, function(lName){
                     if (termComparator(lName, searchTerm, alreadyMatched)) {
