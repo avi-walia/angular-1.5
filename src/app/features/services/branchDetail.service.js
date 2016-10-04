@@ -6,14 +6,11 @@
         .service('branchDetailService', branchDetailService);
 
     branchDetailService.$inject = [
-        'server',
-        'BASE_URL',
-        'ENDPOINT_URI',
         'branchListService'
     ];
 
     /* @ngInject */
-    function branchDetailService(server, BASE_URL, ENDPOINT_URI, branchListService) {
+    function branchDetailService(branchListService) {
         var service = this;
 
 
@@ -22,8 +19,6 @@
         service.getBranchDetail = getBranchDetail;
 
         service.branchListService = branchListService;
-
-
 
 
         function getBranchDetail(branchID) {
@@ -78,6 +73,8 @@
 
 
             });
+
+            return service.branchDetail;
 
         }
 
