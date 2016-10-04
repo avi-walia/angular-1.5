@@ -370,20 +370,20 @@
             A partial search term and a single character search term can still match on the same word. Will need maximum matching bipartite graph algorithm to solve that.
          */
         function termComparator(name, searchTerm, alreadyMatched) {
-
+/*
             if (name === 'gianni' || name === 'de' || name === 'pastena') {
-                console.log('name: ', name);
-                console.log('searchTerm: ', searchTerm);
-                console.log('alreadyMatched: ', alreadyMatched);
-                console.log('searchTerm.length: ', searchTerm.length);
+                //console.log('name: ', name);
+                //console.log('searchTerm: ', searchTerm);
+                //console.log('alreadyMatched: ', alreadyMatched);
+                //console.log('searchTerm.length: ', searchTerm.length);
             }
-
-
+*/
+/*
             //if the searchTerm is only 1 letter long, it has to match against the first letter of the name.
             if (searchTerm.length === 1) {
-                if (alreadyMatched.indexOf(searchTerm) < 0) {
+                if (alreadyMatched.indexOf(name) < 0) {
                     if (name.substring(0, 1) === searchTerm) {
-                        alreadyMatched.push(searchTerm);
+                        alreadyMatched.push(name);
                         return true;
                     } else {
                         return false;
@@ -393,17 +393,24 @@
                 }
             } else {
                 //console.log('ok', alreadyMatched);
-                if (alreadyMatched.indexOf(searchTerm) >= 0) {
+                if (alreadyMatched.indexOf(name) >= 0) {
                     //console.log('huh?');
-                    return true;
+                    return false;
                 } else {
                     var temp = name.indexOf(searchTerm) >= 0;
                     //console.log('temp: ', temp);
                     if (temp) {
-                        alreadyMatched.push(searchTerm);
+                        alreadyMatched.push(name);
                     }
                     return temp;
                 }
+            }
+            */
+
+            if (searchTerm.length === 1) {
+                return name.substring(0, 1) === searchTerm;
+            } else {
+                return name.indexOf(searchTerm) >= 0;
             }
         }
 
@@ -411,10 +418,9 @@
             var showCommon = false;
 
             if (cNameArr[0] === 'gianni' || lNameArr[0] === 'gianni' || lNameArr[1] === 'de' || lNameArr[1] === 'pastena') {
-                console.log('test1123', cNameArr);
-                console.log('test1123', lNameArr);
-                console.log('test1123', fNameArr);
-                //console.log('remainingSearchTerms: ', remainingSearchTerms);
+                //console.log('test1123', cNameArr);
+                //console.log('test1123', lNameArr);
+                //console.log('test1123', fNameArr);
             }
             var alreadyMatched = [];
             var remainingSearchTerms = [];
@@ -423,6 +429,12 @@
             _.forEach(searchTerms, function(searchTerm, searchIndex) {
                 _.forEach(lNameArr, function(lName){
                     if (termComparator(lName, searchTerm, alreadyMatched)) {
+                        if (cNameArr[0] === 'gianni' || lNameArr[0] === 'gianni' || lNameArr[1] === 'de' || lNameArr[1] === 'pastena') {
+                            //console.log('lname: ', lName);
+                            //console.log('searchTerm: ', searchTerm);
+                            //console.log('alreadyMatched: ', alreadyMatched);
+                        }
+
                         partialMatch = true;
                         numMatchedSearchTerms++;
                     } else {
@@ -436,22 +448,18 @@
             var countMatches = 0;
 
 
-            if (cNameArr[0] === 'gianni' || lNameArr[0] === 'gianni' || lNameArr[1] === 'de' || lNameArr[1] === 'pastena') {
-                console.log('numMatchedSearchTerms: ', numMatchedSearchTerms);
-                console.log('remainingSearchTerms: ', remainingSearchTerms);
-                console.log('remainingSearchTerms: ', searchTerms);
+            if (cNameArr[0] === 'dixie' || lNameArr[0] === 'dixie' || lNameArr[0] === 'allen') {
+                //console.log('numMatchedSearchTerms: ', numMatchedSearchTerms);
+                //console.log('remainingSearchTerms: ', remainingSearchTerms);
+                //console.log('remainingSearchTerms: ', searchTerms);
             }
-            /*
-            if ((fNameArr[0] === 'dixie' || cNameArr[0] === 'dixie') && lNameArr[0] === 'allen') {
-                console.log('numMatchedSearchTerms: ', numMatchedSearchTerms);
-                console.log('searchTerms.length: ', searchTerms.length);
-            }
-            */
             if (numMatchedSearchTerms === searchTerms.length) {
-                //console.log('service.allAdvisors[index]: ', service.allAdvisors[index]);
-                console.log('huh');
+                if (cNameArr[0] === 'gianni' || lNameArr[0] === 'gianni' || lNameArr[1] === 'de' || lNameArr[1] === 'pastena') {
+                    //console.log('huh1123');
+                }
                 service.allAdvisors[index].showCommon = false;
                 service.searchResults.push(service.allAdvisors[index]);
+                console.log('arg3');
                 return;
             }
             if (remainingSearchTerms.length) {
@@ -472,15 +480,30 @@
                     }
 
                     if (cNameArr[0] === 'gianni' || lNameArr[0] === 'gianni' || lNameArr[1] === 'de' || lNameArr[1] === 'pastena') {
-                        console.log('test1: ');
+                        //console.log('test1: ');
                     }
                     service.searchResults.push(service.allAdvisors[index]);
+                    console.log('arg2');
                     return;
                 }
                 countMatches = 0;
+
+/*
+                if (cNameArr[0] === 'dixie' || lNameArr[0] === 'dixie' || lNameArr[0] === 'allen') {
+                    console.log('remainingSearchTerms: ', remainingSearchTerms);
+                    console.log('fNameArr: ', fNameArr);
+                    console.log('fNameArr: ', fNameArr);
+                }*/
                 _.forEach(remainingSearchTerms, function (searchTerm, searchIndex) {
                     _.forEach(fNameArr, function (firstName, searchIndex) {
+
                         if (termComparator(firstName, searchTerm, alreadyMatched)) {
+
+                            if (cNameArr[0] === 'dixie' || lNameArr[0] === 'dixie' || lNameArr[0] === 'allen') {
+                                console.log('alreadyMatched: ', alreadyMatched);
+                                console.log('firstName: ', firstName);
+                                console.log('searchTerm: ', searchTerm);
+                            }
                             partialMatch = true;
                             countMatches++;
                         }
@@ -489,8 +512,9 @@
                 if (countMatches === remainingSearchTerms.length) {
                     service.allAdvisors[index].showCommon = false;
                     service.searchResults.push(service.allAdvisors[index]);
+                    console.log('arg1');
                     if (cNameArr[0] === 'gianni' || lNameArr[0] === 'gianni' || lNameArr[1] === 'de' || lNameArr[1] === 'pastena') {
-                        console.log('test2: ');
+                        //console.log('test2: ');
                     }
                     return;
                 }
