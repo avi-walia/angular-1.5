@@ -22,8 +22,8 @@
     "angular-media-queries": "^0.6.1",
     "lodash": "^4.15.0",
     "ng-device-detector": "^3.0.1",
-    "headroom.js": "https://npmcdn.com/headroom.js/bower.zip"
-
+    "headroom.js": "https://npmcdn.com/headroom.js/bower.zip",
+    "angular-ui-select": "^0.19.4"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.8",
