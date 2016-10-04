@@ -24,7 +24,11 @@
             service.activeFilters = [];
             */
             _.forEach(service.filters, function(filterData){
-                filterData.values = null;
+                if (filterData.hasOwnProperty('values')) {
+                    filterData.values = null;
+                } else {
+                    filterData.value = null;
+                }
             });
             service.activeFilters = [];
             //service.filteredSearchResults = service.searchResults;
