@@ -27,8 +27,25 @@
           "Language": "Language Spoken",
           "English": "English",
           "French": "French"
+        },
+        "province": {
+          "AB": "AB",
+          "BC": "BC",
+          "MB": "MB",
+          "NB": "NB",
+          "NL": "NL",
+          "NS": "NS",
+          "NT": "NT",
+          "NU": "NU",
+          "ON": "ON",
+          "PE": "PE",
+          "QC": "QC",
+          "SK": "SK",
+          "YT": "YT"
         }
-      }
+      },
+      "provinceFilterPlaceHolder": "Select provinces...",
+      "clearFilterLabel": "Clear Filters"
     }
   },
   "helpLabel": "Help",

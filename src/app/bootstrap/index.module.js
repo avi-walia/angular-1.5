@@ -29,6 +29,7 @@
         'angulartics.google.analytics',
         'snap',
         'headroom',
-        'ui.bootstrap'
+        'ui.bootstrap',
+        'ui.select'
     ]);
 })();

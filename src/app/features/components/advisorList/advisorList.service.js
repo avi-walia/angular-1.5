@@ -12,78 +12,55 @@
         'BASE_URL',
         'ENDPOINT_URI',
         'ELEMENTS_PER_PAGE',
-        'FILTERS'
+        'FILTERS',
+        'filterRunnerService',
+        'langFilterService',
+        'provinceFilterService'
     ];
 
-    function advisorService(removeDiacriticsService, server, BASE_URL, ENDPOINT_URI, ELEMENTS_PER_PAGE, FILTERS) {
+    function advisorService(removeDiacriticsService, server, BASE_URL, ENDPOINT_URI, ELEMENTS_PER_PAGE, FILTERS, filterRunnerService, langFilterService, provinceFilterService) {
         var service = this;
         //This array stores results that contain some but not all the search terms. This is displayed IF AND ONLY IF there are no results that contain all search terms.
         var secondaryResults = [];
         //names of available filters
         service.filters = {
-            lang: 'lang'
+            lang: 'lang',
+            province:'province'
         };
-
-        //one of the filters was changed, update the array of filters.
-        service.setFilters = function(filterName) {
-            //determine which filter changed
-            if (filterName === service.filters.lang) {
-                //see if the filter has already been added to the array.
-                var x = service.activeFilters.indexOf(filterLang);
-                //filter needs to be added to the array
-                if (x < 0) {
-                    service.activeFilters.push(filterLang);
-                }
-            }
-            //run all filters
-            service.filter();
+        service.updateFilters = function(filter) {
+            service.filterRunnerService.setFilters(filter);
+            service.filteredSearchResults = service.filterRunnerService.filter();
         }
 
-        //loop through all active filters to see if the advisor should be displayed or not.
-        function filterLooper(advisor) {
-            //assume advisor passes all filters and should be displayed.
-            var ret = true;
-            //loop through each active filter.
-            _.forEach(service.activeFilters, function(filter, index) {
-                //if the advisor does not pass the filter, it should be removed.
-                if (!filter(advisor)) {
-                    //advisor did not pass filter, remove it from the filteredSearchResults
-                    ret = false;
-                    //break out of the forEach
+        //filterRunnerService.init(service.filters, filterFuncs);
+        service.filterRunnerService = filterRunnerService;
+        filterRunnerService.filters.lang = langFilterService;
+        filterRunnerService.filters.province = provinceFilterService;
+        service.clearFilters = function() {
+            service.filterRunnerService.clearFilters();
+            service.filteredSearchResults = service.searchResults;
+        }
+
+        //Filter searchResults based on advisor's spokenLanguage
+        function filterProv(advisor) {
+            var ret = false;
+            //only display advisors who match the selected provinces
+            _.forEach(service.selectedFilters.province, function(selectedProvince, index) {
+                if (selectedProvince.label === advisor.partialBranchInfo.provinceAbbr) {
+                    //Advisor's province matches atleast one of the selected province filter
+                    ret = true;
+                    //break out of forEach
                     return false;
                 }
             });
-            //returns true if advisor should be added to filteredSearchResults, returns false otherwise.
             return ret;
-        }
-
-        service.filter = function() {
-            //loop through all searchResults and apply each filter in the array of active filters to get the filteredSearchResults
-            service.filteredSearchResults = _.filter(service.searchResults, filterLooper);
-        };
-
-        //Filter searchResults based on advisor's spokenLanguage
-        function filterLang(advisor) {
-            /*
-            bilingual advisors will always show up.
-            otherwise advisors will only be displayed if they're spokenLanguage is equal to service.selectedFilters.lang.
-             */
-            return (advisor.spokenLanguage === FILTERS.lang.bilingual || advisor.spokenLanguage === service.selectedFilters.lang);
         }
 
         //options to display in the language filter select
         service.filterOptions = {
-            lang: [
-                FILTERS.lang.english,
-                FILTERS.lang.french
-            ]
-        }
-        /* values of active filters */
-        service.selectedFilters = {
-            lang: null
+            lang: FILTERS.lang.options,
+            province: FILTERS.province.options
         };
-        //array indicating which filters are to be applied.
-        service.activeFilters = [];
         /*
             Array of advisors that match search criteria.
          */
@@ -358,7 +335,11 @@
 
             //sort searchResults and update the pagination/infinite scroll related trackers(maxPages, mobileMaxNumDisplay, currentPage).
             sortBy('lastname');
-            service.filter();
+            //service.filter();
+
+            service.filterRunnerService.allData = service.searchResults;
+            service.filteredSearchResults = service.filterRunnerService.filter();
+
             updatePaginationInfiniteScroll();
         }
 
@@ -392,6 +373,7 @@
             var remainingSearchTerms = [];
             var partialMatch = false;
             var numMatchedSearchTerms = 0;
+
             _.forEach(searchTerms, function(searchTerm, searchIndex) {
                 _.forEach(lNameArr, function(lName){
                     if (termComparator(lName, searchTerm, alreadyMatched)) {

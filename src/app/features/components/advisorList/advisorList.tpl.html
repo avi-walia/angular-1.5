@@ -1,4 +1,3 @@
-
 <div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="advisorList">
     <div>
         <h2 translate>pages.advisorList.title</h2>
@@ -8,10 +7,24 @@
             <div style="display:inline-block;">
                 <div>
                     Filter by Language:<br>
-                    <select ng-model="$ctrl.service.selectedFilters.lang" ng-change="$ctrl.service.setFilters($ctrl.service.filters.lang)">
-                        <option ng-repeat="lang in $ctrl.service.filterOptions.lang" value="{{lang}}">{{'pages.advisorList.filterOptions.lang.' + lang | translate}}</option>
+                    <select ng-model="$ctrl.service.filterRunnerService.filters.lang.value" ng-change="$ctrl.service.updateFilters($ctrl.service.filters.lang)">
+                        <option ng-repeat="lang in $ctrl.service.filterRunnerService.filters.lang.options" value="{{lang}}">{{'pages.advisorList.filterOptions.lang.' + lang | translate}}</option>
                     </select>
                 </div>
+            </div>
+            <div style="display:inline-block;">
+                <div style="width:150px;">
+                    Filter by Province:<br>
+                    <ui-select style="border:2px solid black;" multiple ng-model="$ctrl.service.filterRunnerService.filters.province.values" ng-change="$ctrl.service.updateFilters($ctrl.service.filters.province)" theme="bootstrap" close-on-select="false" style="width: 50px;" title="Choose a color">
+                        <ui-select-match placeholder="">{{$item.label}}</ui-select-match>
+                        <ui-select-choices repeat="province in $ctrl.service.filterRunnerService.filters.province.options | filter:$select.search">
+                            {{ 'pages.advisorList.filterOptions.province.' + province.label | translate}}
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+            </div>
+            <div style="display:inline-block;">
+                <button ng-click="$ctrl.service.clearFilters()">{{'pages.advisorList.clearFilterLabel' | translate}}</button>
             </div>
         </div>
         <div style="clear:both;">
@@ -20,4 +33,3 @@
         </div>
     </div>
 </div>
-
