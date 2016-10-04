@@ -7,7 +7,7 @@ var branchList5404 = ({ id: 5404, dealerShip: 'ACM', geoLocation: Object({ lng: 
 
 (function () {
     describe('branch detail service', function () {
-        var bls, bds, endpointURI;
+        var listService, DetailService;
         beforeEach(function(){
             module(function($provide){
                 $provide.service('branchListService', function(){
@@ -21,32 +21,24 @@ var branchList5404 = ({ id: 5404, dealerShip: 'ACM', geoLocation: Object({ lng: 
             module('advisorLocator.features.searchByLocation');
         });
         beforeEach(inject(function(branchListService, branchDetailService){
-            bls=branchListService;
-            bds=branchDetailService;
+            listService=branchListService;
+            DetailService=branchDetailService;
         }));
 
         it('Branch Detail Service exists', function(){
-            expect(bds).toBeDefined();
+            expect(DetailService).toBeDefined();
         });
 
         it('getBranchDetails method exist', function() {
-            console.log("avi", bds);
-            expect(bds.getBranchDetail).toBeDefined();
+            expect(DetailService.getBranchDetail).toBeDefined();
         });
 
         it('getBranchDetails method with 5404 should return branch details of branch with id 5404', function() {
-            console.log("avi", bds);
-            expect(bds.getBranchDetail(5404)).toEqual(branchList5404);
+            expect(DetailService.getBranchDetail(5404)).toEqual(branchList5404);
         });
 
         it('getBranchDetails method with 4935 should not return branch details of branch with id 5404', function() {
-            console.log("avi", bds);
-            expect(bds.getBranchDetail(4935)).not.toEqual(branchList5404);
-        });
-
-        it('getBranchDetails method with 4935 should not return branch details of branch with id 5404', function() {
-            console.log("avi", bds);
-            expect(bds.getBranchDetail(4935)).not.toEqual(branchList5404);
+            expect(DetailService.getBranchDetail(4935)).not.toEqual(branchList5404);
         });
 
     });

@@ -6,14 +6,11 @@
         .service('advisorDetailService', advisorDetailService);
 
     advisorDetailService.$inject = [
-        'server',
-        'BASE_URL',
-        'ENDPOINT_URI',
         'advisorService'
     ];
 
     /* @ngInject */
-    function advisorDetailService(server, BASE_URL, ENDPOINT_URI, advisorService) {
+    function advisorDetailService(advisorService) {
         var service = this;
 
 
@@ -55,6 +52,8 @@
 
 
             });
+
+            return service.advisorDetail;
 
         }
 
