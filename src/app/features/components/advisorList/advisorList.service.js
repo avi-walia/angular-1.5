@@ -322,7 +322,6 @@
                 _.forEach(service.allAdvisors, function(advisor, index) {
                     containsSearch(advisor.cNameArr, advisor.fNameArr, advisor.lNameArr,  subTerms, index);
                 });
-                console.log('service.searchResults: ', service.searchResults);
                 if (service.searchResults.length === 0) {
                     service.searchResults = secondaryResults;
                 }
@@ -370,7 +369,6 @@
             var matches = 0;
             var alreadyMatched = [];
             var partialMatch = false;
-
             _.forEach(searchTerms, function(searchTerm) {
                 _.forEach(lNameArr, function(name) {
                     if (termComparator(name, searchTerm, alreadyMatched)) {
@@ -386,7 +384,6 @@
                 } else {
                     service.allAdvisors[index].showCommon = false;
                 }
-                console.log('asdf4');
                 service.searchResults.push(service.allAdvisors[index]);
                 return;
             }
@@ -395,10 +392,6 @@
             var searchTerms2 = _.filter(searchTerms, function(searchTerm) {
                 var ret = true;
                 _.forEach(alreadyMatched, function(matchedSearchTerm) {
-                    if (debug) {
-                        console.log('name2: ', name);
-                        console.log('searchTerm2: ', searchTerm);
-                    }
                     if (searchTerm === matchedSearchTerm) {
                         ret = false;
                         return false;
@@ -412,11 +405,6 @@
             _.forEach(searchTerms2, function(searchTerm) {
                 _.forEach(cNameArr, function(name) {
                     if (termComparator(name, searchTerm, tempAlreadyMatched)) {
-
-                        if (debug) {
-                            console.log('name3: ', name);
-                            console.log('searchTerm3: ', searchTerm);
-                        }
                         tempMatches++;
                         service.allAdvisors[index].showCommon = true;
                         partialMatch = true;
@@ -425,7 +413,6 @@
                 });
             });
             if (tempMatches === searchTerms.length) {
-                console.log('asdf2');
                 service.searchResults.push(service.allAdvisors[index]);
                 return;
             }
@@ -435,11 +422,6 @@
             _.forEach(searchTerms3, function(searchTerm) {
                 _.forEach(fNameArr, function(name) {
                     if (termComparator(name, searchTerm, alreadyMatched)) {
-
-                        if (debug) {
-                            console.log('name: ', name);
-                            console.log('searchTerm: ', searchTerm);
-                        }
                         tempMatches++;
                         partialMatch = true;
                         return false;
@@ -448,7 +430,6 @@
             });
             if (tempMatches === searchTerms.length) {
                 service.allAdvisors[index].showCommon = false;
-                console.log('asdf3:', service.allAdvisors[index]);
                 service.searchResults.push(service.allAdvisors[index]);
 
                 return;
