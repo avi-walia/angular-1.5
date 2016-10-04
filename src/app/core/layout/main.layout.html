@@ -1,10 +1,8 @@
 <ci-header></ci-header>
-<div id="main" ng-class="Main.pageStateResolver.activePageName" role="main" aria-label="{{ 'aria.main-label' | translate }}">
-    <div class="container">
-        <ci-loader loading="Main.pageStateResolver.pageLoading">
-            <ci-notifications></ci-notifications>
-            <div id="content" ui-view="content"></div>
-        </ci-loader>
-    </div>
+<div id="content" ng-class="Main.pageStateResolver.activePageName" role="main" aria-label="{{ 'aria.main-label' | translate }}">
+    <ci-loader loading="Main.pageStateResolver.pageLoading">
+        <ci-notifications></ci-notifications>
+        <div id="content" ui-view="content"></div>
+    </ci-loader>
 </div>
 <ci-footer></ci-footer>
