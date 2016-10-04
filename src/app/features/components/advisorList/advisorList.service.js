@@ -247,16 +247,16 @@
 
             //sort by first name.
             if (sortOption === service.sortableColumns[0]) {
-                service.searchResults.sort(compareFirstname);
+                service.filteredSearchResults.sort(compareFirstname);
             //sort by last name.
             } else if (sortOption === service.sortableColumns[1]) {
-                service.searchResults.sort(compareLastname);
+                service.filteredSearchResults.sort(compareLastname);
             //sort by city.
             } else if (sortOption === service.sortableColumns[2]) {
-                service.searchResults.sort(compareCity);
+                service.filteredSearchResults.sort(compareCity);
             //sort by province.
             } else if (sortOption === service.sortableColumns[3]){
-                service.searchResults.sort(compareProvince);
+                service.filteredSearchResults.sort(compareProvince);
             }
         }
         //we want to group all the single letter characters at the end.
