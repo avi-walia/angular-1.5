@@ -1,15 +1,28 @@
-
 <div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="advisorList">
-    <div>
-        <h2 translate>pages.advisorList.title</h2>
-        <div style="width:100%;">
-            <search-bar style="width:50%; margin-right:25px;display:inline;float:left;" service="$ctrl.service"></search-bar>
-            <search-by style="margin-top:25px;"></search-by>
+    <!-- <h2 translate>pages.advisorList.title</h2> -->
+    <div id="searchoptions">
+        <search-by style="margin-top:25px;"></search-by>
+    </div>
+    <div id="filters">
+        <search-bar service="$ctrl.service"></search-bar>
+        <div id="dropdowns">
+            <label>Filter by Language:
+              <select ng-model="$ctrl.service.filterRunnerService.filters.lang.value" ng-change="$ctrl.service.updateFilters($ctrl.service.filters.lang)">
+                  <option ng-repeat="lang in $ctrl.service.filterRunnerService.filters.lang.options" value="{{lang}}">{{'pages.advisorList.filterOptions.lang.' + lang | translate}}</option>
+              </select>
+            </label>
+            <label>Filter by Province:
+              <select ng-model="$ctrl.service.filterRunnerService.filters.province.value" ng-change="$ctrl.service.updateFilters($ctrl.service.filters.province)">
+                  <option ng-repeat="province in $ctrl.service.filterRunnerService.filters.province.options" value="{{province}}">{{'pages.advisorList.filterOptions.province.' + province | translate}}</option>
+              </select>
+            </label>
         </div>
-        <div style="clear:both;">
-            <paginator-infinite-scroll style="clear:both;" service="$ctrl.service">
-            </paginator-infinite-scroll>
+        <div id="button">
+            <button ng-click="$ctrl.service.clearFilters()">{{'pages.advisorList.clearFilterLabel' | translate}}</button>
         </div>
     </div>
+    <div id="results">
+        <paginator-infinite-scroll service="$ctrl.service">
+        </paginator-infinite-scroll>
+    </div>
 </div>
-

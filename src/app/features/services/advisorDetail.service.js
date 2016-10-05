@@ -27,6 +27,7 @@
 
                 if(advisor.id === advisorID){
                     service.advisorDetail = advisor;
+
                     if(service.advisorDetail.partialBranchInfo.geoLocation){
                         service.advisorDetail.userMarker = {
                             geoLocation: {

@@ -1,11 +1,13 @@
 <div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true">
-<header id="header"
-        headroom offset="20" classes="{initial:'animated', pinned:'slideDown', unpinned:'slideUp'}">
+<header id="header" class="header" role="banner">
 
     <div class="container">
-        <div style="margin:0 0 0 3%;color:#fff;position:absolute;background:#000;">v{{ $ctrl.version }}</div>
+        <!--<div style="margin:0 0 0 3%;color:#fff;position:absolute;background:#000;">v{{ $ctrl.version }}</div>-->
 
-        <span class="logo" title="{{ 'navbar.logo-text' | translate }}" translate></span>
+        <div class="header__region region region-header">
+            <div class="block block-panels-mini contextual-links-region first last odd" id="block-panels-mini-header">
+
+        <!--<span class="logo" title="{{ 'navbar.logo-text' | translate }}" translate></span>
 
         <a id="drawerlink" class="mobile" snap-toggle="right">☰</a>
 
@@ -16,38 +18,92 @@
             </ul>
         </nav>
 
-        <ci-font-sizer ng-if="$ctrl.isDesktop"></ci-font-sizer>
+        <ci-font-sizer ng-if="$ctrl.isDesktop"></ci-font-sizer>-->
 
-    </div>
-    <div id="bluebar">
-        <div class="container">
-            <div ng-if="!$ctrl.detectMobile.isDesktop">
-                {{'pages.'+$ctrl.pageStateResolver.activePageName | translate}}
+
+
+            <div class="container">
+                <!--<div ng-if="!$ctrl.detectMobile.isDesktop">
+                    {{'pages.'+$ctrl.pageStateResolver.activePageName | translate}}
+                </div>-->
+
+                <h1 class="panel-pane pane-page-site-name">
+                    <a href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr')}}" class="active" translate>navbar.logo-text</a>
+                </h1>
+                <div class="contextual-links-region panel-pane pane-block pane-menu-menu-secondary-menu">
+
+                    <ul class="menu">
+                        <li class="menu__item is-leaf first leaf" id="login"><a href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr')}}" title="Login" name="Login" class="menu__link" translate>header.login</a></li>
+                        <li class="menu__item is-leaf last leaf" id="locator"><a href title="Locator" name="Locator" class="menu__link" translate>header.locator</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="contextual-links-region panel-pane pane-block pane-search-form">
+
+
+                    <form class="search-form" role="search" method="post" id="search-block-form" accept-charset="UTF-8" target="_self">
+                        <div>
+
+                            <div class="container-inline">
+                                <div class="form-item form-type-textfield form-item-search-block-form">
+                                    <label class="element-invisible" for="edit-search-block-form--2" translate>header.searchPlaceholder</label>
+                                    <input title="" class="custom-search-box form-text" placeholder="{{'header.searchPlaceholder' | translate}}" type="text" ng-model="$ctrl.searchTerm"
+                                           id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" tabindex="0">
+                                </div>
+                                <div class="form-actions form-wrapper" id="edit-actions">
+                                    <input type="submit" id="edit-submit" name="op" title="{{'searchButton' | translate}}" value="{{'searchButton' | translate}}" class="form-submit" ng-click="$ctrl.goToSearch()">
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </form>
+
+                </div>
+
+                <div class="contextual-links-region panel-pane pane-block pane-locale-language-content">
+
+                    <ul class="language-switcher-locale-url">
+                        <language-switcher></language-switcher>
+
+                    </ul>
+
+                </div>
+
+                <div class="contextual-links-region panel-pane pane-block pane-system-main-menu" role="navigation">
+
+                    <ul class="menu">
+                        <li class="menu__item is-leaf first leaf"><a tabindex="0" href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr') + '/about'}}" title="{{'header.about' | translate}}" class="menu__link"
+                                                                     analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="About" translate>header.about</a></li>
+                        <li class="menu__item is-leaf leaf"><a tabindex="0" href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr') + '/services'}}" title="{{'header.services' | translate}}" class="menu__link"
+                                                               analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Services" translate>header.services</a></li>
+                        <li class="menu__item is-leaf leaf" id="assante-life"><a tabindex="0" href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr') + '/assante-life'}}" title="{{'header.assanteLife' | translate}}" name="Assante Life" class="menu__link"
+                                                                                 analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="AssanteLife" translate>header.assanteLife</a></li>
+                        <li class="menu__item is-leaf leaf"><a tabindex="0" href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr') + '/clients'}}" title="{{'header.clients' | translate}}" name="Clients" class="menu__link"
+                                                               analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Clients" translate>header.clients</a></li>
+                        <li class="menu__item is-leaf last leaf"><a tabindex="0" href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr') + '/careers'}}" title="{{'header.careers' | translate}}" class="menu__link"
+                                                                    analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Careers" translate>header.careers</a></li>
+                    </ul>
+
+                </div>
+
+                <!--<nav id="primary" ng-if="$ctrl.detectMobile.isDesktop" role="navigation" aria-label="{{ 'aria.site-wide-nav-label' | translate }}">
+                    <ul class="full">-->
+                        <!--<li><a ng-class="{active: ($ctrl.state.current.name === 'main.advisorLocator.page1')}" tabindex="0" title="{{ 'pages.page1' | translate }}" ui-sref="main.advisorLocator.page1"
+                               analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page1"
+                               translate>pages.page1</a></li>-->
+                        <!--<li><a ng-class="{active: ($ctrl.current === 'page1')}" ng-click="$ctrl.current = 'page1'" tabindex="0" title="{{ 'pages.page1' | translate }}" href
+                               analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page1"
+                               translate>pages.page1</a></li>
+
+                    </ul>
+
+                </nav>-->
             </div>
-            <nav id="primary" ng-if="$ctrl.detectMobile.isDesktop" role="navigation" aria-label="{{ 'aria.site-wide-nav-label' | translate }}">
-                <ul class="full">
-                    <!--<li><a ng-class="{active: ($ctrl.state.current.name === 'main.advisorLocator.page1')}" tabindex="0" title="{{ 'pages.page1' | translate }}" ui-sref="main.advisorLocator.page1"
-                           analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page1"
-                           translate>pages.page1</a></li>-->
-                    <li><a ng-class="{active: ($ctrl.current === 'page1')}" ng-click="$ctrl.current = 'page1'" tabindex="0" title="{{ 'pages.page1' | translate }}" href
-                           analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page1"
-                           translate>pages.page1</a></li>
-                    <li><a ng-class="{active: ($ctrl.current === 'page2')}"  ng-click="$ctrl.current = 'page2'" tabindex="1" title="{{ 'pages.page2' | translate }}" href
-                           analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page2"
-                           translate>pages.page2</a></li>
-                    <li><a ng-class="{active: ($ctrl.current === 'page3')}"  ng-click="$ctrl.current = 'page3'" tabindex="2" title="pages.page3" href
-                           analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page3"
-                           translate>pages.page3</a></li>
-                    <li><a ng-class="{active: ($ctrl.current === 'page4')}" tabindex="3"  ng-click="$ctrl.current = 'page4'" title="{{ 'pages.page4' | translate }}" href
-                           analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page4"
-                           translate>pages.page4</a></li>
-                    <li><a ng-class="{active: ($ctrl.current === 'page5')}" tabindex="4"  ng-click="$ctrl.current = 'page5'" title="{{ 'pages.page5' | translate }}" href
-                           analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page5"
-                           translate>pages.page5</a></li>
-                </ul>
 
 
-            </nav>
+            </div>
         </div>
     </div>
 </header>

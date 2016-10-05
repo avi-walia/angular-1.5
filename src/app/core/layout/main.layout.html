@@ -1,25 +1,8 @@
-
-    <snap-drawers class="snap-drawers">
-        <drawer snap-drawer="right"></drawer>
-    </snap-drawers>
-
-    <!--
-    ng-class="Main.pageStateResolver.activePageName is used to prevent css clashes between pages. All css for a page should be under the .pageName class.
-    for example:
-    .pageName a{}
-    Do not just use:
-    a{};
-    -->
-    <snap-content class="snap-content" ng-class="Main.pageStateResolver.activePageName">
-
-        <ci-header></ci-header>
-        <div id="main" ng-class="Main.pageStateResolver.activePageName" role="main" aria-label="{{ 'aria.main-label' | translate }}">
-            <div class="container">
-                <ci-loader loading="Main.pageStateResolver.pageLoading">
-                    <ci-notifications></ci-notifications>
-                    <div id="content" ui-view="content"></div>
-                </ci-loader>
-            </div>
-            <ci-footer id="footer"></ci-footer>
-        </div>
-    </snap-content>
+<ci-header></ci-header>
+<div id="content" ng-class="Main.pageStateResolver.activePageName" role="main" aria-label="{{ 'aria.main-label' | translate }}">
+    <ci-loader loading="Main.pageStateResolver.pageLoading">
+        <ci-notifications></ci-notifications>
+        <div id="content" ui-view="content"></div>
+    </ci-loader>
+</div>
+<ci-footer></ci-footer>

@@ -4,6 +4,10 @@
 
     angular
         .module('advisorLocator.features.searchByName')
+        .constant('AVAILABLE_FILTERS', [
+            'lang',
+            'province'
+        ])
         .component('advisorList', {
             controller: advisorListCtrl,
             templateUrl:'app/features/components/advisorList/advisorList.tpl.html'
@@ -22,9 +26,10 @@
         var vm = this;
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;
-        advisorService.init();
         vm.service = advisorService;
-
+        if(vm.service.isLoading) {
+            vm.service.init();
+        }
     }
 
 })();
