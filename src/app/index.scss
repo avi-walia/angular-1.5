@@ -23,13 +23,98 @@ $bg_dark: #333;
 
 html, body { background:$bg; color:$text; font:400 16px/1.4 'Open Sans',sans-serif; margin:0; padding:0; }
 
+header { background:#fff; border-top:solid $bg_dark 35px;
+  &::after { background:linear-gradient(to right,$blue,$blue 20%,$orange 20%,$orange 40%,$vlblue 40%,$vlblue 60%,$vlgold 60%,$vlgold 80%,$gold 80%); height:5px; width:100%; }
+
+  .container { @include zen-grid-container(); height:80px; margin:0 auto; position:relative; width:600px;
+    @media (min-width:768px) { width:720px; }
+    @media (min-width:896px) { width:840px; }
+    @media (min-width:1024px) { width:960px; }
+    @media (min-width:1152px) { width:1080px; }
+  }
+
+  h1.pane-page-site-name { bottom:18px; height:40px; left:0; margin:0; position:absolute; right:0; width:192px; z-index:1;
+    a { background:url('../images-source/logo_assante_blue_en.svg') no-repeat; display:block; height:100%; text-indent:-999em; width:100%;
+      .i18n-fr & { background:url('../images-source/logo_assante_blue_fr.svg') no-repeat; }
+    }
+  }
+
+  .pane-menu-menu-secondary-menu { position:absolute; right:82px; top:-35px;
+    ul.menu { list-style:none; margin:0 auto; max-width:$zen-grid-width; padding:0; text-align:right;
+      li { display:inline-block; line-height:35px; margin-left:20px;
+        &::before { color:#fff; font:20px/35px 'Material Icons'; margin-right:5px; vertical-align:bottom; }
+        &#login::before { content:'lock'; }
+        &#locator::before { content:'my_location'; }
+        a { color:#fff; font:700 0.88em/1 'Montserrat',sans-serif; text-decoration:none; text-transform:uppercase; }
+      }
+    }
+  }
+
+  .pane-search-form { position:absolute; right:38px; top:-35px;
+    &::before { color:#fff; content:'search'; font:24px/35px 'Material Icons'; }
+    &:hover::before { cursor:pointer; }
+    form { /*@include zen-grid-item(9,1,right);*/ background:#fff; display:none; padding:28px 0 16px; position:absolute; right:-40px; text-align:right; width:616px; z-index:1;
+      .form-item { display:inline-block; margin:0; width:83%;
+        input { background:darken($bg,4%); border:0; border-radius:3px; xfont-size:1.2em; line-height:2.2; padding:0 8px; width:100%; }
+      }
+      .form-actions { display:inline-block; margin-left:2px; vertical-align:top;
+        input { background:$orange; border:0; border-radius:3px; color:#fff; font-family:'Montserrat',sans-serif; line-height:2.2em; margin-left:2px; padding:0 0.6em; text-transform:uppercase; }
+      }
+    }
+    // &.show form { @include flipInX($duration:0.5s,$delay:0.3s); display:block; }
+    // &.hide form { @include flipOutX($duration:0.4s); display:block; }
+  }
+
+
+  .pane-locale-language-content { position:absolute; right:0; top:-35px; z-index:1;
+    ul { list-style:none; margin:0 auto; max-width:$zen-grid-width; padding:0; text-align:right;
+      li { display:inline-block; line-height:35px;
+        &.active { display:none; }
+        a { color:#fff; font:700 0.88em/1 'Montserrat',sans-serif; text-decoration:none; text-transform:uppercase; }
+      }
+    }
+  }
+
+  .pane-system-main-menu { bottom:15px; position:absolute; width:100%;
+    ul.menu { list-style:none; margin:0 auto; padding:0; text-align:right;
+      li { display:inline-block; margin-left:25px;
+        a { color:$blue; display:inline-block; font:400 1.13em/1 'Montserrat',sans-serif; letter-spacing:0.5px; text-decoration:none; text-transform:uppercase; vertical-align:bottom; }
+        &#assante-life a { border-right:solid 42px #fff; overflow:hidden; white-space:nowrap; width:132px;
+          &::after { color:$orange; content:'Life'; font:2.2em/1 'Great Vibes'; margin:-12px 0 0 -59px; position:absolute; text-transform:none; }
+        }
+        &#assante-vie a { border-right:solid 36px #fff; overflow:hidden; white-space:nowrap; width:126px;
+          &::after { color:$orange; content:'Vie'; font:2.2em/1 'Great Vibes'; margin:-12px 0 0 -55px; position:absolute; text-transform:none; }
+        }
+      }
+    }
+    // &.show { @include flipInX($duration:0.5s,$delay:0.3s); }
+    // &.hide { @include flipOutX($duration:0.4s); }
+  }
+
+}
+
 #advisorList { /*@include zen-grid-background();*/ @include zen-grid-container(); margin:0 auto; width:1160px;
 
-  #filters { background:#fff; padding:$zen-gutters; width:100%;
-    #input { display:inline-block; margin-right:$zen-gutters; width:70%;
-      input { background:darken($bg,4%); border:0; border-radius:3px; line-height:2.2em; padding:0 8px; width:100%; }
+  #searchoptions { margin-top:3.5em;
+    ul { list-style:none; height:40px; margin:0; padding:0; width:100%;
+      li { background:#fff; display:inline-block; letter-spacing:2px; margin-right:-4px; text-align:center; text-transform:uppercase; width:50%;
+        a { color:$blue; font:700 1em/46px 'Montserrat',sans-serif; text-decoration:none; }
+        &#searchbylocation { background:darken($bg,4%);
+          a { color:#888; font-size:0.8em; }
+        }
+      }
     }
-    #dropdowns, #button { display:inline-block; width:10%; }
+  }
+  #filters { background:#fff; font-size:0.9em; padding:$zen-gutters; width:100%;
+    #input { display:inline-block; position:relative; width:70%;
+      &::before { color:$orange; content:'search'; font:24px/35px 'Material Icons'; left:8px; position:absolute; z-index:1; }
+      input { background:darken($bg,4%); border:0; border-radius:3px; line-height:2.5em; padding:0 8px 0 40px; width:100%; position:relative; }
+    }
+    #options { display:inline-block; float:right; text-align:right; vertical-align:top; white-space:nowrap; width:30%;
+      label { display:none; }
+      select { appearance:none; background:darken($bg,4%) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#cd5806" d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/></svg>') 94% 9px no-repeat; background-size:20px; border:0; border-radius:3px; display:inline-block; height:2.5em; line-height:2.5em; padding:0 8% 0 3.5%; }
+      button { background:$orange; border:0; border-radius:3px; color:#fff; display:inline-block; font-family:'Montserrat',sans-serif; height:2.5em; line-height:2.6em; padding:0 3%; text-transform:uppercase; vertical-align:top; }
+    }
   }
 
   #results { margin-top:2em; width:100%;
@@ -64,6 +149,6 @@ html, body { background:$bg; color:$text; font:400 16px/1.4 'Open Sans',sans-ser
 
 /* TEMP STUFF */
 
-header, footer { background:#eee; padding:20px; }
+footer { background:#eee; padding:20px; }
 
 /* END TEMP STUFF */

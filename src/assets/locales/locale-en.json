@@ -2,8 +2,8 @@
   "appTitle": "App Title",
   "searchButton": "Search",
   "search": {
-    "byName": "Search By: Advisor Name",
-    "byLocation": "Search By: Location"
+    "byName": "Search by name",
+    "byLocation": "Search by location"
   },
   "shortSearchTerm": "Please enter atleast 2 characters.",
   "searchResultsFound": "Search results found.",
@@ -21,7 +21,7 @@
           "French": "French"
         },
         "province": {
-          "Province": "Any Province",
+          "Province": "Any province",
           "AB": "AB",
           "BC": "BC",
           "MB": "MB",
@@ -38,7 +38,7 @@
         }
       },
       "provinceFilterPlaceHolder": "Select provinces...",
-      "clearFilterLabel": "Clear Filters"
+      "clearFilterLabel": "Clear"
     }
   },
   "helpLabel": "Help",
