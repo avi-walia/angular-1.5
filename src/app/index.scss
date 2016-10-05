@@ -100,7 +100,7 @@ header { background:#fff; border-top:solid $bg_dark 35px;
   }
 }
 
-#advisorList { /*@include zen-grid-background();*/ @include zen-grid-container(); margin:0 auto; padding:3.5em 0; width:1080px;
+#advisorList { /*@include zen-grid-background();*/ @include zen-grid-container(); height:855px; margin:0 auto; padding:2.5em 0; width:1080px;
 
   #searchoptions {
     ul { list-style:none; height:40px; margin:0; overflow:hidden; padding:0; width:100%;
@@ -127,8 +127,9 @@ header { background:#fff; border-top:solid $bg_dark 35px;
     }
   }
 
-  #results { margin-top:2em; width:100%;
-    #resultscontainer { /*@include zen-grid-background();*/ height:600px;
+  #results { margin-top:$zen-gutters; width:100%; position:relative;
+    #resultmessage { color:#888; font-style:italic; margin-top:-63px; position:absolute; right:35%; z-index:1; }
+    #resultscontainer { /*@include zen-grid-background();*/
       .advisor { background:#fff; height:180px; margin-bottom:$zen-gutters; position:relative;
         &:nth-child(3n+1) { @include zen-grid-item(4,1); @include zen-new-row(); }
         &:nth-child(3n+2) { @include zen-grid-item(4,5); }
@@ -150,8 +151,18 @@ header { background:#fff; border-top:solid $bg_dark 35px;
         }
       }
     }
+    #pagination { background:#fff; clear:both; margin:0;
+      ul { list-style:none; margin:0; padding:0; text-align:center;
+        li { display:inline-block;
+          a { background:darken($bg,4%); border-radius:3px; color:$orange; display:block; font:700 1em 'Montserrat',sans-serif; line-height:20px; margin:15px 5px; padding:5px 10px; text-decoration:none; }
+          &.active a { background:$orange; color:#fff; }
+        }
+      }
+    }
+  }
 
-    #pagination { clear:both; }
+  #nosearch { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bbb" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>') center 100px no-repeat; background-size:150px; height:600px; padding-top:250px; text-align:center;
+      p { color:#aaa; }
   }
 
 }

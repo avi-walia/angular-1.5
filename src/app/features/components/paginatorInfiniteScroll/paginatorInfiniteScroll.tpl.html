@@ -48,11 +48,11 @@
             </div>
         </div>
     </div>
-    <div ng-if="!$ctrl.service[$ctrl.service.objectName].length" translate>
+    <div id="nosearch" ng-if="!$ctrl.service[$ctrl.service.objectName].length" translate>
         noSearchCriteria
     </div>
 
-    <ul
+    <div
         ng-if="$ctrl.detectMobile.isDesktop && $ctrl.service[$ctrl.service.objectName].length > 0"
         id="pagination"
         uib-pagination
@@ -66,5 +66,5 @@
         previous-text="&lsaquo;"
         next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"
     >
-    </ul>
+  </div>
 </ci-loader>
