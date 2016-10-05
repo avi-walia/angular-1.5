@@ -4,6 +4,6 @@
 </select> -->
 
 <ul id="searchby" aria-label="Search for Advisors by" aria-activedescendant="searchbyname" ng-model="$ctrl.searchBy">
-    <li id="searchbyname" translate><a href="">{{'search.byName' | translate }}</a></li>
-    <li id="searchbylocation" translate><a href="">search.byLocation</a></li>
+    <li id="searchbyname"><a ui-sref="main.advisorLocator.advisorList">{{'search.byName' | translate }}</a></li>
+    <li id="searchbylocation"><a ui-sref="main.advisorLocator.branchList">{{'search.byLocation' | translate}}</a></li>
 </ul>
