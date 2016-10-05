@@ -222,14 +222,16 @@
                     data.data[index].fNameArr = fNameArr;
                 });
                 //Store all advisors.
-                //service.allAdvisors = data.data;
-                service.allAdvisors = [data.data[160]];
+                service.allAdvisors = data.data;
+                //service.allAdvisors = [data.data[160]];
+                /*
                 _.forEach(data.data, function(advisor, index) {
                     if (advisor.id === 31066) {
                         console.log('advisor: ', advisor);
                         console.log('index: ', index);
                     }
                 })
+                */
                 service.isLoading = false;
                 //service.advisorSubset = data.slice((page-1) * itemsPerPage, page * itemsPerPage);
             });
@@ -358,28 +360,25 @@
             AlreadyMatched contains an array of searchTerms that have already been matched and no longer need to be checked.
             namesSearched is an array of all names that have been matched against one-letter search terms already. This prevents us from matching the same word against multiple searchTerms if the user searches for something like "m m"
         */
-        function termComparator(name, nameIndex, searchTerm, alreadyMatched, namesSearched) {
+        function termComparator(name, nameIndex, searchTerm, notMatched, namesSearched) {
             var ret;
+            /*
             console.log('name: ', name);
             console.log('nameIndex: ', nameIndex);
             console.log('searchTerm: ', searchTerm);
-            console.log('alreadyMatched: ', alreadyMatched);
+            console.log('notMatched: ', notMatched);
             console.log('namesSearched: ', namesSearched);
+            */
             if (searchTerm.length === 1) {
                     //console.log('nameIndex: ', nameIndex);
                     //console.log('name: ', name);
-                console.log('a');
                 if (namesSearched.indexOf(nameIndex) < 0) {
                     ret = name.substring(0, 1) === searchTerm;
-
-                    console.log('ret: ', ret);
                     //console.log('ret:', ret);
                     if (ret) {
                         namesSearched.push(nameIndex);
                     }
                 } else {//this name has already been checked against a one-letter searchTerm, don't check it again.
-
-                    console.log('false');
                     return false;
                 }
 
@@ -388,7 +387,9 @@
             }
 
             if (ret) {
-                alreadyMatched.push(searchTerm);
+                var i = notMatched.indexOf(searchTerm);
+                notMatched.splice(i, 1);
+                //notMatched.push(searchTerm);
             }
             return ret;
         }
@@ -396,32 +397,28 @@
         //check to see if the arrays of common names, first names, or last names contain the searchTerms as per above termComparator logic.
         function containsSearch(cNameArr, fNameArr, lNameArr, searchTerms, index) {
             var matches = 0;//current number of matched search results.
-            var alreadyMatched = [];//array of searchTerms that have already been matched
+            var notMatched = searchTerms.slice();//array of searchTerms that have already been matched
             var partialMatch = false;//flag that indicates advisor matched some but not all of the searchTerms.
             var lastNamesSearched = [];
             _.forEach(searchTerms, function(searchTerm) {
                 _.forEach(lNameArr, function(name, nameIndex) {
-                    if (termComparator(name, nameIndex, searchTerm, alreadyMatched, lastNamesSearched)) {
+                    if (termComparator(name, nameIndex, searchTerm, notMatched, lastNamesSearched)) {
                         matches++;
                         partialMatch = true;
                         return false;
                     }
                 });
             });
-            console.log('matches: ', matches);
-            console.log('searchTerms: ', searchTerms.slice());
             if (matches === searchTerms.length) {
                 if (service.allAdvisors[index].commonName) {
                     service.allAdvisors[index].showCommon = true;
                 } else {
                     service.allAdvisors[index].showCommon = false;
                 }
-                console.log('asdf');
                 service.searchResults.push(service.allAdvisors[index]);
                 return;
             }
-
-
+/*
             var searchTerms2 = _.filter(searchTerms, function(searchTerm) {
                 var ret = true;
                 _.forEach(alreadyMatched, function(matchedSearchTerm) {
@@ -432,13 +429,13 @@
                 });
                 return ret;
             });
-            var searchTerms3 = searchTerms2.slice();
-            var tempAlreadyMatched = alreadyMatched.slice();
+            */
+            var searchTerms3 = notMatched.slice();
             var tempMatches = matches;
             var commonNamesSearched = [];
-            _.forEach(searchTerms2, function(searchTerm) {
+            _.forEach(notMatched, function(searchTerm) {
                 _.forEach(cNameArr, function(name, nameIndex) {
-                    if (termComparator(name, nameIndex, searchTerm, tempAlreadyMatched, commonNamesSearched)) {
+                    if (termComparator(name, nameIndex, searchTerm, [], commonNamesSearched)) {
                         tempMatches++;
                         service.allAdvisors[index].showCommon = true;
                         partialMatch = true;
@@ -447,27 +444,17 @@
                 });
             });
             if (tempMatches === searchTerms.length) {
-                console.log('asdf2');
                 service.searchResults.push(service.allAdvisors[index]);
                 return;
             }
 
-            tempAlreadyMatched = alreadyMatched.slice();
             tempMatches = matches;
             var firstNamesSearched = [];
-            console.log('fNameArr: ', fNameArr);
-            console.log('searchTerms3: ', searchTerms3);
 
             _.forEach(searchTerms3, function(searchTerm) {
                 _.forEach(fNameArr, function(name, nameIndex) {
 
-                    if (termComparator(name, nameIndex, searchTerm, alreadyMatched, firstNamesSearched)) {
-
-                        console.log('name: ', name);
-                        console.log('nameIndex: ', nameIndex);
-                        console.log('searchTerm: ', searchTerm);
-                        console.log('alreadyMatched: ', alreadyMatched);
-                        console.log('firstNamesSearched: ', firstNamesSearched);
+                    if (termComparator(name, nameIndex, searchTerm, [], firstNamesSearched)) {
                         tempMatches++;
                         partialMatch = true;
                         return false;
@@ -476,7 +463,6 @@
             });
             if (tempMatches === searchTerms.length) {
                 service.allAdvisors[index].showCommon = false;
-                console.log('asdf3');
                 service.searchResults.push(service.allAdvisors[index]);
 
                 return;
