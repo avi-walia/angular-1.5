@@ -7,7 +7,7 @@
   },
   "shortSearchTerm": "Please enter atleast 2 characters.",
   "searchResultsFound": "results",
-  "noSearchCriteria": "<p>Start typing an advisor’s first or last name<br/>and the search results will show below.</p><p>If you are unable to locate the advisor you are looking for,<br/>please contact our Assante Service Centre at 1-800-268-3200.</p>",
+  "noSearchCriteria": "<p>Start typing an advisor’s first or last name<br/>and the search results will show here.</p><p>If you are unable to locate the advisor you are looking for,<br/>please contact our Assante Service Centre at 1-800-268-3200.</p>",
   "pages": {
     "advisorList":{
       "title": "Search for Advisor",
