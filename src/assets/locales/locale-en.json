@@ -9,11 +9,6 @@
   "searchResultsFound": "Search results found.",
   "noSearchCriteria": "There are no search results to be displayed.",
   "pages": {
-    "page1": "Page 1 Title",
-    "page2": "Page 2 Title",
-    "page3": "Page 3 Title",
-    "page4": "Page 4 Title",
-    "page5": "Page 5 Title",
     "advisorList":{
       "title": "Search for Advisor",
       "filterPlaceHolders": {
@@ -49,12 +44,12 @@
   "helpLabel": "Help",
 
   "navbar": {
-    "EN": "English",
-    "FR": "Français",
+    "EN": "EN",
+    "FR": "FR",
     "logo-img": "logos.svg",
     "browse-happy": "You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.",
     "dismiss-message": "Dismiss message",
-    "logo-text": "Advisor Locator"
+    "logo-text": "Assante Wealth Management"
   },
 
   "universal" : {
@@ -64,15 +59,35 @@
     "font-size-largest": "Change application font size to largest.",
     "site-wide-nav-label": "Site wide navigation"
   },
+  "header": {
+    "login": "Login",
+    "locator": "Locator",
+    "searchPlaceholder": "Enter your search terms here",
+    "searchButton": "Search",
+    "about" : "About",
+    "services": "Services",
+    "assanteLife": "Assante Life",
+    "clients": "Clients",
+    "careers": "Careers"
+  },
   "footer": {
-    "linkText1": "Link 1",
-    "linkText2": "Link 2",
-    "linkText3": "Link 3",
-    "linkText4": "Link 4",
-    "link1": "https://www.google.ca/",
-    "link2": "https://www.yahoo.ca/",
-    "link3": "https://www.ci.com/",
-    "link4": "https://www.assanteservices.com/aiol/#/en/aio/landing/"
+    "contactUs": "Contact Us",
+    "toll": "1-800-268-3200",
+    "emailUs": "Email Us",
+    "likedin": "LinkedIn",
+    "youtube": "Youtube",
+    "advisorLocator": "Advisor Locator",
+    "searchByName": "Search by Name",
+    "searchByLocation": "Search by Location",
+    "careers": "Careers",
+    "advisorOpportunities": "Advisor Opportunities",
+    "branchopportunities": "Branch Opportunities",
+    "corporateOpportunities": "Corporate Opportunities",
+    "copyright": "Assante Wealth Management. All right Reserved.",
+    "security": "Security",
+    "privacyPolicy": "Privacy Policy",
+    "legal": "Legal"
+
   },
   "homeFooterLink": "NameOfMyNewSite.com",
   "copyright": "©{{ year }} {{ 'company' | translate}}",

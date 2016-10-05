@@ -9,24 +9,14 @@
   "searchResultsFound": "FR Search results found.",
   "noSearchCriteria": "FR There are no search results to be displayed.",
   "helpLabel": "FR Help",
-  "pages": {
-    "landing": {
-      "title": "FR Title for landing page"
-    },
-    "page1":  "FR Page 1 Title",
-    "page2":  "FR Page 2 Title",
-    "page3":  "FR Page 3 Title",
-    "page4":  "FR Page 4 Title",
-    "page5":  "FR Page 5 Title"
-  },
 
   "navbar": {
-    "EN": "English",
-    "FR": "Français",
+    "EN": "EN",
+    "FR": "FR",
     "logo-img": "logos_f.svg",
     "browse-happy": "FR You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.",
     "dismiss-message": "FR Dismiss message",
-    "logo-text": "FR Advisor Locator"
+    "logo-text": "FR Assante Wealth Management"
   },
 
   "universal" : {
@@ -35,15 +25,34 @@
     "font-size-large": "Changez à « grande » la taille de la police de la demande.",
     "font-size-largest": "Changez à « très grande » la taille de la police de la demande."
   },
+  "header": {
+    "login": "French Login",
+    "locator": "French Locator",
+    "searchPlaceholder": "French Enter your search terms here",
+    "searchButton": "French Search",
+    "about" : "French About",
+    "services": "French Services",
+    "assanteLife": "French Assante Life",
+    "clients": "French Clients",
+    "careers": "French Careers"
+  },
   "footer": {
-    "linkText1": "FR Link 1",
-    "linkText2": "FR Link 2",
-    "linkText3": "FR Link 3",
-    "linkText4": "FR Link 4",
-    "link1": "https://www.google.ca/",
-    "link2": "https://www.yahoo.ca/",
-    "link3": "https://www.ci.com/",
-    "link4": "https://www.assanteservices.com/aiol/#/en/aio/landing/"
+    "contactUs": "French Contact Us",
+    "toll": "1-800-268-3200",
+    "emailUs": "French Email Us",
+    "likedin": "LinkedIn",
+    "youtube": "Youtube",
+    "advisorLocator": "French Advisor Locator",
+    "searchByName": "French Search by Name",
+    "searchByLocation": "French Search by Location",
+    "careers": "French Careers",
+    "advisorOpportunities": "French Advisor Opportunities",
+    "branchopportunities": "French Branch Opportunities",
+    "corporateOpportunities": "French Corporate Opportunities",
+    "copyright": "French Assante Wealth Management. All right Reserved.",
+    "security": "French Security",
+    "privacyPolicy": "French Privacy Policy",
+    "legal": "French Legal"
   },
   "homeFooterLink": "FR NameOfMyNewSite.com",
   "copyright": "©{{ year }} {{ 'company' | translate}}",

@@ -1,5 +1,6 @@
 {
   "BASE_URL": "http://localhost:3000",
   "ENDPOINT_URI": "/advisorlocatorws",
-  "GOOGLE_MAPS_URL": "https://maps.googleapis.com/maps/api/js?key=AIzaSyCwahusHkUZ-LOTVpawRSoKh-h2ktVbj2I&libraries=geometry,places&region=CA&language="
+  "GOOGLE_MAPS_URL": "https://maps.googleapis.com/maps/api/js?key=AIzaSyCwahusHkUZ-LOTVpawRSoKh-h2ktVbj2I&libraries=geometry,places&region=CA&language=",
+  "ASSANTE_URL": "http://assantelocal"
 }
