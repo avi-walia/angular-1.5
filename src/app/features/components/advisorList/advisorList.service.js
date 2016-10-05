@@ -222,8 +222,14 @@
                     data.data[index].fNameArr = fNameArr;
                 });
                 //Store all advisors.
-                service.allAdvisors = data.data;
-
+                //service.allAdvisors = data.data;
+                service.allAdvisors = [data.data[160]];
+                _.forEach(data.data, function(advisor, index) {
+                    if (advisor.id === 31066) {
+                        console.log('advisor: ', advisor);
+                        console.log('index: ', index);
+                    }
+                })
                 service.isLoading = false;
                 //service.advisorSubset = data.slice((page-1) * itemsPerPage, page * itemsPerPage);
             });
@@ -255,7 +261,7 @@
             } else if (sortOption === service.sortableColumns[2]) {
                 service.filteredSearchResults.sort(compareCity);
             //sort by province.
-            } else if (sortOption === service.sortableColumns[3]){
+            } else if (sortOption === service.sortableColumns[3]) {
                 service.filteredSearchResults.sort(compareProvince);
             }
         }
@@ -323,7 +329,10 @@
                     containsSearch(advisor.cNameArr, advisor.fNameArr, advisor.lNameArr,  subTerms, index);
                 });
                 if (service.searchResults.length === 0) {
+                    console.log('ERROR!');
                     service.searchResults = secondaryResults;
+                } else {
+                    console.log('SUCCESS!');
                 }
             } else {
                 //none of the search functions were invoked, thus searchTerm must be too short.
@@ -344,15 +353,35 @@
         }
 
         /*
-            alreadyMatched only applies to single characters. This ensures we aren't matching the same word again different single character search terms.
-            For example searching "a a" should find writers who have atleast two names that start with a.
-            Only show writers with one name that starts with a if there are no writers with two names that start with a.
-            A partial search term and a single character search term can still match on the same word. Will need maximum matching bipartite graph algorithm to solve that.
-         */
-        function termComparator(name, searchTerm, alreadyMatched) {
+            If the searchTerm only has one letter, only show advisors that start with that letter.
+            Otherwise show any advisors who's name contains the searchTerm. Ie there exists a suffix s, and prefix p, such that s + searchTerm + p === name.
+            AlreadyMatched contains an array of searchTerms that have already been matched and no longer need to be checked.
+            namesSearched is an array of all names that have been matched against one-letter search terms already. This prevents us from matching the same word against multiple searchTerms if the user searches for something like "m m"
+        */
+        function termComparator(name, nameIndex, searchTerm, alreadyMatched, namesSearched) {
             var ret;
+            console.log('name: ', name);
+            console.log('nameIndex: ', nameIndex);
+            console.log('searchTerm: ', searchTerm);
+            console.log('alreadyMatched: ', alreadyMatched);
+            console.log('namesSearched: ', namesSearched);
             if (searchTerm.length === 1) {
-                ret = name.substring(0, 1) === searchTerm;
+                    //console.log('nameIndex: ', nameIndex);
+                    //console.log('name: ', name);
+                console.log('a');
+                if (namesSearched.indexOf(nameIndex) < 0) {
+                    ret = name.substring(0, 1) === searchTerm;
+
+                    console.log('ret: ', ret);
+                    //console.log('ret:', ret);
+                    if (ret) {
+                        namesSearched.push(nameIndex);
+                    }
+                } else {//this name has already been checked against a one-letter searchTerm, don't check it again.
+
+                    console.log('false');
+                    return false;
+                }
 
             } else {
                 ret = name.indexOf(searchTerm) >= 0;
@@ -364,26 +393,30 @@
             return ret;
         }
 
+        //check to see if the arrays of common names, first names, or last names contain the searchTerms as per above termComparator logic.
         function containsSearch(cNameArr, fNameArr, lNameArr, searchTerms, index) {
-            var showCommon = false;
-            var matches = 0;
-            var alreadyMatched = [];
-            var partialMatch = false;
+            var matches = 0;//current number of matched search results.
+            var alreadyMatched = [];//array of searchTerms that have already been matched
+            var partialMatch = false;//flag that indicates advisor matched some but not all of the searchTerms.
+            var lastNamesSearched = [];
             _.forEach(searchTerms, function(searchTerm) {
-                _.forEach(lNameArr, function(name) {
-                    if (termComparator(name, searchTerm, alreadyMatched)) {
+                _.forEach(lNameArr, function(name, nameIndex) {
+                    if (termComparator(name, nameIndex, searchTerm, alreadyMatched, lastNamesSearched)) {
                         matches++;
                         partialMatch = true;
                         return false;
                     }
                 });
             });
+            console.log('matches: ', matches);
+            console.log('searchTerms: ', searchTerms.slice());
             if (matches === searchTerms.length) {
                 if (service.allAdvisors[index].commonName) {
                     service.allAdvisors[index].showCommon = true;
                 } else {
                     service.allAdvisors[index].showCommon = false;
                 }
+                console.log('asdf');
                 service.searchResults.push(service.allAdvisors[index]);
                 return;
             }
@@ -402,9 +435,10 @@
             var searchTerms3 = searchTerms2.slice();
             var tempAlreadyMatched = alreadyMatched.slice();
             var tempMatches = matches;
+            var commonNamesSearched = [];
             _.forEach(searchTerms2, function(searchTerm) {
-                _.forEach(cNameArr, function(name) {
-                    if (termComparator(name, searchTerm, tempAlreadyMatched)) {
+                _.forEach(cNameArr, function(name, nameIndex) {
+                    if (termComparator(name, nameIndex, searchTerm, tempAlreadyMatched, commonNamesSearched)) {
                         tempMatches++;
                         service.allAdvisors[index].showCommon = true;
                         partialMatch = true;
@@ -413,15 +447,27 @@
                 });
             });
             if (tempMatches === searchTerms.length) {
+                console.log('asdf2');
                 service.searchResults.push(service.allAdvisors[index]);
                 return;
             }
 
             tempAlreadyMatched = alreadyMatched.slice();
             tempMatches = matches;
+            var firstNamesSearched = [];
+            console.log('fNameArr: ', fNameArr);
+            console.log('searchTerms3: ', searchTerms3);
+
             _.forEach(searchTerms3, function(searchTerm) {
-                _.forEach(fNameArr, function(name) {
-                    if (termComparator(name, searchTerm, alreadyMatched)) {
+                _.forEach(fNameArr, function(name, nameIndex) {
+
+                    if (termComparator(name, nameIndex, searchTerm, alreadyMatched, firstNamesSearched)) {
+
+                        console.log('name: ', name);
+                        console.log('nameIndex: ', nameIndex);
+                        console.log('searchTerm: ', searchTerm);
+                        console.log('alreadyMatched: ', alreadyMatched);
+                        console.log('firstNamesSearched: ', firstNamesSearched);
                         tempMatches++;
                         partialMatch = true;
                         return false;
@@ -430,6 +476,7 @@
             });
             if (tempMatches === searchTerms.length) {
                 service.allAdvisors[index].showCommon = false;
+                console.log('asdf3');
                 service.searchResults.push(service.allAdvisors[index]);
 
                 return;
