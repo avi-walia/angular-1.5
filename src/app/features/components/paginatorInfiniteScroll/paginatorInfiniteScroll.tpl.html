@@ -11,39 +11,39 @@
                  ng-if="$ctrl.detectMobile.isDesktop"
                  class="full" ng-class="{'lastAdvisorRow': $last, 'notLastAdvisorRow': !$last}"
                  ng-repeat="element in $ctrl.service[$ctrl.service.objectName] | limitTo:$ctrl.service.numPerPage:($ctrl.service.currentPage-1)*$ctrl.service.numPerPage track by $index">
-                <a aria-label="{{'aria.namesearch.getAdvisorDetails' | translate:element }}" translate-values="{ advisor: element.lastname }" ui-sref="main.advisorLocator.advisorDetails({id: element.id})">
-                  <div class="image">
+                <div class="image">
+                  <a aria-label="{{'aria.namesearch.getAdvisorDetails' | translate:element }}" translate-values="{ advisor: element.lastname }" ui-sref="main.advisorLocator.advisorDetails({id: element.id})">
                     <img ng-if="!element.profilePictureUrl" aria-label="{{element.showCommon ? element.commonName + ' ' + element.lastName: element.firstName + ' ' + element.lastname | posession}} profile picture." src="assets/images/advisorHeadShot.png" />
                     <img ng-if="element.profilePictureUrl" aria-label="{{element.showCommon ? element.commonName + ' ' + element.lastName: element.firstName + ' ' + element.lastname | posession}} profile picture." ng-src="{{element.profilePictureUrl}}" />
-                  </div>
-                  <div class="copy">
-                    <!--
-                                element.showCommon ? element.commonName + ' ' + element.lastName: element.firstName + ' ' + element.lastname
-                    -->
-                    <p class="name"><span ng-if="element.showCommon">{{element.commonName}}</span><span ng-if="!element.showCommon">{{element.firstName}}</span> {{element.lastName}}</p>
-                    <p class="location">{{element.partialBranchInfo.city}}, {{element.partialBranchInfo.provinceAbbr}}</p>
-                    <p class="phone" ng-if="!element.showCommon">{{element.phone}}</p>
-                    <p class="email" ng-if="!element.showCommon">{{element.email}}</p>
-                  </div>
-                </a>
+                  </a>
+                </div>
+                <div class="copy">
+                  <!--
+                              element.showCommon ? element.commonName + ' ' + element.lastName: element.firstName + ' ' + element.lastname
+                  -->
+                  <p class="name"><span ng-if="element.showCommon">{{element.commonName}}</span><span ng-if="!element.showCommon">{{element.firstName}}</span> {{element.lastName}}</p>
+                  <p class="location">{{element.partialBranchInfo.city}}, {{element.partialBranchInfo.provinceAbbr}}</p>
+                  <p class="phone" ng-if="!element.showCommon">{{element.phone}}</p>
+                  <p class="email" ng-if="!element.showCommon">{{element.email}}</p>
+                </div>
             </div>
 
         </div>
         <div ng-if="!$ctrl.detectMobile.isDesktop">
             <div infinite-scroll="$ctrl.service.loadMore();">
                 <div ng-class="{'lastAdvisorRow': $last, 'notLastAdvisorRow': !$last}" ng-repeat="element in $ctrl.service[$ctrl.service.objectName] | limitTo:$ctrl.service.mobileMaxNumDisplay track by $index">
+                  <div class="image">
                     <a role="button" aria-label="{{aria.namesearch.getAdvisorDetails | translate}}" ui-sref="main.advisorLocator.advisorDetails({id: element.id})"  aria-label="{{'aria.namesearch.getAdvisorDetails' | translate}}">
-                      <div class="image">
-                        <img aria-label="{{aria.picturePlaceholder | translate}}" ng-if="!element.profilePictureUrl" src="assets/images/advisorHeadShot.png" style="width:80px;height:auto;display:inline" />
-                        <img aria-label="{{aria.picturePlaceholder | translate}}" ng-if="element.profilePictureUrl" ng-src="{{element.profilePictureUrl}}" style="width:80px;height:auto;display:inline" />
-                      </div>
-                      <div class="copy">
-                        <p class="name"><span ng-if="element.showCommon">{{element.commonName}}</span><span ng-if="!element.showCommon">{{element.firstName}}</span> {{element.lastName}}</p>
-                        <p class="location">{{element.partialBranchInfo.city}}, {{element.partialBranchInfo.provinceAbbr}}</p>
-                        <p class="phone" ng-if="!element.showCommon">{{element.phone}}</p>
-                        <p class="email" ng-if="!element.showCommon">{{element.email}}</p>
-                      </div>
+                      <img aria-label="{{aria.picturePlaceholder | translate}}" ng-if="!element.profilePictureUrl" src="assets/images/advisorHeadShot.png" style="width:80px;height:auto;display:inline" />
+                      <img aria-label="{{aria.picturePlaceholder | translate}}" ng-if="element.profilePictureUrl" ng-src="{{element.profilePictureUrl}}" style="width:80px;height:auto;display:inline" />
                     </a>
+                  </div>
+                  <div class="copy">
+                    <p class="name"><span ng-if="element.showCommon">{{element.commonName}}</span><span ng-if="!element.showCommon">{{element.firstName}}</span> {{element.lastName}}</p>
+                    <p class="location">{{element.partialBranchInfo.city}}, {{element.partialBranchInfo.provinceAbbr}}</p>
+                    <p class="phone" ng-if="!element.showCommon">{{element.phone}}</p>
+                    <p class="email" ng-if="!element.showCommon">{{element.email}}</p>
+                  </div>
                 </div>
             </div>
         </div>
