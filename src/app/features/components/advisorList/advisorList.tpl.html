@@ -12,6 +12,10 @@
             </div>
         </div>
         <div style="display:inline-block;">
+            <select ng-model="$ctrl.service.filterRunnerService.filters.province.value" ng-change="$ctrl.service.updateFilters($ctrl.service.filters.province)">
+                <option ng-repeat="province in $ctrl.service.filterRunnerService.filters.province.options" value="{{province}}">{{'pages.advisorList.filterOptions.province.' + province | translate}}</option>
+            </select>
+            <!--
             <div style="width:150px;">
                 <ui-select style="border:2px solid black;" multiple ng-model="$ctrl.service.filterRunnerService.filters.province.values" ng-change="$ctrl.service.updateFilters($ctrl.service.filters.province)" theme="bootstrap" close-on-select="false" style="width: 50px;" title="Choose a color">
                     <ui-select-match placeholder="{{'pages.advisorList.filterPlaceHolders.province' | translate}}">{{'pages.advisorList.filterPlaceholders.province' | translate}}</ui-select-match>
@@ -20,6 +24,7 @@
                     </ui-select-choices>
                 </ui-select>
             </div>
+            -->
         </div>
         <div style="display:inline-block;">
             <button ng-click="$ctrl.service.clearFilters()">{{'pages.advisorList.clearFilterLabel' | translate}}</button>

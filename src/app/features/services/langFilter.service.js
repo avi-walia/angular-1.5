@@ -30,7 +30,7 @@
              bilingual advisors will always show up.
              otherwise advisors will only be displayed if they're spokenLanguage is equal to service.selectedFilters.lang.
              */
-            return (advisor.value === 'Any language' || advisor.spokenLanguage === service.defaultValue || advisor.spokenLanguage === service.value);
+            return (service.value === 'Language' || advisor.spokenLanguage === service.defaultValue || advisor.spokenLanguage === service.value);
         }
 
 
