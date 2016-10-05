@@ -7,24 +7,6 @@
         <div ng-if="$ctrl.detectMobile.isDesktop" ng-include="$ctrl.service.desktopTemplatePath">
         -->
         <div ng-if="$ctrl.detectMobile.isDesktop">
-            <table style="width:100%">
-                <thead>
-                <tr>
-                    <th>
-                        <button role="button" aria-label="{{'aria.namesearch.sortby.' + $ctrl.service.sortableColumns[0] | translate}}" ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[0])" translate>pages.advisorList.sort.firstName</button>
-                    </th>
-                    <th>
-                        <button role="button" aria-label="{{'aria.namesearch.sortby.' + $ctrl.service.sortableColumns[1] | translate}}" ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[1])" translate>pages.advisorList.sort.lastName</button>
-                    </th>
-                    <th>
-                        <button role="button" aria-label="{{'aria.namesearch.sortby.' + $ctrl.service.sortableColumns[2] | translate}}" ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[2])" translate>pages.advisorList.sort.city</button>
-                    </th>
-                    <th>
-                        <button role="button" aria-label="{{'aria.namesearch.sortby.' + $ctrl.service.sortableColumns[3] | translate}}" ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[3])" translate>pages.advisorList.sort.province</button>
-                    </th>
-                </tr>
-                </thead>
-            </table>
             <div
                     ng-if="$ctrl.detectMobile.isDesktop"
                     class="full" ng-class="{'lastAdvisorRow': $last, 'notLastAdvisorRow': !$last}"

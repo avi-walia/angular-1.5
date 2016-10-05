@@ -236,6 +236,7 @@
 
         //Sort the searchResults
         function sortBy(sortOption) {
+            /*
             //If the user clicked the same sortby option(firstname, lastname, city, province), then toggle the sort order.
             if (lastSort === sortOption) {
                 sortAscending = !sortAscending;
@@ -258,6 +259,8 @@
             } else if (sortOption === service.sortableColumns[3]){
                 service.searchResults.sort(compareProvince);
             }
+            */
+            service.searchResults.sort(compareLastname);
         }
         //we want to group all the single letter characters at the end.
         function singleLetterComparator(a,b) {
@@ -329,9 +332,6 @@
                 //none of the search functions were invoked, thus searchTerm must be too short.
                 service.searchTermTooShort = true;
             }
-
-            //reset sort order to default. Note: the default sort order is Ascending, but we set it to false because the sortby function will toggle it.
-            sortAscending = false;
 
             //sort searchResults and update the pagination/infinite scroll related trackers(maxPages, mobileMaxNumDisplay, currentPage).
             sortBy('lastname');
@@ -475,17 +475,8 @@
 
         //comparitor function used to sort by advisor id
         compareId = function(obj1, obj2, order) {
-            var name1;
-            var name2;
-            if (sortAscending) {
-                name1 = obj1.id;
-                name2 = obj2.id;
-            } else {
-                name1 = obj2.id;
-                name2 = obj1.id;
-            }
             //advisorId's are always unique, will never equal.
-            if (name1 < name2) {
+            if (obj1.id < obj2.id) {
                 return -1;
             } else {
                 return 1;
@@ -495,24 +486,13 @@
         //comparitor function used to sort by advisor firstname
         compareFirstname = function(obj1, obj2, order) {
 
-            var name1;
-            var name2;
-            if (sortAscending) {
-                name1 = obj1.commonName ? obj1.commonName.toLowerCase() : obj1.firstName.toLowerCase();
-                name2 = obj2.commonName ? obj2.commonName.toLowerCase() : obj2.firstName.toLowerCase();
-            } else {
-                name1 = obj2.commonName ? obj2.commonName.toLowerCase() : obj2.firstName.toLowerCase();
-                name2 = obj1.commonName ? obj1.commonName.toLowerCase() : obj1.firstName.toLowerCase();
-            }
+            var name1 = obj1.commonName ? obj1.commonName.toLowerCase() : obj1.firstName.toLowerCase();
+            var name2 = obj2.commonName ? obj2.commonName.toLowerCase() : obj2.firstName.toLowerCase();
 
             if (name1 < name2) {
                 return -1;
             } else if (name1 === name2) {
-                if (!order) {//firstname was primary sort
-                    return compareLastname(obj1, obj2, 2);
-                } else {//first name is always the 2nd last sort if it is not the primary. So always go to the last sort option, advisorID if not primary
-                    return compareId(obj1, obj2, 4);
-                }
+                return compareId(obj1, obj2, 4);
             } else {
                 return 1;
             }
@@ -521,76 +501,12 @@
 
         //comparitor function used to sort by advisor lastname
         compareLastname = function(obj1, obj2, order) {
-            var name2;
-            var name1;
-            if (sortAscending) {
-                name1 = obj1.lastName.toLowerCase();
-                name2 = obj2.lastName.toLowerCase();
-            } else {
-                name1 = obj2.lastName.toLowerCase();
-                name2 = obj1.lastName.toLowerCase();
-            }
-
-            if (name1 < name2) {
+            if (obj1.lastName < obj2.lastName) {
                 return -1;
-            } else if (name1 === name2) {
-                if (!order) {//lastname was primary sort
+            } else if (obj1.lastName > obj2.lastName) {
+                return 1;
+            } else {
                     return compareFirstname(obj1, obj2, 2);
-                } else if (order === 2) {//lastname was secondary sort
-                    return compareId(obj1, obj2, 3);
-                } else if (order === 3) {//lastname was tertiary sort
-                    return compareFirstname(obj1, obj2, 4);
-                }
-            } else {
-                return 1;
-            }
-        };
-
-        //comparator function used to compare by city
-        compareCity = function(obj1, obj2, order) {
-            var name1;
-            var name2;
-            if (sortAscending) {
-                name1 = obj1.partialBranchInfo.city.toLowerCase();
-                name2 = obj2.partialBranchInfo.city.toLowerCase();
-            } else {
-                name1 = obj2.partialBranchInfo.city.toLowerCase();
-                name2 = obj1.partialBranchInfo.city.toLowerCase();
-            }
-            if (name1 < name2) {
-                return -1;
-            } else if (name1 === name2) {
-                if (!order) {//city was primary sort
-                    return compareProvince(obj1, obj2, 2);
-                } else if (order === 2) {// city was secondary sort
-                    return compareLastname(obj1, obj2, 3);
-                }
-            } else {
-                return 1;
-            }
-        };
-
-        //comparitor function used to sort by province
-        compareProvince = function(obj1, obj2, order) {
-            var name1;
-            var name2;
-            if (sortAscending) {
-                name1 = obj1.partialBranchInfo.provinceAbbr.toLowerCase();
-                name2 = obj2.partialBranchInfo.provinceAbbr.toLowerCase();
-            } else {
-                name1 = obj2.partialBranchInfo.provinceAbbr.toLowerCase();
-                name2 = obj1.partialBranchInfo.provinceAbbr.toLowerCase();
-            }
-            if (name1 < name2) {
-                return -1;
-            } else if (name1 === name2) {
-                if (!order) {//province was primary sort
-                    return compareCity(obj1, obj2, 2);
-                } else if (order === 2) {//province was secondary sort
-                    return compareLastname(obj1, obj2, 3);
-                }
-            } else {
-                return 1;
             }
         };
 

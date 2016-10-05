@@ -16,12 +16,6 @@
     "page5": "Page 5 Title",
     "advisorList":{
       "title": "Search for Advisor",
-      "sort": {
-        "firstName": "First Name",
-        "lastName": "Last Name",
-        "city": "City",
-        "province": "Province"
-      },
       "filterPlaceHolders": {
         "province":"Any province"
       },
