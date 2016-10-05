@@ -12,13 +12,12 @@
         'BASE_URL',
         'ENDPOINT_URI',
         'ELEMENTS_PER_PAGE',
-        'FILTERS',
         'filterRunnerService',
         'langFilterService',
         'provinceFilterService'
     ];
 
-    function advisorService(removeDiacriticsService, server, BASE_URL, ENDPOINT_URI, ELEMENTS_PER_PAGE, FILTERS, filterRunnerService, langFilterService, provinceFilterService) {
+    function advisorService(removeDiacriticsService, server, BASE_URL, ENDPOINT_URI, ELEMENTS_PER_PAGE, filterRunnerService, langFilterService, provinceFilterService) {
         var service = this;
         //This array stores results that contain some but not all the search terms. This is displayed IF AND ONLY IF there are no results that contain all search terms.
         var secondaryResults = [];
@@ -55,12 +54,6 @@
             });
             return ret;
         }
-
-        //options to display in the language filter select
-        service.filterOptions = {
-            lang: FILTERS.lang.options,
-            province: FILTERS.province.options
-        };
         /*
             Array of advisors that match search criteria.
          */

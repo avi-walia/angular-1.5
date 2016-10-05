@@ -16,7 +16,7 @@
         service.defaultValue = null;
         service.filterFunc = filterProv;
         service.label = 'province';
-        service.value = [];
+        service.value = 'Province';
         service.options = [
             'Province',
             'AB',

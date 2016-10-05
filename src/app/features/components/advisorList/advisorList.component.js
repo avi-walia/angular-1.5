@@ -4,56 +4,6 @@
 
     angular
         .module('advisorLocator.features.searchByName')
-        .constant('FILTERS', {
-            /*
-            lang: {
-                language: 'Language',
-                english: 'English',
-                french: 'French',
-                bilingual: 'Bilingual'
-            },
-            province: {
-                'AB': 'AB',
-                'BC': 'BC',
-                'MB': 'MB',
-                'NB': 'NB',
-                'NL': 'NL',
-                'NS': 'NS',
-                'NT': 'NT',
-                'NU': 'NU',
-                'ON': 'ON',
-                'PE': 'PE',
-                'QC': 'QC',
-                'SK': 'SK',
-                'YT': 'YT'
-            }
-            */
-            lang: {
-                options: {
-                    english: 'English',
-                    french: 'French'
-                },
-                defaultValue: 'Bilingual'
-            },
-            province: {
-                options: [
-                    {'label': 'AB'},
-                    {'label': 'BC'},
-                    {'label': 'MB'},
-                    {'label': 'NB'},
-                    {'label': 'NL'},
-                    {'label': 'NS'},
-                    {'label': 'NT'},
-                    {'label': 'NU'},
-                    {'label': 'ON'},
-                    {'label': 'PE'},
-                    {'label': 'QC'},
-                    {'label': 'SK'},
-                    {'label': 'YT'}
-                ],
-                defaultValues: []
-            }
-        })
         .constant('AVAILABLE_FILTERS', [
             'lang',
             'province'
