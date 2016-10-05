@@ -25,9 +25,9 @@
             */
             _.forEach(service.filters, function(filterData){
                 if (filterData.hasOwnProperty('values')) {
-                    filterData.values = null;
+                    filterData.values = filterData.defaultValues;
                 } else {
-                    filterData.value = null;
+                    filterData.value = filterData.defaultValue;
                 }
             });
             service.activeFilters = [];

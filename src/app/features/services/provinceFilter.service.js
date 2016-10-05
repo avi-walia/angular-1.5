@@ -13,7 +13,7 @@
     function provinceFilterService() {
         var service = this;
 
-        service.defaultValue = null;
+        service.defaultValue = 'Province';
         service.filterFunc = filterProv;
         service.label = 'province';
         service.value = 'Province';

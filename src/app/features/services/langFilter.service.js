@@ -13,7 +13,8 @@
     function langFilterService() {
         var service = this;
 
-        service.defaultValue = 'Bilingual';
+        service.defaultValue = 'Language';
+        service.globalLanguage = 'Bilingual';
         service.filterFunc = filterLang;
         service.label = 'lang';
         service.value = 'Language';
@@ -30,7 +31,7 @@
              bilingual advisors will always show up.
              otherwise advisors will only be displayed if they're spokenLanguage is equal to service.selectedFilters.lang.
              */
-            return (service.value === 'Language' || advisor.spokenLanguage === service.defaultValue || advisor.spokenLanguage === service.value);
+            return (service.value === 'Language' || advisor.spokenLanguage === service.globalLanguage || advisor.spokenLanguage === service.value);
         }
 
 
