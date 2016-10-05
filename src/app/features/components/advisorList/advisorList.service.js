@@ -216,7 +216,15 @@
                 });
                 //Store all advisors.
                 service.allAdvisors = data.data;
-
+                //service.allAdvisors = [data.data[160]];
+                /*
+                _.forEach(data.data, function(advisor, index) {
+                    if (advisor.id === 31066) {
+                        console.log('advisor: ', advisor);
+                        console.log('index: ', index);
+                    }
+                })
+                */
                 service.isLoading = false;
                 //service.advisorSubset = data.slice((page-1) * itemsPerPage, page * itemsPerPage);
             });
@@ -241,16 +249,16 @@
 
             //sort by first name.
             if (sortOption === service.sortableColumns[0]) {
-                service.searchResults.sort(compareFirstname);
+                service.filteredSearchResults.sort(compareFirstname);
             //sort by last name.
             } else if (sortOption === service.sortableColumns[1]) {
-                service.searchResults.sort(compareLastname);
+                service.filteredSearchResults.sort(compareLastname);
             //sort by city.
             } else if (sortOption === service.sortableColumns[2]) {
-                service.searchResults.sort(compareCity);
+                service.filteredSearchResults.sort(compareCity);
             //sort by province.
-            } else if (sortOption === service.sortableColumns[3]){
-                service.searchResults.sort(compareProvince);
+            } else if (sortOption === service.sortableColumns[3]) {
+                service.filteredSearchResults.sort(compareProvince);
             }
             */
             service.searchResults.sort(compareLastname);
@@ -319,7 +327,10 @@
                     containsSearch(advisor.cNameArr, advisor.fNameArr, advisor.lNameArr,  subTerms, index);
                 });
                 if (service.searchResults.length === 0) {
+                    console.log('ERROR!');
                     service.searchResults = secondaryResults;
+                } else {
+                    console.log('SUCCESS!');
                 }
             } else {
                 //none of the search functions were invoked, thus searchTerm must be too short.
@@ -337,88 +348,118 @@
         }
 
         /*
-            alreadyMatched only applies to single characters. This ensures we aren't matching the same word again different single character search terms.
-            For example searching "a a" should find writers who have atleast two names that start with a.
-            Only show writers with one name that starts with a if there are no writers with two names that start with a.
-            A partial search term and a single character search term can still match on the same word. Will need maximum matching bipartite graph algorithm to solve that.
-         */
-        function termComparator(name, searchTerm, alreadyMatched) {
+            If the searchTerm only has one letter, only show advisors that start with that letter.
+            Otherwise show any advisors who's name contains the searchTerm. Ie there exists a suffix s, and prefix p, such that s + searchTerm + p === name.
+            AlreadyMatched contains an array of searchTerms that have already been matched and no longer need to be checked.
+            namesSearched is an array of all names that have been matched against one-letter search terms already. This prevents us from matching the same word against multiple searchTerms if the user searches for something like "m m"
+        */
+        function termComparator(name, nameIndex, searchTerm, notMatched, namesSearched) {
+            var ret;
+            /*
+            console.log('name: ', name);
+            console.log('nameIndex: ', nameIndex);
+            console.log('searchTerm: ', searchTerm);
+            console.log('notMatched: ', notMatched);
+            console.log('namesSearched: ', namesSearched);
+            */
             if (searchTerm.length === 1) {
-                if (alreadyMatched.indexOf(name) < 0) {
-                    if (name.substring(0, 1) === searchTerm) {
-                        alreadyMatched.push(name);
-                        return true;
-                    } else {
-                        return false;
+                    //console.log('nameIndex: ', nameIndex);
+                    //console.log('name: ', name);
+                if (namesSearched.indexOf(nameIndex) < 0) {
+                    ret = name.substring(0, 1) === searchTerm;
+                    //console.log('ret:', ret);
+                    if (ret) {
+                        namesSearched.push(nameIndex);
                     }
-                } else {
+                } else {//this name has already been checked against a one-letter searchTerm, don't check it again.
                     return false;
                 }
+
             } else {
-                return name.indexOf(searchTerm) >= 0;
+                ret = name.indexOf(searchTerm) >= 0;
             }
+
+            if (ret) {
+                var i = notMatched.indexOf(searchTerm);
+                notMatched.splice(i, 1);
+                //notMatched.push(searchTerm);
+            }
+            return ret;
         }
 
+        //check to see if the arrays of common names, first names, or last names contain the searchTerms as per above termComparator logic.
         function containsSearch(cNameArr, fNameArr, lNameArr, searchTerms, index) {
-            var showCommon = false;
-
-            var alreadyMatched = [];
-            var remainingSearchTerms = [];
-            var partialMatch = false;
-            var numMatchedSearchTerms = 0;
-
-            _.forEach(searchTerms, function(searchTerm, searchIndex) {
-                _.forEach(lNameArr, function(lName){
-                    if (termComparator(lName, searchTerm, alreadyMatched)) {
+            var matches = 0;//current number of matched search results.
+            var notMatched = searchTerms.slice();//array of searchTerms that have already been matched
+            var partialMatch = false;//flag that indicates advisor matched some but not all of the searchTerms.
+            var lastNamesSearched = [];
+            _.forEach(searchTerms, function(searchTerm) {
+                _.forEach(lNameArr, function(name, nameIndex) {
+                    if (termComparator(name, nameIndex, searchTerm, notMatched, lastNamesSearched)) {
+                        matches++;
                         partialMatch = true;
-                        numMatchedSearchTerms++;
-                    } else {
-                        remainingSearchTerms.push(searchTerm);
+                        return false;
                     }
                 });
             });
-            var countMatches = 0;
-            if (numMatchedSearchTerms === searchTerms.length) {
-                service.allAdvisors[index].showCommon = false;
+            if (matches === searchTerms.length) {
+                if (service.allAdvisors[index].commonName) {
+                    service.allAdvisors[index].showCommon = true;
+                } else {
+                    service.allAdvisors[index].showCommon = false;
+                }
                 service.searchResults.push(service.allAdvisors[index]);
                 return;
             }
-            if (remainingSearchTerms.length) {
-                _.forEach(remainingSearchTerms, function (searchTerm, searchIndex) {
-                    _.forEach(cNameArr, function (commonName) {
-                        if (termComparator(commonName, searchTerm, alreadyMatched)) {
-                            partialMatch = true;
-                            countMatches++;
-                            showCommon = true;
-                        }
-                    });
-                });
-                if (countMatches === remainingSearchTerms.length) {
-                    if (remainingSearchTerms.length !== 0) {
-                        service.allAdvisors[index].showCommon = true;
-                    } else {
-                        service.allAdvisors[index].showCommon = false;
+/*
+            var searchTerms2 = _.filter(searchTerms, function(searchTerm) {
+                var ret = true;
+                _.forEach(alreadyMatched, function(matchedSearchTerm) {
+                    if (searchTerm === matchedSearchTerm) {
+                        ret = false;
+                        return false;
                     }
-                    service.searchResults.push(service.allAdvisors[index]);
-                    return;
-                }
-                countMatches = 0;
-                _.forEach(remainingSearchTerms, function (searchTerm, searchIndex) {
-                    _.forEach(fNameArr, function (firstName, searchIndex) {
-                        if (termComparator(firstName, searchTerm, alreadyMatched)) {
-                            partialMatch = true;
-                            countMatches++;
-                        }
-                    });
                 });
-                if (countMatches === remainingSearchTerms.length) {
-                    service.allAdvisors[index].showCommon = false;
-                    service.searchResults.push(service.allAdvisors[index]);
-                    return;
-                }
+                return ret;
+            });
+            */
+            var searchTerms3 = notMatched.slice();
+            var tempMatches = matches;
+            var commonNamesSearched = [];
+            _.forEach(notMatched, function(searchTerm) {
+                _.forEach(cNameArr, function(name, nameIndex) {
+                    if (termComparator(name, nameIndex, searchTerm, [], commonNamesSearched)) {
+                        tempMatches++;
+                        service.allAdvisors[index].showCommon = true;
+                        partialMatch = true;
+                        return false;
+                    }
+                });
+            });
+            if (tempMatches === searchTerms.length) {
+                service.searchResults.push(service.allAdvisors[index]);
+                return;
             }
-            if (partialMatch) {
-                service.allAdvisors[index].showCommon = showCommon;
+
+            tempMatches = matches;
+            var firstNamesSearched = [];
+
+            _.forEach(searchTerms3, function(searchTerm) {
+                _.forEach(fNameArr, function(name, nameIndex) {
+
+                    if (termComparator(name, nameIndex, searchTerm, [], firstNamesSearched)) {
+                        tempMatches++;
+                        partialMatch = true;
+                        return false;
+                    }
+                });
+            });
+            if (tempMatches === searchTerms.length) {
+                service.allAdvisors[index].showCommon = false;
+                service.searchResults.push(service.allAdvisors[index]);
+
+                return;
+            } else if (partialMatch) {
                 secondaryResults.push(service.allAdvisors[index]);
             }
         };
