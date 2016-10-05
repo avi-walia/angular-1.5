@@ -21,10 +21,11 @@ $bg_dark: #333;
 *, *::before, *::after { box-sizing:border-box; }
 * { -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
 
+html { overflow-y:scroll; }
 html, body { background:$bg; color:$text; font:400 16px/1.4 'Open Sans',sans-serif; margin:0; padding:0; }
 
 header { background:#fff; border-top:solid $bg_dark 35px;
-  &::after { background:linear-gradient(to right,$blue,$blue 20%,$orange 20%,$orange 40%,$vlblue 40%,$vlblue 60%,$vlgold 60%,$vlgold 80%,$gold 80%); height:5px; width:100%; }
+  &::after { background:linear-gradient(to right,$blue,$blue 20%,$orange 20%,$orange 40%,$vlblue 40%,$vlblue 60%,$vlgold 60%,$vlgold 80%,$gold 80%); content:''; display:block; height:5px; width:100%; }
 
   .container { @include zen-grid-container(); height:80px; margin:0 auto; position:relative; width:600px;
     @media (min-width:768px) { width:720px; }
@@ -93,24 +94,33 @@ header { background:#fff; border-top:solid $bg_dark 35px;
 
 }
 
-#advisorList { /*@include zen-grid-background();*/ @include zen-grid-container(); margin:0 auto; width:1160px;
+#masthead { background:url('https://unsplash.it/1024/768/?random') center center no-repeat; background-size:cover; width:100%; height:200px;
+  .container { text-align:center;
+    h1 { color:$orange; font:700 2em/200px 'Montserrat',sans-serif; margin:0; text-transform:uppercase; }
+  }
+}
 
-  #searchoptions { margin-top:3.5em;
-    ul { list-style:none; height:40px; margin:0; padding:0; width:100%;
-      li { background:#fff; display:inline-block; letter-spacing:2px; margin-right:-4px; text-align:center; text-transform:uppercase; width:50%;
-        a { color:$blue; font:700 1em/46px 'Montserrat',sans-serif; text-decoration:none; }
-        &#searchbylocation { background:darken($bg,4%);
-          a { color:#888; font-size:0.8em; }
+#advisorList { /*@include zen-grid-background();*/ @include zen-grid-container(); margin:0 auto; padding:3.5em 0; width:1080px;
+
+  #searchoptions {
+    ul { list-style:none; height:40px; margin:0; overflow:hidden; padding:0; width:100%;
+      li { background:darken($bg,4%); display:inline-block; letter-spacing:2px; margin-right:-4px; text-align:center; text-transform:uppercase; vertical-align:top; width:50%;
+        a { color:#888; display:inline-block; font:700 0.8em/40px 'Montserrat',sans-serif; height:40px; text-decoration:none; }
+        &#searchbyname { background:#fff;
+          a { color:$blue; background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#003e51" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>') left 10px no-repeat; font-size:1em; line-height:46px; padding-left:32px; }
+        }
+        &#searchbylocation {
+          a { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#888888" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>') left 10px no-repeat; background-size:19px; padding-left:25px; }
         }
       }
     }
   }
   #filters { background:#fff; font-size:0.9em; padding:$zen-gutters; width:100%;
-    #input { display:inline-block; position:relative; width:70%;
+    #input { display:inline-block; position:relative; width:68%;
       &::before { color:$orange; content:'search'; font:24px/35px 'Material Icons'; left:8px; position:absolute; z-index:1; }
-      input { background:darken($bg,4%); border:0; border-radius:3px; line-height:2.5em; padding:0 8px 0 40px; width:100%; position:relative; }
+      input { background:darken($bg,4%); border:0; border-radius:3px; line-height:2.5em; padding:0 8px 0 40px; width:99%; position:relative; }
     }
-    #options { display:inline-block; float:right; text-align:right; vertical-align:top; white-space:nowrap; width:30%;
+    #options { display:inline-block; float:right; text-align:right; vertical-align:top; white-space:nowrap; width:32%;
       label { display:none; }
       select { appearance:none; background:darken($bg,4%) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#cd5806" d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/></svg>') 94% 9px no-repeat; background-size:20px; border:0; border-radius:3px; display:inline-block; height:2.5em; line-height:2.5em; padding:0 8% 0 3.5%; }
       button { background:$orange; border:0; border-radius:3px; color:#fff; display:inline-block; font-family:'Montserrat',sans-serif; height:2.5em; line-height:2.6em; padding:0 3%; text-transform:uppercase; vertical-align:top; }
@@ -118,7 +128,7 @@ header { background:#fff; border-top:solid $bg_dark 35px;
   }
 
   #results { margin-top:2em; width:100%;
-    #resultscontainer { @include zen-grid-background();
+    #resultscontainer { /*@include zen-grid-background();*/ height:600px;
       .advisor { background:#fff; height:180px; margin-bottom:$zen-gutters; position:relative;
         &:nth-child(3n+1) { @include zen-grid-item(4,1); @include zen-new-row(); }
         &:nth-child(3n+2) { @include zen-grid-item(4,5); }
@@ -146,9 +156,61 @@ header { background:#fff; border-top:solid $bg_dark 35px;
 
 }
 
+footer { background:$bg_dark; color:$bg; font:400 0.9em/1 'Montserrat',sans-serif;
+  .i18n-fr & { font-size:0.85em; }
+  .container { @include zen-grid-container(); margin:0 auto; padding:3.5em 0; width:600px;
+    @media (min-width:768px) { width:720px; }
+    @media (min-width:896px) { width:840px; }
+    @media (min-width:1024px) { width:960px; }
+    @media (min-width:1152px) { width:1080px; }
+  }
+  h1 { @include zen-grid-item(10,1); background:url('../images-source/logo_assante_white_en.svg') no-repeat; display:block; height:35px; margin-bottom:1em; margin-top:0; padding:0; text-indent:-999em; transform:translateX(-17px); width:168px; }
+  h2 { border-bottom:solid 1px lighten($bg_dark,20%); font-size:1em; font-weight:400; line-height:2.25em; margin:0 0 0.75em; padding:0 0 0.5em 1.9em; position:relative;
+    &::before { font:1.2em/2 'Material Icons'; left:0; letter-spacing:0; position:absolute; text-transform:none; }
+  }
+  ul, li { list-style:none !important; line-height:2.4; margin:0; padding:0; }
+  p { margin:0; }
+  a, a:visited { color:$bg; text-decoration:none; }
 
-/* TEMP STUFF */
+  .contact, .locator, .careers { letter-spacing:1px; margin-bottom:2em; text-transform:uppercase;
+    li { padding-left:1.9em; position:relative; white-space:nowrap;
+      &::before { font:1.2em/2 'Material Icons'; left:0; letter-spacing:0; position:absolute; text-align:center; text-transform:none; }
+    }
+  }
+  .contact { @include zen-grid-item(4,1,$gutters:4.5%); @include zen-new-row();
+    h2:before { content:'comment'; }
+    li#toll-free::before { content:'phone'; }
+    li#email-us::before { content:'mail_outline'; }
+    li#linkedin::before { background:url('../images-source/linkedin-box.svg') -1px 7px no-repeat; background-size:18px; content:''; display:block; height:27px; width:20px; }
+    li#youtube::before { background:url('../images-source/youtube-play.svg') -1px 7px no-repeat; background-size:18px; content:''; display:block; height:27px; width:20px; }
+  }
+  .locator { @include zen-grid-item(4,5,$gutters:4.5%);
+    // @media (min-width:768px) { }
+    // @media (min-width:896px) { }
+    // @media (min-width:1024px) { }
+    // @media (min-width:1152px) { @include zen-grid-item(4,5,$gutters:4.5%); }
+    h2:before { content:'my_location'; }
+    li#search-name::before { content:'account_circle'; }
+    li#search-location::before { content:'location_on'; }
+  }
+  .careers { @include zen-grid-item(4,9,$gutters:4.5%);
+    // @media (min-width:768px) { }
+    // @media (min-width:896px) { }
+    // @media (min-width:1024px) { }
+    // @media (min-width:1152px) { @include zen-grid-item(4,9,$gutters:4.5%); }
+    h2:before { content:'business_center'; }
+    li#advisor-opps::before { content:'supervisor_account'; }
+    li#branch-opps::before { content:'store'; }
+    li#corp-opps::before { content:'business'; }
+  }
 
-footer { background:#eee; padding:20px; }
-
-/* END TEMP STUFF */
+  .copyright, .legal a { color:lighten($bg_dark,20%); font-family:'Open Sans',sans-serif; }
+  .copyright { @include zen-grid-item(8,1); @include zen-new-row(); }
+  .legal { @include zen-grid-item(6,1,right);
+    ul { text-align:right; line-height:1;
+      li { border-left:solid 1px lighten($bg_dark,20%); display:inline-block; line-height:1; margin-left:1em; padding-left:1.2em;
+        &:first-child { border:0; }
+      }
+    }
+  }
+}
