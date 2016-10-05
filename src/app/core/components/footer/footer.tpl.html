@@ -1,3 +1,79 @@
-<footer>
-  Footer from Drupal goes here
+<footer class="footer region region-footer" role="contentinfo">
+    <div class="block block-panels-mini contextual-links-region first last odd" id="block-panels-mini-footer">
+        <div class="container">
+            <h1 class="panel-pane pane-page-site-name" translate>navbar.logo-text</h1>
+            <div class="contextual-links-region panel-pane pane-block pane-menu-menu-contact-us contact">
+                <h2 class="pane-title" translate>footer.contactUs</h2>
+
+                <ul class="menu">
+                    <li class="menu__item is-leaf first leaf" id="toll-free">
+                        <a href="tel:1-800-268-3200" title="{{'footer.toll' | translate}}" id="toll-free" name="1-800-268-3200" class="menu__link" translate>footer.toll</a>
+                    </li>
+                    <li class="menu__item is-leaf leaf" id="email-us">
+                        <a href="mailto:service@assante.com" title="{{'footer.emailUs' | translate}}" id="email-us" name="Email Us" class="menu__link" translate>footer.emailUs</a>
+                    </li>
+                    <li class="menu__item is-leaf leaf" id="linkedin">
+                        <a href="https://www.linkedin.com/company/assante-wealth-management" title="{{'footer.linkedinDesciption' | translate}}" id="linkedin" name="LinkedIn page for Assante Wealth Management" class="menu__link" translate>footer.linkedin</a>
+                    </li>
+                    <li class="menu__item is-leaf last leaf" id="youtube">
+                        <a href="https://www.youtube.com/channel/UC-OXGU-HPxZQhG29zsKUIew" title="{{'footer.youtubeDescription' | translate}}" id="youtube" name="Youtube for Assante Wealth Management" class="menu__link" translate>footer.youtube</a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="contextual-links-region panel-pane pane-block pane-menu-menu-advisor-locator-menu locator">
+                <h2 class="pane-title" translate>footer.advisorLocator</h2>
+
+                <ul class="menu">
+                    <li class="menu__item is-leaf first leaf" id="search-name">
+                        <a ui-sref="main.advisorLocator.advisorList" title="{{'footer.searchByName' | translate}}" name="Search by name" class="menu__link"  analytics-category="NAVIGATION" analytics-label="searchByName" translate>footer.searchByName</a>
+                    </li>
+                    <li class="menu__item is-leaf last leaf" id="search-location">
+                        <a ui-sref="main.advisorLocator.branchList" title="{{'footer.searchByLocation' | translate}}" name="Search by location" class="menu__link"  analytics-category="NAVIGATION" analytics-label="searchByLocation" translate>footer.searchByLocation</a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="contextual-links-region panel-pane pane-block pane-menu-menu-careers careers">
+                <h2 class="pane-title" translate>footer.careers</h2>
+
+                <ul class="menu">
+                    <li class="menu__item is-leaf first leaf" id="advisor-opps">
+                        <a href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr')}}" title="{{'footer.advisorOpportunities' | translate}}" class="menu__link" analytics-category="NAVIGATION" analytics-label="advisorOpportunities" translate>footer.advisorOpportunities</a>
+                    </li>
+                    <li class="menu__item is-leaf leaf" id="branch-opps">
+                        <a href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr')}}" title="{{'footer.branchOpportunities' | translate}}" class="menu__link" analytics-category="NAVIGATION" analytics-label="branchOpportunities" translate>footer.branchOpportunities</a>
+                    </li>
+                    <li class="menu__item is-leaf last leaf" id="corp-opps">
+                        <a href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr')}}" title="{{'footer.corporateOpportunities' | translate}}" class="menu__link" analytics-category="NAVIGATION" analytics-label="corporateOpportunities" translate>footer.corporateOpportunities</a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="contextual-links-region panel-pane pane-panels-mini pane-copyright-mini-panel copyright">
+                <p class="panel-pane pane-custom pane-3" translate="footer.copyright" translate-value-year="{{$ctrl.year}}"></p>
+            </div>
+
+            <div class="contextual-links-region panel-pane pane-block pane-menu-menu-footer-menu legal">
+
+                <ul class="menu">
+                    <li class="menu__item is-leaf first leaf">
+                        <a href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr') + '/security'}}" title="{{'footer.security' | translate}}" class="menu__link" analytics-category="NAVIGATION" analytics-label="security" translate>footer.security</a>
+                    </li>
+                    <li class="menu__item is-leaf leaf">
+                        <a href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr') + '/privacy-policy'}}" title="{{'footer.privacyPolicy' | translate}}" class="menu__link" analytics-category="NAVIGATION" analytics-label="privacy" translate>footer.privacyPolicy</a>
+                    </li>
+                    <li class="menu__item is-leaf last leaf">
+                        <a href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr') + '/legal'}}" title="{{'footer.legal' | translate}}" class="menu__link" analytics-category="NAVIGATION" analytics-label="legal" translate>footer.legal</a>
+                    </li>
+                </ul>
+
+            </div>
+
+
+        </div>
+    </div>
 </footer>
