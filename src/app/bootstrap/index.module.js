@@ -27,7 +27,6 @@
         'advisorLocator.features.searchByLocation',
         'angulartics',
         'angulartics.google.analytics',
-        'snap',
         'headroom',
         'ui.bootstrap',
         'ui.select'

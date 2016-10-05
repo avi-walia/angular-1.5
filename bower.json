@@ -16,7 +16,6 @@
     "angular-translate-loader-static-files": "^2.11.1",
     "angular-i18n": "^1.5.8",
     "angular-dynamic-locale": "^0.1.32",
-    "angular-snap": "^1.8.5",
     "angular-aria": "^1.5.8",
     "angulartics-google-analytics": "^0.2.1",
     "angular-media-queries": "^0.6.1",
