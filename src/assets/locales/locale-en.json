@@ -22,9 +22,12 @@
         "city": "City",
         "province": "Province"
       },
+      "filterPlaceHolders": {
+        "province":"Any province"
+      },
       "filterOptions": {
         "lang": {
-          "Language": "Language Spoken",
+          "Language": "Any language",
           "English": "English",
           "French": "French"
         },

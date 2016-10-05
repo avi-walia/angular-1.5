@@ -13,9 +13,8 @@
         </div>
         <div style="display:inline-block;">
             <div style="width:150px;">
-                Filter by Province:<br>
                 <ui-select style="border:2px solid black;" multiple ng-model="$ctrl.service.filterRunnerService.filters.province.values" ng-change="$ctrl.service.updateFilters($ctrl.service.filters.province)" theme="bootstrap" close-on-select="false" style="width: 50px;" title="Choose a color">
-                    <ui-select-match placeholder="">{{$item.label}}</ui-select-match>
+                    <ui-select-match placeholder="{{'pages.advisorList.filterPlaceHolders.province' | translate}}">{{'pages.advisorList.filterPlaceholders.province' | translate}}</ui-select-match>
                     <ui-select-choices repeat="province in $ctrl.service.filterRunnerService.filters.province.options | filter:$select.search">
                         {{ 'pages.advisorList.filterOptions.province.' + province.label | translate}}
                     </ui-select-choices>
