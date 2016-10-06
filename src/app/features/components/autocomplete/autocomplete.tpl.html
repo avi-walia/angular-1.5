@@ -1,33 +1,3 @@
-<div style="margin-top:25px;">
-    <label
-        for="place"
-        translate
-    >
-        branchList.autoComplete
-    </label>
-    <span style="padding-left: 6px;">
-    <input
-        style="width: 460px;"
-        id="place"
-        enter-key="$ctrl.updatePlace()"
-        ng-model="$ctrl.location"
-        placeholder="{{'branchList.placeholder' | translate}}"
-        role="textbox"
-        aria-activedescendant
-        aria-autocomplete="list"
-        aria-live="polite"
-    >
-    </span>
-    <span style="padding-left: 6px;">
-    <button
-            tabindex="0"
-            type="button"
-            ng-click="$ctrl.updatePlace()"
-            id="btn-search"
-            title="{{'branchList.search'| translate}}"
-            translate
-    >
-        branchList.search
-    </button>
-    </span>
-</div>
+<!-- <label for="place" translate>branchList.autoComplete</label> -->
+<input id="place" enter-key="$ctrl.updatePlace()" ng-model="$ctrl.location" placeholder="{{'branchList.placeholder' | translate}}" role="textbox" aria-activedescendant aria-autocomplete="list" aria-live="polite" autofocus />
+<button id="btn-search" tabindex="0" type="button" ng-click="$ctrl.updatePlace()" title="{{'branchList.search'| translate}}" translate>branchList.search</button>

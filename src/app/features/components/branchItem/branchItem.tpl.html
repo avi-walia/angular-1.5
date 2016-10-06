@@ -1,26 +1,5 @@
-<div id="branchItem" style="margin-top: 20px; border: 1px solid #999999;  padding: 16px 12px;">
-
-    <span id="address">
-        {{$ctrl.item.address}}
-    </span>
-    <span style="float: right">
-        <span id="distance" >
-            {{$ctrl.item.distance}}{{'branchList.km' | translate}}
-        </span>
-
-        <span id="branchCard" style="padding-left: 20px;" stop-event="click">
-            <a
-                tabindex="0"
-                ui-sref="main.advisorLocator.branchDetails({id: $ctrl.item.id})"
-                analytics-on
-                analytics-event="click"
-                analytics-category="BRANCH CARD"
-                analytics-label="Branch Details Card"
-                translate
-            >
-                branchList.getDetails
-            </a>
-        </span>
-    </span>
+<div class="branchitem">
+    <p class="address"> {{$ctrl.item.address}}</p>
+    <p class="distance">{{$ctrl.item.distance}}{{'branchList.km' | translate}}</p>
+    <a class="cardlink" tabindex="0" ui-sref="main.advisorLocator.branchDetails({id: $ctrl.item.id})" analytics-on analytics-event="click" analytics-category="BRANCH CARD" analytics-label="Branch Details Card" stop-event="click" translate>branchList.getDetails</a>
 </div>
-
