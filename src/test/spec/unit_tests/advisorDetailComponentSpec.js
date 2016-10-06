@@ -3,7 +3,9 @@ var advisorList30610 = ({ id: 30610, firstName: 'Lorea', commonName: 'Lorea', la
 describe('advisor detail component', function () {
     beforeEach(module('advisorLocator.features.searchByName'));
 
-    var scope ={};
+    var scope;
+    var element;
+    var $compile;
     var controller ={};
     var $stateParams = {};
     var pageStateResolver = {};
@@ -12,6 +14,7 @@ describe('advisor detail component', function () {
     var advisorDetailService;
     var stateTrackerService;
     var advisorService;
+    var $httpBackend;
     beforeEach(function(){
         module(function($provide){
             $provide.service('advisorDetailService', function(){
@@ -41,20 +44,39 @@ describe('advisor detail component', function () {
 
         module('advisorLocator.features.searchByLocation');
     });
+
+
     beforeEach(function() {
 
-        inject(['$injector', '$componentController', '$rootScope','advisorDetailService', 'advisorService', 'stateTrackerService', function ($injector, $componentController, $rootScope, _advisorDetailService_, _advisorService_, _stateTrackerService_) {
+        inject(['$injector', '$componentController', '$rootScope', '$compile','$templateCache', '$httpBackend', 'advisorDetailService', 'advisorService', 'stateTrackerService', function ($injector, $componentController, $rootScope, _$compile_, _$templateCache_, _$httpBackend_, _advisorDetailService_, _advisorService_, _stateTrackerService_) {
             advisorDetailService = _advisorDetailService_;
             advisorService = _advisorService_;
             stateTrackerService = _stateTrackerService_;
+            $compile = _$compile_;
+            $httpBackend = _$httpBackend_;
+            //$httpBackend.when('GET', 'app/features/components/advisorDetail/advisorDetail.tpl.html').respond(advisorDetailTemplate);
             scope = $rootScope.$new();
+
+
             controller = $componentController('advisorDetail', {$rootScope: scope, $stateParams:$stateParams,pageStateResolver:pageStateResolver,detectMobile:detectMobile,GOOGLE_MAPS_URL:GOOGLE_MAPS_URL,
                 GOOGLE_MAPS_URL:GOOGLE_MAPS_URL, advisorDetailService: advisorDetailService, stateTrackerService:stateTrackerService, advisorService:advisorService}
             );
+            //var element = $compile('<advisor-detail id="advisorDetails"></advisor-detail>')($rootScope);
+            //element = angular.element('<advisor-detail id="advisorDetails"></advisor-detail>');
+            //element = $compile(element)(scope);
+            //scope.$apply();
+            //$httpBackend.flush();
+            $rootScope.$digest();
+
 
         }]);
 
     });
+
+    //it('should render the text', function() {
+    //
+    //    console.log("Value of element", element.html());
+    //});
 
     it('should expose googleMapsUrl', function() {
 
@@ -69,8 +91,6 @@ describe('advisor detail component', function () {
     });
 
     it('should expose detectMobile', function() {
-        console.log("lets see value of controller", controller);
-        console.log("value of controller's stateTrackerService", controller.stateTrackerService );
         expect(controller.detectMobile).toBeDefined();
 
     });
