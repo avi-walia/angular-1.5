@@ -1,67 +1,40 @@
 <ci-loader loading="$ctrl.branchListService.branchListLoading || $ctrl.advisorService.isLoading">
+  <div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="branchDetails" class="locatorpage">
+    <div ng-if="$ctrl.detectMobile.isDesktop">
+        <div id="card">
+          <div id="details">
+            <p class="name" ng-if="$ctrl.branchDetailService.branchDetail.dealerShip">{{$ctrl.branchDetailService.branchDetail.dealerShip==="ACM" ? "Assante Capital Management Ltd.": "Assante Financial Management Ltd."}}</p>
+            <p class="label" ng-if="$ctrl.branchDetailService.branchDetail.address1" translate>branchDetail.address</p>
+            <p class="address"><span ng-if="$ctrl.branchDetailService.branchDetail.address1">{{$ctrl.branchDetailService.branchDetail.address1}}</span><span ng-if="$ctrl.branchDetailService.branchDetail.address2">, {{$ctrl.branchDetailService.branchDetail.address2}}</span><br/>
+            <span ng-if="$ctrl.branchDetailService.branchDetail.city">{{$ctrl.branchDetailService.branchDetail.city}},</span> <span ng-if="$ctrl.branchDetailService.branchDetail.provinceAbbr">{{$ctrl.branchDetailService.branchDetail.provinceAbbr}}</span> <span ng-if="$ctrl.branchDetailService.branchDetail.postalCode">{{$ctrl.branchDetailService.branchDetail.postalCode}}</span></p>
+          </div>
+          <div id="numbers">
+            <ul>
+              <li><span class="label" ng-if="$ctrl.branchDetailService.branchDetail.phone" translate>branchDetail.telephone</span>
+                <span ng-if="$ctrl.branchDetailService.branchDetail.phone">{{$ctrl.branchDetailService.branchDetail.phone}}</span></li>
+              <li><span class="label" ng-if="$ctrl.branchDetailService.branchDetail.fax" translate>branchDetail.fax</span>
+                <span ng-if="$ctrl.branchDetailService.branchDetail.fax">{{$ctrl.branchDetailService.branchDetail.fax}}</span></li>
+            </ul>
+          </div>
+          <div id="manager" ng-repeat="branchManager in $ctrl.branchDetailService.branchDetail.branchManagers | orderBy:['lastName', 'firstName']:false">
+            <h3 ng-if="branchManager.firstName || branchManager.lastName" translate>branchDetail.branchManagerName</h3>
+            <p class="name" ng-if="branchManager.firstName || branchManager.lastName">{{branchManager.firstName}} {{branchManager.lastName}}</p>
+            <dl>
+              <dt ng-if="branchManager.phone" translate>branchDetail.telephone</dt>
+              <dd ng-if="branchManager.phone">{{branchManager.phone}}</dd>
+              <dt ng-if="branchManager.email" translate>branchDetail.email</dt>
+              <dd ng-if="branchManager.email"><a href="mailto:{{branchManager.email}}">{{branchManager.email}}</a></dd>
+            </dl>
+          </div>
+          <div id="associates">
+            <h3 translate>branchDetail.branchAssociates</h3>
+            <dl ng-repeat="advisor in $ctrl.branchDetailService.branchDetail.partialAdvisorsInfo | orderBy:['lastName', 'firstName']:false">
+                    <dt ng-show="$ctrl.perviousStateIsLocationSearch">
+                        <a ui-sref="main.advisorLocator.advisorDetails({id: advisor.id})"><span ng-if="advisor.commonName">{{advisor.commonName}}</span><span ng-if="!advisor.commonName">{{advisor.firstName}}</span> {{advisor.lastName}}</a>
+                    </dt>
 
-<div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="branchDetails">
-    <div class="full" ng-if="$ctrl.detectMobile.isDesktop">
-        <h2 translate>branchDetail.title</h2><br>
-
-        <!-- BRANCH DETAILS -->
-        <div>
-            <div>
-                <span ng-if="$ctrl.branchDetailService.branchDetail.dealerShip">{{$ctrl.branchDetailService.branchDetail.dealerShip==="ACM" ? "Assante Capital Management Ltd.": "Assante Financial Management Ltd."}}<br></span>
-                <span ng-if="$ctrl.branchDetailService.branchDetail.address1">{{$ctrl.branchDetailService.branchDetail.address1}},</span>
-                <span ng-if="$ctrl.branchDetailService.branchDetail.address2">{{$ctrl.branchDetailService.branchDetail.address2}}<br></span>
-                <span ng-if="$ctrl.branchDetailService.branchDetail.city">{{$ctrl.branchDetailService.branchDetail.city}},</span>
-                <span ng-if="$ctrl.branchDetailService.branchDetail.provinceAbbr">{{$ctrl.branchDetailService.branchDetail.provinceAbbr}}</span>
-                <span ng-if="$ctrl.branchDetailService.branchDetail.postalCode">{{$ctrl.branchDetailService.branchDetail.postalCode}}</span>
-            </div>
-            <br>
-            <table>
-                <tr ng-if="$ctrl.branchDetailService.branchDetail.phone">
-                    <td translate>branchDetail.telephone</td>
-                    <td class="price extra">{{$ctrl.branchDetailService.branchDetail.phone}}</td>
-                </tr>
-
-                <tr ng-if="$ctrl.branchDetailService.branchDetail.fax">
-                    <td translate>branchDetail.fax</td>
-                    <td>{{$ctrl.branchDetailService.branchDetail.fax}}</td>
-                </tr>
-            </table>
-            <br>
-
-           <table ng-repeat="branchManager in $ctrl.branchDetailService.branchDetail.branchManagers | orderBy:['lastName', 'firstName']:false">
-               <tr ng-if="branchManager.firstName || branchManager.lastName">
-                    <td translate>branchDetail.branchManagerName</td>
-                    <td>{{branchManager.firstName}} {{branchManager.lastName}}</td>
-                </tr>
-                <tr ng-if="branchManager.phone">
-                    <td translate>branchDetail.telephone</td>
-                    <td>{{branchManager.phone}}</td>
-                </tr>
-                <tr ng-if="branchManager.email">
-                    <td translate>branchDetail.email</td>
-                    <td><a href="mailto:{{branchManager.email}}">{{branchManager.email}}</a></td>
-                </tr>
-               <tr><td><br/></td></tr>
-            </table>
-
-            <br>
-            <div lazy-load-update="https://maps.google.com/maps/api/js"
-                 lazy-load-update-params="{{$ctrl.googleMapsUrl}}">
-                <google-map address="$ctrl.branchDetailService.branchDetail.fullAddress" user-marker="$ctrl.branchDetailService.branchDetail.userMarker"></google-map><br>
-            </div>
-            <h2 translate>branchDetail.branchAssociates</h2>
-            <ul ng-repeat="advisor in $ctrl.branchDetailService.branchDetail.partialAdvisorsInfo | orderBy:['lastName', 'firstName']:false">
-                    <div ng-show="$ctrl.perviousStateIsLocationSearch">
-                        <a ui-sref="main.advisorLocator.advisorDetails({id: advisor.id})">
-                            <span ng-if="advisor.commonName">{{advisor.commonName}}</span>
-                            <span ng-if="!advisor.commonName">{{advisor.firstName}}</span>
-                            {{advisor.lastName}}
-                        </a>
-                    </div>
-
-                    <div ng-show="!$ctrl.perviousStateIsLocationSearch">
-                        <a ui-sref="main.advisorLocator.advisorDetails({id: advisor.id})">
-                            <span ng-if="$ctrl.advisorDetailService.advisorDetail.id==advisor.id">
+                    <dt ng-show="!$ctrl.perviousStateIsLocationSearch">
+                        <a ui-sref="main.advisorLocator.advisorDetails({id: advisor.id})"><span ng-if="$ctrl.advisorDetailService.advisorDetail.id==advisor.id">
                                  <span ng-if="$ctrl.advisorDetailService.advisorDetail.showCommon!==undefined && $ctrl.advisorDetailService.advisorDetail.showCommon">{{advisor.commonName}}</span>
                                  <span ng-if="$ctrl.advisorDetailService.advisorDetail.showCommon!==undefined && !$ctrl.advisorDetailService.advisorDetail.showCommon">{{advisor.firstName}}</span>
                                  {{advisor.lastName}}
@@ -73,12 +46,15 @@
                             </span>
 
                         </a>
-                    </div>
-            </ul>
+                    </dt>
+            </dl>
+          </div>
+        </div>
+        <div id="map" lazy-load-update="https://maps.google.com/maps/api/js" lazy-load-update-params="{{$ctrl.googleMapsUrl}}">
+          <google-map address="$ctrl.branchDetailService.branchDetail.fullAddress" user-marker="$ctrl.branchDetailService.branchDetail.userMarker"></google-map>
         </div>
 
     </div>
 
-</div>
-
+  </div>
 </ci-loader>

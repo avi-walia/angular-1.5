@@ -231,9 +231,46 @@ header { background:#fff; border-top:solid $bg_dark 35px;
       h4 { color:$gold; letter-spacing:1px; margin-bottom:1em; text-transform:uppercase; }
       h5 { color:$blue; font-size:1.1em; font-weight:400; margin:-0.25em 0 0.5em; }
       p { line-height:1.2;
-        &.branchlink { bottom:30px; font-size:0.8em; margin-top:1.8em; position:absolute; right:40px;
+        &.branchlink { bottom:30px; font-size:0.8em; margin-top:1.8em; xposition:absolute; right:40px;
           a { xborder:solid 1px $text; xborder-radius:3px; color:$orange; xpadding:5px 15px; text-decoration:none; xtext-transform:uppercase; }
         }
+      }
+    }
+  }
+  #map { display:inline-block; height:770px; margin-right:-4px; width:594px; }
+}
+
+#branchDetails { padding:2.5em 0;
+  #card { background:#fff; display:inline-block; height:770px; margin-right:-4px; position:relative; vertical-align:top; width:486px;
+    #details { text-align:center; margin-bottom:2em;
+      p { font-size:0.9em; margin:0;
+        &.name { font:1.3em/1.1 'Montserrat',sans-serif; margin:3em 0 2em; }
+        &.label { color:$blue; font-family:'Montserrat',sans-serif; margin-bottom:0.25em; text-transform:uppercase; }
+      }
+    }
+    #numbers {
+      ul { list-style:none; margin:0; padding:0 40px; width:100%;
+        li { display:inline-block; font-size:0.9em; margin-right:-4px; text-align:center; width:50%;
+          span { display:block;
+            &.label { color:$blue; font-family:'Montserrat',sans-serif; margin-bottom:0.25em; text-transform:uppercase; }
+          }
+        }
+      }
+    }
+    #manager { font-size:0.9em; padding:3em 40px 10px;
+      h3 { color:$gold; font:1em/1 'Montserrat',sans-serif; margin-bottom:0.25em; text-transform:uppercase; }
+      p.name { border-bottom:solid 1px darken($bg,4%); font-weight:600; padding-bottom:1em; }
+      dt { color:$blue; display:inline-block; font:0.9em/1 'Montserrat',sans-serif; text-transform:uppercase; }
+      dd { border-bottom:solid 1px darken($bg,4%); font-size:0.9em; margin:-1.4em 0 1em; padding-bottom:1em; text-align:right;
+        &:last-child { border:0; }
+        a { color:$text; text-decoration:none; }
+      }
+    }
+    #associates { font-size:0.9em; padding:0 40px 30px;
+      h3 { color:$gold; font:1em/1 'Montserrat',sans-serif; margin-bottom:0.25em; text-transform:uppercase; }
+      dt { border-bottom:solid 1px darken($bg,4%); padding-bottom:1em; }
+      a { color:$text; display:block; position:relative; text-decoration:none; width:100%;
+        &:hover::after { color:$orange; content:'View details'; position:absolute; right:0; }
       }
     }
   }
