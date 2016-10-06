@@ -195,14 +195,50 @@ header { background:#fff; border-top:solid $bg_dark 35px;
       }
     }
   }
-  #results { background:#fff; border-top:solid 1px darken($bg,4%); display:inline-block; height:600px; margin-right:-4px; overflow-y:scroll; width:432px;
+  #results { background:#fff; border-top:solid 1px darken($bg,4%); display:inline-block; height:665px; margin-right:-4px; overflow-y:scroll; width:486px;
     .branchitem { width:100%; border-bottom:solid 1px darken($bg,4%); padding:20px; }
   }
-  .showMap { display:inline-block; height:600px; margin-right:-4px; width:648px;
+  .showMap { display:inline-block; height:665px; margin-right:-4px; width:594px;
     #map { display:inline-block; height:100%; width:100%; }
   }
 }
 
+#advisorDetails { padding:2.5em 0;
+  #card { background:#fff; display:inline-block; height:770px; margin-right:-4px; position:relative; vertical-align:top; width:486px;
+    button { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#888888" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>') 0 1px no-repeat; background-size:18px; border:0; color:#888; display:block; font-size:0.8em; margin:10px 0 3em 8px; padding-left:22px;
+      &:hover { cursor:pointer; }
+    }
+    #photo { border-radius:70px; display:inline-block; height:140px; margin:0 30px; overflow:hidden; vertical-align:middle; width:140px;
+      img { height:auto; margin-top:50%; text-align:center; transform:translateY(-50%); width:100%; }
+    }
+    #advisor { display:inline-block; vertical-align:middle;
+      p { margin:0;
+        &.name { color:$gold; font:1.3em/1.1 'Montserrat',sans-serif; }
+        &.designation { font-weight:600; }
+        &.title { font-size:0.9em; }
+      }
+    }
+    #details { padding:30px 40px;
+      dt { color:$blue; display:inline-block; font:0.9em/1 'Montserrat',sans-serif; text-transform:uppercase; }
+      dd { border-bottom:solid 1px darken($bg,4%); font-size:0.9em; margin:-1.4em 0 1em; padding-bottom:1em; text-align:right;
+        &:last-child { border:0; }
+        a { color:$text; text-decoration:none; }
+      }
+    }
+    #branch { background:darken($bg,4%); bottom:0; padding:30px 40px; position:absolute; xtext-align:center; width:100%;
+      h4, h5, p { margin:0; }
+      h4, h5 { font:700 0.8em/1 'Montserrat',sans-serif; }
+      h4 { color:$gold; letter-spacing:1px; margin-bottom:1em; text-transform:uppercase; }
+      h5 { color:$blue; font-size:1.1em; font-weight:400; margin:-0.25em 0 0.5em; }
+      p { line-height:1.2;
+        &.branchlink { bottom:30px; font-size:0.8em; margin-top:1.8em; position:absolute; right:40px;
+          a { xborder:solid 1px $text; xborder-radius:3px; color:$orange; xpadding:5px 15px; text-decoration:none; xtext-transform:uppercase; }
+        }
+      }
+    }
+  }
+  #map { display:inline-block; height:770px; margin-right:-4px; width:594px; }
+}
 
 footer { background:$bg_dark; color:$bg; font:400 0.9em/1 'Montserrat',sans-serif;
   .i18n-fr & { font-size:0.85em; }
