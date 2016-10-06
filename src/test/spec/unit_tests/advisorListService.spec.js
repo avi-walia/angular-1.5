@@ -1,4 +1,7 @@
 
+var $q;
+var $timeout;
+var $rootScope;
 var filterRunnerServiceMock = {
     filters: {},
     activeFilters: [],
@@ -6,22 +9,26 @@ var filterRunnerServiceMock = {
     filteredData: []
 };
 var serverMock = {
-    get: function() {
-        return
-    }
+    get: function(){}
 };
 
 
 (function () {
     describe('branch detail service', function () {
         var $advisorService;
+
+        beforeEach(function() {
+            module('advisorLocator.features.searchByName');
+        });
         beforeEach(function(){
             module(function($provide){
                 //ENDPOINT_URI, ELEMENTS_PER_PAGE, filterRunnerService, langFilterService, provinceFilterService
 
                 $provide.service('removeDiacriticsService', function(){
+                    return removeDiacriticsServiceMock;
                 });
                 $provide.service('server', function() {
+                    return serverMock;
                 });
                 $provide.service('BASE_URL', function() {
                 });
@@ -36,30 +43,56 @@ var serverMock = {
                 });
                 $provide.service('provinceFilterService', function() {
                 });
-
             });
-            module('advisorLocator.features.searchByName');
         });
-        beforeEach(inject(function(advisorService){
-            $advisorService = advisorService;
-        }));
+
+
+        beforeEach(
+            inject(function(advisorService, _$q_, _$timeout_, _$rootScope_){
+                $advisorService = advisorService;
+                $q = _$q_;
+                $rootScope = _$rootScope_;
+                serverMock.get = function() {
+                    var deferred = $q.defer();
+                    deferred.resolve({data: advisors});
+                    return deferred.promise;
+                };
+                /*
+                 spyOn(serverMock, 'get').and.callFake(function() {
+                 var deferred = $q.defer();
+                 deferred.resolve(advisors);
+                 console.log('server mock called');
+                 return deferred.promise;
+                 });
+                 */
+                $advisorService.init();
+                $rootScope.$digest();
+
+            })
+        );
 
         it('Advisor list service should exist', function() {
-
             //expect(bds.test).toEqual('hello world');
             expect($advisorService).toBeDefined();
         });
 
         it('Advisor list should not have loaded anything yet', function() {
-            expect($advisorService.allAdvisors).toEqual([]);
-            expect($advisorService.isLoading).toEqual(true);
+            expect($advisorService.isLoading).toEqual(false);
         });
 
-        it('Advisor list should be able to retrieve all advisors', function() {
-
-            $advisorService.init();
-            expect($advisorService).toBeDefined();
+        it('Advisor list should not have loaded anything yet', function() {
+            //expect($advisorService.allAdvisors.length).toEqual(2);
+            //expect($advisorService.isLoading).toEqual(true);
+            $advisorService.init().then(function(data) {
+                expect($advisorService.allAdvisors.length).toEqual(777);
+            });
+            $rootScope.$digest();
         });
+
+        it('Advisor list should not have loaded anything yet', function() {
+            expect($advisorService.allAdvisors.length).toEqual(777);
+        });
+
 
     });
 })();
