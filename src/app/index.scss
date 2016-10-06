@@ -100,21 +100,34 @@ header { background:#fff; border-top:solid $bg_dark 35px;
   }
 }
 
-#advisorList { /*@include zen-grid-background();*/ @include zen-grid-container(); height:855px; margin:0 auto; padding:2.5em 0; width:1080px;
-
+.locatorpage { @include zen-grid-container(); margin:0 auto; padding:2.5em 0; width:1080px;
   #searchoptions {
     ul { list-style:none; height:40px; margin:0; overflow:hidden; padding:0; width:100%;
       li { background:darken($bg,4%); display:inline-block; letter-spacing:2px; margin-right:-4px; text-align:center; text-transform:uppercase; vertical-align:top; width:50%;
         a { color:#888; display:inline-block; font:700 0.8em/40px 'Montserrat',sans-serif; height:40px; text-decoration:none; }
-        &#searchbyname { background:#fff;
-          a { color:$blue; background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#003e51" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>') left 10px no-repeat; font-size:1em; line-height:46px; padding-left:32px; }
+        .advisorList & {
+          &#searchbyname { background:#fff;
+            a { color:$blue; background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#003e51" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>') left 10px no-repeat; font-size:1em; line-height:46px; padding-left:32px; }
+          }
+          &#searchbylocation {
+            a { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#888888" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>') left 10px no-repeat; background-size:19px; padding-left:25px; }
+          }
         }
-        &#searchbylocation {
-          a { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#888888" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>') left 10px no-repeat; background-size:19px; padding-left:25px; }
+        .branchList & {
+          &#searchbyname {
+            a { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#888888" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>') left 10px no-repeat; background-size:19px; padding-left:25px; }
+          }
+          &#searchbylocation { background:#fff;
+            a { color:$blue; background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#003e51" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>') left 10px no-repeat; font-size:1em; line-height:46px; padding-left:32px; }
+          }
         }
       }
     }
   }
+}
+
+#advisorList { /*@include zen-grid-background();*/ height:855px;
+
   #filters { background:#fff; font-size:0.9em; padding:$zen-gutters; width:100%;
     #input { display:inline-block; position:relative; width:68%;
       &::before { color:$orange; content:'search'; font:24px/35px 'Material Icons'; left:8px; position:absolute; z-index:1; }
@@ -225,3 +238,5 @@ footer { background:$bg_dark; color:$bg; font:400 0.9em/1 'Montserrat',sans-seri
     }
   }
 }
+
+#map { width:800px; height:400px; }
