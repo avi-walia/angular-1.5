@@ -51,6 +51,7 @@ var removeDiacriticsServiceMock = {
         "Johnstone":"Johnstone",
         "Kingston":"Kingston",
         "Andrews":"Andrews",
-        "m m": "m m"
+        "m m": "m m",
+        "j ric j": "j ric j"
     }
 };

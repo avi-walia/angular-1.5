@@ -1,7 +1,3 @@
-function newAdvisor(fName, lName, cName, city, prov, email, phone, spokenLanguage){
-    return {firstName: fName, commonName: cName, lastName: lName, city: city, provinceAbbr: prov, email:email, phone: phone, spokenLanguage: spokenLanguage};
-};
-
 var advisors = [
     {firstName: 'Michael', commonName: null, lastName: 'Andrews', city: 'London', provinceAbbr: 'ON', email: 'mandrews@assante.com', phone: '519-438-0338', spokenLanguage: 'English'},
     {firstName: 'Peter', commonName: 'James', lastName: 'Kingston', city: 'Kingston', provinceAbbr: 'ON', email: '', phone: '', spokenLanguage: 'English'},
@@ -19,3 +15,7 @@ var advisors = [
     {firstName: 'Robert', commonName: 'Jay', lastName: 'Rayner', city: 'Kingston', provinceAbbr: 'ON', email: 'jrayner@assante.com', phone: '613-766-7220', spokenLanguage: 'English'},
     {firstName: 'James Richard', commonName: 'Richard', lastName: 'Johnson', city: 'Antigonish', provinceAbbr: 'NS', email: 'RJohnson@assante.com', phone: '', spokenLanguage: 'English'}
 ];
+function newAdvisor(fName, lName, cName, city, prov, email, phone, spokenLanguage){
+    return {firstName: fName, commonName: cName, lastName: lName, city: city, provinceAbbr: prov, email:email, phone: phone, spokenLanguage: spokenLanguage};
+};
+
