@@ -34,8 +34,8 @@
                 <div ng-class="{'lastAdvisorRow': $last, 'notLastAdvisorRow': !$last}" ng-repeat="element in $ctrl.service[$ctrl.service.objectName] | limitTo:$ctrl.service.mobileMaxNumDisplay track by $index">
                   <div class="image">
                     <a role="button" aria-label="{{aria.namesearch.getAdvisorDetails | translate}}" ui-sref="main.advisorLocator.advisorDetails({id: element.id})"  aria-label="{{'aria.namesearch.getAdvisorDetails' | translate}}">
-                      <img aria-label="{{aria.picturePlaceholder | translate}}" ng-if="!element.profilePictureUrl" src="assets/images/advisorHeadShot.png" style="width:80px;height:auto;display:inline" />
-                      <img aria-label="{{aria.picturePlaceholder | translate}}" ng-if="element.profilePictureUrl" ng-src="{{element.profilePictureUrl}}" style="width:80px;height:auto;display:inline" />
+                      <img aria-label="{{aria.picturePlaceholder | translate}}" ng-if="!element.profilePictureUrl" src="assets/images/advisorHeadShot.png" />
+                      <img aria-label="{{aria.picturePlaceholder | translate}}" ng-if="element.profilePictureUrl" ng-src="{{element.profilePictureUrl}}" />
                     </a>
                   </div>
                   <div class="copy">
@@ -48,11 +48,11 @@
             </div>
         </div>
     </div>
-    <div ng-if="!$ctrl.service[$ctrl.service.objectName].length" translate>
+    <div id="nosearch" ng-if="!$ctrl.service[$ctrl.service.objectName].length" translate>
         noSearchCriteria
     </div>
 
-    <ul
+    <div
         ng-if="$ctrl.detectMobile.isDesktop && $ctrl.service[$ctrl.service.objectName].length > 0"
         id="pagination"
         uib-pagination
@@ -66,5 +66,5 @@
         previous-text="&lsaquo;"
         next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"
     >
-    </ul>
+  </div>
 </ci-loader>

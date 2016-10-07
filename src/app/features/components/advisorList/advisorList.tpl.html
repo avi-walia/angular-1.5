@@ -1,23 +1,19 @@
-<div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="advisorList">
+<div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="advisorList" class="locatorpage">
     <!-- <h2 translate>pages.advisorList.title</h2> -->
     <div id="searchoptions">
-        <search-by style="margin-top:25px;"></search-by>
+        <search-by></search-by>
     </div>
     <div id="filters">
         <search-bar service="$ctrl.service"></search-bar>
-        <div id="dropdowns">
-            <label>Filter by Language:
-              <select ng-model="$ctrl.service.filterRunnerService.filters.lang.value" ng-change="$ctrl.service.updateFilters($ctrl.service.filters.lang)">
-                  <option ng-repeat="lang in $ctrl.service.filterRunnerService.filters.lang.options" value="{{lang}}">{{'pages.advisorList.filterOptions.lang.' + lang | translate}}</option>
-              </select>
-            </label>
-            <label>Filter by Province:
-              <select ng-model="$ctrl.service.filterRunnerService.filters.province.value" ng-change="$ctrl.service.updateFilters($ctrl.service.filters.province)">
-                  <option ng-repeat="province in $ctrl.service.filterRunnerService.filters.province.options" value="{{province}}">{{'pages.advisorList.filterOptions.province.' + province | translate}}</option>
-              </select>
-            </label>
-        </div>
-        <div id="button">
+        <div id="options">
+            <label for="langselect">Filter by Language:</label>
+            <select id="langselect" ng-model="$ctrl.service.filterRunnerService.filters.lang.value" ng-change="$ctrl.service.updateFilters($ctrl.service.filters.lang)">
+                <option ng-repeat="lang in $ctrl.service.filterRunnerService.filters.lang.options" value="{{lang}}">{{'pages.advisorList.filterOptions.lang.' + lang | translate}}</option>
+            </select>
+            <label for="provselect">Filter by Province:</label>
+            <select id="provselect" ng-model="$ctrl.service.filterRunnerService.filters.province.value" ng-change="$ctrl.service.updateFilters($ctrl.service.filters.province)">
+                <option ng-repeat="province in $ctrl.service.filterRunnerService.filters.province.options" value="{{province}}">{{'pages.advisorList.filterOptions.province.' + province | translate}}</option>
+            </select>
             <button ng-click="$ctrl.service.clearFilters()">{{'pages.advisorList.clearFilterLabel' | translate}}</button>
         </div>
     </div>

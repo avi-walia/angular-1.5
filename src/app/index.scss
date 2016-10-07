@@ -21,19 +21,131 @@ $bg_dark: #333;
 *, *::before, *::after { box-sizing:border-box; }
 * { -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
 
+html { overflow-y:scroll; }
 html, body { background:$bg; color:$text; font:400 16px/1.4 'Open Sans',sans-serif; margin:0; padding:0; }
 
-#advisorList { /*@include zen-grid-background();*/ @include zen-grid-container(); margin:0 auto; width:1160px;
+header { background:#fff; border-top:solid $bg_dark 35px;
+  &::after { background:linear-gradient(to right,$blue,$blue 20%,$orange 20%,$orange 40%,$vlblue 40%,$vlblue 60%,$vlgold 60%,$vlgold 80%,$gold 80%); content:''; display:block; height:5px; width:100%; }
 
-  #filters { background:#fff; padding:$zen-gutters; width:100%;
-    #input { display:inline-block; margin-right:$zen-gutters; width:70%;
-      input { background:darken($bg,4%); border:0; border-radius:3px; line-height:2.2em; padding:0 8px; width:100%; }
-    }
-    #dropdowns, #button { display:inline-block; width:10%; }
+  .container { @include zen-grid-container(); height:80px; margin:0 auto; position:relative; width:600px;
+    @media (min-width:768px) { width:720px; }
+    @media (min-width:896px) { width:840px; }
+    @media (min-width:1024px) { width:960px; }
+    @media (min-width:1152px) { width:1080px; }
   }
 
-  #results { margin-top:2em; width:100%;
-    #resultscontainer { @include zen-grid-background();
+  h1.pane-page-site-name { bottom:18px; height:40px; left:0; margin:0; position:absolute; right:0; width:192px; z-index:1;
+    a { background:url('../images-source/logo_assante_blue_en.svg') no-repeat; display:block; height:100%; text-indent:-999em; width:100%;
+      .i18n-fr & { background:url('../images-source/logo_assante_blue_fr.svg') no-repeat; }
+    }
+  }
+
+  .pane-menu-menu-secondary-menu { position:absolute; right:82px; top:-35px;
+    ul.menu { list-style:none; margin:0 auto; max-width:$zen-grid-width; padding:0; text-align:right;
+      li { display:inline-block; line-height:35px; margin-left:20px;
+        &::before { color:#fff; font:20px/35px 'Material Icons'; margin-right:5px; vertical-align:bottom; }
+        &#login::before { content:'lock'; }
+        &#locator::before { content:'my_location'; }
+        a { color:#fff; font:700 0.88em/1 'Montserrat',sans-serif; text-decoration:none; text-transform:uppercase; }
+      }
+    }
+  }
+
+  .pane-search-form { position:absolute; right:38px; top:-35px;
+    &::before { color:#fff; content:'search'; font:24px/35px 'Material Icons'; }
+    &:hover::before { cursor:pointer; }
+    form { /*@include zen-grid-item(9,1,right);*/ background:#fff; display:none; padding:28px 0 16px; position:absolute; right:-40px; text-align:right; width:616px; z-index:1;
+      .form-item { display:inline-block; margin:0; width:83%;
+        input { background:darken($bg,4%); border:0; border-radius:3px; xfont-size:1.2em; line-height:2.2; padding:0 8px; width:100%; }
+      }
+      .form-actions { display:inline-block; margin-left:2px; vertical-align:top;
+        input { background:$orange; border:0; border-radius:3px; color:#fff; font-family:'Montserrat',sans-serif; line-height:2.2em; margin-left:2px; padding:0 0.6em; text-transform:uppercase; }
+      }
+    }
+    // &.show form { @include flipInX($duration:0.5s,$delay:0.3s); display:block; }
+    // &.hide form { @include flipOutX($duration:0.4s); display:block; }
+  }
+
+
+  .pane-locale-language-content { position:absolute; right:0; top:-35px; z-index:1;
+    ul { list-style:none; margin:0 auto; max-width:$zen-grid-width; padding:0; text-align:right;
+      li { display:inline-block; line-height:35px;
+        &.active { display:none; }
+        a { color:#fff; font:700 0.88em/1 'Montserrat',sans-serif; text-decoration:none; text-transform:uppercase; }
+      }
+    }
+  }
+
+  .pane-system-main-menu { bottom:15px; position:absolute; width:100%;
+    ul.menu { list-style:none; margin:0 auto; padding:0; text-align:right;
+      li { display:inline-block; margin-left:25px;
+        a { color:$blue; display:inline-block; font:400 1.13em/1 'Montserrat',sans-serif; letter-spacing:0.5px; text-decoration:none; text-transform:uppercase; vertical-align:bottom; }
+        &#assante-life a { border-right:solid 42px #fff; overflow:hidden; white-space:nowrap; width:132px;
+          &::after { color:$orange; content:'Life'; font:2.2em/1 'Great Vibes'; margin:-12px 0 0 -59px; position:absolute; text-transform:none; }
+        }
+        &#assante-vie a { border-right:solid 36px #fff; overflow:hidden; white-space:nowrap; width:126px;
+          &::after { color:$orange; content:'Vie'; font:2.2em/1 'Great Vibes'; margin:-12px 0 0 -55px; position:absolute; text-transform:none; }
+        }
+      }
+    }
+    // &.show { @include flipInX($duration:0.5s,$delay:0.3s); }
+    // &.hide { @include flipOutX($duration:0.4s); }
+  }
+
+}
+
+#masthead { background:url('https://unsplash.it/1024/768/?random') center center no-repeat; background-size:cover; width:100%; height:200px;
+  .container { text-align:center;
+    h1 { color:$orange; font:700 2em/200px 'Montserrat',sans-serif; margin:0; text-transform:uppercase; }
+  }
+}
+
+.locatorpage { @include zen-grid-container(); min-height:855px; margin:0 auto; padding:2.5em 0; width:1080px;
+  #searchoptions {
+    ul { list-style:none; height:40px; margin:0; overflow:hidden; padding:0; width:100%;
+      li { background:darken($bg,4%); display:inline-block; letter-spacing:2px; margin-right:-4px; text-align:center; text-transform:uppercase; vertical-align:top; width:50%;
+        a { color:#888; display:inline-block; font:700 0.8em/40px 'Montserrat',sans-serif; height:40px; text-decoration:none; }
+        .advisorList & {
+          &#searchbyname { background:#fff;
+            a { color:$blue; background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#003e51" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>') left 10px no-repeat; font-size:1em; line-height:46px; padding-left:32px; }
+          }
+          &#searchbylocation {
+            a { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#888888" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>') left 10px no-repeat; background-size:19px; padding-left:25px; }
+          }
+        }
+        .branchList & {
+          &#searchbyname {
+            a { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#888888" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>') left 10px no-repeat; background-size:19px; padding-left:25px; }
+          }
+          &#searchbylocation { background:#fff;
+            a { color:$blue; background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#003e51" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>') left 10px no-repeat; font-size:1em; line-height:46px; padding-left:32px; }
+          }
+        }
+      }
+    }
+  }
+  #filters { background:#fff; font-size:0.9em; padding:$zen-gutters; width:100%;
+    #input { display:inline-block; position:relative;
+      &::before { color:$orange; content:'search'; font:24px/35px 'Material Icons'; left:8px; position:absolute; z-index:1; }
+      input { background:darken($bg,4%); border:0; border-radius:3px; line-height:2.5em; padding:0 8px 0 40px; position:relative; }
+    }
+  }
+}
+
+#advisorList { /*@include zen-grid-background();*/
+  #filters {
+    #input { width:68%;
+      input { width:99%; }
+    }
+    #options { display:inline-block; float:right; text-align:right; vertical-align:top; white-space:nowrap; width:32%;
+      label { display:none; }
+      select { appearance:none; background:darken($bg,4%) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#cd5806" d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/></svg>') 94% 9px no-repeat; background-size:20px; border:0; border-radius:3px; display:inline-block; height:2.5em; line-height:2.5em; padding:0 8% 0 3.5%; }
+      button { background:$orange; border:0; border-radius:3px; color:#fff; display:inline-block; font-family:'Montserrat',sans-serif; height:2.5em; line-height:2.6em; padding:0 3%; text-transform:uppercase; vertical-align:top; }
+    }
+  }
+  #results { margin-top:$zen-gutters; width:100%; position:relative;
+    #resultmessage { color:#888; font-style:italic; margin-top:-63px; position:absolute; right:35%; z-index:1; }
+    #resultscontainer { /*@include zen-grid-background();*/
       .advisor { background:#fff; height:180px; margin-bottom:$zen-gutters; position:relative;
         &:nth-child(3n+1) { @include zen-grid-item(4,1); @include zen-new-row(); }
         &:nth-child(3n+2) { @include zen-grid-item(4,5); }
@@ -55,15 +167,171 @@ html, body { background:$bg; color:$text; font:400 16px/1.4 'Open Sans',sans-ser
         }
       }
     }
-
-    #pagination { clear:both; }
+    #pagination { background:#fff; clear:both; margin:0;
+      ul { list-style:none; margin:0; padding:0; text-align:center;
+        li { display:inline-block;
+          a { background:darken($bg,4%); border-radius:3px; color:$orange; display:block; font:700 1em 'Montserrat',sans-serif; line-height:20px; margin:15px 5px; padding:5px 10px; text-decoration:none; }
+          &.active a { background:$orange; color:#fff; }
+        }
+      }
+    }
   }
-
+  #nosearch { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bbb" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>') center 100px no-repeat; background-size:150px; height:600px; padding-top:250px; text-align:center;
+      p { color:#aaa; }
+  }
 }
 
+#branchList {
+  #filters {
+    #input { width:87%;
+      &::before { content:'location_on'; }
+      input { width:91%; }
+      button { background:darken($bg,4%); border:0; border-radius:3px; color:#888; display:inline-block; font-family:'Montserrat',sans-serif; height:2.5em; line-height:2.6em; padding:0 8px; text-transform:uppercase; }
+      input.ng-not-empty + button { background:$orange; color:#fff; }
+    }
+    #button { display:inline-block; float:right; text-align:right; vertical-align:top;
+      button { background:$orange; border:0; border-radius:3px; color:#fff; display:inline-block; font-family:'Montserrat',sans-serif; height:2.5em; line-height:2.6em; padding:0 8px 0 36px; position:relative; text-transform:uppercase; white-space:nowrap;
+        &::before { content:'my_location'; font:24px/35px 'Material Icons'; left:8px; position:absolute; text-transform:none; z-index:1; }
+      }
+    }
+  }
+  #results { background:#fff; border-top:solid 1px darken($bg,4%); display:inline-block; height:665px; margin-right:-4px; overflow-y:scroll; width:486px;
+    .branchitem { width:100%; border-bottom:solid 1px darken($bg,4%); padding:20px; }
+  }
+  .showMap { display:inline-block; height:665px; margin-right:-4px; width:594px;
+    #map { display:inline-block; height:100%; width:100%; }
+  }
+}
 
-/* TEMP STUFF */
+#advisorDetails { padding:2.5em 0;
+  #card { background:#fff; display:inline-block; height:770px; margin-right:-4px; position:relative; vertical-align:top; width:486px;
+    button { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#888888" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>') 0 1px no-repeat; background-size:18px; border:0; color:#888; display:block; font-size:0.8em; margin:10px 0 3em 8px; padding-left:22px;
+      &:hover { cursor:pointer; }
+    }
+    #photo { border-radius:70px; display:inline-block; height:140px; margin:0 30px; overflow:hidden; vertical-align:middle; width:140px;
+      img { height:auto; margin-top:50%; text-align:center; transform:translateY(-50%); width:100%; }
+    }
+    #advisor { display:inline-block; vertical-align:middle;
+      p { margin:0;
+        &.name { color:$gold; font:1.3em/1.1 'Montserrat',sans-serif; }
+        &.designation { font-weight:600; }
+        &.title { font-size:0.9em; }
+      }
+    }
+    #details { padding:30px 40px;
+      dt { color:$blue; display:inline-block; font:0.9em/1 'Montserrat',sans-serif; text-transform:uppercase; }
+      dd { border-bottom:solid 1px darken($bg,4%); font-size:0.9em; margin:-1.4em 0 1em; padding-bottom:1em; text-align:right;
+        &:last-child { border:0; }
+        a { color:$text; text-decoration:none; }
+      }
+    }
+    #branch { background:darken($bg,4%); bottom:0; padding:30px 40px; position:absolute; xtext-align:center; width:100%;
+      h4, h5, p { margin:0; }
+      h4, h5 { font:700 0.8em/1 'Montserrat',sans-serif; }
+      h4 { color:$gold; letter-spacing:1px; margin-bottom:1em; text-transform:uppercase; }
+      h5 { color:$blue; font-size:1.1em; font-weight:400; margin:-0.25em 0 0.5em; }
+      p { line-height:1.2;
+        &.branchlink { bottom:30px; font-size:0.8em; margin-top:1.8em; xposition:absolute; right:40px;
+          a { xborder:solid 1px $text; xborder-radius:3px; color:$orange; xpadding:5px 15px; text-decoration:none; xtext-transform:uppercase; }
+        }
+      }
+    }
+  }
+  #map { display:inline-block; height:770px; margin-right:-4px; width:594px; }
+}
 
-header, footer { background:#eee; padding:20px; }
+#branchDetails { padding:2.5em 0;
+  #card { background:#fff; display:inline-block; height:770px; margin-right:-4px; position:relative; vertical-align:top; width:486px;
+    #details { text-align:center; margin-bottom:2em;
+      p { font-size:0.9em; margin:0;
+        &.name { font:1.3em/1.1 'Montserrat',sans-serif; margin:3em 0 2em; }
+        &.label { color:$blue; font-family:'Montserrat',sans-serif; margin-bottom:0.25em; text-transform:uppercase; }
+      }
+    }
+    #numbers {
+      ul { list-style:none; margin:0; padding:0 40px; width:100%;
+        li { display:inline-block; font-size:0.9em; margin-right:-4px; text-align:center; width:50%;
+          span { display:block;
+            &.label { color:$blue; font-family:'Montserrat',sans-serif; margin-bottom:0.25em; text-transform:uppercase; }
+          }
+        }
+      }
+    }
+    #manager { font-size:0.9em; padding:3em 40px 10px;
+      h3 { color:$gold; font:1em/1 'Montserrat',sans-serif; margin-bottom:0.25em; text-transform:uppercase; }
+      p.name { border-bottom:solid 1px darken($bg,4%); font-weight:600; padding-bottom:1em; }
+      dt { color:$blue; display:inline-block; font:0.9em/1 'Montserrat',sans-serif; text-transform:uppercase; }
+      dd { border-bottom:solid 1px darken($bg,4%); font-size:0.9em; margin:-1.4em 0 1em; padding-bottom:1em; text-align:right;
+        &:last-child { border:0; }
+        a { color:$text; text-decoration:none; }
+      }
+    }
+    #associates { font-size:0.9em; padding:0 40px 30px;
+      h3 { color:$gold; font:1em/1 'Montserrat',sans-serif; margin-bottom:0.25em; text-transform:uppercase; }
+      dt { border-bottom:solid 1px darken($bg,4%); padding-bottom:1em; }
+      a { color:$text; display:block; position:relative; text-decoration:none; width:100%;
+        &:hover::after { color:$orange; content:'View details'; position:absolute; right:0; }
+      }
+    }
+  }
+  #map { display:inline-block; height:770px; margin-right:-4px; width:594px; }
+}
 
-/* END TEMP STUFF */
+footer { background:$bg_dark; color:$bg; font:400 0.9em/1 'Montserrat',sans-serif;
+  .i18n-fr & { font-size:0.85em; }
+  .container { @include zen-grid-container(); margin:0 auto; padding:3.5em 0; width:600px;
+    @media (min-width:768px) { width:720px; }
+    @media (min-width:896px) { width:840px; }
+    @media (min-width:1024px) { width:960px; }
+    @media (min-width:1152px) { width:1080px; }
+  }
+  h1 { @include zen-grid-item(10,1); background:url('../images-source/logo_assante_white_en.svg') no-repeat; display:block; height:35px; margin-bottom:1em; margin-top:0; padding:0; text-indent:-999em; transform:translateX(-17px); width:168px; }
+  h2 { border-bottom:solid 1px lighten($bg_dark,20%); font-size:1em; font-weight:400; line-height:2.25em; margin:0 0 0.75em; padding:0 0 0.5em 1.9em; position:relative;
+    &::before { font:1.2em/2 'Material Icons'; left:0; letter-spacing:0; position:absolute; text-transform:none; }
+  }
+  ul, li { list-style:none !important; line-height:2.4; margin:0; padding:0; }
+  p { margin:0; }
+  a, a:visited { color:$bg; text-decoration:none; }
+
+  .contact, .locator, .careers { letter-spacing:1px; margin-bottom:2em; text-transform:uppercase;
+    li { padding-left:1.9em; position:relative; white-space:nowrap;
+      &::before { font:1.2em/2 'Material Icons'; left:0; letter-spacing:0; position:absolute; text-align:center; text-transform:none; }
+    }
+  }
+  .contact { @include zen-grid-item(4,1,$gutters:4.5%); @include zen-new-row();
+    h2:before { content:'comment'; }
+    li#toll-free::before { content:'phone'; }
+    li#email-us::before { content:'mail_outline'; }
+    li#linkedin::before { background:url('../images-source/linkedin-box.svg') -1px 7px no-repeat; background-size:18px; content:''; display:block; height:27px; width:20px; }
+    li#youtube::before { background:url('../images-source/youtube-play.svg') -1px 7px no-repeat; background-size:18px; content:''; display:block; height:27px; width:20px; }
+  }
+  .locator { @include zen-grid-item(4,5,$gutters:4.5%);
+    // @media (min-width:768px) { }
+    // @media (min-width:896px) { }
+    // @media (min-width:1024px) { }
+    // @media (min-width:1152px) { @include zen-grid-item(4,5,$gutters:4.5%); }
+    h2:before { content:'my_location'; }
+    li#search-name::before { content:'account_circle'; }
+    li#search-location::before { content:'location_on'; }
+  }
+  .careers { @include zen-grid-item(4,9,$gutters:4.5%);
+    // @media (min-width:768px) { }
+    // @media (min-width:896px) { }
+    // @media (min-width:1024px) { }
+    // @media (min-width:1152px) { @include zen-grid-item(4,9,$gutters:4.5%); }
+    h2:before { content:'business_center'; }
+    li#advisor-opps::before { content:'supervisor_account'; }
+    li#branch-opps::before { content:'store'; }
+    li#corp-opps::before { content:'business'; }
+  }
+
+  .copyright, .legal a { color:lighten($bg_dark,20%); font-family:'Open Sans',sans-serif; }
+  .copyright { @include zen-grid-item(8,1); @include zen-new-row(); }
+  .legal { @include zen-grid-item(6,1,right);
+    ul { text-align:right; line-height:1;
+      li { border-left:solid 1px lighten($bg_dark,20%); display:inline-block; line-height:1; margin-left:1em; padding-left:1.2em;
+        &:first-child { border:0; }
+      }
+    }
+  }
+}

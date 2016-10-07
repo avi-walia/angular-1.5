@@ -2,12 +2,12 @@
   "appTitle": "App Title",
   "searchButton": "Search",
   "search": {
-    "byName": "Search By: Advisor Name",
-    "byLocation": "Search By: Location"
+    "byName": "Search by name",
+    "byLocation": "Search by location"
   },
   "shortSearchTerm": "Please enter atleast 2 characters.",
-  "searchResultsFound": "Search results found.",
-  "noSearchCriteria": "There are no search results to be displayed.",
+  "searchResultsFound": "results",
+  "noSearchCriteria": "<p>Start typing an advisor’s first or last name<br/>and the search results will show here.</p><p>If you are unable to locate the advisor you are looking for,<br/>please contact our Assante Service Centre at 1-800-268-3200.</p>",
   "pages": {
     "advisorList":{
       "title": "Search for Advisor",
@@ -21,7 +21,7 @@
           "French": "French"
         },
         "province": {
-          "Province": "Any Province",
+          "Province": "Any province",
           "AB": "AB",
           "BC": "BC",
           "MB": "MB",
@@ -38,7 +38,7 @@
         }
       },
       "provinceFilterPlaceHolder": "Select provinces...",
-      "clearFilterLabel": "Clear Filters"
+      "clearFilterLabel": "Clear"
     }
   },
   "helpLabel": "Help",
@@ -132,10 +132,10 @@
     "title":"Advisor Detail",
     "searchResultsButton": "Back to search results",
     "backButton": "Back",
-    "branchDetailsLink": "Branch Details",
+    "branchDetailsLink": "View branch details",
     "mapTitle": "Map",
     "contactUsNote" : "*Note: If you are unable to locate your advisor, please contact <a href='https://www.assanteservices.com/aiol/#/en/aio/contact' target='_blank'>Assante Service Centre</a> for assistance",
-    "telephone": "Tel",
+    "telephone": "Phone",
     "fax": "Fax",
     "tollFree": "Toll Free",
     "email": "Email",
@@ -148,12 +148,13 @@
     "title": "Branch Detail",
     "mapTitle": "Map",
     "branchAssociates": "Branch Associates",
-    "telephone": "Tel:",
-    "tollFree": "Toll Free:",
-    "fax": "Fax:",
-    "website": "Website:",
-    "email": "Email:",
-    "branchManagerName": "Branch Manager:",
+    "address": "Address",
+    "telephone": "Phone",
+    "tollFree": "Toll-free",
+    "fax": "Fax",
+    "website": "Website",
+    "email": "Email",
+    "branchManagerName": "Branch Manager",
     "coManager": "Co Manager:"
   },
   "searchBarLabel": "Search Bar.",
