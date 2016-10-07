@@ -37,25 +37,16 @@ module.exports = function(config) {
          ],
          */
         files: bowerFiles.concat([
-            './src/app/bootstrap/index.module.js',
-            './src/app/**/*.js',
-            //not sure if this is needed. May only be needed when instantiating directives
-            //'./src/app/**/*.html',
-            /*
+                './src/app/bootstrap/index.module.js',
+                'src/test/spec/unit_tests/testspec.js',
                 'src/app/features/services/branchDetail.service.js',
                 'src/test/spec/unit_tests/branchDetailServiceSpec.js',
-
                 'src/app/features/services/advisorDetail.service.js',
                 'src/test/spec/unit_tests/advisorDetailServiceSpec.js',
-
                 'src/app/features/components/branchDetail/branchDetail.component.js',
                 'src/test/spec/unit_tests/branchDetailComponentSpec.js',
-
                 'src/app/features/components/advisorDetail/advisorDetail.component.js',
-                'src/test/spec/unit_tests/advisorDetailComponentSpec.js'
-
-            */
-            {pattern: 'src/test/spec/unit_tests/**/*.js', included: true}
+                'src/test/spec/unit_tests/advisorDetailComponentSpec.js',
         ]),
 
 
