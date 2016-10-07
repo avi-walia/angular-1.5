@@ -187,13 +187,13 @@ header { background:#fff; border-top:solid $bg_dark 35px;
 
 #branchList {
   #filters {
-    #input { width:87%;
+    #input { float:right; width:87%;
       &::before { content:'location_on'; }
       input { width:91%; }
       button { background:darken($bg,4%); border:0; border-radius:3px; color:#888; display:inline-block; font-family:'Montserrat',sans-serif; height:2.5em; line-height:2.6em; padding:0 8px; text-transform:uppercase; }
       input.ng-not-empty + button { background:$orange; color:#fff; }
     }
-    #button { display:inline-block; float:right; text-align:right; vertical-align:top;
+    #button { display:inline-block; xfloat:right; text-align:right; vertical-align:top;
       button { background:$orange; border:0; border-radius:3px; color:#fff; display:inline-block; font-family:'Montserrat',sans-serif; height:2.5em; line-height:2.6em; padding:0 8px 0 36px; position:relative; text-transform:uppercase; white-space:nowrap;
         &::before { content:'my_location'; font:24px/35px 'Material Icons'; left:8px; position:absolute; text-transform:none; z-index:1; }
       }
@@ -281,7 +281,7 @@ header { background:#fff; border-top:solid $bg_dark 35px;
       p.name { border-bottom:solid 1px darken($bg,4%); font-weight:600; margin-bottom:0.5em; padding-bottom:0.5em; }
       dl { margin:0.5em 0; }
       dt { xcolor:$blue; display:inline-block; xfont:0.9em/1 'Montserrat',sans-serif; xtext-transform:uppercase; }
-      dd { border-bottom:solid 1px darken($bg,4%); font-size:0.9em; margin:-1.4em 0 0.5em; xpadding-bottom:0.5em; text-align:right;
+      dd { border-bottom:solid 1px darken($bg,4%); font-size:0.9em; margin:-1.75em 0 0.5em; padding-bottom:0.5em; text-align:right;
         &:last-child { border:0; }
         a { color:$text; text-decoration:none; }
       }
