@@ -1,11 +1,60 @@
 //this object uses all unique advisor names(first, common or last) as keys and the values are the outputs after running the name through the removeDemocraticService function.
-var removeDiacriticsServiceMock = {
+var removeDiacriticsPunctuationMock = {
     remove: function (name) {
-        if (!this.removeDiacriticsServiceMap[name]) {
-            console.log('returning: ', name);
+        if (!name) {
+            return name;
+        } else if (!this.newRemoveDemocraticsPunctuationMap[name]) {
+            //console.log('returning: ', name);
+            throw "Missing removeDemocraticMap for: " + name
         }
-        return this.removeDiacriticsServiceMap[name];
+        return this.newRemoveDemocraticsPunctuationMap[name];
     },
+    //includes names and search terms
+    newRemoveDemocraticsPunctuationMap: {
+        "Michael":"michael",
+        "Peter":"peter",
+        "Daniel":"daniel",
+        "Jean Pierre":"jean pierre",
+        "Jean":"jean",
+        "Pierre":"pierre",
+        "Claudio":"claudio",
+        "Jocelyn":"jocelyn",
+        "GaÃ«l":"gael",
+        "Ashley":"ashley",
+        "Michel":"michel",
+        "Barbara":"barbara",
+        "Thomas":"thomas",
+        "Troy":"troy",
+        "Alexander":"alexander",
+        "Robert":"robert",
+        "James Richard":"james richard",
+        "Barb":"barb",
+        "Eric":"eric",
+        "Alex":"alex",
+        "Jay":"jay",
+        "Richard":"richard",
+        "James":"james",
+        "Johnson":"johnson",
+        "Rayner":"rayner",
+        "Argento":"argento",
+        "Thomson":"thomson",
+        "Eric":"eric",
+        "Stranak-St-Georges":"stranakstgeorges",
+        "St.-Georges":"stgeorges",
+        "D'Souza":"dsouza",
+        "LalibertÃ©":"laliberte",
+        "CÃ´tÃ©":"cote",
+        "Di Sante":"di sante",
+        "Di":"di",
+        "Sante":"sante",
+        "Beauchamp":"beauchamp",
+        "Johnstone":"johnstone",
+        "Kingston":"kingston",
+        "Andrews":"andrews",
+        "m m": "m m"
+    },
+
+
     removeDiacriticsServiceMap: {
         "Lorea": "lorea",
         "Declercq": "declercq",
@@ -1184,7 +1233,3 @@ var removeDiacriticsServiceMock = {
         "CommonnameG": "commonnameG"
     }
 };
-
-var diacraticless = {
-
-}

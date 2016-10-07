@@ -14,8 +14,9 @@ var serverMock = {
 
 
 (function () {
-    describe('branch detail service', function () {
+    describe('branch detail service after initialization', function () {
         var $advisorService;
+        var resultSetLength = advisors.length;
 
         beforeEach(function() {
             module('advisorLocator.features.searchByName');
@@ -25,7 +26,7 @@ var serverMock = {
                 //ENDPOINT_URI, ELEMENTS_PER_PAGE, filterRunnerService, langFilterService, provinceFilterService
 
                 $provide.service('removeDiacriticsService', function(){
-                    return removeDiacriticsServiceMock;
+                    return removeDiacriticsServiceMock;//does more than just remove diacritics. Also removes punctuation.
                 });
                 $provide.service('server', function() {
                     return serverMock;
@@ -48,10 +49,11 @@ var serverMock = {
 
 
         beforeEach(
-            inject(function(advisorService, _$q_, _$timeout_, _$rootScope_){
+            inject(function(advisorService, _$q_, _$timeout_, _$rootScope_) {
                 $advisorService = advisorService;
                 $q = _$q_;
                 $rootScope = _$rootScope_;
+
                 serverMock.get = function() {
                     var deferred = $q.defer();
                     deferred.resolve({data: advisors});
@@ -59,12 +61,12 @@ var serverMock = {
                 };
                 /*
                  spyOn(serverMock, 'get').and.callFake(function() {
-                 var deferred = $q.defer();
-                 deferred.resolve(advisors);
-                 console.log('server mock called');
-                 return deferred.promise;
+                     var deferred = $q.defer();
+                     deferred.resolve({data: advisors});
+                     return deferred.promise;
                  });
-                 */
+                */
+
                 $advisorService.init();
                 $rootScope.$digest();
 
@@ -76,23 +78,44 @@ var serverMock = {
             expect($advisorService).toBeDefined();
         });
 
-        it('Advisor list should not have loaded anything yet', function() {
+        it('Advisor list should have already loaded advisors', function() {
             expect($advisorService.isLoading).toEqual(false);
+            expect($advisorService.allAdvisors.length).toEqual(resultSetLength);
         });
 
-        it('Advisor list should not have loaded anything yet', function() {
-            //expect($advisorService.allAdvisors.length).toEqual(2);
-            //expect($advisorService.isLoading).toEqual(true);
-            $advisorService.init().then(function(data) {
-                expect($advisorService.allAdvisors.length).toEqual(777);
+        it('Advisors should have precomputed search indexes for first/common/last without diacritics', function() {
+            _.forEach($advisorService.allAdvisors, function($advisor) {
+                var fName = removeDiacriticsPunctuationMock.remove($advisor.firstName);
+                var lName = removeDiacriticsPunctuationMock.remove($advisor.lastName);
+                var cName = removeDiacriticsPunctuationMock.remove($advisor.commonName);
+                _.forEach($advisor.fNameArr, function(fNameVal) {
+                    expect(fName.indexOf(fNameVal)).toBeGreaterThan(-1);
+                });
+
+                _.forEach($advisor.lNameArr, function(lNameVal) {
+                    expect(lName.indexOf(lNameVal)).toBeGreaterThan(-1);
+                });
+
+                _.forEach($advisor.cNameArr, function(cNameVal) {
+                    expect(cName.indexOf(cNameVal)).toBeGreaterThan(-1);
+                });
             });
-            $rootScope.$digest();
         });
 
-        it('Advisor list should not have loaded anything yet', function() {
-            expect($advisorService.allAdvisors.length).toEqual(777);
+        it('Advisor list should not have showCommon flags before searching', function() {
+            expect($advisorService.isLoading).toEqual(false);
+            expect($advisorService.allAdvisors.length).toEqual(resultSetLength);
+            _.forEach($advisorService.allAdvisors, function($advisor) {
+                expect($advisor.hasOwnProperty('showCommon')).toEqual(false);
+            });
         });
 
+
+
+        it('Filtered and non-filtered search results should be set properly after searching for "m m"', function() {
+            $advisorService.search("m m");
+            expect($advisor.searchResults.length).toEqual(2);
+        });
 
     });
 })();

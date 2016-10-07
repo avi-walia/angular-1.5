@@ -44,6 +44,8 @@
                    activate_deactivate_filter(filterData);
                }
             });
+
+            console.log('service.filters: ', service.filters);
         }
 
         //This function checks the filter that changed and either adds or removes it from the array of active filters.
