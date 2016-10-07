@@ -8,6 +8,7 @@
   "shortSearchTerm": "Please enter atleast 2 characters.",
   "searchResultsFound": "results",
   "noSearchCriteria": "<p>Start typing an advisor’s first or last name<br/>and the search results will show here.</p><p>If you are unable to locate the advisor you are looking for,<br/>please contact our Assante Service Centre at 1-800-268-3200.</p>",
+  "noSearchCriteriaBranch": "<p>Enter the city and/or province <br/>and the search results will show here.</p><p>If you are unable to locate the branch<br/>you are looking for, please contact our<br/>Assante Service Centre at 1-800-268-3200.</p>",
   "pages": {
     "advisorList":{
       "title": "Search for Advisor",
@@ -113,7 +114,7 @@
     "placeholder": "Enter a location",
     "linkToMap": "Get direction on a map",
     "currentLocation": "Current+Location",
-    "getDetails": "Get details",
+    "getDetails": "View branch details",
     "km": "km",
     "search": "search",
     "locateMe": "Locate Me",
