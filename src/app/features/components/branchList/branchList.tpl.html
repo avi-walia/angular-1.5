@@ -16,7 +16,10 @@
                   </div>
                 </div>
                 <div id="results" role="list" aria-live="polite">
-                    <branch-item role="listitem" ng-repeat="branch in $ctrl.branchListService.markers track by $index" item="branch" ng-click="$ctrl.openInfoWindow(branch.id)"></branch-item>
+                    <branch-item class="branch" role="listitem" ng-repeat="branch in $ctrl.branchListService.markers track by $index" item="branch" ng-click="$ctrl.openInfoWindow(branch.id)"></branch-item>
+                    <div id="nosearch" ng-if="!$ctrl.service[$ctrl.service.objectName].length" translate>
+                        noSearchCriteriaBranch
+                    </div>
                 </div>
                 <google-map position="$ctrl.branchListService.position" location-list="$ctrl.branchListService.branchListView" marker-list="$ctrl.branchListService.markers" on-update-markers="$ctrl.setMarkers(markers)">
                 </google-map>

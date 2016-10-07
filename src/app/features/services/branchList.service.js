@@ -47,8 +47,8 @@
 
                     service.branchListView = _(result.data)
                         .map(function(item){
-                            var fullAddress = ((item.address1 !== null && item.address1 !== '') ?  item.address1 + ', ' : '') + ((item.address2 !== null && item.address1 !== '') ? item.address2+ ', ' : ' ') +  item.city + ', ' + item.provinceAbbr + ' ' +item.postalCode;
-                            var shortAddress = ((item.address1 !== null && item.address1 !== '') ?  item.address1 + ', ' : '') + ((item.address2 !== null && item.address1 !== '') ? item.address2+ ', ' : ' ');
+                            var fullAddress = ((item.address1 !== null && item.address1 !== '') ?  item.address1 : '') + ((item.address2 !== null && item.address1 !== '') ? ', ' + item.address2 + ', ' : ' ') +  item.city + ', ' + item.provinceAbbr + ' ' +item.postalCode;
+                            var shortAddress = ((item.address1 !== null && item.address1 !== '') ?  item.address1 : '') + ((item.address2 !== null && item.address1 !== '') ? ', ' + item.address2 : '');
                             return {id: item.id, geoLocation: {lat: (item.geoLocation ? item.geoLocation.lat : 61.0), lng: (item.geoLocation ? item.geoLocation.lng : -99.0)}, address: fullAddress, distance: 0,
                                 shortAddress: shortAddress, city: item.city, province: item.provinceAbbr, postal: item.postalCode};
                         })
