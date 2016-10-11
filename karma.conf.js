@@ -44,6 +44,7 @@ module.exports = function(config) {
             './src/app/features/**/*.js',
             //'./src/test/spec/unit_tests/**/*.js',
             './src/test/spec/unit_tests/mocks/*.js',
+            './src/test/spec/unit_tests/mocks/removeDiacraticsServiceMock.js',
             './src/test/spec/unit_tests/advisorListService.spec.js'
             //not sure if this is needed. May only be needed when instantiating directives
             //'./src/app/**/*.html',

@@ -204,7 +204,7 @@
             for (var i = 0; i < defaultDiacriticsRemovalMap.length; i++) {
                 str = str.replace(defaultDiacriticsRemovalMap[i].letters, defaultDiacriticsRemovalMap[i].base);
             }
-
+            console.log(str);
             return str;
 
         }

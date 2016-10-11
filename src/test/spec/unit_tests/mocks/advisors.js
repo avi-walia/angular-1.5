@@ -416,7 +416,180 @@ var initializedAdvisors = [
         ]
     }
 ];
-function newAdvisor(fName, lName, cName, city, prov, email, phone, spokenLanguage){
-    return {firstName: fName, commonName: cName, lastName: lName, city: city, provinceAbbr: prov, email:email, phone: phone, spokenLanguage: spokenLanguage};
-};
+
+var paginationAdvisors = [
+    {
+        firstName: 'Dean',
+        commonName: null,
+        lastName: 'Cormier',
+        partialBranchInfo: {
+            city: 'Mount Pearl',
+            provinceAbbr: 'NF'
+        },
+        email: 'dcormier@assante.com',
+        phone: '709-5761785  ext. 1868',
+        spokenLanguage: 'English',
+        cNameArr: [],
+        lNameArr:['cormier'],
+        fNameArr:[
+            'dean'
+        ]
+    },
+    {
+        firstName: 'Ronald',
+        commonName: 'Ron',
+        lastName: 'Schmidt',
+        partialBranchInfo: {
+            city: 'Courtenay',
+            provinceAbbr: 'BC'
+        },
+        email: 'rschmidt@assante.com',
+        phone: '',
+        spokenLanguage: 'English',
+        cNameArr: ['ron'],
+        lNameArr:['schmidt'],
+        fNameArr:[
+            'ronald'
+        ]
+    },
+    {
+        firstName: 'Benjamin',
+        commonName: 'Chris',
+        lastName: 'Horan',
+        partialBranchInfo: {
+            city: 'Toronto',
+            provinceAbbr: 'ON'
+        },
+        email: 'choran@assante.com',
+        phone: '416-216-6532',
+        spokenLanguage: 'English',
+        cNameArr: ['chris'],
+        lNameArr:['horan'],
+        fNameArr:[
+            'benjamin'
+        ]
+    },
+    {
+        firstName: 'Scott',
+        commonName: null,
+        lastName: 'Jamieson',
+        partialBranchInfo: {
+            city: 'Mississauga',
+            provinceAbbr: 'ON'
+        },
+        email: 'sjamieson@assante.com',
+        phone: '',
+        spokenLanguage: 'English',
+        cNameArr: [],
+        lNameArr:['jamieson'],
+        fNameArr:[
+            'scott'
+        ]
+    },
+    {
+        firstName: 'Matthew',
+        commonName: 'Kyle',
+        lastName: 'Cumming',
+        partialBranchInfo: {
+            city: 'Langley',
+            provinceAbbr: 'BC'
+        },
+        email: 'kcumming@assante.com',
+        phone: '604-532-8622',
+        spokenLanguage: 'English',
+        cNameArr: ['kyle'],
+        lNameArr:['cumming'],
+        fNameArr:[
+            'matthew'
+        ]
+    },
+    {
+        firstName: 'Robert',
+        commonName: 'Robert J.M.',
+        lastName: 'Smith',
+        partialBranchInfo: {
+            city: 'Hamilton',
+            provinceAbbr: 'ON'
+        },
+        email: 'robert.smith@assante.com',
+        phone: '',
+        spokenLanguage: 'English',
+        cNameArr: [
+            'robert',
+            'jm'
+        ],
+        lNameArr:['smith'],
+        fNameArr:[
+            'robert'
+        ]
+    },
+    {
+        firstName: 'James',
+        commonName: 'Jamie',
+        lastName: 'Geisler',
+        partialBranchInfo: {
+            city: 'Powassan',
+            provinceAbbr: 'ON'
+        },
+        email: 'jgeisler@assante.com',
+        phone: '',
+        spokenLanguage: 'English',
+        cNameArr: ['jamie'],
+        lNameArr:['geisler'],
+        fNameArr:[
+            'james'
+        ]
+    },
+    {
+        firstName: 'Eeva',
+        commonName: null,
+        lastName: 'Niemi',
+        partialBranchInfo: {
+            city: 'Thunder Bay',
+            provinceAbbr: 'ON'
+        },
+        email: 'eniemi@assante.com',
+        phone: '807-683--4588',
+        spokenLanguage: 'English',
+        cNameArr: [],
+        lNameArr:['niemi'],
+        fNameArr:[
+            'eeva'
+        ]
+    },
+    {
+        firstName: 'James',
+        commonName: 'Jamie',
+        lastName: 'Thomas',
+        partialBranchInfo: {
+            city: 'Kingston',
+            provinceAbbr: 'ON'
+        },
+        email: 'Jamie.Thomas@assante.com',
+        phone: '613-766-8600',
+        spokenLanguage: 'English',
+        cNameArr: ['jamie'],
+        lNameArr:['thomas'],
+        fNameArr:[
+            'james'
+        ]
+    },
+    {
+        firstName: 'Paul',
+        commonName: null,
+        lastName: 'Lermitte',
+        partialBranchInfo: {
+            city: 'Vancouver',
+            provinceAbbr: 'BC'
+        },
+        email: 'plermitte@assante.com',
+        phone: '',
+        spokenLanguage: 'English',
+        cNameArr: [],
+        lNameArr:['lermitte'],
+        fNameArr:[
+            'paul'
+        ]
+    }
+];
 

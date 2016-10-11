@@ -74,10 +74,10 @@
 
 
         //This is the flag that determines if we are sorting in ascending or descending order. This is automatically changed to true on search
-        var sortAscending = true;
+        //var sortAscending = true;
 
         //This is the last sort order chosen by the user. This is automatically changed to 'lastname' on search
-        var lastSort = '';
+        //var lastSort = '';
 
         //Stores the contents of the search input
         service.searchTerm = '';
@@ -168,9 +168,9 @@
             return server.get(BASE_URL + ENDPOINT_URI + '/advisors', false, 'localStorage', false).then(function(data) {
                 //all advisors have been retrieved. Dissable isLoading.
 
+                console.log('begin');
                 //precompute names with punctuation, spacing and accents removed. This will speed up searches later.
                 _.forEach(data.data, function(advisor, index){
-
                     var commonName = advisor.commonName ? removeDiacriticsService.remove(advisor.commonName).toLowerCase() : null;
                     var firstName = removeDiacriticsService.remove(advisor.firstName).toLowerCase();
                     var lastName = removeDiacriticsService.remove(advisor.lastName).toLowerCase();
@@ -456,6 +456,32 @@
             _.forEach(service.allAdvisors, function(advisor, index) {
 
                 //Convert all names to lowercase and remove punctuation/accents.
+                var cName = advisor.cNameArr.join(" ");
+                var fName = advisor.fNameArr.join(" ");
+                var lName = advisor.lNameArr.join(" ");
+
+                //check if commonName CONTAINS the searchTerm
+                if (cName && cName.indexOf(searchTerm) >= 0) {
+                    service.allAdvisors[index].showCommon = true;
+                    service.searchResults.push(advisor);
+                    //check if firstName CONTAINS the searchTerm
+                } else if(fName.indexOf(searchTerm) >= 0) {
+                    service.allAdvisors[index].showCommon = false;
+                    advisor.showCommon = false;
+                    service.searchResults.push(advisor);
+                    //check if lastName CONTAINS the searchTerm
+                } else if(lName.indexOf(searchTerm) >= 0) {
+                    //lastName CONTAINS the search term, see if they have a commonName to display.
+                    if (advisor.commonName) {
+                        //commonName exists, show it
+                        service.allAdvisors[index].showCommon = true;
+                    } else {
+                        //commonName does not exist, show firstName
+                        service.allAdvisors[index].showCommon = false;
+                    }
+                    service.searchResults.push(advisor);
+                }
+                /*
                 var commonName = advisor.commonName ? removeDiacriticsService.remove(advisor.commonName).toLowerCase() : null;
                 var firstName = removeDiacriticsService.remove(advisor.firstName).toLowerCase();
                 var lastName = removeDiacriticsService.remove(advisor.lastName).toLowerCase();
@@ -484,6 +510,7 @@
                     }
                     service.searchResults.push(advisor);
                 }
+                */
             });
         }
 
