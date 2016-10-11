@@ -148,6 +148,8 @@
   "branchDetail":{
     "title": "Branch Detail",
     "mapTitle": "Map",
+    "searchResultsButton": "Back to search results",
+    "backButton": "Back",
     "branchAssociates": "Branch Associates",
     "address": "Address",
     "telephone": "Phone",
