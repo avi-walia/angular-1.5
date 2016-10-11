@@ -16,8 +16,8 @@
                   </div>
                 </div>
                 <div id="results" role="list" aria-live="polite">
-                    <branch-item class="branch" role="listitem" ng-repeat="branch in $ctrl.branchListService.markers track by $index" item="branch" ng-click="$ctrl.openInfoWindow(branch.id)"></branch-item>
-                    <div id="nosearch" ng-if="!$ctrl.service[$ctrl.service.objectName].length" translate>
+                    <branch-item class="branch" role="listitem" ng-repeat="branch in $ctrl.branchListService.markers track by $index" item="branch"></branch-item>
+                    <div id="nosearch" ng-if="$ctrl.branchListService.markers.length===0" translate>
                         noSearchCriteriaBranch
                     </div>
                 </div>

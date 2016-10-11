@@ -41,7 +41,7 @@
         vm.setLocation = setLocation;
         vm.setMessage = setMessage;
         vm.setMarkers = setMarkers;
-        vm.openInfoWindow = openInfoWindow;
+
 
 
         var mapIsCompiled = $rootScope.$on('mapIsCompiled', function(event, param){
@@ -76,10 +76,6 @@
         }
 
 
-        function openInfoWindow(id){
-
-            $scope.$emit('infoWindow', {id: id});
-        }
 
         vm.branchListService.getBranchList();
 
