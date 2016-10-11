@@ -41,6 +41,7 @@
 
         vm.onPlaceChanged = onPlaceChanged;
         vm.updatePlace = updatePlace;
+        vm.clearPlace = clearPlace;
 
         vm.updatePosition = updatePosition;
         vm.updateLocation = updateLocation;
@@ -146,6 +147,12 @@
                 //google.maps.event.trigger(vm.autocomplete, 'place_changed');
             }
 
+        }
+
+        function clearPlace(){
+            vm.location = '';
+            vm.setMessage({message: {}});
+            handleLocationError();
         }
 
         function handleLocationError(){

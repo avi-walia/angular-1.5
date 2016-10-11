@@ -81,6 +81,7 @@
     "getDetails": "FR Get details",
     "km": "km",
     "search": "FR search",
+    "clear": "FR clear",
     "locateMe": "FR Locate Me",
     "validation": {
       "notValidAddress" : "FR Please choose a valid address",

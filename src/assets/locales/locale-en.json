@@ -117,6 +117,7 @@
     "getDetails": "View branch details",
     "km": "km",
     "search": "search",
+    "clear": "clear",
     "locateMe": "Locate Me",
     "validation": {
       "notValidAddress" : "Please choose a valid address",
