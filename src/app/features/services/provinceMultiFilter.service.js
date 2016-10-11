@@ -4,13 +4,13 @@
 
     angular
         .module('advisorLocator.features.searchByName')
-        .service('provinceFilterService', provinceFilterService);
+        .service('provinceMultiFilterService', provinceMultiFilterService);
 
-    provinceFilterService.$inject = [
+    provinceMultiFilterService.$inject = [
     ];
 
     /* @ngInject */
-    function provinceFilterService() {
+    function provinceMultiFilterService() {
         var service = this;
 
         service.defaultValues = [];

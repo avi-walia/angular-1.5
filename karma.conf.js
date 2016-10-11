@@ -46,7 +46,23 @@ module.exports = function(config) {
                 'src/app/features/components/branchDetail/branchDetail.component.js',
                 'src/test/spec/unit_tests/branchDetailComponentSpec.js',
                 'src/app/features/components/advisorDetail/advisorDetail.component.js',
-                'src/test/spec/unit_tests/advisorDetailComponentSpec.js',
+                'src/test/spec/unit_tests/advisorDetailComponentSpec.js'
+// mike's unit tests, don't delete
+//            './src/app/bootstrap/index.module.js',
+//            './bower_components/lodash/dist/lodash.js',
+//            //'./src/app/features/components/advisorList/advisorList.service.js',
+//            //'./src/test/spec/unit_tests/json.js',
+//            './src/app/features/**/*.js',
+//            './src/app/utils/**/*.js',
+//            //'./src/test/spec/unit_tests/**/*.js',
+//            './src/test/spec/unit_tests/mocks/*.js',
+//            './src/test/spec/unit_tests/advisorListService.spec.js',
+//            './src/test/spec/unit_tests/removeDiacriticsService.spec.js',
+//            './src/test/spec/unit_tests/langFilterService.spec.js'
+//            //not sure if this is needed. May only be needed when instantiating directives
+//            //'./src/app/**/*.html',
+//            //{pattern: 'src/test/spec/unit_tests/**/*.js', included: true}
+
         ]),
 
 
