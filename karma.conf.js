@@ -42,10 +42,12 @@ module.exports = function(config) {
             //'./src/app/features/components/advisorList/advisorList.service.js',
             //'./src/test/spec/unit_tests/json.js',
             './src/app/features/**/*.js',
+            './src/app/utils/**/*.js',
             //'./src/test/spec/unit_tests/**/*.js',
             './src/test/spec/unit_tests/mocks/*.js',
-            './src/test/spec/unit_tests/mocks/removeDiacraticsServiceMock.js',
-            './src/test/spec/unit_tests/advisorListService.spec.js'
+            './src/test/spec/unit_tests/advisorListService.spec.js',
+            './src/test/spec/unit_tests/removeDiacriticsService.spec.js',
+            './src/test/spec/unit_tests/langFilterService.spec.js'
             //not sure if this is needed. May only be needed when instantiating directives
             //'./src/app/**/*.html',
             //{pattern: 'src/test/spec/unit_tests/**/*.js', included: true}
