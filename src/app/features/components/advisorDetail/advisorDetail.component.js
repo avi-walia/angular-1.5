@@ -46,7 +46,8 @@
             vm.perviousStateIsNameSearch = true;
         }
 
-
+        //strip out http:// from advisor's website display
+        vm.advisorDetailService.advisorDetail.websiteDisplay = vm.advisorDetailService.advisorDetail.website.replace(/^http:\/\//, '');
     }
 
 })();
