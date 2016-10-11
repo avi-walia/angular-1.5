@@ -176,6 +176,8 @@
                         }
                         else {
                             vm.setUserLocationMarker(null);
+                            vm.map.setCenter({lat: 60.5, lng: -101.0});
+                            vm.map.setZoom(3);
                         }
 
                     }
@@ -230,6 +232,8 @@
                     }
                     else {
                         vm.setUserLocationMarker(null);
+                        vm.map.setCenter({lat: 60.5, lng: -101.0});
+                        vm.map.setZoom(3);
                     }
 
                 }

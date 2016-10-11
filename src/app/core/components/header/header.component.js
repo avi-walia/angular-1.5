@@ -38,6 +38,8 @@
         vm.searchTerm = '';
         vm.goToSearch = goToSearch;
 
+        vm.showInputSearch = false;
+
         function goToSearch(){
             var drupalSearchLink = ASSANTE_URL + '/search/node/';
             if(vm.searchTerm !== '') {

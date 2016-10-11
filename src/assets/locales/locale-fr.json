@@ -8,6 +8,7 @@
   "shortSearchTerm": "FR Please enter atleast 2 characters.",
   "searchResultsFound": "FR Search results found.",
   "noSearchCriteria": "FR There are no search results to be displayed.",
+  "noSearchCriteriaBranch": "<p>FR Enter the city and/or province <br/>and the search results will show here.</p><p>If you are unable to locate the branch<br/>you are looking for, please contact our<br/>Assante Service Centre at 1-800-268-3200.</p>",
   "helpLabel": "FR Help",
 
   "navbar": {
@@ -79,8 +80,10 @@
     "linkToMap": "FR Get direction on a map",
     "currentLocation": "Current+Location",
     "getDetails": "FR Get details",
+    "showOnMap": "FR Show on map",
     "km": "km",
     "search": "FR search",
+    "clear": "FR clear",
     "locateMe": "FR Locate Me",
     "validation": {
       "notValidAddress" : "FR Please choose a valid address",
