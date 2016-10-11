@@ -205,14 +205,18 @@ header { background:#fff; border-top:solid $bg_dark 35px;
   #results { background:#fff; border-top:solid 1px darken($bg,4%); display:inline-block; height:665px; margin-right:-4px; overflow-y:auto; position:relative; width:486px;
     .branchitem { width:100%; background:#fff; border-bottom:solid 1px darken($bg,4%); padding:20px; position:relative; z-index:1;
       p { font-size:0.9em; margin:0;
-        a { color:$orange; text-decoration:none; }
         span { color:$gold; font-weight:900; }
         &.distance { position:absolute; right:20px; top:20px; }
-        &.cardlink { text-align:right; display:none; }
       }
-      &:hover { cursor:pointer;
-        &::after { bottom:20px; color:$orange; content:'Show on map'; font-size:0.9em; position:absolute; right:20px; }
+      ul { font-size:0.9em; list-style:none; margin:1em 0 0; padding:0;
+        li { display:inline-block;
+          &.infolink { float:right; }
+          a { color:$orange; text-decoration:none; }
+        }
       }
+      // &:hover { cursor:pointer;
+      //   &::after { bottom:20px; color:$orange; content:'Show on map'; font-size:0.9em; position:absolute; right:20px; }
+      // }
     }
     #nosearch { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bbbbbb" d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3c-.46-4.17-3.77-7.48-7.94-7.94V1h-2v2.06C6.83 3.52 3.52 6.83 3.06 11H1v2h2.06c.46 4.17 3.77 7.48 7.94 7.94V23h2v-2.06c4.17-.46 7.48-3.77 7.94-7.94H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>') center 100px no-repeat; background-size:150px; height:600px; padding:250px 40px 0; position:absolute; text-align:center; top:0; width:100%;
         p { color:#aaa; }

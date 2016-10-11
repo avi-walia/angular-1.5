@@ -5,9 +5,9 @@
     "byName": "Search by name",
     "byLocation": "Search by location"
   },
-  "shortSearchTerm": "Please enter atleast 2 characters.",
+  "shortSearchTerm": "Please enter at least 2 characters",
   "searchResultsFound": "results",
-  "noSearchCriteria": "<p>Start typing an advisor’s first or last name<br/>and the search results will show here.</p><p>If you are unable to locate the advisor you are looking for,<br/>please contact our Assante Service Centre at 1-800-268-3200.</p>",
+  "noSearchCriteria": "<p>Start typing an advisor's first or last name<br/>and the search results will show here.</p><p>If you are unable to locate the advisor you are looking for,<br/>please contact our Assante Service Centre at 1-800-268-3200.</p>",
   "noSearchCriteriaBranch": "<p>Enter the city and/or province <br/>and the search results will show here.</p><p>If you are unable to locate the branch<br/>you are looking for, please contact our<br/>Assante Service Centre at 1-800-268-3200.</p>",
   "pages": {
     "advisorList":{
