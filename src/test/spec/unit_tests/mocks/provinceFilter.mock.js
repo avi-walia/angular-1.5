@@ -1,96 +1,97 @@
+var possibleProvinceFilterValues = [
+    'Province',
+    'AB',
+    'BC',
+    'MB',
+    'NB',
+    'NL',
+    'NS',
+    'NT',
+    'NU',
+    'ON',
+    'PE',
+    'QC',
+    'SK',
+    'YT'
+];
 var provinceFilter = {
-    possibleValues: [
-        'Province',
-        'AB',
-        'BC',
-        'MB',
-        'NB',
-        'NL',
-        'NS',
-        'NT',
-        'NU',
-        'ON',
-        'PE',
-        'QC',
-        'SK',
-        'YT'
-    ],
+    possibleValues: possibleProvinceFilterValues,
     inputDefault: [
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[1]
+                provinceAbbr: possibleProvinceFilterValues[1]
             },
             expected: true
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[2]
+                provinceAbbr: possibleProvinceFilterValues[2]
             },
             expected: true
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[3]
+                provinceAbbr: possibleProvinceFilterValues[3]
             },
             expected: true
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[4]
+                provinceAbbr: possibleProvinceFilterValues[4]
             },
             expected: true
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[5]
+                provinceAbbr: possibleProvinceFilterValues[5]
             },
             expected: true
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[6]
+                provinceAbbr: possibleProvinceFilterValues[6]
             },
             expected: true
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[7]
+                provinceAbbr: possibleProvinceFilterValues[7]
             },
             expected: true
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[8]
+                provinceAbbr: possibleProvinceFilterValues[8]
             },
             expected: true
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[9]
+                provinceAbbr: possibleProvinceFilterValues[9]
             },
             expected: true
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[10]
+                provinceAbbr: possibleProvinceFilterValues[10]
             },
             expected: true
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[11]
+                provinceAbbr: possibleProvinceFilterValues[11]
             },
             expected: true
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[12]
+                provinceAbbr: possibleProvinceFilterValues[12]
             },
             expected: true
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[13]
+                provinceAbbr: possibleProvinceFilterValues[13]
             },
             expected: true
         }
@@ -99,79 +100,79 @@ var provinceFilter = {
     inputAB: [
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[1]
+                provinceAbbr: possibleProvinceFilterValues[1]
             },
             expected: true
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[2]
+                provinceAbbr: possibleProvinceFilterValues[2]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[3]
+                provinceAbbr: possibleProvinceFilterValues[3]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[4]
+                provinceAbbr: possibleProvinceFilterValues[4]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[5]
+                provinceAbbr: possibleProvinceFilterValues[5]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[6]
+                provinceAbbr: possibleProvinceFilterValues[6]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[7]
+                provinceAbbr: possibleProvinceFilterValues[7]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[8]
+                provinceAbbr: possibleProvinceFilterValues[8]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[9]
+                provinceAbbr: possibleProvinceFilterValues[9]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[10]
+                provinceAbbr: possibleProvinceFilterValues[10]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[11]
+                provinceAbbr: possibleProvinceFilterValues[11]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[12]
+                provinceAbbr: possibleProvinceFilterValues[12]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[13]
+                provinceAbbr: possibleProvinceFilterValues[13]
             },
             expected: false
         }
@@ -179,79 +180,79 @@ var provinceFilter = {
     inputBC: [
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[1]
+                provinceAbbr: possibleProvinceFilterValues[1]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[2]
+                provinceAbbr: possibleProvinceFilterValues[2]
             },
             expected: true
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[3]
+                provinceAbbr: possibleProvinceFilterValues[3]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[4]
+                provinceAbbr: possibleProvinceFilterValues[4]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[5]
+                provinceAbbr: possibleProvinceFilterValues[5]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[6]
+                provinceAbbr: possibleProvinceFilterValues[6]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[7]
+                provinceAbbr: possibleProvinceFilterValues[7]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[8]
+                provinceAbbr: possibleProvinceFilterValues[8]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[9]
+                provinceAbbr: possibleProvinceFilterValues[9]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[10]
+                provinceAbbr: possibleProvinceFilterValues[10]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[11]
+                provinceAbbr: possibleProvinceFilterValues[11]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[12]
+                provinceAbbr: possibleProvinceFilterValues[12]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[13]
+                provinceAbbr: possibleProvinceFilterValues[13]
             },
             expected: false
         }
@@ -259,79 +260,79 @@ var provinceFilter = {
     inputMB: [
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[1]
+                provinceAbbr: possibleProvinceFilterValues[1]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[2]
+                provinceAbbr: possibleProvinceFilterValues[2]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[3]
+                provinceAbbr: possibleProvinceFilterValues[3]
             },
             expected: true
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[4]
+                provinceAbbr: possibleProvinceFilterValues[4]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[5]
+                provinceAbbr: possibleProvinceFilterValues[5]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[6]
+                provinceAbbr: possibleProvinceFilterValues[6]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[7]
+                provinceAbbr: possibleProvinceFilterValues[7]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[8]
+                provinceAbbr: possibleProvinceFilterValues[8]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[9]
+                provinceAbbr: possibleProvinceFilterValues[9]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[10]
+                provinceAbbr: possibleProvinceFilterValues[10]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[11]
+                provinceAbbr: possibleProvinceFilterValues[11]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[12]
+                provinceAbbr: possibleProvinceFilterValues[12]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[13]
+                provinceAbbr: possibleProvinceFilterValues[13]
             },
             expected: false
         }
@@ -339,79 +340,79 @@ var provinceFilter = {
     inputNB: [
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[1]
+                provinceAbbr: possibleProvinceFilterValues[1]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[2]
+                provinceAbbr: possibleProvinceFilterValues[2]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[3]
+                provinceAbbr: possibleProvinceFilterValues[3]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[4]
+                provinceAbbr: possibleProvinceFilterValues[4]
             },
             expected: true
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[5]
+                provinceAbbr: possibleProvinceFilterValues[5]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[6]
+                provinceAbbr: possibleProvinceFilterValues[6]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[7]
+                provinceAbbr: possibleProvinceFilterValues[7]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[8]
+                provinceAbbr: possibleProvinceFilterValues[8]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[9]
+                provinceAbbr: possibleProvinceFilterValues[9]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[10]
+                provinceAbbr: possibleProvinceFilterValues[10]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[11]
+                provinceAbbr: possibleProvinceFilterValues[11]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[12]
+                provinceAbbr: possibleProvinceFilterValues[12]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[13]
+                provinceAbbr: possibleProvinceFilterValues[13]
             },
             expected: false
         }
@@ -419,79 +420,79 @@ var provinceFilter = {
     inputNL: [
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[1]
+                provinceAbbr: possibleProvinceFilterValues[1]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[2]
+                provinceAbbr: possibleProvinceFilterValues[2]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[3]
+                provinceAbbr: possibleProvinceFilterValues[3]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[4]
+                provinceAbbr: possibleProvinceFilterValues[4]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[5]
+                provinceAbbr: possibleProvinceFilterValues[5]
             },
             expected: true
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[6]
+                provinceAbbr: possibleProvinceFilterValues[6]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[7]
+                provinceAbbr: possibleProvinceFilterValues[7]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[8]
+                provinceAbbr: possibleProvinceFilterValues[8]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[9]
+                provinceAbbr: possibleProvinceFilterValues[9]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[10]
+                provinceAbbr: possibleProvinceFilterValues[10]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[11]
+                provinceAbbr: possibleProvinceFilterValues[11]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[12]
+                provinceAbbr: possibleProvinceFilterValues[12]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[13]
+                provinceAbbr: possibleProvinceFilterValues[13]
             },
             expected: false
         }
@@ -499,79 +500,79 @@ var provinceFilter = {
     inputNS: [
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[1]
+                provinceAbbr: possibleProvinceFilterValues[1]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[2]
+                provinceAbbr: possibleProvinceFilterValues[2]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[3]
+                provinceAbbr: possibleProvinceFilterValues[3]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[4]
+                provinceAbbr: possibleProvinceFilterValues[4]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[5]
+                provinceAbbr: possibleProvinceFilterValues[5]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[6]
+                provinceAbbr: possibleProvinceFilterValues[6]
             },
             expected: true
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[7]
+                provinceAbbr: possibleProvinceFilterValues[7]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[8]
+                provinceAbbr: possibleProvinceFilterValues[8]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[9]
+                provinceAbbr: possibleProvinceFilterValues[9]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[10]
+                provinceAbbr: possibleProvinceFilterValues[10]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[11]
+                provinceAbbr: possibleProvinceFilterValues[11]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[12]
+                provinceAbbr: possibleProvinceFilterValues[12]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[13]
+                provinceAbbr: possibleProvinceFilterValues[13]
             },
             expected: false
         }
@@ -579,79 +580,79 @@ var provinceFilter = {
     inputNS: [
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[1]
+                provinceAbbr: possibleProvinceFilterValues[1]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[2]
+                provinceAbbr: possibleProvinceFilterValues[2]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[3]
+                provinceAbbr: possibleProvinceFilterValues[3]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[4]
+                provinceAbbr: possibleProvinceFilterValues[4]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[5]
+                provinceAbbr: possibleProvinceFilterValues[5]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[6]
+                provinceAbbr: possibleProvinceFilterValues[6]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[7]
+                provinceAbbr: possibleProvinceFilterValues[7]
             },
             expected: true
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[8]
+                provinceAbbr: possibleProvinceFilterValues[8]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[9]
+                provinceAbbr: possibleProvinceFilterValues[9]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[10]
+                provinceAbbr: possibleProvinceFilterValues[10]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[11]
+                provinceAbbr: possibleProvinceFilterValues[11]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[12]
+                provinceAbbr: possibleProvinceFilterValues[12]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[13]
+                provinceAbbr: possibleProvinceFilterValues[13]
             },
             expected: false
         }
@@ -659,79 +660,79 @@ var provinceFilter = {
     inputNT: [
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[1]
+                provinceAbbr: possibleProvinceFilterValues[1]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[2]
+                provinceAbbr: possibleProvinceFilterValues[2]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[3]
+                provinceAbbr: possibleProvinceFilterValues[3]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[4]
+                provinceAbbr: possibleProvinceFilterValues[4]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[5]
+                provinceAbbr: possibleProvinceFilterValues[5]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[6]
+                provinceAbbr: possibleProvinceFilterValues[6]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[7]
+                provinceAbbr: possibleProvinceFilterValues[7]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[8]
+                provinceAbbr: possibleProvinceFilterValues[8]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[9]
+                provinceAbbr: possibleProvinceFilterValues[9]
             },
             expected: true
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[10]
+                provinceAbbr: possibleProvinceFilterValues[10]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[11]
+                provinceAbbr: possibleProvinceFilterValues[11]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[12]
+                provinceAbbr: possibleProvinceFilterValues[12]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[13]
+                provinceAbbr: possibleProvinceFilterValues[13]
             },
             expected: false
         }
@@ -739,79 +740,79 @@ var provinceFilter = {
     inputPE: [
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[1]
+                provinceAbbr: possibleProvinceFilterValues[1]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[2]
+                provinceAbbr: possibleProvinceFilterValues[2]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[3]
+                provinceAbbr: possibleProvinceFilterValues[3]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[4]
+                provinceAbbr: possibleProvinceFilterValues[4]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[5]
+                provinceAbbr: possibleProvinceFilterValues[5]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[6]
+                provinceAbbr: possibleProvinceFilterValues[6]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[7]
+                provinceAbbr: possibleProvinceFilterValues[7]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[8]
+                provinceAbbr: possibleProvinceFilterValues[8]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[9]
+                provinceAbbr: possibleProvinceFilterValues[9]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[10]
+                provinceAbbr: possibleProvinceFilterValues[10]
             },
             expected: true
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[11]
+                provinceAbbr: possibleProvinceFilterValues[11]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[12]
+                provinceAbbr: possibleProvinceFilterValues[12]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[13]
+                provinceAbbr: possibleProvinceFilterValues[13]
             },
             expected: false
         }
@@ -819,79 +820,79 @@ var provinceFilter = {
     inputQC: [
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[1]
+                provinceAbbr: possibleProvinceFilterValues[1]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[2]
+                provinceAbbr: possibleProvinceFilterValues[2]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[3]
+                provinceAbbr: possibleProvinceFilterValues[3]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[4]
+                provinceAbbr: possibleProvinceFilterValues[4]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[5]
+                provinceAbbr: possibleProvinceFilterValues[5]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[6]
+                provinceAbbr: possibleProvinceFilterValues[6]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[7]
+                provinceAbbr: possibleProvinceFilterValues[7]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[8]
+                provinceAbbr: possibleProvinceFilterValues[8]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[9]
+                provinceAbbr: possibleProvinceFilterValues[9]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[10]
+                provinceAbbr: possibleProvinceFilterValues[10]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[11]
+                provinceAbbr: possibleProvinceFilterValues[11]
             },
             expected: true
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[12]
+                provinceAbbr: possibleProvinceFilterValues[12]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[13]
+                provinceAbbr: possibleProvinceFilterValues[13]
             },
             expected: false
         }
@@ -899,79 +900,79 @@ var provinceFilter = {
     inputSK: [
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[1]
+                provinceAbbr: possibleProvinceFilterValues[1]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[2]
+                provinceAbbr: possibleProvinceFilterValues[2]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[3]
+                provinceAbbr: possibleProvinceFilterValues[3]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[4]
+                provinceAbbr: possibleProvinceFilterValues[4]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[5]
+                provinceAbbr: possibleProvinceFilterValues[5]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[6]
+                provinceAbbr: possibleProvinceFilterValues[6]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[7]
+                provinceAbbr: possibleProvinceFilterValues[7]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[8]
+                provinceAbbr: possibleProvinceFilterValues[8]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[9]
+                provinceAbbr: possibleProvinceFilterValues[9]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[10]
+                provinceAbbr: possibleProvinceFilterValues[10]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[11]
+                provinceAbbr: possibleProvinceFilterValues[11]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[12]
+                provinceAbbr: possibleProvinceFilterValues[12]
             },
             expected: true
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[13]
+                provinceAbbr: possibleProvinceFilterValues[13]
             },
             expected: false
         }
@@ -979,79 +980,79 @@ var provinceFilter = {
     inputYT: [
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[1]
+                provinceAbbr: possibleProvinceFilterValues[1]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[2]
+                provinceAbbr: possibleProvinceFilterValues[2]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[3]
+                provinceAbbr: possibleProvinceFilterValues[3]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[4]
+                provinceAbbr: possibleProvinceFilterValues[4]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[5]
+                provinceAbbr: possibleProvinceFilterValues[5]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[6]
+                provinceAbbr: possibleProvinceFilterValues[6]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[7]
+                provinceAbbr: possibleProvinceFilterValues[7]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[8]
+                provinceAbbr: possibleProvinceFilterValues[8]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[9]
+                provinceAbbr: possibleProvinceFilterValues[9]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[10]
+                provinceAbbr: possibleProvinceFilterValues[10]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[11]
+                provinceAbbr: possibleProvinceFilterValues[11]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[12]
+                provinceAbbr: possibleProvinceFilterValues[12]
             },
             expected: false
         },
         {
             partialBranchInfo: {
-                provinceAbbr: this.possibleValues[13]
+                provinceAbbr: possibleProvinceFilterValues[13]
             },
             expected: true
         }
