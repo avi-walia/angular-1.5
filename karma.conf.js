@@ -37,6 +37,18 @@ module.exports = function(config) {
          ],
          */
         files: bowerFiles.concat([
+            './src/app/bootstrap/index.module.js',
+            './src/app/features/services/*.js',
+            './src/app/utils/**/*.js',
+            'src/app/features/components/**/*.js',
+            './src/test/spec/unit_tests/mocks/*.mock.js',
+            //use below line to enable all test specs.
+            //'./src/test/spec/unit_tests/**/*.spec.js',
+            'src/test/spec/unit_tests/branchDetailService.spec.js',
+            'src/test/spec/unit_tests/advisorDetailService.spec.js',
+            'src/test/spec/unit_tests/branchDetailComponent.spec.js',
+            'src/test/spec/unit_tests/advisorDetailComponent.spec.js'
+            /*
                 './src/app/bootstrap/index.module.js',
                 'src/test/spec/unit_tests/testspec.js',
                 'src/app/features/services/branchDetail.service.js',
@@ -47,21 +59,7 @@ module.exports = function(config) {
                 'src/test/spec/unit_tests/branchDetailComponentSpec.js',
                 'src/app/features/components/advisorDetail/advisorDetail.component.js',
                 'src/test/spec/unit_tests/advisorDetailComponentSpec.js'
-// mike's unit tests, don't delete
-//            './src/app/bootstrap/index.module.js',
-//            './bower_components/lodash/dist/lodash.js',
-//            //'./src/app/features/components/advisorList/advisorList.service.js',
-//            //'./src/test/spec/unit_tests/json.js',
-//            './src/app/features/**/*.js',
-//            './src/app/utils/**/*.js',
-//            //'./src/test/spec/unit_tests/**/*.js',
-//            './src/test/spec/unit_tests/mocks/*.js',
-//            './src/test/spec/unit_tests/advisorListService.spec.js',
-//            './src/test/spec/unit_tests/removeDiacriticsService.spec.js',
-//            './src/test/spec/unit_tests/langFilterService.spec.js'
-//            //not sure if this is needed. May only be needed when instantiating directives
-//            //'./src/app/**/*.html',
-//            //{pattern: 'src/test/spec/unit_tests/**/*.js', included: true}
+                */
 
         ]),
 
