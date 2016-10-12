@@ -39,7 +39,7 @@
 
                 </div>
 
-                <div class="contextual-links-region panel-pane pane-block pane-search-form" ng-class="{'show': $ctrl.showInputSearch, 'hide': !$ctrl.showInputSearch}" ng-click="$ctrl.showInputSearch = !$ctrl.showInputSearch">
+                <div class="contextual-links-region panel-pane pane-block pane-search-form" ng-class="{'show': $ctrl.showInputSearch, 'hide': !$ctrl.showInputSearch}" ng-click="$ctrl.displaySearchForm()">
 
 
                     <form class="search-form" role="search" method="post" id="search-block-form" accept-charset="UTF-8" target="_self">
@@ -49,7 +49,7 @@
                                 <div class="form-item form-type-textfield form-item-search-block-form">
                                     <label class="element-invisible" for="edit-search-block-form--2" translate>header.searchPlaceholder</label>
                                     <input title="" class="custom-search-box form-text" placeholder="{{'header.searchPlaceholder' | translate}}" type="text" ng-model="$ctrl.searchTerm"
-                                           id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" tabindex="0" ng-click="" stop-event="click">
+                                           id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" tabindex="0" ng-click="" stop-event="click" focus-on="$ctrl.returnFocus">
                                 </div>
                                 <div class="form-actions form-wrapper" id="edit-actions">
                                     <input type="submit" id="edit-submit" name="op" title="{{'searchButton' | translate}}" value="{{'searchButton' | translate}}" class="form-submit" ng-click="$ctrl.goToSearch()">
