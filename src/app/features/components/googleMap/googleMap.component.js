@@ -321,10 +321,19 @@
                 vm.userLocationMarker = null;
             }
             if(LatLng) {
-                vm.userLocationMarker = new google.maps.Marker({
-                    position: LatLng,
-                    map: vm.map
-                });
+                if(vm.userMarker){
+                    vm.userLocationMarker = new google.maps.Marker({
+                        position: LatLng,
+                        map: vm.map,
+                        icon: vm.pathToIcon
+                    });
+                }
+                else{
+                    vm.userLocationMarker = new google.maps.Marker({
+                        position: LatLng,
+                        map: vm.map
+                    });
+                }
             }
 
         }
