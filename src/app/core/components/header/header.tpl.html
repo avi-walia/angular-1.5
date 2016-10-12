@@ -2,31 +2,13 @@
 <header class="header" role="banner">
 
     <div class="container">
-        <!--<div style="margin:0 0 0 3%;color:#fff;position:absolute;background:#000;">v{{ $ctrl.version }}</div>-->
 
         <div class="header__region region region-header">
             <div class="block block-panels-mini contextual-links-region first last odd" id="block-panels-mini-header">
 
-        <!--<span class="logo" title="{{ 'navbar.logo-text' | translate }}" translate></span>
-
-        <a id="drawerlink" class="mobile" snap-toggle="right">☰</a>
-
-        <nav id="topnav" class="full" ng-if="$ctrl.detectMobile.isDesktop" role="navigation" aria-label="{{ 'aria.site-wide-nav-label' | translate }}">
-            <ul>
-                <language-switcher></language-switcher>
-
-            </ul>
-        </nav>
-
-        <ci-font-sizer ng-if="$ctrl.isDesktop"></ci-font-sizer>-->
-
-
 
             <div class="container">
-                <!--<div ng-if="!$ctrl.detectMobile.isDesktop">
-                    {{'pages.'+$ctrl.pageStateResolver.activePageName | translate}}
-                </div>-->
-
+                
                 <h1 class="panel-pane pane-page-site-name">
                     <a href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr')}}" class="active" translate>navbar.logo-text</a>
                 </h1>
@@ -87,18 +69,6 @@
 
                 </div>
 
-                <!--<nav id="primary" ng-if="$ctrl.detectMobile.isDesktop" role="navigation" aria-label="{{ 'aria.site-wide-nav-label' | translate }}">
-                    <ul class="full">-->
-                        <!--<li><a ng-class="{active: ($ctrl.state.current.name === 'main.advisorLocator.page1')}" tabindex="0" title="{{ 'pages.page1' | translate }}" ui-sref="main.advisorLocator.page1"
-                               analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page1"
-                               translate>pages.page1</a></li>-->
-                        <!--<li><a ng-class="{active: ($ctrl.current === 'page1')}" ng-click="$ctrl.current = 'page1'" tabindex="0" title="{{ 'pages.page1' | translate }}" href
-                               analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Page1"
-                               translate>pages.page1</a></li>
-
-                    </ul>
-
-                </nav>-->
             </div>
 
 
