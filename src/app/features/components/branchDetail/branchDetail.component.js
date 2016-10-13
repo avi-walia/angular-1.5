@@ -60,6 +60,8 @@
             vm.advisorDetailService.getAdvisorDetail(vm.advisorID);
         }
 
+        vm.location = vm.branchListService.getLocation();//set location for get direction link
+
 
     }
 

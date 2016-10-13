@@ -39,7 +39,7 @@
                     };
 
 
-                    service.branchDetail.fullAddress =  (service.branchDetail.address1 + service.branchDetail.address2 + service.branchDetail.city).replace(/\s/g,'+');
+                    service.branchDetail.fullAddress =  (service.branchDetail.address1 + ', ' + service.branchDetail.city + ', ' + service.branchDetail.provinceAbbr + ', ' + service.branchDetail.postalCode);
                     service.branchDetail.branchManagers =[];
                     if(service.branchDetail.managerName){
 

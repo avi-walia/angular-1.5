@@ -20,10 +20,11 @@
         'GOOGLE_MAPS_URL',
         'advisorDetailService',
         'stateTrackerService',
-        'advisorService'
+        'advisorService',
+        'branchListService'
     ];
     /* @ngInject */
-    function advisorDetailCtrl($rootScope, $stateParams, pageStateResolver, detectMobile, GOOGLE_MAPS_URL, advisorDetailService, stateTrackerService, advisorService
+    function advisorDetailCtrl($rootScope, $stateParams, pageStateResolver, detectMobile, GOOGLE_MAPS_URL, advisorDetailService, stateTrackerService, advisorService, branchListService
     ) {
         var vm = this;
         vm.googleMapsUrl = GOOGLE_MAPS_URL+$rootScope.documentLanguage;
@@ -33,6 +34,7 @@
         vm.advisorDetailService = advisorDetailService;
         vm.stateTrackerService = stateTrackerService;
         vm.advisorService = advisorService;
+        vm.branchListService = branchListService;
         if(vm.advisorService.isLoading){
             vm.advisorService.init().then(function(){
                 vm.advisorDetailService.getAdvisorDetail(vm.advisorID);
@@ -46,6 +48,7 @@
             vm.perviousStateIsNameSearch = true;
         }
 
+        vm.location = vm.branchListService.getLocation();//set location for get direction link
         //strip out http:// from advisor's website display
         //vm.advisorDetailService.advisorDetail.websiteDisplay = vm.advisorDetailService.advisorDetail.website.replace(/^http:\/\//, '');
     }
