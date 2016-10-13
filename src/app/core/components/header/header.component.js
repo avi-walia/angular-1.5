@@ -37,8 +37,10 @@
         vm.currentLanguage = $rootScope.documentLanguage;
         vm.searchTerm = '';
         vm.goToSearch = goToSearch;
+        vm.displaySearchForm = displaySearchForm;
 
         vm.showInputSearch = false;
+        vm.returnFocus = '';
 
         function goToSearch(){
             var drupalSearchLink = ASSANTE_URL + '/search/node/';
@@ -47,6 +49,12 @@
                 $window.location = drupalSearchLink;
 
             }
+        }
+
+        function displaySearchForm(){
+            vm.showInputSearch = !vm.showInputSearch;
+            vm.showInputSearch ? vm.returnFocus = 'edit-search-block-form--2' : vm.returnFocus = '';
+
         }
 
     }
