@@ -53,7 +53,12 @@
 
         function displaySearchForm(){
             vm.showInputSearch = !vm.showInputSearch;
-            vm.showInputSearch ? vm.returnFocus = 'edit-search-block-form--2' : vm.returnFocus = '';
+            if(vm.showInputSearch){
+                vm.returnFocus = 'edit-search-block-form--2';
+            }
+            else{
+                vm.returnFocus = '';
+            }
 
         }
 
