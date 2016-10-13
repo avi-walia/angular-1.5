@@ -21,12 +21,13 @@
     geoLocatorCtrl.$inject = [
 
         'pageStateResolver',
-        'detectMobile'
+        'detectMobile',
+        '$q'
 
 
     ];
     /* @ngInject */
-    function geoLocatorCtrl( pageStateResolver, detectMobile
+    function geoLocatorCtrl( pageStateResolver, detectMobile, $q
     ) {
         var vm = this;
         vm.pageStateResolver = pageStateResolver;
@@ -57,7 +58,7 @@
             var options = {
                 enableHighAccuracy: true,
                 timeout: 10000,
-                maximumAge: 600000
+                maximumAge: 60000
             };
 
             if(navigator.geolocation){
@@ -73,31 +74,45 @@
 
         }
 
+        function geoCoderCall(currentPosition){
+            var deferred = $q.defer();
+
+            vm.geocoder.geocode({'location': currentPosition}, function(results, status){
+                if(status === google.maps.GeocoderStatus.OK){
+                    deferred.resolve(results[0]);
+                }
+                else{
+                    deferred.reject(status);
+                }
+
+            });
+
+            return deferred.promise;
+        }
+
         function getGeo(position){
             var currentPosition = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
             console.log('Accuracy ',position.coords.accuracy);
-            vm.geocoder.geocode({'location': currentPosition}, function(results, status){
-                if(status === google.maps.GeocoderStatus.OK){
-                    if(results[0]){
-                        vm.setMessage({message:{}});
-                        vm.updatePosition(results[0].geometry);
-                        vm.updateLocation(results[0].formatted_address);
-
-                    }
-                    else{
-                        vm.setMessage({message: {'cancel': 'branchList.validation.noResults'}});
-                        handleLocationError();
-                    }
+            geoCoderCall(currentPosition).then(function(result){
+                if(result){
+                    vm.setMessage({message:{}});
+                    vm.updatePosition(result.geometry);
+                    vm.updateLocation(result.formatted_address);
                 }
                 else{
-                    vm.setMessage({message: {'cancel': 'branchList.validation.geoFailed'}});
+                    vm.setMessage({message: {'cancel': 'branchList.validation.noResults'}});
                     handleLocationError();
                 }
 
+            }, function(status){
+                console.log('error getting geolocation: ', status);
+                vm.setMessage({message: {'cancel': 'branchList.validation.geoFailed'}});
+                handleLocationError();
             });
+
         }
 
         function handleLocationError(){
@@ -112,7 +127,7 @@
             var options = {
                 enableHighAccuracy: false,
                 timeout: Infinity,
-                maximumAge: 600000
+                maximumAge: 60000
             };
             navigator.geolocation.getCurrentPosition(getGeo, handleGeoLowAccuracyError, options);
 
