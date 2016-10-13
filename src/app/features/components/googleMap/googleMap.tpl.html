@@ -6,7 +6,7 @@
         <a
             tabindex="0"
             title="{{ 'branchList.linkToMap' | translate }}"
-            ng-href="{{$ctrl.linkToMap}}{{'branchList.currentLocation' | translate}}/{{$ctrl.address}}"
+            ng-href="{{$ctrl.linkToMap}}{{$ctrl.from}}/{{$ctrl.to}}?hl={{$ctrl.lang}}"
             analytics-on
             analytics-event="click"
             analytics-category="MAP"

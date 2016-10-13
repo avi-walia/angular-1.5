@@ -12,7 +12,8 @@
                 locationList: '<?', /*will be used only for branch locations search*/
                 position: '<?', /*will be used only for branch location search*/
                 userMarker: '<?', /*{geoLocation: {lat: number, lng: number}, zoom: number}*/
-                address: '<?' /*physical address of the marker (separate values by comma followed by space)*/
+                address: '<?', /*physical address of the marker (separate values by comma followed by space)*/
+                location: '<?' /*used for get direction on the map*/
             },
             templateUrl:'app/features/components/googleMap/googleMap.tpl.html'
         });
@@ -26,18 +27,27 @@
         'pageStateResolver',
         'detectMobile',
         '$q',
-        '$timeout'
+        '$timeout',
+        '$window',
+        '$translate'
     ];
     /* @ngInject */
-    function googleMapCtrl( $rootScope, $scope, pageStateResolver, detectMobile, $q, $timeout
+    function googleMapCtrl( $rootScope, $scope, pageStateResolver, detectMobile, $q, $timeout, $window, $translate
     ) {
         var vm = this;
 
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;
-        vm.loadParameters = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyD6y9w2sHNaVOAQN3ESPmYe_tSxCBE6d-Q&libraries=geometry,places&language='+$rootScope.documentLanguage;
+        vm.lang = $rootScope.documentLanguage;
+        vm.loadParameters = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyD6y9w2sHNaVOAQN3ESPmYe_tSxCBE6d-Q&libraries=geometry,places&language='+vm.lang;
         vm.pathToIcon = 'assets/images/blue-marker.png';
         vm.linkToMap = 'https://www.google.com/maps/dir/';
+        vm.from = '';
+        vm.to = '';
+
+        //https://www.google.com/maps/dir/760+West+Genesee+Street+Syracuse+NY+13204/314+Avery+Avenue+Syracuse+NY+13204?hl=en
+        //https://maps.google.com?saddr=760+West+Genesee+Street+Syracuse+NY+13204&daddr=314+Avery+Avenue+Syracuse+NY+13204?hl=en
+
 
         vm.ca = {
             center: {lat: 60.5, lng: -101.0},
@@ -104,31 +114,15 @@
 
             if(!vm.map){
                 vm.initializeMap().then(function(){
-
                     if (vm.userMarker) {
-                        var LatLng = new google.maps.LatLng(vm.userMarker.geoLocation.lat, vm.userMarker.geoLocation.lng);
-                        vm.map.setCenter(LatLng);
-                        vm.map.setZoom(vm.userMarker.zoom);
-                        vm.setUserLocationMarker(LatLng);
-                        if (vm.address) {
-                            vm.address = vm.address.replace(/, /g, '+');
-                            console.log(vm.address);
-                        }
+                        initStaticCardMap();
                     }
-
 
                 });
             }
             else{
                 if (vm.userMarker) {
-                    var LatLng = new google.maps.LatLng(vm.userMarker.geoLocation.lat, vm.userMarker.geoLocation.lng);
-                    vm.map.setCenter(LatLng);
-                    vm.map.setZoom(vm.userMarker.zoom);
-                    vm.setUserLocationMarker(LatLng);
-                    if (vm.address) {
-                        vm.address = vm.address.replace(/, /g, '+');
-                        console.log(vm.address);
-                    }
+                    initStaticCardMap();
                 }
 
             }
@@ -282,6 +276,83 @@
         $scope.$on('$destroy', infoWindow);
 
 
+
+        function initStaticCardMap(){
+
+            var promises = [];
+            var translation = {};
+
+            var LatLng = new google.maps.LatLng(vm.userMarker.geoLocation.lat, vm.userMarker.geoLocation.lng);
+            vm.map.setCenter(LatLng);
+            vm.map.setZoom(vm.userMarker.zoom);
+            vm.setUserLocationMarker(LatLng);
+            if (vm.address && vm.address !== '') {
+                vm.to = vm.address.replace(/, /g, '+').replace(/\s/g, '+');
+            }
+            if (vm.location && vm.location !== ''){
+                vm.from = vm.location.replace(/, /g, '+').replace(/\s/g, '+');
+                console.log('GOOGLE LINK: ' + vm.linkToMap + vm.from + '/' + vm.to + '?hl=' + vm.lang);
+                translation.link = vm.linkToMap + vm.from + '/' + vm.to + '?hl=' + vm.lang;
+            }
+            else {
+              var fromPromise =  $translate('branchList.currentLocation');
+                promises.push(fromPromise);
+
+                fromPromise.then(function (current) {
+                    vm.from = current;
+                    console.log('GOOGLE LINK: ' + vm.linkToMap + vm.from + '/' + vm.to + '?hl=' + vm.lang);
+                    translation.link = vm.linkToMap + vm.from + '/' + vm.to + '?hl=' + vm.lang;
+                });
+            }
+
+            var titlePromise = $translate('branchList.linkToMap');
+                promises.push(titlePromise);
+                titlePromise.then(function (title){
+                    translation.title = title;
+                });
+
+            $q.all(promises).then(function(){
+                var centerControlDiv = document.createElement('div');
+                var centerControl = new CenterControl(centerControlDiv, translation);
+
+                centerControlDiv.index = 1;
+                vm.map.controls[google.maps.ControlPosition.TOP_LEFT].push(centerControlDiv);
+            });
+
+
+        }
+
+        function CenterControl(controlDiv, translation) {
+
+            // Set CSS for the control border.
+            var controlUI = document.createElement('div');
+            controlUI.style.backgroundColor = '#fff';
+            controlUI.style.border = '2px solid #fff';
+            controlUI.style.borderRadius = '3px';
+            controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+            controlUI.style.cursor = 'pointer';
+            controlUI.style.marginBottom = '10px';
+            controlUI.style.textAlign = 'center';
+            controlUI.title = translation.title;
+            controlDiv.appendChild(controlUI);
+
+            // Set CSS for the control interior.
+            var controlText = document.createElement('div');
+            controlText.style.color = 'rgb(25,25,25)';
+            controlText.style.fontFamily = 'Roboto, Arial,sans-serif';
+            controlText.style.fontSize = '14px';
+            controlText.style.lineHeight = '28px';
+            controlText.style.paddingLeft = '5px';
+            controlText.style.paddingRight = '5px';
+            controlText.innerHTML = translation.title;
+            controlUI.appendChild(controlText);
+
+            // Setup the click event listeners: simply set the map to Chicago.
+            controlUI.addEventListener('click', function() {
+                $window.open(translation.link);
+            });
+
+        }
 
         function parseBounds(viewport) {
             var sw = {};
