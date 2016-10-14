@@ -172,7 +172,7 @@
         "city": "Sort search results by city.",
         "province": "Sort search results by province."
       },
-      "getAdvisorDetails": "Get {{showCommon ? commonName + ' ' + lastName: firstName + ' ' + lastname | posession}} details."
+      "getAdvisorDetails": "Get {{showName}} {{lastName | posession}} details."
     },
     "picturePlaceholder": "Default placeholder for advisor's profile picture.",
     "pagination": {

@@ -12,7 +12,7 @@
                  class="full" ng-class="{'lastAdvisorRow': $last, 'notLastAdvisorRow': !$last}"
                  ng-repeat="element in $ctrl.service[$ctrl.service.objectName] | limitTo:$ctrl.service.numPerPage:($ctrl.service.currentPage-1)*$ctrl.service.numPerPage track by $index">
                 <div class="image">
-                  <a aria-label="{{'aria.namesearch.getAdvisorDetails' | translate:element }}" translate-values="{ advisor: element.lastname }" ui-sref="main.advisorLocator.advisorDetails({id: element.id})">
+                  <a aria-label="{{'aria.namesearch.getAdvisorDetails' | translate:element}}"  ui-sref="main.advisorLocator.advisorDetails({id: element.id})">
                     <img ng-if="!element.profilePictureUrl" aria-label="{{element.showCommon ? element.commonName + ' ' + element.lastName: element.firstName + ' ' + element.lastname | posession}} profile picture." src="assets/images/advisorHeadShot.png" />
                     <img ng-if="element.profilePictureUrl" aria-label="{{element.showCommon ? element.commonName + ' ' + element.lastName: element.firstName + ' ' + element.lastname | posession}} profile picture." ng-src="{{element.profilePictureUrl}}" />
                   </a>
@@ -21,7 +21,7 @@
                   <!--
                               element.showCommon ? element.commonName + ' ' + element.lastName: element.firstName + ' ' + element.lastname
                   -->
-                  <p class="name"><a aria-label="{{'aria.namesearch.getAdvisorDetails' | translate:element }}" translate-values="{ advisor: element.lastname }" ui-sref="main.advisorLocator.advisorDetails({id: element.id})"><span ng-if="element.showCommon">{{element.commonName}}</span><span ng-if="!element.showCommon">{{element.firstName}}</span> {{element.lastName}}</a></p>
+                  <p class="name"><a aria-label="{{'aria.namesearch.getAdvisorDetails' | translate:element}}" translate-values="{ advisor: element.lastname }" ui-sref="main.advisorLocator.advisorDetails({id: element.id})"><span ng-if="element.showCommon">{{element.commonName}}</span><span ng-if="!element.showCommon">{{element.firstName}}</span> {{element.lastName}}</a></p>
                   <p class="location">{{element.partialBranchInfo.city}}, {{element.partialBranchInfo.provinceAbbr}}</p>
                   <p class="phone" ng-if="element.phone">{{element.phone}}</p>
                   <p class="email" ng-if="element.email">{{element.email}}</p>
@@ -48,7 +48,7 @@
             </div>
         </div>
     </div>
-    <div id="nosearch" ng-if="!$ctrl.service[$ctrl.service.objectName].length" translate>
+    <div tab-index="0" aria-label="{{noSearchCriteria | translate}}" id="nosearch" ng-if="!$ctrl.service[$ctrl.service.objectName].length" translate>
         noSearchCriteria
     </div>
 

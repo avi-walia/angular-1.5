@@ -342,7 +342,14 @@
             //service.filter();
 
             service.filterRunnerService.allData = service.searchResults;
-            service.filteredSearchResults = service.filterRunnerService.filter();
+            service.filteredSearchResults = _.map(service.filterRunnerService.filter(), function(advisor){
+                if (advisor.showCommon) {
+                    advisor.showName = advisor.commonName;
+                } else {
+                    advisor.showName = advisor.firstName;
+                }
+                return advisor;
+            });
 
             updatePaginationInfiniteScroll();
         }

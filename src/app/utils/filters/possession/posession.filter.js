@@ -11,11 +11,12 @@
             if (!name) {
                 return name;
             }
-            name = name + "'";
             var endsWith = String(name).substring(name.length-1, name.length).toLowerCase();
+            name = name + "'";
             if (endsWith !== 's') {
                 return name + "s";
             }
+            return name;
         };
     }
 })();
