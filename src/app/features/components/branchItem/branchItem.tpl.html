@@ -2,7 +2,7 @@
     <p class="address"><span>{{$ctrl.item.shortAddress}}</span><br/>{{$ctrl.item.city}}, {{$ctrl.item.province}} {{$ctrl.item.postal}}</p>
     <p class="distance">{{$ctrl.item.distance}}{{'branchList.km' | translate}}</p>
     <ul>
-      <li class="cardlink"><a tabindex="0" ui-sref="main.advisorLocator.branchDetails({id: $ctrl.item.id})" analytics-on analytics-event="click" analytics-category="BRANCH CARD" analytics-label="Branch Details Card" stop-event="click" title="{{'branchList.getDetails' | translate}}" translate>branchList.getDetails</a></li>
-      <li class="infolink"><a tabindex="0" href analytics-on analytics-event="click" analytics-category="BRANCH INFO" analytics-label="Branch Info" stop-event="click" ng-click="$ctrl.openInfoWindow($ctrl.item.id)" title="{{'branchList.showOnMap' | translate}}" translate>branchList.showOnMap</a></li>
+      <li class="cardlink"><a tabindex="0" ui-sref="main.advisorLocator.branchDetails({id: $ctrl.item.id})" analytics-on analytics-event="click" analytics-category="BRANCH CARD" analytics-label="Branch Details Card" stop-event="click" aria-label="{{'branchList.getDetails' | translate}}" title="{{'branchList.getDetails' | translate}}" translate>branchList.getDetails</a></li>
+      <li class="infolink"><a tabindex="0" href analytics-on analytics-event="click" analytics-category="BRANCH INFO" analytics-label="Branch Info" stop-event="click" ng-click="$ctrl.openInfoWindow($ctrl.item.id)" aria-label="{{'branchList.showOnMap' | translate}}" title="{{'branchList.showOnMap' | translate}}" translate>branchList.showOnMap</a></li>
     </ul>
 </div>

@@ -98,6 +98,8 @@
             //vm.map.addListener('idle', vm.onUserEvent);
             google.maps.event.addListenerOnce(vm.map, 'tilesloaded', function(){
                 vm.mapLoadedDeferred.resolve(vm.map);
+                document.getElementById('map').children[0].children[0].children[9].children[0].children[0].children[0].getElementsByTagName('img')[0].setAttribute("aria-label", $translate.instant('zoomIn'));
+                document.getElementById('map').children[0].children[0].children[9].children[0].children[0].children[2].getElementsByTagName('img')[0].setAttribute("aria-label", $translate.instant('zoomOut'));
 
             });
             vm.isLoading = false;

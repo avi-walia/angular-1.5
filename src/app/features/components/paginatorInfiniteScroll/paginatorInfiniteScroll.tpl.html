@@ -12,7 +12,7 @@
                  class="full" ng-class="{'lastAdvisorRow': $last, 'notLastAdvisorRow': !$last}"
                  ng-repeat="element in $ctrl.service[$ctrl.service.objectName] | limitTo:$ctrl.service.numPerPage:($ctrl.service.currentPage-1)*$ctrl.service.numPerPage track by $index">
                 <div class="image">
-                  <a title="{{'aria.namesearch.getAdvisorDetails' | translate:element}}"  ui-sref="main.advisorLocator.advisorDetails({id: element.id})">
+                  <a title="{{'aria.nameSearch.getAdvisorDetails' | translate:element}}"  ui-sref="main.advisorLocator.advisorDetails({id: element.id})">
                     <img ng-if="!element.profilePictureUrl" aria-label="{{element.showCommon ? element.commonName + ' ' + element.lastName: element.firstName + ' ' + element.lastname | posession}} profile picture." src="assets/images/advisorHeadShot.png" />
                     <img ng-if="element.profilePictureUrl" aria-label="{{element.showCommon ? element.commonName + ' ' + element.lastName: element.firstName + ' ' + element.lastname | posession}} profile picture." ng-src="{{element.profilePictureUrl}}" />
                   </a>
@@ -21,7 +21,7 @@
                   <!--
                               element.showCommon ? element.commonName + ' ' + element.lastName: element.firstName + ' ' + element.lastname
                   -->
-                  <p class="name"><a aria-label="{{'aria.namesearch.getAdvisorDetails' | translate:element}}" translate-values="{ advisor: element.lastname }" ui-sref="main.advisorLocator.advisorDetails({id: element.id})"><span ng-if="element.showCommon">{{element.commonName}}</span><span ng-if="!element.showCommon">{{element.firstName}}</span> {{element.lastName}}</a></p>
+                  <p class="name"><a aria-label="{{'aria.nameSearch.getAdvisorDetails' | translate:element}}" translate-values="{ advisor: element.lastname }" ui-sref="main.advisorLocator.advisorDetails({id: element.id})"><span ng-if="element.showCommon">{{element.commonName}}</span><span ng-if="!element.showCommon">{{element.firstName}}</span> {{element.lastName}}</a></p>
                   <p class="location">{{element.partialBranchInfo.city}}, {{element.partialBranchInfo.provinceAbbr}}</p>
                     <p class="phone" ng-if="element.phone" ng-bind-html='element.phone | clickablePhone:element'></p>
                     <p class="email" ng-if="element.email" ng-bind-html='element.email | clickableEmail:element'></p>
@@ -33,7 +33,7 @@
             <div infinite-scroll="$ctrl.service.loadMore();">
                 <div ng-class="{'lastAdvisorRow': $last, 'notLastAdvisorRow': !$last}" ng-repeat="element in $ctrl.service[$ctrl.service.objectName] | limitTo:$ctrl.service.mobileMaxNumDisplay track by $index">
                   <div class="image">
-                    <a role="button" aria-label="{{aria.namesearch.getAdvisorDetails | translate}}" ui-sref="main.advisorLocator.advisorDetails({id: element.id})"  aria-label="{{'aria.namesearch.getAdvisorDetails' | translate}}">
+                    <a role="button" aria-label="{{aria.nameSearch.getAdvisorDetails | translate}}" ui-sref="main.advisorLocator.advisorDetails({id: element.id})"  aria-label="{{'aria.nameSearch.getAdvisorDetails' | translate}}">
                       <img aria-label="{{aria.picturePlaceholder | translate}}" ng-if="!element.profilePictureUrl" src="assets/images/advisorHeadShot.png" />
                       <img aria-label="{{aria.picturePlaceholder | translate}}" ng-if="element.profilePictureUrl" ng-src="{{element.profilePictureUrl}}" />
                     </a>

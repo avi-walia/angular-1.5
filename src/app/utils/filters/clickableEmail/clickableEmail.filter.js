@@ -19,8 +19,7 @@
             }
             */
             if (email) {
-                var ariaLabel = $translate.instant('aria.namesearch.email', advisor);
-                return $sce.trustAsHtml("<a aria-label='" + ariaLabel + "' title='" + ariaLabel + "' href='mailto:" + email + "' target='_top'>" + email + "</a>");
+                return $sce.trustAsHtml("<a aria-label='" + email + "' title='" + email + "' href='mailto:" + email + "' target='_top'>" + email + "</a>");
             }
             return email;
         };

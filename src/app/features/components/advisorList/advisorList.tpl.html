@@ -6,15 +6,15 @@
     <div id="filters">
         <search-bar service="$ctrl.service"></search-bar>
         <div id="options">
-            <label for="provselect" translate>aria.namesearch.filters.province</label>
-            <select id="provselect" aria-label="{{'aria.namesearch.filters.province' | translate}}" ng-model="$ctrl.service.filterRunnerService.filters.province.value" ng-change="$ctrl.service.updateFilters($ctrl.service.filters.province)">
+            <label for="provselect" translate>aria.nameSearch.filters.province</label>
+            <select id="provselect" aria-label="{{'aria.nameSearch.filters.province' | translate}}" ng-model="$ctrl.service.filterRunnerService.filters.province.value" ng-change="$ctrl.service.updateFilters($ctrl.service.filters.province)">
                 <option ng-repeat="province in $ctrl.service.filterRunnerService.filters.province.options" value="{{province}}">{{'pages.advisorList.filterOptions.province.' + province | translate}}</option>
             </select>
-            <label for="langselect" translate>aria.namesearch.filters.language</label>
-            <select id="langselect" aria-label="{{'aria.namesearch.filters.language' | translate}}" ng-model="$ctrl.service.filterRunnerService.filters.lang.value" ng-change="$ctrl.service.updateFilters($ctrl.service.filters.lang)">
+            <label for="langselect" translate>aria.nameSearch.filters.language</label>
+            <select id="langselect" aria-label="{{'aria.nameSearch.filters.language' | translate}}" ng-model="$ctrl.service.filterRunnerService.filters.lang.value" ng-change="$ctrl.service.updateFilters($ctrl.service.filters.lang)">
                 <option ng-repeat="lang in $ctrl.service.filterRunnerService.filters.lang.options" value="{{lang}}">{{'pages.advisorList.filterOptions.lang.' + lang | translate}}</option>
             </select>
-            <button aria-label="{{'aria.namesearch.clearButton' | translate}}" ng-click="$ctrl.service.clearFilters()">{{'pages.advisorList.clearFilterLabel' | translate}}</button>
+            <button aria-label="{{'aria.nameSearch.clearButton' | translate}}" ng-click="$ctrl.service.clearFilters()">{{'pages.advisorList.clearFilterLabel' | translate}}</button>
         </div>
     </div>
     <div id="results">
