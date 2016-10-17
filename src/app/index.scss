@@ -39,7 +39,7 @@ header { background:#fff; border-top:solid $bg_dark 35px;
 
   h1.pane-page-site-name { bottom:18px; height:40px; left:0; margin:0; position:absolute; right:0; width:192px; z-index:1;
     a { background:url('../images-source/logo_assante_blue_en.svg') no-repeat; display:block; height:100%; text-indent:-999em; width:100%;
-      .i18n-fr & { background:url('../images-source/logo_assante_blue_fr.svg') no-repeat; }
+      .fr & { background:url('../images-source/logo_assante_blue_fr.svg') no-repeat; }
     }
   }
 
@@ -59,6 +59,8 @@ header { background:#fff; border-top:solid $bg_dark 35px;
     &:hover::before { cursor:pointer; }
     form { /*@include zen-grid-item(9,1,right);*/ background:#fff; display:none; padding:28px 0 16px; position:absolute; right:-40px; text-align:right; width:616px; z-index:1;
       .form-item { display:inline-block; margin:0; width:83%;
+        .fr & { width:75%; }
+        label { display:none; }
         input { background:darken($bg,4%); border:0; border-radius:3px; xfont-size:1.2em; line-height:2.2; padding:0 8px; width:100%; }
       }
       .form-actions { display:inline-block; margin-left:2px; vertical-align:top;
@@ -85,9 +87,9 @@ header { background:#fff; border-top:solid $bg_dark 35px;
         a { color:$blue; display:inline-block; font:400 1.13em/1 'Montserrat',sans-serif; letter-spacing:0.5px; text-decoration:none; text-transform:uppercase; vertical-align:bottom; }
         &#assante-life a { border-right:solid 42px #fff; overflow:hidden; white-space:nowrap; width:132px;
           &::after { color:$orange; content:'Life'; font:2.2em/1 'Great Vibes'; margin:-12px 0 0 -59px; position:absolute; text-transform:none; }
-        }
-        &#assante-vie a { border-right:solid 36px #fff; overflow:hidden; white-space:nowrap; width:126px;
-          &::after { color:$orange; content:'Vie'; font:2.2em/1 'Great Vibes'; margin:-12px 0 0 -55px; position:absolute; text-transform:none; }
+          .fr & { border-right:solid 36px #fff; overflow:hidden; white-space:nowrap; width:126px;
+            &::after { color:$orange; content:'Vie'; font:2.2em/1 'Great Vibes'; margin:-12px 0 0 -55px; position:absolute; text-transform:none; }
+          }
         }
       }
     }
@@ -142,7 +144,7 @@ header { background:#fff; border-top:solid $bg_dark 35px;
     }
     #options { display:inline-block; float:right; text-align:right; vertical-align:top; white-space:nowrap; width:32%;
       label { display:none; }
-      select { appearance:none; background:darken($bg,4%) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#cd5806" d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/></svg>') 94% 9px no-repeat; background-size:20px; border:0; border-radius:3px; display:inline-block; height:2.5em; line-height:2.5em; padding:0 8% 0 3.5%; }
+      select { appearance:none; background:darken($bg,4%) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#cd5806" d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/></svg>') 94% 9px no-repeat; background-size:20px; border:0; border-radius:3px; display:inline-block; height:2.5em; line-height:2.5em; margin-right:5px; padding:0 8% 0 3.5%; }
       button { background:$orange; border:0; border-radius:3px; color:#fff; display:inline-block; font-family:'Montserrat',sans-serif; height:2.5em; line-height:2.6em; padding:0 3%; text-transform:uppercase; vertical-align:top; }
     }
   }

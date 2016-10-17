@@ -1,6 +1,6 @@
 {
   "appTitle": "FR App Title",
-  "searchButton": "FR Search",
+  "searchButton": "Rechercher",
   "search": {
     "byName": "FR Search By: Advisor Name",
     "byLocation": "FR Search By: Location"
@@ -27,15 +27,15 @@
     "font-size-largest": "Changez à « très grande » la taille de la police de la demande."
   },
   "header": {
-    "login": "French Login",
-    "locator": "French Locator",
-    "searchPlaceholder": "French Enter your search terms here",
-    "searchButton": "French Search",
-    "about" : "French About",
-    "services": "French Services",
-    "assanteLife": "French Assante Life",
-    "clients": "French Clients",
-    "careers": "French Careers"
+    "login": "Connexion",
+    "locator": "Recherche de conseillers",
+    "searchPlaceholder": "Saisissez vos critères de recherche ici",
+    "searchButton": "Rechercher",
+    "about" : "À notre sujet",
+    "services": "Services",
+    "assanteLife": "Assante Vie",
+    "clients": "Clients",
+    "careers": "Carrières"
   },
   "footer": {
     "contactUs": "French Contact Us",
@@ -82,7 +82,7 @@
     "getDetails": "FR Get details",
     "showOnMap": "FR Show on map",
     "km": "km",
-    "search": "FR search",
+    "search": "Rechercher",
     "clear": "FR clear",
     "locateMe": "FR Locate Me",
     "validation": {
