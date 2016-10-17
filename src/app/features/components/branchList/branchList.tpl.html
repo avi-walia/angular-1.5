@@ -20,7 +20,7 @@
                     <div id="nosearch" ng-if="$ctrl.branchListService.markers.length===0" translate>noSearchCriteriaBranch</div>
                     <ci-validation message-object="$ctrl.branchListService.message"></ci-validation>
                 </div>
-                <google-map position="$ctrl.branchListService.position" location-list="$ctrl.branchListService.branchListView" marker-list="$ctrl.branchListService.markers" on-update-markers="$ctrl.setMarkers(markers)">
+                <google-map aria-label="google map" position="$ctrl.branchListService.position" location-list="$ctrl.branchListService.branchListView" marker-list="$ctrl.branchListService.markers" on-update-markers="$ctrl.setMarkers(markers)">
                 </google-map>
 
             </div>

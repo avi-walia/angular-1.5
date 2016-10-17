@@ -23,8 +23,8 @@
                   -->
                   <p class="name"><a aria-label="{{'aria.namesearch.getAdvisorDetails' | translate:element}}" translate-values="{ advisor: element.lastname }" ui-sref="main.advisorLocator.advisorDetails({id: element.id})"><span ng-if="element.showCommon">{{element.commonName}}</span><span ng-if="!element.showCommon">{{element.firstName}}</span> {{element.lastName}}</a></p>
                   <p class="location">{{element.partialBranchInfo.city}}, {{element.partialBranchInfo.provinceAbbr}}</p>
-                  <p class="phone" ng-if="element.phone">{{element.phone}}</p>
-                  <p class="email" ng-if="element.email">{{element.email}}</p>
+                    <p class="phone" ng-if="element.phone" ng-bind-html='element.phone | clickablePhone'></p>
+                    <p class="email" ng-if="element.email" ng-bind-html='element.email | clickableEmail'></p>
                 </div>
             </div>
 
@@ -41,8 +41,8 @@
                   <div class="copy">
                     <p class="name"><span ng-if="element.showCommon">{{element.commonName}}</span><span ng-if="!element.showCommon">{{element.firstName}}</span> {{element.lastName}}</p>
                     <p class="location">{{element.partialBranchInfo.city}}, {{element.partialBranchInfo.provinceAbbr}}</p>
-                    <p class="phone" ng-if="element.phone">{{element.phone}}</p>
-                    <p class="email" ng-if="element.email">{{element.email}}</p>
+                      <p class="phone" ng-if="element.phone" ng-bind-html='element.phone | clickablePhone'></p>
+                      <p class="email" ng-if="element.email" ng-bind-html='element.email | clickableEmail'></p>
                   </div>
                 </div>
             </div>

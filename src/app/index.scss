@@ -6,6 +6,9 @@
 
 @import url(//fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i|Montserrat:400,700|Great+Vibes|Material+Icons);
 
+img[src="https://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png"] {
+  visibility:hidden;
+}
 // $zen-grid-width: 1160px;
 $zen-columns: 12;
 $zen-gutters: 1.5%;
