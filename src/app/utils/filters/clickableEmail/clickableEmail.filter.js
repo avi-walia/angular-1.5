@@ -6,19 +6,21 @@
         .filter('clickableEmail', clickableEmailFilter);
 
     clickableEmailFilter.$inject = [
-        '$sce'
+        '$sce',
+        '$translate'
     ]
 
     //this filter is used to determine if a valid email was provided and format it to be clickable if it is.
-    function clickableEmailFilter($sce) {
-        return function (email) {
+    function clickableEmailFilter($sce, $translate) {
+        return function (email, advisor) {
             /*
             if (validateEmail(email)) {
                 return $sce.trustAsHtml("<a href='mailto:" + email + "' target='_top'>" + email + "</a>");
             }
             */
             if (email) {
-                return $sce.trustAsHtml("<a href='mailto:" + email + "' target='_top'>" + email + "</a>");
+                var ariaLabel = $translate.instant('aria.namesearch.email', advisor);
+                return $sce.trustAsHtml("<a aria-label='" + ariaLabel + "' title='" + ariaLabel + "' href='mailto:" + email + "' target='_top'>" + email + "</a>");
             }
             return email;
         };

@@ -8,11 +8,12 @@
     clickablePhoneFilter.$inject = [
         'detectMobile',
         'phoneFilter',
-        '$sce'
+        '$sce',
+         '$translate'
     ];
     //this filter is used to determine if a valid email was provided and format it to be clickable if it is.
-    function clickablePhoneFilter(detectMobile, phoneFilter, $sce) {
-        return function (phone) {
+    function clickablePhoneFilter(detectMobile, phoneFilter, $sce, $translate) {
+        return function (phone, advisor) {
 
             if (phone && detectMobile.isMobile) {
                 //the text that separates the extension from the base number starts with either an e(ex./ext.) or an x(x.)
@@ -33,7 +34,8 @@
                 }
                 //remove all non-numeric characters from the phone number
                 basePhone = basePhone.replace(/[^0-9]/g,'');
-                return $sce.trustAsHtml("<a href='tel:" + basePhone + "'>" + phoneFilter(phone) + "</a>");
+                var ariaLabel = $translate.instant('aria.namesearch.phone', advisor);
+                return $sce.trustAsHtml("<a aria-label='" + ariaLabel + "' title='" + ariaLabel + "' href='tel:" + basePhone + "'>" + phoneFilter(phone) + "</a>");
             }
             return phone;
         };

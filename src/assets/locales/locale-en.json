@@ -180,7 +180,12 @@
         "language": "Filter by Language:",
         "province": "Filter by Province:"
       },
-      "getAdvisorDetails": "Get {{showName}} {{lastName | posession}} details."
+      "getAdvisorDetails": "Get {{showName}} {{lastName | posession}} details.",
+      "email": "click to contact {{showName}} {{lastName}} by email",
+      "phone": "click to contact {{showName}} {{lastName}} by phone"
+    },
+    "locationsearch": {
+      "locateMe": "Click to search by your current location."
     },
     "picturePlaceholder": "Default placeholder for advisor's profile picture.",
     "pagination": {
