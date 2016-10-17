@@ -65,7 +65,7 @@
   },
   "header": {
     "login": "Login",
-    "locator": "Locator",
+    "locator": "Advisor Locator",
     "searchPlaceholder": "Enter your search terms here",
     "searchButton": "Search",
     "about" : "About",
