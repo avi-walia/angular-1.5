@@ -170,7 +170,7 @@
 
                 //precompute names with punctuation, spacing and accents removed. This will speed up searches later.
                 _.forEach(data.data, function(advisor, index){
-                    if (advisor.spokenLanguage !== 'French') {
+                    if (advisor.spokenLanguage !== 'French' && advisor.spokenLanguage !== 'Bilingual') {
                         advisor.spokenLanguage = 'English';
                     }
                     
