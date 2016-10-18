@@ -1,113 +1,74 @@
 {
   "appTitle": "FR App Title",
-  "searchButton": "FR Search",
+  "searchButton": "Rechercher",
   "search": {
-    "byName": "FR Search by name",
-    "byLocation": "FR Search by location"
+    "byName": "FR Search By: Advisor Name",
+    "byLocation": "FR Search By: Location"
   },
-  "shortSearchTerm": "FR Please enter at least 2 characters",
-  "searchResultsFound": "FR results",
-  "noSearchCriteria": "FR <p>Start typing an advisor's first or last name<br/>and the search results will show here.</p><p>If you are unable to locate the advisor you are looking for,<br/>please contact our Assante Service Centre at 1-800-268-3200.</p>",
-  "noSearchCriteriaBranch": "FR <p>Enter the city and/or province <br/>and the search results will show here.</p><p>If you are unable to locate the branch<br/>you are looking for, please contact our<br/>Assante Service Centre at 1-800-268-3200.</p>",
-  "pages": {
-    "advisorList":{
-      "title": "FR Search for Advisor",
-      "filterPlaceHolders": {
-        "province": "FR Any province"
-      },
-      "filterOptions": {
-        "lang": {
-          "Language": "FR Any language",
-          "English": "FR English",
-          "French": "FR French"
-        },
-        "province": {
-          "Province": "FR Any province",
-          "AB": "FR AB",
-          "BC": "FR BC",
-          "MB": "FR MB",
-          "NB": "FR NB",
-          "NL": "FR NL",
-          "NS": "FR NS",
-          "NT": "FR NT",
-          "NU": "FR NU",
-          "ON": "FR ON",
-          "PE": "FR PE",
-          "QC": "FR QC",
-          "SK": "FR SK",
-          "YT": "FR YT"
-        }
-      },
-      "provinceFilterPlaceHolder": "FR Select provinces...",
-      "clearFilterLabel": "FR Clear"
-    },
-    "branchList": {
-      "title": "FR Search for branches"
-    }
-  },
+  "shortSearchTerm": "FR Please enter atleast 2 characters.",
+  "searchResultsFound": "FR Search results found.",
+  "noSearchCriteria": "FR There are no search results to be displayed.",
+  "noSearchCriteriaBranch": "<p>FR Enter the city and/or province <br/>and the search results will show here.</p><p>If you are unable to locate the branch<br/>you are looking for, please contact our<br/>Assante Service Centre at 1-800-268-3200.</p>",
   "helpLabel": "FR Help",
-
   "navbar": {
-    "EN": "FR EN",
-    "FR": "FR FR",
-    "logo-img": "FR logos.svg",
+    "EN": "EN",
+    "FR": "FR",
+    "logo-img": "logos_f.svg",
     "browse-happy": "FR You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.",
     "dismiss-message": "FR Dismiss message",
     "logo-text": "FR Assante Wealth Management"
   },
-
   "universal" : {
-    "font-size": "FR Font size:",
-    "font-size-normal": "FR Change application font size to normal.",
-    "font-size-large": "FR Change application font size to large.",
-    "font-size-largest": "FR Change application font size to largest.",
-    "site-wide-nav-label": "FR Site wide navigation"
+    "font-size": "Taille de la police:",
+    "font-size-normal": "Changez à « normale » la taille de la police de la demande.",
+    "font-size-large": "Changez à « grande » la taille de la police de la demande.",
+    "font-size-largest": "Changez à « très grande » la taille de la police de la demande.",
+    "site-wide-nav-label": "Site wide navigation"
   },
   "header": {
-    "login": "FR Login",
-    "locator": "FR Advisor Locator",
-    "searchPlaceholder": "FR Enter your search terms here",
-    "searchButton": "FR Search",
-    "about" : "About",
-    "services": "FR Services",
-    "assanteLife": "FR Assante Life",
-    "clients": "FR Clients",
-    "careers": "FR Careers"
+    "login": "Connexion",
+    "locator": "Recherche de conseillers",
+    "searchPlaceholder": "Saisissez vos critères de recherche ici",
+    "searchButton": "Rechercher",
+    "about" : "À notre sujet",
+    "services": "Services",
+    "assanteLife": "Assante Vie",
+    "clients": "Clients",
+    "careers": "Carrières"
   },
   "footer": {
-    "contactUs": "FR Contact Us",
-    "toll": "FR 1-800-268-3200",
-    "emailUs": "FR Email Us",
-    "linkedin": "FR LinkedIn",
-    "linkedinDesciption": "FR LinkedIn page for Assante Wealth Management",
-    "youtube": "FR Youtube",
-    "youtubeDescription": "FR Youtube for Assante Wealth Management",
-    "advisorLocator": "FR Advisor Locator",
-    "searchByName": "FR Search by Name",
-    "searchByLocation": "FR Search by Location",
-    "careers": "FR Careers",
-    "advisorOpportunities": "FR Advisor Opportunities",
-    "branchOpportunities": "FR Branch Opportunities",
-    "corporateOpportunities": "FR Corporate Opportunities",
-    "copyright": "FR ©{{ year }} Assante Wealth Management. All right Reserved.",
-    "security": "FR Security",
-    "privacyPolicy": "FR Privacy Policy",
-    "legal": "FR Legal"
-
+    "contactUs": "French Contact Us",
+    "toll": "1-800-268-3200",
+    "emailUs": "French Email Us",
+    "linkedin": "LinkedIn",
+    "linkedinDesciption": "French LinkedIn page for Assante Wealth Management",
+    "youtube": "Youtube",
+    "youtubeDescription": "French Youtube for Assante Wealth Management",
+    "advisorLocator": "French Advisor Locator",
+    "searchByName": "French Search by Name",
+    "searchByLocation": "French Search by Location",
+    "careers": "French Careers",
+    "advisorOpportunities": "French Advisor Opportunities",
+    "branchOpportunities": "French Branch Opportunities",
+    "corporateOpportunities": "French Corporate Opportunities",
+    "copyright": "©{{ year }} French Assante Wealth Management. All right Reserved.",
+    "security": "French Security",
+    "privacyPolicy": "French Privacy Policy",
+    "legal": "French Legal"
   },
   "homeFooterLink": "FR NameOfMyNewSite.com",
-  "copyright": "FR ©{{ year }} {{ 'company' | translate}}",
+  "copyright": "©{{ year }} {{ 'company' | translate}}",
   "company": "FR Name of Company",
-  "companyLink": "FR https://www.assante.com",
+  "companyLink": "https://www.assante.com",
   "notifications": {
     "http-errors": {
-      "E409001": "FR <em class=\"material-icons\">error</em>Invalid advisor id",
-      "E409002": "FR <em class=\"material-icons\">error</em>Invalid branch id",
-      "core-generic-failure": "FR <em class=\"material-icons\">error</em>There is an issue on our side."
+      "E409001": "<em class=\"material-icons\">error</em>FR Invalid advisor id",
+      "E409002": "<em class=\"material-icons\">error</em>FR Invalid branch id",
+      "core-generic-failure": "<em class=\"material-icons\">error</em>FR There is an issue on our side."
     },
     "fe-messages": {
-      "cancel": "FR <em class=\"material-icons\">error</em>Canceled.",
-      "refresh": "FR <em class=\"material-icons\">error</em>Refreshing the page has resulted in any unsaved information being lost."
+      "cancel": "<em class=\"material-icons\">error</em>FR Canceled.",
+      "refresh": "<em class=\"material-icons\">error</em>FR Refreshing the page has resulted in any unsaved information being lost."
 
     }
   },
@@ -195,5 +156,42 @@
     }
   },
   "zoomIn": "FR zoom in",
-  "zoomOut": "FR zoom out"
+  "zoomOut": "FR zoom out",
+
+  "pages": {
+    "advisorList":{
+      "title": "FR Search for Advisor",
+      "filterPlaceHolders": {
+        "province":"FR Any province"
+      },
+      "filterOptions": {
+        "lang": {
+          "Language": "FR Any language",
+          "English": "FR English",
+          "French": "FR French"
+        },
+        "province": {
+          "Province": "FR Any province",
+          "AB": "AB",
+          "BC": "BC",
+          "MB": "MB",
+          "NB": "NB",
+          "NL": "NL",
+          "NS": "NS",
+          "NT": "NT",
+          "NU": "NU",
+          "ON": "ON",
+          "PE": "PE",
+          "QC": "QC",
+          "SK": "SK",
+          "YT": "YT"
+        }
+      },
+      "provinceFilterPlaceHolder": "FR Select provinces...",
+      "clearFilterLabel": "FR Clear"
+    },
+    "branchList": {
+      "title": "FR Search for branches"
+    }
+  }
 }

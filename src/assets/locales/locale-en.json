@@ -9,44 +9,7 @@
   "searchResultsFound": "results",
   "noSearchCriteria": "<p>Start typing an advisor's first or last name<br/>and the search results will show here.</p><p>If you are unable to locate the advisor you are looking for,<br/>please contact our Assante Service Centre at 1-800-268-3200.</p>",
   "noSearchCriteriaBranch": "<p>Enter the city and/or province <br/>and the search results will show here.</p><p>If you are unable to locate the branch<br/>you are looking for, please contact our<br/>Assante Service Centre at 1-800-268-3200.</p>",
-  "pages": {
-    "advisorList":{
-      "title": "Search for Advisor",
-      "filterPlaceHolders": {
-        "province":"Any province"
-      },
-      "filterOptions": {
-        "lang": {
-          "Language": "Any language",
-          "English": "English",
-          "French": "French"
-        },
-        "province": {
-          "Province": "Any province",
-          "AB": "AB",
-          "BC": "BC",
-          "MB": "MB",
-          "NB": "NB",
-          "NL": "NL",
-          "NS": "NS",
-          "NT": "NT",
-          "NU": "NU",
-          "ON": "ON",
-          "PE": "PE",
-          "QC": "QC",
-          "SK": "SK",
-          "YT": "YT"
-        }
-      },
-      "provinceFilterPlaceHolder": "Select provinces...",
-      "clearFilterLabel": "Clear"
-    },
-    "branchList": {
-        "title": "Search for branches"
-    }
-  },
   "helpLabel": "Help",
-
   "navbar": {
     "EN": "EN",
     "FR": "FR",
@@ -55,7 +18,6 @@
     "dismiss-message": "Dismiss message",
     "logo-text": "Assante Wealth Management"
   },
-
   "universal" : {
     "font-size": "Font size:",
     "font-size-normal": "Change application font size to normal.",
@@ -93,7 +55,6 @@
     "security": "Security",
     "privacyPolicy": "Privacy Policy",
     "legal": "Legal"
-
   },
   "homeFooterLink": "NameOfMyNewSite.com",
   "copyright": "©{{ year }} {{ 'company' | translate}}",
@@ -195,5 +156,42 @@
     }
   },
   "zoomIn": "zoom in",
-  "zoomOut": "zoom out"
+  "zoomOut": "zoom out",
+
+  "pages": {
+    "advisorList":{
+      "title": "Search for Advisor",
+      "filterPlaceHolders": {
+        "province":"Any province"
+      },
+      "filterOptions": {
+        "lang": {
+          "Language": "Any language",
+          "English": "English",
+          "French": "French"
+        },
+        "province": {
+          "Province": "Any province",
+          "AB": "AB",
+          "BC": "BC",
+          "MB": "MB",
+          "NB": "NB",
+          "NL": "NL",
+          "NS": "NS",
+          "NT": "NT",
+          "NU": "NU",
+          "ON": "ON",
+          "PE": "PE",
+          "QC": "QC",
+          "SK": "SK",
+          "YT": "YT"
+        }
+      },
+      "provinceFilterPlaceHolder": "Select provinces...",
+      "clearFilterLabel": "Clear"
+    },
+    "branchList": {
+      "title": "Search for branches"
+    }
+  }
 }
