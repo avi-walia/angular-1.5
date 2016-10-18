@@ -19,7 +19,7 @@
             }
             */
             if (email) {
-                return $sce.trustAsHtml("<a aria-label='" + email + "' title='" + email + "' href='mailto:" + email + "' target='_top'>" + email + "</a>");
+                return $sce.trustAsHtml("<a aria-label='" + email + "' title='" + email + "' href='mailto:" + email + "'>" + email + "</a>");
             }
             return email;
         };
