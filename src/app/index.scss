@@ -27,6 +27,11 @@ $bg_dark: #333;
 *, *::before, *::after { box-sizing:border-box; }
 * { -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
 
+#getDirections:link, #getDirections:visited, #getDirections:hover,#getDirections:active {
+  color:#000;
+  text-decoration:none;
+}
+
 html { overflow-y:scroll; }
 html, body { background:$bg; color:$text; font:400 16px/1.4 'Open Sans',sans-serif; margin:0; padding:0; }
 
