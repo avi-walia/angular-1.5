@@ -13,7 +13,7 @@
     ];
     //this filter is used to determine if a valid email was provided and format it to be clickable if it is.
     function clickablePhoneFilter(detectMobile, phoneFilter, $sce, $translate) {
-        return function (phone, advisor) {
+        return function (phone) {
 
             if (phone && detectMobile.isMobile) {
                 //the text that separates the extension from the base number starts with either an e(ex./ext.) or an x(x.)
