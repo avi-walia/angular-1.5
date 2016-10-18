@@ -170,7 +170,10 @@
 
                 //precompute names with punctuation, spacing and accents removed. This will speed up searches later.
                 _.forEach(data.data, function(advisor, index){
-
+                    if (advisor.spokenLanguage !== 'French') {
+                        advisor.spokenLanguage = 'English';
+                    }
+                    
                     var commonName = advisor.commonName ? removeDiacriticsService.remove(advisor.commonName).toLowerCase() : null;
                     var firstName = removeDiacriticsService.remove(advisor.firstName).toLowerCase();
                     var lastName = removeDiacriticsService.remove(advisor.lastName).toLowerCase();
@@ -554,7 +557,7 @@
             } else if (obj1.lastName > obj2.lastName) {
                 return 1;
             } else {
-                    return compareFirstname(obj1, obj2, 2);
+                return compareFirstname(obj1, obj2, 2);
             }
         };
 
