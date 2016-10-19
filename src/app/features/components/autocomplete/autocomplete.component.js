@@ -158,7 +158,7 @@
         function handleLocationError(){
             vm.resetMarkers({markers: []});
             vm.updatePosition({});
-            vm.updateLocation('');
+            vm.updateLocation(vm.location);
         }
 
         function initializeAutocomplete(){
