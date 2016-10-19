@@ -19,8 +19,9 @@
     </div>
     <div id="map"></div>
     <div id="info">
-        <p>{{$ctrl.markerInfo.customInfo}}</p>
-        <span ng-if="$ctrl.markerInfo.visible">
+        <p ng-if="$ctrl.markerInfo.visible">{{$ctrl.markerInfo.customInfo}}</p>
+        <p ng-if="!$ctrl.markerInfo.visible">hello world <pre>{{$ctrl.markerInfo.visible | json}}</pre></p>
+        <span >
             <a
                 title="{{'branchList.getDetails'|translate}}"
                 aria-label="{{'branchList.getDetails'|translate}}"

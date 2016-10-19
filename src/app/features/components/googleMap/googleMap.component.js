@@ -432,17 +432,20 @@
 
         function showInfoWindow(){
             vm.markerInfo = this;
-            setVisibility();
             $timeout(function() {
                 vm.infoWindow.open(vm.map, vm.markerInfo);
+
+                setVisibility();
             });
         }
 
         function setVisibility(){
-            _.forEach(vm.markers, function(value, key){
-                vm.markers[key].visible = false;
+            $timeout(function() {
+                _.forEach(vm.markers, function (value, key) {
+                    vm.markers[key].visible = false;
+                });
+                vm.markerInfo.visible = true;
             });
-            vm.markerInfo.visible = true;
         }
 
 
