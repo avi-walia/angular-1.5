@@ -19,13 +19,17 @@
     advisorListCtrl.$inject = [
         'advisorService',
         'pageStateResolver',
-        'detectMobile'
+        'detectMobile',
+        'stateTrackerService'
     ];
     /* @ngInject */
-    function advisorListCtrl(advisorService, pageStateResolver, detectMobile) {
+    function advisorListCtrl(advisorService, pageStateResolver, detectMobile, stateTrackerService) {
         var vm = this;
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;
+        vm.stateTrackerService = stateTrackerService;
+        vm.stateTrackerService.IsNameSearch = true;
+        vm.stateTrackerService.IsLocationSearch = false;
         vm.service = advisorService;
         if(vm.service.isLoading) {
             vm.service.init();

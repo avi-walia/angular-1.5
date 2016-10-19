@@ -18,11 +18,12 @@
         'pageStateResolver',
         'detectMobile',
         'GOOGLE_MAPS_URL',
-        'branchListService'
+        'branchListService',
+        'stateTrackerService'
 
     ];
     /* @ngInject */
-    function branchListCtrl($rootScope, $scope, pageStateResolver, detectMobile, GOOGLE_MAPS_URL, branchListService
+    function branchListCtrl($rootScope, $scope, pageStateResolver, detectMobile, GOOGLE_MAPS_URL, branchListService, stateTrackerService
     ) {
         var vm = this;
         vm.pageStateResolver = pageStateResolver;
@@ -35,8 +36,9 @@
         vm.branchListService = branchListService;
         vm.isCompiled = false;
         vm.mapIsInitialized = false;
-
-
+        vm.stateTrackerService = stateTrackerService;
+        vm.stateTrackerService.IsNameSearch = false;
+        vm.stateTrackerService.IsLocationSearch = true;
         vm.setPosition = setPosition;
         vm.setLocation = setLocation;
         vm.setMessage = setMessage;

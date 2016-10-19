@@ -2,8 +2,10 @@
     <div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="advisorDetails" class="locatorpage">
         <div ng-if="$ctrl.detectMobile.isDesktop">
             <div id="card">
-                <button ng-if="$ctrl.stateTrackerService.previousState.name == 'main.advisorLocator.advisorList'"ui-sref="{{$ctrl.stateTrackerService.previousState.name}}" translate>advisorDetail.searchResultsButton</button>
-                <button ng-if="$ctrl.stateTrackerService.previousState.name != 'main.advisorLocator.advisorList'" ui-sref="{{$ctrl.stateTrackerService.previousState.name}}" translate>advisorDetail.backButton</button>
+
+                <button ng-if="$ctrl.stateTrackerService.IsNameSearch" ui-sref="main.advisorLocator.advisorList" translate>advisorDetail.searchResultsButton</button>
+                <button ng-if="$ctrl.stateTrackerService.IsLocationSearch" ui-sref="main.advisorLocator.branchList" translate>advisorDetail.searchResultsButton</button>
+
                 <div id="photo">
                     <img ng-if="!$ctrl.advisorDetailService.advisorDetail.profilePictureUrl" alt="{{ 'advisorDetail.advisorImageAlt' | translate }}" src="assets/images/advisorHeadShot.png" />
                     <img ng-if="$ctrl.advisorDetailService.advisorDetail.profilePictureUrl" alt="{{ 'advisorDetail.advisorImageAlt' | translate }}" ng-src="{{$ctrl.advisorDetailService.advisorDetail.profilePictureUrl}}" />

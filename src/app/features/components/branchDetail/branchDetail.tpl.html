@@ -2,9 +2,11 @@
   <div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="branchDetails" class="locatorpage">
     <div ng-if="$ctrl.detectMobile.isDesktop">
         <div id="card">
-          <button ng-if="$ctrl.stateTrackerService.previousState.name == 'main.advisorLocator.branchList'"ui-sref="{{$ctrl.stateTrackerService.previousState.name}}" translate>branchDetail.searchResultsButton</button>
-          <button ng-if="$ctrl.stateTrackerService.previousState.name != 'main.advisorLocator.branchList'" ui-sref="{{$ctrl.stateTrackerService.previousState.name}}" translate>branchDetail.backButton</button>
-          <div id="details">
+
+            <button ng-if="$ctrl.stateTrackerService.IsNameSearch" ui-sref="main.advisorLocator.advisorList" translate>branchDetail.searchResultsButton</button>
+            <button ng-if="$ctrl.stateTrackerService.IsLocationSearch" ui-sref="main.advisorLocator.branchList" translate>branchDetail.searchResultsButton</button>
+
+            <div id="details">
             <p class="name" ng-if="$ctrl.branchDetailService.branchDetail.dealerShip">{{$ctrl.branchDetailService.branchDetail.dealerShip==="ACM" ? "Assante Capital Management Ltd.": "Assante Financial Management Ltd."}}</p>
             <p class="label" ng-if="$ctrl.branchDetailService.branchDetail.address1" translate>branchDetail.address</p>
             <p class="address"><span ng-if="$ctrl.branchDetailService.branchDetail.address1">{{$ctrl.branchDetailService.branchDetail.address1}}</span><span ng-if="$ctrl.branchDetailService.branchDetail.address2">, {{$ctrl.branchDetailService.branchDetail.address2}}</span><br/>
