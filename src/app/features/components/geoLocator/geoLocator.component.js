@@ -40,6 +40,7 @@
 
         vm.updatePosition = updatePosition;
         vm.updateLocation = updateLocation;
+        vm.loader = false;
 
 
 
@@ -91,6 +92,7 @@
         }
 
         function getGeo(position){
+            vm.loader = true;
             var currentPosition = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
@@ -101,16 +103,19 @@
                     vm.setMessage({message:{}});
                     vm.updatePosition(result.geometry);
                     vm.updateLocation(result.formatted_address);
+                    vm.loader = false;
                 }
                 else{
                     vm.setMessage({message: {'cancel': 'branchList.validation.noResults'}});
                     handleLocationError();
+                    vm.loader = false;
                 }
 
             }, function(status){
                 console.log('error getting geolocation: ', status);
                 vm.setMessage({message: {'cancel': 'branchList.validation.geoFailed'}});
                 handleLocationError();
+                vm.loader = false;
             });
 
         }
