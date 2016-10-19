@@ -346,14 +346,9 @@
             controlText.style.lineHeight = '28px';
             controlText.style.paddingLeft = '5px';
             controlText.style.paddingRight = '5px';
-            controlText.innerHTML = translation.title;
+            //controlText.innerHTML = "<button style='background-color:#fff;border:none;'>" +translation.title + "</button>";
+            controlText.innerHTML = "<a id='getDirections' href='" + translation.link + "' target='_blank'>" +translation.title + "</a>";
             controlUI.appendChild(controlText);
-
-            // Setup the click event listeners: simply set the map to Chicago.
-            controlUI.addEventListener('click', function() {
-                $window.open(translation.link);
-            });
-
         }
 
         function parseBounds(viewport) {
