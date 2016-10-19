@@ -191,5 +191,6 @@
     "branchList": {
       "title": "Search for branches"
     }
-  }
+  },
+  "profilePicturePlaceholder": "advisor's profile picture"
 }
