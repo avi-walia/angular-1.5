@@ -9,7 +9,6 @@
   "searchResultsFound": "FR Search results found.",
   "noSearchCriteria": "FR There are no search results to be displayed.",
   "noSearchCriteriaBranch": "<p>FR Enter the city and/or province <br/>and the search results will show here.</p><p>If you are unable to locate the branch<br/>you are looking for, please contact our<br/>Assante Service Centre at 1-800-268-3200.</p>",
-  "helpLabel": "FR Help",
   "navbar": {
     "EN": "EN",
     "FR": "FR",
@@ -17,13 +16,6 @@
     "browse-happy": "FR You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.",
     "dismiss-message": "FR Dismiss message",
     "logo-text": "FR Assante Wealth Management"
-  },
-  "universal" : {
-    "font-size": "Taille de la police:",
-    "font-size-normal": "Changez à « normale » la taille de la police de la demande.",
-    "font-size-large": "Changez à « grande » la taille de la police de la demande.",
-    "font-size-largest": "Changez à « très grande » la taille de la police de la demande.",
-    "site-wide-nav-label": "Site wide navigation"
   },
   "header": {
     "login": "Connexion",
@@ -75,11 +67,6 @@
       "E409001": "<em class=\"material-icons\">error</em>FR Invalid advisor id",
       "E409002": "<em class=\"material-icons\">error</em>FR Invalid branch id",
       "core-generic-failure": "<em class=\"material-icons\">error</em>FR There is an issue on our side."
-    },
-    "fe-messages": {
-      "cancel": "<em class=\"material-icons\">error</em>FR Canceled.",
-      "refresh": "<em class=\"material-icons\">error</em>FR Refreshing the page has resulted in any unsaved information being lost."
-
     }
   },
   "branchList":{

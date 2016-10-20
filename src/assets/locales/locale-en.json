@@ -9,7 +9,6 @@
   "searchResultsFound": "results",
   "noSearchCriteria": "<p>Start typing an advisor's first or last name<br/>and the search results will show here.</p><p>If you are unable to locate the advisor you are looking for,<br/>please contact our Assante Service Centre at 1-800-268-3200.</p>",
   "noSearchCriteriaBranch": "<p>Enter the city and/or province <br/>and the search results will show here.</p><p>If you are unable to locate the branch<br/>you are looking for, please contact our<br/>Assante Service Centre at 1-800-268-3200.</p>",
-  "helpLabel": "Help",
   "navbar": {
     "EN": "EN",
     "FR": "FR",
@@ -17,13 +16,6 @@
     "browse-happy": "You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.",
     "dismiss-message": "Dismiss message",
     "logo-text": "Assante Wealth Management"
-  },
-  "universal" : {
-    "font-size": "Font size:",
-    "font-size-normal": "Change application font size to normal.",
-    "font-size-large": "Change application font size to large.",
-    "font-size-largest": "Change application font size to largest.",
-    "site-wide-nav-label": "Site wide navigation"
   },
   "header": {
     "login": "Login",
@@ -66,25 +58,16 @@
       "menu" : "Site footer navigation menu"
     }
   },
-  "homeFooterLink": "NameOfMyNewSite.com",
-  "copyright": "©{{ year }} {{ 'company' | translate}}",
-  "company": "Name of Company",
-  "companyLink": "https://www.assante.com",
+
   "notifications": {
     "http-errors": {
       "E409001": "<em class=\"material-icons\">error</em>Invalid advisor id",
       "E409002": "<em class=\"material-icons\">error</em>Invalid branch id",
       "core-generic-failure": "<em class=\"material-icons\">error</em>There is an issue on our side."
-    },
-    "fe-messages": {
-      "cancel": "<em class=\"material-icons\">error</em>Canceled.",
-      "refresh": "<em class=\"material-icons\">error</em>Refreshing the page has resulted in any unsaved information being lost."
-
     }
   },
   "branchList":{
     "title": "Branch List",
-    "autoComplete": "Somewhere in Canada:",
     "placeholder": "Enter a location",
     "linkToMap": "Get direction on a map",
     "currentLocation": "Current+Location",
