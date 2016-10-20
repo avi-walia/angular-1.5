@@ -28,8 +28,8 @@
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;
         vm.stateTrackerService = stateTrackerService;
-        vm.stateTrackerService.IsNameSearch = true;
-        vm.stateTrackerService.IsLocationSearch = false;
+        vm.stateTrackerService.isNameSearch = true;
+        vm.stateTrackerService.isLocationSearch = false;
         vm.service = advisorService;
         if(vm.service.isLoading) {
             vm.service.init();

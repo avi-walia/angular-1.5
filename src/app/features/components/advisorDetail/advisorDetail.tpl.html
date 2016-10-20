@@ -3,8 +3,8 @@
         <div ng-if="$ctrl.detectMobile.isDesktop">
             <div id="card">
 
-                <button ng-if="$ctrl.stateTrackerService.IsNameSearch" ui-sref="main.advisorLocator.advisorList" translate>advisorDetail.searchResultsButton</button>
-                <button ng-if="$ctrl.stateTrackerService.IsLocationSearch" ui-sref="main.advisorLocator.branchList" translate>advisorDetail.searchResultsButton</button>
+                <button ng-if="$ctrl.stateTrackerService.isNameSearch" ui-sref="main.advisorLocator.advisorList" translate>advisorDetail.searchResultsButton</button>
+                <button ng-if="$ctrl.stateTrackerService.isLocationSearch" ui-sref="main.advisorLocator.branchList" translate>advisorDetail.searchResultsButton</button>
 
                 <div id="photo">
                     <img ng-if="!$ctrl.advisorDetailService.advisorDetail.profilePictureUrl" alt="{{ 'advisorDetail.advisorImageAlt' | translate }}" src="assets/images/advisorHeadShot.png" />

@@ -3,8 +3,8 @@
     <div ng-if="$ctrl.detectMobile.isDesktop">
         <div id="card">
 
-            <button ng-if="$ctrl.stateTrackerService.IsNameSearch" ui-sref="main.advisorLocator.advisorList" translate>branchDetail.searchResultsButton</button>
-            <button ng-if="$ctrl.stateTrackerService.IsLocationSearch" ui-sref="main.advisorLocator.branchList" translate>branchDetail.searchResultsButton</button>
+            <button ng-if="$ctrl.stateTrackerService.isNameSearch" ui-sref="main.advisorLocator.advisorList" translate>branchDetail.searchResultsButton</button>
+            <button ng-if="$ctrl.stateTrackerService.isLocationSearch" ui-sref="main.advisorLocator.branchList" translate>branchDetail.searchResultsButton</button>
 
             <div id="details">
             <p class="name" ng-if="$ctrl.branchDetailService.branchDetail.dealerShip">{{$ctrl.branchDetailService.branchDetail.dealerShip==="ACM" ? "Assante Capital Management Ltd.": "Assante Financial Management Ltd."}}</p>

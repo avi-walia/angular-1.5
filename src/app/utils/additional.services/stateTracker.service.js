@@ -10,6 +10,8 @@
     /* @ngInject */
     function stateTrackerService($rootScope) {
         var service = this;
+        service.isNameSearch = false;
+        service.isLocationSearch = false;
     }
 })();
 

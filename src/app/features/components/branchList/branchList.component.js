@@ -37,8 +37,8 @@
         vm.isCompiled = false;
         vm.mapIsInitialized = false;
         vm.stateTrackerService = stateTrackerService;
-        vm.stateTrackerService.IsNameSearch = false;
-        vm.stateTrackerService.IsLocationSearch = true;
+        vm.stateTrackerService.isNameSearch = false;
+        vm.stateTrackerService.isLocationSearch = true;
         vm.setPosition = setPosition;
         vm.setLocation = setLocation;
         vm.setMessage = setMessage;
