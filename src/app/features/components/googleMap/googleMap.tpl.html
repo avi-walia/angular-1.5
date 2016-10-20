@@ -18,24 +18,6 @@
         </a>
     </div>
     <div id="map"></div>
-    <div id="info">
-        <p>{{$ctrl.markerInfo.customInfo}}</p>
-        <span ng-if="$ctrl.markerInfo.visible">
-            <a
-                title="{{'branchList.getDetails'|translate}}"
-                aria-label="{{'branchList.getDetails'|translate}}"
-                tabindex="0"
-                ui-sref="main.advisorLocator.branchDetails({id: $ctrl.markerInfo.id})"
-                analytics-on
-                analytics-event="click"
-                analytics-category="BRANCH CARD"
-                analytics-label="Branch Details Card"
-                translate
-            >
-                branchList.getDetails
-            </a>
-        </span>
-    </div>
 </div>
 <ci-loader loading="$ctrl.isLoading">
 </ci-loader>

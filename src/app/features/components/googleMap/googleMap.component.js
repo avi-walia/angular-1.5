@@ -29,10 +29,11 @@
         '$q',
         '$timeout',
         '$window',
-        '$translate'
+        '$translate',
+        '$compile'
     ];
     /* @ngInject */
-    function googleMapCtrl( $rootScope, $scope, pageStateResolver, detectMobile, $q, $timeout, $window, $translate
+    function googleMapCtrl( $rootScope, $scope, pageStateResolver, detectMobile, $q, $timeout, $window, $translate, $compile
     ) {
         var vm = this;
 
@@ -60,12 +61,34 @@
         };
 
         vm.isLoading = true;
-
+        var branchListGetDetials = '';
+        var translationPromise = $translate('branchList.getDetails').then(function(data) {
+            branchListGetDetials = data;
+        });
+        function updateInfoWindowContent() {
+            var x = '<div id="info">' +
+            '<p>' + vm.markerInfo.customInfo + '</p>' +
+            '<span style="word-wrap:normal;" >' +
+            '<a ' +
+            'title="' + branchListGetDetials + '" ' +
+            'aria-label="' + branchListGetDetials + '" ' +
+            'tabindex="0" ' +
+            'ui-sref="main.advisorLocator.branchDetails({id:$ctrl.markerInfo.id})" ' +
+            'analytics-on ' +
+            'analytics-event="click" ' +
+            'analytics-category="BRANCH CARD" ' +
+            'analytics-label="Branch Details Card" ' +
+            '>' +
+            branchListGetDetials +
+            '</a>' +
+            '</span>' +
+            '</div>';
+            var z = $compile(x)($scope);
+            return z.html();
+        }
         vm.userLocationMarker = null;
         vm.markers = [];
-        vm.infoWindow = new google.maps.InfoWindow({
-            content: document.getElementById('info')
-        });
+        vm.infoWindow = new google.maps.InfoWindow({});
         vm.markerInfo = null;
         vm.updateSearch = false;
         vm.dragEndEvent = false;
@@ -347,7 +370,7 @@
             controlText.style.paddingLeft = '5px';
             controlText.style.paddingRight = '5px';
             //controlText.innerHTML = "<button style='background-color:#fff;border:none;'>" +translation.title + "</button>";
-            controlText.innerHTML = "<a id='getDirections' href='" + translation.link + "' target='_blank'>" +translation.title + "</a>";
+            controlText.innerHTML = "<a id='getDirections' aria-label='" + translation.title + "'  href='" + translation.link + "' target='_blank'>" +translation.title + "</a>";
             controlUI.appendChild(controlText);
         }
 
@@ -432,17 +455,26 @@
 
         function showInfoWindow(){
             vm.markerInfo = this;
-            setVisibility();
-            $timeout(function() {
+            if (branchListGetDetials) {
+                var x = updateInfoWindowContent();
+                vm.infoWindow.setContent(x);
                 vm.infoWindow.open(vm.map, vm.markerInfo);
-            });
+                setVisibility();
+            } else {
+                translationPromise.then(function() {
+                    var x = updateInfoWindowContent();
+                    vm.infoWindow.setContent(x);
+                    vm.infoWindow.open(vm.map, vm.markerInfo);
+                    setVisibility();
+                })
+            }
         }
 
         function setVisibility(){
-            _.forEach(vm.markers, function(value, key){
-                vm.markers[key].visible = false;
-            });
-            vm.markerInfo.visible = true;
+                _.forEach(vm.markers, function (value, key) {
+                    vm.markers[key].visible = false;
+                });
+                vm.markerInfo.visible = true;
         }
 
 
@@ -467,8 +499,6 @@
                 vm.map.fitBounds(bounds);
                 vm.map.setCenter(bounds.getCenter());
                 filteredList = isContain(sortedList, vm.map.getBounds());
-                console.log('newFilteredList');
-                console.log(filteredList);
             }
 
 
@@ -503,10 +533,6 @@
                     filteredList.push(sortedList[key]);
                 }
             });
-
-
-            console.log('filteredList');
-            console.log(filteredList);
 
             return filteredList;
         }
