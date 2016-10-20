@@ -459,22 +459,13 @@
                 var x = updateInfoWindowContent();
                 vm.infoWindow.setContent(x);
                 vm.infoWindow.open(vm.map, vm.markerInfo);
-                setVisibility();
             } else {
                 translationPromise.then(function() {
                     var x = updateInfoWindowContent();
                     vm.infoWindow.setContent(x);
                     vm.infoWindow.open(vm.map, vm.markerInfo);
-                    setVisibility();
                 })
             }
-        }
-
-        function setVisibility(){
-                _.forEach(vm.markers, function (value, key) {
-                    vm.markers[key].visible = false;
-                });
-                vm.markerInfo.visible = true;
         }
 
 
