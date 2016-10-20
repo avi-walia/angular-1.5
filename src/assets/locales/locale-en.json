@@ -34,7 +34,11 @@
     "services": "Services",
     "assanteLife": "Assante Life",
     "clients": "Clients",
-    "careers": "Careers"
+    "careers": "Careers",
+    "accessibility": {
+      "topNav" : "Site top navigation menu",
+      "mainNav" : "Site main navigation menu"
+    }
   },
   "footer": {
     "contactUs": "Contact Us",
@@ -54,7 +58,13 @@
     "copyright": "©{{ year }} Assante Wealth Management. All right Reserved.",
     "security": "Security",
     "privacyPolicy": "Privacy Policy",
-    "legal": "Legal"
+    "legal": "Legal",
+    "accessibility": {
+      "social" : "Site social links",
+      "search" : "Advisor search navigation links",
+      "career" : "Career navigation links",
+      "menu" : "Site footer navigation menu"
+    }
   },
   "homeFooterLink": "NameOfMyNewSite.com",
   "copyright": "©{{ year }} {{ 'company' | translate}}",

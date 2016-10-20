@@ -34,7 +34,11 @@
     "services": "Services",
     "assanteLife": "L'Essence Assante",
     "clients": "Clients",
-    "careers": "Carrières"
+    "careers": "Carrières",
+    "accessibility": {
+      "topNav" : "Site top navigation menu",
+      "mainNav" : "Site main navigation menu"
+    }
   },
   "footer": {
     "contactUs": "French Contact Us",
@@ -54,7 +58,13 @@
     "copyright": "©{{ year }} French Assante Wealth Management. All right Reserved.",
     "security": "French Security",
     "privacyPolicy": "French Privacy Policy",
-    "legal": "French Legal"
+    "legal": "French Legal",
+    "accessibility": {
+      "social" : "Site social links",
+      "search" : "Advisor search navigation links",
+      "career" : "Career navigation links",
+      "menu" : "Site footer navigation menu"
+    }
   },
   "homeFooterLink": "FR NameOfMyNewSite.com",
   "copyright": "©{{ year }} {{ 'company' | translate}}",

@@ -10,13 +10,13 @@
             <div class="container">
 
                 <h1 class="panel-pane pane-page-site-name">
-                    <a href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr')}}" class="active" translate>navbar.logo-text</a>
+                    <a href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr')}}" class="active" title="{{'navbar.logo-text' | translate }}" translate>navbar.logo-text</a>
                 </h1>
-                <div class="contextual-links-region panel-pane pane-block pane-menu-menu-secondary-menu">
+                <div class="contextual-links-region panel-pane pane-block pane-menu-menu-secondary-menu" role="navigation" aria-label="{{ 'header.accessibility.accessibility.topNav' | translate }}">
 
                     <ul class="menu">
-                        <li class="menu__item is-leaf first leaf" id="login"><a href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr')}}" title="Login" name="Login" class="menu__link" translate>header.login</a></li>
-                        <li class="menu__item is-leaf last leaf" id="locator"><a href title="Advisor Locator" name="Advisor Locator" class="menu__link" translate>header.locator</a></li>
+                        <li class="menu__item is-leaf first leaf" id="login"><a href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr')}}" title="{{'header.login' | translate }}" name="Login" class="menu__link" translate>header.login</a></li>
+                        <li class="menu__item is-leaf last leaf" id="locator"><a href title="{{'header.locator' | translate }}" name="Advisor Locator" class="menu__link" translate>header.locator</a></li>
                     </ul>
 
                 </div>
@@ -52,7 +52,7 @@
 
                 </div>
 
-                <div class="contextual-links-region panel-pane pane-block pane-system-main-menu" role="navigation" ng-class="{'hide': $ctrl.showInputSearch, 'show': !$ctrl.showInputSearch}">
+                <div class="contextual-links-region panel-pane pane-block pane-system-main-menu" role="navigation" ng-class="{'hide': $ctrl.showInputSearch, 'show': !$ctrl.showInputSearch}" aria-label="{{ 'header.accessibility.mainNav' | translate }}">
 
                     <ul class="menu">
                         <li class="menu__item is-leaf first leaf"><a tabindex="0" href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr') + '/about'}}" title="{{'header.about' | translate}}" class="menu__link"
