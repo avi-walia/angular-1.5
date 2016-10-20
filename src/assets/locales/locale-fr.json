@@ -58,10 +58,6 @@
       "menu" : "Site footer navigation menu"
     }
   },
-  "homeFooterLink": "FR NameOfMyNewSite.com",
-  "copyright": "©{{ year }} {{ 'company' | translate}}",
-  "company": "FR Name of Company",
-  "companyLink": "https://www.assante.com",
   "notifications": {
     "http-errors": {
       "E409001": "<em class=\"material-icons\">error</em>FR Invalid advisor id",
