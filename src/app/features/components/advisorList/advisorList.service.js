@@ -345,6 +345,10 @@
             //service.filter();
 
             service.filterRunnerService.allData = service.searchResults;
+            _.forEach(service.allAdvisors, function(advisor) {
+               advisor.showName = advisor.showCommon ? advisor.commonName : advisor.firstName;
+            });
+            /*
             service.filteredSearchResults = _.map(service.filterRunnerService.filter(), function(advisor){
                 if (advisor.showCommon) {
                     advisor.showName = advisor.commonName;
@@ -353,8 +357,10 @@
                 }
                 return advisor;
             });
+            */
+            service.filteredSearchResults = service.filterRunnerService.filter();
 
-            updatePaginationInfiniteScroll();
+                updatePaginationInfiniteScroll();
         }
 
         /*

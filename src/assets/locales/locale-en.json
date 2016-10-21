@@ -121,20 +121,12 @@
   "aria": {
     "main-label": "Main content section",
     "nameSearch": {
-      "sortby": {
-        "firstname": "Sort search results by first name.",
-        "lastname": "Sort search results by last name.",
-        "city": "Sort search results by city.",
-        "province": "Sort search results by province."
-      },
       "clearButton": "clear filters.",
       "filters": {
         "language": "Filter by Language:",
         "province": "Filter by Province:"
       },
-      "getAdvisorDetails": "Get {{showName}} {{lastName | posession}} details.",
-      "email": "contact {{showName}} {{lastName}} by email",
-      "phone": "contact {{showName}} {{lastName}} by phone"
+      "getAdvisorDetails": "Get {{showName}} {{lastName | posession}} details."
     },
     "picturePlaceholder": "Default placeholder for advisor's profile picture.",
     "pagination": {
@@ -152,9 +144,6 @@
   "pages": {
     "advisorList":{
       "title": "Search for Advisor",
-      "filterPlaceHolders": {
-        "province":"Any province"
-      },
       "filterOptions": {
         "lang": {
           "Language": "Any language",
@@ -178,7 +167,6 @@
           "YT": "YT"
         }
       },
-      "provinceFilterPlaceHolder": "Select provinces...",
       "clearFilterLabel": "Clear"
     },
     "branchList": {

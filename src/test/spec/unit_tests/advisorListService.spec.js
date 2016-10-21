@@ -117,6 +117,8 @@ var serverMock = {
         it('Filtered and non-filtered search results should be set properly after searching for "m m"', function() {
             initializedAdvisors[0].showCommon = false;
             initializedAdvisors[8].showCommon = false;
+            initializedAdvisors[0].showName = initializedAdvisors[0].firstName;
+            initializedAdvisors[8].showName = initializedAdvisors[8].firstName;
             filterRunnerServiceMock.filter = function() {
                 return [initializedAdvisors[0], initializedAdvisors[8]];
             };
@@ -238,6 +240,7 @@ var serverMock = {
             $advisorService.search("j ric ");
             $advisorService.search("j ric j");
             initializedAdvisors[14].showCommon = false;
+            initializedAdvisors[14].showName = initializedAdvisors[14].firstName;
             expect($advisorService.searchResults.length).toEqual(1);
             expect($advisorService.searchResults[0]).toEqual(initializedAdvisors[14]);
         });
@@ -248,6 +251,8 @@ var serverMock = {
             expect($advisorService.searchResults.length).toEqual(2);
             initializedAdvisors[10].showCommon = false;
             initializedAdvisors[11].showCommon = false;
+            initializedAdvisors[10].showName = initializedAdvisors[10].firstName;
+            initializedAdvisors[11].showName = initializedAdvisors[11].firstName;
             expect($advisorService.searchResults[0]).toEqual(initializedAdvisors[10]);
             expect($advisorService.searchResults[1]).toEqual(initializedAdvisors[11]);
         });
@@ -271,6 +276,7 @@ var serverMock = {
             $advisorService.search("a a");
             expect($advisorService.searchResults.length).toEqual(1);
             initializedAdvisors[12].showCommon = true;
+            initializedAdvisors[12].showName = initializedAdvisors[12].commonName;
             expect($advisorService.searchResults[0]).toEqual(initializedAdvisors[12]);
         });
         it('Search results should update after searching for "a alex"', function() {
@@ -285,6 +291,7 @@ var serverMock = {
             $advisorService.search("alexa a");
             expect($advisorService.searchResults.length).toEqual(1);
             initializedAdvisors[12].showCommon = false;
+            initializedAdvisors[12].showName = initializedAdvisors[12].firstName;
             expect($advisorService.searchResults[0]).toEqual(initializedAdvisors[12]);
         });
         it('Search results should update after searching for "r r"', function() {
@@ -292,6 +299,7 @@ var serverMock = {
             $advisorService.search("r r");
             expect($advisorService.searchResults.length).toEqual(1);
             initializedAdvisors[13].showCommon = false;
+            initializedAdvisors[13].showName = initializedAdvisors[13].firstName
             expect($advisorService.searchResults[0]).toEqual(initializedAdvisors[13]);
         });
         it('Search results should update after searching for "r j"', function() {
@@ -300,6 +308,8 @@ var serverMock = {
             expect($advisorService.searchResults.length).toEqual(2);
             initializedAdvisors[13].showCommon = true;
             initializedAdvisors[14].showCommon = true;
+            initializedAdvisors[13].showName = initializedAdvisors[13].commonName;
+            initializedAdvisors[14].showName = initializedAdvisors[14].commonName;
             expect($advisorService.searchResults[0]).toEqual(initializedAdvisors[14]);
             expect($advisorService.searchResults[1]).toEqual(initializedAdvisors[13]);
         });
@@ -308,6 +318,7 @@ var serverMock = {
             $advisorService.search("r j j");
             expect($advisorService.searchResults.length).toEqual(1);
             initializedAdvisors[14].showCommon=false;
+            initializedAdvisors[14].showName=initializedAdvisors[14].firstName;
             expect($advisorService.searchResults[0]).toEqual(initializedAdvisors[14]);
         });
         it('loadMore should be able to load more results', function() {
@@ -397,6 +408,7 @@ var serverMock = {
             $advisorService.loadMore();
             expect($advisorService.mobileMaxNumDisplay).toEqual(resultSetLength);
         });
+
 
     });
 })();
