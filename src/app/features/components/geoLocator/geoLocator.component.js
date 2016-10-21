@@ -42,7 +42,7 @@
         vm.updateLocation = updateLocation;
         vm.loader = false;
 
-
+        var currentPosition = {};
 
         function updatePosition(pos){
             vm.setPosition({position: pos});
@@ -93,30 +93,40 @@
 
         function getGeo(position){
             vm.loader = true;
-            var currentPosition = {
+            var newCurrentPosition = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-            console.log('Accuracy ',position.coords.accuracy);
-            geoCoderCall(currentPosition).then(function(result){
-                if(result){
-                    vm.setMessage({message:{}});
-                    vm.updatePosition(result.geometry);
-                    vm.updateLocation(result.formatted_address);
-                    vm.loader = false;
-                }
-                else{
-                    vm.setMessage({message: {'cancel': 'branchList.validation.noResults'}});
+
+            if (!angular.equals(currentPosition, newCurrentPosition)) {
+
+                currentPosition = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+
+
+                console.log('Accuracy ', position.coords.accuracy);
+                geoCoderCall(currentPosition).then(function (result) {
+                    if (result) {
+                        vm.setMessage({message: {}});
+                        vm.updatePosition(result.geometry);
+                        vm.updateLocation(result.formatted_address);
+                        vm.loader = false;
+                    }
+                    else {
+                        vm.setMessage({message: {'cancel': 'branchList.validation.noResults'}});
+                        handleLocationError();
+                        vm.loader = false;
+                    }
+
+                }, function (status) {
+                    console.log('error getting geolocation: ', status);
+                    vm.setMessage({message: {'cancel': 'branchList.validation.geoFailed'}});
                     handleLocationError();
                     vm.loader = false;
-                }
-
-            }, function(status){
-                console.log('error getting geolocation: ', status);
-                vm.setMessage({message: {'cancel': 'branchList.validation.geoFailed'}});
-                handleLocationError();
-                vm.loader = false;
-            });
+                });
+            }
 
         }
 
