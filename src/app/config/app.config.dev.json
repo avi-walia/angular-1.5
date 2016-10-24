@@ -1,7 +1,7 @@
 {
-  "BASE_URL": "https://dev.assanteservices.com",
+  "BASE_URL": "https://assantedev.corporate.ciglobe.net",
   "CONTEXT_ROOT": "/advisorLocator",
   "ENDPOINT_URI": "/advisorlocatorws",
   "GOOGLE_MAPS_URL": "https://maps.googleapis.com/maps/api/js?key=AIzaSyD6y9w2sHNaVOAQN3ESPmYe_tSxCBE6d-Q&libraries=geometry,places&region=CA&language=",
-  "ASSANTE_URL": "http://assantedev.corporate.ciglobe.net"
+  "ASSANTE_URL": "https://assantedev.corporate.ciglobe.net"
 }
