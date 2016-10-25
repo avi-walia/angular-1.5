@@ -110,7 +110,7 @@
 
         function initializeMap(){
             var deferred = $q.defer();
-
+            var googleMapVerbiage = $translate.instant('googleMapVerbiage');
             vm.map = new google.maps.Map(document.getElementById('map'), vm.ca);
 
             vm.map.addListener('idle', vm.onDragEvent);
@@ -123,7 +123,7 @@
                 vm.mapLoadedDeferred.resolve(vm.map);
                 document.getElementById('map').children[0].children[0].children[9].children[0].children[0].children[0].getElementsByTagName('img')[0].setAttribute("aria-label", $translate.instant('zoomIn'));
                 document.getElementById('map').children[0].children[0].children[9].children[0].children[0].children[2].getElementsByTagName('img')[0].setAttribute("aria-label", $translate.instant('zoomOut'));
-
+                document.getElementById('map').children[0].children[0].children[0].children[2].setAttribute('aria-label', googleMapVerbiage);
             });
             vm.isLoading = false;
             $scope.$emit('mapIsInitialized', {map: vm.map}); // may should go under the talesloaded event?
