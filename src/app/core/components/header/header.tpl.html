@@ -16,7 +16,7 @@
 
                     <ul class="menu">
                         <li class="menu__item is-leaf first leaf" id="login"><a href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr')}}" title="{{'header.login' | translate }}" name="Login" class="menu__link" translate>header.login</a></li>
-                        <li class="menu__item is-leaf last leaf" id="locator"><a href title="{{'header.locator' | translate }}" name="Advisor Locator" class="menu__link" translate>header.locator</a></li>
+                        <li class="menu__item is-leaf last leaf" id="locator"><a ui-sref="main.advisorLocator.advisorList" title="{{'header.locator' | translate }}" name="Advisor Locator" class="menu__link" translate>header.locator</a></li>
                     </ul>
 
                 </div>
