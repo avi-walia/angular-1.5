@@ -185,6 +185,8 @@
     },
     "branchList": {
       "title": "FR Search for branches"
-    }
+    },
+    "profilePicturePlaceholder": "FR advisor's profile picture",
+    "email": "FR email"
   }
 }

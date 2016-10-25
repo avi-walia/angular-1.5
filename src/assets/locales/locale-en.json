@@ -173,5 +173,6 @@
       "title": "Search for branches"
     }
   },
-  "profilePicturePlaceholder": "advisor's profile picture"
+  "profilePicturePlaceholder": "advisor's profile picture",
+  "email": "email"
 }
