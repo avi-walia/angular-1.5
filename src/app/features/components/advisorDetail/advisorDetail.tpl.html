@@ -19,13 +19,13 @@
                 <div id="details">
                     <dl>
                       <dt ng-if="$ctrl.advisorDetailService.advisorDetail.phone" translate>advisorDetail.telephone</dt>
-                      <dd ng-if="$ctrl.advisorDetailService.advisorDetail.phone">{{$ctrl.advisorDetailService.advisorDetail.phone}}</dd>
+                      <dd ng-if="$ctrl.advisorDetailService.advisorDetail.phone" ng-bind-html="$ctrl.advisorDetailService.advisorDetail.phone | clickablePhone"></dd>
 
                       <dt ng-if="$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.fax" translate>advisorDetail.fax</dt>
                       <dd ng-if="$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.fax">{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.fax}}</dd>
 
                       <dt ng-if="$ctrl.advisorDetailService.advisorDetail.email" translate>advisorDetail.email</dt>
-                      <dd ng-if="$ctrl.advisorDetailService.advisorDetail.email"><a href="mailto:{{$ctrl.advisorDetailService.advisorDetail.email}}">{{$ctrl.advisorDetailService.advisorDetail.email}}</a></dd>
+                      <dd ng-if="$ctrl.advisorDetailService.advisorDetail.email" ng-bind-html="$ctrl.advisorDetailService.advisorDetail.email | clickableEmail"></dd>
 
                       <dt ng-if="$ctrl.advisorDetailService.advisorDetail.website" translate>advisorDetail.website</dt>
                       <dd ng-if="$ctrl.advisorDetailService.advisorDetail.website"><a target="_blank" href="{{$ctrl.advisorDetailService.advisorDetail.website}}">{{$ctrl.advisorDetailService.advisorDetail.website}}</a></dd>
