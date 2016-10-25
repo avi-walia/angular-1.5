@@ -34,6 +34,14 @@ $bg_dark: #333;
   text-decoration:none;
 }
 
+.alignDistanceRight {
+  text-align:right;
+  float:right;
+}
+.alignDistanceRight::after {
+  clear:both;
+}
+
 html { overflow-y:scroll; }
 html, body { background:$bg; color:$text; font:400 16px/1.4 'Open Sans',sans-serif; margin:0; padding:0; }
 
