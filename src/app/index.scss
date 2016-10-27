@@ -326,9 +326,9 @@ header { background:#fff; border-top:solid $bg_dark 35px;
       }
     }
   }
-  #results { background:#fff; border-top:solid 1px darken($bg,4%); display:inline-block; height:665px; margin-right:-4px; overflow-y:auto; position:relative; width:486px;
-    .branchitem { width:100%; background:#fff; border-bottom:solid 1px darken($bg,4%); padding:20px; position:relative; z-index:1;
-      p { font-size:0.9em; margin:0;
+  #results { background:#fff; border-top:solid 1px darken($bg,4%); display:inline-block; height:665px; margin-right:-4px; overflow-y:auto; position:relative; width:40%;
+    .branchitem { width:100%; background:#fff; border-bottom:solid 1px darken($bg,4%); padding:20px 2.5*$zen-gutters; position:relative; z-index:1;
+      p { font-size:0.9em; margin:0; padding-right:50px;
         span { color:$gold; font-weight:900;
           &.distance { color:$text; position:absolute; right:20px; top:20px; }
         }
@@ -350,13 +350,13 @@ header { background:#fff; border-top:solid $bg_dark 35px;
     }
     .branch + #nosearch { display:none; }
   }
-  .showMap { display:inline-block; height:665px; margin-right:-4px; width:594px;
+  .showMap { display:inline-block; height:665px; margin-right:-4px; width:60%;
     #map { display:inline-block; height:100%; width:100%; }
   }
 }
 
-#advisorDetails { padding:2.5em 0;
-  #card { background:#fff; display:inline-block; height:770px; margin-right:-4px; position:relative; vertical-align:top; width:486px;
+#advisorDetails {
+  #card { background:#fff; display:inline-block; height:770px; margin-right:-4px; position:relative; vertical-align:top; width:40%;
     button { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#888888" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>') 0 1px no-repeat; background-size:18px; border:0; color:#888; display:block; font-size:0.8em; margin:10px 0 3em 8px; padding-left:22px;
       &:hover { color:$orange; cursor:pointer; }
     }
@@ -391,22 +391,22 @@ header { background:#fff; border-top:solid $bg_dark 35px;
       }
     }
   }
-  #map { display:inline-block; height:770px; margin-right:-4px; width:594px; }
+  #map { display:inline-block; height:770px; margin-right:-4px; width:60%; }
 }
 
-#branchDetails { padding:2.5em 0;
-  #card { background:#fff; display:inline-block; height:770px; margin-right:-4px; overflow-y:auto; position:relative; vertical-align:top; width:486px;
+#branchDetails {
+  #card { background:#fff; display:inline-block; height:770px; margin-right:-4px; overflow-y:auto; position:relative; vertical-align:top; width:40%;
     button { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#888888" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>') 0 1px no-repeat; background-size:18px; border:0; color:#888; display:block; font-size:0.8em; margin:10px 0 3em 8px; padding-left:22px;
       &:hover { color:$orange; cursor:pointer; }
     }
     #details { text-align:center; margin-bottom:2em;
       p { font-size:0.9em; margin:0;
-        &.name { font:1.3em/1.1 'Montserrat',sans-serif; margin:3em 0 2em; }
+        &.name { font:1.3em/1.1 'Montserrat',sans-serif; margin:3em 0 2em; padding:0 25px; }
         &.label { color:$blue; font-family:'Montserrat',sans-serif; margin-bottom:0.25em; text-transform:uppercase; }
       }
     }
     #numbers {
-      ul { list-style:none; margin:0; padding:0 40px; width:100%;
+      ul { list-style:none; margin:0; padding:0 25px; width:100%;
         li { display:inline-block; font-size:0.9em; margin-right:-4px; text-align:center; width:50%;
           span { display:block;
             &.label { color:$blue; font-family:'Montserrat',sans-serif; margin-bottom:0.25em; text-transform:uppercase; }
@@ -415,7 +415,7 @@ header { background:#fff; border-top:solid $bg_dark 35px;
         }
       }
     }
-    #manager { font-size:0.9em; line-height:1.8; padding:3em 40px 10px;
+    #manager { font-size:0.9em; line-height:1.8; padding:3em 25px 10px;
       h3 { color:$gold; font:1em/1 'Montserrat',sans-serif; margin-bottom:0.25em; text-transform:uppercase; }
       p.name { border-bottom:solid 1px darken($bg,4%); font-weight:600; margin-bottom:0.5em; padding-bottom:0.5em; }
       dl { margin:0.5em 0; }
@@ -427,7 +427,7 @@ header { background:#fff; border-top:solid $bg_dark 35px;
         }
       }
     }
-    #associates { font-size:0.9em; padding:0 40px 30px;
+    #associates { font-size:0.9em; padding:0 25px 30px;
       h3 { color:$gold; font:1em/1 'Montserrat',sans-serif; margin-bottom:1em; text-transform:uppercase; }
       dl { margin:0.5em 0; }
       dt { border-bottom:solid 1px darken($bg,4%); padding-bottom:0.5em; }
@@ -436,7 +436,21 @@ header { background:#fff; border-top:solid $bg_dark 35px;
       }
     }
   }
-  #map { display:inline-block; height:770px; margin-right:-4px; width:594px; }
+  #map { display:inline-block; height:770px; margin-right:-4px; width:60%; }
+  @media (min-width:896px) {
+    #card {
+      #details {
+        p {
+          &.name { padding:0 40px; }
+        }
+      }
+      #numbers {
+        ul { padding:0 40px; }
+      }
+      #manager { padding:3em 40px 10px; }
+      #associates { font-size:0.9em; padding:0 40px 30px; }
+    }
+  }
 }
 
 footer { background:$bg_dark; color:$bg; font:400 0.9em/1 'Montserrat',sans-serif;
