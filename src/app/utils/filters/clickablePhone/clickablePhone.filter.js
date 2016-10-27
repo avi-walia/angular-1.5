@@ -34,7 +34,7 @@
                 }
                 //remove all non-numeric characters from the phone number
                 basePhone = basePhone.replace(/[^0-9]/g,'');
-                return $sce.trustAsHtml("<a aria-label='" + basePhone + "' title='" + phoneFilter(phone) + "' href='tel:" + basePhone + "'>" + phoneFilter(phone) + "</a>");
+                return $sce.trustAsHtml("<a class='clickablePhone' aria-label='" + basePhone + "' title='" + phoneFilter(phone) + "' href='tel:" + basePhone + "'>" + phoneFilter(phone) + "</a>");
             }
             return phone;
         };

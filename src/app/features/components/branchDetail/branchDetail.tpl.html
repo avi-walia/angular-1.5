@@ -15,7 +15,7 @@
           <div id="numbers">
             <ul>
               <li><span class="label" ng-if="$ctrl.branchDetailService.branchDetail.phone" translate>branchDetail.telephone</span>
-                <span ng-if="$ctrl.branchDetailService.branchDetail.phone">{{$ctrl.branchDetailService.branchDetail.phone}}</span></li>
+                <span ng-if="$ctrl.branchDetailService.branchDetail.phone" ng-bind-html="$ctrl.branchDetailService.branchDetail.phone | clickablePhone"></span></li>
               <li><span class="label" ng-if="$ctrl.branchDetailService.branchDetail.fax" translate>branchDetail.fax</span>
                 <span ng-if="$ctrl.branchDetailService.branchDetail.fax">{{$ctrl.branchDetailService.branchDetail.fax}}</span></li>
             </ul>
@@ -25,9 +25,9 @@
             <p class="name" ng-if="branchManager.firstName || branchManager.lastName">{{branchManager.firstName}} {{branchManager.lastName}}</p>
             <dl>
               <dt ng-if="branchManager.phone" translate>branchDetail.telephone</dt>
-              <dd ng-if="branchManager.phone">{{branchManager.phone}}</dd>
+              <dd ng-if="branchManager.phone" ng-bind-html="branchManager.phone | clickablePhone"></dd>
               <dt ng-if="branchManager.email" translate>branchDetail.email</dt>
-              <dd ng-if="branchManager.email"><a href="mailto:{{branchManager.email}}">{{branchManager.email}}</a></dd>
+              <dd ng-if="branchManager.email"  ng-bind-html="branchManager.email | clickableEmail"></dd>
             </dl>
           </div>
           <div id="associates">
