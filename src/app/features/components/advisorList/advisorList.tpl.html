@@ -4,7 +4,6 @@
         <search-by></search-by>
     </div>
     <div id="filters">
-        <search-bar service="$ctrl.service"></search-bar>
         <div id="options">
             <span id="filtersLabel" translate>pages.advisorList.filtersLabel</span>
             <label for="provselect" translate>aria.nameSearch.filters.province</label>
@@ -17,6 +16,7 @@
             </select>
             <button aria-label="{{'aria.nameSearch.clearButton' | translate}}" ng-click="$ctrl.service.clearFilters()">{{'pages.advisorList.clearFilterLabel' | translate}}</button>
         </div>
+        <search-bar service="$ctrl.service"></search-bar>
     </div>
     <div id="results">
         <paginator-infinite-scroll service="$ctrl.service">
