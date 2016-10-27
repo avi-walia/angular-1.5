@@ -34,6 +34,20 @@ $bg_dark: #333;
   text-decoration:none;
 }
 
+.alignDistanceRight {
+  text-align:right;
+  float:right;
+}
+.alignDistanceRight::after {
+  clear: both;
+}
+
+
+#filtersLabel {
+  color: $orange;
+  font-weight: bold;
+}
+
 html { overflow-y:scroll; }
 html, body { background:$bg; color:$text; font:400 16px/1.4 'Open Sans',sans-serif; margin:0; padding:0; }
 
@@ -85,7 +99,6 @@ header { background:#fff; border-top:solid $bg_dark 35px;
     &.show form { @include flipInX($duration:0.5s,$delay:0.3s); display:block; }
     &.hide form { @include flipOutX($duration:0.4s); display:block; }
   }
-
 
   .pane-locale-language-content { position:absolute; right:2px; top:-35px; z-index:1;
     ul { list-style:none; margin:0 auto; max-width:$zen-grid-width; padding:0; text-align:right;

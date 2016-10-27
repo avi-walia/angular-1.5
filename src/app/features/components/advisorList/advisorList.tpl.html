@@ -6,6 +6,7 @@
     <div id="filters">
         <search-bar service="$ctrl.service"></search-bar>
         <div id="options">
+            <span id="filtersLabel" translate>pages.advisorList.filtersLabel</span>
             <label for="provselect" translate>aria.nameSearch.filters.province</label>
             <select id="provselect" aria-label="{{'aria.nameSearch.filters.province' | translate}}" ng-model="$ctrl.service.filterRunnerService.filters.province.value" ng-change="$ctrl.service.updateFilters($ctrl.service.filters.province)">
                 <option ng-repeat="province in $ctrl.service.filterRunnerService.filters.province.options" value="{{province}}">{{'pages.advisorList.filterOptions.province.' + province | translate}}</option>
