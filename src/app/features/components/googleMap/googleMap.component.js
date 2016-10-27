@@ -196,28 +196,27 @@
             });
             vm.map.addListener('zoom_changed', vm.onUserEvent);
             //vm.map.addListener('idle', vm.onUserEvent);
+
             google.maps.event.addListenerOnce(vm.map, 'tilesloaded', function(){
                 vm.mapLoadedDeferred.resolve(vm.map);
                 document.getElementById('map').children[0].children[0].children[0].children[2].setAttribute('aria-label', googleMapVerbiage);
                 //document.getElementById('map').children[0].children[0].children[9].children[0].children[0].children[0].getElementsByTagName('img')[0].setAttribute("aria-label", $translate.instant('zoomIn'));
                 //document.getElementById('map').children[0].children[0].children[9].children[0].children[0].children[2].getElementsByTagName('img')[0].setAttribute("aria-label", $translate.instant('zoomOut'));
+
+                /*
+                    Tiles loaded event occurs when the data for the tiles has been loaded, but does not mean these tiles have been rendered.
+                    Use the $timeout without a specified delay to wait for the the tiles to finish rendering.
+                */
+                $timeout(function() {
+                    //add alt text to the "google" logo image in the bottom left hand corner of the map.
+                    var x = document.getElementById('map').children[0].children[0].children[1].children[0].children[0].children[0];
+                    x.setAttribute('alt', 'Google Logo');
+                });
+
             });
             vm.isLoading = false;
             $scope.$emit('mapIsInitialized', {map: vm.map}); // may should go under the talesloaded event?
-            var test = function() {
-                try {
-                    var x = document.getElementById('map').children[0].children[0].children[1].children[0].children[0].children[0];
-                    console.log('x: ', x);
-                    if (!x || x.length === 0) {
-                        $timeout(test, 50);
-                    } else {
-                        x.setAttribute('alt', 'Google Logo');
-                    }
-                } catch (Ex) {
-                    $timeout(test, 50);
-                }
-            }
-            $timeout(test, 50);
+
             deferred.resolve(vm.map);
             return deferred.promise;
         }
