@@ -46,6 +46,7 @@ $bg_dark: #333;
 #filtersLabel {
   color: $orange;
   font-weight: bold;
+  margin-right: 8px;
 }
 
 html { overflow-y:scroll; }
@@ -170,17 +171,17 @@ header { background:#fff; border-top:solid $bg_dark 35px;
 
 #advisorList { /*@include zen-grid-background();*/
   #filters {
-    #input { width:68%;
+    #input { width:59%;
       input { width:99%; }
     }
-    #options { display:inline-block; float:right; text-align:right; vertical-align:top; white-space:nowrap; width:32%;
+    #options { display:inline-block; float:right; text-align:right; vertical-align:top; white-space:nowrap; width:41%;
       label { display:none; }
       select { appearance:none; background:darken($bg,4%) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#cd5806" d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/></svg>') 94% 9px no-repeat; background-size:20px; border:0; border-radius:3px; display:inline-block; height:2.5em; line-height:2.5em; margin-right:5px; padding:0 8% 0 3.5%; }
       button { background:$orange; border:0; border-radius:3px; color:#fff; display:inline-block; font-family:'Montserrat',sans-serif; height:2.5em; line-height:2.6em; padding:0 3%; text-transform:uppercase; vertical-align:top; }
     }
   }
   #results { margin-top:$zen-gutters; width:100%; position:relative;
-    #resultmessage { color:#888; font-style:italic; margin-top:-63px; position:absolute; right:35%; z-index:1; }
+    #resultmessage { color:#888; font-style:italic; margin-top:-63px; position:absolute; right:44%; z-index:1; }
     #resultscontainer { /*@include zen-grid-background();*/
       .advisor { background:#fff; height:180px; margin-bottom:$zen-gutters; position:relative;
         &:nth-child(3n+1) { @include zen-grid-item(4,1); @include zen-new-row(); }
