@@ -54,7 +54,7 @@
 
                 <div class="contextual-links-region panel-pane pane-block pane-system-main-menu" role="navigation" ng-class="{'hide': $ctrl.showInputSearch, 'show': !$ctrl.showInputSearch}" aria-label="{{ 'header.accessibility.mainNav' | translate }}">
 
-                    <ul class="menu">
+                    <ul class="menu" ng-class="{'open': ($ctrl.classOpen == true)}" >
                         <li class="menu__item is-leaf first leaf"><a tabindex="0" href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr') + '/about'}}" title="{{'header.about' | translate}}" class="menu__link"
                                                                      analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="About" translate>header.about</a></li>
                         <li class="menu__item is-leaf leaf"><a tabindex="0" href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr') + '/services'}}" title="{{'header.services' | translate}}" class="menu__link"
@@ -65,7 +65,8 @@
                                                                analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Resources" translate>header.clients</a></li>
                         <li class="menu__item is-leaf leaf"><a tabindex="0" href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr') + '/careers'}}" title="{{'header.careers' | translate}}" class="menu__link"
                                                                     analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Careers" translate>header.careers</a></li>
-                        <li class="menu__item is-leaf leaf" id="hamburger"><span tabindex="0" class="menu__link nolink" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Hamburger">Menu</span></li>
+                        <li class="menu__item is-leaf leaf" ng-click="$ctrl.openMenu();" id="hamburger"><span tabindex="0" class="menu__link nolink" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Hamburger">Menu</span></li>
+
                     </ul>
 
                 </div>
