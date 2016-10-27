@@ -25,6 +25,7 @@
         service.markers = [];
         service.branchListView = [];
         service.message = {};
+        service.updatedMarkers = false;
 
         service.getBranchList = getBranchList;
         service.setPosition = setPosition;
@@ -88,6 +89,11 @@
             $timeout(function(){
                 service.markers = angular.copy(markers);
             });
+            if (markers.length) {
+                service.updatedMarkers = true;
+            } else {
+                service.updatedMarkers = false;
+            }
 
         }
 

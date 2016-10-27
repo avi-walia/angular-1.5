@@ -17,7 +17,7 @@
                 </div>
                 <div id="results" role="list" aria-live="polite">
                     <branch-item class="branch" role="listitem" ng-repeat="branch in $ctrl.branchListService.markers track by $index" item="branch"></branch-item>
-                    <div id="nosearch" ng-if="$ctrl.branchListService.markers.length===0" translate>noSearchCriteriaBranch</div>
+                    <div id="nosearch" ng-if="$ctrl.branchListService.markers.length===0 && !$ctrl.branchListService.updatedMarkers" translate>noSearchCriteriaBranch</div>
                     <ci-validation message-object="$ctrl.branchListService.message"></ci-validation>
                 </div>
                 <google-map aria-label="google map" position="$ctrl.branchListService.position" location-list="$ctrl.branchListService.branchListView" marker-list="$ctrl.branchListService.markers" on-update-markers="$ctrl.setMarkers(markers)">
