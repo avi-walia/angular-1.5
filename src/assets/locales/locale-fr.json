@@ -153,10 +153,8 @@
 
   "pages": {
     "advisorList":{
+      "filtersLabel": "Filters:",
       "title": "FR Search for Advisor",
-      "filterPlaceHolders": {
-        "province":"FR Any province"
-      },
       "filterOptions": {
         "lang": {
           "Language": "FR Any language",

@@ -143,6 +143,7 @@
 
   "pages": {
     "advisorList":{
+      "filtersLabel": "Filters:",
       "title": "Search for Advisor",
       "filterOptions": {
         "lang": {
