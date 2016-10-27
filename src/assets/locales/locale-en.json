@@ -151,6 +151,7 @@
 
   "pages": {
     "advisorList":{
+      "filtersLabel": "Filters:",
       "title": "Search for Advisor",
       "filterPlaceHolders": {
         "province":"Any province"

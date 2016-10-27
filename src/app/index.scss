@@ -39,7 +39,13 @@ $bg_dark: #333;
   float:right;
 }
 .alignDistanceRight::after {
-  clear:both;
+  clear: both;
+}
+
+
+#filtersLabel {
+  color: $orange;
+  font-weight: bold;
 }
 
 html { overflow-y:scroll; }
@@ -89,7 +95,6 @@ header { background:#fff; border-top:solid $bg_dark 35px;
     &.show form { @include flipInX($duration:0.5s,$delay:0.3s); display:block; }
     &.hide form { @include flipOutX($duration:0.4s); display:block; }
   }
-
 
   .pane-locale-language-content { position:absolute; right:2px; top:-35px; z-index:1;
     ul { list-style:none; margin:0 auto; max-width:$zen-grid-width; padding:0; text-align:right;
