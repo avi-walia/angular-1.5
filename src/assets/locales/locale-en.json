@@ -188,5 +188,6 @@
   },
   "profilePicturePlaceholder": "advisor's profile picture",
   "email": "email",
-  "googleMapVerbiage": "google map"
+  "googleMapVerbiage": "google map",
+  "googleLogo": "google logo"
 }
