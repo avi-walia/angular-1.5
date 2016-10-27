@@ -15,7 +15,7 @@
     function clickablePhoneFilter(detectMobile, phoneFilter, $sce, $translate) {
         return function (phone) {
 
-            if (phone && detectMobile.isMobile) {
+            if (phone) {
                 //the text that separates the extension from the base number starts with either an e(ex./ext.) or an x(x.)
                 var e = phone.indexOf("e");
                 var x = phone.indexOf("x");
@@ -34,7 +34,7 @@
                 }
                 //remove all non-numeric characters from the phone number
                 basePhone = basePhone.replace(/[^0-9]/g,'');
-                return $sce.trustAsHtml("<a aria-label='" + basePhone + "' title='" + phoneFilter(phone) + "' href='tel:" + basePhone + "'>" + phoneFilter(phone) + "</a>");
+                return $sce.trustAsHtml("<a class='clickablePhone' aria-label='" + basePhone + "' title='" + phoneFilter(phone) + "' href='tel:" + basePhone + "'>" + phoneFilter(phone) + "</a>");
             }
             return phone;
         };
