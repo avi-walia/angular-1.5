@@ -56,8 +56,12 @@
             console.log('map is initialized ');
             vm.map = param.map;
             vm.mapIsInitialized = true;
+            $scope.$broadcast('mapIsInitialized2');
         });
-        $scope.$on('$destroy', mapIsInitialized);
+        $scope.$on('$destroy', function() {
+            mapIsInitialized();
+            mapIsCompiled();
+        });
 
 
         function setPosition(position){
@@ -80,7 +84,6 @@
 
 
         vm.branchListService.getBranchList();
-
 
     }
 

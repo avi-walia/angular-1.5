@@ -11,7 +11,7 @@
                   <div id="button">
                       <geo-locator set-position="$ctrl.setPosition(position)" set-location="$ctrl.setLocation(location)" set-message="$ctrl.setMessage(message)" reset-markers="$ctrl.setMarkers(markers)"></geo-locator>
                   </div>
-                  <div id="input" ng-if="!$ctrl.branchListService.branchListLoading && $ctrl.mapIsInitialized">
+                  <div id="input" ng-if="!$ctrl.branchListService.branchListLoading">
                       <autocomplete set-position="$ctrl.setPosition(position)" set-location="$ctrl.setLocation(location)" set-message="$ctrl.setMessage(message)" set-viewport="$ctrl.setViewport(viewport)" reset-markers="$ctrl.setMarkers(markers)" location="$ctrl.branchListService.location" map="$ctrl.map"></autocomplete>
                   </div>
                 </div>
