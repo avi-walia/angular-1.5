@@ -6,13 +6,25 @@
 
     runBlock.$inject = [
         '$rootScope', 'NotificationService',
-        '$translate', 'pageStateResolver', 'tmhDynamicLocale', '$window', 'stateTrackerService', '$state'
+        '$translate', 'pageStateResolver', 'tmhDynamicLocale', '$window', 'stateTrackerService', '$state', 'advisorService', 'branchListService'
     ];
 
     /* @ngInject */
 
     function runBlock($rootScope, NotificationService,
-                      $translate, pageStateResolver, tmhDynamicLocale, $window, stateTrackerService, $state) {
+                      $translate, pageStateResolver, tmhDynamicLocale, $window, stateTrackerService, $state, advisorService, branchListService) {
+
+        $rootScope.$on('clearSearch', function() {
+            advisorService.filteredSearchResults = [];
+            advisorService.searchResults = [];
+            advisorService.searchCriteria = '';
+
+            branchListService.position = {};
+            branchListService.location = '';
+            branchListService.filteredMarkers = [];
+            branchListService.sortedMarkers = [];
+            branchListService.markers = [];
+        });
 
         // ionic stuff
         /*

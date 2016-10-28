@@ -26,7 +26,9 @@
     function headerCtrl($rootScope, $state, $window, pageStateResolver, version, BASE_URL, ASSANTE_URL, detectMobile
     ) {
         var vm = this;
-
+        vm.clearSearch = function() {
+            $rootScope.$emit('clearSearch');
+        }
         vm.detectMobile = detectMobile;
         vm.pageStateResolver = pageStateResolver;
 
