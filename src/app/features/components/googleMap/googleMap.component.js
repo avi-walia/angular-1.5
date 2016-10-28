@@ -36,7 +36,7 @@
     function googleMapCtrl( $rootScope, $scope, pageStateResolver, detectMobile, $q, $timeout, $window, $translate, $compile
     ) {
         var vm = this;
-
+        vm.mapRendered = false;
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;
         vm.lang = $rootScope.documentLanguage;
@@ -212,11 +212,12 @@
                     var x = document.getElementById('map').children[0].children[0].children[1].children[0].children[0].children[0];
                     x.setAttribute('alt', 'Google Logo');
                     $scope.$emit('mapIsInitialized', {map: vm.map}); // may should go under the talesloaded event?
+                    vm.mapRendered = true;
                 });
-
             });
-            vm.isLoading = false;
 
+
+            vm.isLoading = false;
             deferred.resolve(vm.map);
             return deferred.promise;
         }

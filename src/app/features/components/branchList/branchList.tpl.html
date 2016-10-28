@@ -11,15 +11,9 @@
                   <div id="button">
                       <geo-locator set-position="$ctrl.setPosition(position)" set-location="$ctrl.setLocation(location)" set-message="$ctrl.setMessage(message)" reset-markers="$ctrl.setMarkers(markers)"></geo-locator>
                   </div>
-                    <!-- can't have autocomplete component load before google map component -->
-                  <div id="input" ng-if="!$ctrl.branchListService.branchListLoading && $ctrl.mapIsInitialized">
+                  <div id="input" ng-if="!$ctrl.branchListService.branchListLoading">
                       <autocomplete set-position="$ctrl.setPosition(position)" set-location="$ctrl.setLocation(location)" set-message="$ctrl.setMessage(message)" set-viewport="$ctrl.setViewport(viewport)" reset-markers="$ctrl.setMarkers(markers)" location="$ctrl.branchListService.location" map="$ctrl.map"></autocomplete>
                   </div>
-                    <!-- Use this to get input from user before the google map/autocomplete component is ready -->
-                    <div id="input" ng-if="$ctrl.branchListService.branchListLoading || !$ctrl.mapIsInitialized">
-                        <input ng-model="$ctrl.branchListService.location">
-                        </input>
-                    </div>
                 </div>
                 <div id="results" role="list" aria-live="polite">
                     <branch-item class="branch" role="listitem" ng-repeat="branch in $ctrl.branchListService.markers track by $index" item="branch"></branch-item>

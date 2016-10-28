@@ -26,11 +26,12 @@
         'detectMobile',
         '$http',
         '$q',
-        '$scope'
+        '$scope',
+        '$timeout'
 
     ];
     /* @ngInject */
-    function autocompleteCtrl( $rootScope, pageStateResolver, detectMobile, $http, $q, $scope
+    function autocompleteCtrl( $rootScope, pageStateResolver, detectMobile, $http, $q, $scope, $timeout
     ) {
         var vm = this;
         var updateWhenReady = false;
@@ -147,14 +148,11 @@
         function updatePlace(){
             updateWhenReady = true;
             var autocompleteEl = document.getElementById('place');
-            console.log('step1: ', autocompleteEl);
             if(vm.location===''){
-                console.log('step2');
                 vm.setMessage({message: {'cancel': 'branchList.validation.notValidAddress'}});
                 handleLocationError();
             }
             else{
-                console.log('step 3');
                 google.maps.event.trigger(autocompleteEl, 'focus');
 
                 google.maps.event.trigger(autocompleteEl, 'keydown', {
@@ -178,6 +176,7 @@
         }
 
         function initializeAutocomplete(){
+
             var deferred = $q.defer();
             if(!vm.autocomplete) {
                 vm.autocomplete = new google.maps.places.Autocomplete(document.getElementById('place'), {componentRestrictions: vm.restriction});
@@ -193,39 +192,42 @@
 
             deferred.resolve(vm.autocomplete);
             return deferred.promise;
+
         }
+        //instead of rendering the autocomplete component after the map is rendered, render the component first, but initialize the google related functionality after the map is initialized.
+        var waitForMapToInitialize = null;
+        waitForMapToInitialize = $scope.$on('mapIsInitialized2', function () {
+            $timeout(function() {
+                initializeAutocomplete().then(function() {
+                    if (vm.location !== '' && vm.location !== undefined) {
 
+                        getPredictions(vm.location).then(function (predictions) {
+                            selectFirstItem(predictions[0].place_id).then(function (place) {
 
-        vm.$onInit = function(){
+                                vm.updatePosition(place.geometry);
+                                vm.updateLocation(place.formatted_address);
 
-
-                initializeAutocomplete().then(function(){
-                   if(vm.location !== '' && vm.location !== undefined){
-
-
-                       getPredictions(vm.location).then(function(predictions){
-                           selectFirstItem(predictions[0].place_id).then(function(place){
-
-                                   vm.updatePosition(place.geometry);
-                                   vm.updateLocation(place.formatted_address);
-
-                           }, function(status){
-                               console.log('error retrieving place: ', status);
-                               vm.setMessage({message: {'cancel': 'branchList.validation.geoPositionUnavailable'}});
-                               handleLocationError();
-                           });
-                       }, function(status){
-                           console.log('error retrieving predictions: ', status);
-                           vm.setMessage({message: {'cancel': 'branchList.validation.notValidAddress'}});
-                           handleLocationError();
-                       });
-
+                            }, function (status) {
+                                console.log('error retrieving place: ', status);
+                                vm.setMessage({message: {'cancel': 'branchList.validation.geoPositionUnavailable'}});
+                                handleLocationError();
+                            });
+                        }, function (status) {
+                            console.log('error retrieving predictions: ', status);
+                            vm.setMessage({message: {'cancel': 'branchList.validation.notValidAddress'}});
+                            handleLocationError();
+                        });
 
                     }
                 });
-
-
-        };
+            });
+            waitForMapToInitialize();
+        });
+        $scope.$on('$destroy', function() {
+           if (waitForMapToInitialize){
+               waitForMapToInitialize();
+           }
+        });
     }
 
 })();

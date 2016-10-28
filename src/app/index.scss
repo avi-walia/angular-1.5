@@ -354,6 +354,9 @@ header { background:#fff; border-top:solid $bg_dark 35px;
     #map { display:inline-block; height:100%; width:100%; }
   }
 }
+.hideMap {
+  visibility:hidden;
+}
 
 #advisorDetails {
   #card { background:#fff; display:inline-block; height:770px; margin-right:-4px; position:relative; vertical-align:top; width:40%;
