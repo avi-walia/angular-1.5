@@ -223,18 +223,21 @@ header { background:#fff; border-top:solid $bg_dark 35px;
 
 #advisorList { /*@include zen-grid-background();*/
   #filters {
-    #options { text-align:right; vertical-align:top; white-space:nowrap; xwidth:41%;
-      #filtersLabel { color:#888; font-weight:700; margin:0 5px 0 10px; }
+    #options { vertical-align:top; white-space:nowrap; xwidth:41%;
+      // #filtersLabel { color:#888; font-weight:700; margin:0 5px 0 10px; }
       label { display:none; }
-      select { appearance:none; background:darken($bg,4%) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#cd5806" d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/></svg>') 94% 9px no-repeat; background-size:20px; border:0; border-radius:3px; display:inline-block; height:2.5em; line-height:2.5em; margin-right:5px; padding:0 7% 0 3%; }
-      button { background:$orange; border:0; border-radius:3px; color:#fff; display:inline-block; font-family:'Montserrat',sans-serif; height:2.5em; line-height:2.6em; padding:0 2.5%; text-transform:uppercase; vertical-align:top; }
+      select { appearance:none; background:darken($bg,4%) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#cd5806" d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/></svg>') 94% 9px no-repeat; background-size:20px; border:0; border-radius:3px; display:inline-block; height:2.5em; line-height:2.5em; margin-right:0.4%; padding:0 8% 0 3%; width:38%; }
+      button { background:$orange; border:0; border-radius:3px; color:#fff; display:inline-block; font-family:'Montserrat',sans-serif; height:2.5em; line-height:2.6em; padding:0 2.5%; text-transform:uppercase; vertical-align:top; width:20%; }
     }
-    #input { display:block; margin-top:5px; overflow:hidden; position:relative;
+    #input { display:block; margin-top:$zen-gutters; overflow:hidden; position:relative;
       input { width:100%; }
       #resultmessage { color:#888; font-style:italic; position:absolute; right:20px; top:-6px; z-index:1; }
     }
-    @media (min-width:640px) {
-      #options { float:right; }
+    @media (min-width:540px) {
+      #options { float:right; margin-left:8px;
+        select { margin-right:5px; width:auto; }
+        button { width:auto; }
+      }
       #input { margin:0; }
     }
     @media (min-width:768px) {
