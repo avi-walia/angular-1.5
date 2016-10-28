@@ -25,13 +25,15 @@
         'pageStateResolver',
         'detectMobile',
         '$http',
-        '$q'
+        '$q',
+        '$scope'
 
     ];
     /* @ngInject */
-    function autocompleteCtrl( $rootScope, pageStateResolver, detectMobile, $http, $q
+    function autocompleteCtrl( $rootScope, pageStateResolver, detectMobile, $http, $q, $scope
     ) {
         var vm = this;
+        var updateWhenReady = false;
         vm.pageStateResolver = pageStateResolver;
 
         vm.detectMobile = detectMobile;
@@ -47,6 +49,17 @@
         vm.updateLocation = updateLocation;
 
 
+        var mapIsInitialized = $scope.$on('mapIsInitialized2', function(event, param){
+            console.log('map is initialized from geolocator');
+            if (updateWhenReady) {
+                updateWhenReady = false;
+                updatePlace();
+            }
+        });
+
+        $scope.$on('$destroy', function() {
+            mapIsInitialized();
+        });
 
         function updatePosition(pos){
             console.log('update pos: ', pos);
@@ -132,13 +145,16 @@
         }
 
         function updatePlace(){
+            updateWhenReady = true;
             var autocompleteEl = document.getElementById('place');
-
+            console.log('step1: ', autocompleteEl);
             if(vm.location===''){
+                console.log('step2');
                 vm.setMessage({message: {'cancel': 'branchList.validation.notValidAddress'}});
                 handleLocationError();
             }
             else{
+                console.log('step 3');
                 google.maps.event.trigger(autocompleteEl, 'focus');
 
                 google.maps.event.trigger(autocompleteEl, 'keydown', {
