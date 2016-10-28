@@ -211,11 +211,11 @@
                     //add alt text to the "google" logo image in the bottom left hand corner of the map.
                     var x = document.getElementById('map').children[0].children[0].children[1].children[0].children[0].children[0];
                     x.setAttribute('alt', 'Google Logo');
+                    $scope.$emit('mapIsInitialized', {map: vm.map}); // may should go under the talesloaded event?
                 });
 
             });
             vm.isLoading = false;
-            $scope.$emit('mapIsInitialized', {map: vm.map}); // may should go under the talesloaded event?
 
             deferred.resolve(vm.map);
             return deferred.promise;
