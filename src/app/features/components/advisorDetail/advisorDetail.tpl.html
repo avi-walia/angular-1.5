@@ -1,6 +1,6 @@
 <ci-loader loading="$ctrl.advisorService.isLoading">
     <div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="advisorDetails" class="locatorpage">
-        <div ng-if="$ctrl.detectMobile.isDesktop">
+        <!-- <div ng-if="$ctrl.detectMobile.isDesktop"> -->
             <div id="card">
 
                 <button ng-if="$ctrl.stateTrackerService.isNameSearch" ui-sref="main.advisorLocator.advisorList" translate>advisorDetail.searchResultsButton</button>
@@ -47,6 +47,6 @@
                 <google-map address="$ctrl.advisorDetailService.advisorDetail.fullAddress" user-marker="$ctrl.advisorDetailService.advisorDetail.userMarker" location="$ctrl.location"></google-map>
             </div>
             <!-- <span translate>advisorDetail.contactUsNote</span> -->
-        </div>
+        <!-- </div> -->
     </div>
 </ci-loader>

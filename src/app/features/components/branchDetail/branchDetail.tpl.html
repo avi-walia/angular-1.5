@@ -1,6 +1,6 @@
 <ci-loader loading="$ctrl.branchListService.branchListLoading || $ctrl.advisorService.isLoading">
   <div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="branchDetails" class="locatorpage">
-    <div ng-if="$ctrl.detectMobile.isDesktop">
+    <!-- <div ng-if="$ctrl.detectMobile.isDesktop"> -->
         <div id="card">
 
             <button ng-if="$ctrl.stateTrackerService.isNameSearch" ui-sref="main.advisorLocator.advisorList" translate>branchDetail.searchResultsButton</button>
@@ -58,7 +58,7 @@
           <google-map address="$ctrl.branchDetailService.branchDetail.fullAddress" user-marker="$ctrl.branchDetailService.branchDetail.userMarker" location="$ctrl.location"></google-map>
         </div>
 
-    </div>
+    <!-- </div> -->
 
   </div>
 </ci-loader>

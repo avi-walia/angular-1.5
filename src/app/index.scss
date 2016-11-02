@@ -244,7 +244,7 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
   }
 }
 
-.locatorpage { @include zen-grid-container(); min-height:855px; margin:0 auto; padding:2.5em 2*$zen-gutters; width:100%;
+.locatorpage { @include zen-grid-container(); margin:0 auto; padding:2.5em 2*$zen-gutters; width:100%;
   @media (min-width:1152px) { padding:2.5em 0; width:1080px; }
   #searchoptions {
     ul { list-style:none; height:60px; margin:0; overflow:hidden; padding:0; width:100%;
@@ -389,17 +389,17 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
       }
     }
   }
-  #nosearch { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bbbbbb" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>') center 100px no-repeat; background-size:150px; height:600px; padding-top:250px; text-align:center;
+  #nosearch { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bbbbbb" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>') center 100px no-repeat; background-size:150px; height:475px; padding-top:250px; text-align:center;
       p { color:#aaa; }
   }
 }
 
-#branchList {
+#branchList { position:relative;
   #filters {
     #input { display:block; overflow:hidden;
       &::before { content:'location_on'; }
       #search-input { overflow:hidden;
-        input { line-height:2.6em; width:100%; }
+        input { height:2.5em; width:100%; }
       }
       #search-buttons { float:right; margin-left:5px;
         // button { background:darken($bg,4%); border:0; border-radius:3px; color:#888; display:inline-block; font-family:'Montserrat',sans-serif; height:2.5em; line-height:2.6em; padding:0 8px; text-transform:uppercase; }
@@ -412,7 +412,7 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
         &::before { content:'my_location'; font:24px/35px 'Material Icons'; left:8px; position:absolute; text-transform:none; z-index:1; }
       }
     }
-    @media (min-width:420px) {
+    @media (min-width:320px) {
       #button { float:left; margin:0 5px 0 0; width:auto;
         button { padding:0 0 0 39px; width:39px; }
       }
@@ -423,7 +423,7 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
       }
     }
   }
-  #results { background:#fff; border-top:solid 1px darken($bg,4%); display:inline-block; height:665px; margin-right:-4px; overflow-y:auto; position:relative; width:40%;
+  #results { background:#fff; border-top:solid 1px darken($bg,4%); display:inline-block; margin:300px -4px 0 0; overflow-y:auto; position:relative; width:100%;
     .branchitem { width:100%; background:#fff; border-bottom:solid 1px darken($bg,4%); padding:20px 2.5*$zen-gutters; position:relative; z-index:1;
       p { font-size:0.9em; margin:0; padding-right:50px;
         span { color:$gold; font-weight:900;
@@ -442,21 +442,39 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
       //   &::after { bottom:20px; color:$orange; content:'Show on map'; font-size:0.9em; position:absolute; right:20px; }
       // }
     }
-    #nosearch { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bbbbbb" d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3c-.46-4.17-3.77-7.48-7.94-7.94V1h-2v2.06C6.83 3.52 3.52 6.83 3.06 11H1v2h2.06c.46 4.17 3.77 7.48 7.94 7.94V23h2v-2.06c4.17-.46 7.48-3.77 7.94-7.94H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>') center 100px no-repeat; background-size:150px; height:600px; padding:250px 40px 0; position:absolute; text-align:center; top:0; width:100%;
+    #nosearch { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bbbbbb" d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3c-.46-4.17-3.77-7.48-7.94-7.94V1h-2v2.06C6.83 3.52 3.52 6.83 3.06 11H1v2h2.06c.46 4.17 3.77 7.48 7.94 7.94V23h2v-2.06c4.17-.46 7.48-3.77 7.94-7.94H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>') center 150px no-repeat; background-size:150px; height:600px; padding:300px 40px 0; position:absolute; text-align:center; top:0; width:100%;
         p { color:#aaa; }
     }
     .branch + #nosearch { display:none; }
   }
-  .showMap { display:inline-block; height:665px; margin-right:-4px; vertical-align:top; width:60%;
+  .showMap { height:300px; margin-right:-4px; position:absolute; top:182px; vertical-align:top; width:94%;
     #loading { color:#aaa; float:right; line-height:600px; text-align:center; width:100%; }
     #map { display:inline-block; height:100%; width:100%;
       &.hideMap { visibility:hidden; }
     }
   }
+  @media (min-width:420px) {
+    .showMap { top:147px; }
+  }
+  @media (min-width:540px) {
+    .showMap { top:133px; }
+  }
+  @media (min-width:768px) {
+    #results { height:640px; margin:0 -4px 0 0; width:50%; }
+    .showMap { display:inline-block; height:640px; position:static; width:50%; }
+  }
+  @media (min-width:896px) {
+    #results { width:45%; }
+    .showMap { width:55%; }
+  }
+  @media (min-width:1024px) {
+    #results { width:40%; }
+    .showMap { width:60%; }
+  }
 }
 
 #advisorDetails {
-  #card { background:#fff; display:inline-block; height:770px; margin-right:-4px; position:relative; vertical-align:top; width:40%;
+  #card { background:#fff; display:inline-block; margin-right:-4px; position:relative; vertical-align:top; width:100%;
     button { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#888888" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>') 0 1px no-repeat; background-size:18px; border:0; color:#888; display:block; font-size:0.8em; margin:10px 0 3em 8px; padding-left:22px;
       &:hover { color:$orange; cursor:pointer; }
     }
@@ -470,7 +488,8 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
         &.title { font-size:0.9em; }
       }
     }
-    #details { padding:30px 25px;
+    #details { padding:30px 25px 0;
+      dl { margin-bottom:0;}
       dt { color:$blue; display:inline-block; font:0.9em/1 'Montserrat',sans-serif; text-transform:uppercase; }
       dd { border-bottom:solid 1px darken($bg,4%); font-size:0.9em; margin:-1.4em 0 1em; padding-bottom:1em; text-align:right;
         &:last-child { border:0; }
@@ -479,7 +498,7 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
         }
       }
     }
-    #branch { background:darken($bg,4%); bottom:0; padding:30px 25px; position:absolute; xtext-align:center; width:100%;
+    #branch { background:darken($bg,4%); padding:30px 25px; xtext-align:center; width:100%;
       h4, h5, p { margin:0; }
       h4, h5 { font:700 0.8em/1 'Montserrat',sans-serif; }
       h4 { color:$blue; letter-spacing:1px; margin-bottom:1em; text-transform:uppercase; }
@@ -491,18 +510,40 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
       }
     }
   }
-  #map { display:inline-block; height:770px; margin-right:-4px; width:60%; }
-  @media (min-width:896px) {
+  #map { display:inline-block; height:350px; margin-right:-4px; width:100%; }
+  @media (min-width:420px) {
     #card {
+      #photo { padding-top:25%; width:25%; }
+    }
+  }
+  @media (min-width:540px) {
+    #card {
+      #photo { padding-top:20%; width:20%; }
+    }
+  }
+  @media (min-width:640px) {
+    #card { height:700px; width:50%;
+      #photo { padding-top:30%; width:30%; }
+      #branch { bottom:0; position:absolute; }
+    }
+    #map { height:700px; width:50%; }
+  }
+  @media (min-width:896px) {
+    #card { height:770px; width:45%;
       #photo { margin:0 20px 0 30px; }
       #details { padding:30px 40px; }
       #branch { padding:30px 40px; }
     }
+    #map { height:770px; width:55%; }
+  }
+  @media (min-width:1024px) {
+    #card { width:40%; }
+    #map { width:60%; }
   }
 }
 
 #branchDetails {
-  #card { background:#fff; display:inline-block; height:770px; margin-right:-4px; overflow-y:auto; position:relative; vertical-align:top; width:40%;
+  #card { background:#fff; display:inline-block; margin-right:-4px; overflow-y:auto; position:relative; vertical-align:top; width:100%;
     button { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#888888" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>') 0 1px no-repeat; background-size:18px; border:0; color:#888; display:block; font-size:0.8em; margin:10px 0 3em 8px; padding-left:22px;
       &:hover { color:$orange; cursor:pointer; }
     }
@@ -519,6 +560,9 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
             &.label { color:$blue; font-family:'Montserrat',sans-serif; margin-bottom:0.25em; text-transform:uppercase; }
           }
           &:last-child { border-left:solid 1px darken($bg,4%); }
+          a { color:$text; text-decoration:none;
+            &:hover { color:$orange; }
+          }
         }
       }
     }
@@ -543,9 +587,13 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
       }
     }
   }
-  #map { display:inline-block; height:770px; margin-right:-4px; width:60%; }
+  #map { display:inline-block; height:350px; margin-right:-4px; width:100%; }
+  @media (min-width:640px) {
+    #card { height:700px; width:50%; }
+    #map { height:700px; width:50%; }
+  }
   @media (min-width:896px) {
-    #card {
+    #card { height:770px; width:45%;
       #details {
         p {
           &.name { padding:0 40px; }
@@ -557,6 +605,11 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
       #manager { padding:3em 40px 10px; }
       #associates { font-size:0.9em; padding:0 40px 30px; }
     }
+    #map { height:770px; width:55%; }
+  }
+  @media (min-width:1024px) {
+    #card { width:40%; }
+    #map { width:60%; }
   }
 }
 
