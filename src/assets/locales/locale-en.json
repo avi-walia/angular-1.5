@@ -7,8 +7,8 @@
   },
   "shortSearchTerm": "Please enter at least 2 characters",
   "searchResultsFound": "results",
-  "noSearchCriteria": "<p>Start typing an advisor's first or last name<br/>and the search results will show here.</p><p>If you are unable to locate the advisor you are looking for,<br/>please contact our Assante Service Centre at 1-800-268-3200.</p>",
-  "noSearchCriteriaBranch": "<p>Enter the city and/or province <br/>and the search results will show here.</p><p>If you are unable to locate the branch<br/>you are looking for, please contact our<br/>Assante Service Centre at 1-800-268-3200.</p>",
+  "noSearchCriteria": "<p aria-hidden='true'>Start typing an advisor's first or last name<br/>and the search results will show here.</p><p>If you are unable to locate the advisor you are looking for,<br/>please contact our Assante Service Centre at 1-800-268-3200.</p>",
+  "noSearchCriteriaBranch": "<p aria-hidden='true'>Enter the city and/or province <br/>and the search results will show here.</p><p>If you are unable to locate the branch<br/>you are looking for, please contact our<br/>Assante Service Centre at 1-800-268-3200.</p>",
   "navbar": {
     "EN": "EN",
     "FR": "FR",
@@ -135,10 +135,10 @@
       "getAdvisorDetails": "Get {{showName}} {{lastName | posession}} details.",
       "email": "contact {{showName}} {{lastName}} by email",
       "phone": "contact {{showName}} {{lastName}} by phone",
-      "searchBarLabel": "Start typing an advisor's first or last name and the search results will show below. If you are unable to locate the advisor you are looking for, please contact our Assante Service Centre at 1-800-268-3200."
+      "searchBarLabel": "Start typing an advisor's first or last name and the search results will show below."
     },
     "locationSearch" : {
-      "searchBarLabel": "Enter the city and/or province and the search results will show below. If you are unable to locate the branch you are looking for, please contact our Assante Service Centre at 1-800-268-3200."
+      "searchBarLabel": "Enter the city and/or province and the search results will show below."
     },
     "picturePlaceholder": "Default placeholder for advisor's profile picture.",
     "pagination": {
