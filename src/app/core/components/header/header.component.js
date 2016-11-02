@@ -63,7 +63,7 @@
                 vm.returnFocus = 'edit-search-block-form--2';
             }
             else{
-                vm.returnFocus = 'search-icon';
+                vm.returnFocus = 'search';
             }
 
         }
