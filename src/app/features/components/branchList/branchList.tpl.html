@@ -3,7 +3,7 @@
         <search-by></search-by>
     </div>
 
-    <div ng-if="$ctrl.detectMobile.isDesktop">
+    <!-- <div ng-if="$ctrl.detectMobile.isDesktop"> -->
 
         <div lazy-load-update="https://maps.google.com/maps/api/js" lazy-load-update-params="{{$ctrl.googleMapsUrl}}">
             <div ng-if="$ctrl.isCompiled">
@@ -22,10 +22,9 @@
                 </div>
                 <google-map aria-label="google map" position="$ctrl.branchListService.position" location-list="$ctrl.branchListService.branchListView" marker-list="$ctrl.branchListService.markers" on-update-markers="$ctrl.setMarkers(markers)">
                 </google-map>
-
             </div>
         </div>
-    </div>
+    <!-- </div> -->
     <ci-loader loading="$ctrl.branchListService.branchListLoading">
     </ci-loader>
 </div>

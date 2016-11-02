@@ -11,6 +11,7 @@
 #map img[src="https://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png"] {
   visibility:hidden;
 }
+
 // $zen-grid-width: 1160px;
 $zen-columns: 12;
 $zen-gutters: 1.5%;
@@ -191,23 +192,46 @@ header { background:#fff; border-top:solid $bg_dark 35px;
 .locatorpage { @include zen-grid-container(); min-height:855px; margin:0 auto; padding:2.5em 2*$zen-gutters; width:100%;
   @media (min-width:1152px) { padding:2.5em 0; width:1080px; }
   #searchoptions {
-    ul { list-style:none; height:40px; margin:0; overflow:hidden; padding:0; width:100%;
+    ul { list-style:none; height:60px; margin:0; overflow:hidden; padding:0; width:100%;
       li { background:darken($bg,4%); display:inline-block; letter-spacing:2px; margin-right:-4px; text-align:center; text-transform:uppercase; vertical-align:top; width:50%;
-        a { color:#888; display:inline-block; font:700 0.8em/40px 'Montserrat',sans-serif; height:40px; text-decoration:none; }
+        a { color:#888; display:inline-block; font:700 0.8em/1 'Montserrat',sans-serif; height:60px; text-align:left; text-decoration:none; }
         .advisorList & {
           &#searchbyname { background:#fff;
-            a { color:$blue; background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#003e51" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>') left 10px no-repeat; font-size:1em; line-height:46px; padding-left:32px; }
+            a { color:$blue; background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#003e51" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>') left 18px no-repeat; font-size:1em; padding:15px 0 0 32px; width:120px; }
           }
           &#searchbylocation {
-            a { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#888888" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>') left 10px no-repeat; background-size:19px; padding-left:25px; }
+            a { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#888888" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>') left 20px no-repeat; background-size:19px; padding:18px 0 0 25px; width:120px; }
           }
         }
         .branchList & {
           &#searchbyname {
-            a { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#888888" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>') left 10px no-repeat; background-size:19px; padding-left:25px; }
+            a { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#888888" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>') left 20px no-repeat; background-size:19px; padding:18px 0 0 25px; width:100px; }
           }
           &#searchbylocation { background:#fff;
-            a { color:$blue; background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#003e51" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>') left 10px no-repeat; font-size:1em; line-height:46px; padding-left:32px; }
+            a { color:$blue; background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#003e51" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>') left 18px no-repeat; font-size:1em; padding:15px 0 0 32px; width:140px;}
+          }
+        }
+      }
+    }
+    @media (min-width:540px) {
+      ul { height:40px;
+        li {
+          a { height:40px; line-height:40px; }
+          .advisorList & {
+            &#searchbyname {
+              a { background-position:left 10px; line-height:44px; padding:0 0 0 32px; width:auto; }
+            }
+            &#searchbylocation {
+              a { background-position:left 11px; padding:1px 0 0 25px; width:auto; }
+            }
+          }
+          .branchList & {
+            &#searchbyname {
+              a { background-position:left 11px; padding:1px 0 0 25px; width:auto; }
+            }
+            &#searchbylocation { background:#fff;
+              a { background-position:left 10px; line-height:44px; padding:0 0 0 32px; width:auto; }
+            }
           }
         }
       }
@@ -227,23 +251,23 @@ header { background:#fff; border-top:solid $bg_dark 35px;
       // #filtersLabel { color:#888; font-weight:700; margin:0 5px 0 10px; }
       label { display:none; }
       select { appearance:none; background:darken($bg,4%) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#cd5806" d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/></svg>') 94% 9px no-repeat; background-size:20px; border:0; border-radius:3px; display:inline-block; height:2.5em; line-height:2.5em; margin-right:0.4%; padding:0 8% 0 3%; width:38%; }
-      button { background:$orange; border:0; border-radius:3px; color:#fff; display:inline-block; font-family:'Montserrat',sans-serif; height:2.5em; line-height:2.6em; padding:0 2.5%; text-transform:uppercase; vertical-align:top; width:20%; }
+      button { background:$orange; border:0; border-radius:3px; color:#fff; float:right; font-family:'Montserrat',sans-serif; height:2.5em; line-height:2.6em; padding:0 2.5%; text-transform:uppercase; vertical-align:top; width:20%; }
     }
     #input { display:block; margin-top:$zen-gutters; overflow:hidden; position:relative;
       input { width:100%; }
       #resultmessage { color:#888; font-style:italic; position:absolute; right:20px; top:-6px; z-index:1; }
     }
     @media (min-width:540px) {
-      #options { float:right; margin-left:8px;
-        select { margin-right:5px; width:auto; }
-        button { width:auto; }
+      #options { float:right; margin-left:8px; text-align:right;
+        select { margin-right:5px; width:120px; }
+        button { width:63px; }
       }
       #input { margin:0; }
     }
     @media (min-width:768px) {
       #options {
-        select { padding:0 8% 0 3.5%; }
-        button { padding:0 3%; }
+        select { padding:0 8% 0 3.5%; width:130px; }
+        button { padding:0 3%; width:69px; }
       }
     }
   }
@@ -317,15 +341,30 @@ header { background:#fff; border-top:solid $bg_dark 35px;
 
 #branchList {
   #filters {
-    #input { float:right; width:87%;
+    #input { display:block; overflow:hidden;
       &::before { content:'location_on'; }
-      input { width:83.5%; }
-      button { background:darken($bg,4%); border:0; border-radius:3px; color:#888; display:inline-block; font-family:'Montserrat',sans-serif; height:2.5em; line-height:2.6em; padding:0 8px; text-transform:uppercase; }
-      input.ng-not-empty + button { background:$orange; color:#fff; }
+      #search-input { overflow:hidden;
+        input { line-height:2.6em; width:100%; }
+      }
+      #search-buttons { float:right; margin-left:5px;
+        // button { background:darken($bg,4%); border:0; border-radius:3px; color:#888; display:inline-block; font-family:'Montserrat',sans-serif; height:2.5em; line-height:2.6em; padding:0 8px; text-transform:uppercase; }
+        button { background:$orange; border:0; border-radius:3px; color:#fff; display:inline-block; font-family:'Montserrat',sans-serif; height:2.5em; line-height:2.6em; padding:0 8px; text-transform:uppercase; }
+      }
+      input#place.ng-not-empty + button#btn-search { background:$orange; color:#fff; }
     }
-    #button { display:inline-block; xfloat:right; xtext-align:right; vertical-align:top;
-      button { background:$orange; border:0; border-radius:3px; color:#fff; display:inline-block; font-family:'Montserrat',sans-serif; height:2.5em; line-height:2.6em; padding:0 8px 0 36px; position:relative; text-transform:uppercase; white-space:nowrap;
+    #button { margin:0 0 5px; width:100%;
+      button { background:$orange; border:0; border-radius:3px; color:#fff; display:inline-block; font-family:'Montserrat',sans-serif; height:2.5em; line-height:2.6em; padding:0 8px 0 36px; position:relative; text-transform:uppercase; white-space:nowrap; width:100%;
         &::before { content:'my_location'; font:24px/35px 'Material Icons'; left:8px; position:absolute; text-transform:none; z-index:1; }
+      }
+    }
+    @media (min-width:420px) {
+      #button { float:left; margin:0 5px 0 0; width:auto;
+        button { padding:0 0 0 39px; width:39px; }
+      }
+    }
+    @media (min-width:540px) {
+      #button {
+        button { padding:0 8px 0 36px; width:100%; }
       }
     }
   }
@@ -354,11 +393,9 @@ header { background:#fff; border-top:solid $bg_dark 35px;
     .branch + #nosearch { display:none; }
   }
   .showMap { display:inline-block; height:665px; margin-right:-4px; width:60%;
-    #map { display:inline-block; height:100%; width:100%; }
+    #loading, #map { display:inline-block; height:100%; width:100%; }
   }
-}
-.hideMap {
-  visibility:hidden;
+  .hideMap { display:none; }
 }
 
 #advisorDetails {

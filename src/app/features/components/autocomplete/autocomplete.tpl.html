@@ -1,4 +1,8 @@
 <!-- <label for="place" translate>branchList.autoComplete</label> -->
-<input id="place" aria-label="{{'branchList.autoComplete' | translate}}" enter-key="$ctrl.updatePlace()" ng-model="$ctrl.location" placeholder="{{'branchList.placeholder' | translate}}" role="textbox" aria-activedescendant aria-autocomplete="list" aria-live="polite" autofocus />
-<button id="btn-search" tabindex="0" type="button" ng-click="$ctrl.updatePlace()" aria-label= "{{'branchList.search' | translate}}"  title="{{'branchList.search'| translate}}" translate>branchList.search</button>
-<button id="btn-clear" tabindex="0" type="button" ng-click="$ctrl.clearPlace()" aria-label= "{{'branchList.clear' | translate}}" title="{{'branchList.clear'| translate}}" translate>branchList.clear</button>
+<div id="search-buttons">
+  <button id="btn-search" tabindex="0" type="button" ng-click="$ctrl.updatePlace()" aria-label= "{{'branchList.search' | translate}}"  title="{{'branchList.search'| translate}}" translate>branchList.search</button>
+  <button id="btn-clear" tabindex="0" type="button" ng-click="$ctrl.clearPlace()" aria-label= "{{'branchList.clear' | translate}}" title="{{'branchList.clear'| translate}}" translate>branchList.clear</button>
+</div>
+<div id="search-input">
+  <input id="place" aria-label="{{'branchList.autoComplete' | translate}}" enter-key="$ctrl.updatePlace()" ng-model="$ctrl.location" placeholder="{{'branchList.placeholder' | translate}}" role="textbox" aria-activedescendant aria-autocomplete="list" aria-live="polite" autofocus />
+</div>
