@@ -19,8 +19,8 @@
             branchList.linkToMap
         </a>
     </div>
-    <div id="loading" ng-if="!$ctrl.mapRendered" translate>
-        branchList.waitForMapToRender
+    <div id="loading" ng-if="!$ctrl.mapRendered">
+        <p translate>branchList.waitForMapToRender</p>
     </div>
     <div ng-class="{'hideMap': !$ctrl.mapRendered}" id="map">Please wait for map to load</div>
 </div>

@@ -77,7 +77,7 @@
     "search": "search",
     "clear": "clear",
     "locateMe": "Locate Me",
-    "waitForMapToRender": "Please wait while the map loads",
+    "waitForMapToRender": "Please wait while the map loads...",
     "validation": {
       "notValidAddress" : "Please choose a valid address",
       "geoNotSupported" : "Geolocation is not supported in your browser",

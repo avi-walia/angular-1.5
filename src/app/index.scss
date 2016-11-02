@@ -392,10 +392,12 @@ header { background:#fff; border-top:solid $bg_dark 35px;
     }
     .branch + #nosearch { display:none; }
   }
-  .showMap { display:inline-block; height:665px; margin-right:-4px; width:60%;
-    #loading, #map { display:inline-block; height:100%; width:100%; }
+  .showMap { display:inline-block; height:665px; margin-right:-4px; vertical-align:top; width:60%;
+    #loading { color:#aaa; float:right; line-height:600px; text-align:center; width:100%; }
+    #map { display:inline-block; height:100%; width:100%;
+      &.hideMap { visibility:hidden; }
+    }
   }
-  .hideMap { display:none; }
 }
 
 #advisorDetails {
