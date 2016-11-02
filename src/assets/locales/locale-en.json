@@ -118,7 +118,6 @@
     "branchManagerName": "Branch Manager",
     "coManager": "Co Manager:"
   },
-  "searchBarLabel": "Search Bar.",
   "aria": {
     "main-label": "Main content section",
     "nameSearch": {
@@ -135,7 +134,11 @@
       },
       "getAdvisorDetails": "Get {{showName}} {{lastName | posession}} details.",
       "email": "contact {{showName}} {{lastName}} by email",
-      "phone": "contact {{showName}} {{lastName}} by phone"
+      "phone": "contact {{showName}} {{lastName}} by phone",
+      "searchBarLabel": "Start typing an advisor's first or last name and the search results will show below. If you are unable to locate the advisor you are looking for, please contact our Assante Service Centre at 1-800-268-3200."
+    },
+    "locationSearch" : {
+      "searchBarLabel": "Enter the city and/or province and the search results will show below. If you are unable to locate the branch you are looking for, please contact our Assante Service Centre at 1-800-268-3200."
     },
     "picturePlaceholder": "Default placeholder for advisor's profile picture.",
     "pagination": {

@@ -16,7 +16,7 @@
             </select>
             <button aria-label="{{'aria.nameSearch.clearButton' | translate}}" ng-click="$ctrl.service.clearFilters()">{{'pages.advisorList.clearFilterLabel' | translate}}</button>
         </div>
-        <search-bar id="nameSearchBar" aria-labelledby="nosearch" service="$ctrl.service"></search-bar>
+        <search-bar service="$ctrl.service"></search-bar>
     </div>
     <div id="results">
         <paginator-infinite-scroll service="$ctrl.service">
