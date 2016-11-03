@@ -40,7 +40,7 @@
                         </li>
                       </ul>
                     </li>
-                    <li class="menu__item is-leaf leaf" id="locator"><a ui-sref="main.advisorLocator.advisorList" title="{{'header.locator' | translate }}" name="Locator" class="menu__link">Advisor Locator</a></li>
+                    <li class="menu__item is-leaf leaf" id="locator"><a ng-click="$ctrl.clearSearch()" ui-sref="main.advisorLocator.advisorList" title="{{'header.locator' | translate }}" name="Locator" class="menu__link">Advisor Locator</a></li>
                     <li class="menu__item is-leaf last leaf" id="search" ng-click="$ctrl.displaySearchForm()"><span class="menu__link nolink">Search</span></li>
                   </ul>
                 </div>
