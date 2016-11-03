@@ -20,8 +20,6 @@
         service.branchList = [];
         service.position = {};
         service.location = '';
-        service.filteredMarkers = [];
-        service.sortedMarkers = [];
         service.markers = [];
         service.branchListView = [];
         service.message = {};

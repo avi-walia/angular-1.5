@@ -21,8 +21,7 @@
 
             branchListService.position = {};
             branchListService.location = '';
-            branchListService.filteredMarkers = [];
-            branchListService.sortedMarkers = [];
+            branchListService.message = {};
             branchListService.markers = [];
         });
 
