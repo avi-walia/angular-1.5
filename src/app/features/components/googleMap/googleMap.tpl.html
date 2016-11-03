@@ -1,4 +1,6 @@
+
 <div ng-class="{'hideMap': ($ctrl.isLoading && $ctrl.locationList.length === 0), 'showMap': (!$ctrl.isLoading && $ctrl.locationList.length > 0)}">
+
     <div
         ng-if="$ctrl.address"
         id="linkToMap"
@@ -17,7 +19,10 @@
             branchList.linkToMap
         </a>
     </div>
-    <div id="map"></div>
+    <div id="loading" ng-if="!$ctrl.mapRendered">
+        <p translate>branchList.waitForMapToRender</p>
+    </div>
+    <div ng-class="{'hideMap': !$ctrl.mapRendered}" id="map">Please wait for map to load</div>
 </div>
-<ci-loader loading="$ctrl.isLoading">
+<ci-loader loading="$ctrl.isLoading && $ctrl.locationList.length === 0">
 </ci-loader>

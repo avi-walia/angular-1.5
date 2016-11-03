@@ -1,6 +1,6 @@
 <ci-loader loading="$ctrl.branchListService.branchListLoading || $ctrl.advisorService.isLoading">
   <div ng-class="$ctrl.pageStateResolver.activePageName" autoscroll="true" id="branchDetails" class="locatorpage">
-    <div ng-if="$ctrl.detectMobile.isDesktop">
+    <!-- <div ng-if="$ctrl.detectMobile.isDesktop"> -->
         <div id="card">
 
             <button ng-if="$ctrl.stateTrackerService.isNameSearch" ui-sref="main.advisorLocator.advisorList" translate>branchDetail.searchResultsButton</button>
@@ -15,7 +15,7 @@
           <div id="numbers">
             <ul>
               <li><span class="label" ng-if="$ctrl.branchDetailService.branchDetail.phone" translate>branchDetail.telephone</span>
-                <span ng-if="$ctrl.branchDetailService.branchDetail.phone">{{$ctrl.branchDetailService.branchDetail.phone}}</span></li>
+                <span ng-if="$ctrl.branchDetailService.branchDetail.phone" ng-bind-html="$ctrl.branchDetailService.branchDetail.phone | clickablePhone"></span></li>
               <li><span class="label" ng-if="$ctrl.branchDetailService.branchDetail.fax" translate>branchDetail.fax</span>
                 <span ng-if="$ctrl.branchDetailService.branchDetail.fax">{{$ctrl.branchDetailService.branchDetail.fax}}</span></li>
             </ul>
@@ -25,22 +25,22 @@
             <p class="name" ng-if="branchManager.firstName || branchManager.lastName">{{branchManager.firstName}} {{branchManager.lastName}}</p>
             <dl>
               <dt ng-if="branchManager.phone" translate>branchDetail.telephone</dt>
-              <dd ng-if="branchManager.phone">{{branchManager.phone}}</dd>
+              <dd ng-if="branchManager.phone" ng-bind-html="branchManager.phone | clickablePhone"></dd>
               <dt ng-if="branchManager.email" translate>branchDetail.email</dt>
-              <dd ng-if="branchManager.email"><a href="mailto:{{branchManager.email}}">{{branchManager.email}}</a></dd>
+              <dd ng-if="branchManager.email"  ng-bind-html="branchManager.email | clickableEmail"></dd>
             </dl>
           </div>
           <div id="associates">
             <h3 translate>branchDetail.branchAssociates</h3>
             <dl ng-repeat="advisor in $ctrl.branchDetailService.branchDetail.partialAdvisorsInfo | orderBy:['lastName', 'firstName']:false">
                     <dt ng-show="$ctrl.perviousStateIsLocationSearch">
-                        <a ui-sref="main.advisorLocator.advisorDetails({id: advisor.id})"><span ng-if="advisor.commonName">{{advisor.commonName}}</span><span ng-if="!advisor.commonName">{{advisor.firstName}}</span> {{advisor.lastName}}</a>
+                        <a ui-sref="main.advisorLocator.advisorDetails({id: advisor.id})"><span ng-if="advisor.commonName">{{advisor.commonName}}Z</span><span ng-if="!advisor.commonName">{{advisor.firstName}}X</span> {{advisor.lastName}}</a>
                     </dt>
 
                     <dt ng-show="!$ctrl.perviousStateIsLocationSearch">
                         <a ui-sref="main.advisorLocator.advisorDetails({id: advisor.id})"><span ng-if="$ctrl.advisorDetailService.advisorDetail.id==advisor.id">
-                                 <span ng-if="$ctrl.advisorDetailService.advisorDetail.showCommon!==undefined && $ctrl.advisorDetailService.advisorDetail.showCommon">{{advisor.commonName}}</span>
-                                 <span ng-if="$ctrl.advisorDetailService.advisorDetail.showCommon!==undefined && !$ctrl.advisorDetailService.advisorDetail.showCommon">{{advisor.firstName}}</span>
+                                 <span ng-if="$ctrl.advisorDetailService.advisorDetail.showCommon">{{advisor.commonName}}</span>
+                                 <span ng-if="!$ctrl.advisorDetailService.advisorDetail.commonName">{{advisor.firstName}}</span>
                                  {{advisor.lastName}}
                             </span>
                             <span ng-if="$ctrl.advisorDetailService.advisorDetail.id!=advisor.id">
@@ -58,7 +58,7 @@
           <google-map address="$ctrl.branchDetailService.branchDetail.fullAddress" user-marker="$ctrl.branchDetailService.branchDetail.userMarker" location="$ctrl.location"></google-map>
         </div>
 
-    </div>
+    <!-- </div> -->
 
   </div>
 </ci-loader>

@@ -36,7 +36,7 @@
     function googleMapCtrl( $rootScope, $scope, pageStateResolver, detectMobile, $q, $timeout, $window, $translate, $compile
     ) {
         var vm = this;
-
+        vm.mapRendered = false;
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;
         vm.lang = $rootScope.documentLanguage;
@@ -56,7 +56,7 @@
             mapTypeControl: false,
             panControl: false,
             streetViewControl: false,
-            zoomControl: true,
+            zoomControl: false,
             draggable: true
         };
 
@@ -106,12 +106,89 @@
         vm.showInfoWindow = showInfoWindow;
         vm.initializeMap = initializeMap;
 
+        function ZoomControl(controlDiv, map) {
+
+            // Creating divs & styles for custom zoom control
+            controlDiv.style.padding = '5px';
+
+            // Set CSS for the control wrapper
+            var controlWrapper = document.createElement('div');
+            controlWrapper.style.backgroundColor = 'white';
+            controlWrapper.style.borderStyle = 'solid';
+            controlWrapper.style.borderColor = 'gray';
+            controlWrapper.style.borderWidth = '1px';
+            controlWrapper.style.cursor = 'pointer';
+            //controlWrapper.style.textAlign = 'right';
+            controlWrapper.style.width = '32px';
+            controlWrapper.style.height = '64px';
+            controlWrapper.style.float = 'right';
+            controlWrapper.setAttribute("id", "test");
+            controlWrapper.setAttribute("class", "gmnoprint gm-bundled-control gm-bundled-control-on-bottom");
+            controlWrapper.setAttribute("draggable", "false");
+            controlWrapper.setAttribute("controlwidth", "28");
+            controlWrapper.setAttribute("controlheight", "55");
+            controlWrapper.style.margin= '10px';
+            controlWrapper.style['-webkit-user-select'] = 'none';
+            controlWrapper.style.position = "absolute'"
+            controlWrapper.style.bottom = "69px;"
+            controlWrapper.style.right = "28px;"
+
+            controlWrapper.setAttribute("id", "test");
+            controlDiv.appendChild(controlWrapper);
+
+            // Set CSS for the zoomIn
+            var zoomInButton = document.createElement('button');
+            zoomInButton.style.width = '32px';
+            zoomInButton.style.height = '32px';
+            zoomInButton.style['background-size'] = '100% 100%';
+            /* Change this to be the .png image you want to use */
+            //zoomInButton.style.backgroundImage = 'url("assets/images/BoxedPlusSign.gif")';
+            zoomInButton.innerHTML = "+";
+            zoomInButton.style['background-color'] = "white";
+            zoomInButton.style['font-size'] = "200%";
+            zoomInButton.style['font-weight'] = "bold";
+            controlWrapper.appendChild(zoomInButton);
+
+            // Set CSS for the zoomOut
+            var zoomOutButton = document.createElement('button');
+            zoomOutButton.style.width = '32px';
+            zoomOutButton.style.height = '32px';
+            /* Change this to be the .png image you want to use */
+            //zoomOutButton.style.backgroundImage = 'url("assets/images/minus-sign.png")';
+            zoomOutButton.innerHTML = "-";
+            zoomOutButton.style['background-color'] = "white";
+            zoomOutButton.style['font-size'] = "200%";
+            zoomOutButton.style['font-weight'] = "bold";
+            controlWrapper.appendChild(zoomOutButton);
+            zoomInButton.setAttribute('aria-label', 'zoom in');
+            zoomOutButton.setAttribute('aria-label', 'zoom out');
+
+            // Setup the click event listener - zoomIn
+            google.maps.event.addDomListener(zoomInButton, 'click', function() {
+                vm.map.setZoom(vm.map.getZoom() + 1);
+            });
+
+            // Setup the click event listener - zoomOut
+            google.maps.event.addDomListener(zoomOutButton, 'click', function() {
+                vm.map.setZoom(vm.map.getZoom() - 1);
+            });
+
+        }
+
 
 
         function initializeMap(){
             var deferred = $q.defer();
-
+            var googleMapVerbiage = $translate.instant('googleMapVerbiage');
             vm.map = new google.maps.Map(document.getElementById('map'), vm.ca);
+
+            var zoomControlDiv = document.createElement('div');
+            var zoomControl = new ZoomControl(zoomControlDiv, map);
+
+            //zoomControlDiv.index = 1;
+            vm.map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(zoomControlDiv);
+            console.log('google.map.controls: ', vm.map.controls);
+            console.log('index: ', google.maps.ControlPosition);
 
             vm.map.addListener('idle', vm.onDragEvent);
             vm.map.addListener('dragend', function(){
@@ -119,15 +196,28 @@
             });
             vm.map.addListener('zoom_changed', vm.onUserEvent);
             //vm.map.addListener('idle', vm.onUserEvent);
+
             google.maps.event.addListenerOnce(vm.map, 'tilesloaded', function(){
                 vm.mapLoadedDeferred.resolve(vm.map);
-                document.getElementById('map').children[0].children[0].children[9].children[0].children[0].children[0].getElementsByTagName('img')[0].setAttribute("aria-label", $translate.instant('zoomIn'));
-                document.getElementById('map').children[0].children[0].children[9].children[0].children[0].children[2].getElementsByTagName('img')[0].setAttribute("aria-label", $translate.instant('zoomOut'));
+                document.getElementById('map').children[0].children[0].children[0].children[2].setAttribute('aria-label', googleMapVerbiage);
+                //document.getElementById('map').children[0].children[0].children[9].children[0].children[0].children[0].getElementsByTagName('img')[0].setAttribute("aria-label", $translate.instant('zoomIn'));
+                //document.getElementById('map').children[0].children[0].children[9].children[0].children[0].children[2].getElementsByTagName('img')[0].setAttribute("aria-label", $translate.instant('zoomOut'));
 
+                /*
+                    Tiles loaded event occurs when the data for the tiles has been loaded, but does not mean these tiles have been rendered.
+                    Use the $timeout without a specified delay to wait for the the tiles to finish rendering.
+                */
+                $timeout(function() {
+                    //add alt text to the "google" logo image in the bottom left hand corner of the map.
+                    var x = document.getElementById('map').children[0].children[0].children[1].children[0].children[0].children[0];
+                    x.setAttribute('alt', 'Google Logo');
+                    $scope.$emit('mapIsInitialized', {map: vm.map}); // may should go under the talesloaded event?
+                    vm.mapRendered = true;
+                });
             });
-            vm.isLoading = false;
-            $scope.$emit('mapIsInitialized', {map: vm.map}); // may should go under the talesloaded event?
 
+
+            vm.isLoading = false;
             deferred.resolve(vm.map);
             return deferred.promise;
         }
@@ -530,8 +620,3 @@
     }
 
 })();
-
-
-
-
-

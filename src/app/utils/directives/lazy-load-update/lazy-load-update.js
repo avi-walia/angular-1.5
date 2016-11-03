@@ -79,6 +79,7 @@
 
    // (!tAttrs.lazyLoadUpdate) && console.error('requires src with map-lazy-load');
     savedHtml = tElement.html();
+    console.log('savedHTML: ', savedHtml);
     src = tAttrs.lazyLoadUpdate;
 
     /**

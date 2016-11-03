@@ -29,6 +29,13 @@
         vm.clearSearch = function() {
             $rootScope.$emit('clearSearch');
         }
+
+        vm.openMenu = function() {
+            console.log('testing');
+            vm.classOpen = !vm.classOpen;
+
+
+        }
         vm.detectMobile = detectMobile;
         vm.pageStateResolver = pageStateResolver;
 
@@ -59,7 +66,7 @@
                 vm.returnFocus = 'edit-search-block-form--2';
             }
             else{
-                vm.returnFocus = 'search-icon';
+                vm.returnFocus = 'search';
             }
 
         }

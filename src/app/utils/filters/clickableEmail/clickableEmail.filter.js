@@ -18,8 +18,9 @@
                 return $sce.trustAsHtml("<a href='mailto:" + email + "' target='_top'>" + email + "</a>");
             }
             */
+            var emailText = $translate.instant('email');
             if (email) {
-                return $sce.trustAsHtml("<a aria-label='" + email + "' title='" + email + "' href='mailto:" + email + "'>" + email + "</a>");
+                return $sce.trustAsHtml("<a class='clickableEmail' aria-label='" + email + " " + emailText + "' title='" + email + "' href='mailto:" + email + "'>" + email + "</a>");
             }
             return email;
         };

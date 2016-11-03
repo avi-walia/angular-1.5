@@ -4,7 +4,7 @@
     <div class="container">
 
         <div class="header__region region region-header">
-            <div class="block block-panels-mini contextual-links-region first last odd" id="block-panels-mini-header">
+            <div class="block block-panels-mini first last odd" id="block-panels-mini-header">
 
 
             <div class="container">
@@ -12,38 +12,54 @@
                 <h1 class="panel-pane pane-page-site-name">
                     <a href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr')}}" class="active" title="{{'navbar.logo-text' | translate }}" translate>navbar.logo-text</a>
                 </h1>
-                <div class="contextual-links-region panel-pane pane-block pane-menu-menu-secondary-menu" role="navigation" aria-label="{{ 'header.accessibility.accessibility.topNav' | translate }}">
+                <!-- <div class="panel-pane pane-block pane-menu-menu-secondary-menu" role="navigation" aria-label="{{ 'header.accessibility.accessibility.topNav' | translate }}">
 
                     <ul class="menu">
                         <li class="menu__item is-leaf first leaf" id="login"><a href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr')}}" title="{{'header.login' | translate }}" name="Login" class="menu__link" translate>header.login</a></li>
                         <li class="menu__item is-leaf last leaf" id="locator"><a ng-click="$ctrl.clearSearch()" ui-sref="main.advisorLocator.advisorList" title="{{'header.locator' | translate }}" name="Advisor Locator" class="menu__link" translate>header.locator</a></li>
                     </ul>
 
+                </div> -->
+                <div class="panel-pane pane-block pane-menu-menu-secondary-menu" role="navigation" aria-label="{{ 'header.accessibility.accessibility.topNav' | translate }}" >
+                  <ul class="menu">
+                    <li class="menu__item is-expanded first expanded" id="login"><span title="Login">Login</span>
+                      <ul class="menu">
+                        <li class="menu__item is-expanded first expanded"><span class="menu__link nolink">Clients</span>
+                          <ul class="menu">
+                            <li class="menu__item is-leaf first leaf"><a href="https://www.assanteservices.com/aiol" class="menu__link">Assante InvestorOnline</a></li>
+                            <li class="menu__item is-leaf leaf"><a href="https://www.privateclientmp.com" title="Private Client Managed Portfolios" target="_blank" class="menu__link">Private Client Managed Portfolios</a></li>
+                            <li class="menu__item is-leaf leaf"><a href="https://www.assanteservices.com/iol/" title="Evolution Private Managed Accounts" target="_blank" class="menu__link">Evolution Private Managed Accounts</a></li>
+                            <li class="menu__item is-leaf leaf"><a href="https://www.assanteservices.com/iol" title="Optima Strategy" target="_blank" class="menu__link">Optima Strategy</a></li>
+                            <li class="menu__item is-leaf last leaf" id="notsure"><a href="http://www.assante.com" title="Not sure which option to choose?" class="menu__link">Not sure which option to choose?</a></li>
+                          </ul>
+                        </li>
+                        <li class="menu__item is-expanded last expanded"><span class="menu__link nolink">Advisors</span>
+                          <ul class="menu">
+                            <li class="menu__item is-leaf first last leaf"><a href="https://www.assanteservices.com/aanet/" title="Assante Advisor Net" target="_blank" class="menu__link">AssanteAdvisorNet</a></li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="menu__item is-leaf leaf" id="locator"><a ui-sref="main.advisorLocator.advisorList" title="{{'header.locator' | translate }}" name="Locator" class="menu__link">Advisor Locator</a></li>
+                    <li class="menu__item is-leaf last leaf" id="search" ng-click="$ctrl.displaySearchForm()"><span class="menu__link nolink">Search</span></li>
+                  </ul>
                 </div>
 
-                <div id="search-icon" class="contextual-links-region panel-pane pane-block pane-search-form" ng-class="{'show': $ctrl.showInputSearch, 'hide': !$ctrl.showInputSearch}" ng-click="$ctrl.displaySearchForm()">
-
-
-                    <form class="search-form" role="search" method="post" id="search-block-form" accept-charset="UTF-8" target="_self">
-                        <div>
-
-                            <div class="container-inline">
-                                <div class="form-item form-type-textfield form-item-search-block-form">
-                                    <label class="element-invisible" for="edit-search-block-form--2" translate>header.searchPlaceholder</label>
-                                    <input title="" class="custom-search-box form-text" placeholder="{{'header.searchPlaceholder' | translate}}" type="text" ng-model="$ctrl.searchTerm"
-                                           id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" tabindex="0" ng-click="" stop-event="click" focus-on="$ctrl.returnFocus">
-                                </div>
-                                <div class="form-actions form-wrapper" id="edit-actions">
-                                    <input type="submit" id="edit-submit" name="op" title="{{'searchButton' | translate}}" value="{{'searchButton' | translate}}" class="form-submit" ng-click="$ctrl.goToSearch()">
-                                </div>
-                            </div>
-
-                        </div>
-                    </form>
-
+                <div class="panel-pane pane-block pane-search-form" ng-class="{'show': $ctrl.showInputSearch, 'hide': !$ctrl.showInputSearch}">
+                  <form class="search-form" role="search" method="post" id="search-block-form" accept-charset="UTF-8" target="_self">
+                    <div class="container-inline">
+                      <div class="form-item form-type-textfield form-item-search-block-form">
+                        <label class="element-invisible" for="edit-search-block-form--2" translate>header.searchPlaceholder</label>
+                        <input title="" class="custom-search-box form-text" placeholder="{{'header.searchPlaceholder' | translate}}" type="text" ng-model="$ctrl.searchTerm" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" tabindex="0" ng-click="" stop-event="click" focus-on="$ctrl.returnFocus">
+                      </div>
+                      <div class="form-actions form-wrapper" id="edit-actions">
+                        <input type="submit" id="edit-submit" name="op" title="{{'searchButton' | translate}}" value="{{'searchButton' | translate}}" class="form-submit" ng-click="$ctrl.goToSearch()">
+                      </div>
+                    </div>
+                  </form>
                 </div>
 
-                <div class="contextual-links-region panel-pane pane-block pane-locale-language-content">
+                <div class="panel-pane pane-block pane-locale-language-content">
 
                     <ul class="language-switcher-locale-url">
                         <language-switcher></language-switcher>
@@ -52,19 +68,21 @@
 
                 </div>
 
-                <div class="contextual-links-region panel-pane pane-block pane-system-main-menu" role="navigation" ng-class="{'hide': $ctrl.showInputSearch, 'show': !$ctrl.showInputSearch}" aria-label="{{ 'header.accessibility.mainNav' | translate }}">
+                <div class="panel-pane pane-block pane-system-main-menu" role="navigation" ng-class="{'hide': $ctrl.showInputSearch, 'show': !$ctrl.showInputSearch}" aria-label="{{ 'header.accessibility.mainNav' | translate }}">
 
-                    <ul class="menu">
+                    <ul class="menu" ng-class="{'open': ($ctrl.classOpen == true)}" >
                         <li class="menu__item is-leaf first leaf"><a tabindex="0" href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr') + '/about'}}" title="{{'header.about' | translate}}" class="menu__link"
                                                                      analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="About" translate>header.about</a></li>
                         <li class="menu__item is-leaf leaf"><a tabindex="0" href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr') + '/services'}}" title="{{'header.services' | translate}}" class="menu__link"
                                                                analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Services" translate>header.services</a></li>
                         <li class="menu__item is-leaf leaf" id="assante-life"><a tabindex="0" href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr') + '/assante-life'}}" title="{{'header.assanteLife' | translate}}" name="Assante Life" class="menu__link"
                                                                                  analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="AssanteLife" translate>header.assanteLife</a></li>
-                        <li class="menu__item is-leaf leaf"><a tabindex="0" href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr') + '/clients'}}" title="{{'header.clients' | translate}}" name="Clients" class="menu__link"
-                                                               analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Clients" translate>header.clients</a></li>
-                        <li class="menu__item is-leaf last leaf"><a tabindex="0" href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr') + '/careers'}}" title="{{'header.careers' | translate}}" class="menu__link"
+                        <li class="menu__item is-leaf leaf"><a tabindex="0" href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr') + '/resources'}}" title="{{'header.clients' | translate}}" name="Resources" class="menu__link"
+                                                               analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Resources" translate>header.clients</a></li>
+                        <li class="menu__item is-leaf leaf"><a tabindex="0" href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr') + '/careers'}}" title="{{'header.careers' | translate}}" class="menu__link"
                                                                     analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Careers" translate>header.careers</a></li>
+                        <li class="menu__item is-leaf leaf" ng-click="$ctrl.openMenu();" id="hamburger"><span tabindex="0" class="menu__link nolink" analytics-on analytics-event="click" analytics-category="NAVIGATION" analytics-label="Hamburger">Menu</span></li>
+
                     </ul>
 
                 </div>
