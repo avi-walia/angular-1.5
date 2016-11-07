@@ -48,6 +48,18 @@
 
         vm.updatePosition = updatePosition;
         vm.updateLocation = updateLocation;
+        vm.onBlur = onBlur;
+        vm.onFocus = onFocus;
+
+
+        document.getElementById('place').focus();
+
+        function onBlur() {
+            document.getElementById('place').setAttribute('aria-live', "off");
+        }
+        function onFocus() {
+            document.getElementById('place').setAttribute('aria-live', "polite");
+        }
 
 
         var mapIsInitialized = $scope.$on('mapIsInitialized2', function(event, param){

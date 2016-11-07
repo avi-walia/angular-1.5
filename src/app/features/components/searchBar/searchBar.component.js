@@ -23,6 +23,16 @@
     function searchBarCtrl(detectMobile) {
         var vm = this;
         vm.detectMobile = detectMobile;
+        vm.onBlur = onBlur;
+        vm.onFocus = onFocus;
+        document.getElementById('searchBar').focus();
+
+        function onBlur() {
+            document.getElementById('searchBar').setAttribute('aria-live', "off");
+        }
+        function onFocus() {
+            document.getElementById('searchBar').setAttribute('aria-live', "polite");
+        }
     }
 
 })();
