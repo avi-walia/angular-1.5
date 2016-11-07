@@ -1,6 +1,7 @@
 {
-  "BASE_URL": "https://test.assanteservices.com/aiol",
-  "ENDPOINT_URI": "/advisorlocatorws",
+  "BASE_URL": "https://assantetest.corporate.ciglobe.net",
+  "CONTEXT_ROOT": "/advisorLocator",
+  "ENDPOINT_URI": "/locatorws",
   "GOOGLE_MAPS_URL": "https://maps.googleapis.com/maps/api/js?key=AIzaSyD6y9w2sHNaVOAQN3ESPmYe_tSxCBE6d-Q&libraries=geometry,places&region=CA&language=",
-  "ASSANTE_URL": "http://assantetest.corporate.ciglobe.net"
+  "ASSANTE_URL": "https://assantetest.corporate.ciglobe.net"
 }
