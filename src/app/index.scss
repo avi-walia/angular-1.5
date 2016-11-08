@@ -70,7 +70,7 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
     ul.menu { list-style:none; margin:0 auto; /*max-width:$zen-grid-width;*/ overflow:visible; padding:0; text-align:right;
       li { color:#fff; display:inline-block; font:700 0.88em/35px 'Montserrat',sans-serif; line-height:35px; text-transform:uppercase;
         &::before { color:#fff; font:20px/35px 'Material Icons'; margin-right:2px; vertical-align:bottom; }
-        &#login { float:left;
+        &#login { /*float:left;*/
           &:hover { color:$orange; cursor:default;
             >ul.menu { display:block; }
           }
@@ -86,7 +86,7 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
             }
           }
         }
-        &#locator { margin-left:10px;
+        &#locator { margin-left:9px;
           &::before { content:'my_location'; text-transform:none; }
         }
         &#search { margin-left:10px;
@@ -132,7 +132,8 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
       }
     }
     @media (min-width:420px) {
-      &::before { right:38px; }
+      // &::before { right:38px; }
+      form { margin-top:80px; }
     }
     @media (min-width:768px) { height:40px; position:absolute; right:0; top:29px; width:550px;
       &.show, &.hide {
