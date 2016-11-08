@@ -4,5 +4,5 @@
   <button id="btn-clear" tabindex="0" type="button" ng-click="$ctrl.clearPlace()" aria-label= "{{'branchList.clear' | translate}}" title="{{'branchList.clear'| translate}}" translate>branchList.clear</button>
 </div>
 <div id="search-input">
-  <input id="place" ng-blur="$ctrl.onBlur()" ng-focus= "$ctrl.onFocus()" aria-label="{{'aria.locationSearch.searchBarLabel' | translate}}" enter-key="$ctrl.updatePlace()" ng-model="$ctrl.location" placeholder="{{'branchList.placeholder' | translate}}" role="textbox" aria-activedescendant aria-autocomplete="list" aria-live="polite" autofocus />
+  <input id="place" ng-blur="$ctrl.onBlur()" ng-focus= "$ctrl.onFocus()" aria-label="{{'aria.locationSearch.searchBarLabel' | translate}}" enter-key="$ctrl.updatePlace()" ng-model="$ctrl.location" placeholder="{{'branchList.placeholder' | translate}}" role="textbox" aria-activedescendant aria-autocomplete="list" aria-live="off" autofocus />
 </div>

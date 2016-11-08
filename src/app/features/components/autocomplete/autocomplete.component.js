@@ -53,14 +53,20 @@
 
 
         document.getElementById('place').focus();
-
+/*
+        $timeout(function() {
+            document.getElementById('helpLine').setAttribute('aria-hidden', 'false');
+        });*/
         function onBlur() {
             document.getElementById('place').setAttribute('aria-live', "off");
         }
         function onFocus() {
             document.getElementById('place').setAttribute('aria-live', "polite");
         }
+        $timeout(function() {
 
+            document.getElementById('noSearchCriteriaBranch').setAttribute('aria-hidden', "false");
+        })
 
         var mapIsInitialized = $scope.$on('mapIsInitialized2', function(event, param){
             console.log('map is initialized from geolocator');
@@ -241,7 +247,6 @@
            }
         });
     }
-
 })();
 
 
