@@ -193,5 +193,8 @@
   "profilePicturePlaceholder": "advisor's profile picture",
   "email": "email",
   "googleMapVerbiage": "google map",
-  "googleLogo": "google logo"
+  "googleLogo": "google logo",
+  "errors": {
+    "noData" : "We could not process your request due to an internal issue. At your earliest convenience, contact the Assante Service Centre at 1-800-268-3200, Monday to Friday from 8am to 6pm ET."
+  }
 }

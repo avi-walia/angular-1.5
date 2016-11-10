@@ -12,13 +12,15 @@
         'dataCacheSessionStorage',
         'dataCacheLocalStorage',
         'pageStateResolver',
-        'i18nService'
+        'i18nService',
+        '$rootScope'
     ];
 
     /* @ngInject */
     function server($q, $http, ENDPOINT_URI,
                     dataCacheSessionStorage, dataCacheLocalStorage,
-                    pageStateResolver, i18nService) {
+                    pageStateResolver, i18nService, $rootScope
+    ) {
 
         var service = this;
         var activePosts = [];
@@ -125,19 +127,26 @@
                 .then(function (response) {
                     console.log('server response: ', response);
                     // check for no data being sent
-                    if (response.status !== 204) {
-                        // put data in cache
-                        if (sStorageType === 'sessionStorage') {
-                            dataCacheSessionStorage.put(sPath, response);
-                        } else {
-                            dataCacheLocalStorage.put(sPath, response);
+                    if (response && response.status !== 204) {
+                        // put data in cache if it is not an empty array
+                        if (response.data.hasOwnProperty('length') && response.data.length > 0) {
+                            if (sStorageType === 'sessionStorage') {
+                                dataCacheSessionStorage.put(sPath, response);
+                            } else {
+                                dataCacheLocalStorage.put(sPath, response);
+                            }
+                            response = bIsUnlocalized ? response : filterLangResponse(response);
+                            deferred.resolve(response);
+                            return;
                         }
-                        response = bIsUnlocalized ? response : filterLangResponse(response);
                     }
-                    deferred.resolve(response);
+                    $rootScope.$emit('noData');
+                    deferred.reject('noData');
                 })
                 // set the error, in case some promise handlers need to deal with it
                 .then(null, function (error) {
+                    //since this is the only backend related error at the moment, we don't need any logic.
+                    $rootScope.$emit('noData');
                     deferred.reject(error);
                 });
         }

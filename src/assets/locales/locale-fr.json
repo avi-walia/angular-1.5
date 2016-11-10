@@ -188,5 +188,8 @@
     "email": "FR email"
   },
   "googleMapVerbiage": "FR google map",
-  "googleLogo": "FR google logo"
+  "googleLogo": "FR google logo",
+  "errors": {
+    "noData" : "Nous ne pouvions pas traiter votre demande en raison d'un problème interne. A votre convenance, communiquez avec le Centre de service Assante, au 1 800 268-3200, du lundi au vendredi, de 8 h à 18 h, heure de l'Est."
+  }
 }
