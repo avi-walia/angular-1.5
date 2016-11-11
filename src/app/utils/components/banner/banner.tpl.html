@@ -1,5 +1,4 @@
-<div ng-if="$ctrl.showErrors">
-    <button ng-click="$ctrl.close()">close</button>
-    <div id="errorMsgs" ng-bind-html="$ctrl.errorText">
-    </div>
+<div id="errorMsgs" ng-if="$ctrl.showErrors">
+    <p ng-bind-html="$ctrl.errorText"></p>
+    <button ng-click="$ctrl.close()">Close</button>
 </div>
