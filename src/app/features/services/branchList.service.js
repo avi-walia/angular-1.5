@@ -24,6 +24,7 @@
         service.branchListView = [];
         service.message = {};
         service.updatedMarkers = false;
+        service.drupalQueryError = false; //this is set to true in branchQuery.controller.js and false in branchList.component.js
 
         service.getBranchList = getBranchList;
         service.setPosition = setPosition;
