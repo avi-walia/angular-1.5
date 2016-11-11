@@ -21,12 +21,14 @@
         'advisorDetailService',
         'stateTrackerService',
         'advisorService',
-        'branchListService'
+        'branchListService',
+        'PROFILE_PICTURE_BASE_PATH'
     ];
     /* @ngInject */
-    function advisorDetailCtrl($rootScope, $stateParams, pageStateResolver, detectMobile, GOOGLE_MAPS_URL, advisorDetailService, stateTrackerService, advisorService, branchListService
+    function advisorDetailCtrl($rootScope, $stateParams, pageStateResolver, detectMobile, GOOGLE_MAPS_URL, advisorDetailService, stateTrackerService, advisorService, branchListService, PROFILE_PICTURE_BASE_PATH
     ) {
         var vm = this;
+        vm.PROFILE_PICTURE_BASE_PATH = PROFILE_PICTURE_BASE_PATH;
         vm.googleMapsUrl = GOOGLE_MAPS_URL+$rootScope.documentLanguage;
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;

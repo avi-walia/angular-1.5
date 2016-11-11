@@ -4,5 +4,6 @@
   },
   "COPYRIGHT_YEAR": 2016,
   "APP_NAME": "AdvisorLocator",
-  "ELEMENTS_PER_PAGE": 12
+  "ELEMENTS_PER_PAGE": 12,
+  "PROFILE_PICTURE_BASE_PATH": "/profilePictures/"
 }

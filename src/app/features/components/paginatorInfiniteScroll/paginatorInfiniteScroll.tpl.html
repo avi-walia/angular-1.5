@@ -10,7 +10,7 @@
             <div class="image">
               <a title="{{'aria.nameSearch.getAdvisorDetails' | translate:element}}"  ui-sref="main.advisorLocator.advisorDetails({id: element.id})">
                 <img ng-if="!element.profilePictureUrl" alt="{{'profilePicturePlaceholder' | translate}}" aria-label="{{element.showCommon ? element.commonName + ' ' + element.lastName: element.firstName + ' ' + element.lastname | posession}} profile picture." src="assets/images/advisorHeadShot.png" />
-                <img ng-if="element.profilePictureUrl" alt="{{'profilePicturePlaceholder' | translate}}" aria-label="{{element.showCommon ? element.commonName + ' ' + element.lastName: element.firstName + ' ' + element.lastname | posession}} profile picture." ng-src="{{element.profilePictureUrl}}" />
+                <img ng-if="element.profilePictureUrl" alt="{{'profilePicturePlaceholder' | translate}}" aria-label="{{element.showCommon ? element.commonName + ' ' + element.lastName: element.firstName + ' ' + element.lastname | posession}} profile picture." ng-src="{{$ctrl.PROFILE_PICTURE_BASE_PATH + element.id + '/profile-pic.jpg'}}" />
               </a>
             </div>
             <div class="copy">
@@ -26,7 +26,7 @@
                 <div class="image">
                   <a title="{{'aria.nameSearch.getAdvisorDetails' | translate:element}}"  ui-sref="main.advisorLocator.advisorDetails({id: element.id})">
                     <img ng-if="!element.profilePictureUrl" alt="{{'profilePicturePlaceholder' | translate}}" aria-label="{{element.showCommon ? element.commonName + ' ' + element.lastName: element.firstName + ' ' + element.lastname | posession}} profile picture." src="assets/images/advisorHeadShot.png" />
-                    <img ng-if="element.profilePictureUrl" alt="{{'profilePicturePlaceholder' | translate}}" aria-label="{{element.showCommon ? element.commonName + ' ' + element.lastName: element.firstName + ' ' + element.lastname | posession}} profile picture." ng-src="{{element.profilePictureUrl}}" />
+                    <img ng-if="element.profilePictureUrl" alt="{{'profilePicturePlaceholder' | translate}}" aria-label="{{element.showCommon ? element.commonName + ' ' + element.lastName: element.firstName + ' ' + element.lastname | posession}} profile picture." ng-src="{{$ctrl.PROFILE_PICTURE_BASE_PATH + element.id + '/profile-pic.jpg'}}" />
                   </a>
                 </div>
                 <div class="copy">
