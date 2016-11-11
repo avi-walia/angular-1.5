@@ -248,6 +248,14 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
   }
 }
 
+#errorMsgs { @include zen-grid-container(); background:#a00; border-radius:3px; color:#fff; margin:2em auto 0; padding:0 2*$zen-gutters; position:relative; width:100%;
+  @media (min-width:1152px) { padding:0; width:1080px; }
+  p { line-height:1.2; margin:$zen-gutters; }
+  button { background:#fff; border:solid 2px #a00; border-radius:16px; display:block; height:32px; position:absolute; right:-10px; text-indent:-999em; top:-10px; width:32px;
+    &::before { content:'close'; color:#a00; font:26px/28px 'Material Icons'; left:0; position:absolute; right:0; text-indent:0; top:0; }
+  }
+}
+
 .locatorpage { @include zen-grid-container(); margin:0 auto; padding:2.5em 2*$zen-gutters; width:100%;
   @media (min-width:1152px) { padding:2.5em 0; width:1080px; }
   #searchoptions {
