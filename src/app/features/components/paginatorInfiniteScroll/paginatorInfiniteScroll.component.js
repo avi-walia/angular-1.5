@@ -17,15 +17,17 @@
     /* @ngInject */
 
     paginatorInfiniteScrollCtrl.$inject = [
-        'detectMobile'
+        'detectMobile',
+        'PROFILE_PICTURE_BASE_PATH'
     ];
     /* @ngInject */
     function paginatorInfiniteScrollCtrl(
-        detectMobile
+        detectMobile,
+        PROFILE_PICTURE_BASE_PATH
     ) {
         var vm = this;
         vm.detectMobile = detectMobile;
-
+        vm.PROFILE_PICTURE_BASE_PATH = PROFILE_PICTURE_BASE_PATH;
     }
 
 })();
