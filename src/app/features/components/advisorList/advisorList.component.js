@@ -20,11 +20,10 @@
         'advisorService',
         'pageStateResolver',
         'detectMobile',
-        'stateTrackerService',
-        '$rootScope'
+        'stateTrackerService'
     ];
     /* @ngInject */
-    function advisorListCtrl(advisorService, pageStateResolver, detectMobile, stateTrackerService, $rootScope) {
+    function advisorListCtrl(advisorService, pageStateResolver, detectMobile, stateTrackerService) {
         var vm = this;
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;
@@ -35,8 +34,6 @@
         if(vm.service.isLoading) {
             vm.service.init();
         }
-
-        $rootScope.$emit('noData');
     }
 
 })();

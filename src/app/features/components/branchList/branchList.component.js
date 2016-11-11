@@ -85,8 +85,6 @@
 
         vm.branchListService.getBranchList();
 
-        $rootScope.$emit('noData');
-
     }
 
 })();
