@@ -123,7 +123,7 @@
         };
 
         function getFromServer(sPath, deferred, sStorageType, bIsUnlocalized) {
-            $http.get(sPath)
+            $http.get(sPath, {timeout: 15000})//15 seconds, timeout is measured in milliseconds.
                 .then(function (response) {
                     console.log('server response: ', response);
                     // check for no data being sent
