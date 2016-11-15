@@ -135,21 +135,42 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
       // &::before { right:38px; }
       form { margin-top:80px; }
     }
-    @media (min-width:768px) { height:40px; position:absolute; right:0; top:29px; width:550px;
-      &.show, &.hide {
-        form { height:40px; margin-top:0; text-align:right;
-          .form-item { display:inline-block; margin:0; width:80%;
-            input { border-radius:3px; line-height:2.2; padding:0 8px; }
-          }
-          .form-actions { display:inline-block; margin:0; position:static; vertical-align:top;
-            input { font-size:1em; line-height:2.2em; margin:0 0 0 2px; padding:0 0.6em; }
+    .en & {
+
+    }
+    @media (min-width:768px) {
+      .en & { height:40px; position:absolute; right:0; top:29px; width:550px;
+        &.show, &.hide {
+          form { height:40px; margin-top:0; text-align:right;
+            .form-item { display:inline-block; margin:0; width:80%;
+              input { border-radius:3px; line-height:2.2; padding:0 8px; }
+            }
+            .form-actions { display:inline-block; margin:0; position:static; vertical-align:top;
+              input { font-size:1em; line-height:2.2em; margin:0 0 0 2px; padding:0 0.6em; }
+            }
           }
         }
+        &.show form { @include flipInX($duration:0.5s,$delay:0.3s); }
+        &.hide form { @include flipOutX($duration:0.4s); }
       }
-      &.show form { @include flipInX($duration:0.5s,$delay:0.3s); }
-      &.hide form { @include flipOutX($duration:0.4s); }
     }
-    @media (min-width:896px) { width:660px; }
+    @media (min-width:896px) {
+      .en & { width:660px; }
+      .fr & { height:40px; position:absolute; right:0; top:29px; width:660px;
+        &.show, &.hide {
+          form { height:40px; margin-top:0; text-align:right;
+            .form-item { display:inline-block; margin:0; width:78%;
+              input { border-radius:3px; line-height:2.2; padding:0 8px; }
+            }
+            .form-actions { display:inline-block; margin:0; position:static; vertical-align:top;
+              input { font-size:1em; line-height:2.2em; margin:0 0 0 2px; padding:0 0.6em; }
+            }
+          }
+        }
+        &.show form { @include flipInX($duration:0.5s,$delay:0.3s); }
+        &.hide form { @include flipOutX($duration:0.4s); }
+      }
+    }
   }
 
   .pane-locale-language-content { position:absolute; right:2px; top:-35px; z-index:1;
@@ -173,7 +194,9 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
           span:before { top:-9px; }
           span:after { top:9px; }
         }
-        a { color:$blue; display:inline-block; font:400 1em/1.2 'Montserrat',sans-serif; letter-spacing:0.5px; text-decoration:none; text-transform:uppercase; vertical-align:bottom; }
+        a { color:$blue; display:inline-block; font:400 1em/1.2 'Montserrat',sans-serif; text-decoration:none; text-transform:uppercase; vertical-align:bottom;
+          .i18n-en & { letter-spacing:0.5px; }
+        }
       }
       &.open { height:175px;
         li#hamburger {
