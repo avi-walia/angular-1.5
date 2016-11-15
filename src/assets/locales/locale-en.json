@@ -37,9 +37,9 @@
     "toll": "1-800-268-3200",
     "emailUs": "Email Us",
     "linkedin": "LinkedIn",
-    "linkedinDesciption": "LinkedIn page for Assante Wealth Management",
+    "linkedinDesciption": "LinkedIn for Assante Wealth Management",
     "youtube": "Youtube",
-    "youtubeDescription": "Youtube for Assante Wealth Management",
+    "youtubeDescription": "YouTube for Assante Wealth Management",
     "advisorLocator": "Advisor Locator",
     "searchByName": "Search by Name",
     "searchByLocation": "Search by Location",
@@ -133,7 +133,7 @@
         "language": "Filter by Language:",
         "province": "Filter by Province:"
       },
-      "getAdvisorDetails": "Get {{showName}} {{lastName | posession}} details.",
+      "getAdvisorDetails": "View {{showName}} {{lastName | posession}} details.",
       "email": "contact {{showName}} {{lastName}} by email",
       "phone": "contact {{showName}} {{lastName}} by phone",
       "searchBarLabel": "Start typing an advisor's first or last name and the search results will show below."
