@@ -48,7 +48,7 @@
         }
         $scope.$on('$destroy', function() {
             if (noData) {
-                nodata();
+                noData();
             }
         });
     }

@@ -6,11 +6,12 @@
         .service('advisorDetailService', advisorDetailService);
 
     advisorDetailService.$inject = [
-        'advisorService'
+        'advisorService',
+        'i18nService'
     ];
 
     /* @ngInject */
-    function advisorDetailService(advisorService) {
+    function advisorDetailService(advisorService, i18nService) {
         var service = this;
 
 
@@ -45,8 +46,13 @@
 
             });
 
-            return service.advisorDetail;
+            return filterLangResponse(service.advisorDetail);
 
+        }
+        function filterLangResponse(advisor) {
+
+            advisor = i18nService.filterLocalizedKeys(advisor);
+            return advisor;
         }
 
 
