@@ -2,21 +2,20 @@
   "appTitle": "FR App Title",
   "searchButton": "Rechercher",
   "search": {
-    "byName": "Rechercher par nom",
-    "byLocation": "Rechercher par emplacement"
+    "byName": "FR Search By: Advisor Name",
+    "byLocation": "FR Search By: Location"
   },
-  "shortSearchTerm": "Veuillez saisir au moins deux caractères.",
-  "searchResultsFound": "résultats trouvés.",
-  "searchResultsFoundSingular": "résultat trouvé",
-  "noSearchCriteria": "<p aria-hidden='true'>Saisissez le prénom ou le nom de famille d'un conseiller pour afficher les résultats.</p><p>Si vous ne pouvez pas trouver le conseiller que vous recherchez, communiquez avec le Centre de service Assante, au {{'1-800-268-3200' | clickablePhone}}.</p>",
-  "noSearchCriteriaBranch": "<p>Saisissez la ville ou la province pour afficher les résultats.</p><p>Si vous ne pouvez pas trouver la succursale que vous recherchez, communiquez avec le Centre de service Assante, au {{'1-800-268-3200' | clickablePhone}}.</p>",
+  "shortSearchTerm": "FR Please enter atleast 2 characters.",
+  "searchResultsFound": "FR Search results found.",
+  "noSearchCriteria": "FR There are no search results to be displayed.",
+  "noSearchCriteriaBranch": "<p>FR Enter the city and/or province <br/>and the search results will show here.</p><p>If you are unable to locate the branch<br/>you are looking for, please contact our<br/>Assante Service Centre at 1-800-268-3200.</p>",
   "navbar": {
     "EN": "EN",
     "FR": "FR",
     "logo-img": "logos_f.svg",
-    "browse-happy": "Vous utilisez un navigateur Web <strong>obsolète</strong>. Veuillez <a href='http://browsehappy.com/'>mettre à niveau votre navigateur Web</a> pour accéder à ce contenu.",
+    "browse-happy": "FR You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.",
     "dismiss-message": "FR Dismiss message",
-    "logo-text": "Gestion de patrimoine Assante"
+    "logo-text": "FR Assante Wealth Management"
   },
   "header": {
     "login": "Connexion",
@@ -26,37 +25,37 @@
     "about" : "À notre sujet",
     "services": "Services",
     "assanteLife": "Expérience Assante",
-    "clients": "Ressources",
+    "clients": "Resources",
     "careers": "Carrières",
     "accessibility": {
-      "topNav" : "Menu de navigation du haut de la page",
-      "mainNav" : "Menu de navigation principal"
+      "topNav" : "Site top navigation menu",
+      "mainNav" : "Site main navigation menu"
     }
   },
   "footer": {
-    "contactUs": "Nous joindre",
+    "contactUs": "French Contact Us",
     "toll": "1-800-268-3200",
-    "emailUs": "Courriel",
+    "emailUs": "French Email Us",
     "linkedin": "LinkedIn",
-    "linkedinDesciption": "LinkedIn pour Gestion de patrimoine Assante",
+    "linkedinDesciption": "French LinkedIn page for Assante Wealth Management",
     "youtube": "Youtube",
-    "youtubeDescription": "YouTube pour Gestion de patrimoine Assante",
-    "advisorLocator": "Trouver un conseiller",
-    "searchByName": "Rechercher par nom",
-    "searchByLocation": "Rechercher par emplacement",
-    "careers": "Carrières",
-    "advisorOpportunities": "Emplois pour conseillers",
-    "branchOpportunities": "Emplois en succursale",
-    "corporateOpportunities": "Emplois au siège social",
-    "copyright": "©{{ year }} Gestion de patrimoine Assante. Tous droits réservés.",
-    "security": "Sécurité",
-    "privacyPolicy": "Politique de confidentialité",
-    "legal": "Notices juridiques",
+    "youtubeDescription": "French Youtube for Assante Wealth Management",
+    "advisorLocator": "French Advisor Locator",
+    "searchByName": "French Search by Name",
+    "searchByLocation": "French Search by Location",
+    "careers": "French Careers",
+    "advisorOpportunities": "French Advisor Opportunities",
+    "branchOpportunities": "French Branch Opportunities",
+    "corporateOpportunities": "French Corporate Opportunities",
+    "copyright": "©{{ year }} French Assante Wealth Management. All right Reserved.",
+    "security": "French Security",
+    "privacyPolicy": "French Privacy Policy",
+    "legal": "French Legal",
     "accessibility": {
-      "social" : "Liens vers des médias sociaux",
-      "search" : "Liens pour la recherche de conseillers",
-      "career" : "Lien vers les perspectives de carrière",
-      "menu" : "Menu de navigation du bas de la page"
+      "social" : "Site social links",
+      "search" : "Advisor search navigation links",
+      "career" : "Career navigation links",
+      "menu" : "Site footer navigation menu"
     }
   },
   "notifications": {
@@ -67,35 +66,34 @@
     }
   },
   "branchList":{
-    "title": "Liste de succursales",
+    "title": "FR Branch List",
     "autoComplete": "FR Somewhere in Canada:",
-    "placeholder": "Saisir un emplacement",
-    "linkToMap": "Itinéraire",
-    "currentLocation": "Emplacement+actuel",
-    "getDetails": "Voir les détails de la succursale",
-    "showOnMap": "Afficher sur le plan",
+    "placeholder": "FR Enter a location",
+    "linkToMap": "FR Get direction on a map",
+    "currentLocation": "FR Current+Location",
+    "getDetails": "FR View branch details",
+    "showOnMap": "FR Show on map",
     "km": "FR km",
-    "search": "Rechercher",
-    "clear": "Effacer",
-    "locateMe": "Trouvez-moi",
+    "search": "FR search",
+    "clear": "FR clear",
+    "locateMe": "FR Locate Me",
     "waitForMapToRender": "FR Please wait while the map loads",
     "validation": {
       "notValidAddress" : "Please choose a valid address",
-      "geoNotSupported" : "Votre navigateur Web ne permet pas la géolocalisation.",
-      "geoPermissionsDenied" : "La géolocalisation n’est pas autorisée.",
-      "geoPositionUnavailable" : "L’information sur l’emplacement n’est pas disponible.",
-      "geoTimeout" : "La demande d’emplacement a expiré.",
-      "geoUnknown" : "Une erreur inconnue est survenue.",
-      "noResults" : "Aucun résultat trouvé.",
-      "geoFailed" : "Aucun résultat trouvé.",
-      "invalidAddress" : "L'adresse saisie n'est pas valide."
+      "geoNotSupported" : "Geolocation is not supported in your browser",
+      "geoPermissionsDenied" : "Permissions is denied to geolocation",
+      "geoPositionUnavailable" : "Location information is unavailable",
+      "geoTimeout" : "The request to get location timed out",
+      "geoUnknown" : "An unknown error occured",
+      "noResults" : "No results found",
+      "geoFailed" : "Geocoder failed"
     }
   },
   "advisorDetail":{
     "title": "FR Advisor Detail",
     "searchResultsButton": "FR Back to search results",
     "backButton": "FR Back",
-    "branchDetailsLink": "Voir les détails de la succursale",
+    "branchDetailsLink": "FR View branch details",
     "mapTitle": "FR Map",
     "contactUsNote" : "*Note: If you are unable to locate your advisor, please contact <a href='https://www.assanteservices.com/aiol/#/en/aio/contact' target='_blank'>Assante Service Centre</a> for assistance",
     "telephone": "FR Phone",
@@ -131,12 +129,12 @@
         "city": "FR Sort search results by city.",
         "province": "FR Sort search results by province."
       },
-      "clearButton": "Réinitialiser les filtres",
+      "clearButton": "FR clear filters.",
       "filters": {
         "language": "FR Filter by Language:",
         "province": "FR Filter by Province:"
       },
-      "getAdvisorDetails": "Voir les détails de {{showName}} {{lastName | posession}}.",
+      "getAdvisorDetails": "FR Get {{showName}} {{lastName | posession}} details.",
       "email": "FR contact {{showName}} {{lastName}} by email",
       "phone": "FR contact {{showName}} {{lastName}} by phone"
     },
@@ -144,27 +142,27 @@
     "pagination": {
       "first": "FR First {{'aria.pagination.page' | translate}}",
       "last": "FR Last {{'aria.pagination.page' | translate}}",
-      "previous": "{{'aria.pagination.page' | translate}} précédente",
-      "next": "{{'aria.pagination.page' | translate}} suivante",
-      "page": "page"
+      "previous": "FR Previous {{'aria.pagination.page' | translate}}",
+      "next": "FR Next {{'aria.pagination.page' | translate}}",
+      "page": "FR page"
 
     }
   },
-  "zoomIn": "Zoom avant",
-  "zoomOut": "Zoom arrière",
+  "zoomIn": "FR zoom in",
+  "zoomOut": "FR zoom out",
 
   "pages": {
     "advisorList":{
       "filtersLabel": "Filters:",
-      "title": "Rechercher un conseiller",
+      "title": "FR Search for Advisor",
       "filterOptions": {
         "lang": {
-          "Language": "Toute langue",
-          "English": "Anglais",
-          "French": "Français"
+          "Language": "FR Any language",
+          "English": "FR English",
+          "French": "FR French"
         },
         "province": {
-          "Province": "Toute province",
+          "Province": "FR Any province",
           "AB": "AB",
           "BC": "BC",
           "MB": "MB",
@@ -181,7 +179,7 @@
         }
       },
       "provinceFilterPlaceHolder": "FR Select provinces...",
-      "clearFilterLabel": "effacer"
+      "clearFilterLabel": "FR Clear"
     },
     "branchList": {
       "title": "FR Search for branches"

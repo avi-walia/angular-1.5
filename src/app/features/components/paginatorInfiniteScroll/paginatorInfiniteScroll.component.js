@@ -18,16 +18,16 @@
 
     paginatorInfiniteScrollCtrl.$inject = [
         'detectMobile',
-        'PROFILE_PICTURE_BASE_PATH'
+        'envConfigService'
     ];
     /* @ngInject */
     function paginatorInfiniteScrollCtrl(
         detectMobile,
-        PROFILE_PICTURE_BASE_PATH
+        envConfigService
     ) {
         var vm = this;
         vm.detectMobile = detectMobile;
-        vm.PROFILE_PICTURE_BASE_PATH = PROFILE_PICTURE_BASE_PATH;
+        vm.PROFILE_PICTURE_BASE_PATH = envConfigService.PROFILE_PICTURE_BASE_PATH;
     }
 
 })();

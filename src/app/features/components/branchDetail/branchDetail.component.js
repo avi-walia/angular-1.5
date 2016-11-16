@@ -17,7 +17,7 @@
         '$stateParams',
         'pageStateResolver',
         'detectMobile',
-        'GOOGLE_MAPS_URL',
+        'envConfigService',
         'branchDetailService',
         'stateTrackerService',
         'advisorService',
@@ -25,12 +25,12 @@
         'advisorDetailService'
     ];
     /* @ngInject */
-    function branchDetailCtrl($rootScope, $stateParams, pageStateResolver, detectMobile, GOOGLE_MAPS_URL, branchDetailService, stateTrackerService, advisorService, branchListService, advisorDetailService
+    function branchDetailCtrl($rootScope, $stateParams, pageStateResolver, detectMobile, envConfigService, branchDetailService, stateTrackerService, advisorService, branchListService, advisorDetailService
     ) {
         var vm = this;
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;
-        vm.googleMapsUrl = GOOGLE_MAPS_URL+$rootScope.documentLanguage;
+        vm.googleMapsUrl = envConfigService.GOOGLE_MAPS_URL+$rootScope.documentLanguage;
         vm.branchId = parseInt($stateParams.id);
         vm.branchDetailService = branchDetailService;
         vm.stateTrackerService = stateTrackerService;

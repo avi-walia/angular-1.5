@@ -40,7 +40,6 @@
     function remapKeys(o, locale) {
         var keepVal = locale === 'en' ? 'EN' : 'FR';
         var removeVal = locale === 'en' ? 'FR' : 'EN';
-        /*
         return _(o)
             .mapKeys(function (value, key) {
                 if (_.endsWith(key, removeVal)) {
@@ -55,13 +54,6 @@
             })
             .omit('__keyToRemove__')
             .value();
-            */
-        _.forEach(o, function(value, key) {
-            if (_.endsWith(key, keepVal)) {
-                o[key.substr(0, key.length - 2)] = o[key];
-            }
-        });
-        return o;
     }
 })();
 

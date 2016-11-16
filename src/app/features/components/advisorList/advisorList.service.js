@@ -9,15 +9,14 @@
     advisorService.$inject = [
         'removeDiacriticsService',
         'server',
-        'BASE_URL',
-        'ENDPOINT_URI',
+        'envConfigService',
         'ELEMENTS_PER_PAGE',
         'filterRunnerService',
         'langFilterService',
         'provinceFilterService'
     ];
 
-    function advisorService(removeDiacriticsService, server, BASE_URL, ENDPOINT_URI, ELEMENTS_PER_PAGE, filterRunnerService, langFilterService, provinceFilterService) {
+    function advisorService(removeDiacriticsService, server, envConfigService, ELEMENTS_PER_PAGE, filterRunnerService, langFilterService, provinceFilterService) {
         var service = this;
         //This array stores results that contain some but not all the search terms. This is displayed IF AND ONLY IF there are no results that contain all search terms.
         var secondaryResults = [];
@@ -65,7 +64,7 @@
             path to mobile/desktop templates used when rendering infinite scroll/pagination component.
             Not currently being used.
          */
-        var path = BASE_URL + '/app/features/components/advisorList/templates';
+        var path = envConfigService.BASE_URL + '/app/features/components/advisorList/templates';
 
         //path to mobile templates.
         service.mobileTemplatePath = path + '/mobile.tpl.html';
@@ -165,7 +164,7 @@
             service.allAdvisors = [];
 
             //make http call for all advisors.
-            return server.get(BASE_URL + ENDPOINT_URI + '/advisors', false, 'localStorage', false).then(function(data) {
+            return server.get(envConfigService.BASE_URL + envConfigService.ENDPOINT_URI + '/advisors', false, 'localStorage', false).then(function(data) {
                 //all advisors have been retrieved. Dissable isLoading.
 
                 //precompute names with punctuation, spacing and accents removed. This will speed up searches later.

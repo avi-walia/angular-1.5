@@ -17,19 +17,17 @@
         '$stateParams',
         'pageStateResolver',
         'detectMobile',
-        'GOOGLE_MAPS_URL',
+        'envConfigService',
         'advisorDetailService',
         'stateTrackerService',
         'advisorService',
         'branchListService',
-        'PROFILE_PICTURE_BASE_PATH'
     ];
     /* @ngInject */
-    function advisorDetailCtrl($rootScope, $stateParams, pageStateResolver, detectMobile, GOOGLE_MAPS_URL, advisorDetailService, stateTrackerService, advisorService, branchListService, PROFILE_PICTURE_BASE_PATH
+    function advisorDetailCtrl($rootScope, $stateParams, pageStateResolver, detectMobile, envConfigService, advisorDetailService, stateTrackerService, advisorService, branchListService
     ) {
         var vm = this;
-        vm.PROFILE_PICTURE_BASE_PATH = PROFILE_PICTURE_BASE_PATH;
-        vm.googleMapsUrl = GOOGLE_MAPS_URL+$rootScope.documentLanguage;
+        vm.googleMapsUrl = envConfigService.GOOGLE_MAPS_URL+$rootScope.documentLanguage;
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;
         vm.advisorID = parseInt($stateParams.id);
@@ -37,6 +35,7 @@
         vm.stateTrackerService = stateTrackerService;
         vm.advisorService = advisorService;
         vm.branchListService = branchListService;
+        vm.PROFILE_PICTURE_BASE_PATH = envConfigService.PROFILE_PICTURE_BASE_PATH;
         if(vm.advisorService.isLoading){
             vm.advisorService.init().then(function(){
                 vm.advisorDetailService.getAdvisorDetail(vm.advisorID);

@@ -18,12 +18,11 @@
         '$window',
         'pageStateResolver',
         'version',
-        'BASE_URL',
-        'ASSANTE_URL',
+        'envConfigService',
         'detectMobile'
     ];
     /* @ngInject */
-    function headerCtrl($rootScope, $state, $window, pageStateResolver, version, BASE_URL, ASSANTE_URL, detectMobile
+    function headerCtrl($rootScope, $state, $window, pageStateResolver, version, envConfigService, detectMobile
     ) {
         var vm = this;
         vm.clearSearch = function() {
@@ -41,8 +40,8 @@
 
         vm.state = $state;
         vm.version = version;   // auto generated app version (for display purposes)
-        vm.BASE_URL = BASE_URL;
-        vm.ASSANTE_URL = ASSANTE_URL;
+        vm.BASE_URL = envConfigService.BASE_URL;
+        vm.ASSANTE_URL = envConfigService.ASSANTE_URL;
         vm.currentLanguage = $rootScope.documentLanguage;
         vm.searchTerm = '';
         vm.goToSearch = goToSearch;
@@ -52,7 +51,7 @@
         vm.returnFocus = '';
 
         function goToSearch(){
-            var drupalSearchLink = ASSANTE_URL + '/search/node/';
+            var drupalSearchLink = envConfigService.ASSANTE_URL + '/search/node/';
             if(vm.searchTerm !== '') {
                 drupalSearchLink += $window.encodeURIComponent(vm.searchTerm);
                 $window.location = drupalSearchLink;

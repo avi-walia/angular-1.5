@@ -15,16 +15,16 @@
     footerCtrl.$inject = [
         '$rootScope',
         'COPYRIGHT_YEAR',
-        'ASSANTE_URL',
+        'envConfigService',
         'detectMobile'
     ];
     /* @ngInject */
-    function footerCtrl($rootScope, COPYRIGHT_YEAR, ASSANTE_URL, detectMobile
+    function footerCtrl($rootScope, COPYRIGHT_YEAR, envConfigService, detectMobile
     ) {
         var vm = this;
         vm.year = COPYRIGHT_YEAR;
         vm.detectMobile = detectMobile;
-        vm.ASSANTE_URL = ASSANTE_URL;
+        vm.ASSANTE_URL = envConfigService.ASSANTE_URL;
         vm.currentLanguage = $rootScope.documentLanguage;
     }
 

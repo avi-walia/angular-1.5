@@ -8,7 +8,7 @@
     server.$inject = [
         '$q',
         '$http',
-        'ENDPOINT_URI',
+        'envConfigService',
         'dataCacheSessionStorage',
         'dataCacheLocalStorage',
         'pageStateResolver',
@@ -17,7 +17,7 @@
     ];
 
     /* @ngInject */
-    function server($q, $http, ENDPOINT_URI,
+    function server($q, $http, envConfigService,
                     dataCacheSessionStorage, dataCacheLocalStorage,
                     pageStateResolver, i18nService, $rootScope
     ) {
@@ -198,7 +198,7 @@
         }
 
         function removeFromActivePosts(fullPath) {
-            var path = fullPath.substring(ENDPOINT_URI.length, fullPath.length);
+            var path = fullPath.substring(envConfigService.ENDPOINT_URI.length, fullPath.length);
             /*
              var index = -1;//activePosts.indexOf(path);
              for (var i = 0; i < activePosts.length; i++) {
@@ -254,7 +254,7 @@
                 var index = indexOfActivePosts(path);
                 if (index < 0) {
                     activePosts.push({'path': path, 'promise': deferred.promise});
-                    $http.post(ENDPOINT_URI + path, data)
+                    $http.post(envConfigService.ENDPOINT_URI + path, data)
                         .then(function (response) {
                             removeFromActivePosts(response.config.url);
                             // console.log('post response: ', response);

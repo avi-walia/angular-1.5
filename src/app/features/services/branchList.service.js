@@ -7,13 +7,12 @@
 
     branchListService.$inject = [
         'server',
-        'BASE_URL',
-        'ENDPOINT_URI',
+        'envConfigService',
         '$timeout'
     ];
 
     /* @ngInject */
-    function branchListService(server, BASE_URL, ENDPOINT_URI, $timeout) {
+    function branchListService(server, envConfigService, $timeout) {
         var service = this;
 
         service.branchListLoading = false;
@@ -40,7 +39,7 @@
         function getBranchList() {
             service.branchListLoading = true;
 
-            return server.get(BASE_URL + ENDPOINT_URI + '/branches', false, 'localStorage', false)
+            return server.get(envConfigService.BASE_URL + envConfigService.ENDPOINT_URI + '/branches', false, 'localStorage', false)
                 .then(function (result) {
                     service.branchList =result.data;
                     service.branchListLoading = false;

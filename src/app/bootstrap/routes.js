@@ -41,6 +41,15 @@
                 $stateProvider
                     .state('main', {
                         url: '/{locale:(?:en|fr)}',
+                        resolve: {
+                            initData: ['envConfigService', function (envConfigService) {
+                                var x = envConfigService.init();
+                                x.then(function(data) {
+                                    console.log('envConfData2246: ', data);
+                                });
+                                return x;
+                            }]
+                        },
                         abstract: true,
                         controller: 'MainCtrl as Main',
                         templateUrl: 'app/core/layout/main.layout.html'
