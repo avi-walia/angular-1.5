@@ -97,7 +97,6 @@
     "searchResultsButton": "Back to search results",
     "branchDetailsLink": "View branch details",
     "mapTitle": "Map",
-    "contactUsNote" : "*Note: If you are unable to locate your advisor, please contact <a href='https://www.assanteservices.com/aiol/#/en/aio/contact' target='_blank'>Assante Service Centre</a> for assistance",
     "telephone": "Phone",
     "fax": "Fax",
     "tollFree": "Toll Free",
@@ -124,29 +123,18 @@
   "aria": {
     "main-label": "Main content section",
     "nameSearch": {
-      "sortby": {
-        "firstname": "Sort search results by first name.",
-        "lastname": "Sort search results by last name.",
-        "city": "Sort search results by city.",
-        "province": "Sort search results by province."
-      },
       "clearButton": "clear filters.",
       "filters": {
         "language": "Filter by Language:",
         "province": "Filter by Province:"
       },
       "getAdvisorDetails": "View {{showName}} {{lastName | posession}} details.",
-      "email": "contact {{showName}} {{lastName}} by email",
-      "phone": "contact {{showName}} {{lastName}} by phone",
       "searchBarLabel": "Start typing an advisor's first or last name and the search results will show below."
     },
     "locationSearch" : {
       "searchBarLabel": "Enter the city and/or province and the search results will show below."
     },
-    "picturePlaceholder": "Default placeholder for advisor's profile picture.",
     "pagination": {
-      "first": "First {{'aria.pagination.page' | translate}}",
-      "last": "Last {{'aria.pagination.page' | translate}}",
       "previous": "Previous {{'aria.pagination.page' | translate}}",
       "next": "Next {{'aria.pagination.page' | translate}}",
       "page": "page"
@@ -158,7 +146,6 @@
 
   "pages": {
     "advisorList":{
-      "filtersLabel": "Filters:",
       "title": "Search for Advisor",
       "filterPlaceHolders": {
         "province":"Any province"

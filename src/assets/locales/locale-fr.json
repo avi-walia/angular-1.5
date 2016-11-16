@@ -94,24 +94,21 @@
   "advisorDetail":{
     "title": "FR Advisor Detail",
     "searchResultsButton": "FR Back to search results",
-    "backButton": "FR Back",
-    "branchDetailsLink": "FR View branch details",
+    "branchDetailsLink": "Voir les détails de la succursale",
     "mapTitle": "FR Map",
-    "contactUsNote" : "*Note: If you are unable to locate your advisor, please contact <a href='https://www.assanteservices.com/aiol/#/en/aio/contact' target='_blank'>Assante Service Centre</a> for assistance",
     "telephone": "FR Phone",
     "fax": "FR Fax",
     "tollFree": "FR Toll Free",
     "email": "FR Email",
     "alternateEmail": "FR Team Email",
     "website": "FR Website",
-    "advisorImageAlt": "FR Advisor Image",
+    "advisorImageAlt": "FR advisor's profile picture",
     "spokenLanguages": "FR Spoken Languages"
   },
   "branchDetail":{
     "title": "FR Branch Detail",
     "mapTitle": "FR Map",
     "searchResultsButton": "FR Back to search results",
-    "backButton": "FR Back",
     "branchAssociates": "FR Branch Associates",
     "address": "FR Address",
     "telephone": "FR Phone",
@@ -125,29 +122,18 @@
   "aria": {
     "main-label": "FR Main content section",
     "nameSearch": {
-      "sortby": {
-        "firstname": "FR Sort search results by first name.",
-        "lastname": "FR Sort search results by last name.",
-        "city": "FR Sort search results by city.",
-        "province": "FR Sort search results by province.",
-        "searchBarLabel": "FR Start typing an advisor's first or last name and the search results will show below."
-      },
-      "locationSearch" : {
-        "searchBarLabel": "FR Enter the city and/or province and the search results will show below."
-      },
+      "searchBarLabel": "FR Start typing an advisor's first or last name and the search results will show below.",
       "clearButton": "Réinitialiser les filtres.",
       "filters": {
         "language": "FR Filter by Language:",
         "province": "FR Filter by Province:"
       },
-      "getAdvisorDetails": "Voir les détails de {{showName}} {{lastName}}",
-      "email": "FR contact {{showName}} {{lastName}} by email",
-      "phone": "FR contact {{showName}} {{lastName}} by phone"
+      "getAdvisorDetails": "Voir les détails de {{showName}} {{lastName}}"
     },
-    "picturePlaceholder": "FR Default placeholder for advisor's profile picture.",
+    "locationSearch" : {
+      "searchBarLabel": "FR Enter the city and/or province and the search results will show below."
+    },
     "pagination": {
-      "first": "FR First {{'aria.pagination.page' | translate}}",
-      "last": "FR Last {{'aria.pagination.page' | translate}}",
       "previous": "{{'aria.pagination.page' | translate}} précédente",
       "next": " {{'aria.pagination.page' | translate}} suivante",
       "page": "Page"
@@ -184,7 +170,6 @@
           "YT": "YT"
         }
       },
-      "provinceFilterPlaceHolder": "FR Select provinces...",
       "clearFilterLabel": "effacer"
     },
     "branchList": {
