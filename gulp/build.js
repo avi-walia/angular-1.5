@@ -9,6 +9,9 @@ var runSequence = require('run-sequence');
 var cleanCSS = require('gulp-clean-css');
 var htmlmin = require('gulp-htmlmin');
 var angularProtractor = require('gulp-angular-protractor');
+var clean = require('gulp-clean');
+var rename = require("gulp-rename");
+
 
 
 var $ = require('gulp-load-plugins')({
@@ -120,7 +123,9 @@ module.exports = function (options) {
     gulp.task('other', function () {
         return gulp.src([
                 options.src + '/**/*',
-                '!' + options.src + '/**/*.{html,css,js,scss}'
+                '!' + options.src + '/**/*.{html,css,js,scss,mock.json}',
+                '!' + options.src + '/app/config/*.json',
+                '!' + options.src + '/environment-configs/*.json',
             ])
             .pipe(gulp.dest(options.dist + '/'));
     });
@@ -130,6 +135,15 @@ module.exports = function (options) {
         return gulp.src([options.src + '/assets/locales/*.js'])
             .pipe($.uglify({mangle: false}))
             .pipe(gulp.dest(options.dist + '/assets/locales/'));
+    });
+    gulp.task('cleanTmp', function () {
+        return gulp.src('./.tmp/')
+            .pipe(clean());
+    });
+    gulp.task('envConfigs', ['cleanTmp'], function () {
+        return gulp.src('./src/environment-configs/app.config.local.json')
+            .pipe(rename("environment-config.json"))
+            .pipe(gulp.dest('./.tmp/serve'));
     });
 
     gulp.task('clean-build', function (done) {
@@ -177,6 +191,23 @@ module.exports = function (options) {
             }))
             .pipe(gulp.dest('./src/app/config'))
     });
+
+    //--config
+    gulp.task('config', function () {
+        var pkg = JSON.parse(fs.readFileSync('./package.json'));
+
+        gulp.src(['./src/app/config/app.config.json', './src/app/config/routes.config.json'])
+            .pipe(jsonMerge('config.json'))
+            .pipe(gulpNgConfig(options.app, {
+                createModule: false,
+                constants: {
+                    version: pkg.version + ''
+                },
+                wrap: '(function () { \n  \'use strict\'; \nreturn <%= module %> \n})();'
+            }))
+            .pipe(gulp.dest('./src/app/config'))
+    });
+
 
     //--config dev
     gulp.task('config:dev', function () {
@@ -288,6 +319,13 @@ module.exports = function (options) {
             ['html', 'fonts', 'other', 'locales'],
             'clean-dist');
     }
+    function build() {
+        console.time("Build");
+        runSequence('clean-build',
+            'config',
+            ['html', 'fonts', 'other', 'locales'],
+            'clean-dist');
+    }
     function buildTEST() {
         console.time("Build");
         runSequence('clean-build',
@@ -296,6 +334,9 @@ module.exports = function (options) {
             'clean-dist');
     }
 
+    gulp.task('build', function() {
+        build();
+    });
     gulp.task('build:dev', function() {
         buildDEV();
     });

@@ -34,7 +34,7 @@ module.exports = function(options) {
     //var proxyOptions = url.parse('https://uat.assanteservices.com/aiolws');
 
     // Which route browserSync should forward to the gateway, this is the route for the backend api
-    proxyOptions.route = '/advisorlocatorws';
+    proxyOptions.route = '/locatorws';
     /*
     because of the above line, the below two urls do the same thing:
      http://localhost:3000/api/advisors
@@ -81,7 +81,7 @@ module.exports = function(options) {
     selector: '[ng-app]'// Only needed for angular apps
   }));
 
-  gulp.task('serve', ['config:local','watch' ], function () {
+  gulp.task('serve', ['config:local','watch', 'envConfigs'], function () {
 
     browserSyncInit([options.tmp + '/serve', options.src]);
   });
