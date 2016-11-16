@@ -41,8 +41,8 @@
     "youtube": "Youtube",
     "youtubeDescription": "French Youtube for Assante Wealth Management",
     "advisorLocator": "French Advisor Locator",
-    "searchByName": "French Search by Name",
-    "searchByLocation": "French Search by Location",
+    "searchByName": "Rechercher par nom",
+    "searchByLocation": "Rechercher par emplacement",
     "careers": "French Careers",
     "advisorOpportunities": "French Advisor Opportunities",
     "branchOpportunities": "French Branch Opportunities",
@@ -86,7 +86,8 @@
       "geoTimeout" : "The request to get location timed out",
       "geoUnknown" : "An unknown error occured",
       "noResults" : "No results found",
-      "geoFailed" : "Geocoder failed"
+      "geoFailed" : "Geocoder failed",
+      "invalidAddress" : "FR Invalid Address"
     }
   },
   "advisorDetail":{
@@ -127,7 +128,11 @@
         "firstname": "FR Sort search results by first name.",
         "lastname": "FR Sort search results by last name.",
         "city": "FR Sort search results by city.",
-        "province": "FR Sort search results by province."
+        "province": "FR Sort search results by province.",
+        "searchBarLabel": "FR Start typing an advisor's first or last name and the search results will show below."
+      },
+      "locationSearch" : {
+        "searchBarLabel": "FR Enter the city and/or province and the search results will show below."
       },
       "clearButton": "FR clear filters.",
       "filters": {
@@ -183,10 +188,10 @@
     },
     "branchList": {
       "title": "FR Search for branches"
-    },
-    "profilePicturePlaceholder": "FR advisor's profile picture",
-    "email": "FR email"
+    }
   },
+  "profilePicturePlaceholder": "FR advisor's profile picture",
+  "email": "FR email",
   "googleMapVerbiage": "FR google map",
   "googleLogo": "FR google logo",
   "errors": {
