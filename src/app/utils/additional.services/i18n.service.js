@@ -41,26 +41,27 @@
         var keepVal = locale === 'en' ? 'EN' : 'FR';
         var removeVal = locale === 'en' ? 'FR' : 'EN';
         /*
-        return _(o)
-            .mapKeys(function (value, key) {
-                if (_.endsWith(key, removeVal)) {
-                    return '__keyToRemove__';
-                } else {
-                    // if it ends with lang suffix that we need to rename, trim it (the last 2 characters: En/Fr)
-                    if (_.endsWith(key, keepVal)) {
-                        return key.substr(0, key.length - 2);
-                    }
-                    return key;
-                }
-            })
-            .omit('__keyToRemove__')
-            .value();
-            */
+         return _(o)
+         .mapKeys(function (value, key) {
+         if (_.endsWith(key, removeVal)) {
+         return '__keyToRemove__';
+         } else {
+         // if it ends with lang suffix that we need to rename, trim it (the last 2 characters: En/Fr)
+         if (_.endsWith(key, keepVal)) {
+         return key.substr(0, key.length - 2);
+         }
+         return key;
+         }
+         })
+         .omit('__keyToRemove__')
+         .value();
+         */
         _.forEach(o, function(value, key) {
             if (_.endsWith(key, keepVal)) {
                 o[key.substr(0, key.length - 2)] = o[key];
             }
         });
+        console.log('output: ', o);
         return o;
     }
 })();

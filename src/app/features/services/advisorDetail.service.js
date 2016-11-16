@@ -46,7 +46,7 @@
 
             });
 
-            return service.advisorDetail;
+            return filterLangResponse(service.advisorDetail);
 
         }
         function filterLangResponse(advisor) {
