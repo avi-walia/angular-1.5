@@ -86,7 +86,7 @@
       "geoTimeout" : "The request to get location timed out",
       "geoUnknown" : "An unknown error occured",
       "noResults" : "No results found",
-      "geoFailed" : "Geocoder failed",
+      "geoFailed" : "Échec du géocodage.",
       "invalidAddress" : "FR Invalid Address"
     }
   },
