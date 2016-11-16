@@ -7,13 +7,15 @@
   },
   "shortSearchTerm": "Please enter at least 2 characters",
   "searchResultsFound": "results",
+  "searchResultsFoundSingular": "result",
   "noSearchCriteria": "<p aria-hidden='true'>Start typing an advisor's first or last name<br/>and the search results will show here.</p><p>If you are unable to locate the advisor you are looking for, please contact our Assante Service Centre at {{'1-800-268-3200' | clickablePhone}}.</p>",
   "noSearchCriteriaBranch": "<p aria-hidden='true'>Enter the city and/or province <br/>and the search results will show here.</p><p id='noSearchCriteriaBranch' aria-hidden='true'>If you are unable to locate the branch you are looking for, please contact our Assante Service Centre at {{'1-800-268-3200' | clickablePhone}}.</p>",
   "navbar": {
     "EN": "EN",
     "FR": "FR",
     "logo-img": "logos.svg",
-    "browse-happy": "You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.",
+    "browse-happy": "You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to access this content.",
+
     "dismiss-message": "Dismiss message",
     "logo-text": "Assante Wealth Management"
   },
@@ -69,7 +71,7 @@
   "branchList":{
     "title": "Branch List",
     "placeholder": "Enter a location",
-    "linkToMap": "Get direction on a map",
+    "linkToMap": "Directions",
     "currentLocation": "Current+Location",
     "getDetails": "View branch details",
     "showOnMap": "Show on map",
@@ -133,7 +135,7 @@
         "language": "Filter by Language:",
         "province": "Filter by Province:"
       },
-      "getAdvisorDetails": "Get {{showName}} {{lastName | posession}} details.",
+      "getAdvisorDetails": "View {{showName}} {{lastName | posession}} details.",
       "email": "contact {{showName}} {{lastName}} by email",
       "phone": "contact {{showName}} {{lastName}} by phone",
       "searchBarLabel": "Start typing an advisor's first or last name and the search results will show below."
@@ -196,6 +198,6 @@
   "googleMapVerbiage": "google map",
   "googleLogo": "google logo",
   "errors": {
-    "noData" : "An error has occurred. Please try again. If you require assistance, please contact our Assante Service Centre at 1-800-268-3200, Monday to Friday from 8 a.m. to 6 p.m. ET."
+    "noData" : "An error has occurred. Please try again. If this issue continues, please contact IT services at {{'its@ci.com' | clickableEmail}}"
   }
 }
