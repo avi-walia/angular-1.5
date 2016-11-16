@@ -61,7 +61,6 @@
                 o[key.substr(0, key.length - 2)] = o[key];
             }
         });
-        console.log('output: ', o);
         return o;
     }
 })();
