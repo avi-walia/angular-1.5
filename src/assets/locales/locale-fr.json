@@ -87,8 +87,7 @@
       "geoTimeout" : "La demande d’emplacement a expiré.",
       "geoUnknown" : "Une erreur inconnue est survenue.",
       "noResults" : "Aucun résultat trouvé.",
-      "geoFailed" : "Échec du géocodage.",
-      "invalidAddress" : "L'adresse saisie n'est pas valide."
+      "geoFailed" : "Échec du géocodage."
     }
   },
   "advisorDetail":{

@@ -88,8 +88,7 @@
       "geoTimeout" : "The request to get location timed out",
       "geoUnknown" : "An unknown error occured",
       "noResults" : "No results found",
-      "geoFailed" : "Geocoder failed",
-      "invalidAddress" : "The address entered is not valid."
+      "geoFailed" : "Geocoder failed"
     }
   },
   "advisorDetail":{

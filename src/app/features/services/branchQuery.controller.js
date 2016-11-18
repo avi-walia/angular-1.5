@@ -58,7 +58,7 @@
         vm.drupalQuery = parseLocation($stateParams.q);
         vm.branchListService.setLocation( vm.drupalQuery);
         if (!vm.drupalQuery) {
-            vm.branchListService.setMessage({'cancel': 'branchList.validation.invalidAddress'});
+            vm.branchListService.setMessage({'cancel': 'branchList.validation.notValidAddress'});
         }
         $timeout(function(){
             $state.go('main.advisorLocator.branchList');
