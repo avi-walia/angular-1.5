@@ -185,5 +185,6 @@
   "googleLogo": "google logo",
   "errors": {
     "noData" : "An error has occurred. Please try again. If this issue continues, please contact IT services at {{'its@ci.com' | clickableEmail}}"
-  }
+  },
+  "mastHead" : "Be well-connected."
 }

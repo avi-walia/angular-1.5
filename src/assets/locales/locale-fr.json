@@ -181,5 +181,6 @@
   "googleLogo": "FR google logo",
   "errors": {
     "noData" : "Une erreur est survenue. Veuillez réessayer. Si ce problème persiste, veuillez communiquer avec le Service des technologies informatiques par courriel à {{'its@ci.com' | clickableEmail}}."
-  }
+  },
+  "mastHead" : "Soyez bien connecté."
 }
