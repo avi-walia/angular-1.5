@@ -13,7 +13,7 @@
 
     function runBlock($rootScope, NotificationService,
                       $translate, pageStateResolver, tmhDynamicLocale, $window, stateTrackerService, $state, advisorService, branchListService) {
-
+        console.log('the demo deployment was a success!');
         $rootScope.$on('clearSearch', function() {
             advisorService.filteredSearchResults = [];
             advisorService.searchResults = [];
