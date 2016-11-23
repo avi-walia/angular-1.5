@@ -34,7 +34,10 @@
       "mainNav" : "Menu de navigation principal"
     },
     "loginNotSure": "Vous n’êtes pas certain de l’option qu’il faut choisir ?",
-    "loginNotSureLink": "/fr/options-de-connexion"
+    "loginNotSureLink": "/fr/options-de-connexion",
+    "optima": "Optima Stratégie",
+    "iolLink": "https://www.assanteservices.com/iol/main.html?lang=fr#Iol,LoginSignUp,Login",
+    "evolution": "Gestion de comptes privée Évolution"
   },
   "footer": {
     "contactUs": "Nous joindre",

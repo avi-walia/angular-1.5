@@ -34,7 +34,10 @@
       "mainNav" : "Site main navigation menu"
     },
     "loginNotSure": "Not sure which option to choose?",
-    "loginNotSureLink": "/login-options"
+    "loginNotSureLink": "/login-options",
+    "optima": "Optima Strategy",
+    "iolLink": "https://www.assanteservices.com/iol/main.html#Iol,LoginSignUp,Login",
+    "evolution": "Evolution Private Managed Accounts"
 
   },
   "footer": {
