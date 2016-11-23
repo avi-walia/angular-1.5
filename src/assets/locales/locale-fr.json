@@ -32,7 +32,9 @@
     "accessibility": {
       "topNav" : "Menu de navigation du haut de la page",
       "mainNav" : "Menu de navigation principal"
-    }
+    },
+    "loginNotSure": "Vous n’êtes pas certain de l’option qu’il faut choisir ?",
+    "loginNotSureLink": "/fr/options-de-connexion"
   },
   "footer": {
     "contactUs": "Nous joindre",

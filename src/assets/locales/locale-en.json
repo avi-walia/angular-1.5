@@ -32,7 +32,10 @@
     "accessibility": {
       "topNav" : "Site top navigation menu",
       "mainNav" : "Site main navigation menu"
-    }
+    },
+    "loginNotSure": "Not sure which option to choose?",
+    "loginNotSureLink": "/login-options"
+
   },
   "footer": {
     "contactUs": "Contact Us",

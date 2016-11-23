@@ -30,7 +30,8 @@
                             <li class="menu__item is-leaf leaf"><a href="https://www.privateclientmp.com" title="Private Client Managed Portfolios" target="_blank" class="menu__link">Private Client Managed Portfolios</a></li>
                             <li class="menu__item is-leaf leaf"><a href="https://www.assanteservices.com/iol/" title="Evolution Private Managed Accounts" target="_blank" class="menu__link">Evolution Private Managed Accounts</a></li>
                             <li class="menu__item is-leaf leaf"><a href="https://www.assanteservices.com/iol" title="Optima Strategy" target="_blank" class="menu__link">Optima Strategy</a></li>
-                            <li class="menu__item is-leaf last leaf" id="notsure"><a href="http://www.assante.com" title="Not sure which option to choose?" class="menu__link">Not sure which option to choose?</a></li>
+                            <li ng-if="$ctrl.currentLanguage === 'en'" class="menu__item is-leaf last leaf" id="notsure"><a href="{{'header.loginNotSureLink' | translate}}" title="{{'header.loginNotSure' | translate}}" class="menu__link" translate>header.loginNotSure</a></li>
+                            <li ng-if="$ctrl.currentLanguage === 'fr'" class="menu__item is-leaf last leaf" id="notsure"><a href="{{'header.loginNotSureLink' | translate}}" title="{{'header.loginNotSure' | translate}}" class="menu__link" translate>header.loginNotSure</a></li>
                           </ul>
                         </li>
                         <li class="menu__item is-expanded last expanded"><span class="menu__link nolink">Advisors</span>
