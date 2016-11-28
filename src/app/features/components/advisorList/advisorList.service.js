@@ -13,13 +13,33 @@
         'ELEMENTS_PER_PAGE',
         'filterRunnerService',
         'langFilterService',
-        'provinceFilterService'
+        'provinceFilterService',
+        '$q'
     ];
 
-    function advisorService(removeDiacriticsService, server, envConfigService, ELEMENTS_PER_PAGE, filterRunnerService, langFilterService, provinceFilterService) {
+    function advisorService(removeDiacriticsService, server, envConfigService, ELEMENTS_PER_PAGE, filterRunnerService, langFilterService, provinceFilterService, $q) {
         var service = this;
+        service.imageNotFound = imageNotFound;
         //This array stores results that contain some but not all the search terms. This is displayed IF AND ONLY IF there are no results that contain all search terms.
         var secondaryResults = [];
+
+        //the following four values will be initialized in the envConfigService.promise.then block.
+        var advisorAPI = '';
+        //path to mobile templates.
+        service.mobileTemplatePath = '';
+        //path to desktop templates.
+        service.desktopTemplatePath = '';
+
+        if (envConfigService.promise === null) {
+            envConfigService.init();
+        }
+        envConfigService.promise.then(function() {
+            advisorAPI = envConfigService.BASE_URL + envConfigService.ENDPOINT_URI + '/advisors';
+            var path = envConfigService.BASE_URL + '/app/features/components/advisorList/templates';
+            service.mobileTemplatePath = path + '/mobile.tpl.html';
+            service.desktopTemplatePath = path + '/desktop.tpl.html';
+        });
+
         //names of available filters
         service.filters = {
             lang: 'lang',
@@ -64,12 +84,7 @@
             path to mobile/desktop templates used when rendering infinite scroll/pagination component.
             Not currently being used.
          */
-        var path = envConfigService.BASE_URL + '/app/features/components/advisorList/templates';
 
-        //path to mobile templates.
-        service.mobileTemplatePath = path + '/mobile.tpl.html';
-        //path to desktop templates.
-        service.desktopTemplatePath = path + '/desktop.tpl.html';
 
 
         //This is the flag that determines if we are sorting in ascending or descending order. This is automatically changed to true on search
@@ -162,13 +177,15 @@
         function init() {
             //clear allAdvisors
             service.allAdvisors = [];
+            var deferred = $q.defer();
 
             //make http call for all advisors.
-            return server.get(envConfigService.BASE_URL + envConfigService.ENDPOINT_URI + '/advisors', false, 'localStorage', false).then(function(data) {
+            var ret = server.get(advisorAPI, false, 'localStorage', false).then(function(data) {
                 //all advisors have been retrieved. Dissable isLoading.
 
                 //precompute names with punctuation, spacing and accents removed. This will speed up searches later.
                 _.forEach(data.data, function(advisor, index){
+                    advisor.hasPicture = true;//assume each advisor has a picture until the err-src directive tells us otherwise.
                     if (advisor.spokenLanguage !== 'French' && advisor.spokenLanguage !== 'Bilingual') {
                         advisor.spokenLanguage = 'English';
                     }
@@ -219,8 +236,16 @@
                 //Store all advisors.
                 service.allAdvisors = data.data;
                 service.isLoading = false;
+                deferred.resolve();
 
+            },
+            function() {
+                //on error
+                deferred.reject();
             });
+
+            return deferred.promise;
+
         }
 
         //update the currentPage tracker
@@ -573,6 +598,16 @@
             } else {
                 return string.replace(/[.,\/#!$%\^&\*;:{}=\-_`'~()]/g, "");
             }
+        }
+
+        //advisor locator is not used that often, thus we will only update the current dataset with the advisors whose images are not found.
+        //if it was used more frequently, like on a daily basis, it would be better to store this in cache.
+        function imageNotFound(advisorId) {
+            _.forEach(service.allAdvisors, function(advisor) {
+                if (advisor.id == advisorId) {
+                    advisor.hasPicture = false;
+                }
+            })
         }
 
     }
