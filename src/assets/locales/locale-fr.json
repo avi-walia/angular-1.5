@@ -21,7 +21,7 @@
   },
   "header": {
     "login": "Connexion",
-    "locator": "Recherche de conseillers",
+    "locator": "Trouver un conseiller",
     "searchPlaceholder": "Saisissez vos critères de recherche ici",
     "searchButton": "Rechercher",
     "about" : "À propos de nous",
