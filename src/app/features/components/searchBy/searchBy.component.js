@@ -26,6 +26,8 @@
         vm.searchBy = $state.current.url === '/advisors' ? 'name' : 'location';
         vm.navigate = navigate;
 
+        vm.isBranchesQuery = $state.current.name === "main.advisorLocator.branchesQuery";
+
         //function to navigate between search pages.
         function navigate(searchBy) {
             if (searchBy === 'location') {

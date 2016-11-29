@@ -105,7 +105,7 @@
 
                             }
                         }
-                    })*/
+                    })
 
                     .state('main.advisorLocator.branchListQuery', {
                         url: '/location/:q?',
@@ -117,7 +117,7 @@
 
 
                     })
-
+                  */
                     .state('main.advisorLocator.branchList', {
                         url: '/branches',
                         views: {
@@ -127,9 +127,18 @@
                         }
                     })
 
+                    .state('main.advisorLocator.branchesQuery', {
+                        url: '/branches/q/:q?',
+                        views: {
+                            'content@main': {
+                                template: '<branch-list></branch-list>'
+                            }
+                        }
+                    })
+
 
                     .state('main.advisorLocator.branchDetails', {
-                        url: '/branches/:id',
+                        url: '/branches/details/:id',
                         views: {
                             'content@main': {
                                 template: '<branch-detail></branch-detail>'
