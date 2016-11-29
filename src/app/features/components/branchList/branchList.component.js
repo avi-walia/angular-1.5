@@ -19,11 +19,13 @@
         'detectMobile',
         'envConfigService',
         'branchListService',
-        'stateTrackerService'
+        'stateTrackerService',
+        '$stateParams',
+        '$state'
 
     ];
     /* @ngInject */
-    function branchListCtrl($rootScope, $scope, pageStateResolver, detectMobile, envConfigService, branchListService, stateTrackerService
+    function branchListCtrl($rootScope, $scope, pageStateResolver, detectMobile, envConfigService, branchListService, stateTrackerService, $stateParams, $state
     ) {
         var vm = this;
         vm.pageStateResolver = pageStateResolver;
@@ -44,6 +46,22 @@
         vm.setMessage = setMessage;
         vm.setMarkers = setMarkers;
 
+
+
+        function parseLocation(location){
+
+            return _.replace(location, new RegExp('\\+', 'g'), ' ');
+
+        }
+        //only do this if the route is main.advisorLocator.branchesQuery and this is the first time the user entered the application.
+        //this is only if the user goes to the above route that passes a route parameter containing the query term
+        if (stateTrackerService.previousState && stateTrackerService.previousState.name === '' && $state.current.name === "main.advisorLocator.branchesQuery") {
+            vm.drupalQuery = parseLocation($stateParams.q);
+            vm.branchListService.setLocation(vm.drupalQuery);
+            if (!vm.drupalQuery) {
+                vm.branchListService.setMessage({'cancel': 'branchList.validation.notValidAddress'});
+            }
+        }
 
 
         var mapIsCompiled = $rootScope.$on('mapIsCompiled', function(event, param){
