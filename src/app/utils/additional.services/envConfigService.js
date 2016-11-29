@@ -16,21 +16,23 @@
         service.GOOGLE_MAPS_URL = '';
         service.ASSANTE_URL = '';
         service.init = init;
+        service.promise = null;
 
         function init() {
-            console.log('hello world');
-            return $http.get(ENVIRONMENT_CONFIG_PATH).then(function(envConf) {
+            service.promise = $http.get(ENVIRONMENT_CONFIG_PATH).then(
+                function(envConf) {
                     service.BASE_URL = envConf.data.BASE_URL;
                     service.CONTEXT_ROOT = envConf.data.CONTEXT_ROOT;
                     service.ENDPOINT_URI = envConf.data.ENDPOINT_URI;
                     service.GOOGLE_MAPS_URL = envConf.data.GOOGLE_MAPS_URL;
                     service.ASSANTE_URL = envConf.data.ASSANTE_URL;
                     service.PROFILE_PICTURE_BASE_PATH = envConf.data.PROFILE_PICTURE_BASE_PATH;
-            },
-            function(error) {
-                console.log('error1123');
-                $rootScope.$emit('noData');
-            });
+                },
+                function(error) {
+                    $rootScope.$emit('noData');
+                }
+            );
+            return service.promise;
         }
     }
 })();

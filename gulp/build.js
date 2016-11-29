@@ -143,7 +143,7 @@ module.exports = function (options) {
     gulp.task('envConfigs', ['cleanTmp'], function () {
         return gulp.src('./src/environment-configs/app.config.local.json')
             .pipe(rename("environment-config.json"))
-            .pipe(gulp.dest('./.tmp/serve'));
+            .pipe(gulp.dest('./.tmp/serve/locator'));
     });
 
     gulp.task('clean-build', function (done) {

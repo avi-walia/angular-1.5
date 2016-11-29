@@ -43,11 +43,12 @@
                         url: '/{locale:(?:en|fr)}',
                         resolve: {
                             initData: ['envConfigService', function (envConfigService) {
-                                var x = envConfigService.init();
-                                x.then(function(data) {
-                                    console.log('envConfData2246: ', data);
-                                });
-                                return x;
+                                if (envConfigService.promise === null) {
+                                    var x = envConfigService.init();
+                                    return x;
+                                } else {
+                                    return envConfigService.promise;
+                                }
                             }]
                         },
                         abstract: true,
