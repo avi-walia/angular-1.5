@@ -16,7 +16,7 @@
     "logo-img": "logos_f.svg",
     "browse-happy": "Vous utilisez un navigateur Web <strong>obsolète</strong>. Veuillez <a href='http://browsehappy.com/'>mettre à niveau votre navigateur Web</a> pour accéder à ce contenu.",
 
-    "dismiss-message": "FR Dismiss message",
+    "dismiss-message": "Ignorer le message",
     "logo-text": "Gestion de patrimoine Assante"
   },
   "header": {
@@ -79,13 +79,13 @@
     "currentLocation": "Emplacement+Actuel",
     "getDetails": "Voir les détails de la succursale",
     "showOnMap": "Afficher sur le plan",
-    "km": "FR km",
+    "km": "km",
     "search": "Rechercher",
     "clear": "effacer",
     "locateMe": "Trouvez-moi",
-    "waitForMapToRender": "FR Please wait while the map loads",
+    "waitForMapToRender": "La carte est en cours de téléchargement, veuillez patienter.",
     "validation": {
-      "notValidAddress" : "FR Please choose a valid address",
+      "notValidAddress" : "Inscrire une adresse valide.",
       "geoNotSupported" : "Votre navigateur Web ne permet pas la géolocalisation.",
       "geoPermissionsDenied" : "La géolocalisation n’est pas autorisée.",
       "geoPositionUnavailable" : "L’information sur l’emplacement n’est pas disponible.",
@@ -96,46 +96,46 @@
     }
   },
   "advisorDetail":{
-    "title": "FR Advisor Detail",
-    "searchResultsButton": "FR Back to search results",
+    "title": "Renseignements sur le conseiller",
+    "searchResultsButton": "Retour aux résultats de recherche",
     "branchDetailsLink": "Voir les détails de la succursale",
-    "mapTitle": "FR Map",
-    "telephone": "FR Phone",
-    "fax": "FR Fax",
-    "tollFree": "FR Toll Free",
-    "email": "FR Email",
-    "alternateEmail": "FR Team Email",
-    "website": "FR Website",
-    "advisorImageAlt": "FR advisor's profile picture",
-    "spokenLanguages": "FR Spoken Languages"
+    "mapTitle": "Carte",
+    "telephone": "Téléphone",
+    "fax": "Télécopieur",
+    "tollFree": "Sans frais",
+    "email": "Courriel",
+    "alternateEmail": "Courriel de l’équipe",
+    "website": "Site Web",
+    "advisorImageAlt": "Photo du profil du conseiller",
+    "spokenLanguages": "Langues parlées"
   },
   "branchDetail":{
-    "title": "FR Branch Detail",
-    "mapTitle": "FR Map",
-    "searchResultsButton": "FR Back to search results",
-    "branchAssociates": "FR Branch Associates",
-    "address": "FR Address",
-    "telephone": "FR Phone",
-    "tollFree": "FR Toll-free",
-    "fax": "FR Fax",
-    "website": "FR Website",
-    "email": "FR Email",
-    "branchManagerName": "FR Branch Manager",
-    "coManager": "FR Co Manager:"
+    "title": "Renseignements sur la succursale",
+    "mapTitle": "Carte",
+    "searchResultsButton": "Retour aux résultats de recherche",
+    "branchAssociates": "Membres de la succursale ",
+    "address": "Adresse",
+    "telephone": "Téléphone",
+    "tollFree": "Sans frais",
+    "fax": "Télécopieur",
+    "website": "Site Web",
+    "email": "Courriel",
+    "branchManagerName": "Directeur de succursale",
+    "coManager": "Directeur adjoint:"
   },
   "aria": {
-    "main-label": "FR Main content section",
+    "main-label": "Section du contenu principal",
     "nameSearch": {
-      "searchBarLabel": "FR Start typing an advisor's first or last name and the search results will show below.",
+      "searchBarLabel": "Saisir le prénom ou le nom de famille d'un conseiller pour afficher les résultats ci-dessous.",
       "clearButton": "Réinitialiser les filtres.",
       "filters": {
-        "language": "FR Filter by Language:",
-        "province": "FR Filter by Province:"
+        "language": "Filtrer par langue :",
+        "province": "Filtrer par province :"
       },
       "getAdvisorDetails": "Voir les détails de {{showName}} {{lastName}}"
     },
     "locationSearch" : {
-      "searchBarLabel": "FR Enter the city and/or province and the search results will show below."
+      "searchBarLabel": "Saisir l’emplacement. Les résultats s'afficheront ci-dessous."
     },
     "pagination": {
       "previous": "{{'aria.pagination.page' | translate}} précédente",
@@ -149,7 +149,6 @@
 
   "pages": {
     "advisorList":{
-      "filtersLabel": "FR Filters:",
       "title": "Rechercher un conseiller",
       "filterOptions": {
         "lang": {
@@ -177,13 +176,13 @@
       "clearFilterLabel": "effacer"
     },
     "branchList": {
-      "title": "FR Search for branches"
+      "title": "Recherche de succursales "
     }
   },
-  "profilePicturePlaceholder": "FR advisor's profile picture",
-  "email": "FR email",
-  "googleMapVerbiage": "FR google map",
-  "googleLogo": "FR google logo",
+  "profilePicturePlaceholder": "Photo du profil du conseiller",
+  "email": "Courriel",
+  "googleMapVerbiage": "Carte google",
+  "googleLogo": "Logo google",
   "errors": {
     "noData" : "Une erreur est survenue. Veuillez réessayer. Si ce problème persiste, veuillez communiquer avec le Service des technologies informatiques par courriel à {{'its@ci.com' | clickableEmail}}."
   },
