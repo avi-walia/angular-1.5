@@ -8,7 +8,7 @@
 
                 <div id="photo">
                     <img ng-if="!$ctrl.advisorDetailService.advisorDetail.hasPicture" alt="{{ 'advisorDetail.advisorImageAlt' | translate }}" src="assets/images/advisorHeadShot.png" />
-                    <img ng-if="$ctrl.advisorDetailService.advisorDetail.hasPicture" alt="{{ 'advisorDetail.advisorImageAlt' | translate }}" ng-src="{{$ctrl.PROFILE_PICTURE_BASE_PATH + $ctrl.advisorDetailService.advisorDetail.id + '/profile-pic.jpg'}}" />
+                    <img ng-if="$ctrl.advisorDetailService.advisorDetail.hasPicture" err-src="assets/images/advisorHeadShot.png" alt="{{ 'advisorDetail.advisorImageAlt' | translate }}" ng-src="{{$ctrl.PROFILE_PICTURE_BASE_PATH + $ctrl.advisorDetailService.advisorDetail.id + '/profile-pic.jpg'}}" />
                 </div>
                 <div id="advisor">
                     <p class="name" ng-if="$ctrl.perviousStateIsNameSearch"><span ng-if="$ctrl.advisorDetailService.advisorDetail.showCommon">{{$ctrl.advisorDetailService.advisorDetail.commonName}}</span><span ng-if="!$ctrl.advisorDetailService.advisorDetail.showCommon">{{$ctrl.advisorDetailService.advisorDetail.firstName}}</span> {{$ctrl.advisorDetailService.advisorDetail.lastName}}</p>
