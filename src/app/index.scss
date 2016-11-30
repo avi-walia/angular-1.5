@@ -69,7 +69,7 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
   .pane-menu-menu-secondary-menu { padding-right:31px; margin:-35px -3% 0;
     ul.menu { list-style:none; margin:0 auto; /*max-width:$zen-grid-width;*/ overflow:visible; padding:0; text-align:right;
       li { color:#fff; display:inline-block; font:700 0.88em/35px 'Montserrat',sans-serif; line-height:35px; text-transform:uppercase;
-        &::before { color:#fff; font:20px/35px 'Material Icons'; margin-right:2px; vertical-align:bottom; }
+        &::before { color:#fff; font:20px/35px 'Material Icons'; font-feature-settings:'liga'; margin-right:2px; vertical-align:bottom; }
         &#login { /*float:left;*/
           &:hover { color:$orange; cursor:default;
             >ul.menu { display:block; }
@@ -251,8 +251,9 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
 #errorMsgs { @include zen-grid-container(); background:#a00; border-radius:3px; color:#fff; margin:2em auto 0; padding:0 2*$zen-gutters; position:relative; width:100%;
   @media (min-width:1152px) { padding:0; width:1080px; }
   p { line-height:1.2; margin:$zen-gutters; }
+  a { color:#fff; }
   button { background:#fff; border:solid 2px #a00; border-radius:16px; display:block; height:32px; position:absolute; right:-10px; text-indent:-999em; top:-10px; width:32px;
-    &::before { content:'close'; color:#a00; font:26px/28px 'Material Icons'; left:0; position:absolute; right:0; text-indent:0; top:0; }
+    &::before { content:'close'; color:#a00; font:26px/28px 'Material Icons'; font-feature-settings:'liga'; left:0; position:absolute; right:0; text-indent:0; top:0; }
   }
 }
 
@@ -264,18 +265,18 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
         a { color:#888; display:inline-block; font:700 0.8em/1 'Montserrat',sans-serif; height:60px; text-align:left; text-decoration:none; }
         .advisorList & {
           &#searchbyname { background:#fff;
-            a { color:$blue; background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#003e51" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>') left 18px no-repeat; font-size:1em; padding:15px 0 0 32px; width:120px; }
+            a { color:$blue; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23003e51' d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E") left 18px no-repeat; font-size:1em; padding:15px 0 0 32px; width:120px; }
           }
           &#searchbylocation {
-            a { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#888888" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>') left 20px no-repeat; background-size:19px; padding:18px 0 0 25px; width:120px;}
+            a { background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23888888' d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/%3E%3C/svg%3E") left 20px no-repeat; background-size:19px; padding:18px 0 0 25px; width:120px; }
           }
         }
         .branchList & {
           &#searchbyname {
-            a { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#888888" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>') left 20px no-repeat; background-size:19px; padding:18px 0 0 25px; width:100px; }
+            a { background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23888888' d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E") left 20px no-repeat; background-size:19px; padding:18px 0 0 25px; width:100px; }
           }
           &#searchbylocation { background:#fff;
-            a { color:$blue; background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#003e51" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>') left 18px no-repeat; font-size:1em; padding:15px 0 0 32px; width:140px; cursor:pointer; }
+            a { color:$blue; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23003e51' d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/%3E%3C/svg%3E") left 18px no-repeat; font-size:1em; padding:15px 0 0 32px; width:140px;}
           }
         }
       }
@@ -306,8 +307,8 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
   }
   #filters { background:#fff; font-size:0.9em; padding:$zen-gutters; width:100%;
     #input { display:inline-block; position:relative;
-      &::before { color:$orange; content:'search'; font:24px/35px 'Material Icons'; left:8px; position:absolute; z-index:1; }
-      input { background:darken($bg,4%); border:0; border-radius:3px; line-height:2.5em; padding:0 8px 0 40px; position:relative; }
+      &::before { color:$orange; content:'search'; font:24px/35px 'Material Icons'; font-feature-settings:'liga'; left:8px; position:absolute; z-index:1; }
+      input { background:darken($bg,4%); border:0; border-radius:3px; height:2.5em; padding:0 8px 0 40px; position:relative; }
     }
   }
 }
@@ -317,7 +318,8 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
     #options { vertical-align:top; white-space:nowrap; xwidth:41%;
       // #filtersLabel { color:#888; font-weight:700; margin:0 5px 0 10px; }
       label { display:none; }
-      select { appearance:none; background:darken($bg,4%) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#cd5806" d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/></svg>') 94% 9px no-repeat; background-size:20px; border:0; border-radius:3px; display:inline-block; height:2.5em; line-height:2.5em; margin-right:0.4%; padding:0 8% 0 3%; width:38%; }
+      select { appearance:none; background:darken($bg,4%) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23cd5806' d='M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z'/%3E%3C/svg%3E") 94% 9px no-repeat; background-size:20px; border:0; border-radius:3px; display:inline-block; height:2.5em; line-height:2.5em; margin-right:0.4%; padding:0 8% 0 3%; width:38%; }
+      select::-ms-expand { display:none; }
       button { background:$orange; border:0; border-radius:3px; color:#fff; float:right; font-family:'Montserrat',sans-serif; height:2.5em; line-height:2.6em; padding:0 2.5%; text-transform:uppercase; vertical-align:top; width:20%; }
     }
     #input { display:block; margin-top:$zen-gutters; overflow:hidden; position:relative;
@@ -370,12 +372,12 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
               }
             }
             &.location { margin-bottom:1em; }
-            &.phone { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#003e51" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>') 0 1px no-repeat; background-size:18px; padding-left:24px;
+            &.phone { background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23003e51' d='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z'/%3E%3C/svg%3E") 0 1px no-repeat; background-size:18px; padding-left:24px;
               a { color:$text; text-decoration:none;
                 &:hover { color:$orange; }
               }
             }
-            &.email { background:url('data:image/svg+xml;utf8,<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#003e51" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/></svg>') 0 2px no-repeat; background-size:18px; padding-left:24px;
+            &.email { background:url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23003e51' d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z'/%3E%3C/svg%3E") 0 2px no-repeat; background-size:18px; padding-left:24px;
               a { color:$text; text-decoration:none;
                 &:hover { color:$orange; }
               }
@@ -401,7 +403,7 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
       }
     }
   }
-  #nosearch { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bbbbbb" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>') center 100px no-repeat; background-size:150px; height:475px; padding-top:250px; text-align:center;
+  #nosearch { background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23bbbbbb' d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E") center 100px no-repeat; background-size:150px; height:475px; padding-top:250px; text-align:center;
       p, a { color:#aaa; }
   }
 }
@@ -421,7 +423,7 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
     }
     #button { margin:0 0 5px; width:100%;
       button { background:$orange; border:0; border-radius:3px; color:#fff; display:inline-block; font-family:'Montserrat',sans-serif; height:2.5em; line-height:2.6em; padding:0 8px 0 36px; position:relative; text-transform:uppercase; white-space:nowrap; width:100%;
-        &::before { content:'my_location'; font:24px/35px 'Material Icons'; left:8px; position:absolute; text-transform:none; z-index:1; }
+        &::before { content:'my_location'; font:24px/35px 'Material Icons'; font-feature-settings:'liga'; left:8px; position:absolute; text-transform:none; z-index:1; }
       }
     }
     @media (min-width:420px) {
@@ -454,7 +456,7 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
       //   &::after { bottom:20px; color:$orange; content:'Show on map'; font-size:0.9em; position:absolute; right:20px; }
       // }
     }
-    #nosearch { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bbbbbb" d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3c-.46-4.17-3.77-7.48-7.94-7.94V1h-2v2.06C6.83 3.52 3.52 6.83 3.06 11H1v2h2.06c.46 4.17 3.77 7.48 7.94 7.94V23h2v-2.06c4.17-.46 7.48-3.77 7.94-7.94H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>') center 150px no-repeat; background-size:150px; height:600px; padding:300px 40px 0; position:absolute; text-align:center; top:0; width:100%;
+    #nosearch { background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23bbbbbb' d='M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3c-.46-4.17-3.77-7.48-7.94-7.94V1h-2v2.06C6.83 3.52 3.52 6.83 3.06 11H1v2h2.06c.46 4.17 3.77 7.48 7.94 7.94V23h2v-2.06c4.17-.46 7.48-3.77 7.94-7.94H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z'/%3E%3C/svg%3E") center 150px no-repeat; background-size:150px; height:600px; padding:300px 40px 0; position:absolute; text-align:center; top:0; width:100%;
         p, a { color:#aaa; }
     }
     .branch + #nosearch { display:none; }
@@ -487,7 +489,7 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
 
 #advisorDetails {
   #card { background:#fff; display:inline-block; margin-right:-4px; position:relative; vertical-align:top; width:100%;
-    button { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#888888" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>') 0 1px no-repeat; background-size:18px; border:0; color:#888; display:block; font-size:0.8em; margin:10px 0 3em 8px; padding-left:22px;
+    button { background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23888888' d='M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z'/%3E%3C/svg%3E") 0 1px no-repeat; background-size:18px; border:0; color:#888; display:block; font-size:0.8em; margin:10px 0 3em 8px; padding-left:22px;
       &:hover { color:$orange; cursor:pointer; }
     }
     #photo { display:inline-block; margin:0 10px 0 20px; overflow:hidden; padding-top:30%; position:relative; vertical-align:middle; width:30%;
@@ -556,7 +558,7 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
 
 #branchDetails {
   #card { background:#fff; display:inline-block; margin-right:-4px; overflow-y:auto; position:relative; vertical-align:top; width:100%;
-    button { background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#888888" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>') 0 1px no-repeat; background-size:18px; border:0; color:#888; display:block; font-size:0.8em; margin:10px 0 3em 8px; padding-left:22px;
+    button { background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23888888' d='M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z'/%3E%3C/svg%3E") 0 1px no-repeat; background-size:18px; border:0; color:#888; display:block; font-size:0.8em; margin:10px 0 3em 8px; padding-left:22px;
       &:hover { color:$orange; cursor:pointer; }
     }
     #details { text-align:center; margin-bottom:2em;
@@ -636,7 +638,7 @@ footer { background:$bg_dark; color:$bg; font:400 0.9em/1 'Montserrat',sans-seri
   h1 { @include zen-grid-item(12,1,$gutters:3%); background:url('../images-source/logo_assante_white_en.svg') no-repeat; display:block; height:35px; margin-bottom:1em; margin-top:0; padding:0; text-indent:-999em; xtransform:translateX(-17px); width:168px; }
   h2 { border-bottom:solid 1px lighten($bg_dark,20%); font-size:1em; font-weight:400; line-height:2.25em; margin:0 0 0.75em; padding:0 0 0.5em 1.7em; position:relative; white-space:nowrap;
     @media (min-width:896px) { padding-left:1.9em; }
-    &::before { font:1.2em/2 'Material Icons'; left:0; letter-spacing:0; position:absolute; text-transform:none; }
+    &::before { font:1.2em/2 'Material Icons'; font-feature-settings:'liga'; left:0; letter-spacing:0; position:absolute; text-transform:none; }
   }
   ul, li { list-style:none !important; line-height:2.4; margin:0; padding:0; }
   p { margin:0; }
@@ -645,7 +647,7 @@ footer { background:$bg_dark; color:$bg; font:400 0.9em/1 'Montserrat',sans-seri
   .contact, .locator, .careers { letter-spacing:1px; margin-bottom:2em; padding:0 20px; text-transform:uppercase;
     li { padding-left:1.7em; position:relative; white-space:nowrap;
       @media (min-width:896px) { padding-left:1.9em; }
-      &::before { font:1.2em/2 'Material Icons'; left:0; letter-spacing:0; position:absolute; text-align:center; text-transform:none; }
+      &::before { font:1.2em/2 'Material Icons'; font-feature-settings:'liga'; left:0; letter-spacing:0; position:absolute; text-align:center; text-transform:none; }
     }
     @media (min-width:768px) { margin-bottom:2em; padding:0; }
     @media (min-width:896px) {
