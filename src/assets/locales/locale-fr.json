@@ -20,6 +20,10 @@
     "logo-text": "Gestion de patrimoine Assante"
   },
   "header": {
+    "aiol": "InfoClientèle Assante",
+    "aiolLink": "https://www.assanteservices.com/aiol/#/fr/aio/landing/",
+    "pcWeb": "Portefeuilles gérés de clientèle privée",
+    "pcWebLink": "https://www.privateclientmp.com/PCWeb/PCWeb_FR.jsp",
     "login": "Connexion",
     "locator": "Trouver un conseiller",
     "searchPlaceholder": "Saisissez vos critères de recherche ici",
@@ -56,8 +60,10 @@
     "corporateOpportunities": "Emplois au siège social",
     "copyright": "©{{ year }} Gestion de patrimoine Assante. Tous droits réservés.",
     "security": "Sécurité",
-    "privacyPolicy": "Politique de confidentialité",
-    "legal": "Notices juridiques",
+    "privacyPolicy": "Confidentialité",
+    "privacyPolicyLink": "/fr/confidentialité",
+    "legal": "Lois",
+    "legalLink": "/fr/lois",
     "accessibility": {
       "social" : "Liens vers des médias sociaux",
       "search" : "Liens pour la recherche de conseillers",

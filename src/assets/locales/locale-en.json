@@ -20,6 +20,10 @@
     "logo-text": "Assante Wealth Management"
   },
   "header": {
+    "aiol": "Assante InvestorOnline",
+    "aiolLink": "https://www.assanteservices.com/aiol/#/en/aio/landing/",
+    "pcWeb": "Private Client Managed Portfolios",
+    "pcWebLink": "https://www.privateclientmp.com/PCWeb/",
     "login": "Login",
     "locator": "Advisor Locator",
     "searchPlaceholder": "Enter your search terms here",
@@ -58,7 +62,9 @@
     "copyright": "©{{ year }} Assante Wealth Management. All right Reserved.",
     "security": "Security",
     "privacyPolicy": "Privacy Policy",
+    "privacyPolicyLink": "/privacy-policy",
     "legal": "Legal",
+    "legalLink": "/legal",
     "accessibility": {
       "social" : "Site social links",
       "search" : "Advisor search navigation links",
