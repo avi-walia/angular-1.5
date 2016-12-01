@@ -1,21 +1,21 @@
 
-var $q;
-var $rootScope;
-var ELEMENTS_PER_PAGE = 9;
-/*
-var filterRunnerServiceMock = {
-    filters: {},
-    activeFilters: [],
-    allData: [],
-    filteredData: []
-};*/
-var serverMock = {
-    get: function(){}
-};
-
 
 (function () {
-    var envConfigServiceMock = new envConfigServerMockConstructor();
+
+    var $q;
+    var $rootScope;
+    var ELEMENTS_PER_PAGE = 9;
+    /*
+     var filterRunnerServiceMock = {
+     filters: {},
+     activeFilters: [],
+     allData: [],
+     filteredData: []
+     };*/
+    var serverMock = {
+        get: function(){}
+    };
+
     describe('advisor list service after initialization', function () {
         var $advisorService;
         var resultSetLength = advisors.length;
@@ -49,7 +49,7 @@ var serverMock = {
                 });
                 $provide.service('envConfigService', function() {
 
-                    return envConfigServiceMock;
+                    return new envConfigServiceMockConstructor();
                 });
             });
         });
@@ -323,6 +323,20 @@ var serverMock = {
 
 
 (function () {
+
+    var $q;
+    var $rootScope;
+    var ELEMENTS_PER_PAGE = 9;
+    /*
+     var filterRunnerServiceMock = {
+     filters: {},
+     activeFilters: [],
+     allData: [],
+     filteredData: []
+     };*/
+    var serverMock = {
+        get: function(){}
+    };
     describe('advisor list service pagination test', function () {
         var $advisorService;
         var resultSetLength = paginationAdvisors.length;
@@ -354,10 +368,9 @@ var serverMock = {
                 });
                 $provide.service('provinceFilterService', function() {
                 });
-                var envConfigServiceMock = new envConfigServerMockConstructor();
                 $provide.service('envConfigService', function() {
 
-                    return envConfigServiceMock;
+                    return new envConfigServiceMockConstructor();
                 });
             });
         });

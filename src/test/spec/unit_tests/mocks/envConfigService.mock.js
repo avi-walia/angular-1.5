@@ -1,4 +1,4 @@
-var envConfigServerMockConstructor =  function() {
+var envConfigServiceMockConstructor =  function() {
     var ret = {
         BASE_URL: '',
         CONTEXT_ROOT: '',
@@ -6,7 +6,6 @@ var envConfigServerMockConstructor =  function() {
         GOOGLE_MAPS_URL: '',
         ASSANTE_URL: '',
         init: function () {
-            console.log('testing2246');
         },
         promise: {
             'then': function() {

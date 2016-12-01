@@ -1,3 +1,6 @@
+
+
+(function () {
 var branchLists = [
     {"id":5404,"dealerShip":"ACM","geoLocation":{"lng":-79.382153,"lat":43.651078,"_persistence_fetchGroup":null},"address1":"80 Richmond Street West","address2":"Suite 202","city":"Toronto","provinceAbbr":"ON","postalCode":"M5H 2A4","phone":"416-216-6580","tollFree":null,"fax":"416-216-6545","managerName":"Diana Nielsen","managerEmail":"diana.nielsen@assante.com","managerPhone":"416-216-6500","coManagerName":null,"coManagerEmail":null,"coManagerPhone":null,"coManager2Name":null,"coManager2Email":null,"coManager2Phone":null,"partialAdvisorsInfo":[{"id":30818,"firstName":"Kenneth","commonName":null,"lastName":"Drabble","titlesEN":["Vice President","Senior Financial Advisor"],"titlesFR":["Vice-prÃ©sident","Senior Financial Advisor"],"designationsEN":["FCSI<sup>&reg;</sup>","CIM","R.F.P.<sup>&reg;</sup>"],"designationsFR":["FCSI<sup>MD</sup>","CIM<sup>MD</sup>","R.F.P.<sup>&reg;</sup>"],"spokenLanguage":"English","_persistence_fetchGroup":null}],"_persistence_fetchGroup":null},
     {"id":4935,"dealerShip":"AFM","geoLocation":{"lng":-114.06792,"lat":51.00154,"_persistence_fetchGroup":null},"address1":"222 - 58th Avenue SW","address2":"Suite 301","city":"Calgary","provinceAbbr":"AB","postalCode":"T2H 2S3","phone":"403-229-0541","tollFree":null,"fax":"403-228-2754","managerName":"Jim Durnin","managerEmail":"jim.durnin@assante.com","managerPhone":"403-229-0541","coManagerName":null,"coManagerEmail":null,"coManagerPhone":null,"coManager2Name":null,"coManager2Email":null,"coManager2Phone":null,"partialAdvisorsInfo":[{"id":31234,"firstName":"Peter","commonName":null,"lastName":"Minnema","titlesEN":[],"titlesFR":[],"designationsEN":[],"designationsFR":[],"spokenLanguage":"English","_persistence_fetchGroup":null},{"id":31494,"firstName":"John","commonName":"Chris","lastName":"Minnema","titlesEN":[],"titlesFR":[],"designationsEN":[],"designationsFR":[],"spokenLanguage":"English","_persistence_fetchGroup":null},{"id":31983,"firstName":"James","commonName":"Jim","lastName":"Durnin","titlesEN":[],"titlesFR":[],"designationsEN":[],"designationsFR":[],"spokenLanguage":"English","_persistence_fetchGroup":null}],"_persistence_fetchGroup":null}
@@ -24,11 +27,22 @@ describe('branch detail component', function () {
     var $httpBackend;
     beforeEach(function(){
         module(function($provide){
+
+
+            $provide.service('server', function() {
+
+                return new serverMockConstructor();
+            });
             $provide.service('branchDetailService', function(){
                 this.getBranchDetail= function() {
                     return branchList5404;
                 }
 
+            });
+
+            $provide.service('envConfigService', function() {
+
+                return new envConfigServiceMockConstructor();
             });
         });
 
@@ -60,13 +74,14 @@ describe('branch detail component', function () {
 
         module(function($provide){
             $provide.service('branchListService', function(){
-
+                /*
                 this.branchListLoading = true;
 
                 this.getBranchList= function() {
                     return branchLists;
                 }
-
+                */
+                return branchListServiceMockConstructor(branchLists);
             });
         });
 
@@ -127,3 +142,4 @@ describe('branch detail component', function () {
     });
 
 });
+})();

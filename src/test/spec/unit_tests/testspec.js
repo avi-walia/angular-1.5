@@ -264,7 +264,7 @@ describe('example test', function() {
             var element = $compile('<search-by service="$ctrl.service"></search-by>')($rootScope);
             $httpBackend.flush();
             $rootScope.$digest();
-            console.log('$rootScope.$$childHead["$ctrl"]: ', $rootScope.$$childHead['$ctrl']);
+            //console.log('$rootScope.$$childHead["$ctrl"]: ', $rootScope.$$childHead['$ctrl']);
             var searchByCtrl = $rootScope.$$childHead['$ctrl'];
             expect(searchByCtrl.searchBy).toEqual('name');
             spyOn($state, 'go');
@@ -350,7 +350,7 @@ describe('example test', function() {
 
 
             expect(advisorService.searchResults).toEqual(advisorsWithYeByLastName);
-            console.log('advisorService.maxPages: ', advisorService.maxPages);
+            //console.log('advisorService.maxPages: ', advisorService.maxPages);
             expect(advisorService.maxPages).toEqual(1);
             expect(advisorService.mobileMaxNumDisplay).toEqual(50);
             advisorService.sortBy(sortOptions[1]);
