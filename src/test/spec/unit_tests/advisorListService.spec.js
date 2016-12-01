@@ -15,6 +15,7 @@ var serverMock = {
 
 
 (function () {
+    var envConfigServiceMock = new envConfigServerMockConstructor();
     describe('advisor list service after initialization', function () {
         var $advisorService;
         var resultSetLength = advisors.length;
@@ -22,6 +23,7 @@ var serverMock = {
 
         beforeEach(function() {
             module('advisorLocator.features.searchByName');
+            module('advisorLocator.utils');
         });
         beforeEach(function(){
             module(function($provide){
@@ -45,6 +47,10 @@ var serverMock = {
                 });
                 $provide.service('provinceFilterService', function() {
                 });
+                $provide.service('envConfigService', function() {
+
+                    return envConfigServiceMock;
+                });
             });
         });
 
@@ -53,6 +59,7 @@ var serverMock = {
             inject(function(advisorService, _$q_, _$rootScope_) {
                 $q = _$q_;
                 $rootScope = _$rootScope_;
+                var deferred = $q.defer();
 
                 serverMock.get = function() {
                     var deferred = $q.defer();
@@ -80,24 +87,7 @@ var serverMock = {
         });
 
         it('Advisors should have precomputed search indexes for first/common/last names without diacritics', function() {
-            /*
-            _.forEach($advisorService.allAdvisors, function($advisor) {
-                var fName = removeDiacriticsPunctuationMock.remove($advisor.firstName);
-                var lName = removeDiacriticsPunctuationMock.remove($advisor.lastName);
-                var cName = removeDiacriticsPunctuationMock.remove($advisor.commonName);
-                _.forEach($advisor.fNameArr, function(fNameVal) {
-                    expect(fName.indexOf(fNameVal)).toBeGreaterThan(-1);
-                });
 
-                _.forEach($advisor.lNameArr, function(lNameVal) {
-                    expect(lName.indexOf(lNameVal)).toBeGreaterThan(-1);
-                });
-
-                _.forEach($advisor.cNameArr, function(cNameVal) {
-                    expect(cName.indexOf(cNameVal)).toBeGreaterThan(-1);
-                });
-            });
-            */
             _.forEach(removeDiacriticsPunctuationMock, function(precomputed, index) {
                 var $advisor = $advisorService.allAdvisors[index];
                 expect($advisor.fNameArr).toEqual(precomputed.fNameArr);
@@ -113,6 +103,7 @@ var serverMock = {
                 expect($advisor.hasOwnProperty('showCommon')).toEqual(false);
             });
         });
+
 
         it('Filtered and non-filtered search results should be set properly after searching for "m m"', function() {
             initializedAdvisors[0].showCommon = false;
@@ -339,6 +330,7 @@ var serverMock = {
 
         beforeEach(function() {
             module('advisorLocator.features.searchByName');
+            module('advisorLocator.utils');
         });
         beforeEach(function(){
             module(function($provide){
@@ -361,6 +353,11 @@ var serverMock = {
                 $provide.service('langFilterService', function() {
                 });
                 $provide.service('provinceFilterService', function() {
+                });
+                var envConfigServiceMock = new envConfigServerMockConstructor();
+                $provide.service('envConfigService', function() {
+
+                    return envConfigServiceMock;
                 });
             });
         });

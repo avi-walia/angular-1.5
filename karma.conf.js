@@ -45,17 +45,17 @@ module.exports = function(config) {
             //use below line to enable all test specs.
             //'./src/test/spec/unit_tests/**/*.spec.js',
 
-            'src/test/spec/unit_tests/branchDetailService.spec.js',
+            //'src/test/spec/unit_tests/branchDetailService.spec.js',
             //'src/test/spec/unit_tests/advisorDetailService.spec.js',
-            'src/test/spec/unit_tests/branchDetailComponent.spec.js',
-            'src/test/spec/unit_tests/advisorDetailComponent.spec.js',
+            //'src/test/spec/unit_tests/branchDetailComponent.spec.js',
+            //'src/test/spec/unit_tests/advisorDetailComponent.spec.js',
 
 
-            'src/test/spec/unit_tests/removeDiacriticsService.spec.js',
+            //'src/test/spec/unit_tests/removeDiacriticsService.spec.js',
             'src/test/spec/unit_tests/advisorListService.spec.js',
-            'src/test/spec/unit_tests/langFilterService.spec.js',
-            'src/test/spec/unit_tests/provinceFilterService.spec.js',
-            'src/test/spec/unit_tests/filterRunnerService.spec.js'
+            //'src/test/spec/unit_tests/langFilterService.spec.js',
+            //'src/test/spec/unit_tests/provinceFilterService.spec.js',
+            //'src/test/spec/unit_tests/filterRunnerService.spec.js'
 
             /*
                 './src/app/bootstrap/index.module.js',
