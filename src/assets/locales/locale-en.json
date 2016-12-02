@@ -8,8 +8,8 @@
   "shortSearchTerm": "Please enter at least 2 characters",
   "searchResultsFound": "results",
   "searchResultsFoundSingular": "result",
-  "noSearchCriteria": "<p aria-hidden='true'>Start typing an advisor's first or last name<br/>and the search results will show here.</p><p>If you are unable to locate the advisor you are looking for, please contact our Assante Service Centre at {{'1-800-268-3200' | clickablePhone}}.</p>",
-  "noSearchCriteriaBranch": "<p aria-hidden='true'>Enter the city and/or province <br/>and the search results will show here.</p><p id='noSearchCriteriaBranch' aria-hidden='true'>If you are unable to locate the branch you are looking for, please contact our Assante Service Centre at {{'1-800-268-3200' | clickablePhone}}.</p>",
+  "noSearchCriteria": "<p aria-hidden='true'>Start typing an advisor's first or last name<br/>and the search results will show here.</p><p>If you are unable to locate the advisor you are looking for, please contact Assante Service Centre <br/> Phone: {{'1-800-268-3200' | clickablePhone}}<br/> Fax: 1-866-645-4447<br/> Email: {{'service@assante.com' | clickableEmail}} </p>",
+  "noSearchCriteriaBranch": "<p aria-hidden='true'>Enter the city and/or province <br/>and the search results will show here.</p><p id='noSearchCriteriaBranch' aria-hidden='true'>If you are unable to locate the branch you are looking for, please contact Assante Service Centre <br/> Phone: {{'1-800-268-3200' | clickablePhone}}<br/> Fax: 1-866-645-4447<br/> Email: {{'service@assante.com' | clickableEmail}} </p>",
   "navbar": {
     "EN": "EN",
     "FR": "FR",
