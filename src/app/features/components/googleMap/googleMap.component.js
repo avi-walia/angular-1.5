@@ -129,9 +129,9 @@
             controlWrapper.setAttribute("controlheight", "55");
             controlWrapper.style.margin= '10px';
             controlWrapper.style['-webkit-user-select'] = 'none';
-            controlWrapper.style.position = "absolute'"
-            controlWrapper.style.bottom = "69px;"
-            controlWrapper.style.right = "28px;"
+            controlWrapper.style.position = "absolute'";
+            controlWrapper.style.bottom = "69px;";
+            controlWrapper.style.right = "28px;";
 
             controlWrapper.setAttribute("id", "test");
             controlDiv.appendChild(controlWrapper);
@@ -183,7 +183,7 @@
             vm.map = new google.maps.Map(document.getElementById('map'), vm.ca);
 
             var zoomControlDiv = document.createElement('div');
-            var zoomControl = new ZoomControl(zoomControlDiv, map);
+            var zoomControl = new ZoomControl(zoomControlDiv, vm.map);
 
             //zoomControlDiv.index = 1;
             vm.map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(zoomControlDiv);
@@ -554,7 +554,7 @@
                     var x = updateInfoWindowContent();
                     vm.infoWindow.setContent(x);
                     vm.infoWindow.open(vm.map, vm.markerInfo);
-                })
+                });
             }
         }
 

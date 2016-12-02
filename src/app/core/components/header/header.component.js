@@ -27,14 +27,14 @@
         var vm = this;
         vm.clearSearch = function() {
             $rootScope.$emit('clearSearch');
-        }
+        };
 
         vm.openMenu = function() {
             console.log('testing');
             vm.classOpen = !vm.classOpen;
 
 
-        }
+        };
         vm.detectMobile = detectMobile;
         vm.pageStateResolver = pageStateResolver;
 

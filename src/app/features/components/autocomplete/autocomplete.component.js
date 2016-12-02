@@ -66,7 +66,7 @@
         $timeout(function() {
 
             document.getElementById('noSearchCriteriaBranch').setAttribute('aria-hidden', "false");
-        })
+        });
 
         var mapIsInitialized = $scope.$on('mapIsInitialized2', function(event, param){
             console.log('map is initialized from geolocator');
