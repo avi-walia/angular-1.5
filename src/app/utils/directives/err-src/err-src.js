@@ -11,7 +11,7 @@
         .directive('errSrc', errSrc);
 
     // ciInputMatch.$inject = ['$element'];
-    errSrc.$inject = ['advisorService', 'envConfigService']
+    errSrc.$inject = ['advisorService', 'envConfigService'];
 
     /* @ngInject */
     function errSrc(advisorService, envConfigService) {
@@ -19,7 +19,7 @@
             link: function(scope, element, attrs) {
 
                 element.bind('error', function() {
-                    if (attrs.src != attrs.errSrc) {
+                    if (attrs.src !== attrs.errSrc) {
                         attrs.$set('src', attrs.errSrc);
 
                         if (envConfigService.promise === null) {
@@ -37,7 +37,7 @@
                     }
                 });
             }
-        }
+        };
     }
 
 })();

@@ -159,12 +159,12 @@
                 document.getElementsByTagName("head")[0].appendChild(scr);*/
                 ///////// *** END LANGUAGE NEGOTIATION *** /////////
 
-                if(!(fromState.name) && toState.name=='main.advisorLocator.advisorDetails'){
+                if(!(fromState.name) && toState.name === 'main.advisorLocator.advisorDetails'){
                     event.preventDefault();
                     $state.go('main.advisorLocator.advisorList');
                 }
 
-                if(!(fromState.name) && toState.name=='main.advisorLocator.branchDetails'){
+                if(!(fromState.name) && toState.name === 'main.advisorLocator.branchDetails'){
                     event.preventDefault();
                     $state.go('main.advisorLocator.branchList');
                 }

@@ -29,7 +29,7 @@
 
         function close() {
             vm.showErrors = false;
-        };
+        }
 
         var noData = $rootScope.$on('noData', function() {
             var errorTranslationKey = 'errors.noData';
@@ -44,7 +44,7 @@
             vm.errorText = '';
             _.forEach(vm.errors, function(errorKey) {
                 vm.errorText += $translate.instant(errorKey) + "<br/>";
-            })
+            });
         }
         $scope.$on('$destroy', function() {
             if (noData) {

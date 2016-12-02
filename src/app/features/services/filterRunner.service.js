@@ -44,7 +44,7 @@
                    activate_deactivate_filter(filterData);
                }
             });
-        }
+        };
 
         //This function checks the filter that changed and either adds or removes it from the array of active filters.
         function activate_deactivate_filter(filterData) {

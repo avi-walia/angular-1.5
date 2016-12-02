@@ -48,7 +48,7 @@
         service.updateFilters = function(filter) {
             service.filterRunnerService.setFilters(filter);
             service.filteredSearchResults = service.filterRunnerService.filter();
-        }
+        };
 
         //filterRunnerService.init(service.filters, filterFuncs);
         service.filterRunnerService = filterRunnerService;
@@ -57,7 +57,7 @@
         service.clearFilters = function() {
             service.filterRunnerService.clearFilters();
             service.filteredSearchResults = service.searchResults;
-        }
+        };
 
         //Filter searchResults based on advisor's spokenLanguage
         function filterProv(advisor) {
@@ -294,7 +294,7 @@
 
         function singeLettersAtEnd(a, b) {
             if (a.length > 1) {
-                return -1
+                return -1;
             } else {
                 return 1;
             }
@@ -427,7 +427,7 @@
             _.forEach(searchTerms, function(searchTerm) {
                 _.forEach(names, function (name, nameIndex) {
                     if (termComparator(name, nameIndex, searchTerm, notMatched, namesSearched)) {
-                        matches++
+                        matches++;
                         if (showCommon) {
                             service.allAdvisors[index].showCommon = true;
                         }
@@ -456,7 +456,7 @@
                 service.searchResults.push(service.allAdvisors[index]);
                 return;
             } else if (matches > 0) {
-                partialMatch == true;
+                partialMatch = true;
             }
 
             var searchTerms3 = notMatched.slice();
@@ -482,7 +482,7 @@
             } else if (tempMatches > 0) {
                 secondaryResults.push(service.allAdvisors[index]);
             }
-        };
+        }
 
         //update the pagination/infinite scroll related trackers(maxPages, mobileMaxNumDisplay, currentPage).
         function updatePaginationInfiniteScroll() {
@@ -604,10 +604,10 @@
         //if it was used more frequently, like on a daily basis, it would be better to store this in cache.
         function imageNotFound(advisorId) {
             _.forEach(service.allAdvisors, function(advisor) {
-                if (advisor.id == advisorId) {
+                if (advisor.id === advisorId) {
                     advisor.hasPicture = false;
                 }
-            })
+            });
         }
 
     }
