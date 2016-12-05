@@ -28,7 +28,7 @@
     "locator": "Trouver un conseiller",
     "searchPlaceholder": "Saisissez vos critères de recherche ici",
     "searchButton": "Rechercher",
-    "about" : "À propos de nous",
+    "about" : "À notre sujet",
     "services": "Services",
     "assanteLife": "Expérience Assante",
     "clients": "Ressources",
@@ -37,7 +37,7 @@
       "topNav" : "Menu de navigation du haut de la page",
       "mainNav" : "Menu de navigation principal"
     },
-    "loginNotSure": "Vous n’êtes pas certain de l’option qu’il faut choisir ?",
+    "loginNotSure": "Vous n’êtes pas certain de l’option qu’il faut choisir?",
     "loginNotSureLink": "/fr/options-de-connexion",
     "optima": "Optima Stratégie",
     "iolLink": "https://www.assanteservices.com/iol/main.html?lang=fr#Iol,LoginSignUp,Login",
@@ -62,7 +62,7 @@
     "security": "Sécurité",
     "privacyPolicy": "Confidentialité",
     "privacyPolicyLink": "/fr/confidentialité",
-    "legal": "Lois & Conformité",
+    "legal": "Notices juridiques",
     "legalLink": "/fr/lois",
     "accessibility": {
       "social" : "Liens vers des médias sociaux",
