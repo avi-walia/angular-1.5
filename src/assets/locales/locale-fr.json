@@ -8,8 +8,8 @@
   "shortSearchTerm": "Veuillez saisir au moins deux caractères.",
   "searchResultsFound": "résultats",
   "searchResultsFoundSingular": "résultat",
-  "noSearchCriteria": "<p aria-hidden='true'>Saisissez le prénom ou le nom de famille<br/>d'un conseiller pour afficher les résultats.</p><p>Si vous ne pouvez pas trouver le conseiller que vous recherchez, veuillez communiquer avec le Centre de service Assante. <br/> Téléphone : {{'1-800-268-3200' | clickablePhone}}<br/> Télécopieur : 1-866-645-4447<br/> Adresse courriel :  {{'service@assante.com' | clickableEmail}}</p>",
-  "noSearchCriteriaBranch": "<p aria-hidden='true'>Saisissez la ville ou la province<br/>pour afficher les résultats.</p><p id='noSearchCriteriaBranch' aria-hidden='true'>Si vous ne pouvez pas trouver la succursale que vous recherchez, veuillez communiquer avec le Centre de service Assante. <br/> Téléphone : {{'1-800-268-3200' | clickablePhone}}<br/> Télécopieur : 1-866-645-4447<br/> Adresse courriel :  {{'service@assante.com' | clickableEmail}}</p>",
+  "noSearchCriteria": "<p aria-hidden='true'>Saisissez le prénom ou le nom de famille<br/>d'un conseiller pour afficher les résultats.</p><p>Si vous ne pouvez pas trouver le conseiller que vous recherchez, veuillez communiquer avec le Centre de service Assante. <br/> Téléphone : 1-800-268-3200<br/> Télécopieur : 1-866-645-4447<br/> Adresse courriel :  {{'service@assante.com' | clickableEmail}}</p>",
+  "noSearchCriteriaBranch": "<p aria-hidden='true'>Saisissez la ville ou la province<br/>pour afficher les résultats.</p><p id='noSearchCriteriaBranch' aria-hidden='true'>Si vous ne pouvez pas trouver la succursale que vous recherchez, veuillez communiquer avec le Centre de service Assante. <br/> Téléphone : 1-800-268-3200<br/> Télécopieur : 1-866-645-4447<br/> Adresse courriel :  {{'service@assante.com' | clickableEmail}}</p>",
   "navbar": {
     "EN": "EN",
     "FR": "FR",

@@ -19,7 +19,7 @@
                 <div id="details">
                     <dl>
                       <dt ng-if="$ctrl.advisorDetailService.advisorDetail.phone" translate>advisorDetail.telephone</dt>
-                      <dd ng-if="$ctrl.advisorDetailService.advisorDetail.phone" ng-bind-html="$ctrl.advisorDetailService.advisorDetail.phone | clickablePhone"></dd>
+                      <dd ng-if="$ctrl.advisorDetailService.advisorDetail.phone">{{$ctrl.advisorDetailService.advisorDetail.phone}}</dd>
 
                       <dt ng-if="$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.fax" translate>advisorDetail.fax</dt>
                       <dd ng-if="$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.fax">{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.fax}}</dd>
