@@ -189,6 +189,12 @@
     },
     "branchList": {
       "title": "Search for branches"
+    },
+    "advisorDetail": {
+      "title": "Advisor Details"
+    },
+    "branchDetail": {
+      "title": "Branch Details"
     }
   },
   "profilePicturePlaceholder": "advisor's profile picture",

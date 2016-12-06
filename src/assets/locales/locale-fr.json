@@ -183,6 +183,12 @@
     },
     "branchList": {
       "title": "Recherche de succursales "
+    },
+    "advisorDetail": {
+      "title": "Renseignements sur le conseiller"
+    },
+    "branchDetail": {
+      "title": "Renseignements sur la succursale"
     }
   },
   "profilePicturePlaceholder": "Photo du profil du conseiller",
