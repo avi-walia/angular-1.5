@@ -7,7 +7,7 @@
             <button ng-if="$ctrl.stateTrackerService.isLocationSearch" ui-sref="main.advisorLocator.branchList" translate>branchDetail.searchResultsButton</button>
 
             <div id="details">
-            <p class="name" ng-if="$ctrl.branchDetailService.branchDetail.dealerShip">{{$ctrl.branchDetailService.branchDetail.dealerShip==="ACM" ? "Assante Capital Management Ltd.": "Assante Financial Management Ltd."}}</p>
+            <p class="name" ng-if="$ctrl.branchDetailService.branchDetail.dealerShip">{{$ctrl.branchDetailService.branchDetail.dealerShip==="ACM" ? "ACM": "AFM" | translate}}</p>
             <p class="label" ng-if="$ctrl.branchDetailService.branchDetail.address1" translate>branchDetail.address</p>
             <p class="address"><span ng-if="$ctrl.branchDetailService.branchDetail.address1">{{$ctrl.branchDetailService.branchDetail.address1}}</span><span ng-if="$ctrl.branchDetailService.branchDetail.address2">, {{$ctrl.branchDetailService.branchDetail.address2}}</span><br/>
             <span ng-if="$ctrl.branchDetailService.branchDetail.city">{{$ctrl.branchDetailService.branchDetail.city}},</span> <span ng-if="$ctrl.branchDetailService.branchDetail.provinceAbbr">{{$ctrl.branchDetailService.branchDetail.provinceAbbr}}</span> <span ng-if="$ctrl.branchDetailService.branchDetail.postalCode">{{$ctrl.branchDetailService.branchDetail.postalCode}}</span></p>

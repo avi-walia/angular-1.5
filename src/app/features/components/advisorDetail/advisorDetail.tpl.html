@@ -36,7 +36,7 @@
                     </dl>
                 </div>
                 <div id="branch">
-                    <h4 ng-if="$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.dealerShip">{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.dealerShip==="ACM" ? "Assante Capital Management Ltd.": "Assante Financial Management Ltd."}}</h4>
+                    <h4 ng-if="$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.dealerShip">{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.dealerShip==="ACM" ? "ACM" : "AFM" | translate}}</h4>
                     <h5 ng-if="$ctrl.advisorDetailService.advisorDetail.styleName">{{$ctrl.advisorDetailService.advisorDetail.styleName}}</h5>
                     <p class="address"><span ng-if="$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address1">{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address1}}</span><span ng-if="$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address2">, {{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.address2}}</span><br/>
                     <span ng-if="$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.city">{{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.city}},</span> {{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.provinceAbbr}} {{$ctrl.advisorDetailService.advisorDetail.partialBranchInfo.postalCode}}</p>

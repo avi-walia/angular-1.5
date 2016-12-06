@@ -1,5 +1,7 @@
 {
   "appTitle": "Gestion de patrimoine Assante",
+  "ACM": "Gestion de capital Assante ltée",
+  "AFM": "Gestion financière Assante ltée",
   "searchButton": "Rechercher",
   "search": {
     "byName": "Rechercher par nom",

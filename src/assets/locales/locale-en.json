@@ -1,5 +1,7 @@
 {
   "appTitle": "Assante Wealth Management",
+  "ACM": "Assante Capital Management Ltd.",
+  "AFM": "Assante Financial Management Ltd.",
   "searchButton": "Search",
   "search": {
     "byName": "Search by name",
