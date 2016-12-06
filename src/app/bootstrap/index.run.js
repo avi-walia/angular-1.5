@@ -13,6 +13,8 @@
 
     function runBlock($rootScope, NotificationService,
                       $translate, pageStateResolver, tmhDynamicLocale, $window, stateTrackerService, $state, advisorService, branchListService) {
+        $rootScope.locale = null;
+
         console.log('the demo deployment was a success!');
         $rootScope.$on('clearSearch', function() {
             advisorService.filteredSearchResults = [];
@@ -63,6 +65,10 @@
             // E.g.,
             //moment.locale(locale.language);
             
+        });
+        $rootScope.$on('$translateChangeSuccess', function (event, locale) {
+            $rootScope.isEnglish = locale.language === 'en';
+
         });
 
         $rootScope.$on('$stateChangeError',

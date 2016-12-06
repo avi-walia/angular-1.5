@@ -155,7 +155,7 @@
 
   "pages": {
     "advisorList":{
-      "title": "Rechercher un conseiller",
+      "title": "Rechercher Par Nom",
       "filterOptions": {
         "lang": {
           "Language": "Toute langue",
@@ -182,7 +182,7 @@
       "clearFilterLabel": "effacer"
     },
     "branchList": {
-      "title": "Recherche de succursales "
+      "title": "Recherche Par Emplacement"
     },
     "advisorDetail": {
       "title": "Renseignements sur le conseiller"
