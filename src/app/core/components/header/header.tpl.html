@@ -21,28 +21,30 @@
 
                 </div> -->
                 <div class="panel-pane pane-block pane-menu-menu-secondary-menu" role="navigation" aria-label="{{ 'header.accessibility.accessibility.topNav' | translate }}" >
-                  <ul class="menu">
-                    <li class="menu__item is-expanded first expanded" id="login"><span title="Login" translate>header.login</span>
-                      <ul class="menu">
-                        <li class="menu__item is-expanded first expanded"><span class="menu__link nolink">Clients</span>
-                          <ul class="menu">
-                            <li class="menu__item is-leaf first leaf"><a href="{{'header.aiolLink' | translate}}" target="_blank" class="menu__link" translate>header.aiol</a></li>
-                            <li class="menu__item is-leaf leaf"><a href="{{'header.pcWebLink' | translate}}" title="Private Client Managed Portfolios" target="_blank" class="menu__link" translate>header.pcWeb</a></li>
-                            <li class="menu__item is-leaf leaf"><a href="{{'header.iolLink' | translate}}" title="{{'header.evolution' | translate}}" target="_blank" class="menu__link" translate>header.evolution</a></li>
-                            <li class="menu__item is-leaf leaf"><a href="{{'header.iolLink' | translate}}" title="{{'header.optima' | translate}}" target="_blank" class="menu__link" translate>header.optima</a></li>
-                            <li class="menu__item is-leaf last leaf" id="notsure"><a href="{{'header.loginNotSureLink' | translate}}" title="{{'header.loginNotSure' | translate}}" class="menu__link" translate>header.loginNotSure</a></li>
-                          </ul>
-                        </li>
-                        <li class="menu__item is-expanded last expanded"><span class="menu__link nolink">Advisors</span>
-                          <ul class="menu">
-                            <li class="menu__item is-leaf first last leaf"><a href="https://www.assanteservices.com/aanet/" title="Assante Advisor Net" target="_blank" class="menu__link">AssanteAdvisorNet</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="menu__item is-leaf leaf" id="locator"><a ng-click="$ctrl.clearSearch()" ui-sref="main.advisorLocator.advisorList" title="{{'header.locator' | translate }}" name="Locator" class="menu__link" translate>header.locator</a></li>
-                    <li class="menu__item is-leaf last leaf" id="search" ng-click="$ctrl.displaySearchForm()"><span class="menu__link nolink">Search</span></li>
-                  </ul>
+                  <div class="pane-content">
+                    <ul class="menu">
+                      <li class="menu__item is-expanded first expanded" id="login"><span title="Login" translate>header.login</span>
+                        <ul class="menu">
+                          <li class="menu__item is-expanded first expanded"><span class="menu__link nolink">Clients</span>
+                            <ul class="menu">
+                              <li class="menu__item is-leaf first leaf"><a href="{{'header.aiolLink' | translate}}" target="_blank" class="menu__link" translate>header.aiol</a></li>
+                              <li class="menu__item is-leaf leaf"><a href="{{'header.pcWebLink' | translate}}" title="Private Client Managed Portfolios" target="_blank" class="menu__link" translate>header.pcWeb</a></li>
+                              <li class="menu__item is-leaf leaf"><a href="{{'header.iolLink' | translate}}" title="{{'header.evolution' | translate}}" target="_blank" class="menu__link" translate>header.evolution</a></li>
+                              <li class="menu__item is-leaf leaf"><a href="{{'header.iolLink' | translate}}" title="{{'header.optima' | translate}}" target="_blank" class="menu__link" translate>header.optima</a></li>
+                              <li class="menu__item is-leaf last leaf" id="notsure"><a href="{{'header.loginNotSureLink' | translate}}" title="{{'header.loginNotSure' | translate}}" class="menu__link" translate>header.loginNotSure</a></li>
+                            </ul>
+                          </li>
+                          <li class="menu__item is-expanded last expanded"><span class="menu__link nolink">Advisors</span>
+                            <ul class="menu">
+                              <li class="menu__item is-leaf first last leaf"><a href="https://www.assanteservices.com/aanet/" title="Assante Advisor Net" target="_blank" class="menu__link">AssanteAdvisorNet</a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="menu__item is-leaf leaf" id="locator"><a ng-click="$ctrl.clearSearch()" ui-sref="main.advisorLocator.advisorList" title="{{'header.locator' | translate }}" name="Locator" class="menu__link" translate>header.locator</a></li>
+                      <li class="menu__item is-leaf last leaf" id="search" ng-click="$ctrl.displaySearchForm()"><span class="menu__link nolink">Search</span></li>
+                    </ul>
+                  </div>
                 </div>
 
                 <div class="panel-pane pane-block pane-search-form" ng-class="{'show': $ctrl.showInputSearch, 'hide': !$ctrl.showInputSearch}">
