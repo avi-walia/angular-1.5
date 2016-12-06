@@ -26,6 +26,10 @@
         vm.detectMobile = detectMobile;
         vm.ASSANTE_URL = envConfigService.ASSANTE_URL;
         vm.currentLanguage = $rootScope.documentLanguage;
+
+        vm.clearSearch = function() {
+            $rootScope.$emit('clearSearch');
+        };
     }
 
 })();
