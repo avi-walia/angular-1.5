@@ -659,7 +659,9 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
       dl { margin:0.5em 0; }
       dt { border-bottom:solid 1px darken($bg,4%); padding-bottom:0.5em; }
       a { color:$text; display:block; line-height:1.8; position:relative; text-decoration:none; width:100%;
-        &:hover::after { color:$orange; content:'View details'; position:absolute; right:0; }
+        &:hover::after { color:$orange; content:'View details'; position:absolute; right:0;
+          .fr & { content:'Voir les détails'; }
+        }
       }
     }
   }
