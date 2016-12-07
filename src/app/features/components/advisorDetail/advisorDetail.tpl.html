@@ -32,7 +32,7 @@
 
                       <dt ng-if="$ctrl.advisorDetailService.advisorDetail.spokenLanguage" translate>advisorDetail.spokenLanguages</dt>
                       <dd ng-if="$ctrl.advisorDetailService.advisorDetail.spokenLanguage == 'Bilingual'" translate>advisorDetail.bilingual</dd>
-                      <dd ng-if="!($ctrl.advisorDetailService.advisorDetail.spokenLanguage =='Bilingual') && ($ctrl.advisorDetailService.advisorDetail.spokenLanguage)">{{$ctrl.advisorDetailService.advisorDetail.spokenLanguage}}</dd>
+                      <dd ng-if="!($ctrl.advisorDetailService.advisorDetail.spokenLanguage =='Bilingual') && ($ctrl.advisorDetailService.advisorDetail.spokenLanguage)">{{$ctrl.advisorDetailService.advisorDetail.spokenLanguage | translate}}</dd>
                     </dl>
                 </div>
                 <div id="branch">

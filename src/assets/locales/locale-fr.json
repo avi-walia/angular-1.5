@@ -7,6 +7,8 @@
     "byName": "Rechercher par nom",
     "byLocation": "Rechercher par emplacement"
   },
+  "English": "Anglais",
+  "French": "Français",
   "shortSearchTerm": "Veuillez saisir au moins deux caractères.",
   "searchResultsFound": "résultats",
   "searchResultsFoundSingular": "résultat",
@@ -162,8 +164,8 @@
       "filterOptions": {
         "lang": {
           "Language": "Toute langue",
-          "English": "Anglais",
-          "French": "Français"
+          "English": "{{'English' | translate }}",
+          "French": "{{'French' | translate }}"
         },
         "province": {
           "Province": "Toute province",
