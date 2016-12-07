@@ -18,6 +18,7 @@
     /* @ngInject */
     function translations($translateProvider, tmhDynamicLocaleProvider) {
 
+        var d = encodeURIComponent((new Date()).toString());
         $translateProvider
         // get warnings in the developer console, regarding forgotten IDs in translations
         // requires 'bower install angular-translate-handler-log'
@@ -29,7 +30,7 @@
             // Configure the translation loader
             .useStaticFilesLoader({
                 prefix: 'assets/locales/locale-',
-                suffix: '.json'
+                suffix: '.json?q=' + d
             })
 
             // Optionally use generic translations as opposed to localized translations
@@ -45,6 +46,7 @@
             //.preferredLanguage('en_US')
 
             .useLocalStorage();
+
         // Configure the locale loader
         tmhDynamicLocaleProvider.localeLocationPattern(
             'assets/locales/angular-locale_{{locale}}.js');

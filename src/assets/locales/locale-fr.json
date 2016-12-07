@@ -118,7 +118,8 @@
     "alternateEmail": "Courriel de l’équipe",
     "website": "Site Web",
     "advisorImageAlt": "Photo du profil du conseiller",
-    "spokenLanguages": "Langues parlées"
+    "spokenLanguages": "Langues parlées",
+    "bilingual": "Anglais et Français"
   },
   "branchDetail":{
     "title": "Renseignements sur la succursale",

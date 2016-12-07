@@ -119,7 +119,8 @@
     "alternateEmail": "Team Email",
     "website": "Website",
     "advisorImageAlt": "Advisor Image",
-    "spokenLanguages": "Spoken Languages"
+    "spokenLanguages": "Spoken Languages",
+    "bilingual": "English and French"
   },
   "branchDetail":{
     "title": "Branch Detail",
