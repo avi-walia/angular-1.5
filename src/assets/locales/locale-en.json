@@ -118,7 +118,8 @@
     "website": "Website",
     "advisorImageAlt": "Advisor Image",
     "spokenLanguages": "Spoken Languages",
-    "bilingual": "English and French"
+    "bilingual": "English and French",
+    "visit": "Visit website"
   },
   "branchDetail":{
     "title": "Branch Detail",
