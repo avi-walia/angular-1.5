@@ -404,6 +404,7 @@ var initializedAdvisors = [
         email: 'mandrews@assante.com',
         phone: '519-438-0338',
         spokenLanguage: 'English',
+        hasPicture: true,
         cNameArr: [],
         lNameArr:['andrews'],
         fNameArr:['michael']
@@ -419,6 +420,7 @@ var initializedAdvisors = [
         email: '',
         phone: '',
         spokenLanguage: 'English',
+        hasPicture: true,
         cNameArr: ['james'],
         lNameArr:['kingston'],
         fNameArr:['peter']
@@ -434,6 +436,7 @@ var initializedAdvisors = [
         email: 'djohnstone@assante.com',
         phone: '416-348-9994',
         spokenLanguage: 'English',
+        hasPicture: true,
         cNameArr: [],
         lNameArr:['johnstone'],
         fNameArr:['daniel']
@@ -449,6 +452,7 @@ var initializedAdvisors = [
         email: 'jpbeauchamp@assante.com',
         phone: '',
         spokenLanguage: 'Bilingual',
+        hasPicture: true,
         cNameArr: [],
         lNameArr:['beauchamp'],
         fNameArr:[
@@ -467,6 +471,7 @@ var initializedAdvisors = [
         email: 'cdisante@assante.com',
         phone: '',
         spokenLanguage: 'English',
+        hasPicture: true,
         cNameArr: [],
         lNameArr:[
             'di',
@@ -486,6 +491,7 @@ var initializedAdvisors = [
         },
         phone: '450-668-2400',
         spokenLanguage: 'French',
+        hasPicture: true,
         cNameArr: [],
         lNameArr:['cote'],
         fNameArr:['jocelyn']
@@ -501,6 +507,7 @@ var initializedAdvisors = [
         email: 'GLaliberte@assante.com',
         phone: '418-559-4484',
         spokenLanguage: 'French',
+        hasPicture: true,
         cNameArr: [],
         lNameArr:['laliberte'],
         fNameArr:['gael']
@@ -516,6 +523,7 @@ var initializedAdvisors = [
         email: 'adsouza@assante.com',
         phone: '',
         spokenLanguage: 'English',
+        hasPicture: true,
         cNameArr: [],
         lNameArr:['dsouza'],
         fNameArr:['ashley']
@@ -531,6 +539,7 @@ var initializedAdvisors = [
         email: '',
         phone: '',
         spokenLanguage:'Bilingual',
+        hasPicture: true,
         cNameArr: [],
         lNameArr:['stgeorges'],
         fNameArr:['michel']
@@ -546,6 +555,7 @@ var initializedAdvisors = [
         email: 'bstranakstgeorges@assante.com',
         phone: '',
         spokenLanguage:'Bilingual',
+        hasPicture: true,
         cNameArr: ['barb'],
         lNameArr:['stranak-st-georges'],
         fNameArr:['barbara']
@@ -561,6 +571,7 @@ var initializedAdvisors = [
         email: 'ethomson@assante.com',
         phone: '',
         spokenLanguage:'English',
+        hasPicture: true,
         cNameArr: ['eric'],
         lNameArr:['thomson'],
         fNameArr:['thomas']
@@ -576,6 +587,7 @@ var initializedAdvisors = [
         email: 'troy.thomson@assante.com',
         phone: '204-7252300  ext. 32',
         spokenLanguage: 'English',
+        hasPicture: true,
         cNameArr: [],
         lNameArr:['thomson'],
         fNameArr:['troy']
@@ -591,6 +603,7 @@ var initializedAdvisors = [
         email: '',
         phone: '',
         spokenLanguage: 'English',
+        hasPicture: true,
         cNameArr: ['alex'],
         lNameArr:['argento'],
         fNameArr:['alexander']
@@ -606,6 +619,7 @@ var initializedAdvisors = [
         email: 'jrayner@assante.com',
         phone: '613-766-7220',
         spokenLanguage: 'English',
+        hasPicture: true,
         cNameArr: ['jay'],
         lNameArr:['rayner'],
         fNameArr:['robert']
@@ -621,6 +635,7 @@ var initializedAdvisors = [
         email: 'RJohnson@assante.com',
         phone: '',
         spokenLanguage: 'English',
+        hasPicture: true,
         cNameArr: ['richard'],
         lNameArr:['johnson'],
         fNameArr:[

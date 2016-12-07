@@ -37,16 +37,16 @@ module.exports = function(config) {
          ],
          */
         files: bowerFiles.concat([
-            './src/app/bootstrap/index.module.js',
-            './src/app/features/services/*.js',
-            './src/app/utils/**/*.js',
+            'src/app/bootstrap/index.module.js',
+            'src/app/features/services/*.js',
+            'src/app/utils/**/*.js',
             'src/app/features/components/**/*.js',
-            './src/test/spec/unit_tests/mocks/*.mock.js',
+            'src/test/spec/unit_tests/mocks/*.mock.js',
             //use below line to enable all test specs.
-            //'./src/test/spec/unit_tests/**/*.spec.js',
-
+            'src/test/spec/unit_tests/**/*.spec.js',
+/*
+            'src/test/spec/unit_tests/advisorDetailService.spec.js',
             'src/test/spec/unit_tests/branchDetailService.spec.js',
-            //'src/test/spec/unit_tests/advisorDetailService.spec.js',
             'src/test/spec/unit_tests/branchDetailComponent.spec.js',
             'src/test/spec/unit_tests/advisorDetailComponent.spec.js',
 
