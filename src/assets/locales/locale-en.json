@@ -50,7 +50,7 @@
     "contactUs": "Contact Us",
     "contactUsLink": "/contact-us",
     "toll": "1-800-268-3200",
-    "emailUs": "Email Us",
+    "emailUs": "E-mail Us",
     "linkedin": "LinkedIn",
     "linkedinDesciption": "LinkedIn page for Assante Wealth Management",
     "youtube": "Youtube",
@@ -120,7 +120,8 @@
     "website": "Website",
     "advisorImageAlt": "Advisor Image",
     "spokenLanguages": "Spoken Languages",
-    "bilingual": "English and French"
+    "bilingual": "English and French",
+    "visit": "Visit website"
   },
   "branchDetail":{
     "title": "Branch Detail",
