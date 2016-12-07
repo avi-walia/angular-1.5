@@ -7,16 +7,16 @@
 
                 <ul class="menu">
                     <li class="menu__item is-leaf first leaf" id="toll-free">
-                        <a href="tel:1-800-268-3200" title="{{'footer.toll' | translate}}" id="toll-free" name="1-800-268-3200" class="menu__link" translate>footer.toll</a>
+                        <a href="1-800-268-3200" title="{{'footer.toll' | translate}}" id="toll-free" name="1-800-268-3200" class="menu__link" translate>footer.toll</a>
                     </li>
                     <li class="menu__item is-leaf leaf" id="email-us">
                         <a href="mailto:service@assante.com" title="{{'footer.emailUs' | translate}}" id="email-us" name="Email Us" class="menu__link" translate>footer.emailUs</a>
                     </li>
                     <li class="menu__item is-leaf leaf" id="linkedin">
-                        <a href="https://www.linkedin.com/company/assante-wealth-management" title="{{'footer.linkedinDesciption' | translate}}" id="linkedin" name="LinkedIn page for Assante Wealth Management" class="menu__link" translate>footer.linkedin</a>
+                        <a href="https://www.linkedin.com/company/assante-wealth-management" target="_blank" title="{{'footer.linkedinDesciption' | translate}}" id="linkedin" name="LinkedIn page for Assante Wealth Management" class="menu__link" translate>footer.linkedin</a>
                     </li>
                     <li class="menu__item is-leaf last leaf" id="youtube">
-                        <a href="https://www.youtube.com/channel/UC-OXGU-HPxZQhG29zsKUIew" title="{{'footer.youtubeDescription' | translate}}" id="youtube" name="Youtube for Assante Wealth Management" class="menu__link" translate>footer.youtube</a>
+                        <a href="https://www.youtube.com/channel/UC-OXGU-HPxZQhG29zsKUIew" target="_blank" title="{{'footer.youtubeDescription' | translate}}" id="youtube" name="Youtube for Assante Wealth Management" class="menu__link" translate>footer.youtube</a>
                     </li>
                 </ul>
 
@@ -41,13 +41,13 @@
 
                 <ul class="menu">
                     <li class="menu__item is-leaf first leaf" id="advisor-opps">
-                        <a href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr')}}" title="{{'footer.advisorOpportunities' | translate}}" class="menu__link" analytics-category="NAVIGATION" analytics-label="advisorOpportunities" translate>footer.advisorOpportunities</a>
+                        <a href="{{'footer.advisorOpportunitiesLink' | translate}}" target="_blank" title="{{'footer.advisorOpportunities' | translate}}" class="menu__link" analytics-category="NAVIGATION" analytics-label="advisorOpportunities" translate>footer.advisorOpportunities</a>
                     </li>
                     <li class="menu__item is-leaf leaf" id="branch-opps">
-                        <a href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr')}}" title="{{'footer.branchOpportunities' | translate}}" class="menu__link" analytics-category="NAVIGATION" analytics-label="branchOpportunities" translate>footer.branchOpportunities</a>
+                        <a href="{{'footer.branchOpportunitiesLink' | translate}}" title="{{'footer.branchOpportunities' | translate}}" class="menu__link" analytics-category="NAVIGATION" analytics-label="branchOpportunities" translate>footer.branchOpportunities</a>
                     </li>
                     <li class="menu__item is-leaf last leaf" id="corp-opps">
-                        <a href="{{$ctrl.ASSANTE_URL + ($ctrl.currentLanguage==='en' ? '' : '/fr')}}" title="{{'footer.corporateOpportunities' | translate}}" class="menu__link" analytics-category="NAVIGATION" analytics-label="corporateOpportunities" translate>footer.corporateOpportunities</a>
+                        <a href="{{'footer.corporateOpportunitiesLink' | translate}}" target="_blank" title="{{'footer.corporateOpportunities' | translate}}" class="menu__link" analytics-category="NAVIGATION" analytics-label="corporateOpportunities" translate>footer.corporateOpportunities</a>
                     </li>
                 </ul>
 
