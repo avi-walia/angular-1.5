@@ -63,11 +63,11 @@
     "advisorOpportunities": "Advisor Opportunities",
     "branchOpportunities": "Branch Opportunities",
     "corporateOpportunities": "Corporate Opportunities",
-    "copyright": "©{{ year }} Assante Wealth Management. All right Reserved.",
+    "copyright": "© {{ year }} Assante Wealth Management. All right Reserved.",
     "security": "Security",
     "privacyPolicy": "Privacy Policy",
     "privacyPolicyLink": "/privacy-policy",
-    "legal": "Legal & Compliance",
+    "legal": "Legal and Compliance",
     "legalLink": "/legal",
     "accessibility": {
       "social" : "Site social links",
