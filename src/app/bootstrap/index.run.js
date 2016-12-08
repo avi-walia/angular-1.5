@@ -6,14 +6,46 @@
 
     runBlock.$inject = [
         '$rootScope', 'NotificationService',
-        '$translate', 'pageStateResolver', 'tmhDynamicLocale', '$window', 'stateTrackerService', '$state', 'advisorService', 'branchListService'
+        '$translate', 'pageStateResolver', 'tmhDynamicLocale', '$window', 'stateTrackerService', '$state', 'advisorService', 'branchListService', '$timeout'
     ];
 
     /* @ngInject */
 
     function runBlock($rootScope, NotificationService,
-                      $translate, pageStateResolver, tmhDynamicLocale, $window, stateTrackerService, $state, advisorService, branchListService) {
+                      $translate, pageStateResolver, tmhDynamicLocale, $window, stateTrackerService, $state, advisorService, branchListService, $timeout) {
         $rootScope.locale = null;
+        var hideShowHeaderTimeout = null;
+        var lastScrollTop = 0;
+        var delta = 5;
+        var navbarHeight = document.getElementById('header');//$('header').outerHeight();
+        window.onscroll = function() {
+            if (hideShowHeaderTimeout) {
+                hideShowHeaderTimeout();
+            }
+            hideShowHeaderTimeout = $timeout(hasScrolled, 250);
+        };
+
+        function hasScrolled() {
+            var st = window.scrollTop();
+
+            // Make sure they scroll more than delta
+            if(Math.abs(lastScrollTop - st) <= delta)
+                return;
+
+            // If they scrolled down and are past the navbar, add class .nav-up.
+            // This is necessary so you never see what is "behind" the navbar.
+            if (st > lastScrollTop && st > navbarHeight){
+                // Scroll Down
+                document.getElementById('header').removeClass('nav-down').addClass('nav-up');
+            } else {
+                // Scroll Up
+                if(st + $(window).height() < $(document).height()) {
+                    //document.getElementById('header').removeClass('nav-up').addClass('nav-down');
+                }
+            }
+
+            lastScrollTop = st;
+        }
 
         console.log('the demo deployment was a success!');
         $rootScope.$on('clearSearch', function() {
