@@ -446,7 +446,9 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
     #options { vertical-align:top; white-space:nowrap; xwidth:41%;
       // #filtersLabel { color:#888; font-weight:700; margin:0 5px 0 10px; }
       label { display:none; }
-      select { appearance:none; background:darken($bg,4%) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23cd5806' d='M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z'/%3E%3C/svg%3E") 94% 9px no-repeat; background-size:20px; border:0; border-radius:3px; display:inline-block; height:2.5em; line-height:2.5em; margin-right:0.4%; padding:0 8% 0 3%; width:38%; }
+      select { appearance:none; background:darken($bg,4%) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23cd5806' d='M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z'/%3E%3C/svg%3E") 94% 9px no-repeat; background-size:20px; border:0; border-radius:3px; display:inline-block; height:33.75px; line-height:33.75px; margin-right:0.4%; padding:0 8% 0 3%; width:38%;
+        @media (min-width:768px) { height:36px; line-height:36px; }
+      }
       select::-ms-expand { display:none; }
       button { background:$orange; border:0; border-radius:3px; color:#fff; float:right; font-family:'Montserrat',sans-serif; height:2.5em; line-height:2.6em; padding:0 2.5%; text-transform:uppercase; vertical-align:top; width:20%; }
       .fr & {
@@ -490,8 +492,8 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
     }
     @media (min-width:768px) {
       #options {
-        select { padding:0 8% 0 3.5%; width:135px; }
-        button { padding:0 3%; width:69px; }
+        select { padding:0 8% 0 3.5%; width:142px; }
+        button { padding:0 3%; width:72px; }
         .fr & {
           select { width:160px; }
           button { width:90px; }
