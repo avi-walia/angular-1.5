@@ -215,7 +215,7 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
     @mixin normalMenu() {
       bottom:15px; margin:0; padding:0 2*$zen-gutters; position:absolute; width:100%;
       ul.menu { background:none; height:auto; list-style:none; margin:0 auto; padding:0; text-align:right;
-        li { border:0; display:inline-block; margin-left:15px; padding:0; text-align:left;
+        li { border:0; display:inline-block; margin-left:15px; padding:0; text-align:left; vertical-align:bottom;
           &#hamburger { display:none; }
           a { line-height:1; }
         }
