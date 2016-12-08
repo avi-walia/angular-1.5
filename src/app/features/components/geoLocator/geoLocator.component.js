@@ -9,7 +9,8 @@
                 setPosition: '&',
                 setLocation: '&',
                 setMessage: '&',
-                resetMarkers: '&'
+                resetMarkers: '&',
+                currentPosition: '='
             },
             controller: geoLocatorCtrl,
             templateUrl:'app/features/components/geoLocator/geoLocator.tpl.html'
@@ -41,9 +42,6 @@
         vm.updatePosition = updatePosition;
         vm.updateLocation = updateLocation;
         vm.loader = false;
-
-        var currentPosition = {};
-
         function updatePosition(pos){
             vm.setPosition({position: pos});
         }
@@ -61,7 +59,6 @@
                 timeout: 10000,
                 maximumAge: 60000
             };
-
             if(navigator.geolocation){
 
                 navigator.geolocation.getCurrentPosition(getGeo, handleGeoHighAccuracyError, options);
@@ -93,13 +90,25 @@
 
         function getGeo(position){
             vm.loader = true;
+            var currentPosition = {
+                lat: null,
+                lng: null
+            }
+            if (vm.currentPosition.hasOwnProperty('location')) {
+                currentPosition.lat = vm.currentPosition.location.lat();
+                currentPosition.lng = vm.currentPosition.location.lng();
+            }
             var newCurrentPosition = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-
-            if (!angular.equals(currentPosition, newCurrentPosition)) {
-
+            //console.log("oldPos === newPos: ", angular.equals(currentPosition, newCurrentPosition));
+            //if (!angular.equals(currentPosition, newCurrentPosition)) {
+            console.log('currentPosition1123: ', currentPosition.lat);
+            console.log('currentPosition1123: ', newCurrentPosition.lat);
+            console.log('currentPosition1123: ', currentPosition.lat !== newCurrentPosition.lat);
+            if(currentPosition.lat !== newCurrentPosition.lat || currentPosition.lng !== newCurrentPosition.lng){
+                console.log('testin1123');
                 currentPosition = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
@@ -126,12 +135,14 @@
                     handleLocationError();
                     vm.loader = false;
                 });
+            } else {
+                vm.loader = false;
             }
 
         }
 
         function handleLocationError(){
-
+            console.log('broken1123');
             vm.resetMarkers({markers: []});
             vm.updatePosition({});
             vm.updateLocation('');
