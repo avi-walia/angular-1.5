@@ -20,6 +20,7 @@
         var navbarHeight = document.getElementById('header');//$('header').outerHeight();
         var lastSt = 0;
         var scrollDebounce = 250;//250ms
+        var headerClasses = "";
         window.onscroll = function() {
             if (hideShowHeaderTimeout !== null) {
                 $timeout.cancel(hideShowHeaderTimeout);
@@ -28,6 +29,9 @@
         };
 
         function hasScrolled() {
+            if (headerClasses === "") {
+                headerClasses = document.getElementById('header').className;
+            }
             //var st = window.scrollTop();
             var st = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
 
@@ -39,12 +43,16 @@
             // This is necessary so you never see what is "behind" the navbar.
             if (st > lastScrollTop && st > navbarHeight){
                 // Scroll Down
-                document.getElementById('header').className = "header nav-up";
+                document.getElementById('header').className = headerClasses.replace("nav-down", "nav-up");
+                console.log('header', document.getElementById('header').className);
+                console.log('headerClasses', headerClasses);
             } else {
                 // Scroll Up
                 if((st - lastScrollTop) < delta) {
                     //document.getElementById('header').removeClass('nav-up').addClass('nav-down');
-                    document.getElementById('header').className = "header nav-down";
+                    document.getElementById('header').className = headerClasses.replace("nav-up", "nav-down");
+                    console.log('header', document.getElementById('header').className);
+                    console.log('headerClasses', headerClasses);
                 }
             }
 
