@@ -19,10 +19,11 @@
         'pageStateResolver',
         'version',
         'envConfigService',
-        'detectMobile'
+        'detectMobile',
+        '$timeout'
     ];
     /* @ngInject */
-    function headerCtrl($rootScope, $state, $window, pageStateResolver, version, envConfigService, detectMobile
+    function headerCtrl($rootScope, $state, $window, pageStateResolver, version, envConfigService, detectMobile, $timeout
     ) {
         var vm = this;
         vm.clearSearch = function() {
@@ -46,6 +47,7 @@
         vm.searchTerm = '';
         vm.goToSearch = goToSearch;
         vm.displaySearchForm = displaySearchForm;
+        vm.click = click;
 
         vm.showInputSearch = false;
         vm.returnFocus = '';
@@ -68,6 +70,14 @@
                 vm.returnFocus = 'search';
             }
 
+        }
+        function click() {
+            var x = document.getElementById('login').className;
+            if (x.indexOf('show') >= 0) {
+                document.getElementById('login').className = x.replace("show", "");
+            } else {
+                document.getElementById('login').className = x + " show";
+            }
         }
 
     }
