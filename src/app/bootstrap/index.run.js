@@ -18,15 +18,18 @@
         var lastScrollTop = 0;
         var delta = 5;
         var navbarHeight = document.getElementById('header');//$('header').outerHeight();
+        var lastSt = 0;
+        var scrollDebounce = 250;//250ms
         window.onscroll = function() {
-            if (hideShowHeaderTimeout) {
-                hideShowHeaderTimeout();
+            if (hideShowHeaderTimeout !== null) {
+                $timeout.cancel(hideShowHeaderTimeout);
             }
-            hideShowHeaderTimeout = $timeout(hasScrolled, 250);
+            hideShowHeaderTimeout = $timeout(hasScrolled, scrollDebounce);
         };
 
         function hasScrolled() {
-            var st = window.scrollTop();
+            //var st = window.scrollTop();
+            var st = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
 
             // Make sure they scroll more than delta
             if(Math.abs(lastScrollTop - st) <= delta)
@@ -36,11 +39,12 @@
             // This is necessary so you never see what is "behind" the navbar.
             if (st > lastScrollTop && st > navbarHeight){
                 // Scroll Down
-                document.getElementById('header').removeClass('nav-down').addClass('nav-up');
+                document.getElementById('header').className = "header nav-up";
             } else {
                 // Scroll Up
-                if(st + $(window).height() < $(document).height()) {
+                if((st - lastScrollTop) < delta) {
                     //document.getElementById('header').removeClass('nav-up').addClass('nav-down');
+                    document.getElementById('header').className = "header nav-down";
                 }
             }
 
