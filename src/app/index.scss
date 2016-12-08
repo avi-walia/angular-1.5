@@ -76,7 +76,8 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
       li { color:#fff; display:inline-block; font:700 0.88em/35px 'Montserrat',sans-serif; line-height:35px; list-style:none; text-transform:uppercase;
         // &::before { color:#fff; font:20px/35px 'Material Icons'; font-feature-settings:'liga'; margin-right:2px; vertical-align:bottom; }
         &#login { /*float:left;*/ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z'/%3E%3C/svg%3E") 0 7px no-repeat; background-size:20px; padding-left:23px;
-          &:hover, &.show { color:$orange; cursor:default;
+          &:hover, &.show { background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23cd5806' d='M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z'/%3E%3C/svg%3E") 0 7px no-repeat; background-size:20px; color:$orange; cursor:default; }
+          &.show {
             >ul.menu { display:block; }
           }
           // &::before { content:'lock'; text-transform:none; }
