@@ -73,10 +73,14 @@
         }
         function click() {
             var x = document.getElementById('login').className;
+            console.log('x: ', x);
+            console.log('indexOf: ', x.indexOf('show'));
             if (x.indexOf('show') >= 0) {
                 document.getElementById('login').className = x.replace("show", "");
+                console.log('x2: ', document.getElementById('login').className);
             } else {
                 document.getElementById('login').className = x + " show";
+                console.log('x3: ', document.getElementById('login').className);
             }
         }
 
