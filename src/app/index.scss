@@ -872,6 +872,16 @@ footer { background:$bg_dark; color:$bg; font:400 0.9em/1 'Montserrat',sans-seri
   }
 }
 
+// Show/hide the header
+body { padding-top:110px; }
+header.header { position:fixed; top:0; transition:top 0.3s ease-in-out; width:100%; z-index:999;
+  &.nav-up { top:-105px; }
+}
+@media (min-width:420px) {
+  body { padding-top:120px; }
+  header.header.nav-up { top:-115px; }
+}
+
 //Prevent iOS from zooming on input focus
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   select, textarea, input, input:focus, input:hover { font-size:16px !important; }
