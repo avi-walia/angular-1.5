@@ -434,7 +434,9 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
   #filters { background:#fff; font-size:0.9em; padding:$zen-gutters; width:100%;
     #input { display:inline-block; position:relative;
       &::before { color:$orange; content:'search'; font:24px/35px 'Material Icons'; font-feature-settings:'liga'; left:8px; position:absolute; z-index:1; }
-      input { background:darken($bg,4%); border:0; border-radius:3px; height:2.5em; padding:0 8px 0 40px; position:relative; }
+      input { background:darken($bg,4%); border:0; border-radius:3px; height:33.75px; padding:0 8px 0 40px; position:relative;
+        @media (min-width:768px) { height:36px; }
+      }
     }
   }
 }
@@ -448,7 +450,9 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
       select::-ms-expand { display:none; }
       button { background:$orange; border:0; border-radius:3px; color:#fff; float:right; font-family:'Montserrat',sans-serif; height:2.5em; line-height:2.6em; padding:0 2.5%; text-transform:uppercase; vertical-align:top; width:20%; }
       .fr & {
-        select { font-size:0.9em; height:33.75px; line-height:33.75px; }
+        select { font-size:0.9em; height:33.75px; line-height:33.75px;
+          @media (min-width:768px) { height:36px; line-height:36px; }
+        }
         button { font-size:0.8em; height:33.75px; letter-spacing:-1px; line-height:35px;  }
       }
     }
@@ -459,7 +463,7 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
     @media (min-width:420px) {
       #options {
         .fr & {
-          select { font-size:1em; height:2.5em; line-height:2.5em; }
+          select { font-size:1em; }
           button { font-size:1em; height:2.5em; line-height:2.6em; }
         }
       }
@@ -568,7 +572,9 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
     #input { display:block; overflow:hidden;
       &::before { content:'location_on'; }
       #search-input { overflow:hidden;
-        input { height:2.5em; width:100%; }
+        input { height:33.75px; width:100%;
+          @media (min-width:768px) { height:36px; }
+        }
       }
       #search-buttons { float:right; margin-left:5px;
         // button { background:darken($bg,4%); border:0; border-radius:3px; color:#888; display:inline-block; font-family:'Montserrat',sans-serif; height:2.5em; line-height:2.6em; padding:0 8px; text-transform:uppercase; }
