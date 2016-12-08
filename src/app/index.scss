@@ -871,3 +871,8 @@ footer { background:$bg_dark; color:$bg; font:400 0.9em/1 'Montserrat',sans-seri
     }
   }
 }
+
+//Prevent iOS from zooming on input focus
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  select, textarea, input, input:focus, input:hover { font-size:16px !important; }
+}
