@@ -6,15 +6,15 @@
 
     runBlock.$inject = [
         '$rootScope', 'NotificationService',
-        '$translate', 'pageStateResolver', 'tmhDynamicLocale', '$window', 'stateTrackerService', '$state', 'advisorService', 'branchListService', '$timeout'
+        '$translate', 'pageStateResolver', 'tmhDynamicLocale', '$window', 'stateTrackerService', '$state', 'advisorService', 'branchListService', '$interval'
     ];
 
     /* @ngInject */
 
     function runBlock($rootScope, NotificationService,
-                      $translate, pageStateResolver, tmhDynamicLocale, $window, stateTrackerService, $state, advisorService, branchListService, $timeout) {
+                      $translate, pageStateResolver, tmhDynamicLocale, $window, stateTrackerService, $state, advisorService, branchListService, $interval) {
         $rootScope.locale = null;
-        var hideShowHeaderTimeout = null;
+        var didScroll = false;
         var lastScrollTop = 0;
         var delta = 5;
         var navbarHeight = document.getElementById('header');//$('header').outerHeight();
@@ -22,11 +22,14 @@
         var scrollDebounce = 250;//250ms
         var headerClasses = "";
         window.onscroll = function() {
-            if (hideShowHeaderTimeout !== null) {
-                $timeout.cancel(hideShowHeaderTimeout);
-            }
-            hideShowHeaderTimeout = $timeout(hasScrolled, scrollDebounce);
+
+            didScroll = true;
         };
+        $interval(function() {
+            if (didScroll) {
+                hasScrolled();
+            }
+        }, scrollDebounce);
 
         function hasScrolled() {
             if (headerClasses === "") {
@@ -53,6 +56,7 @@
             }
 
             lastScrollTop = st;
+            didScroll = false;
         }
         $rootScope.$on('clearSearch', function() {
             advisorService.filteredSearchResults = [];
