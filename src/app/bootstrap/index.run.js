@@ -44,22 +44,16 @@
             if (st > lastScrollTop && st > navbarHeight){
                 // Scroll Down
                 document.getElementById('header').className = headerClasses.replace("nav-down", "nav-up");
-                console.log('header', document.getElementById('header').className);
-                console.log('headerClasses', headerClasses);
             } else {
                 // Scroll Up
-                if((st - lastScrollTop) < delta) {
+                //if((st - lastScrollTop) < delta) {
                     //document.getElementById('header').removeClass('nav-up').addClass('nav-down');
                     document.getElementById('header').className = headerClasses.replace("nav-up", "nav-down");
-                    console.log('header', document.getElementById('header').className);
-                    console.log('headerClasses', headerClasses);
-                }
+                //}
             }
 
             lastScrollTop = st;
         }
-
-        console.log('the demo deployment was a success!');
         $rootScope.$on('clearSearch', function() {
             advisorService.filteredSearchResults = [];
             advisorService.searchResults = [];
