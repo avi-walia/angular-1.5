@@ -27,11 +27,12 @@
         '$http',
         '$q',
         '$scope',
-        '$timeout'
+        '$timeout',
+        'branchListService'
 
     ];
     /* @ngInject */
-    function autocompleteCtrl( $rootScope, pageStateResolver, detectMobile, $http, $q, $scope, $timeout
+    function autocompleteCtrl( $rootScope, pageStateResolver, detectMobile, $http, $q, $scope, $timeout, branchListService
     ) {
         var vm = this;
         var updateWhenReady = false;
@@ -164,6 +165,7 @@
         }
 
         function updatePlace(){
+            branchListService.locateMePosition = {};
             updateWhenReady = true;
             var autocompleteEl = document.getElementById('place');
             if(vm.location===''){
@@ -184,6 +186,7 @@
         function clearPlace(){
             vm.location = '';
             vm.setMessage({message: {}});
+            branchListService.locateMePosition = {};
             handleLocationError();
         }
 

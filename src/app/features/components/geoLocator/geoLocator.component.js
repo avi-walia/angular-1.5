@@ -22,12 +22,13 @@
 
         'pageStateResolver',
         'detectMobile',
-        '$q'
+        '$q',
+        'branchListService'
 
 
     ];
     /* @ngInject */
-    function geoLocatorCtrl( pageStateResolver, detectMobile, $q
+    function geoLocatorCtrl( pageStateResolver, detectMobile, $q, branchListService
     ) {
         var vm = this;
         vm.pageStateResolver = pageStateResolver;
@@ -42,7 +43,7 @@
         vm.updateLocation = updateLocation;
         vm.loader = false;
 
-        var currentPosition = {};
+        //var currentPosition = {};
 
         function updatePosition(pos){
             vm.setPosition({position: pos});
@@ -97,21 +98,27 @@
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
+            console.log('currentPosition: ', branchListService.locateMePosition);
+            console.log('newCurrentPosition: ', newCurrentPosition);
 
-            if (!angular.equals(currentPosition, newCurrentPosition)) {
+            if (!angular.equals(branchListService.locateMePosition, newCurrentPosition)) {
 
-                currentPosition = {
+                branchListService.locateMePosition = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };
 
 
                 console.log('Accuracy ', position.coords.accuracy);
-                geoCoderCall(currentPosition).then(function (result) {
+                geoCoderCall(branchListService.locateMePosition).then(function (result) {
                     if (result) {
                         vm.setMessage({message: {}});
                         vm.updatePosition(result.geometry);
                         vm.updateLocation(result.formatted_address);
+                        branchListService.locateMePosition = {
+                            lat: newCurrentPosition.lat,
+                            lng: newCurrentPosition.lng
+                        };
                         vm.loader = false;
                     }
                     else {
@@ -126,6 +133,8 @@
                     handleLocationError();
                     vm.loader = false;
                 });
+            } else {
+                vm.loader = false;
             }
 
         }
