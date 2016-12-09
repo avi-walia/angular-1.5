@@ -195,6 +195,9 @@
             vm.map.addListener('dragend', function(){
                 vm.dragEndEvent = true;
             });
+            vm.map.addListener('dragstart', function(){
+                branchListService.locateMePosition = {};
+            });
             vm.map.addListener('zoom_changed', vm.onUserEvent);
             //vm.map.addListener('idle', vm.onUserEvent);
 
@@ -487,7 +490,6 @@
 
         function onDragEvent(){
             if(vm.dragEndEvent){
-                branchListService.locateMePosition = {};
                 vm.dragEndEvent = false;
                 onUserEvent();
             }
