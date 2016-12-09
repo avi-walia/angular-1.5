@@ -20,10 +20,11 @@
         'version',
         'envConfigService',
         'detectMobile',
-        '$timeout'
+        '$timeout',
+        '$translate'
     ];
     /* @ngInject */
-    function headerCtrl($rootScope, $state, $window, pageStateResolver, version, envConfigService, detectMobile, $timeout
+    function headerCtrl($rootScope, $state, $window, pageStateResolver, version, envConfigService, detectMobile, $timeout, $translate
     ) {
         var vm = this;
         vm.clearSearch = function() {
@@ -53,7 +54,9 @@
         vm.returnFocus = '';
 
         function goToSearch(){
-            var drupalSearchLink = envConfigService.ASSANTE_URL + '/search/node/';
+            var lang = $translate.use() === 'fr' ? "/fr" : "";
+
+            var drupalSearchLink = envConfigService.ASSANTE_URL + lang + '/search/node/';
             if(vm.searchTerm !== '') {
                 drupalSearchLink += $window.encodeURIComponent(vm.searchTerm);
                 $window.location = drupalSearchLink;
