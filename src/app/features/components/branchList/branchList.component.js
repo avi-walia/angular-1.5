@@ -45,6 +45,7 @@
         vm.setLocation = setLocation;
         vm.setMessage = setMessage;
         vm.setMarkers = setMarkers;
+        vm.locateMePosition = {};
 
 
 

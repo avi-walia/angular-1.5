@@ -9,8 +9,7 @@
                 setPosition: '&',
                 setLocation: '&',
                 setMessage: '&',
-                resetMarkers: '&',
-                currentPosition: '='
+                resetMarkers: '&'
             },
             controller: geoLocatorCtrl,
             templateUrl:'app/features/components/geoLocator/geoLocator.tpl.html'
@@ -23,12 +22,13 @@
 
         'pageStateResolver',
         'detectMobile',
-        '$q'
+        '$q',
+        'branchListService'
 
 
     ];
     /* @ngInject */
-    function geoLocatorCtrl( pageStateResolver, detectMobile, $q
+    function geoLocatorCtrl( pageStateResolver, detectMobile, $q, branchListService
     ) {
         var vm = this;
         vm.pageStateResolver = pageStateResolver;
@@ -42,6 +42,9 @@
         vm.updatePosition = updatePosition;
         vm.updateLocation = updateLocation;
         vm.loader = false;
+
+        //var currentPosition = {};
+
         function updatePosition(pos){
             vm.setPosition({position: pos});
         }
@@ -59,6 +62,7 @@
                 timeout: 10000,
                 maximumAge: 60000
             };
+
             if(navigator.geolocation){
 
                 navigator.geolocation.getCurrentPosition(getGeo, handleGeoHighAccuracyError, options);
@@ -90,33 +94,23 @@
 
         function getGeo(position){
             vm.loader = true;
-            var currentPosition = {
-                lat: null,
-                lng: null
-            }
-            if (vm.currentPosition.hasOwnProperty('location')) {
-                currentPosition.lat = vm.currentPosition.location.lat();
-                currentPosition.lng = vm.currentPosition.location.lng();
-            }
             var newCurrentPosition = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-            //console.log("oldPos === newPos: ", angular.equals(currentPosition, newCurrentPosition));
-            //if (!angular.equals(currentPosition, newCurrentPosition)) {
-            console.log('currentPosition1123: ', currentPosition.lat);
-            console.log('currentPosition1123: ', newCurrentPosition.lat);
-            console.log('currentPosition1123: ', currentPosition.lat !== newCurrentPosition.lat);
-            if(currentPosition.lat !== newCurrentPosition.lat || currentPosition.lng !== newCurrentPosition.lng){
-                console.log('testin1123');
-                currentPosition = {
+            console.log('currentPosition: ', branchListService.locateMePosition);
+            console.log('newCurrentPosition: ', newCurrentPosition);
+
+            if (!angular.equals(branchListService.locateMePosition, newCurrentPosition)) {
+
+                branchListService.locateMePosition = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };
 
 
                 console.log('Accuracy ', position.coords.accuracy);
-                geoCoderCall(currentPosition).then(function (result) {
+                geoCoderCall(branchListService.locateMePosition).then(function (result) {
                     if (result) {
                         vm.setMessage({message: {}});
                         vm.updatePosition(result.geometry);
@@ -142,7 +136,7 @@
         }
 
         function handleLocationError(){
-            console.log('broken1123');
+
             vm.resetMarkers({markers: []});
             vm.updatePosition({});
             vm.updateLocation('');

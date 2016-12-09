@@ -67,6 +67,7 @@
             branchListService.location = '';
             branchListService.message = {};
             branchListService.markers = [];
+            branchListService.locateMePosition = {};
         });
 
         // ionic stuff
