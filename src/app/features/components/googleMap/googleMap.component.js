@@ -30,10 +30,11 @@
         '$timeout',
         '$window',
         '$translate',
-        '$compile'
+        '$compile',
+        'branchListService'
     ];
     /* @ngInject */
-    function googleMapCtrl( $rootScope, $scope, pageStateResolver, detectMobile, $q, $timeout, $window, $translate, $compile
+    function googleMapCtrl( $rootScope, $scope, pageStateResolver, detectMobile, $q, $timeout, $window, $translate, $compile, branchListService
     ) {
         var vm = this;
         vm.mapRendered = false;
@@ -193,6 +194,9 @@
             vm.map.addListener('idle', vm.onDragEvent);
             vm.map.addListener('dragend', function(){
                 vm.dragEndEvent = true;
+            });
+            vm.map.addListener('dragstart', function(){
+                branchListService.locateMePosition = {};
             });
             vm.map.addListener('zoom_changed', vm.onUserEvent);
             //vm.map.addListener('idle', vm.onUserEvent);

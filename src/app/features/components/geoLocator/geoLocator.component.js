@@ -115,6 +115,10 @@
                         vm.setMessage({message: {}});
                         vm.updatePosition(result.geometry);
                         vm.updateLocation(result.formatted_address);
+                        branchListService.locateMePosition = {
+                            lat: newCurrentPosition.lat,
+                            lng: newCurrentPosition.lng
+                        };
                         vm.loader = false;
                     }
                     else {
