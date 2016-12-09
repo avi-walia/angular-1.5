@@ -30,10 +30,11 @@
         '$timeout',
         '$window',
         '$translate',
-        '$compile'
+        '$compile',
+        'branchListService'
     ];
     /* @ngInject */
-    function googleMapCtrl( $rootScope, $scope, pageStateResolver, detectMobile, $q, $timeout, $window, $translate, $compile
+    function googleMapCtrl( $rootScope, $scope, pageStateResolver, detectMobile, $q, $timeout, $window, $translate, $compile, branchListService
     ) {
         var vm = this;
         vm.mapRendered = false;
@@ -486,6 +487,7 @@
 
         function onDragEvent(){
             if(vm.dragEndEvent){
+                branchListService.locateMePosition = {};
                 vm.dragEndEvent = false;
                 onUserEvent();
             }
