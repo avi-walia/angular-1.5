@@ -26,10 +26,17 @@
         vm.detectMobile = detectMobile;
         vm.ASSANTE_URL = envConfigService.ASSANTE_URL;
         vm.currentLanguage = $rootScope.documentLanguage;
+        vm.scrollTop = scrollTop;
 
-        vm.clearSearch = function() {
+        vm.clearSearch = clearSearch;
+
+        function clearSearch() {
             $rootScope.$emit('clearSearch');
         };
+
+        function scrollTop() {
+            window.scrollTo(0,0);
+        }
     }
 
 })();
