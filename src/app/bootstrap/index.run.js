@@ -16,7 +16,7 @@
         $rootScope.locale = null;
         var didScroll = false;
         var lastScrollTop = 0;
-        var delta = 5;
+        var delta = 10;
         var navbarHeight = document.getElementById('header');//$('header').outerHeight();
         var lastSt = 0;
         var scrollDebounce = 250;//250ms
@@ -112,7 +112,7 @@
             // trigger localization of third-party libraries.
             // E.g.,
             //moment.locale(locale.language);
-            
+
         });
         $rootScope.$on('$translateChangeSuccess', function (event, locale) {
             $rootScope.isEnglish = locale.language === 'en';
