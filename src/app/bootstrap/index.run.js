@@ -6,13 +6,13 @@
 
     runBlock.$inject = [
         '$rootScope', 'NotificationService',
-        '$translate', 'pageStateResolver', 'tmhDynamicLocale', '$window', 'stateTrackerService', '$state', 'advisorService', 'branchListService', '$interval'
+        '$translate', 'pageStateResolver', 'tmhDynamicLocale', '$window', 'stateTrackerService', '$state', 'advisorService', 'branchListService', '$interval', 'langFilterService', 'provinceFilterService'
     ];
 
     /* @ngInject */
 
     function runBlock($rootScope, NotificationService,
-                      $translate, pageStateResolver, tmhDynamicLocale, $window, stateTrackerService, $state, advisorService, branchListService, $interval) {
+                      $translate, pageStateResolver, tmhDynamicLocale, $window, stateTrackerService, $state, advisorService, branchListService, $interval, langFilterService, provinceFilterService) {
         $rootScope.locale = null;
         var didScroll = false;
         var lastScrollTop = 0;
@@ -68,6 +68,9 @@
             branchListService.message = {};
             branchListService.markers = [];
             branchListService.locateMePosition = {};
+            langFilterService.value = "Language";
+            provinceFilterService.value = "Province";
+            window.scrollTo(0,0);
         });
 
         // ionic stuff
