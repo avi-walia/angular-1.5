@@ -306,6 +306,7 @@ header { background:#fff; box-shadow:inset 0 35px 0 $bg_dark; padding-top:35px;
   @media (min-width:1152px) { background-position:center -250px; }
   @media (min-width:1280px) { background-position:center -280px; }
   @media (min-width:1440px) { background-position:center -310px; }
+  @media (min-width:1650px) { background-position:center -360px; }
 }
 
 #errorMsgs { @include zen-grid-container(); background:#a00; border-radius:3px; color:#fff; margin:2em auto 0; padding:0 2*$zen-gutters; position:relative; width:94%;
